@@ -67,17 +67,17 @@
     "com.amazonaws.cloudhsm#AddTagsToResourceRequest": {
       "type": "structure",
       "members": {
-        "TagList": {
-          "target": "com.amazonaws.cloudhsm#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more tags.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.cloudhsm#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagList": {
+          "target": "com.amazonaws.cloudhsm#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more tags.</p>",
             "smithy.api#required": {}
           }
         }
@@ -276,16 +276,16 @@
     "com.amazonaws.cloudhsm#CloudHsmServiceException": {
       "type": "structure",
       "members": {
-        "retryable": {
-          "target": "com.amazonaws.cloudhsm#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates if the action can be retried.</p>"
-          }
-        },
         "message": {
           "target": "com.amazonaws.cloudhsm#String",
           "traits": {
             "smithy.api#documentation": "<p>Additional information about the error.</p>"
+          }
+        },
+        "retryable": {
+          "target": "com.amazonaws.cloudhsm#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if the action can be retried.</p>"
           }
         }
       },
@@ -372,26 +372,12 @@
     "com.amazonaws.cloudhsm#CreateHsmRequest": {
       "type": "structure",
       "members": {
-        "ExternalId": {
-          "target": "com.amazonaws.cloudhsm#ExternalId",
-          "traits": {
-            "smithy.api#documentation": "<p>The external ID from <code>IamRoleArn</code>, if present.</p>",
-            "smithy.api#xmlName": "ExternalId"
-          }
-        },
         "SubnetId": {
           "target": "com.amazonaws.cloudhsm#SubnetId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the subnet in your VPC in which to place the HSM.</p>",
             "smithy.api#required": {},
             "smithy.api#xmlName": "SubnetId"
-          }
-        },
-        "EniIp": {
-          "target": "com.amazonaws.cloudhsm#IpAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address to assign to the HSM's ENI.</p>\n         <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR\n      range of the subnet.</p>",
-            "smithy.api#xmlName": "EniIp"
           }
         },
         "SyslogIp": {
@@ -401,18 +387,26 @@
             "smithy.api#xmlName": "SyslogIp"
           }
         },
-        "ClientToken": {
-          "target": "com.amazonaws.cloudhsm#ClientToken",
+        "IamRoleArn": {
+          "target": "com.amazonaws.cloudhsm#IamRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the\n      same token will be ignored.</p>",
-            "smithy.api#xmlName": "ClientToken"
+            "smithy.api#documentation": "<p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your\n      behalf.</p>",
+            "smithy.api#required": {},
+            "smithy.api#xmlName": "IamRoleArn"
           }
         },
-        "SubscriptionType": {
-          "target": "com.amazonaws.cloudhsm#SubscriptionType",
+        "EniIp": {
+          "target": "com.amazonaws.cloudhsm#IpAddress",
           "traits": {
-            "smithy.api#required": {},
-            "smithy.api#xmlName": "SubscriptionType"
+            "smithy.api#documentation": "<p>The IP address to assign to the HSM's ENI.</p>\n         <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR\n      range of the subnet.</p>",
+            "smithy.api#xmlName": "EniIp"
+          }
+        },
+        "ExternalId": {
+          "target": "com.amazonaws.cloudhsm#ExternalId",
+          "traits": {
+            "smithy.api#documentation": "<p>The external ID from <code>IamRoleArn</code>, if present.</p>",
+            "smithy.api#xmlName": "ExternalId"
           }
         },
         "SshKey": {
@@ -423,12 +417,18 @@
             "smithy.api#xmlName": "SshKey"
           }
         },
-        "IamRoleArn": {
-          "target": "com.amazonaws.cloudhsm#IamRoleArn",
+        "SubscriptionType": {
+          "target": "com.amazonaws.cloudhsm#SubscriptionType",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your\n      behalf.</p>",
             "smithy.api#required": {},
-            "smithy.api#xmlName": "IamRoleArn"
+            "smithy.api#xmlName": "SubscriptionType"
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.cloudhsm#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the\n      same token will be ignored.</p>",
+            "smithy.api#xmlName": "ClientToken"
           }
         }
       },
@@ -705,13 +705,43 @@
     "com.amazonaws.cloudhsm#DescribeHapgResponse": {
       "type": "structure",
       "members": {
+        "PartitionSerialList": {
+          "target": "com.amazonaws.cloudhsm#PartitionSerialList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of partition serial numbers that belong to the high-availability partition\n      group.</p>"
+          }
+        },
+        "HapgSerial": {
+          "target": "com.amazonaws.cloudhsm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The serial number of the high-availability partition group.</p>"
+          }
+        },
+        "HsmsPendingDeletion": {
+          "target": "com.amazonaws.cloudhsm#HsmList",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
         "Label": {
           "target": "com.amazonaws.cloudhsm#Label",
           "traits": {
             "smithy.api#documentation": "<p>The label for the high-availability partition group.</p>"
           }
         },
-        "HsmsPendingDeletion": {
+        "LastModifiedTimestamp": {
+          "target": "com.amazonaws.cloudhsm#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time the high-availability partition group was last modified.</p>"
+          }
+        },
+        "HapgArn": {
+          "target": "com.amazonaws.cloudhsm#HapgArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the high-availability partition group.</p>"
+          }
+        },
+        "HsmsLastActionFailed": {
           "target": "com.amazonaws.cloudhsm#HsmList",
           "traits": {
             "smithy.api#documentation": "<p></p>"
@@ -723,40 +753,10 @@
             "smithy.api#documentation": "<p></p>"
           }
         },
-        "HapgArn": {
-          "target": "com.amazonaws.cloudhsm#HapgArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the high-availability partition group.</p>"
-          }
-        },
-        "LastModifiedTimestamp": {
-          "target": "com.amazonaws.cloudhsm#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time the high-availability partition group was last modified.</p>"
-          }
-        },
         "State": {
           "target": "com.amazonaws.cloudhsm#CloudHsmObjectState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the high-availability partition group.</p>"
-          }
-        },
-        "HapgSerial": {
-          "target": "com.amazonaws.cloudhsm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The serial number of the high-availability partition group.</p>"
-          }
-        },
-        "HsmsLastActionFailed": {
-          "target": "com.amazonaws.cloudhsm#HsmList",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "PartitionSerialList": {
-          "target": "com.amazonaws.cloudhsm#PartitionSerialList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of partition serial numbers that belong to the high-availability partition\n      group.</p>"
           }
         }
       },
@@ -810,22 +810,16 @@
     "com.amazonaws.cloudhsm#DescribeHsmResponse": {
       "type": "structure",
       "members": {
-        "VendorName": {
-          "target": "com.amazonaws.cloudhsm#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the HSM vendor.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.cloudhsm#HsmStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the HSM.</p>"
-          }
-        },
         "SubscriptionStartDate": {
           "target": "com.amazonaws.cloudhsm#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The subscription start date.</p>"
+          }
+        },
+        "VendorName": {
+          "target": "com.amazonaws.cloudhsm#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the HSM vendor.</p>"
           }
         },
         "SubnetId": {
@@ -834,16 +828,10 @@
             "smithy.api#documentation": "<p>The identifier of the subnet that the HSM is in.</p>"
           }
         },
-        "ServerCertUri": {
-          "target": "com.amazonaws.cloudhsm#String",
+        "IamRoleArn": {
+          "target": "com.amazonaws.cloudhsm#IamRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The URI of the certificate server.</p>"
-          }
-        },
-        "EniIp": {
-          "target": "com.amazonaws.cloudhsm#IpAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the HSM's ENI.</p>"
+            "smithy.api#documentation": "<p>The ARN of the IAM role assigned to the HSM.</p>"
           }
         },
         "StatusDetails": {
@@ -852,22 +840,52 @@
             "smithy.api#documentation": "<p>Contains additional information about the status of the HSM.</p>"
           }
         },
-        "IamRoleArn": {
-          "target": "com.amazonaws.cloudhsm#IamRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the IAM role assigned to the HSM.</p>"
-          }
-        },
         "EniId": {
           "target": "com.amazonaws.cloudhsm#EniId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the elastic network interface (ENI) attached to the HSM.</p>"
           }
         },
-        "HsmType": {
+        "VpcId": {
+          "target": "com.amazonaws.cloudhsm#VpcId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the VPC that the HSM is in.</p>"
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.cloudhsm#AZ",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone that the HSM is in.</p>"
+          }
+        },
+        "SshKeyLastUpdated": {
+          "target": "com.amazonaws.cloudhsm#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the SSH key was last updated.</p>"
+          }
+        },
+        "SshPublicKey": {
+          "target": "com.amazonaws.cloudhsm#SshKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The public SSH key.</p>"
+          }
+        },
+        "SoftwareVersion": {
           "target": "com.amazonaws.cloudhsm#String",
           "traits": {
-            "smithy.api#documentation": "<p>The HSM model type.</p>"
+            "smithy.api#documentation": "<p>The HSM software version.</p>"
+          }
+        },
+        "ServerCertLastUpdated": {
+          "target": "com.amazonaws.cloudhsm#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the server certificate was last updated.</p>"
+          }
+        },
+        "SubscriptionEndDate": {
+          "target": "com.amazonaws.cloudhsm#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The subscription end date.</p>"
           }
         },
         "HsmArn": {
@@ -879,22 +897,16 @@
         "SubscriptionType": {
           "target": "com.amazonaws.cloudhsm#SubscriptionType"
         },
-        "ServerCertLastUpdated": {
-          "target": "com.amazonaws.cloudhsm#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the server certificate was last updated.</p>"
-          }
-        },
-        "SoftwareVersion": {
+        "HsmType": {
           "target": "com.amazonaws.cloudhsm#String",
           "traits": {
-            "smithy.api#documentation": "<p>The HSM software version.</p>"
+            "smithy.api#documentation": "<p>The HSM model type.</p>"
           }
         },
-        "VpcId": {
-          "target": "com.amazonaws.cloudhsm#VpcId",
+        "ServerCertUri": {
+          "target": "com.amazonaws.cloudhsm#String",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the VPC that the HSM is in.</p>"
+            "smithy.api#documentation": "<p>The URI of the certificate server.</p>"
           }
         },
         "Partitions": {
@@ -903,34 +915,22 @@
             "smithy.api#documentation": "<p>The list of partitions on the HSM.</p>"
           }
         },
-        "SshKeyLastUpdated": {
-          "target": "com.amazonaws.cloudhsm#Timestamp",
+        "Status": {
+          "target": "com.amazonaws.cloudhsm#HsmStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the SSH key was last updated.</p>"
+            "smithy.api#documentation": "<p>The status of the HSM.</p>"
           }
         },
-        "SubscriptionEndDate": {
-          "target": "com.amazonaws.cloudhsm#Timestamp",
+        "EniIp": {
+          "target": "com.amazonaws.cloudhsm#IpAddress",
           "traits": {
-            "smithy.api#documentation": "<p>The subscription end date.</p>"
+            "smithy.api#documentation": "<p>The IP address assigned to the HSM's ENI.</p>"
           }
         },
         "SerialNumber": {
           "target": "com.amazonaws.cloudhsm#HsmSerialNumber",
           "traits": {
             "smithy.api#documentation": "<p>The serial number of the HSM.</p>"
-          }
-        },
-        "SshPublicKey": {
-          "target": "com.amazonaws.cloudhsm#SshKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The public SSH key.</p>"
-          }
-        },
-        "AvailabilityZone": {
-          "target": "com.amazonaws.cloudhsm#AZ",
-          "traits": {
-            "smithy.api#documentation": "<p>The Availability Zone that the HSM is in.</p>"
           }
         }
       },
@@ -964,6 +964,29 @@
     "com.amazonaws.cloudhsm#DescribeLunaClientRequest": {
       "type": "structure",
       "members": {
+        "ClientArn": {
+          "target": "com.amazonaws.cloudhsm#ClientArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the client.</p>"
+          }
+        },
+        "CertificateFingerprint": {
+          "target": "com.amazonaws.cloudhsm#CertificateFingerprint",
+          "traits": {
+            "smithy.api#documentation": "<p>The certificate fingerprint.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloudhsm#DescribeLunaClientResponse": {
+      "type": "structure",
+      "members": {
+        "Label": {
+          "target": "com.amazonaws.cloudhsm#Label",
+          "traits": {
+            "smithy.api#documentation": "<p>The label of the client.</p>"
+          }
+        },
         "CertificateFingerprint": {
           "target": "com.amazonaws.cloudhsm#CertificateFingerprint",
           "traits": {
@@ -974,29 +997,6 @@
           "target": "com.amazonaws.cloudhsm#ClientArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the client.</p>"
-          }
-        }
-      }
-    },
-    "com.amazonaws.cloudhsm#DescribeLunaClientResponse": {
-      "type": "structure",
-      "members": {
-        "CertificateFingerprint": {
-          "target": "com.amazonaws.cloudhsm#CertificateFingerprint",
-          "traits": {
-            "smithy.api#documentation": "<p>The certificate fingerprint.</p>"
-          }
-        },
-        "Label": {
-          "target": "com.amazonaws.cloudhsm#Label",
-          "traits": {
-            "smithy.api#documentation": "<p>The label of the client.</p>"
-          }
-        },
-        "Certificate": {
-          "target": "com.amazonaws.cloudhsm#Certificate",
-          "traits": {
-            "smithy.api#documentation": "<p>The certificate installed on the HSMs used by this client.</p>"
           }
         },
         "LastModifiedTimestamp": {
@@ -1005,10 +1005,10 @@
             "smithy.api#documentation": "<p>The date and time the client was last modified.</p>"
           }
         },
-        "ClientArn": {
-          "target": "com.amazonaws.cloudhsm#ClientArn",
+        "Certificate": {
+          "target": "com.amazonaws.cloudhsm#Certificate",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the client.</p>"
+            "smithy.api#documentation": "<p>The certificate installed on the HSMs used by this client.</p>"
           }
         }
       }
@@ -1051,13 +1051,6 @@
     "com.amazonaws.cloudhsm#GetConfigRequest": {
       "type": "structure",
       "members": {
-        "ClientVersion": {
-          "target": "com.amazonaws.cloudhsm#ClientVersion",
-          "traits": {
-            "smithy.api#documentation": "<p>The client version.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ClientArn": {
           "target": "com.amazonaws.cloudhsm#ClientArn",
           "traits": {
@@ -1069,6 +1062,13 @@
           "target": "com.amazonaws.cloudhsm#HapgList",
           "traits": {
             "smithy.api#documentation": "<p>A list of ARNs that identify the high-availability partition groups that are associated\n      with the client.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientVersion": {
+          "target": "com.amazonaws.cloudhsm#ClientVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The client version.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1477,11 +1477,10 @@
     "com.amazonaws.cloudhsm#ModifyHapgRequest": {
       "type": "structure",
       "members": {
-        "HapgArn": {
-          "target": "com.amazonaws.cloudhsm#HapgArn",
+        "PartitionSerialList": {
+          "target": "com.amazonaws.cloudhsm#PartitionSerialList",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the high-availability partition group to modify.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The list of partition serial numbers to make members of the high-availability partition\n      group.</p>"
           }
         },
         "Label": {
@@ -1490,10 +1489,11 @@
             "smithy.api#documentation": "<p>The new label for the high-availability partition group.</p>"
           }
         },
-        "PartitionSerialList": {
-          "target": "com.amazonaws.cloudhsm#PartitionSerialList",
+        "HapgArn": {
+          "target": "com.amazonaws.cloudhsm#HapgArn",
           "traits": {
-            "smithy.api#documentation": "<p>The list of partition serial numbers to make members of the high-availability partition\n      group.</p>"
+            "smithy.api#documentation": "<p>The ARN of the high-availability partition group to modify.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1535,13 +1535,6 @@
     "com.amazonaws.cloudhsm#ModifyHsmRequest": {
       "type": "structure",
       "members": {
-        "ExternalId": {
-          "target": "com.amazonaws.cloudhsm#ExternalId",
-          "traits": {
-            "smithy.api#documentation": "<p>The new external ID.</p>",
-            "smithy.api#xmlName": "ExternalId"
-          }
-        },
         "SubnetId": {
           "target": "com.amazonaws.cloudhsm#SubnetId",
           "traits": {
@@ -1549,11 +1542,11 @@
             "smithy.api#xmlName": "SubnetId"
           }
         },
-        "SyslogIp": {
-          "target": "com.amazonaws.cloudhsm#IpAddress",
+        "ExternalId": {
+          "target": "com.amazonaws.cloudhsm#ExternalId",
           "traits": {
-            "smithy.api#documentation": "<p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports\n      one syslog monitoring server.</p>",
-            "smithy.api#xmlName": "SyslogIp"
+            "smithy.api#documentation": "<p>The new external ID.</p>",
+            "smithy.api#xmlName": "ExternalId"
           }
         },
         "EniIp": {
@@ -1563,6 +1556,14 @@
             "smithy.api#xmlName": "EniIp"
           }
         },
+        "HsmArn": {
+          "target": "com.amazonaws.cloudhsm#HsmArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the HSM to modify.</p>",
+            "smithy.api#required": {},
+            "smithy.api#xmlName": "HsmArn"
+          }
+        },
         "IamRoleArn": {
           "target": "com.amazonaws.cloudhsm#IamRoleArn",
           "traits": {
@@ -1570,12 +1571,11 @@
             "smithy.api#xmlName": "IamRoleArn"
           }
         },
-        "HsmArn": {
-          "target": "com.amazonaws.cloudhsm#HsmArn",
+        "SyslogIp": {
+          "target": "com.amazonaws.cloudhsm#IpAddress",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the HSM to modify.</p>",
-            "smithy.api#required": {},
-            "smithy.api#xmlName": "HsmArn"
+            "smithy.api#documentation": "<p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports\n      one syslog monitoring server.</p>",
+            "smithy.api#xmlName": "SyslogIp"
           }
         }
       },
@@ -1618,17 +1618,17 @@
     "com.amazonaws.cloudhsm#ModifyLunaClientRequest": {
       "type": "structure",
       "members": {
-        "Certificate": {
-          "target": "com.amazonaws.cloudhsm#Certificate",
-          "traits": {
-            "smithy.api#documentation": "<p>The new certificate for the client.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ClientArn": {
           "target": "com.amazonaws.cloudhsm#ClientArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the client.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Certificate": {
+          "target": "com.amazonaws.cloudhsm#Certificate",
+          "traits": {
+            "smithy.api#documentation": "<p>The new certificate for the client.</p>",
             "smithy.api#required": {}
           }
         }

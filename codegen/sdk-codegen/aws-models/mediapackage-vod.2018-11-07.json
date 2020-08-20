@@ -51,11 +51,17 @@
     "com.amazonaws.mediapackagevod#AssetShallow": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "CreatedAt": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the Asset.",
-            "smithy.api#jsonName": "arn"
+            "smithy.api#documentation": "The time the Asset was initially submitted for Ingest.",
+            "smithy.api#jsonName": "createdAt"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackagevod#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
           }
         },
         "PackagingGroupId": {
@@ -65,24 +71,11 @@
             "smithy.api#jsonName": "packagingGroupId"
           }
         },
-        "SourceRoleArn": {
+        "SourceArn": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The IAM role ARN used to access the source S3 bucket.",
-            "smithy.api#jsonName": "sourceRoleArn"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackagevod#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The unique identifier for the Asset.",
-            "smithy.api#jsonName": "id"
+            "smithy.api#documentation": "ARN of the source object in S3.",
+            "smithy.api#jsonName": "sourceArn"
           }
         },
         "ResourceId": {
@@ -92,18 +85,25 @@
             "smithy.api#jsonName": "resourceId"
           }
         },
-        "CreatedAt": {
+        "SourceRoleArn": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The time the Asset was initially submitted for Ingest.",
-            "smithy.api#jsonName": "createdAt"
+            "smithy.api#documentation": "The IAM role ARN used to access the source S3 bucket.",
+            "smithy.api#jsonName": "sourceRoleArn"
           }
         },
-        "SourceArn": {
+        "Id": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "ARN of the source object in S3.",
-            "smithy.api#jsonName": "sourceArn"
+            "smithy.api#documentation": "The unique identifier for the Asset.",
+            "smithy.api#jsonName": "id"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the Asset.",
+            "smithy.api#jsonName": "arn"
           }
         }
       },
@@ -153,19 +153,19 @@
     "com.amazonaws.mediapackagevod#CmafPackage": {
       "type": "structure",
       "members": {
-        "SegmentDurationSeconds": {
-          "target": "com.amazonaws.mediapackagevod#__integer",
-          "traits": {
-            "smithy.api#documentation": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.",
-            "smithy.api#jsonName": "segmentDurationSeconds"
-          }
-        },
         "HlsManifests": {
           "target": "com.amazonaws.mediapackagevod#__listOfHlsManifest",
           "traits": {
             "smithy.api#documentation": "A list of HLS manifest configurations.",
             "smithy.api#jsonName": "hlsManifests",
             "smithy.api#required": {}
+          }
+        },
+        "SegmentDurationSeconds": {
+          "target": "com.amazonaws.mediapackagevod#__integer",
+          "traits": {
+            "smithy.api#documentation": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.",
+            "smithy.api#jsonName": "segmentDurationSeconds"
           }
         },
         "Encryption": {
@@ -225,11 +225,18 @@
             "smithy.api#jsonName": "tags"
           }
         },
-        "SourceRoleArn": {
+        "ResourceId": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The IAM role ARN used to access the source S3 bucket.",
-            "smithy.api#jsonName": "sourceRoleArn",
+            "smithy.api#documentation": "The resource ID to include in SPEKE key requests.",
+            "smithy.api#jsonName": "resourceId"
+          }
+        },
+        "SourceArn": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "ARN of the source object in S3.",
+            "smithy.api#jsonName": "sourceArn",
             "smithy.api#required": {}
           }
         },
@@ -241,19 +248,12 @@
             "smithy.api#required": {}
           }
         },
-        "SourceArn": {
+        "SourceRoleArn": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "ARN of the source object in S3.",
-            "smithy.api#jsonName": "sourceArn",
+            "smithy.api#documentation": "The IAM role ARN used to access the source S3 bucket.",
+            "smithy.api#jsonName": "sourceRoleArn",
             "smithy.api#required": {}
-          }
-        },
-        "ResourceId": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The resource ID to include in SPEKE key requests.",
-            "smithy.api#jsonName": "resourceId"
           }
         },
         "Id": {
@@ -272,52 +272,11 @@
     "com.amazonaws.mediapackagevod#CreateAssetResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "CreatedAt": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the Asset.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "ResourceId": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The resource ID to include in SPEKE key requests.",
-            "smithy.api#jsonName": "resourceId"
-          }
-        },
-        "PackagingGroupId": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the PackagingGroup for the Asset.",
-            "smithy.api#jsonName": "packagingGroupId"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The unique identifier for the Asset.",
-            "smithy.api#jsonName": "id"
-          }
-        },
-        "EgressEndpoints": {
-          "target": "com.amazonaws.mediapackagevod#__listOfEgressEndpoint",
-          "traits": {
-            "smithy.api#documentation": "The list of egress endpoints available for the Asset.",
-            "smithy.api#jsonName": "egressEndpoints"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackagevod#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "SourceRoleArn": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The IAM role_arn used to access the source S3 bucket.",
-            "smithy.api#jsonName": "sourceRoleArn"
+            "smithy.api#documentation": "The time the Asset was initially submitted for Ingest.",
+            "smithy.api#jsonName": "createdAt"
           }
         },
         "SourceArn": {
@@ -327,11 +286,52 @@
             "smithy.api#jsonName": "sourceArn"
           }
         },
-        "CreatedAt": {
+        "Id": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The time the Asset was initially submitted for Ingest.",
-            "smithy.api#jsonName": "createdAt"
+            "smithy.api#documentation": "The unique identifier for the Asset.",
+            "smithy.api#jsonName": "id"
+          }
+        },
+        "PackagingGroupId": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the PackagingGroup for the Asset.",
+            "smithy.api#jsonName": "packagingGroupId"
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The resource ID to include in SPEKE key requests.",
+            "smithy.api#jsonName": "resourceId"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackagevod#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "EgressEndpoints": {
+          "target": "com.amazonaws.mediapackagevod#__listOfEgressEndpoint",
+          "traits": {
+            "smithy.api#documentation": "The list of egress endpoints available for the Asset.",
+            "smithy.api#jsonName": "egressEndpoints"
+          }
+        },
+        "SourceRoleArn": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The IAM role_arn used to access the source S3 bucket.",
+            "smithy.api#jsonName": "sourceRoleArn"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the Asset.",
+            "smithy.api#jsonName": "arn"
           }
         }
       }
@@ -388,12 +388,6 @@
             "smithy.api#jsonName": "cmafPackage"
           }
         },
-        "MssPackage": {
-          "target": "com.amazonaws.mediapackagevod#MssPackage",
-          "traits": {
-            "smithy.api#jsonName": "mssPackage"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
@@ -402,10 +396,10 @@
             "smithy.api#required": {}
           }
         },
-        "HlsPackage": {
-          "target": "com.amazonaws.mediapackagevod#HlsPackage",
+        "DashPackage": {
+          "target": "com.amazonaws.mediapackagevod#DashPackage",
           "traits": {
-            "smithy.api#jsonName": "hlsPackage"
+            "smithy.api#jsonName": "dashPackage"
           }
         },
         "PackagingGroupId": {
@@ -416,10 +410,16 @@
             "smithy.api#required": {}
           }
         },
-        "DashPackage": {
-          "target": "com.amazonaws.mediapackagevod#DashPackage",
+        "HlsPackage": {
+          "target": "com.amazonaws.mediapackagevod#HlsPackage",
           "traits": {
-            "smithy.api#jsonName": "dashPackage"
+            "smithy.api#jsonName": "hlsPackage"
+          }
+        },
+        "MssPackage": {
+          "target": "com.amazonaws.mediapackagevod#MssPackage",
+          "traits": {
+            "smithy.api#jsonName": "mssPackage"
           }
         }
       },
@@ -430,10 +430,10 @@
     "com.amazonaws.mediapackagevod#CreatePackagingConfigurationResponse": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.mediapackagevod#Tags",
+        "CmafPackage": {
+          "target": "com.amazonaws.mediapackagevod#CmafPackage",
           "traits": {
-            "smithy.api#jsonName": "tags"
+            "smithy.api#jsonName": "cmafPackage"
           }
         },
         "HlsPackage": {
@@ -455,11 +455,17 @@
             "smithy.api#jsonName": "packagingGroupId"
           }
         },
-        "Arn": {
+        "Id": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the PackagingConfiguration.",
-            "smithy.api#jsonName": "arn"
+            "smithy.api#documentation": "The ID of the PackagingConfiguration.",
+            "smithy.api#jsonName": "id"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackagevod#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
           }
         },
         "DashPackage": {
@@ -468,17 +474,11 @@
             "smithy.api#jsonName": "dashPackage"
           }
         },
-        "CmafPackage": {
-          "target": "com.amazonaws.mediapackagevod#CmafPackage",
-          "traits": {
-            "smithy.api#jsonName": "cmafPackage"
-          }
-        },
-        "Id": {
+        "Arn": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the PackagingConfiguration.",
-            "smithy.api#jsonName": "id"
+            "smithy.api#documentation": "The ARN of the PackagingConfiguration.",
+            "smithy.api#jsonName": "arn"
           }
         }
       }
@@ -523,10 +523,12 @@
     "com.amazonaws.mediapackagevod#CreatePackagingGroupRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.mediapackagevod#Tags",
+        "Id": {
+          "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "The ID of the PackagingGroup.",
+            "smithy.api#jsonName": "id",
+            "smithy.api#required": {}
           }
         },
         "Authorization": {
@@ -535,12 +537,10 @@
             "smithy.api#jsonName": "authorization"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.mediapackagevod#__string",
+        "Tags": {
+          "target": "com.amazonaws.mediapackagevod#Tags",
           "traits": {
-            "smithy.api#documentation": "The ID of the PackagingGroup.",
-            "smithy.api#jsonName": "id",
-            "smithy.api#required": {}
+            "smithy.api#jsonName": "tags"
           }
         }
       },
@@ -551,6 +551,18 @@
     "com.amazonaws.mediapackagevod#CreatePackagingGroupResponse": {
       "type": "structure",
       "members": {
+        "Authorization": {
+          "target": "com.amazonaws.mediapackagevod#Authorization",
+          "traits": {
+            "smithy.api#jsonName": "authorization"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackagevod#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
         "DomainName": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
@@ -570,18 +582,6 @@
           "traits": {
             "smithy.api#documentation": "The ID of the PackagingGroup.",
             "smithy.api#jsonName": "id"
-          }
-        },
-        "Authorization": {
-          "target": "com.amazonaws.mediapackagevod#Authorization",
-          "traits": {
-            "smithy.api#jsonName": "authorization"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackagevod#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
           }
         }
       }
@@ -611,18 +611,10 @@
             "smithy.api#jsonName": "manifestName"
           }
         },
-        "Profile": {
-          "target": "com.amazonaws.mediapackagevod#Profile",
+        "StreamSelection": {
+          "target": "com.amazonaws.mediapackagevod#StreamSelection",
           "traits": {
-            "smithy.api#documentation": "The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.",
-            "smithy.api#jsonName": "profile"
-          }
-        },
-        "ManifestLayout": {
-          "target": "com.amazonaws.mediapackagevod#ManifestLayout",
-          "traits": {
-            "smithy.api#documentation": "Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.",
-            "smithy.api#jsonName": "manifestLayout"
+            "smithy.api#jsonName": "streamSelection"
           }
         },
         "MinBufferTimeSeconds": {
@@ -632,10 +624,18 @@
             "smithy.api#jsonName": "minBufferTimeSeconds"
           }
         },
-        "StreamSelection": {
-          "target": "com.amazonaws.mediapackagevod#StreamSelection",
+        "ManifestLayout": {
+          "target": "com.amazonaws.mediapackagevod#ManifestLayout",
           "traits": {
-            "smithy.api#jsonName": "streamSelection"
+            "smithy.api#documentation": "Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.",
+            "smithy.api#jsonName": "manifestLayout"
+          }
+        },
+        "Profile": {
+          "target": "com.amazonaws.mediapackagevod#Profile",
+          "traits": {
+            "smithy.api#documentation": "The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.",
+            "smithy.api#jsonName": "profile"
           }
         }
       },
@@ -646,18 +646,19 @@
     "com.amazonaws.mediapackagevod#DashPackage": {
       "type": "structure",
       "members": {
-        "SegmentTemplateFormat": {
-          "target": "com.amazonaws.mediapackagevod#SegmentTemplateFormat",
-          "traits": {
-            "smithy.api#documentation": "Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.",
-            "smithy.api#jsonName": "segmentTemplateFormat"
-          }
-        },
         "SegmentDurationSeconds": {
           "target": "com.amazonaws.mediapackagevod#__integer",
           "traits": {
             "smithy.api#documentation": "Duration (in seconds) of each segment. Actual segments will be\nrounded to the nearest multiple of the source segment duration.",
             "smithy.api#jsonName": "segmentDurationSeconds"
+          }
+        },
+        "DashManifests": {
+          "target": "com.amazonaws.mediapackagevod#__listOfDashManifest",
+          "traits": {
+            "smithy.api#documentation": "A list of DASH manifest configurations.",
+            "smithy.api#jsonName": "dashManifests",
+            "smithy.api#required": {}
           }
         },
         "Encryption": {
@@ -673,12 +674,11 @@
             "smithy.api#jsonName": "periodTriggers"
           }
         },
-        "DashManifests": {
-          "target": "com.amazonaws.mediapackagevod#__listOfDashManifest",
+        "SegmentTemplateFormat": {
+          "target": "com.amazonaws.mediapackagevod#SegmentTemplateFormat",
           "traits": {
-            "smithy.api#documentation": "A list of DASH manifest configurations.",
-            "smithy.api#jsonName": "dashManifests",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.",
+            "smithy.api#jsonName": "segmentTemplateFormat"
           }
         }
       },
@@ -908,11 +908,11 @@
             "smithy.api#jsonName": "sourceRoleArn"
           }
         },
-        "Arn": {
+        "Id": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the Asset.",
-            "smithy.api#jsonName": "arn"
+            "smithy.api#documentation": "The unique identifier for the Asset.",
+            "smithy.api#jsonName": "id"
           }
         },
         "ResourceId": {
@@ -920,26 +920,6 @@
           "traits": {
             "smithy.api#documentation": "The resource ID to include in SPEKE key requests.",
             "smithy.api#jsonName": "resourceId"
-          }
-        },
-        "PackagingGroupId": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the PackagingGroup for the Asset.",
-            "smithy.api#jsonName": "packagingGroupId"
-          }
-        },
-        "EgressEndpoints": {
-          "target": "com.amazonaws.mediapackagevod#__listOfEgressEndpoint",
-          "traits": {
-            "smithy.api#documentation": "The list of egress endpoints available for the Asset.",
-            "smithy.api#jsonName": "egressEndpoints"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackagevod#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
           }
         },
         "CreatedAt": {
@@ -956,11 +936,31 @@
             "smithy.api#jsonName": "sourceArn"
           }
         },
-        "Id": {
+        "PackagingGroupId": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The unique identifier for the Asset.",
-            "smithy.api#jsonName": "id"
+            "smithy.api#documentation": "The ID of the PackagingGroup for the Asset.",
+            "smithy.api#jsonName": "packagingGroupId"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the Asset.",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackagevod#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "EgressEndpoints": {
+          "target": "com.amazonaws.mediapackagevod#__listOfEgressEndpoint",
+          "traits": {
+            "smithy.api#documentation": "The list of egress endpoints available for the Asset.",
+            "smithy.api#jsonName": "egressEndpoints"
           }
         }
       }
@@ -1018,10 +1018,35 @@
     "com.amazonaws.mediapackagevod#DescribePackagingConfigurationResponse": {
       "type": "structure",
       "members": {
-        "DashPackage": {
-          "target": "com.amazonaws.mediapackagevod#DashPackage",
+        "HlsPackage": {
+          "target": "com.amazonaws.mediapackagevod#HlsPackage",
           "traits": {
-            "smithy.api#jsonName": "dashPackage"
+            "smithy.api#jsonName": "hlsPackage"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the PackagingConfiguration.",
+            "smithy.api#jsonName": "id"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackagevod#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "CmafPackage": {
+          "target": "com.amazonaws.mediapackagevod#CmafPackage",
+          "traits": {
+            "smithy.api#jsonName": "cmafPackage"
+          }
+        },
+        "MssPackage": {
+          "target": "com.amazonaws.mediapackagevod#MssPackage",
+          "traits": {
+            "smithy.api#jsonName": "mssPackage"
           }
         },
         "PackagingGroupId": {
@@ -1031,12 +1056,6 @@
             "smithy.api#jsonName": "packagingGroupId"
           }
         },
-        "HlsPackage": {
-          "target": "com.amazonaws.mediapackagevod#HlsPackage",
-          "traits": {
-            "smithy.api#jsonName": "hlsPackage"
-          }
-        },
         "Arn": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
@@ -1044,29 +1063,10 @@
             "smithy.api#jsonName": "arn"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.mediapackagevod#Tags",
+        "DashPackage": {
+          "target": "com.amazonaws.mediapackagevod#DashPackage",
           "traits": {
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "MssPackage": {
-          "target": "com.amazonaws.mediapackagevod#MssPackage",
-          "traits": {
-            "smithy.api#jsonName": "mssPackage"
-          }
-        },
-        "CmafPackage": {
-          "target": "com.amazonaws.mediapackagevod#CmafPackage",
-          "traits": {
-            "smithy.api#jsonName": "cmafPackage"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the PackagingConfiguration.",
-            "smithy.api#jsonName": "id"
+            "smithy.api#jsonName": "dashPackage"
           }
         }
       }
@@ -1124,20 +1124,6 @@
     "com.amazonaws.mediapackagevod#DescribePackagingGroupResponse": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the PackagingGroup.",
-            "smithy.api#jsonName": "id"
-          }
-        },
-        "Arn": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the PackagingGroup.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
         "Authorization": {
           "target": "com.amazonaws.mediapackagevod#Authorization",
           "traits": {
@@ -1156,24 +1142,38 @@
             "smithy.api#documentation": "The fully qualified domain name for Assets in the PackagingGroup.",
             "smithy.api#jsonName": "domainName"
           }
+        },
+        "Arn": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the PackagingGroup.",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the PackagingGroup.",
+            "smithy.api#jsonName": "id"
+          }
         }
       }
     },
     "com.amazonaws.mediapackagevod#EgressEndpoint": {
       "type": "structure",
       "members": {
-        "PackagingConfigurationId": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the PackagingConfiguration being applied to the Asset.",
-            "smithy.api#jsonName": "packagingConfigurationId"
-          }
-        },
         "Url": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
             "smithy.api#documentation": "The URL of the parent manifest for the repackaged Asset.",
             "smithy.api#jsonName": "url"
+          }
+        },
+        "PackagingConfigurationId": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the PackagingConfiguration being applied to the Asset.",
+            "smithy.api#jsonName": "packagingConfigurationId"
           }
         }
       },
@@ -1215,18 +1215,18 @@
     "com.amazonaws.mediapackagevod#HlsEncryption": {
       "type": "structure",
       "members": {
-        "SpekeKeyProvider": {
-          "target": "com.amazonaws.mediapackagevod#SpekeKeyProvider",
-          "traits": {
-            "smithy.api#jsonName": "spekeKeyProvider",
-            "smithy.api#required": {}
-          }
-        },
         "ConstantInitializationVector": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
             "smithy.api#documentation": "A constant initialization vector for encryption (optional).\nWhen not specified the initialization vector will be periodically rotated.",
             "smithy.api#jsonName": "constantInitializationVector"
+          }
+        },
+        "SpekeKeyProvider": {
+          "target": "com.amazonaws.mediapackagevod#SpekeKeyProvider",
+          "traits": {
+            "smithy.api#jsonName": "spekeKeyProvider",
+            "smithy.api#required": {}
           }
         },
         "EncryptionMethod": {
@@ -1251,6 +1251,27 @@
             "smithy.api#jsonName": "includeIframeOnlyStream"
           }
         },
+        "RepeatExtXKey": {
+          "target": "com.amazonaws.mediapackagevod#__boolean",
+          "traits": {
+            "smithy.api#documentation": "When enabled, the EXT-X-KEY tag will be repeated in output manifests.",
+            "smithy.api#jsonName": "repeatExtXKey"
+          }
+        },
+        "ProgramDateTimeIntervalSeconds": {
+          "target": "com.amazonaws.mediapackagevod#__integer",
+          "traits": {
+            "smithy.api#documentation": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.",
+            "smithy.api#jsonName": "programDateTimeIntervalSeconds"
+          }
+        },
+        "AdMarkers": {
+          "target": "com.amazonaws.mediapackagevod#AdMarkers",
+          "traits": {
+            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.",
+            "smithy.api#jsonName": "adMarkers"
+          }
+        },
         "StreamSelection": {
           "target": "com.amazonaws.mediapackagevod#StreamSelection",
           "traits": {
@@ -1263,27 +1284,6 @@
             "smithy.api#documentation": "An optional string to include in the name of the manifest.",
             "smithy.api#jsonName": "manifestName"
           }
-        },
-        "ProgramDateTimeIntervalSeconds": {
-          "target": "com.amazonaws.mediapackagevod#__integer",
-          "traits": {
-            "smithy.api#documentation": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.",
-            "smithy.api#jsonName": "programDateTimeIntervalSeconds"
-          }
-        },
-        "RepeatExtXKey": {
-          "target": "com.amazonaws.mediapackagevod#__boolean",
-          "traits": {
-            "smithy.api#documentation": "When enabled, the EXT-X-KEY tag will be repeated in output manifests.",
-            "smithy.api#jsonName": "repeatExtXKey"
-          }
-        },
-        "AdMarkers": {
-          "target": "com.amazonaws.mediapackagevod#AdMarkers",
-          "traits": {
-            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.",
-            "smithy.api#jsonName": "adMarkers"
-          }
         }
       },
       "traits": {
@@ -1293,10 +1293,12 @@
     "com.amazonaws.mediapackagevod#HlsPackage": {
       "type": "structure",
       "members": {
-        "Encryption": {
-          "target": "com.amazonaws.mediapackagevod#HlsEncryption",
+        "HlsManifests": {
+          "target": "com.amazonaws.mediapackagevod#__listOfHlsManifest",
           "traits": {
-            "smithy.api#jsonName": "encryption"
+            "smithy.api#documentation": "A list of HLS manifest configurations.",
+            "smithy.api#jsonName": "hlsManifests",
+            "smithy.api#required": {}
           }
         },
         "UseAudioRenditionGroup": {
@@ -1306,19 +1308,17 @@
             "smithy.api#jsonName": "useAudioRenditionGroup"
           }
         },
+        "Encryption": {
+          "target": "com.amazonaws.mediapackagevod#HlsEncryption",
+          "traits": {
+            "smithy.api#jsonName": "encryption"
+          }
+        },
         "SegmentDurationSeconds": {
           "target": "com.amazonaws.mediapackagevod#__integer",
           "traits": {
             "smithy.api#documentation": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.",
             "smithy.api#jsonName": "segmentDurationSeconds"
-          }
-        },
-        "HlsManifests": {
-          "target": "com.amazonaws.mediapackagevod#__listOfHlsManifest",
-          "traits": {
-            "smithy.api#documentation": "A list of HLS manifest configurations.",
-            "smithy.api#jsonName": "hlsManifests",
-            "smithy.api#required": {}
           }
         }
       },
@@ -1382,11 +1382,11 @@
     "com.amazonaws.mediapackagevod#ListAssetsRequest": {
       "type": "structure",
       "members": {
-        "PackagingGroupId": {
+        "NextToken": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "Returns Assets associated with the specified PackagingGroup.",
-            "smithy.api#httpQuery": "packagingGroupId"
+            "smithy.api#documentation": "A token used to resume pagination from the end of a previous request.",
+            "smithy.api#httpQuery": "nextToken"
           }
         },
         "MaxResults": {
@@ -1396,11 +1396,11 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "NextToken": {
+        "PackagingGroupId": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "A token used to resume pagination from the end of a previous request.",
-            "smithy.api#httpQuery": "nextToken"
+            "smithy.api#documentation": "Returns Assets associated with the specified PackagingGroup.",
+            "smithy.api#httpQuery": "packagingGroupId"
           }
         }
       }
@@ -1464,11 +1464,11 @@
     "com.amazonaws.mediapackagevod#ListPackagingConfigurationsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
+        "PackagingGroupId": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "A token used to resume pagination from the end of a previous request.",
-            "smithy.api#httpQuery": "nextToken"
+            "smithy.api#documentation": "Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.",
+            "smithy.api#httpQuery": "packagingGroupId"
           }
         },
         "MaxResults": {
@@ -1478,11 +1478,11 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "PackagingGroupId": {
+        "NextToken": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.",
-            "smithy.api#httpQuery": "packagingGroupId"
+            "smithy.api#documentation": "A token used to resume pagination from the end of a previous request.",
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       }
@@ -1490,18 +1490,18 @@
     "com.amazonaws.mediapackagevod#ListPackagingConfigurationsResponse": {
       "type": "structure",
       "members": {
-        "PackagingConfigurations": {
-          "target": "com.amazonaws.mediapackagevod#__listOfPackagingConfiguration",
-          "traits": {
-            "smithy.api#documentation": "A list of MediaPackage VOD PackagingConfiguration resources.",
-            "smithy.api#jsonName": "packagingConfigurations"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
             "smithy.api#documentation": "A token that can be used to resume pagination from the end of the collection.",
             "smithy.api#jsonName": "nextToken"
+          }
+        },
+        "PackagingConfigurations": {
+          "target": "com.amazonaws.mediapackagevod#__listOfPackagingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "A list of MediaPackage VOD PackagingConfiguration resources.",
+            "smithy.api#jsonName": "packagingConfigurations"
           }
         }
       }
@@ -1546,18 +1546,18 @@
     "com.amazonaws.mediapackagevod#ListPackagingGroupsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.mediapackagevod#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "Upper bound on number of records to return.",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
             "smithy.api#documentation": "A token used to resume pagination from the end of a previous request.",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.mediapackagevod#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "Upper bound on number of records to return.",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -1733,17 +1733,17 @@
     "com.amazonaws.mediapackagevod#MssManifest": {
       "type": "structure",
       "members": {
+        "StreamSelection": {
+          "target": "com.amazonaws.mediapackagevod#StreamSelection",
+          "traits": {
+            "smithy.api#jsonName": "streamSelection"
+          }
+        },
         "ManifestName": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
             "smithy.api#documentation": "An optional string to include in the name of the manifest.",
             "smithy.api#jsonName": "manifestName"
-          }
-        },
-        "StreamSelection": {
-          "target": "com.amazonaws.mediapackagevod#StreamSelection",
-          "traits": {
-            "smithy.api#jsonName": "streamSelection"
           }
         }
       },
@@ -1760,19 +1760,19 @@
             "smithy.api#jsonName": "encryption"
           }
         },
-        "SegmentDurationSeconds": {
-          "target": "com.amazonaws.mediapackagevod#__integer",
-          "traits": {
-            "smithy.api#documentation": "The duration (in seconds) of each segment.",
-            "smithy.api#jsonName": "segmentDurationSeconds"
-          }
-        },
         "MssManifests": {
           "target": "com.amazonaws.mediapackagevod#__listOfMssManifest",
           "traits": {
             "smithy.api#documentation": "A list of MSS manifest configurations.",
             "smithy.api#jsonName": "mssManifests",
             "smithy.api#required": {}
+          }
+        },
+        "SegmentDurationSeconds": {
+          "target": "com.amazonaws.mediapackagevod#__integer",
+          "traits": {
+            "smithy.api#documentation": "The duration (in seconds) of each segment.",
+            "smithy.api#jsonName": "segmentDurationSeconds"
           }
         }
       },
@@ -1799,17 +1799,43 @@
     "com.amazonaws.mediapackagevod#PackagingConfiguration": {
       "type": "structure",
       "members": {
+        "Id": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the PackagingConfiguration.",
+            "smithy.api#jsonName": "id"
+          }
+        },
+        "HlsPackage": {
+          "target": "com.amazonaws.mediapackagevod#HlsPackage",
+          "traits": {
+            "smithy.api#jsonName": "hlsPackage"
+          }
+        },
+        "PackagingGroupId": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of a PackagingGroup.",
+            "smithy.api#jsonName": "packagingGroupId"
+          }
+        },
         "DashPackage": {
           "target": "com.amazonaws.mediapackagevod#DashPackage",
           "traits": {
             "smithy.api#jsonName": "dashPackage"
           }
         },
-        "Id": {
+        "Arn": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the PackagingConfiguration.",
-            "smithy.api#jsonName": "id"
+            "smithy.api#documentation": "The ARN of the PackagingConfiguration.",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackagevod#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
           }
         },
         "CmafPackage": {
@@ -1822,32 +1848,6 @@
           "target": "com.amazonaws.mediapackagevod#MssPackage",
           "traits": {
             "smithy.api#jsonName": "mssPackage"
-          }
-        },
-        "PackagingGroupId": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of a PackagingGroup.",
-            "smithy.api#jsonName": "packagingGroupId"
-          }
-        },
-        "Arn": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the PackagingConfiguration.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "HlsPackage": {
-          "target": "com.amazonaws.mediapackagevod#HlsPackage",
-          "traits": {
-            "smithy.api#jsonName": "hlsPackage"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackagevod#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
           }
         }
       },
@@ -1870,18 +1870,18 @@
             "smithy.api#jsonName": "authorization"
           }
         },
-        "DomainName": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The fully qualified domain name for Assets in the PackagingGroup.",
-            "smithy.api#jsonName": "domainName"
-          }
-        },
         "Arn": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the PackagingGroup.",
             "smithy.api#jsonName": "arn"
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.mediapackagevod#__string",
+          "traits": {
+            "smithy.api#documentation": "The fully qualified domain name for Assets in the PackagingGroup.",
+            "smithy.api#jsonName": "domainName"
           }
         },
         "Id": {
@@ -1949,11 +1949,11 @@
     "com.amazonaws.mediapackagevod#SpekeKeyProvider": {
       "type": "structure",
       "members": {
-        "SystemIds": {
-          "target": "com.amazonaws.mediapackagevod#__listOf__string",
+        "RoleArn": {
+          "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#documentation": "The system IDs to include in key requests.",
-            "smithy.api#jsonName": "systemIds",
+            "smithy.api#documentation": "An Amazon Resource Name (ARN) of an IAM role that AWS Elemental\nMediaPackage will assume when accessing the key provider service.",
+            "smithy.api#jsonName": "roleArn",
             "smithy.api#required": {}
           }
         },
@@ -1965,11 +1965,11 @@
             "smithy.api#required": {}
           }
         },
-        "RoleArn": {
-          "target": "com.amazonaws.mediapackagevod#__string",
+        "SystemIds": {
+          "target": "com.amazonaws.mediapackagevod#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "An Amazon Resource Name (ARN) of an IAM role that AWS Elemental\nMediaPackage will assume when accessing the key provider service.",
-            "smithy.api#jsonName": "roleArn",
+            "smithy.api#documentation": "The system IDs to include in key requests.",
+            "smithy.api#jsonName": "systemIds",
             "smithy.api#required": {}
           }
         }
@@ -2007,18 +2007,18 @@
             "smithy.api#jsonName": "minVideoBitsPerSecond"
           }
         },
-        "MaxVideoBitsPerSecond": {
-          "target": "com.amazonaws.mediapackagevod#__integer",
-          "traits": {
-            "smithy.api#documentation": "The maximum video bitrate (bps) to include in output.",
-            "smithy.api#jsonName": "maxVideoBitsPerSecond"
-          }
-        },
         "StreamOrder": {
           "target": "com.amazonaws.mediapackagevod#StreamOrder",
           "traits": {
             "smithy.api#documentation": "A directive that determines the order of streams in the output.",
             "smithy.api#jsonName": "streamOrder"
+          }
+        },
+        "MaxVideoBitsPerSecond": {
+          "target": "com.amazonaws.mediapackagevod#__integer",
+          "traits": {
+            "smithy.api#documentation": "The maximum video bitrate (bps) to include in output.",
+            "smithy.api#jsonName": "maxVideoBitsPerSecond"
           }
         }
       },
@@ -2202,18 +2202,23 @@
     "com.amazonaws.mediapackagevod#UpdatePackagingGroupResponse": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.mediapackagevod#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "Authorization": {
+          "target": "com.amazonaws.mediapackagevod#Authorization",
+          "traits": {
+            "smithy.api#jsonName": "authorization"
+          }
+        },
         "DomainName": {
           "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
             "smithy.api#documentation": "The fully qualified domain name for Assets in the PackagingGroup.",
             "smithy.api#jsonName": "domainName"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.mediapackagevod#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the PackagingGroup.",
-            "smithy.api#jsonName": "id"
           }
         },
         "Arn": {
@@ -2223,16 +2228,11 @@
             "smithy.api#jsonName": "arn"
           }
         },
-        "Authorization": {
-          "target": "com.amazonaws.mediapackagevod#Authorization",
+        "Id": {
+          "target": "com.amazonaws.mediapackagevod#__string",
           "traits": {
-            "smithy.api#jsonName": "authorization"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackagevod#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "The ID of the PackagingGroup.",
+            "smithy.api#jsonName": "id"
           }
         }
       }

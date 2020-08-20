@@ -143,16 +143,16 @@
             "smithy.api#documentation": "<p>The current status of an application.</p>"
           }
         },
-        "ApplicationId": {
-          "target": "com.amazonaws.migrationhub#ApplicationId",
-          "traits": {
-            "smithy.api#documentation": "<p>The configurationId from the Application Discovery Service that uniquely identifies an\n         application.</p>"
-          }
-        },
         "LastUpdatedTime": {
           "target": "com.amazonaws.migrationhub#UpdateDateTime",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the application status was last updated.</p>"
+          }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.migrationhub#ApplicationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The configurationId from the Application Discovery Service that uniquely identifies an\n         application.</p>"
           }
         }
       },
@@ -242,13 +242,6 @@
             "smithy.api#required": {}
           }
         },
-        "CreatedArtifact": {
-          "target": "com.amazonaws.migrationhub#CreatedArtifact",
-          "traits": {
-            "smithy.api#documentation": "<p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS\n         instance, etc.) </p>",
-            "smithy.api#required": {}
-          }
-        },
         "ProgressUpdateStream": {
           "target": "com.amazonaws.migrationhub#ProgressUpdateStream",
           "traits": {
@@ -260,6 +253,13 @@
           "target": "com.amazonaws.migrationhub#DryRun",
           "traits": {
             "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
+          }
+        },
+        "CreatedArtifact": {
+          "target": "com.amazonaws.migrationhub#CreatedArtifact",
+          "traits": {
+            "smithy.api#documentation": "<p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS\n         instance, etc.) </p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -315,19 +315,6 @@
     "com.amazonaws.migrationhub#AssociateDiscoveredResourceRequest": {
       "type": "structure",
       "members": {
-        "ProgressUpdateStream": {
-          "target": "com.amazonaws.migrationhub#ProgressUpdateStream",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the ProgressUpdateStream.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "DryRun": {
-          "target": "com.amazonaws.migrationhub#DryRun",
-          "traits": {
-            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
-          }
-        },
         "DiscoveredResource": {
           "target": "com.amazonaws.migrationhub#DiscoveredResource",
           "traits": {
@@ -339,6 +326,19 @@
           "target": "com.amazonaws.migrationhub#MigrationTaskName",
           "traits": {
             "smithy.api#documentation": "<p>The identifier given to the MigrationTask. <i>Do not store personal data in this\n            field.</i>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.migrationhub#DryRun",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
+          }
+        },
+        "ProgressUpdateStream": {
+          "target": "com.amazonaws.migrationhub#ProgressUpdateStream",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the ProgressUpdateStream.</p>",
             "smithy.api#required": {}
           }
         }
@@ -399,17 +399,17 @@
     "com.amazonaws.migrationhub#CreateProgressUpdateStreamRequest": {
       "type": "structure",
       "members": {
+        "DryRun": {
+          "target": "com.amazonaws.migrationhub#DryRun",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
+          }
+        },
         "ProgressUpdateStreamName": {
           "target": "com.amazonaws.migrationhub#ProgressUpdateStream",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ProgressUpdateStream. <i>Do not store personal data in this\n            field.</i>\n         </p>",
             "smithy.api#required": {}
-          }
-        },
-        "DryRun": {
-          "target": "com.amazonaws.migrationhub#DryRun",
-          "traits": {
-            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
           }
         }
       }
@@ -581,16 +581,16 @@
     "com.amazonaws.migrationhub#DescribeApplicationStateResult": {
       "type": "structure",
       "members": {
-        "LastUpdatedTime": {
-          "target": "com.amazonaws.migrationhub#UpdateDateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp when the application status was last updated.</p>"
-          }
-        },
         "ApplicationStatus": {
           "target": "com.amazonaws.migrationhub#ApplicationStatus",
           "traits": {
             "smithy.api#documentation": "<p>Status of the application - Not Started, In-Progress, Complete.</p>"
+          }
+        },
+        "LastUpdatedTime": {
+          "target": "com.amazonaws.migrationhub#UpdateDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the application status was last updated.</p>"
           }
         }
       }
@@ -711,13 +711,6 @@
             "smithy.api#required": {}
           }
         },
-        "CreatedArtifactName": {
-          "target": "com.amazonaws.migrationhub#CreatedArtifactName",
-          "traits": {
-            "smithy.api#documentation": "<p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS\n         instance, etc.)</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DryRun": {
           "target": "com.amazonaws.migrationhub#DryRun",
           "traits": {
@@ -728,6 +721,13 @@
           "target": "com.amazonaws.migrationhub#ProgressUpdateStream",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ProgressUpdateStream. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CreatedArtifactName": {
+          "target": "com.amazonaws.migrationhub#CreatedArtifactName",
+          "traits": {
+            "smithy.api#documentation": "<p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS\n         instance, etc.)</p>",
             "smithy.api#required": {}
           }
         }
@@ -932,17 +932,17 @@
             "smithy.api#required": {}
           }
         },
-        "DryRun": {
-          "target": "com.amazonaws.migrationhub#DryRun",
-          "traits": {
-            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
-          }
-        },
         "ProgressUpdateStream": {
           "target": "com.amazonaws.migrationhub#ProgressUpdateStream",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ProgressUpdateStream. ></p>",
             "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.migrationhub#DryRun",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
           }
         }
       }
@@ -1028,10 +1028,10 @@
     "com.amazonaws.migrationhub#ListApplicationStatesRequest": {
       "type": "structure",
       "members": {
-        "ApplicationIds": {
-          "target": "com.amazonaws.migrationhub#ApplicationIds",
+        "NextToken": {
+          "target": "com.amazonaws.migrationhub#Token",
           "traits": {
-            "smithy.api#documentation": "<p>The configurationIds from the Application Discovery Service that uniquely identifies\n         your applications.</p>"
+            "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, there are more results\n         available. To retrieve the next page of results, make the call again using the returned\n         token in <code>NextToken</code>.</p>"
           }
         },
         "MaxResults": {
@@ -1040,10 +1040,10 @@
             "smithy.api#documentation": "<p>Maximum number of results to be returned per page.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.migrationhub#Token",
+        "ApplicationIds": {
+          "target": "com.amazonaws.migrationhub#ApplicationIds",
           "traits": {
-            "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, there are more results\n         available. To retrieve the next page of results, make the call again using the returned\n         token in <code>NextToken</code>.</p>"
+            "smithy.api#documentation": "<p>The configurationIds from the Application Discovery Service that uniquely identifies\n         your applications.</p>"
           }
         }
       }
@@ -1051,16 +1051,16 @@
     "com.amazonaws.migrationhub#ListApplicationStatesResult": {
       "type": "structure",
       "members": {
-        "ApplicationStateList": {
-          "target": "com.amazonaws.migrationhub#ApplicationStateList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of Applications that exist in Application Discovery Service.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.migrationhub#Token",
           "traits": {
             "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, there are more results\n         available. To retrieve the next page of results, make the call again using the returned\n         token in <code>NextToken</code>.</p>"
+          }
+        },
+        "ApplicationStateList": {
+          "target": "com.amazonaws.migrationhub#ApplicationStateList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of Applications that exist in Application Discovery Service.</p>"
           }
         }
       }
@@ -1140,16 +1140,16 @@
     "com.amazonaws.migrationhub#ListCreatedArtifactsResult": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.migrationhub#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>If there are more created artifacts than the max result, return the next token to be\n         passed to the next call as a bookmark of where to start from.</p>"
-          }
-        },
         "CreatedArtifactList": {
           "target": "com.amazonaws.migrationhub#CreatedArtifactList",
           "traits": {
             "smithy.api#documentation": "<p>List of created artifacts up to the maximum number of results specified in the\n         request.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.migrationhub#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are more created artifacts than the max result, return the next token to be\n         passed to the next call as a bookmark of where to start from.</p>"
           }
         }
       }
@@ -1229,16 +1229,16 @@
     "com.amazonaws.migrationhub#ListDiscoveredResourcesResult": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.migrationhub#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>If there are more discovered resources than the max result, return the next token to be\n         passed to the next call as a bookmark of where to start from.</p>"
-          }
-        },
         "DiscoveredResourceList": {
           "target": "com.amazonaws.migrationhub#DiscoveredResourceList",
           "traits": {
             "smithy.api#documentation": "<p>Returned list of discovered resources associated with the given MigrationTask.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.migrationhub#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are more discovered resources than the max result, return the next token to be\n         passed to the next call as a bookmark of where to start from.</p>"
           }
         }
       }
@@ -1290,10 +1290,10 @@
     "com.amazonaws.migrationhub#ListMigrationTasksRequest": {
       "type": "structure",
       "members": {
-        "ResourceName": {
-          "target": "com.amazonaws.migrationhub#ResourceName",
+        "MaxResults": {
+          "target": "com.amazonaws.migrationhub#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>Filter migration tasks by discovered resource name.</p>"
+            "smithy.api#documentation": "<p>Value to specify how many results are returned per page.</p>"
           }
         },
         "NextToken": {
@@ -1302,10 +1302,10 @@
             "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, there are more results\n         available. To retrieve the next page of results, make the call again using the returned\n         token in <code>NextToken</code>.</p>"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.migrationhub#MaxResults",
+        "ResourceName": {
+          "target": "com.amazonaws.migrationhub#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>Value to specify how many results are returned per page.</p>"
+            "smithy.api#documentation": "<p>Filter migration tasks by discovered resource name.</p>"
           }
         }
       }
@@ -1313,16 +1313,16 @@
     "com.amazonaws.migrationhub#ListMigrationTasksResult": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.migrationhub#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>If there are more migration tasks than the max result, return the next token to be\n         passed to the next call as a bookmark of where to start from.</p>"
-          }
-        },
         "MigrationTaskSummaryList": {
           "target": "com.amazonaws.migrationhub#MigrationTaskSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>Lists the migration task's summary which includes: <code>MigrationTaskName</code>,\n            <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>,\n         and the <code>UpdateDateTime</code> for each task.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.migrationhub#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are more migration tasks than the max result, return the next token to be\n         passed to the next call as a bookmark of where to start from.</p>"
           }
         }
       }
@@ -1486,16 +1486,16 @@
             "smithy.api#documentation": "<p>Detail information of what is being done within the overall status state.</p>"
           }
         },
-        "ProgressUpdateStream": {
-          "target": "com.amazonaws.migrationhub#ProgressUpdateStream",
-          "traits": {
-            "smithy.api#documentation": "<p>An AWS resource used for access control. It should uniquely identify the migration tool\n         as it is used for all updates made by the tool.</p>"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.migrationhub#Status",
           "traits": {
             "smithy.api#documentation": "<p>Status of the task.</p>"
+          }
+        },
+        "MigrationTaskName": {
+          "target": "com.amazonaws.migrationhub#MigrationTaskName",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique identifier that references the migration task. <i>Do not store personal\n            data in this field.</i>\n         </p>"
           }
         },
         "UpdateDateTime": {
@@ -1504,16 +1504,16 @@
             "smithy.api#documentation": "<p>The timestamp when the task was gathered.</p>"
           }
         },
+        "ProgressUpdateStream": {
+          "target": "com.amazonaws.migrationhub#ProgressUpdateStream",
+          "traits": {
+            "smithy.api#documentation": "<p>An AWS resource used for access control. It should uniquely identify the migration tool\n         as it is used for all updates made by the tool.</p>"
+          }
+        },
         "ProgressPercent": {
           "target": "com.amazonaws.migrationhub#ProgressPercent",
           "traits": {
             "smithy.api#documentation": "<p>Indication of the percentage completion of the task.</p>"
-          }
-        },
-        "MigrationTaskName": {
-          "target": "com.amazonaws.migrationhub#MigrationTaskName",
-          "traits": {
-            "smithy.api#documentation": "<p>Unique identifier that references the migration task. <i>Do not store personal\n            data in this field.</i>\n         </p>"
           }
         }
       },
@@ -1589,6 +1589,12 @@
             "smithy.api#required": {}
           }
         },
+        "DryRun": {
+          "target": "com.amazonaws.migrationhub#DryRun",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
+          }
+        },
         "ApplicationId": {
           "target": "com.amazonaws.migrationhub#ApplicationId",
           "traits": {
@@ -1600,12 +1606,6 @@
           "target": "com.amazonaws.migrationhub#UpdateDateTime",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the application state changed.</p>"
-          }
-        },
-        "DryRun": {
-          "target": "com.amazonaws.migrationhub#DryRun",
-          "traits": {
-            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
           }
         }
       }
@@ -1672,13 +1672,6 @@
             "smithy.api#required": {}
           }
         },
-        "Task": {
-          "target": "com.amazonaws.migrationhub#Task",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the task's progress and status.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DryRun": {
           "target": "com.amazonaws.migrationhub#DryRun",
           "traits": {
@@ -1696,6 +1689,13 @@
           "target": "com.amazonaws.migrationhub#NextUpdateSeconds",
           "traits": {
             "smithy.api#documentation": "<p>Number of seconds after the UpdateDateTime within which the Migration Hub can expect an\n         update. If Migration Hub does not receive an update within the specified interval, then the\n         migration task will be considered stale.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Task": {
+          "target": "com.amazonaws.migrationhub#Task",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the task's progress and status.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1808,10 +1808,11 @@
             "smithy.api#required": {}
           }
         },
-        "DryRun": {
-          "target": "com.amazonaws.migrationhub#DryRun",
+        "MigrationTaskName": {
+          "target": "com.amazonaws.migrationhub#MigrationTaskName",
           "traits": {
-            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
+            "smithy.api#documentation": "<p>Unique identifier that references the migration task. <i>Do not store personal\n            data in this field.</i>\n         </p>",
+            "smithy.api#required": {}
           }
         },
         "ResourceAttributeList": {
@@ -1821,11 +1822,10 @@
             "smithy.api#required": {}
           }
         },
-        "MigrationTaskName": {
-          "target": "com.amazonaws.migrationhub#MigrationTaskName",
+        "DryRun": {
+          "target": "com.amazonaws.migrationhub#DryRun",
           "traits": {
-            "smithy.api#documentation": "<p>Unique identifier that references the migration task. <i>Do not store personal\n            data in this field.</i>\n         </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Optional boolean flag to indicate whether any effect should take place. Used to test if\n         the caller has permission to make the call.</p>"
           }
         }
       }
@@ -1837,17 +1837,17 @@
     "com.amazonaws.migrationhub#ResourceAttribute": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.migrationhub#ResourceAttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>Value of the resource type.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Type": {
           "target": "com.amazonaws.migrationhub#ResourceAttributeType",
           "traits": {
             "smithy.api#documentation": "<p>Type of resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.migrationhub#ResourceAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Value of the resource type.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1998,6 +1998,12 @@
     "com.amazonaws.migrationhub#Task": {
       "type": "structure",
       "members": {
+        "ProgressPercent": {
+          "target": "com.amazonaws.migrationhub#ProgressPercent",
+          "traits": {
+            "smithy.api#documentation": "<p>Indication of the percentage completion of the task.</p>"
+          }
+        },
         "StatusDetail": {
           "target": "com.amazonaws.migrationhub#StatusDetail",
           "traits": {
@@ -2010,12 +2016,6 @@
             "smithy.api#documentation": "<p>Status of the task - Not Started, In-Progress, Complete.</p>",
             "smithy.api#required": {}
           }
-        },
-        "ProgressPercent": {
-          "target": "com.amazonaws.migrationhub#ProgressPercent",
-          "traits": {
-            "smithy.api#documentation": "<p>Indication of the percentage completion of the task.</p>"
-          }
         }
       },
       "traits": {
@@ -2025,18 +2025,18 @@
     "com.amazonaws.migrationhub#ThrottlingException": {
       "type": "structure",
       "members": {
-        "RetryAfterSeconds": {
-          "target": "com.amazonaws.migrationhub#RetryAfterSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of seconds the caller should wait before retrying.</p>",
-            "smithy.api#httpHeader": "Retry-After"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.migrationhub#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message that provides information about the exception.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "RetryAfterSeconds": {
+          "target": "com.amazonaws.migrationhub#RetryAfterSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of seconds the caller should wait before retrying.</p>",
+            "smithy.api#httpHeader": "Retry-After"
           }
         }
       },

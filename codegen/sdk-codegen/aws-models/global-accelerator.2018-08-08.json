@@ -32,40 +32,16 @@
     "com.amazonaws.globalaccelerator#Accelerator": {
       "type": "structure",
       "members": {
-        "IpSets": {
-          "target": "com.amazonaws.globalaccelerator#IpSets",
-          "traits": {
-            "smithy.api#documentation": "<p>The static IP addresses that Global Accelerator associates with the accelerator.</p>"
-          }
-        },
-        "CreatedTime": {
-          "target": "com.amazonaws.globalaccelerator#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the accelerator was created.</p>"
-          }
-        },
-        "AcceleratorArn": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the accelerator.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the accelerator. The name must contain only alphanumeric characters or\n\t\t\thyphens (-), and must not begin or end with a hyphen.</p>"
           }
         },
-        "LastModifiedTime": {
-          "target": "com.amazonaws.globalaccelerator#Timestamp",
+        "Status": {
+          "target": "com.amazonaws.globalaccelerator#AcceleratorStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the accelerator was last modified.</p>"
-          }
-        },
-        "IpAddressType": {
-          "target": "com.amazonaws.globalaccelerator#IpAddressType",
-          "traits": {
-            "smithy.api#documentation": "<p>The value for the address type must be IPv4.\n\t\t\t</p>"
+            "smithy.api#documentation": "<p>Describes the deployment status of the accelerator.</p>"
           }
         },
         "Enabled": {
@@ -74,16 +50,40 @@
             "smithy.api#documentation": "<p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>\n\t\t       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>"
           }
         },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.globalaccelerator#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the accelerator was last modified.</p>"
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.globalaccelerator#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the accelerator was created.</p>"
+          }
+        },
         "DnsName": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. </p>\n\t\t       <p>The naming convention for the DNS name is the following: A lowercase letter a,\n\t\t\tfollowed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:\n\t\t\ta1234567890abcdef.awsglobalaccelerator.com.</p>\n\t\t       <p>For more information about the default DNS name, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing\">\n\t\t\tSupport for DNS Addressing in Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.globalaccelerator#AcceleratorStatus",
+        "IpAddressType": {
+          "target": "com.amazonaws.globalaccelerator#IpAddressType",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the deployment status of the accelerator.</p>"
+            "smithy.api#documentation": "<p>The value for the address type must be IPv4.\n\t\t\t</p>"
+          }
+        },
+        "IpSets": {
+          "target": "com.amazonaws.globalaccelerator#IpSets",
+          "traits": {
+            "smithy.api#documentation": "<p>The static IP addresses that Global Accelerator associates with the accelerator.</p>"
+          }
+        },
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the accelerator.</p>"
           }
         }
       },
@@ -94,16 +94,16 @@
     "com.amazonaws.globalaccelerator#AcceleratorAttributes": {
       "type": "structure",
       "members": {
-        "FlowLogsS3Bucket": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is\n\t\t\t\t<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the\n\t\t\tbucket.</p>"
-          }
-        },
         "FlowLogsS3Prefix": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if\n\t\t\t\t<code>FlowLogsEnabled</code> is <code>true</code>.</p>\n\t\t       <p>If you don’t specify a prefix, the flow logs are stored in the\n\t\t\troot of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>\n\t\t       <p>s3-bucket_name//AWSLogs/aws_account_id</p>"
+          }
+        },
+        "FlowLogsS3Bucket": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is\n\t\t\t\t<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the\n\t\t\tbucket.</p>"
           }
         },
         "FlowLogsEnabled": {
@@ -256,10 +256,10 @@
     "com.amazonaws.globalaccelerator#ByoipCidr": {
       "type": "structure",
       "members": {
-        "State": {
-          "target": "com.amazonaws.globalaccelerator#ByoipCidrState",
+        "Cidr": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the address pool.</p>"
+            "smithy.api#documentation": "<p>The address range, in CIDR notation.</p>"
           }
         },
         "Events": {
@@ -268,10 +268,10 @@
             "smithy.api#documentation": "<p>A history of status changes for an IP address range that that you bring to AWS Global Accelerator\n\t\t\tthrough bring your own IP address (BYOIP).</p>"
           }
         },
-        "Cidr": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
+        "State": {
+          "target": "com.amazonaws.globalaccelerator#ByoipCidrState",
           "traits": {
-            "smithy.api#documentation": "<p>The address range, in CIDR notation.</p>"
+            "smithy.api#documentation": "<p>The state of the address pool.</p>"
           }
         }
       },
@@ -378,17 +378,17 @@
     "com.amazonaws.globalaccelerator#CidrAuthorizationContext": {
       "type": "structure",
       "members": {
-        "Signature": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The signed authorization message for the prefix and account.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Message": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The plain-text authorization message for the prefix and account.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Signature": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The signed authorization message for the prefix and account.</p>",
             "smithy.api#required": {}
           }
         }
@@ -444,22 +444,16 @@
             "smithy.api#required": {}
           }
         },
+        "Tags": {
+          "target": "com.amazonaws.globalaccelerator#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>Create tags for an accelerator.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging\n\t\t\tin AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
+          }
+        },
         "IpAddressType": {
           "target": "com.amazonaws.globalaccelerator#IpAddressType",
           "traits": {
             "smithy.api#documentation": "<p>The value for the address type must be IPv4.\n\t\t\t</p>"
-          }
-        },
-        "IpAddresses": {
-          "target": "com.amazonaws.globalaccelerator#IpAddresses",
-          "traits": {
-            "smithy.api#documentation": "<p>Optionally, if you've added your own IP address pool to Global Accelerator, you can choose IP addresses \n\t\t\tfrom your own pool to use for the accelerator's static IP \n\t\t\taddresses. You can specify one or two addresses, separated by a comma. Do not include the /32\n\t\t\tsuffix.</p>\n\t\t       <p>If you specify only one IP address from your IP address range, Global Accelerator assigns a second \n\t\t\tstatic IP address for the accelerator from the AWS IP address pool.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring Your Own \n\t\t\tIP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
-          }
-        },
-        "Enabled": {
-          "target": "com.amazonaws.globalaccelerator#GenericBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>\n\t\t       <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>"
           }
         },
         "Name": {
@@ -469,10 +463,16 @@
             "smithy.api#required": {}
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.globalaccelerator#Tags",
+        "Enabled": {
+          "target": "com.amazonaws.globalaccelerator#GenericBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>Create tags for an accelerator.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging\n\t\t\tin AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>\n\t\t       <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>"
+          }
+        },
+        "IpAddresses": {
+          "target": "com.amazonaws.globalaccelerator#IpAddresses",
+          "traits": {
+            "smithy.api#documentation": "<p>Optionally, if you've added your own IP address pool to Global Accelerator, you can choose IP addresses \n\t\t\tfrom your own pool to use for the accelerator's static IP \n\t\t\taddresses. You can specify one or two addresses, separated by a comma. Do not include the /32\n\t\t\tsuffix.</p>\n\t\t       <p>If you specify only one IP address from your IP address range, Global Accelerator assigns a second \n\t\t\tstatic IP address for the accelerator from the AWS IP address pool.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring Your Own \n\t\t\tIP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
           }
         }
       }
@@ -526,18 +526,19 @@
     "com.amazonaws.globalaccelerator#CreateEndpointGroupRequest": {
       "type": "structure",
       "members": {
+        "ListenerArn": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "IdempotencyToken": {
           "target": "com.amazonaws.globalaccelerator#IdempotencyToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the\n\t\t\tuniqueness—of the request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
-          }
-        },
-        "HealthCheckIntervalSeconds": {
-          "target": "com.amazonaws.globalaccelerator#HealthCheckIntervalSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>"
           }
         },
         "EndpointGroupRegion": {
@@ -547,16 +548,10 @@
             "smithy.api#required": {}
           }
         },
-        "TrafficDialPercentage": {
-          "target": "com.amazonaws.globalaccelerator#TrafficDialPercentage",
+        "HealthCheckIntervalSeconds": {
+          "target": "com.amazonaws.globalaccelerator#HealthCheckIntervalSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for\n\t\t\tthis listener. </p>\n\t\t       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is\n\t\t\tapplied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>\n\t\t       <p>The default value is 100.</p>"
-          }
-        },
-        "HealthCheckPath": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The\n\t\t\tdefault value is slash (/).</p>"
+            "smithy.api#documentation": "<p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>"
           }
         },
         "ThresholdCount": {
@@ -571,23 +566,28 @@
             "smithy.api#documentation": "<p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port\n\t\t\tis the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the\n\t\t\tfirst port in the list.</p>"
           }
         },
+        "HealthCheckProtocol": {
+          "target": "com.amazonaws.globalaccelerator#HealthCheckProtocol",
+          "traits": {
+            "smithy.api#documentation": "<p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default\n\t\t\tvalue is TCP.</p>"
+          }
+        },
         "EndpointConfigurations": {
           "target": "com.amazonaws.globalaccelerator#EndpointConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>The list of endpoint objects.</p>"
           }
         },
-        "ListenerArn": {
+        "HealthCheckPath": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The\n\t\t\tdefault value is slash (/).</p>"
           }
         },
-        "HealthCheckProtocol": {
-          "target": "com.amazonaws.globalaccelerator#HealthCheckProtocol",
+        "TrafficDialPercentage": {
+          "target": "com.amazonaws.globalaccelerator#TrafficDialPercentage",
           "traits": {
-            "smithy.api#documentation": "<p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default\n\t\t\tvalue is TCP.</p>"
+            "smithy.api#documentation": "<p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for\n\t\t\tthis listener. </p>\n\t\t       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is\n\t\t\tapplied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>\n\t\t       <p>The default value is 100.</p>"
           }
         }
       }
@@ -641,6 +641,13 @@
             "smithy.api#documentation": "<p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,\n\t\t\tregardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always\n\t\t\troute each client to the same specific endpoint.</p>\n\t\t       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client\n\t\t\taffinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port,\n\t\t\tdestination IP address, destination port, and protocol—to select the hash value, and then chooses the best\n\t\t\tendpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not\n\t\t\tbe always routed to the same endpoint because the hash value changes. </p>\n\t\t       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>\n\t\t\tinstead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties—\n\t\t\tsource (client) IP address and destination IP address—to select the hash value.</p>\n\t\t       <p>The default value is <code>NONE</code>.</p>"
           }
         },
+        "PortRanges": {
+          "target": "com.amazonaws.globalaccelerator#PortRanges",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of port ranges to support for connections from clients to your accelerator.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "AcceleratorArn": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
@@ -648,10 +655,10 @@
             "smithy.api#required": {}
           }
         },
-        "PortRanges": {
-          "target": "com.amazonaws.globalaccelerator#PortRanges",
+        "Protocol": {
+          "target": "com.amazonaws.globalaccelerator#Protocol",
           "traits": {
-            "smithy.api#documentation": "<p>The list of port ranges to support for connections from clients to your accelerator.</p>",
+            "smithy.api#documentation": "<p>The protocol for connections from clients to your accelerator.</p>",
             "smithy.api#required": {}
           }
         },
@@ -660,13 +667,6 @@
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the\n\t\t\tuniqueness—of the request.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#required": {}
-          }
-        },
-        "Protocol": {
-          "target": "com.amazonaws.globalaccelerator#Protocol",
-          "traits": {
-            "smithy.api#documentation": "<p>The protocol for connections from clients to your accelerator.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1027,10 +1027,10 @@
     "com.amazonaws.globalaccelerator#EndpointConfiguration": {
       "type": "structure",
       "members": {
-        "ClientIPPreservationEnabled": {
-          "target": "com.amazonaws.globalaccelerator#GenericBoolean",
+        "Weight": {
+          "target": "com.amazonaws.globalaccelerator#EndpointWeight",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. \n\t\t\tThe value is true or false. The default value is true for new accelerators. </p>\n\t\t       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as \n\t\t\ttraffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html\">\n\t\t\tPreserve Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic\n\t\t\tbased on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The\n\t\t\tresult is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second\n\t\t\tand third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html\">Endpoint Weights</a> in the\n\t\t\t\t<i>AWS Global Accelerator Developer Guide</i>.</p>"
           }
         },
         "EndpointId": {
@@ -1039,10 +1039,10 @@
             "smithy.api#documentation": "<p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon\n\t\t\tResource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address\n\t\t\tallocation ID. For EC2 instances, this is the EC2 instance ID. </p>\n\t\t       <p>An Application Load Balancer can be either internal or internet-facing.</p>"
           }
         },
-        "Weight": {
-          "target": "com.amazonaws.globalaccelerator#EndpointWeight",
+        "ClientIPPreservationEnabled": {
+          "target": "com.amazonaws.globalaccelerator#GenericBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic\n\t\t\tbased on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The\n\t\t\tresult is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second\n\t\t\tand third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html\">Endpoint Weights</a> in the\n\t\t\t\t<i>AWS Global Accelerator Developer Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. \n\t\t\tThe value is true or false. The default value is true for new accelerators. </p>\n\t\t       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as \n\t\t\ttraffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html\">\n\t\t\tPreserve Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
           }
         }
       },
@@ -1065,22 +1065,22 @@
     "com.amazonaws.globalaccelerator#EndpointDescription": {
       "type": "structure",
       "members": {
-        "EndpointId": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon\n\t\t\tResource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address\n\t\t\tallocation ID. For EC2 instances, this is the EC2 instance ID. </p>\n\t\t       <p>An Application Load Balancer can be either internal or internet-facing.</p>"
-          }
-        },
         "ClientIPPreservationEnabled": {
           "target": "com.amazonaws.globalaccelerator#GenericBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. \n\t\t\tThe value is true or false. The default value is true for new accelerators. </p>\n\t\t       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as \n\t\t\ttraffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html\">\n\t\t\tViewing Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
           }
         },
-        "HealthState": {
-          "target": "com.amazonaws.globalaccelerator#HealthState",
+        "EndpointId": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>The health status of the endpoint.</p>"
+            "smithy.api#documentation": "<p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon\n\t\t\tResource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address\n\t\t\tallocation ID. For EC2 instances, this is the EC2 instance ID. </p>\n\t\t       <p>An Application Load Balancer can be either internal or internet-facing.</p>"
+          }
+        },
+        "Weight": {
+          "target": "com.amazonaws.globalaccelerator#EndpointWeight",
+          "traits": {
+            "smithy.api#documentation": "<p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic\n\t\t\tbased on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The\n\t\t\tresult is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second\n\t\t\tand third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html\">Endpoint Weights</a> in the\n\t\t\t\t<i>AWS Global Accelerator Developer Guide</i>. </p>"
           }
         },
         "HealthReason": {
@@ -1089,10 +1089,10 @@
             "smithy.api#documentation": "<p>The reason code associated with why the endpoint is not healthy. If the endpoint state is healthy, a reason code is\n\t\t\tnot provided.</p>\n\t\t       <p>If the endpoint state is <b>unhealthy</b>, the reason code can be one of the following\n\t\t\tvalues:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <b>Timeout</b>: The health check requests to the endpoint are timing out before\n\t\t\t\t\treturning a status.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <b>Failed</b>: The health check failed, for example because the endpoint response\n\t\t\t\t\twas invalid (malformed).</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>If the endpoint state is <b>initial</b>, the reason code can be one of the following\n\t\t\tvalues:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <b>ProvisioningInProgress</b>: The endpoint is in the process of being\n\t\t\t\t\tprovisioned.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <b>InitialHealthChecking</b>: Global Accelerator is still setting up the minimum number of\n\t\t\t\t\thealth checks for the endpoint that are required to determine its health status.</p>\n\t\t\t         </li>\n         </ul>"
           }
         },
-        "Weight": {
-          "target": "com.amazonaws.globalaccelerator#EndpointWeight",
+        "HealthState": {
+          "target": "com.amazonaws.globalaccelerator#HealthState",
           "traits": {
-            "smithy.api#documentation": "<p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic\n\t\t\tbased on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The\n\t\t\tresult is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second\n\t\t\tand third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html\">Endpoint Weights</a> in the\n\t\t\t\t<i>AWS Global Accelerator Developer Guide</i>. </p>"
+            "smithy.api#documentation": "<p>The health status of the endpoint.</p>"
           }
         }
       },
@@ -1109,16 +1109,28 @@
     "com.amazonaws.globalaccelerator#EndpointGroup": {
       "type": "structure",
       "members": {
+        "HealthCheckIntervalSeconds": {
+          "target": "com.amazonaws.globalaccelerator#HealthCheckIntervalSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30.</p>"
+          }
+        },
         "HealthCheckPath": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the\n\t\t\tendpoints for health checks. The default is slash (/).</p>"
           }
         },
-        "TrafficDialPercentage": {
-          "target": "com.amazonaws.globalaccelerator#TrafficDialPercentage",
+        "EndpointGroupRegion": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for\n\t\t\tthis listener. </p>\n\t\t       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is\n\t\t\tapplied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>\n\t\t       <p>The default value is 100.</p>"
+            "smithy.api#documentation": "<p>The AWS Region that this endpoint group belongs.</p>"
+          }
+        },
+        "EndpointDescriptions": {
+          "target": "com.amazonaws.globalaccelerator#EndpointDescriptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of endpoint objects.</p>"
           }
         },
         "HealthCheckPort": {
@@ -1139,28 +1151,16 @@
             "smithy.api#documentation": "<p>The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default\n\t\t\tvalue is TCP.</p>"
           }
         },
-        "EndpointDescriptions": {
-          "target": "com.amazonaws.globalaccelerator#EndpointDescriptions",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of endpoint objects.</p>"
-          }
-        },
-        "EndpointGroupRegion": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Region that this endpoint group belongs.</p>"
-          }
-        },
         "EndpointGroupArn": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the endpoint group.</p>"
           }
         },
-        "HealthCheckIntervalSeconds": {
-          "target": "com.amazonaws.globalaccelerator#HealthCheckIntervalSeconds",
+        "TrafficDialPercentage": {
+          "target": "com.amazonaws.globalaccelerator#TrafficDialPercentage",
           "traits": {
-            "smithy.api#documentation": "<p>The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30.</p>"
+            "smithy.api#documentation": "<p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for\n\t\t\tthis listener. </p>\n\t\t       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is\n\t\t\tapplied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>\n\t\t       <p>The default value is 100.</p>"
           }
         }
       },
@@ -1560,16 +1560,16 @@
     "com.amazonaws.globalaccelerator#ListAcceleratorsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results. You receive this token from a previous call.</p>"
-          }
-        },
         "Accelerators": {
           "target": "com.amazonaws.globalaccelerator#Accelerators",
           "traits": {
             "smithy.api#documentation": "<p>The list of accelerators for a customer account.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. You receive this token from a previous call.</p>"
           }
         }
       }
@@ -1620,16 +1620,16 @@
     "com.amazonaws.globalaccelerator#ListByoipCidrsResponse": {
       "type": "structure",
       "members": {
-        "ByoipCidrs": {
-          "target": "com.amazonaws.globalaccelerator#ByoipCidrs",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about your address ranges.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "ByoipCidrs": {
+          "target": "com.amazonaws.globalaccelerator#ByoipCidrs",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about your address ranges.</p>"
           }
         }
       }
@@ -1663,10 +1663,11 @@
     "com.amazonaws.globalaccelerator#ListEndpointGroupsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.globalaccelerator#MaxResults",
+        "ListenerArn": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -1675,11 +1676,10 @@
             "smithy.api#documentation": "<p>The token for the next set of results. You receive this token from a previous call.</p>"
           }
         },
-        "ListenerArn": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
+        "MaxResults": {
+          "target": "com.amazonaws.globalaccelerator#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>"
           }
         }
       }
@@ -1687,16 +1687,16 @@
     "com.amazonaws.globalaccelerator#ListEndpointGroupsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results. You receive this token from a previous call.</p>"
-          }
-        },
         "EndpointGroups": {
           "target": "com.amazonaws.globalaccelerator#EndpointGroups",
           "traits": {
             "smithy.api#documentation": "<p>The list of the endpoint groups associated with a listener.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. You receive this token from a previous call.</p>"
           }
         }
       }
@@ -1730,6 +1730,13 @@
     "com.amazonaws.globalaccelerator#ListListenersRequest": {
       "type": "structure",
       "members": {
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
@@ -1740,13 +1747,6 @@
           "target": "com.amazonaws.globalaccelerator#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The number of listener objects that you want to return with this call. The default value is 10.</p>"
-          }
-        },
-        "AcceleratorArn": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -1817,12 +1817,6 @@
     "com.amazonaws.globalaccelerator#Listener": {
       "type": "structure",
       "members": {
-        "PortRanges": {
-          "target": "com.amazonaws.globalaccelerator#PortRanges",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of port ranges for the connections from clients to the accelerator.</p>"
-          }
-        },
         "ClientAffinity": {
           "target": "com.amazonaws.globalaccelerator#ClientAffinity",
           "traits": {
@@ -1839,6 +1833,12 @@
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>"
+          }
+        },
+        "PortRanges": {
+          "target": "com.amazonaws.globalaccelerator#PortRanges",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of port ranges for the connections from clients to the accelerator.</p>"
           }
         }
       },
@@ -2003,17 +2003,17 @@
     "com.amazonaws.globalaccelerator#Tag": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.globalaccelerator#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p>A string that contains a <code>Tag</code> value.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Key": {
           "target": "com.amazonaws.globalaccelerator#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>A string that contains a <code>Tag</code> key.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.globalaccelerator#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A string that contains a <code>Tag</code> value.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2231,12 +2231,6 @@
             "smithy.api#documentation": "<p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if\n\t\t\t\t<code>FlowLogsEnabled</code> is <code>true</code>. </p>\n\t\t       <p>If you don’t specify a prefix, the flow logs are stored in the\n\t\t\troot of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>\n\t\t\t      <p>s3-bucket_name//AWSLogs/aws_account_id</p>"
           }
         },
-        "FlowLogsEnabled": {
-          "target": "com.amazonaws.globalaccelerator#GenericBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Update whether flow logs are enabled. The default value is false. If the value is true,\n\t\t\t\t<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow Logs</a> in\n\t\t\tthe <i>AWS Global Accelerator Developer Guide</i>.</p>"
-          }
-        },
         "FlowLogsS3Bucket": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
@@ -2248,6 +2242,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the accelerator that you want to update.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "FlowLogsEnabled": {
+          "target": "com.amazonaws.globalaccelerator#GenericBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Update whether flow logs are enabled. The default value is false. If the value is true,\n\t\t\t\t<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow Logs</a> in\n\t\t\tthe <i>AWS Global Accelerator Developer Guide</i>.</p>"
           }
         }
       }
@@ -2266,11 +2266,10 @@
     "com.amazonaws.globalaccelerator#UpdateAcceleratorRequest": {
       "type": "structure",
       "members": {
-        "AcceleratorArn": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
+        "Enabled": {
+          "target": "com.amazonaws.globalaccelerator#GenericBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the accelerator to update.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>\n\t\t       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>"
           }
         },
         "Name": {
@@ -2279,10 +2278,11 @@
             "smithy.api#documentation": "<p>The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or\n\t\t\thyphens (-), and must not begin or end with a hyphen.</p>"
           }
         },
-        "Enabled": {
-          "target": "com.amazonaws.globalaccelerator#GenericBoolean",
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>\n\t\t       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the accelerator to update.</p>",
+            "smithy.api#required": {}
           }
         },
         "IpAddressType": {
@@ -2336,22 +2336,28 @@
     "com.amazonaws.globalaccelerator#UpdateEndpointGroupRequest": {
       "type": "structure",
       "members": {
+        "EndpointConfigurations": {
+          "target": "com.amazonaws.globalaccelerator#EndpointConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of endpoint objects.</p>"
+          }
+        },
         "HealthCheckIntervalSeconds": {
           "target": "com.amazonaws.globalaccelerator#HealthCheckIntervalSeconds",
           "traits": {
             "smithy.api#documentation": "<p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>"
           }
         },
-        "HealthCheckPath": {
-          "target": "com.amazonaws.globalaccelerator#GenericString",
+        "ThresholdCount": {
+          "target": "com.amazonaws.globalaccelerator#ThresholdCount",
           "traits": {
-            "smithy.api#documentation": "<p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The\n\t\t\tdefault value is slash (/).</p>"
+            "smithy.api#documentation": "<p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an\n\t\t\tunhealthy endpoint to healthy. The default value is 3.</p>"
           }
         },
-        "TrafficDialPercentage": {
-          "target": "com.amazonaws.globalaccelerator#TrafficDialPercentage",
+        "HealthCheckProtocol": {
+          "target": "com.amazonaws.globalaccelerator#HealthCheckProtocol",
           "traits": {
-            "smithy.api#documentation": "<p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for\n\t\t\tthis listener. </p>\n\t\t       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is\n\t\t\tapplied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>\n\t\t       <p>The default value is 100.</p>"
+            "smithy.api#documentation": "<p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default\n\t\t\tvalue is TCP.</p>"
           }
         },
         "EndpointGroupArn": {
@@ -2367,22 +2373,16 @@
             "smithy.api#documentation": "<p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port\n\t\t\tis the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses\n\t\t\tthe first port in the list.</p>"
           }
         },
-        "HealthCheckProtocol": {
-          "target": "com.amazonaws.globalaccelerator#HealthCheckProtocol",
+        "TrafficDialPercentage": {
+          "target": "com.amazonaws.globalaccelerator#TrafficDialPercentage",
           "traits": {
-            "smithy.api#documentation": "<p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default\n\t\t\tvalue is TCP.</p>"
+            "smithy.api#documentation": "<p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for\n\t\t\tthis listener. </p>\n\t\t       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is\n\t\t\tapplied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>\n\t\t       <p>The default value is 100.</p>"
           }
         },
-        "EndpointConfigurations": {
-          "target": "com.amazonaws.globalaccelerator#EndpointConfigurations",
+        "HealthCheckPath": {
+          "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>The list of endpoint objects.</p>"
-          }
-        },
-        "ThresholdCount": {
-          "target": "com.amazonaws.globalaccelerator#ThresholdCount",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an\n\t\t\tunhealthy endpoint to healthy. The default value is 3.</p>"
+            "smithy.api#documentation": "<p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The\n\t\t\tdefault value is slash (/).</p>"
           }
         }
       }
@@ -2430,10 +2430,10 @@
     "com.amazonaws.globalaccelerator#UpdateListenerRequest": {
       "type": "structure",
       "members": {
-        "PortRanges": {
-          "target": "com.amazonaws.globalaccelerator#PortRanges",
+        "ClientAffinity": {
+          "target": "com.amazonaws.globalaccelerator#ClientAffinity",
           "traits": {
-            "smithy.api#documentation": "<p>The updated list of port ranges for the connections from clients to the accelerator.</p>"
+            "smithy.api#documentation": "<p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,\n\t\t\tregardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always\n\t\t\troute each client to the same specific endpoint.</p>\n\t\t       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client\n\t\t\taffinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port,\n\t\t\tdestination IP address, destination port, and protocol—to select the hash value, and then chooses the best\n\t\t\tendpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not\n\t\t\tbe always routed to the same endpoint because the hash value changes. </p>\n\t\t       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>\n\t\t\tinstead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties—\n\t\t\tsource (client) IP address and destination IP address—to select the hash value.</p>\n\t\t       <p>The default value is <code>NONE</code>.</p>"
           }
         },
         "Protocol": {
@@ -2442,17 +2442,17 @@
             "smithy.api#documentation": "<p>The updated protocol for the connections from clients to the accelerator.</p>"
           }
         },
-        "ClientAffinity": {
-          "target": "com.amazonaws.globalaccelerator#ClientAffinity",
-          "traits": {
-            "smithy.api#documentation": "<p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,\n\t\t\tregardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always\n\t\t\troute each client to the same specific endpoint.</p>\n\t\t       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client\n\t\t\taffinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port,\n\t\t\tdestination IP address, destination port, and protocol—to select the hash value, and then chooses the best\n\t\t\tendpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not\n\t\t\tbe always routed to the same endpoint because the hash value changes. </p>\n\t\t       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>\n\t\t\tinstead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties—\n\t\t\tsource (client) IP address and destination IP address—to select the hash value.</p>\n\t\t       <p>The default value is <code>NONE</code>.</p>"
-          }
-        },
         "ListenerArn": {
           "target": "com.amazonaws.globalaccelerator#GenericString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener to update.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "PortRanges": {
+          "target": "com.amazonaws.globalaccelerator#PortRanges",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated list of port ranges for the connections from clients to the accelerator.</p>"
           }
         }
       }

@@ -56,46 +56,16 @@
             "smithy.api#documentation": "<p>A Boolean data type.</p>"
           }
         },
-        "L": {
-          "target": "com.amazonaws.dynamodbstreams#ListAttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>A List data type.</p>"
-          }
-        },
         "M": {
           "target": "com.amazonaws.dynamodbstreams#MapAttributeValue",
           "traits": {
             "smithy.api#documentation": "<p>A Map data type.</p>"
           }
         },
-        "N": {
-          "target": "com.amazonaws.dynamodbstreams#NumberAttributeValue",
+        "L": {
+          "target": "com.amazonaws.dynamodbstreams#ListAttributeValue",
           "traits": {
-            "smithy.api#documentation": "<p>A Number data type.</p>"
-          }
-        },
-        "SS": {
-          "target": "com.amazonaws.dynamodbstreams#StringSetAttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>A String Set data type.</p>"
-          }
-        },
-        "BS": {
-          "target": "com.amazonaws.dynamodbstreams#BinarySetAttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>A Binary Set data type.</p>"
-          }
-        },
-        "B": {
-          "target": "com.amazonaws.dynamodbstreams#BinaryAttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>A Binary data type.</p>"
-          }
-        },
-        "NULL": {
-          "target": "com.amazonaws.dynamodbstreams#NullAttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>A Null data type.</p>"
+            "smithy.api#documentation": "<p>A List data type.</p>"
           }
         },
         "S": {
@@ -104,10 +74,40 @@
             "smithy.api#documentation": "<p>A String data type.</p>"
           }
         },
+        "B": {
+          "target": "com.amazonaws.dynamodbstreams#BinaryAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A Binary data type.</p>"
+          }
+        },
         "NS": {
           "target": "com.amazonaws.dynamodbstreams#NumberSetAttributeValue",
           "traits": {
             "smithy.api#documentation": "<p>A Number Set data type.</p>"
+          }
+        },
+        "NULL": {
+          "target": "com.amazonaws.dynamodbstreams#NullAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A Null data type.</p>"
+          }
+        },
+        "N": {
+          "target": "com.amazonaws.dynamodbstreams#NumberAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A Number data type.</p>"
+          }
+        },
+        "BS": {
+          "target": "com.amazonaws.dynamodbstreams#BinarySetAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A Binary Set data type.</p>"
+          }
+        },
+        "SS": {
+          "target": "com.amazonaws.dynamodbstreams#StringSetAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A String Set data type.</p>"
           }
         }
       },
@@ -156,10 +156,11 @@
     "com.amazonaws.dynamodbstreams#DescribeStreamInput": {
       "type": "structure",
       "members": {
-        "ExclusiveStartShardId": {
-          "target": "com.amazonaws.dynamodbstreams#ShardId",
+        "StreamArn": {
+          "target": "com.amazonaws.dynamodbstreams#StreamArn",
           "traits": {
-            "smithy.api#documentation": "<p>The shard ID of the first item that this operation will evaluate. Use the value that was\n      returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the stream.</p>",
+            "smithy.api#required": {}
           }
         },
         "Limit": {
@@ -168,11 +169,10 @@
             "smithy.api#documentation": "<p>The maximum number of shard objects to return. The upper limit is 100.</p>"
           }
         },
-        "StreamArn": {
-          "target": "com.amazonaws.dynamodbstreams#StreamArn",
+        "ExclusiveStartShardId": {
+          "target": "com.amazonaws.dynamodbstreams#ShardId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the stream.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The shard ID of the first item that this operation will evaluate. Use the value that was\n      returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>"
           }
         }
       },
@@ -279,17 +279,17 @@
     "com.amazonaws.dynamodbstreams#GetRecordsInput": {
       "type": "structure",
       "members": {
+        "Limit": {
+          "target": "com.amazonaws.dynamodbstreams#PositiveIntegerObject",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of records to return from the shard. The upper limit is 1000.</p>"
+          }
+        },
         "ShardIterator": {
           "target": "com.amazonaws.dynamodbstreams#ShardIterator",
           "traits": {
             "smithy.api#documentation": "<p>A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Limit": {
-          "target": "com.amazonaws.dynamodbstreams#PositiveIntegerObject",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of records to return from the shard. The upper limit is 1000.</p>"
           }
         }
       },
@@ -300,16 +300,16 @@
     "com.amazonaws.dynamodbstreams#GetRecordsOutput": {
       "type": "structure",
       "members": {
-        "Records": {
-          "target": "com.amazonaws.dynamodbstreams#RecordList",
-          "traits": {
-            "smithy.api#documentation": "<p>The stream records from the shard, which were retrieved using the shard iterator.</p>"
-          }
-        },
         "NextShardIterator": {
           "target": "com.amazonaws.dynamodbstreams#ShardIterator",
           "traits": {
             "smithy.api#documentation": "<p>The next position in the shard from which to start sequentially reading stream records. If\n      set to <code>null</code>, the shard has been closed and the requested iterator will not return\n      any more data.</p>"
+          }
+        },
+        "Records": {
+          "target": "com.amazonaws.dynamodbstreams#RecordList",
+          "traits": {
+            "smithy.api#documentation": "<p>The stream records from the shard, which were retrieved using the shard iterator.</p>"
           }
         }
       },
@@ -356,17 +356,17 @@
             "smithy.api#documentation": "<p>The sequence number of a stream record in the shard from which to start reading.</p>"
           }
         },
-        "ShardIteratorType": {
-          "target": "com.amazonaws.dynamodbstreams#ShardIteratorType",
-          "traits": {
-            "smithy.api#documentation": "<p>Determines how the shard iterator is used to start reading stream records from the shard:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AT_SEQUENCE_NUMBER</code> - Start reading exactly from the position denoted by a\n          specific sequence number.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AFTER_SEQUENCE_NUMBER</code> - Start reading right after the position denoted by a\n          specific sequence number.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TRIM_HORIZON</code> - Start reading at the last (untrimmed) stream record, which is\n          the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention.\n          Stream records whose age exceeds this limit are subject to removal (trimming) from the\n          stream.</p>\n            </li>\n            <li>\n               <p>\n                  <code>LATEST</code> - Start reading just after the most recent stream record in the\n          shard, so that you always read the most recent data in the shard.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "ShardId": {
           "target": "com.amazonaws.dynamodbstreams#ShardId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the shard. The iterator will be returned for this shard ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ShardIteratorType": {
+          "target": "com.amazonaws.dynamodbstreams#ShardIteratorType",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines how the shard iterator is used to start reading stream records from the shard:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AT_SEQUENCE_NUMBER</code> - Start reading exactly from the position denoted by a\n          specific sequence number.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AFTER_SEQUENCE_NUMBER</code> - Start reading right after the position denoted by a\n          specific sequence number.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TRIM_HORIZON</code> - Start reading at the last (untrimmed) stream record, which is\n          the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention.\n          Stream records whose age exceeds this limit are subject to removal (trimming) from the\n          stream.</p>\n            </li>\n            <li>\n               <p>\n                  <code>LATEST</code> - Start reading just after the most recent stream record in the\n          shard, so that you always read the most recent data in the shard.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -448,17 +448,17 @@
     "com.amazonaws.dynamodbstreams#KeySchemaElement": {
       "type": "structure",
       "members": {
-        "AttributeName": {
-          "target": "com.amazonaws.dynamodbstreams#KeySchemaAttributeName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of a key attribute.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "KeyType": {
           "target": "com.amazonaws.dynamodbstreams#KeyType",
           "traits": {
             "smithy.api#documentation": "<p>The attribute data, consisting of the data type and the attribute value itself.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttributeName": {
+          "target": "com.amazonaws.dynamodbstreams#KeySchemaAttributeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of a key attribute.</p>",
             "smithy.api#required": {}
           }
         }
@@ -524,12 +524,6 @@
     "com.amazonaws.dynamodbstreams#ListStreamsInput": {
       "type": "structure",
       "members": {
-        "TableName": {
-          "target": "com.amazonaws.dynamodbstreams#TableName",
-          "traits": {
-            "smithy.api#documentation": "<p>If this parameter is provided, then only the streams associated with this table name are returned.</p>"
-          }
-        },
         "Limit": {
           "target": "com.amazonaws.dynamodbstreams#PositiveIntegerObject",
           "traits": {
@@ -540,6 +534,12 @@
           "target": "com.amazonaws.dynamodbstreams#StreamArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the\n      value that was returned for <code>LastEvaluatedStreamArn</code> in the previous operation.\n    </p>"
+          }
+        },
+        "TableName": {
+          "target": "com.amazonaws.dynamodbstreams#TableName",
+          "traits": {
+            "smithy.api#documentation": "<p>If this parameter is provided, then only the streams associated with this table name are returned.</p>"
           }
         }
       },
@@ -634,28 +634,10 @@
             "smithy.api#documentation": "<p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>"
           }
         },
-        "eventID": {
+        "awsRegion": {
           "target": "com.amazonaws.dynamodbstreams#String",
           "traits": {
-            "smithy.api#documentation": "<p>A globally unique identifier for the event that was recorded in this stream record.</p>"
-          }
-        },
-        "userIdentity": {
-          "target": "com.amazonaws.dynamodbstreams#Identity",
-          "traits": {
-            "smithy.api#documentation": "<p>Items that are deleted by the Time to Live process after expiration have the following fields: </p>\n         <ul>\n            <li>\n               <p>Records[].userIdentity.type</p>\n               <p>\"Service\"</p>\n            </li>\n            <li>\n               <p>Records[].userIdentity.principalId</p>\n               <p>\"dynamodb.amazonaws.com\"</p>\n            </li>\n         </ul>"
-          }
-        },
-        "eventSource": {
-          "target": "com.amazonaws.dynamodbstreams#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS service from which the stream record originated.  For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>"
-          }
-        },
-        "eventVersion": {
-          "target": "com.amazonaws.dynamodbstreams#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>\n         <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular\n      value, as this number is subject to change at any time. In general, <code>eventVersion</code> will\n      only increase as the low-level DynamoDB Streams API evolves.</p>"
+            "smithy.api#documentation": "<p>The region in which the <code>GetRecords</code> request was received.</p>"
           }
         },
         "eventName": {
@@ -664,10 +646,28 @@
             "smithy.api#documentation": "<p>The type of data modification that was performed on the DynamoDB table:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>INSERT</code> - a new item was added to the table.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MODIFY</code> - one or more of an existing item's attributes were modified.</p>\n            </li>\n            <li>\n               <p>\n                  <code>REMOVE</code> - the item was deleted from the table</p>\n            </li>\n         </ul>"
           }
         },
-        "awsRegion": {
+        "eventSource": {
           "target": "com.amazonaws.dynamodbstreams#String",
           "traits": {
-            "smithy.api#documentation": "<p>The region in which the <code>GetRecords</code> request was received.</p>"
+            "smithy.api#documentation": "<p>The AWS service from which the stream record originated.  For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>"
+          }
+        },
+        "userIdentity": {
+          "target": "com.amazonaws.dynamodbstreams#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>Items that are deleted by the Time to Live process after expiration have the following fields: </p>\n         <ul>\n            <li>\n               <p>Records[].userIdentity.type</p>\n               <p>\"Service\"</p>\n            </li>\n            <li>\n               <p>Records[].userIdentity.principalId</p>\n               <p>\"dynamodb.amazonaws.com\"</p>\n            </li>\n         </ul>"
+          }
+        },
+        "eventVersion": {
+          "target": "com.amazonaws.dynamodbstreams#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>\n         <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular\n      value, as this number is subject to change at any time. In general, <code>eventVersion</code> will\n      only increase as the low-level DynamoDB Streams API evolves.</p>"
+          }
+        },
+        "eventID": {
+          "target": "com.amazonaws.dynamodbstreams#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A globally unique identifier for the event that was recorded in this stream record.</p>"
           }
         }
       },
@@ -708,16 +708,16 @@
     "com.amazonaws.dynamodbstreams#SequenceNumberRange": {
       "type": "structure",
       "members": {
-        "StartingSequenceNumber": {
-          "target": "com.amazonaws.dynamodbstreams#SequenceNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The first sequence number.</p>"
-          }
-        },
         "EndingSequenceNumber": {
           "target": "com.amazonaws.dynamodbstreams#SequenceNumber",
           "traits": {
             "smithy.api#documentation": "<p>The last sequence number.</p>"
+          }
+        },
+        "StartingSequenceNumber": {
+          "target": "com.amazonaws.dynamodbstreams#SequenceNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The first sequence number.</p>"
           }
         }
       },
@@ -728,10 +728,10 @@
     "com.amazonaws.dynamodbstreams#Shard": {
       "type": "structure",
       "members": {
-        "SequenceNumberRange": {
-          "target": "com.amazonaws.dynamodbstreams#SequenceNumberRange",
+        "ParentShardId": {
+          "target": "com.amazonaws.dynamodbstreams#ShardId",
           "traits": {
-            "smithy.api#documentation": "<p>The range of possible sequence numbers for the shard.</p>"
+            "smithy.api#documentation": "<p>The shard ID of the current shard's parent.</p>"
           }
         },
         "ShardId": {
@@ -740,10 +740,10 @@
             "smithy.api#documentation": "<p>The system-generated identifier for this shard.</p>"
           }
         },
-        "ParentShardId": {
-          "target": "com.amazonaws.dynamodbstreams#ShardId",
+        "SequenceNumberRange": {
+          "target": "com.amazonaws.dynamodbstreams#SequenceNumberRange",
           "traits": {
-            "smithy.api#documentation": "<p>The shard ID of the current shard's parent.</p>"
+            "smithy.api#documentation": "<p>The range of possible sequence numbers for the shard.</p>"
           }
         }
       },
@@ -832,40 +832,16 @@
     "com.amazonaws.dynamodbstreams#StreamDescription": {
       "type": "structure",
       "members": {
-        "KeySchema": {
-          "target": "com.amazonaws.dynamodbstreams#KeySchema",
-          "traits": {
-            "smithy.api#documentation": "<p>The key attribute(s) of the stream's DynamoDB table.</p>"
-          }
-        },
         "LastEvaluatedShardId": {
           "target": "com.amazonaws.dynamodbstreams#ShardId",
           "traits": {
             "smithy.api#documentation": "<p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>\n         <p>If <code>LastEvaluatedShardId</code> is empty, then the \"last page\" of results has been\n      processed and there is currently no more data to be retrieved.</p>\n         <p>If <code>LastEvaluatedShardId</code> is not empty, it does not necessarily mean that there is\n      more data in the result set. The only way to know when you have reached the end of the result\n      set is when <code>LastEvaluatedShardId</code> is empty.</p>"
           }
         },
-        "TableName": {
-          "target": "com.amazonaws.dynamodbstreams#TableName",
+        "KeySchema": {
+          "target": "com.amazonaws.dynamodbstreams#KeySchema",
           "traits": {
-            "smithy.api#documentation": "<p>The DynamoDB table with which the stream is associated.</p>"
-          }
-        },
-        "Shards": {
-          "target": "com.amazonaws.dynamodbstreams#ShardDescriptionList",
-          "traits": {
-            "smithy.api#documentation": "<p>The shards that comprise the stream.</p>"
-          }
-        },
-        "StreamArn": {
-          "target": "com.amazonaws.dynamodbstreams#StreamArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the stream.</p>"
-          }
-        },
-        "CreationRequestDateTime": {
-          "target": "com.amazonaws.dynamodbstreams#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time when the request to create this stream was issued.</p>"
+            "smithy.api#documentation": "<p>The key attribute(s) of the stream's DynamoDB table.</p>"
           }
         },
         "StreamViewType": {
@@ -874,16 +850,40 @@
             "smithy.api#documentation": "<p>Indicates the format of the records within this stream:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>KEYS_ONLY</code> - only the key attributes of items that were modified in the DynamoDB table.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NEW_IMAGE</code> - entire items from the table, as they appeared after they were modified.</p>\n            </li>\n            <li>\n               <p>\n                  <code>OLD_IMAGE</code> - entire items from the table, as they appeared before they were modified.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NEW_AND_OLD_IMAGES</code> - both the new and the old images of the items from the table.</p>\n            </li>\n         </ul>"
           }
         },
-        "StreamStatus": {
-          "target": "com.amazonaws.dynamodbstreams#StreamStatus",
+        "StreamArn": {
+          "target": "com.amazonaws.dynamodbstreams#StreamArn",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the current status of the stream:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLING</code> - Streams is currently being enabled on the DynamoDB table.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ENABLED</code> - the stream is enabled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLING</code> - Streams is currently being disabled on the DynamoDB table.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code> - the stream is disabled.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the stream.</p>"
+          }
+        },
+        "Shards": {
+          "target": "com.amazonaws.dynamodbstreams#ShardDescriptionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The shards that comprise the stream.</p>"
           }
         },
         "StreamLabel": {
           "target": "com.amazonaws.dynamodbstreams#String",
           "traits": {
             "smithy.api#documentation": "<p>A timestamp, in ISO 8601 format, for this stream.</p>\n         <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is\n      possible that a stream from another table might have the same timestamp. However, the\n      combination of the following three elements is guaranteed to be unique:</p>\n         <ul>\n            <li>\n               <p>the AWS customer ID.</p>\n            </li>\n            <li>\n               <p>the table name</p>\n            </li>\n            <li>\n               <p>the <code>StreamLabel</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "CreationRequestDateTime": {
+          "target": "com.amazonaws.dynamodbstreams#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the request to create this stream was issued.</p>"
+          }
+        },
+        "StreamStatus": {
+          "target": "com.amazonaws.dynamodbstreams#StreamStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the current status of the stream:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLING</code> - Streams is currently being enabled on the DynamoDB table.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ENABLED</code> - the stream is enabled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLING</code> - Streams is currently being disabled on the DynamoDB table.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code> - the stream is disabled.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "TableName": {
+          "target": "com.amazonaws.dynamodbstreams#TableName",
+          "traits": {
+            "smithy.api#documentation": "<p>The DynamoDB table with which the stream is associated.</p>"
           }
         }
       },
@@ -900,16 +900,10 @@
     "com.amazonaws.dynamodbstreams#StreamRecord": {
       "type": "structure",
       "members": {
-        "ApproximateCreationDateTime": {
-          "target": "com.amazonaws.dynamodbstreams#Date",
+        "SequenceNumber": {
+          "target": "com.amazonaws.dynamodbstreams#SequenceNumber",
           "traits": {
-            "smithy.api#documentation": "<p>The approximate date and time when the stream record was created, in <a href=\"http://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"
-          }
-        },
-        "SizeBytes": {
-          "target": "com.amazonaws.dynamodbstreams#PositiveLongObject",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the stream record, in bytes.</p>"
+            "smithy.api#documentation": "<p>The sequence number of the stream record.</p>"
           }
         },
         "StreamViewType": {
@@ -918,10 +912,16 @@
             "smithy.api#documentation": "<p>The type of data from the modified DynamoDB item that was captured in this stream record:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>KEYS_ONLY</code> - only the key attributes of the modified item.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NEW_IMAGE</code> - the entire item, as it appeared after it was modified.</p>\n            </li>\n            <li>\n               <p>\n                  <code>OLD_IMAGE</code> - the entire item, as it appeared before it was modified.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NEW_AND_OLD_IMAGES</code> - both the new and the old item images of the item.</p>\n            </li>\n         </ul>"
           }
         },
-        "NewImage": {
+        "OldImage": {
           "target": "com.amazonaws.dynamodbstreams#AttributeMap",
           "traits": {
-            "smithy.api#documentation": "<p>The item in the DynamoDB table as it appeared after it was modified.</p>"
+            "smithy.api#documentation": "<p>The item in the DynamoDB table as it appeared before it was modified.</p>"
+          }
+        },
+        "ApproximateCreationDateTime": {
+          "target": "com.amazonaws.dynamodbstreams#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The approximate date and time when the stream record was created, in <a href=\"http://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"
           }
         },
         "Keys": {
@@ -930,16 +930,16 @@
             "smithy.api#documentation": "<p>The primary key attribute(s) for the DynamoDB item that was modified.</p>"
           }
         },
-        "OldImage": {
-          "target": "com.amazonaws.dynamodbstreams#AttributeMap",
+        "SizeBytes": {
+          "target": "com.amazonaws.dynamodbstreams#PositiveLongObject",
           "traits": {
-            "smithy.api#documentation": "<p>The item in the DynamoDB table as it appeared before it was modified.</p>"
+            "smithy.api#documentation": "<p>The size of the stream record, in bytes.</p>"
           }
         },
-        "SequenceNumber": {
-          "target": "com.amazonaws.dynamodbstreams#SequenceNumber",
+        "NewImage": {
+          "target": "com.amazonaws.dynamodbstreams#AttributeMap",
           "traits": {
-            "smithy.api#documentation": "<p>The sequence number of the stream record.</p>"
+            "smithy.api#documentation": "<p>The item in the DynamoDB table as it appeared after it was modified.</p>"
           }
         }
       },

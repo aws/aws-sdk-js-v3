@@ -112,17 +112,17 @@
     "com.amazonaws.elasticsearchservice#AccessPoliciesStatus": {
       "type": "structure",
       "members": {
-        "Options": {
-          "target": "com.amazonaws.elasticsearchservice#PolicyDocument",
-          "traits": {
-            "smithy.api#documentation": "<p>The access policy configured for the Elasticsearch domain.  Access policies may be resource-based, IP-based, or IAM-based.  See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies\" target=\"_blank\">\n           Configuring Access Policies</a>for more information.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Status": {
           "target": "com.amazonaws.elasticsearchservice#OptionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the access policy for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Options": {
+          "target": "com.amazonaws.elasticsearchservice#PolicyDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The access policy configured for the Elasticsearch domain.  Access policies may be resource-based, IP-based, or IAM-based.  See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies\" target=\"_blank\">\n           Configuring Access Policies</a>for more information.</p>",
             "smithy.api#required": {}
           }
         }
@@ -162,17 +162,17 @@
     "com.amazonaws.elasticsearchservice#AddTagsRequest": {
       "type": "structure",
       "members": {
-        "TagList": {
-          "target": "com.amazonaws.elasticsearchservice#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "ARN": {
           "target": "com.amazonaws.elasticsearchservice#ARN",
           "traits": {
             "smithy.api#documentation": "<p> Specify the <code>ARN</code> for which you want to add the tags.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagList": {
+          "target": "com.amazonaws.elasticsearchservice#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>",
             "smithy.api#required": {}
           }
         }
@@ -184,16 +184,16 @@
     "com.amazonaws.elasticsearchservice#AdditionalLimit": {
       "type": "structure",
       "members": {
-        "LimitValues": {
-          "target": "com.amazonaws.elasticsearchservice#LimitValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n    Value for given\n    <code>\n      <a>AdditionalLimit$LimitName</a>\n    </code>\n    .\n  </p>"
-          }
-        },
         "LimitName": {
           "target": "com.amazonaws.elasticsearchservice#LimitName",
           "traits": {
             "smithy.api#documentation": "<p>\n      Name of Additional Limit is specific to a given InstanceType and for each of it's\n      <code>\n        <a>InstanceRole</a>\n      </code>\n      etc.\n      <br></br>\n      Attributes and their details:\n      <br></br>\n      <ul>\n        <li>MaximumNumberOfDataNodesSupported</li>\n        This attribute will be present in Master node only to specify how\n        much data nodes upto which given\n        <code>\n          <a>ESPartitionInstanceType</a>\n        </code>\n        can support as master node.\n        <li>MaximumNumberOfDataNodesWithoutMasterNode</li>\n        This attribute will be present in Data node only to specify how much\n        data nodes of given\n        <code>\n          <a>ESPartitionInstanceType</a>\n        </code>\n        upto which you don't need any master nodes to govern them.\n      </ul>\n    </p>"
+          }
+        },
+        "LimitValues": {
+          "target": "com.amazonaws.elasticsearchservice#LimitValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n    Value for given\n    <code>\n      <a>AdditionalLimit$LimitName</a>\n    </code>\n    .\n  </p>"
           }
         }
       },
@@ -222,17 +222,17 @@
     "com.amazonaws.elasticsearchservice#AdvancedOptionsStatus": {
       "type": "structure",
       "members": {
-        "Options": {
-          "target": "com.amazonaws.elasticsearchservice#AdvancedOptions",
-          "traits": {
-            "smithy.api#documentation": "<p> Specifies the status of advanced options for the specified Elasticsearch domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Status": {
           "target": "com.amazonaws.elasticsearchservice#OptionStatus",
           "traits": {
             "smithy.api#documentation": "<p> Specifies the status of <code>OptionStatus</code> for advanced options for the specified Elasticsearch domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Options": {
+          "target": "com.amazonaws.elasticsearchservice#AdvancedOptions",
+          "traits": {
+            "smithy.api#documentation": "<p> Specifies the status of advanced options for the specified Elasticsearch domain.</p>",
             "smithy.api#required": {}
           }
         }
@@ -244,16 +244,16 @@
     "com.amazonaws.elasticsearchservice#AdvancedSecurityOptions": {
       "type": "structure",
       "members": {
-        "InternalUserDatabaseEnabled": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>True if the internal user database is enabled.</p>"
-          }
-        },
         "Enabled": {
           "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>True if advanced security is enabled.</p>"
+          }
+        },
+        "InternalUserDatabaseEnabled": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>True if the internal user database is enabled.</p>"
           }
         }
       },
@@ -264,10 +264,10 @@
     "com.amazonaws.elasticsearchservice#AdvancedSecurityOptionsInput": {
       "type": "structure",
       "members": {
-        "Enabled": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
+        "MasterUserOptions": {
+          "target": "com.amazonaws.elasticsearchservice#MasterUserOptions",
           "traits": {
-            "smithy.api#documentation": "<p>True if advanced security is enabled.</p>"
+            "smithy.api#documentation": "<p>Credentials for the master user: username and password, ARN, or both.</p>"
           }
         },
         "InternalUserDatabaseEnabled": {
@@ -276,10 +276,10 @@
             "smithy.api#documentation": "<p>True if the internal user database is enabled.</p>"
           }
         },
-        "MasterUserOptions": {
-          "target": "com.amazonaws.elasticsearchservice#MasterUserOptions",
+        "Enabled": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Credentials for the master user: username and password, ARN, or both.</p>"
+            "smithy.api#documentation": "<p>True if advanced security is enabled.</p>"
           }
         }
       },
@@ -483,18 +483,18 @@
     "com.amazonaws.elasticsearchservice#AssociatePackageRequest": {
       "type": "structure",
       "members": {
-        "PackageID": {
-          "target": "com.amazonaws.elasticsearchservice#PackageID",
-          "traits": {
-            "smithy.api#documentation": "<p>Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "DomainName": {
           "target": "com.amazonaws.elasticsearchservice#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the domain that you want to associate the package with.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "PackageID": {
+          "target": "com.amazonaws.elasticsearchservice#PackageID",
+          "traits": {
+            "smithy.api#documentation": "<p>Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -614,6 +614,12 @@
             "smithy.api#documentation": "<p>Specifies the Cognito identity pool ID for Kibana authentication.</p>"
           }
         },
+        "Enabled": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the option to enable Cognito for Kibana authentication.</p>"
+          }
+        },
         "RoleArn": {
           "target": "com.amazonaws.elasticsearchservice#RoleArn",
           "traits": {
@@ -625,12 +631,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the Cognito user pool ID for Kibana authentication.</p>"
           }
-        },
-        "Enabled": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the option to enable Cognito for Kibana authentication.</p>"
-          }
         }
       },
       "traits": {
@@ -640,17 +640,17 @@
     "com.amazonaws.elasticsearchservice#CognitoOptionsStatus": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the status of the Cognito options for the specified Elasticsearch domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Options": {
           "target": "com.amazonaws.elasticsearchservice#CognitoOptions",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the Cognito options for the specified Elasticsearch domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the status of the Cognito options for the specified Elasticsearch domain.</p>",
             "smithy.api#required": {}
           }
         }
@@ -750,22 +750,10 @@
     "com.amazonaws.elasticsearchservice#CreateElasticsearchDomainRequest": {
       "type": "structure",
       "members": {
-        "VPCOptions": {
-          "target": "com.amazonaws.elasticsearchservice#VPCOptions",
+        "AccessPolicies": {
+          "target": "com.amazonaws.elasticsearchservice#PolicyDocument",
           "traits": {
-            "smithy.api#documentation": "<p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc\" target=\"_blank\">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>"
-          }
-        },
-        "EBSOptions": {
-          "target": "com.amazonaws.elasticsearchservice#EBSOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Options to enable, disable and specify the type and size of EBS storage volumes. </p>"
-          }
-        },
-        "CognitoOptions": {
-          "target": "com.amazonaws.elasticsearchservice#CognitoOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"
+            "smithy.api#documentation": "<p> IAM access policy as a JSON-formatted string.</p>"
           }
         },
         "DomainEndpointOptions": {
@@ -774,40 +762,16 @@
             "smithy.api#documentation": "<p>Options to specify configuration that will be applied to the domain endpoint.</p>"
           }
         },
-        "AdvancedSecurityOptions": {
-          "target": "com.amazonaws.elasticsearchservice#AdvancedSecurityOptionsInput",
+        "EBSOptions": {
+          "target": "com.amazonaws.elasticsearchservice#EBSOptions",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies advanced security options.</p>"
+            "smithy.api#documentation": "<p>Options to enable, disable and specify the type and size of EBS storage volumes. </p>"
           }
         },
-        "AdvancedOptions": {
-          "target": "com.amazonaws.elasticsearchservice#AdvancedOptions",
+        "ElasticsearchVersion": {
+          "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionString",
           "traits": {
-            "smithy.api#documentation": "<p> Option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.\n          See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuration Advanced Options</a> for more information.</p>"
-          }
-        },
-        "SnapshotOptions": {
-          "target": "com.amazonaws.elasticsearchservice#SnapshotOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours. </p>"
-          }
-        },
-        "AccessPolicies": {
-          "target": "com.amazonaws.elasticsearchservice#PolicyDocument",
-          "traits": {
-            "smithy.api#documentation": "<p> IAM access policy as a JSON-formatted string.</p>"
-          }
-        },
-        "LogPublishingOptions": {
-          "target": "com.amazonaws.elasticsearchservice#LogPublishingOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>"
-          }
-        },
-        "NodeToNodeEncryptionOptions": {
-          "target": "com.amazonaws.elasticsearchservice#NodeToNodeEncryptionOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the NodeToNodeEncryptionOptions.</p>"
+            "smithy.api#documentation": "<p>String of format X.Y to specify version for the Elasticsearch domain eg. \"1.5\" or \"2.3\". For more information,\n          see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains\" target=\"_blank\">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>"
           }
         },
         "ElasticsearchClusterConfig": {
@@ -816,10 +780,34 @@
             "smithy.api#documentation": "<p>Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster. </p>"
           }
         },
-        "ElasticsearchVersion": {
-          "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionString",
+        "SnapshotOptions": {
+          "target": "com.amazonaws.elasticsearchservice#SnapshotOptions",
           "traits": {
-            "smithy.api#documentation": "<p>String of format X.Y to specify version for the Elasticsearch domain eg. \"1.5\" or \"2.3\". For more information,\n          see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains\" target=\"_blank\">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours. </p>"
+          }
+        },
+        "AdvancedSecurityOptions": {
+          "target": "com.amazonaws.elasticsearchservice#AdvancedSecurityOptionsInput",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies advanced security options.</p>"
+          }
+        },
+        "LogPublishingOptions": {
+          "target": "com.amazonaws.elasticsearchservice#LogPublishingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>"
+          }
+        },
+        "EncryptionAtRestOptions": {
+          "target": "com.amazonaws.elasticsearchservice#EncryptionAtRestOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the Encryption At Rest Options.</p>"
+          }
+        },
+        "CognitoOptions": {
+          "target": "com.amazonaws.elasticsearchservice#CognitoOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"
           }
         },
         "DomainName": {
@@ -829,10 +817,22 @@
             "smithy.api#required": {}
           }
         },
-        "EncryptionAtRestOptions": {
-          "target": "com.amazonaws.elasticsearchservice#EncryptionAtRestOptions",
+        "AdvancedOptions": {
+          "target": "com.amazonaws.elasticsearchservice#AdvancedOptions",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the Encryption At Rest Options.</p>"
+            "smithy.api#documentation": "<p> Option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.\n          See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuration Advanced Options</a> for more information.</p>"
+          }
+        },
+        "NodeToNodeEncryptionOptions": {
+          "target": "com.amazonaws.elasticsearchservice#NodeToNodeEncryptionOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the NodeToNodeEncryptionOptions.</p>"
+          }
+        },
+        "VPCOptions": {
+          "target": "com.amazonaws.elasticsearchservice#VPCOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc\" target=\"_blank\">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>"
           }
         }
       }
@@ -914,16 +914,22 @@
     "com.amazonaws.elasticsearchservice#CreateOutboundCrossClusterSearchConnectionResponse": {
       "type": "structure",
       "members": {
+        "SourceDomainInfo": {
+          "target": "com.amazonaws.elasticsearchservice#DomainInformation",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>"
+          }
+        },
         "DestinationDomainInfo": {
           "target": "com.amazonaws.elasticsearchservice#DomainInformation",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the <code><a>DomainInformation</a></code> for the destination Elasticsearch domain.</p>"
           }
         },
-        "SourceDomainInfo": {
-          "target": "com.amazonaws.elasticsearchservice#DomainInformation",
+        "ConnectionStatus": {
+          "target": "com.amazonaws.elasticsearchservice#OutboundCrossClusterSearchConnectionStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>"
+            "smithy.api#documentation": "<p>Specifies the <code><a>OutboundCrossClusterSearchConnectionStatus</a></code> for the newly created connection.</p>"
           }
         },
         "CrossClusterSearchConnectionId": {
@@ -936,12 +942,6 @@
           "target": "com.amazonaws.elasticsearchservice#ConnectionAlias",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the connection alias provided during the create connection request.</p>"
-          }
-        },
-        "ConnectionStatus": {
-          "target": "com.amazonaws.elasticsearchservice#OutboundCrossClusterSearchConnectionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code><a>OutboundCrossClusterSearchConnectionStatus</a></code> for the newly created connection.</p>"
           }
         }
       },
@@ -992,10 +992,10 @@
     "com.amazonaws.elasticsearchservice#CreatePackageRequest": {
       "type": "structure",
       "members": {
-        "PackageName": {
-          "target": "com.amazonaws.elasticsearchservice#PackageName",
+        "PackageSource": {
+          "target": "com.amazonaws.elasticsearchservice#PackageSource",
           "traits": {
-            "smithy.api#documentation": "<p>Unique identifier for the package.</p>",
+            "smithy.api#documentation": "<p>The customer S3 location <code>PackageSource</code> for importing the package.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1005,10 +1005,10 @@
             "smithy.api#documentation": "<p>Description of the package.</p>"
           }
         },
-        "PackageSource": {
-          "target": "com.amazonaws.elasticsearchservice#PackageSource",
+        "PackageName": {
+          "target": "com.amazonaws.elasticsearchservice#PackageName",
           "traits": {
-            "smithy.api#documentation": "<p>The customer S3 location <code>PackageSource</code> for importing the package.</p>",
+            "smithy.api#documentation": "<p>Unique identifier for the package.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1554,11 +1554,12 @@
     "com.amazonaws.elasticsearchservice#DescribeElasticsearchInstanceTypeLimitsRequest": {
       "type": "structure",
       "members": {
-        "DomainName": {
-          "target": "com.amazonaws.elasticsearchservice#DomainName",
+        "InstanceType": {
+          "target": "com.amazonaws.elasticsearchservice#ESPartitionInstanceType",
           "traits": {
-            "smithy.api#documentation": "<p>\n      DomainName represents the name of the Domain that we are trying to\n      modify. This should be present only if we are\n      querying for Elasticsearch\n      <code>\n        <a>Limits</a>\n      </code>\n      for existing domain.\n    </p>",
-            "smithy.api#httpQuery": "domainName"
+            "smithy.api#documentation": "<p>\n      The instance type for an Elasticsearch cluster for which Elasticsearch\n      <code>\n        <a>Limits</a>\n      </code>\n      are needed.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ElasticsearchVersion": {
@@ -1569,12 +1570,11 @@
             "smithy.api#required": {}
           }
         },
-        "InstanceType": {
-          "target": "com.amazonaws.elasticsearchservice#ESPartitionInstanceType",
+        "DomainName": {
+          "target": "com.amazonaws.elasticsearchservice#DomainName",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The instance type for an Elasticsearch cluster for which Elasticsearch\n      <code>\n        <a>Limits</a>\n      </code>\n      are needed.\n    </p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>\n      DomainName represents the name of the Domain that we are trying to\n      modify. This should be present only if we are\n      querying for Elasticsearch\n      <code>\n        <a>Limits</a>\n      </code>\n      for existing domain.\n    </p>",
+            "smithy.api#httpQuery": "domainName"
           }
         }
       },
@@ -1626,12 +1626,6 @@
     "com.amazonaws.elasticsearchservice#DescribeInboundCrossClusterSearchConnectionsRequest": {
       "type": "structure",
       "members": {
-        "Filters": {
-          "target": "com.amazonaws.elasticsearchservice#FilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      A list of filters used to match properties for inbound cross-cluster search connection.\n      Available <code><a>Filter</a></code> names for this operation are:\n      <ul>\n        <li>cross-cluster-search-connection-id</li>\n        <li>source-domain-info.domain-name</li>\n        <li>source-domain-info.owner-id</li>\n        <li>source-domain-info.region</li>\n        <li>destination-domain-info.domain-name</li>\n      </ul>\n    </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.elasticsearchservice#NextToken",
           "traits": {
@@ -1642,6 +1636,12 @@
           "target": "com.amazonaws.elasticsearchservice#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.elasticsearchservice#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      A list of filters used to match properties for inbound cross-cluster search connection.\n      Available <code><a>Filter</a></code> names for this operation are:\n      <ul>\n        <li>cross-cluster-search-connection-id</li>\n        <li>source-domain-info.domain-name</li>\n        <li>source-domain-info.owner-id</li>\n        <li>source-domain-info.region</li>\n        <li>destination-domain-info.domain-name</li>\n      </ul>\n    </p>"
           }
         }
       },
@@ -1708,16 +1708,16 @@
             "smithy.api#documentation": "<p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>"
           }
         },
-        "Filters": {
-          "target": "com.amazonaws.elasticsearchservice#FilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      A list of filters used to match properties for outbound cross-cluster search connection.\n      Available <code><a>Filter</a></code> names for this operation are:\n      <ul>\n        <li>cross-cluster-search-connection-id</li>\n        <li>destination-domain-info.domain-name</li>\n        <li>destination-domain-info.owner-id</li>\n        <li>destination-domain-info.region</li>\n        <li>source-domain-info.domain-name</li>\n      </ul>\n    </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.elasticsearchservice#NextToken",
           "traits": {
             "smithy.api#documentation": "<p> NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.elasticsearchservice#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      A list of filters used to match properties for outbound cross-cluster search connection.\n      Available <code><a>Filter</a></code> names for this operation are:\n      <ul>\n        <li>cross-cluster-search-connection-id</li>\n        <li>destination-domain-info.domain-name</li>\n        <li>destination-domain-info.owner-id</li>\n        <li>destination-domain-info.region</li>\n        <li>source-domain-info.domain-name</li>\n      </ul>\n    </p>"
           }
         }
       },
@@ -1728,16 +1728,16 @@
     "com.amazonaws.elasticsearchservice#DescribeOutboundCrossClusterSearchConnectionsResponse": {
       "type": "structure",
       "members": {
-        "CrossClusterSearchConnections": {
-          "target": "com.amazonaws.elasticsearchservice#OutboundCrossClusterSearchConnections",
-          "traits": {
-            "smithy.api#documentation": "<p>Consists of list of <code><a>OutboundCrossClusterSearchConnection</a></code> matching the specified filter criteria.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.elasticsearchservice#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results.\n    </p>"
+          }
+        },
+        "CrossClusterSearchConnections": {
+          "target": "com.amazonaws.elasticsearchservice#OutboundCrossClusterSearchConnections",
+          "traits": {
+            "smithy.api#documentation": "<p>Consists of list of <code><a>OutboundCrossClusterSearchConnection</a></code> matching the specified filter criteria.</p>"
           }
         }
       },
@@ -1787,16 +1787,16 @@
     "com.amazonaws.elasticsearchservice#DescribePackagesFilter": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.elasticsearchservice#DescribePackagesFilterName",
-          "traits": {
-            "smithy.api#documentation": "<p>Any field from <code>PackageDetails</code>.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.elasticsearchservice#DescribePackagesFilterValues",
           "traits": {
             "smithy.api#documentation": "<p>A list of values for the specified field.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.elasticsearchservice#DescribePackagesFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>Any field from <code>PackageDetails</code>.</p>"
           }
         }
       },
@@ -1853,16 +1853,16 @@
             "smithy.api#documentation": "<p>Limits results to a maximum number of packages.</p>"
           }
         },
-        "Filters": {
-          "target": "com.amazonaws.elasticsearchservice#DescribePackagesFilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>Only returns packages that match the <code>DescribePackagesFilterList</code> values.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.elasticsearchservice#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.elasticsearchservice#DescribePackagesFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>Only returns packages that match the <code>DescribePackagesFilterList</code> values.</p>"
           }
         }
       },
@@ -1873,14 +1873,14 @@
     "com.amazonaws.elasticsearchservice#DescribePackagesResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.elasticsearchservice#String"
-        },
         "PackageDetailsList": {
           "target": "com.amazonaws.elasticsearchservice#PackageDetailsList",
           "traits": {
             "smithy.api#documentation": "<p>List of <code>PackageDetails</code> objects.</p>"
           }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.elasticsearchservice#String"
         }
       },
       "traits": {
@@ -1933,18 +1933,18 @@
             "smithy.api#httpQuery": "nextToken"
           }
         },
-        "ReservedElasticsearchInstanceOfferingId": {
-          "target": "com.amazonaws.elasticsearchservice#GUID",
-          "traits": {
-            "smithy.api#documentation": "<p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>",
-            "smithy.api#httpQuery": "offeringId"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.elasticsearchservice#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "ReservedElasticsearchInstanceOfferingId": {
+          "target": "com.amazonaws.elasticsearchservice#GUID",
+          "traits": {
+            "smithy.api#documentation": "<p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>",
+            "smithy.api#httpQuery": "offeringId"
           }
         }
       },
@@ -1955,16 +1955,16 @@
     "com.amazonaws.elasticsearchservice#DescribeReservedElasticsearchInstanceOfferingsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.elasticsearchservice#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides an identifier to allow retrieval of paginated results.</p>"
-          }
-        },
         "ReservedElasticsearchInstanceOfferings": {
           "target": "com.amazonaws.elasticsearchservice#ReservedElasticsearchInstanceOfferingList",
           "traits": {
             "smithy.api#documentation": "<p>List of reserved Elasticsearch instance offerings</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.elasticsearchservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides an identifier to allow retrieval of paginated results.</p>"
           }
         }
       },
@@ -2040,16 +2040,16 @@
     "com.amazonaws.elasticsearchservice#DescribeReservedElasticsearchInstancesResponse": {
       "type": "structure",
       "members": {
-        "ReservedElasticsearchInstances": {
-          "target": "com.amazonaws.elasticsearchservice#ReservedElasticsearchInstanceList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of reserved Elasticsearch instances.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.elasticsearchservice#String",
           "traits": {
             "smithy.api#documentation": "<p>Provides an identifier to allow retrieval of paginated results.</p>"
+          }
+        },
+        "ReservedElasticsearchInstances": {
+          "target": "com.amazonaws.elasticsearchservice#ReservedElasticsearchInstanceList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of reserved Elasticsearch instances.</p>"
           }
         }
       },
@@ -2113,18 +2113,18 @@
     "com.amazonaws.elasticsearchservice#DissociatePackageRequest": {
       "type": "structure",
       "members": {
-        "DomainName": {
-          "target": "com.amazonaws.elasticsearchservice#DomainName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the domain that you want to associate the package with.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "PackageID": {
           "target": "com.amazonaws.elasticsearchservice#PackageID",
           "traits": {
             "smithy.api#documentation": "<p>Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.elasticsearchservice#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the domain that you want to associate the package with.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2171,17 +2171,17 @@
     "com.amazonaws.elasticsearchservice#DomainEndpointOptionsStatus": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the endpoint options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "Options": {
           "target": "com.amazonaws.elasticsearchservice#DomainEndpointOptions",
           "traits": {
             "smithy.api#documentation": "<p>Options to configure endpoint for the Elasticsearch domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the endpoint options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>",
             "smithy.api#required": {}
           }
         }
@@ -2229,11 +2229,11 @@
             "smithy.api#required": {}
           }
         },
-        "Region": {
-          "target": "com.amazonaws.elasticsearchservice#Region"
-        },
         "OwnerId": {
           "target": "com.amazonaws.elasticsearchservice#OwnerId"
+        },
+        "Region": {
+          "target": "com.amazonaws.elasticsearchservice#Region"
         }
       }
     },
@@ -2266,28 +2266,10 @@
             "smithy.api#documentation": "<p>User specified name of the package.</p>"
           }
         },
-        "LastUpdated": {
-          "target": "com.amazonaws.elasticsearchservice#LastUpdated",
+        "ErrorDetails": {
+          "target": "com.amazonaws.elasticsearchservice#ErrorDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Timestamp of the most-recent update to the association status.</p>"
-          }
-        },
-        "PackageID": {
-          "target": "com.amazonaws.elasticsearchservice#PackageID",
-          "traits": {
-            "smithy.api#documentation": "<p>Internal ID of the package.</p>"
-          }
-        },
-        "ReferencePath": {
-          "target": "com.amazonaws.elasticsearchservice#ReferencePath",
-          "traits": {
-            "smithy.api#documentation": "<p>The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.</p>"
-          }
-        },
-        "DomainName": {
-          "target": "com.amazonaws.elasticsearchservice#DomainName",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the domain you've associated a package with.</p>"
+            "smithy.api#documentation": "<p>Additional information if the package is in an error state. Null otherwise.</p>"
           }
         },
         "PackageType": {
@@ -2296,16 +2278,34 @@
             "smithy.api#documentation": "<p>Currently supports only TXT-DICTIONARY.</p>"
           }
         },
+        "DomainName": {
+          "target": "com.amazonaws.elasticsearchservice#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the domain you've associated a package with.</p>"
+          }
+        },
+        "ReferencePath": {
+          "target": "com.amazonaws.elasticsearchservice#ReferencePath",
+          "traits": {
+            "smithy.api#documentation": "<p>The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.</p>"
+          }
+        },
+        "PackageID": {
+          "target": "com.amazonaws.elasticsearchservice#PackageID",
+          "traits": {
+            "smithy.api#documentation": "<p>Internal ID of the package.</p>"
+          }
+        },
+        "LastUpdated": {
+          "target": "com.amazonaws.elasticsearchservice#LastUpdated",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp of the most-recent update to the association status.</p>"
+          }
+        },
         "DomainPackageStatus": {
           "target": "com.amazonaws.elasticsearchservice#DomainPackageStatus",
           "traits": {
             "smithy.api#documentation": "<p>State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.</p>"
-          }
-        },
-        "ErrorDetails": {
-          "target": "com.amazonaws.elasticsearchservice#ErrorDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>Additional information if the package is in an error state. Null otherwise.</p>"
           }
         }
       },
@@ -2362,16 +2362,16 @@
             "smithy.api#documentation": "<p> Specifies the volume type for EBS-based storage.</p>"
           }
         },
-        "EBSEnabled": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether EBS-based storage is enabled.</p>"
-          }
-        },
         "VolumeSize": {
           "target": "com.amazonaws.elasticsearchservice#IntegerClass",
           "traits": {
             "smithy.api#documentation": "<p> Integer to specify the size of an EBS volume.</p>"
+          }
+        },
+        "EBSEnabled": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether EBS-based storage is enabled.</p>"
           }
         }
       },
@@ -2382,17 +2382,17 @@
     "com.amazonaws.elasticsearchservice#EBSOptionsStatus": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p> Specifies the status of the EBS options for the specified Elasticsearch domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Options": {
           "target": "com.amazonaws.elasticsearchservice#EBSOptions",
           "traits": {
             "smithy.api#documentation": "<p> Specifies the EBS options for the specified Elasticsearch domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p> Specifies the status of the EBS options for the specified Elasticsearch domain.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2598,22 +2598,40 @@
     "com.amazonaws.elasticsearchservice#ElasticsearchClusterConfig": {
       "type": "structure",
       "members": {
-        "InstanceCount": {
-          "target": "com.amazonaws.elasticsearchservice#IntegerClass",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of instances in the specified domain cluster.</p>"
-          }
-        },
         "ZoneAwarenessEnabled": {
           "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>A boolean value to indicate whether zone awareness is enabled.  See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness\" target=\"_blank\">About Zone Awareness</a> for more information.</p>"
           }
         },
-        "DedicatedMasterType": {
-          "target": "com.amazonaws.elasticsearchservice#ESPartitionInstanceType",
+        "WarmEnabled": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The instance type for a dedicated master node.</p>"
+            "smithy.api#documentation": "<p>True to enable warm storage.</p>"
+          }
+        },
+        "InstanceCount": {
+          "target": "com.amazonaws.elasticsearchservice#IntegerClass",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of instances in the specified domain cluster.</p>"
+          }
+        },
+        "DedicatedMasterEnabled": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A boolean value to indicate whether a dedicated master node is enabled.  See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes\" target=\"_blank\">About Dedicated Master Nodes</a> for more information.</p>"
+          }
+        },
+        "WarmCount": {
+          "target": "com.amazonaws.elasticsearchservice#IntegerClass",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of warm nodes in the cluster.</p>"
+          }
+        },
+        "ZoneAwarenessConfig": {
+          "target": "com.amazonaws.elasticsearchservice#ZoneAwarenessConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the zone awareness configuration for a domain when zone awareness is enabled.</p>"
           }
         },
         "WarmType": {
@@ -2628,34 +2646,16 @@
             "smithy.api#documentation": "<p>The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.</p>"
           }
         },
-        "DedicatedMasterEnabled": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>A boolean value to indicate whether a dedicated master node is enabled.  See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes\" target=\"_blank\">About Dedicated Master Nodes</a> for more information.</p>"
-          }
-        },
         "DedicatedMasterCount": {
           "target": "com.amazonaws.elasticsearchservice#IntegerClass",
           "traits": {
             "smithy.api#documentation": "<p>Total number of dedicated master nodes, active and on standby, for the cluster.</p>"
           }
         },
-        "ZoneAwarenessConfig": {
-          "target": "com.amazonaws.elasticsearchservice#ZoneAwarenessConfig",
+        "DedicatedMasterType": {
+          "target": "com.amazonaws.elasticsearchservice#ESPartitionInstanceType",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the zone awareness configuration for a domain when zone awareness is enabled.</p>"
-          }
-        },
-        "WarmEnabled": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>True to enable warm storage.</p>"
-          }
-        },
-        "WarmCount": {
-          "target": "com.amazonaws.elasticsearchservice#IntegerClass",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of warm nodes in the cluster.</p>"
+            "smithy.api#documentation": "<p>The instance type for a dedicated master node.</p>"
           }
         }
       },
@@ -2666,17 +2666,17 @@
     "com.amazonaws.elasticsearchservice#ElasticsearchClusterConfigStatus": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p> Specifies the status of the configuration for the specified Elasticsearch domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Options": {
           "target": "com.amazonaws.elasticsearchservice#ElasticsearchClusterConfig",
           "traits": {
             "smithy.api#documentation": "<p> Specifies the cluster configuration for the specified Elasticsearch domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p> Specifies the status of the configuration for the specified Elasticsearch domain.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2694,40 +2694,10 @@
             "smithy.api#documentation": "<p>Specifies the <code>ElasticsearchClusterConfig</code> for the Elasticsearch domain.</p>"
           }
         },
-        "AccessPolicies": {
-          "target": "com.amazonaws.elasticsearchservice#AccessPoliciesStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>IAM access policy as a JSON-formatted string.</p>"
-          }
-        },
-        "ElasticsearchVersion": {
-          "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>String of format X.Y to specify version for the Elasticsearch domain.</p>"
-          }
-        },
         "DomainEndpointOptions": {
           "target": "com.amazonaws.elasticsearchservice#DomainEndpointOptionsStatus",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch domain.</p>"
-          }
-        },
-        "VPCOptions": {
-          "target": "com.amazonaws.elasticsearchservice#VPCDerivedInfoStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>"
-          }
-        },
-        "EBSOptions": {
-          "target": "com.amazonaws.elasticsearchservice#EBSOptionsStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code>EBSOptions</code> for the Elasticsearch domain.</p>"
-          }
-        },
-        "SnapshotOptions": {
-          "target": "com.amazonaws.elasticsearchservice#SnapshotOptionsStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code>SnapshotOptions</code> for the Elasticsearch domain.</p>"
           }
         },
         "NodeToNodeEncryptionOptions": {
@@ -2736,22 +2706,16 @@
             "smithy.api#documentation": "<p>Specifies the <code>NodeToNodeEncryptionOptions</code> for the Elasticsearch domain.</p>"
           }
         },
-        "CognitoOptions": {
-          "target": "com.amazonaws.elasticsearchservice#CognitoOptionsStatus",
+        "SnapshotOptions": {
+          "target": "com.amazonaws.elasticsearchservice#SnapshotOptionsStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"
+            "smithy.api#documentation": "<p>Specifies the <code>SnapshotOptions</code> for the Elasticsearch domain.</p>"
           }
         },
-        "EncryptionAtRestOptions": {
-          "target": "com.amazonaws.elasticsearchservice#EncryptionAtRestOptionsStatus",
+        "AccessPolicies": {
+          "target": "com.amazonaws.elasticsearchservice#AccessPoliciesStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code>EncryptionAtRestOptions</code> for the Elasticsearch domain.</p>"
-          }
-        },
-        "AdvancedOptions": {
-          "target": "com.amazonaws.elasticsearchservice#AdvancedOptionsStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code>AdvancedOptions</code> for the domain.  See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuring Advanced Options</a> for more information.</p>"
+            "smithy.api#documentation": "<p>IAM access policy as a JSON-formatted string.</p>"
           }
         },
         "AdvancedSecurityOptions": {
@@ -2760,10 +2724,46 @@
             "smithy.api#documentation": "<p>Specifies <code>AdvancedSecurityOptions</code> for the domain. </p>"
           }
         },
+        "AdvancedOptions": {
+          "target": "com.amazonaws.elasticsearchservice#AdvancedOptionsStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the <code>AdvancedOptions</code> for the domain.  See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuring Advanced Options</a> for more information.</p>"
+          }
+        },
         "LogPublishingOptions": {
           "target": "com.amazonaws.elasticsearchservice#LogPublishingOptionsStatus",
           "traits": {
             "smithy.api#documentation": "<p>Log publishing options for the given domain.</p>"
+          }
+        },
+        "CognitoOptions": {
+          "target": "com.amazonaws.elasticsearchservice#CognitoOptionsStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"
+          }
+        },
+        "VPCOptions": {
+          "target": "com.amazonaws.elasticsearchservice#VPCDerivedInfoStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>"
+          }
+        },
+        "EncryptionAtRestOptions": {
+          "target": "com.amazonaws.elasticsearchservice#EncryptionAtRestOptionsStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the <code>EncryptionAtRestOptions</code> for the Elasticsearch domain.</p>"
+          }
+        },
+        "ElasticsearchVersion": {
+          "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>String of format X.Y to specify version for the Elasticsearch domain.</p>"
+          }
+        },
+        "EBSOptions": {
+          "target": "com.amazonaws.elasticsearchservice#EBSOptionsStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the <code>EBSOptions</code> for the Elasticsearch domain.</p>"
           }
         }
       },
@@ -2774,6 +2774,12 @@
     "com.amazonaws.elasticsearchservice#ElasticsearchDomainStatus": {
       "type": "structure",
       "members": {
+        "NodeToNodeEncryptionOptions": {
+          "target": "com.amazonaws.elasticsearchservice#NodeToNodeEncryptionOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>"
+          }
+        },
         "DomainName": {
           "target": "com.amazonaws.elasticsearchservice#DomainName",
           "traits": {
@@ -2781,34 +2787,17 @@
             "smithy.api#required": {}
           }
         },
-        "NodeToNodeEncryptionOptions": {
-          "target": "com.amazonaws.elasticsearchservice#NodeToNodeEncryptionOptions",
+        "ElasticsearchClusterConfig": {
+          "target": "com.amazonaws.elasticsearchservice#ElasticsearchClusterConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>"
+            "smithy.api#documentation": "<p>The type and number of instances in the domain cluster.</p>",
+            "smithy.api#required": {}
           }
         },
-        "LogPublishingOptions": {
-          "target": "com.amazonaws.elasticsearchservice#LogPublishingOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Log publishing options for the given domain.</p>"
-          }
-        },
-        "AccessPolicies": {
-          "target": "com.amazonaws.elasticsearchservice#PolicyDocument",
-          "traits": {
-            "smithy.api#documentation": "<p> IAM access policy as a JSON-formatted string.</p>"
-          }
-        },
-        "UpgradeProcessing": {
+        "Created": {
           "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The status of an Elasticsearch domain version upgrade. <code>True</code> if Amazon Elasticsearch Service is undergoing a version upgrade. <code>False</code> if the configuration is active.</p>"
-          }
-        },
-        "AdvancedSecurityOptions": {
-          "target": "com.amazonaws.elasticsearchservice#AdvancedSecurityOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the Elasticsearch domain's advanced security options.</p>"
+            "smithy.api#documentation": "<p>The domain creation status. <code>True</code> if the creation of an Elasticsearch domain is complete. <code>False</code> if domain creation is still in progress.</p>"
           }
         },
         "DomainEndpointOptions": {
@@ -2817,34 +2806,47 @@
             "smithy.api#documentation": "<p>The current status of the Elasticsearch domain's endpoint options.</p>"
           }
         },
-        "Endpoints": {
-          "target": "com.amazonaws.elasticsearchservice#EndpointsMap",
-          "traits": {
-            "smithy.api#documentation": "<p>Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example <code>key, value</code>: <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>"
-          }
-        },
-        "Processing": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the Elasticsearch domain configuration. <code>True</code> if Amazon Elasticsearch Service is processing configuration changes. <code>False</code> if the configuration is active.</p>"
-          }
-        },
-        "VPCOptions": {
-          "target": "com.amazonaws.elasticsearchservice#VPCDerivedInfo",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>"
-          }
-        },
         "SnapshotOptions": {
           "target": "com.amazonaws.elasticsearchservice#SnapshotOptions",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the status of the <code>SnapshotOptions</code></p>"
           }
         },
-        "Created": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
+        "ARN": {
+          "target": "com.amazonaws.elasticsearchservice#ARN",
           "traits": {
-            "smithy.api#documentation": "<p>The domain creation status. <code>True</code> if the creation of an Elasticsearch domain is complete. <code>False</code> if domain creation is still in progress.</p>"
+            "smithy.api#documentation": "<p>The Amazon resource name (ARN) of an Elasticsearch domain.  See <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html\" target=\"_blank\">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AccessPolicies": {
+          "target": "com.amazonaws.elasticsearchservice#PolicyDocument",
+          "traits": {
+            "smithy.api#documentation": "<p> IAM access policy as a JSON-formatted string.</p>"
+          }
+        },
+        "AdvancedSecurityOptions": {
+          "target": "com.amazonaws.elasticsearchservice#AdvancedSecurityOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the Elasticsearch domain's advanced security options.</p>"
+          }
+        },
+        "AdvancedOptions": {
+          "target": "com.amazonaws.elasticsearchservice#AdvancedOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the status of the <code>AdvancedOptions</code></p>"
+          }
+        },
+        "LogPublishingOptions": {
+          "target": "com.amazonaws.elasticsearchservice#LogPublishingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Log publishing options for the given domain.</p>"
+          }
+        },
+        "Endpoint": {
+          "target": "com.amazonaws.elasticsearchservice#ServiceUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>The Elasticsearch domain endpoint that you use to submit index and search requests.</p>"
           }
         },
         "DomainId": {
@@ -2854,22 +2856,10 @@
             "smithy.api#required": {}
           }
         },
-        "Endpoint": {
-          "target": "com.amazonaws.elasticsearchservice#ServiceUrl",
+        "Endpoints": {
+          "target": "com.amazonaws.elasticsearchservice#EndpointsMap",
           "traits": {
-            "smithy.api#documentation": "<p>The Elasticsearch domain endpoint that you use to submit index and search requests.</p>"
-          }
-        },
-        "Deleted": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>The domain deletion status. <code>True</code> if a delete request has been received for the domain but resource cleanup is still in progress. <code>False</code> if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.</p>"
-          }
-        },
-        "EBSOptions": {
-          "target": "com.amazonaws.elasticsearchservice#EBSOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>EBSOptions</code> for the specified domain.  See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs\" target=\"_blank\">Configuring EBS-based Storage</a> for more information.</p>"
+            "smithy.api#documentation": "<p>Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example <code>key, value</code>: <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>"
           }
         },
         "CognitoOptions": {
@@ -2878,26 +2868,22 @@
             "smithy.api#documentation": "<p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"
           }
         },
-        "AdvancedOptions": {
-          "target": "com.amazonaws.elasticsearchservice#AdvancedOptions",
+        "Deleted": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the status of the <code>AdvancedOptions</code></p>"
+            "smithy.api#documentation": "<p>The domain deletion status. <code>True</code> if a delete request has been received for the domain but resource cleanup is still in progress. <code>False</code> if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.</p>"
           }
         },
-        "ServiceSoftwareOptions": {
-          "target": "com.amazonaws.elasticsearchservice#ServiceSoftwareOptions",
+        "Processing": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the Elasticsearch domain's service software.</p>"
+            "smithy.api#documentation": "<p>The status of the Elasticsearch domain configuration. <code>True</code> if Amazon Elasticsearch Service is processing configuration changes. <code>False</code> if the configuration is active.</p>"
           }
         },
-        "ElasticsearchVersion": {
-          "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionString"
-        },
-        "ARN": {
-          "target": "com.amazonaws.elasticsearchservice#ARN",
+        "UpgradeProcessing": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon resource name (ARN) of an Elasticsearch domain.  See <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html\" target=\"_blank\">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The status of an Elasticsearch domain version upgrade. <code>True</code> if Amazon Elasticsearch Service is undergoing a version upgrade. <code>False</code> if the configuration is active.</p>"
           }
         },
         "EncryptionAtRestOptions": {
@@ -2906,11 +2892,25 @@
             "smithy.api#documentation": "<p> Specifies the status of the <code>EncryptionAtRestOptions</code>.</p>"
           }
         },
-        "ElasticsearchClusterConfig": {
-          "target": "com.amazonaws.elasticsearchservice#ElasticsearchClusterConfig",
+        "ServiceSoftwareOptions": {
+          "target": "com.amazonaws.elasticsearchservice#ServiceSoftwareOptions",
           "traits": {
-            "smithy.api#documentation": "<p>The type and number of instances in the domain cluster.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The current status of the Elasticsearch domain's service software.</p>"
+          }
+        },
+        "VPCOptions": {
+          "target": "com.amazonaws.elasticsearchservice#VPCDerivedInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>"
+          }
+        },
+        "ElasticsearchVersion": {
+          "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionString"
+        },
+        "EBSOptions": {
+          "target": "com.amazonaws.elasticsearchservice#EBSOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>EBSOptions</code> for the specified domain.  See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs\" target=\"_blank\">Configuring EBS-based Storage</a> for more information.</p>"
           }
         }
       },
@@ -2993,17 +2993,17 @@
     "com.amazonaws.elasticsearchservice#EncryptionAtRestOptionsStatus": {
       "type": "structure",
       "members": {
-        "Options": {
-          "target": "com.amazonaws.elasticsearchservice#EncryptionAtRestOptions",
-          "traits": {
-            "smithy.api#documentation": "<p> Specifies the Encryption At Rest options for the specified Elasticsearch domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Status": {
           "target": "com.amazonaws.elasticsearchservice#OptionStatus",
           "traits": {
             "smithy.api#documentation": "<p> Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Options": {
+          "target": "com.amazonaws.elasticsearchservice#EncryptionAtRestOptions",
+          "traits": {
+            "smithy.api#documentation": "<p> Specifies the Encryption At Rest options for the specified Elasticsearch domain.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3024,11 +3024,11 @@
     "com.amazonaws.elasticsearchservice#ErrorDetails": {
       "type": "structure",
       "members": {
-        "ErrorMessage": {
-          "target": "com.amazonaws.elasticsearchservice#ErrorMessage"
-        },
         "ErrorType": {
           "target": "com.amazonaws.elasticsearchservice#ErrorType"
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.elasticsearchservice#ErrorMessage"
         }
       }
     },
@@ -3180,17 +3180,17 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.elasticsearchservice#NextToken",
-          "traits": {
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "DomainName": {
           "target": "com.amazonaws.elasticsearchservice#DomainName",
           "traits": {
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.elasticsearchservice#NextToken",
+          "traits": {
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       },
@@ -3270,12 +3270,6 @@
     "com.amazonaws.elasticsearchservice#GetUpgradeStatusResponse": {
       "type": "structure",
       "members": {
-        "StepStatus": {
-          "target": "com.amazonaws.elasticsearchservice#UpgradeStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      One of 4 statuses that a step can go through returned as part of the\n      <code>\n        <a>GetUpgradeStatusResponse</a>\n      </code>\n      object. The status can take one of the following values:\n      <ul>\n        <li>In Progress</li>\n        <li>Succeeded</li>\n        <li>Succeeded with Issues</li>\n        <li>Failed</li>\n      </ul>\n    </p>"
-          }
-        },
         "UpgradeName": {
           "target": "com.amazonaws.elasticsearchservice#UpgradeName",
           "traits": {
@@ -3286,6 +3280,12 @@
           "target": "com.amazonaws.elasticsearchservice#UpgradeStep",
           "traits": {
             "smithy.api#documentation": "<p>\n      Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:\n      <ul>\n        <li>PreUpgradeCheck</li>\n        <li>Snapshot</li>\n        <li>Upgrade</li>\n      </ul>\n    </p>"
+          }
+        },
+        "StepStatus": {
+          "target": "com.amazonaws.elasticsearchservice#UpgradeStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      One of 4 statuses that a step can go through returned as part of the\n      <code>\n        <a>GetUpgradeStatusResponse</a>\n      </code>\n      object. The status can take one of the following values:\n      <ul>\n        <li>In Progress</li>\n        <li>Succeeded</li>\n        <li>Succeeded with Issues</li>\n        <li>Failed</li>\n      </ul>\n    </p>"
           }
         }
       },
@@ -3318,16 +3318,16 @@
             "smithy.api#documentation": "<p>Specifies the <code><a>DomainInformation</a></code> for the destination Elasticsearch domain.</p>"
           }
         },
-        "SourceDomainInfo": {
-          "target": "com.amazonaws.elasticsearchservice#DomainInformation",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>"
-          }
-        },
         "CrossClusterSearchConnectionId": {
           "target": "com.amazonaws.elasticsearchservice#CrossClusterSearchConnectionId",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the connection id for the inbound cross-cluster search connection.</p>"
+          }
+        },
+        "SourceDomainInfo": {
+          "target": "com.amazonaws.elasticsearchservice#DomainInformation",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>"
           }
         }
       },
@@ -3538,8 +3538,11 @@
     "com.amazonaws.elasticsearchservice#Limits": {
       "type": "structure",
       "members": {
-        "InstanceLimits": {
-          "target": "com.amazonaws.elasticsearchservice#InstanceLimits"
+        "StorageTypes": {
+          "target": "com.amazonaws.elasticsearchservice#StorageTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>StorageType represents the list of storage related types and attributes\n      that are available for given InstanceType.\n    </p>"
+          }
         },
         "AdditionalLimits": {
           "target": "com.amazonaws.elasticsearchservice#AdditionalLimitList",
@@ -3547,11 +3550,8 @@
             "smithy.api#documentation": "<p>\n      List of additional limits that are specific to a given InstanceType and for each of it's\n      <code>\n        <a>InstanceRole</a>\n      </code>\n      .\n    </p>"
           }
         },
-        "StorageTypes": {
-          "target": "com.amazonaws.elasticsearchservice#StorageTypeList",
-          "traits": {
-            "smithy.api#documentation": "<p>StorageType represents the list of storage related types and attributes\n      that are available for given InstanceType.\n    </p>"
-          }
+        "InstanceLimits": {
+          "target": "com.amazonaws.elasticsearchservice#InstanceLimits"
         }
       },
       "traits": {
@@ -3648,14 +3648,6 @@
     "com.amazonaws.elasticsearchservice#ListDomainsForPackageRequest": {
       "type": "structure",
       "members": {
-        "PackageID": {
-          "target": "com.amazonaws.elasticsearchservice#PackageID",
-          "traits": {
-            "smithy.api#documentation": "<p>The package for which to list domains.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.elasticsearchservice#NextToken",
           "traits": {
@@ -3669,6 +3661,14 @@
             "smithy.api#documentation": "<p>Limits results to a maximum number of domains.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
+        },
+        "PackageID": {
+          "target": "com.amazonaws.elasticsearchservice#PackageID",
+          "traits": {
+            "smithy.api#documentation": "<p>The package for which to list domains.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {
@@ -3678,14 +3678,14 @@
     "com.amazonaws.elasticsearchservice#ListDomainsForPackageResponse": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.elasticsearchservice#String"
+        },
         "DomainPackageDetailsList": {
           "target": "com.amazonaws.elasticsearchservice#DomainPackageDetailsList",
           "traits": {
             "smithy.api#documentation": "<p>List of <code>DomainPackageDetails</code> objects.</p>"
           }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.elasticsearchservice#String"
         }
       },
       "traits": {
@@ -3745,19 +3745,19 @@
             "smithy.api#httpQuery": "domainName"
           }
         },
+        "MaxResults": {
+          "target": "com.amazonaws.elasticsearchservice#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>\n    Set this value to limit the number of results returned.\n    Value provided must be greater than 30 else it wont be honored.\n  </p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
         "ElasticsearchVersion": {
           "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionString",
           "traits": {
             "smithy.api#documentation": "<p>Version of Elasticsearch for which list of supported elasticsearch\n      instance types are needed.\n    </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.elasticsearchservice#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>\n    Set this value to limit the number of results returned.\n    Value provided must be greater than 30 else it wont be honored.\n  </p>",
-            "smithy.api#httpQuery": "maxResults"
           }
         }
       },
@@ -3768,16 +3768,16 @@
     "com.amazonaws.elasticsearchservice#ListElasticsearchInstanceTypesResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.elasticsearchservice#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>In case if there are more results available NextToken would be\n      present, make further request to the same API with\n      received NextToken to paginate remaining results.\n    </p>"
-          }
-        },
         "ElasticsearchInstanceTypes": {
           "target": "com.amazonaws.elasticsearchservice#ElasticsearchInstanceTypeList",
           "traits": {
             "smithy.api#documentation": "<p>\n      List of instance types supported by Amazon Elasticsearch service for\n      given\n      <code>\n        <a>ElasticsearchVersion</a>\n      </code>\n    </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.elasticsearchservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>In case if there are more results available NextToken would be\n      present, make further request to the same API with\n      received NextToken to paginate remaining results.\n    </p>"
           }
         }
       },
@@ -3824,17 +3824,17 @@
     "com.amazonaws.elasticsearchservice#ListElasticsearchVersionsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.elasticsearchservice#NextToken",
-          "traits": {
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.elasticsearchservice#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>\n      Set this value to limit the number of results returned.\n      Value provided must be greater than 10 else it wont be honored.\n    </p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.elasticsearchservice#NextToken",
+          "traits": {
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       },
@@ -3845,11 +3845,11 @@
     "com.amazonaws.elasticsearchservice#ListElasticsearchVersionsResponse": {
       "type": "structure",
       "members": {
-        "ElasticsearchVersions": {
-          "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionList"
-        },
         "NextToken": {
           "target": "com.amazonaws.elasticsearchservice#NextToken"
+        },
+        "ElasticsearchVersions": {
+          "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionList"
         }
       },
       "traits": {
@@ -3898,19 +3898,19 @@
     "com.amazonaws.elasticsearchservice#ListPackagesForDomainRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.elasticsearchservice#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>Limits results to a maximum number of packages.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "DomainName": {
           "target": "com.amazonaws.elasticsearchservice#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the domain for which you want to list associated packages.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.elasticsearchservice#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>Limits results to a maximum number of packages.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
@@ -4035,16 +4035,16 @@
     "com.amazonaws.elasticsearchservice#LogPublishingOptionsStatus": {
       "type": "structure",
       "members": {
-        "Options": {
-          "target": "com.amazonaws.elasticsearchservice#LogPublishingOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>The log publishing options configured for the Elasticsearch domain.</p>"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.elasticsearchservice#OptionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the log publishing options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>"
+          }
+        },
+        "Options": {
+          "target": "com.amazonaws.elasticsearchservice#LogPublishingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The log publishing options configured for the Elasticsearch domain.</p>"
           }
         }
       },
@@ -4078,16 +4078,16 @@
             "smithy.api#documentation": "<p>The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.</p>"
           }
         },
-        "MasterUserName": {
-          "target": "com.amazonaws.elasticsearchservice#Username",
-          "traits": {
-            "smithy.api#documentation": "<p>The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.</p>"
-          }
-        },
         "MasterUserARN": {
           "target": "com.amazonaws.elasticsearchservice#ARN",
           "traits": {
             "smithy.api#documentation": "<p>ARN for the master user (if IAM is enabled).</p>"
+          }
+        },
+        "MasterUserName": {
+          "target": "com.amazonaws.elasticsearchservice#Username",
+          "traits": {
+            "smithy.api#documentation": "<p>The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.</p>"
           }
         }
       },
@@ -4186,10 +4186,10 @@
     "com.amazonaws.elasticsearchservice#OptionStatus": {
       "type": "structure",
       "members": {
-        "UpdateDate": {
+        "CreationDate": {
           "target": "com.amazonaws.elasticsearchservice#UpdateTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Timestamp which tells the last updated time for the entity.</p>",
+            "smithy.api#documentation": "<p>Timestamp which tells the creation date for the entity.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4197,13 +4197,6 @@
           "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the Elasticsearch domain is being deleted.</p>"
-          }
-        },
-        "CreationDate": {
-          "target": "com.amazonaws.elasticsearchservice#UpdateTimestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Timestamp which tells the creation date for the entity.</p>",
-            "smithy.api#required": {}
           }
         },
         "UpdateVersion": {
@@ -4216,6 +4209,13 @@
           "target": "com.amazonaws.elasticsearchservice#OptionState",
           "traits": {
             "smithy.api#documentation": "<p>Provides the <code>OptionState</code> for the Elasticsearch domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UpdateDate": {
+          "target": "com.amazonaws.elasticsearchservice#UpdateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp which tells the last updated time for the entity.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4239,10 +4239,10 @@
             "smithy.api#documentation": "<p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>"
           }
         },
-        "DestinationDomainInfo": {
-          "target": "com.amazonaws.elasticsearchservice#DomainInformation",
+        "ConnectionAlias": {
+          "target": "com.amazonaws.elasticsearchservice#ConnectionAlias",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code><a>DomainInformation</a></code> for the destination Elasticsearch domain.</p>"
+            "smithy.api#documentation": "<p>Specifies the connection alias for the outbound cross-cluster search connection.</p>"
           }
         },
         "ConnectionStatus": {
@@ -4251,10 +4251,10 @@
             "smithy.api#documentation": "<p>Specifies the <code><a>OutboundCrossClusterSearchConnectionStatus</a></code> for the outbound connection.</p>"
           }
         },
-        "ConnectionAlias": {
-          "target": "com.amazonaws.elasticsearchservice#ConnectionAlias",
+        "DestinationDomainInfo": {
+          "target": "com.amazonaws.elasticsearchservice#DomainInformation",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the connection alias for the outbound cross-cluster search connection.</p>"
+            "smithy.api#documentation": "<p>Specifies the <code><a>DomainInformation</a></code> for the destination Elasticsearch domain.</p>"
           }
         }
       },
@@ -4360,22 +4360,22 @@
             "smithy.api#documentation": "<p>Additional information if the package is in an error state. Null otherwise.</p>"
           }
         },
-        "PackageID": {
-          "target": "com.amazonaws.elasticsearchservice#PackageID",
-          "traits": {
-            "smithy.api#documentation": "<p>Internal ID of the package.</p>"
-          }
-        },
-        "PackageDescription": {
-          "target": "com.amazonaws.elasticsearchservice#PackageDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>User-specified description of the package.</p>"
-          }
-        },
         "PackageName": {
           "target": "com.amazonaws.elasticsearchservice#PackageName",
           "traits": {
             "smithy.api#documentation": "<p>User specified name of the package.</p>"
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.elasticsearchservice#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp which tells creation date of the package.</p>"
+          }
+        },
+        "PackageID": {
+          "target": "com.amazonaws.elasticsearchservice#PackageID",
+          "traits": {
+            "smithy.api#documentation": "<p>Internal ID of the package.</p>"
           }
         },
         "PackageStatus": {
@@ -4384,10 +4384,10 @@
             "smithy.api#documentation": "<p>Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED</p>"
           }
         },
-        "CreatedAt": {
-          "target": "com.amazonaws.elasticsearchservice#CreatedAt",
+        "PackageDescription": {
+          "target": "com.amazonaws.elasticsearchservice#PackageDescription",
           "traits": {
-            "smithy.api#documentation": "<p>Timestamp which tells creation date of the package.</p>"
+            "smithy.api#documentation": "<p>User-specified description of the package.</p>"
           }
         }
       },
@@ -4530,13 +4530,6 @@
     "com.amazonaws.elasticsearchservice#PurchaseReservedElasticsearchInstanceOfferingRequest": {
       "type": "structure",
       "members": {
-        "ReservationName": {
-          "target": "com.amazonaws.elasticsearchservice#ReservationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A customer-specified identifier to track this reservation.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "InstanceCount": {
           "target": "com.amazonaws.elasticsearchservice#InstanceCount",
           "traits": {
@@ -4549,6 +4542,13 @@
             "smithy.api#documentation": "<p>The ID of the reserved Elasticsearch instance offering to purchase.</p>",
             "smithy.api#required": {}
           }
+        },
+        "ReservationName": {
+          "target": "com.amazonaws.elasticsearchservice#ReservationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A customer-specified identifier to track this reservation.</p>",
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {
@@ -4558,16 +4558,16 @@
     "com.amazonaws.elasticsearchservice#PurchaseReservedElasticsearchInstanceOfferingResponse": {
       "type": "structure",
       "members": {
-        "ReservationName": {
-          "target": "com.amazonaws.elasticsearchservice#ReservationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The customer-specified identifier used to track this reservation.</p>"
-          }
-        },
         "ReservedElasticsearchInstanceId": {
           "target": "com.amazonaws.elasticsearchservice#GUID",
           "traits": {
             "smithy.api#documentation": "<p>Details of the reserved Elasticsearch instance which was purchased.</p>"
+          }
+        },
+        "ReservationName": {
+          "target": "com.amazonaws.elasticsearchservice#ReservationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The customer-specified identifier used to track this reservation.</p>"
           }
         }
       },
@@ -4693,17 +4693,17 @@
     "com.amazonaws.elasticsearchservice#RemoveTagsRequest": {
       "type": "structure",
       "members": {
-        "TagKeys": {
-          "target": "com.amazonaws.elasticsearchservice#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the <code>TagKey</code> list which you want to remove from the Elasticsearch domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ARN": {
           "target": "com.amazonaws.elasticsearchservice#ARN",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the <code>ARN</code> for the Elasticsearch domain from which you want to delete the specified tags.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.elasticsearchservice#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the <code>TagKey</code> list which you want to remove from the Elasticsearch domain.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4724,12 +4724,6 @@
     "com.amazonaws.elasticsearchservice#ReservedElasticsearchInstance": {
       "type": "structure",
       "members": {
-        "StartTime": {
-          "target": "com.amazonaws.elasticsearchservice#UpdateTimestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time the reservation started.</p>"
-          }
-        },
         "State": {
           "target": "com.amazonaws.elasticsearchservice#String",
           "traits": {
@@ -4742,10 +4736,10 @@
             "smithy.api#documentation": "<p>The customer-specified identifier to track this reservation.</p>"
           }
         },
-        "ReservedElasticsearchInstanceId": {
-          "target": "com.amazonaws.elasticsearchservice#GUID",
+        "StartTime": {
+          "target": "com.amazonaws.elasticsearchservice#UpdateTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the reservation.</p>"
+            "smithy.api#documentation": "<p>The time the reservation started.</p>"
           }
         },
         "FixedPrice": {
@@ -4754,40 +4748,16 @@
             "smithy.api#documentation": "<p>The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering. </p>"
           }
         },
-        "PaymentOption": {
-          "target": "com.amazonaws.elasticsearchservice#ReservedElasticsearchInstancePaymentOption",
-          "traits": {
-            "smithy.api#documentation": "<p>The payment option as defined in the reserved Elasticsearch instance offering.</p>"
-          }
-        },
-        "ReservedElasticsearchInstanceOfferingId": {
+        "CurrencyCode": {
           "target": "com.amazonaws.elasticsearchservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>The offering identifier.</p>"
+            "smithy.api#documentation": "<p>The currency code for the reserved Elasticsearch instance offering.</p>"
           }
         },
-        "RecurringCharges": {
-          "target": "com.amazonaws.elasticsearchservice#RecurringChargeList",
+        "ReservedElasticsearchInstanceId": {
+          "target": "com.amazonaws.elasticsearchservice#GUID",
           "traits": {
-            "smithy.api#documentation": "<p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>"
-          }
-        },
-        "Duration": {
-          "target": "com.amazonaws.elasticsearchservice#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The duration, in seconds, for which the Elasticsearch instance is reserved.</p>"
-          }
-        },
-        "ElasticsearchInstanceCount": {
-          "target": "com.amazonaws.elasticsearchservice#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of Elasticsearch instances that have been reserved.</p>"
-          }
-        },
-        "ElasticsearchInstanceType": {
-          "target": "com.amazonaws.elasticsearchservice#ESPartitionInstanceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The Elasticsearch instance type offered by the reserved instance offering.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the reservation.</p>"
           }
         },
         "UsagePrice": {
@@ -4796,10 +4766,40 @@
             "smithy.api#documentation": "<p>The rate you are charged for each hour for the domain that is using this reserved instance.</p>"
           }
         },
-        "CurrencyCode": {
+        "Duration": {
+          "target": "com.amazonaws.elasticsearchservice#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration, in seconds, for which the Elasticsearch instance is reserved.</p>"
+          }
+        },
+        "PaymentOption": {
+          "target": "com.amazonaws.elasticsearchservice#ReservedElasticsearchInstancePaymentOption",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment option as defined in the reserved Elasticsearch instance offering.</p>"
+          }
+        },
+        "RecurringCharges": {
+          "target": "com.amazonaws.elasticsearchservice#RecurringChargeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>"
+          }
+        },
+        "ReservedElasticsearchInstanceOfferingId": {
           "target": "com.amazonaws.elasticsearchservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>The currency code for the reserved Elasticsearch instance offering.</p>"
+            "smithy.api#documentation": "<p>The offering identifier.</p>"
+          }
+        },
+        "ElasticsearchInstanceType": {
+          "target": "com.amazonaws.elasticsearchservice#ESPartitionInstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Elasticsearch instance type offered by the reserved instance offering.</p>"
+          }
+        },
+        "ElasticsearchInstanceCount": {
+          "target": "com.amazonaws.elasticsearchservice#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of Elasticsearch instances that have been reserved.</p>"
           }
         }
       },
@@ -4822,34 +4822,16 @@
             "smithy.api#documentation": "<p>Payment option for the reserved Elasticsearch instance offering</p>"
           }
         },
-        "ReservedElasticsearchInstanceOfferingId": {
-          "target": "com.amazonaws.elasticsearchservice#GUID",
-          "traits": {
-            "smithy.api#documentation": "<p>The Elasticsearch reserved instance offering identifier.</p>"
-          }
-        },
         "RecurringCharges": {
           "target": "com.amazonaws.elasticsearchservice#RecurringChargeList",
           "traits": {
             "smithy.api#documentation": "<p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>"
           }
         },
-        "ElasticsearchInstanceType": {
-          "target": "com.amazonaws.elasticsearchservice#ESPartitionInstanceType",
+        "ReservedElasticsearchInstanceOfferingId": {
+          "target": "com.amazonaws.elasticsearchservice#GUID",
           "traits": {
-            "smithy.api#documentation": "<p>The Elasticsearch instance type offered by the reserved instance offering.</p>"
-          }
-        },
-        "CurrencyCode": {
-          "target": "com.amazonaws.elasticsearchservice#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The currency code for the reserved Elasticsearch instance offering.</p>"
-          }
-        },
-        "FixedPrice": {
-          "target": "com.amazonaws.elasticsearchservice#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering. </p>"
+            "smithy.api#documentation": "<p>The Elasticsearch reserved instance offering identifier.</p>"
           }
         },
         "Duration": {
@@ -4858,10 +4840,28 @@
             "smithy.api#documentation": "<p>The duration, in seconds, for which the offering will reserve the Elasticsearch instance.</p>"
           }
         },
+        "FixedPrice": {
+          "target": "com.amazonaws.elasticsearchservice#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering. </p>"
+          }
+        },
+        "CurrencyCode": {
+          "target": "com.amazonaws.elasticsearchservice#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The currency code for the reserved Elasticsearch instance offering.</p>"
+          }
+        },
         "UsagePrice": {
           "target": "com.amazonaws.elasticsearchservice#Double",
           "traits": {
             "smithy.api#documentation": "<p>The rate you are charged for each hour the domain that is using the offering is running.</p>"
+          }
+        },
+        "ElasticsearchInstanceType": {
+          "target": "com.amazonaws.elasticsearchservice#ESPartitionInstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Elasticsearch instance type offered by the reserved instance offering.</p>"
           }
         }
       },
@@ -4950,16 +4950,16 @@
     "com.amazonaws.elasticsearchservice#ServiceSoftwareOptions": {
       "type": "structure",
       "members": {
-        "Cancellable": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p><code>True</code> if you are able to cancel your service software version update. <code>False</code> if you are not able to cancel your service software version. </p>"
-          }
-        },
         "UpdateAvailable": {
           "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
             "smithy.api#documentation": "<p><code>True</code> if you are able to update you service software version. <code>False</code> if you are not able to update your service software version. </p>"
+          }
+        },
+        "Cancellable": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p><code>True</code> if you are able to cancel your service software version update. <code>False</code> if you are not able to cancel your service software version. </p>"
           }
         },
         "NewVersion": {
@@ -4968,10 +4968,10 @@
             "smithy.api#documentation": "<p>The new service software version if one is available.</p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.elasticsearchservice#String",
+        "UpdateStatus": {
+          "target": "com.amazonaws.elasticsearchservice#DeploymentStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the <code>UpdateStatus</code>.</p>"
+            "smithy.api#documentation": "<p>The status of your service software update. This field can take the following values: <code>ELIGIBLE</code>, <code>PENDING_UPDATE</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, and <code>NOT_ELIGIBLE</code>.</p>"
           }
         },
         "AutomatedUpdateDate": {
@@ -4980,22 +4980,22 @@
             "smithy.api#documentation": "<p>Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.</p>"
           }
         },
-        "CurrentVersion": {
-          "target": "com.amazonaws.elasticsearchservice#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The current service software version that is present on the domain.</p>"
-          }
-        },
         "OptionalDeployment": {
           "target": "com.amazonaws.elasticsearchservice#Boolean",
           "traits": {
             "smithy.api#documentation": "<p><code>True</code> if a service software is never automatically updated. <code>False</code> if a service software is automatically updated after <code>AutomatedUpdateDate</code>.  </p>"
           }
         },
-        "UpdateStatus": {
-          "target": "com.amazonaws.elasticsearchservice#DeploymentStatus",
+        "CurrentVersion": {
+          "target": "com.amazonaws.elasticsearchservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>The status of your service software update. This field can take the following values: <code>ELIGIBLE</code>, <code>PENDING_UPDATE</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, and <code>NOT_ELIGIBLE</code>.</p>"
+            "smithy.api#documentation": "<p>The current service software version that is present on the domain.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.elasticsearchservice#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the <code>UpdateStatus</code>.</p>"
           }
         }
       },
@@ -5026,17 +5026,17 @@
     "com.amazonaws.elasticsearchservice#SnapshotOptionsStatus": {
       "type": "structure",
       "members": {
-        "Options": {
-          "target": "com.amazonaws.elasticsearchservice#SnapshotOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the daily snapshot options specified for the Elasticsearch domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Status": {
           "target": "com.amazonaws.elasticsearchservice#OptionStatus",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the status of a daily automated snapshot.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Options": {
+          "target": "com.amazonaws.elasticsearchservice#SnapshotOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the daily snapshot options specified for the Elasticsearch domain.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5117,11 +5117,11 @@
     "com.amazonaws.elasticsearchservice#StorageType": {
       "type": "structure",
       "members": {
-        "StorageTypeName": {
-          "target": "com.amazonaws.elasticsearchservice#StorageTypeName"
-        },
         "StorageSubTypeName": {
           "target": "com.amazonaws.elasticsearchservice#StorageSubTypeName"
+        },
+        "StorageTypeName": {
+          "target": "com.amazonaws.elasticsearchservice#StorageTypeName"
         },
         "StorageTypeLimits": {
           "target": "com.amazonaws.elasticsearchservice#StorageTypeLimitList",
@@ -5295,6 +5295,12 @@
     "com.amazonaws.elasticsearchservice#UpdateElasticsearchDomainConfigRequest": {
       "type": "structure",
       "members": {
+        "AdvancedSecurityOptions": {
+          "target": "com.amazonaws.elasticsearchservice#AdvancedSecurityOptionsInput",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies advanced security options.</p>"
+          }
+        },
         "AccessPolicies": {
           "target": "com.amazonaws.elasticsearchservice#PolicyDocument",
           "traits": {
@@ -5307,34 +5313,16 @@
             "smithy.api#documentation": "<p>Options to specify configuration that will be applied to the domain endpoint.</p>"
           }
         },
+        "VPCOptions": {
+          "target": "com.amazonaws.elasticsearchservice#VPCOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc\" target=\"_blank\">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>"
+          }
+        },
         "ElasticsearchClusterConfig": {
           "target": "com.amazonaws.elasticsearchservice#ElasticsearchClusterConfig",
           "traits": {
             "smithy.api#documentation": "<p>The type and number of instances to instantiate for the domain cluster.</p>"
-          }
-        },
-        "CognitoOptions": {
-          "target": "com.amazonaws.elasticsearchservice#CognitoOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"
-          }
-        },
-        "EBSOptions": {
-          "target": "com.amazonaws.elasticsearchservice#EBSOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Specify the type and size of the EBS volume that you want to use. </p>"
-          }
-        },
-        "AdvancedOptions": {
-          "target": "com.amazonaws.elasticsearchservice#AdvancedOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Modifies the advanced option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.\n       See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuration Advanced Options</a> for more information.</p>"
-          }
-        },
-        "AdvancedSecurityOptions": {
-          "target": "com.amazonaws.elasticsearchservice#AdvancedSecurityOptionsInput",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies advanced security options.</p>"
           }
         },
         "DomainName": {
@@ -5345,22 +5333,34 @@
             "smithy.api#required": {}
           }
         },
-        "LogPublishingOptions": {
-          "target": "com.amazonaws.elasticsearchservice#LogPublishingOptions",
-          "traits": {
-            "smithy.api#documentation": "<p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>"
-          }
-        },
         "SnapshotOptions": {
           "target": "com.amazonaws.elasticsearchservice#SnapshotOptions",
           "traits": {
             "smithy.api#documentation": "<p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. </p>"
           }
         },
-        "VPCOptions": {
-          "target": "com.amazonaws.elasticsearchservice#VPCOptions",
+        "CognitoOptions": {
+          "target": "com.amazonaws.elasticsearchservice#CognitoOptions",
           "traits": {
-            "smithy.api#documentation": "<p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc\" target=\"_blank\">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>"
+            "smithy.api#documentation": "<p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"
+          }
+        },
+        "LogPublishingOptions": {
+          "target": "com.amazonaws.elasticsearchservice#LogPublishingOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>"
+          }
+        },
+        "AdvancedOptions": {
+          "target": "com.amazonaws.elasticsearchservice#AdvancedOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Modifies the advanced option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.\n       See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuration Advanced Options</a> for more information.</p>"
+          }
+        },
+        "EBSOptions": {
+          "target": "com.amazonaws.elasticsearchservice#EBSOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the type and size of the EBS volume that you want to use. </p>"
           }
         }
       },
@@ -5426,6 +5426,12 @@
     "com.amazonaws.elasticsearchservice#UpgradeElasticsearchDomainRequest": {
       "type": "structure",
       "members": {
+        "PerformCheckOnly": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.\n      This will not actually perform the Upgrade.\n    </p>"
+          }
+        },
         "TargetVersion": {
           "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionString",
           "traits": {
@@ -5438,12 +5444,6 @@
           "traits": {
             "smithy.api#required": {}
           }
-        },
-        "PerformCheckOnly": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.\n      This will not actually perform the Upgrade.\n    </p>"
-          }
         }
       },
       "traits": {
@@ -5453,8 +5453,11 @@
     "com.amazonaws.elasticsearchservice#UpgradeElasticsearchDomainResponse": {
       "type": "structure",
       "members": {
-        "DomainName": {
-          "target": "com.amazonaws.elasticsearchservice#DomainName"
+        "PerformCheckOnly": {
+          "target": "com.amazonaws.elasticsearchservice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.\n      This will not actually perform the Upgrade.\n    </p>"
+          }
         },
         "TargetVersion": {
           "target": "com.amazonaws.elasticsearchservice#ElasticsearchVersionString",
@@ -5462,11 +5465,8 @@
             "smithy.api#documentation": "<p>The version of Elasticsearch that you intend to upgrade the domain to.</p>"
           }
         },
-        "PerformCheckOnly": {
-          "target": "com.amazonaws.elasticsearchservice#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.\n      This will not actually perform the Upgrade.\n    </p>"
-          }
+        "DomainName": {
+          "target": "com.amazonaws.elasticsearchservice#DomainName"
         }
       },
       "traits": {
@@ -5476,10 +5476,10 @@
     "com.amazonaws.elasticsearchservice#UpgradeHistory": {
       "type": "structure",
       "members": {
-        "UpgradeName": {
-          "target": "com.amazonaws.elasticsearchservice#UpgradeName",
+        "StepsList": {
+          "target": "com.amazonaws.elasticsearchservice#UpgradeStepsList",
           "traits": {
-            "smithy.api#documentation": "<p>A string that describes the update briefly</p>"
+            "smithy.api#documentation": "<p>\n      A list of\n      <code>\n        <a>UpgradeStepItem</a>\n      </code>\n      s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.\n    </p>"
           }
         },
         "UpgradeStatus": {
@@ -5488,10 +5488,10 @@
             "smithy.api#documentation": "<p>\n      The overall status of the update. The status can take one of the following values:\n      <ul>\n        <li>In Progress</li>\n        <li>Succeeded</li>\n        <li>Succeeded with Issues</li>\n        <li>Failed</li>\n      </ul>\n    </p>"
           }
         },
-        "StepsList": {
-          "target": "com.amazonaws.elasticsearchservice#UpgradeStepsList",
+        "UpgradeName": {
+          "target": "com.amazonaws.elasticsearchservice#UpgradeName",
           "traits": {
-            "smithy.api#documentation": "<p>\n      A list of\n      <code>\n        <a>UpgradeStepItem</a>\n      </code>\n      s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.\n    </p>"
+            "smithy.api#documentation": "<p>A string that describes the update briefly</p>"
           }
         },
         "StartTimestamp": {
@@ -5552,10 +5552,10 @@
     "com.amazonaws.elasticsearchservice#UpgradeStepItem": {
       "type": "structure",
       "members": {
-        "UpgradeStep": {
-          "target": "com.amazonaws.elasticsearchservice#UpgradeStep",
+        "UpgradeStepStatus": {
+          "target": "com.amazonaws.elasticsearchservice#UpgradeStatus",
           "traits": {
-            "smithy.api#documentation": "<p>\n      Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:\n      <ul>\n        <li>PreUpgradeCheck</li>\n        <li>Snapshot</li>\n        <li>Upgrade</li>\n      </ul>\n    </p>"
+            "smithy.api#documentation": "<p>\n      The status of a particular step during an upgrade. The status can take one of the following values:\n      <ul>\n        <li>In Progress</li>\n        <li>Succeeded</li>\n        <li>Succeeded with Issues</li>\n        <li>Failed</li>\n      </ul>\n    </p>"
           }
         },
         "Issues": {
@@ -5570,10 +5570,10 @@
             "smithy.api#documentation": "<p>The Floating point value representing progress percentage of a particular step.</p>"
           }
         },
-        "UpgradeStepStatus": {
-          "target": "com.amazonaws.elasticsearchservice#UpgradeStatus",
+        "UpgradeStep": {
+          "target": "com.amazonaws.elasticsearchservice#UpgradeStep",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The status of a particular step during an upgrade. The status can take one of the following values:\n      <ul>\n        <li>In Progress</li>\n        <li>Succeeded</li>\n        <li>Succeeded with Issues</li>\n        <li>Failed</li>\n      </ul>\n    </p>"
+            "smithy.api#documentation": "<p>\n      Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:\n      <ul>\n        <li>PreUpgradeCheck</li>\n        <li>Snapshot</li>\n        <li>Upgrade</li>\n      </ul>\n    </p>"
           }
         }
       },
@@ -5609,12 +5609,6 @@
     "com.amazonaws.elasticsearchservice#VPCDerivedInfo": {
       "type": "structure",
       "members": {
-        "SubnetIds": {
-          "target": "com.amazonaws.elasticsearchservice#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the subnets for VPC endpoint.</p>"
-          }
-        },
         "VPCId": {
           "target": "com.amazonaws.elasticsearchservice#String",
           "traits": {
@@ -5632,6 +5626,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the security groups for VPC endpoint.</p>"
           }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.elasticsearchservice#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the subnets for VPC endpoint.</p>"
+          }
         }
       },
       "traits": {
@@ -5641,17 +5641,17 @@
     "com.amazonaws.elasticsearchservice#VPCDerivedInfoStatus": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p> Specifies the status of the VPC options for the specified Elasticsearch domain.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Options": {
           "target": "com.amazonaws.elasticsearchservice#VPCDerivedInfo",
           "traits": {
             "smithy.api#documentation": "<p> Specifies the VPC options for the specified Elasticsearch domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.elasticsearchservice#OptionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p> Specifies the status of the VPC options for the specified Elasticsearch domain.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5663,16 +5663,16 @@
     "com.amazonaws.elasticsearchservice#VPCOptions": {
       "type": "structure",
       "members": {
-        "SubnetIds": {
-          "target": "com.amazonaws.elasticsearchservice#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the subnets for VPC endpoint.</p>"
-          }
-        },
         "SecurityGroupIds": {
           "target": "com.amazonaws.elasticsearchservice#StringList",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the security groups for VPC endpoint.</p>"
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.elasticsearchservice#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the subnets for VPC endpoint.</p>"
           }
         }
       },

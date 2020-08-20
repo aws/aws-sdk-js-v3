@@ -191,12 +191,6 @@
     "com.amazonaws.appsync#AdditionalAuthenticationProvider": {
       "type": "structure",
       "members": {
-        "authenticationType": {
-          "target": "com.amazonaws.appsync#AuthenticationType",
-          "traits": {
-            "smithy.api#documentation": "<p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>"
-          }
-        },
         "userPoolConfig": {
           "target": "com.amazonaws.appsync#CognitoUserPoolConfig",
           "traits": {
@@ -207,6 +201,12 @@
           "target": "com.amazonaws.appsync#OpenIDConnectConfig",
           "traits": {
             "smithy.api#documentation": "<p>The OpenID Connect configuration.</p>"
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.appsync#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>"
           }
         }
       },
@@ -229,28 +229,28 @@
             "smithy.api#documentation": "<p>Caching behavior.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>FULL_REQUEST_CACHING</b>: All requests are fully\n               cached.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PER_RESOLVER_CACHING</b>: Individual resovlers\n               that you specify are cached.</p>\n            </li>\n         </ul>"
           }
         },
-        "type": {
-          "target": "com.amazonaws.appsync#ApiCacheType",
-          "traits": {
-            "smithy.api#documentation": "<p>The cache instance type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>T2_SMALL</b>: A t2.small instance type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>T2_MEDIUM</b>: A t2.medium instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_LARGE</b>: A r4.large instance type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_XLARGE</b>: A r4.xlarge instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_2XLARGE</b>: A r4.2xlarge instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_4XLARGE</b>: A r4.4xlarge instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_8XLARGE</b>: A r4.8xlarge instance\n               type.</p>\n            </li>\n         </ul>"
-          }
-        },
         "status": {
           "target": "com.amazonaws.appsync#ApiCacheStatus",
           "traits": {
             "smithy.api#documentation": "<p>The cache instance status.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>AVAILABLE</b>: The instance is available for\n               use.</p>\n            </li>\n            <li>\n               <p>\n                  <b>CREATING</b>: The instance is currently\n               creating.</p>\n            </li>\n            <li>\n               <p>\n                  <b>DELETING</b>: The instance is currently\n               deleting.</p>\n            </li>\n            <li>\n               <p>\n                  <b>MODIFYING</b>: The instance is currently\n               modifying.</p>\n            </li>\n            <li>\n               <p>\n                  <b>FAILED</b>: The instance has failed\n               creation.</p>\n            </li>\n         </ul>"
           }
         },
-        "transitEncryptionEnabled": {
-          "target": "com.amazonaws.appsync#Boolean",
+        "type": {
+          "target": "com.amazonaws.appsync#ApiCacheType",
           "traits": {
-            "smithy.api#documentation": "<p>Transit encryption flag when connecting to cache. This setting cannot be updated after\n         creation.</p>"
+            "smithy.api#documentation": "<p>The cache instance type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>T2_SMALL</b>: A t2.small instance type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>T2_MEDIUM</b>: A t2.medium instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_LARGE</b>: A r4.large instance type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_XLARGE</b>: A r4.xlarge instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_2XLARGE</b>: A r4.2xlarge instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_4XLARGE</b>: A r4.4xlarge instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_8XLARGE</b>: A r4.8xlarge instance\n               type.</p>\n            </li>\n         </ul>"
           }
         },
         "ttl": {
           "target": "com.amazonaws.appsync#Long",
           "traits": {
             "smithy.api#documentation": "<p>TTL in seconds for cache entries.</p>\n         <p>Valid values are between 1 and 3600 seconds.</p>"
+          }
+        },
+        "transitEncryptionEnabled": {
+          "target": "com.amazonaws.appsync#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Transit encryption flag when connecting to cache. This setting cannot be updated after\n         creation.</p>"
           }
         },
         "atRestEncryptionEnabled": {
@@ -376,6 +376,12 @@
     "com.amazonaws.appsync#ApiKey": {
       "type": "structure",
       "members": {
+        "id": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The API key ID.</p>"
+          }
+        },
         "expires": {
           "target": "com.amazonaws.appsync#Long",
           "traits": {
@@ -386,12 +392,6 @@
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the purpose of the API key.</p>"
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The API key ID.</p>"
           }
         }
       },
@@ -470,17 +470,17 @@
     "com.amazonaws.appsync#AuthorizationConfig": {
       "type": "structure",
       "members": {
-        "awsIamConfig": {
-          "target": "com.amazonaws.appsync#AwsIamConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS IAM settings.</p>"
-          }
-        },
         "authorizationType": {
           "target": "com.amazonaws.appsync#AuthorizationType",
           "traits": {
             "smithy.api#documentation": "<p>The authorization type required by the HTTP endpoint.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>AWS_IAM</b>: The authorization type is\n               Sigv4.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
+          }
+        },
+        "awsIamConfig": {
+          "target": "com.amazonaws.appsync#AwsIamConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS IAM settings.</p>"
           }
         }
       },
@@ -547,16 +547,16 @@
     "com.amazonaws.appsync#CachingConfig": {
       "type": "structure",
       "members": {
-        "cachingKeys": {
-          "target": "com.amazonaws.appsync#CachingKeys",
-          "traits": {
-            "smithy.api#documentation": "<p>The caching keys for a resolver that has caching enabled.</p>\n         <p>Valid values are entries from the <code>$context.arguments</code>,\n            <code>$context.source</code>, and <code>$context.identity</code> maps.</p>"
-          }
-        },
         "ttl": {
           "target": "com.amazonaws.appsync#Long",
           "traits": {
             "smithy.api#documentation": "<p>The TTL in seconds for a resolver that has caching enabled.</p>\n         <p>Valid values are between 1 and 3600 seconds.</p>"
+          }
+        },
+        "cachingKeys": {
+          "target": "com.amazonaws.appsync#CachingKeys",
+          "traits": {
+            "smithy.api#documentation": "<p>The caching keys for a resolver that has caching enabled.</p>\n         <p>Valid values are entries from the <code>$context.arguments</code>,\n            <code>$context.source</code>, and <code>$context.identity</code> maps.</p>"
           }
         }
       },
@@ -573,11 +573,10 @@
     "com.amazonaws.appsync#CognitoUserPoolConfig": {
       "type": "structure",
       "members": {
-        "userPoolId": {
+        "appIdClientRegex": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>The user pool ID.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A regular expression for validating the incoming Amazon Cognito user pool app client\n         ID.</p>"
           }
         },
         "awsRegion": {
@@ -587,10 +586,11 @@
             "smithy.api#required": {}
           }
         },
-        "appIdClientRegex": {
+        "userPoolId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>A regular expression for validating the incoming Amazon Cognito user pool app client\n         ID.</p>"
+            "smithy.api#documentation": "<p>The user pool ID.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -686,6 +686,13 @@
     "com.amazonaws.appsync#CreateApiCacheRequest": {
       "type": "structure",
       "members": {
+        "apiCachingBehavior": {
+          "target": "com.amazonaws.appsync#ApiCachingBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>Caching behavior.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>FULL_REQUEST_CACHING</b>: All requests are fully\n               cached.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PER_RESOLVER_CACHING</b>: Individual resovlers\n               that you specify are cached.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
         "type": {
           "target": "com.amazonaws.appsync#ApiCacheType",
           "traits": {
@@ -697,13 +704,6 @@
           "target": "com.amazonaws.appsync#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>At rest encryption flag for cache. This setting cannot be updated after creation.</p>"
-          }
-        },
-        "ttl": {
-          "target": "com.amazonaws.appsync#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>TTL in seconds for cache entries.</p>\n         <p>Valid values are between 1 and 3600 seconds.</p>",
-            "smithy.api#required": {}
           }
         },
         "apiId": {
@@ -720,10 +720,10 @@
             "smithy.api#documentation": "<p>Transit encryption flag when connecting to cache. This setting cannot be updated after\n         creation.</p>"
           }
         },
-        "apiCachingBehavior": {
-          "target": "com.amazonaws.appsync#ApiCachingBehavior",
+        "ttl": {
+          "target": "com.amazonaws.appsync#Long",
           "traits": {
-            "smithy.api#documentation": "<p>Caching behavior.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>FULL_REQUEST_CACHING</b>: All requests are fully\n               cached.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PER_RESOLVER_CACHING</b>: Individual resovlers\n               that you specify are cached.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>TTL in seconds for cache entries.</p>\n         <p>Valid values are between 1 and 3600 seconds.</p>",
             "smithy.api#required": {}
           }
         }
@@ -789,12 +789,10 @@
     "com.amazonaws.appsync#CreateApiKeyRequest": {
       "type": "structure",
       "members": {
-        "apiId": {
-          "target": "com.amazonaws.appsync#String",
+        "expires": {
+          "target": "com.amazonaws.appsync#Long",
           "traits": {
-            "smithy.api#documentation": "<p>The ID for your GraphQL API.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The time from creation time after which the API key expires. The date is represented as\n         seconds since the epoch, rounded down to the nearest hour. The default value for this\n         parameter is 7 days from creation time. For more information, see .</p>"
           }
         },
         "description": {
@@ -803,10 +801,12 @@
             "smithy.api#documentation": "<p>A description of the purpose of the API key.</p>"
           }
         },
-        "expires": {
-          "target": "com.amazonaws.appsync#Long",
+        "apiId": {
+          "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>The time from creation time after which the API key expires. The date is represented as\n         seconds since the epoch, rounded down to the nearest hour. The default value for this\n         parameter is 7 days from creation time. For more information, see .</p>"
+            "smithy.api#documentation": "<p>The ID for your GraphQL API.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -878,16 +878,36 @@
             "smithy.api#documentation": "<p>AWS Lambda settings.</p>"
           }
         },
+        "description": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the <code>DataSource</code>.</p>"
+          }
+        },
+        "dynamodbConfig": {
+          "target": "com.amazonaws.appsync#DynamodbDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon DynamoDB settings.</p>"
+          }
+        },
         "serviceRoleArn": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The AWS IAM service role ARN for the data source. The system assumes this role when\n         accessing the data source.</p>"
           }
         },
-        "description": {
+        "httpConfig": {
+          "target": "com.amazonaws.appsync#HttpDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>HTTP endpoint settings.</p>"
+          }
+        },
+        "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the <code>DataSource</code>.</p>"
+            "smithy.api#documentation": "<p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "name": {
@@ -901,26 +921,6 @@
           "target": "com.amazonaws.appsync#ElasticsearchDataSourceConfig",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Elasticsearch Service settings.</p>"
-          }
-        },
-        "apiId": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "httpConfig": {
-          "target": "com.amazonaws.appsync#HttpDataSourceConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>HTTP endpoint settings.</p>"
-          }
-        },
-        "dynamodbConfig": {
-          "target": "com.amazonaws.appsync#DynamodbDataSourceConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon DynamoDB settings.</p>"
           }
         }
       }
@@ -970,10 +970,16 @@
     "com.amazonaws.appsync#CreateFunctionRequest": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.appsync#ResourceName",
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.appsync#MappingTemplate",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code> name. The function name does not have to be unique.</p>",
+            "smithy.api#documentation": "<p>The <code>Function</code> response mapping template. </p>"
+          }
+        },
+        "functionVersion": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>version</code> of the request mapping template. Currently the supported value\n         is 2018-05-29. </p>",
             "smithy.api#required": {}
           }
         },
@@ -984,11 +990,17 @@
             "smithy.api#required": {}
           }
         },
-        "requestMappingTemplate": {
-          "target": "com.amazonaws.appsync#MappingTemplate",
+        "name": {
+          "target": "com.amazonaws.appsync#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code> request mapping template. Functions support only the\n         2018-05-29 version of the request mapping template.</p>",
+            "smithy.api#documentation": "<p>The <code>Function</code> name. The function name does not have to be unique.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>Function</code> description.</p>"
           }
         },
         "apiId": {
@@ -999,23 +1011,11 @@
             "smithy.api#required": {}
           }
         },
-        "description": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code> description.</p>"
-          }
-        },
-        "functionVersion": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>version</code> of the request mapping template. Currently the supported value\n         is 2018-05-29. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "responseMappingTemplate": {
+        "requestMappingTemplate": {
           "target": "com.amazonaws.appsync#MappingTemplate",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code> response mapping template. </p>"
+            "smithy.api#documentation": "<p>The <code>Function</code> request mapping template. Functions support only the\n         2018-05-29 version of the request mapping template.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1077,37 +1077,6 @@
             "smithy.api#documentation": "<p>A <code>TagMap</code> object.</p>"
           }
         },
-        "xrayEnabled": {
-          "target": "com.amazonaws.appsync#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>A flag indicating whether to enable X-Ray tracing for the\n         <code>GraphqlApi</code>.</p>"
-          }
-        },
-        "additionalAuthenticationProviders": {
-          "target": "com.amazonaws.appsync#AdditionalAuthenticationProviders",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of additional authentication providers for the <code>GraphqlApi</code>\n         API.</p>"
-          }
-        },
-        "openIDConnectConfig": {
-          "target": "com.amazonaws.appsync#OpenIDConnectConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The OpenID Connect configuration.</p>"
-          }
-        },
-        "userPoolConfig": {
-          "target": "com.amazonaws.appsync#UserPoolConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Cognito user pool configuration.</p>"
-          }
-        },
-        "authenticationType": {
-          "target": "com.amazonaws.appsync#AuthenticationType",
-          "traits": {
-            "smithy.api#documentation": "<p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "name": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
@@ -1119,6 +1088,37 @@
           "target": "com.amazonaws.appsync#LogConfig",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon CloudWatch Logs configuration.</p>"
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.appsync#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "xrayEnabled": {
+          "target": "com.amazonaws.appsync#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A flag indicating whether to enable X-Ray tracing for the\n         <code>GraphqlApi</code>.</p>"
+          }
+        },
+        "userPoolConfig": {
+          "target": "com.amazonaws.appsync#UserPoolConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Cognito user pool configuration.</p>"
+          }
+        },
+        "openIDConnectConfig": {
+          "target": "com.amazonaws.appsync#OpenIDConnectConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The OpenID Connect configuration.</p>"
+          }
+        },
+        "additionalAuthenticationProviders": {
+          "target": "com.amazonaws.appsync#AdditionalAuthenticationProviders",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of additional authentication providers for the <code>GraphqlApi</code>\n         API.</p>"
           }
         }
       }
@@ -1168,23 +1168,25 @@
     "com.amazonaws.appsync#CreateResolverRequest": {
       "type": "structure",
       "members": {
+        "apiId": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID for the GraphQL API for which the resolver is being created.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "dataSourceName": {
+          "target": "com.amazonaws.appsync#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data source for which the resolver is being created.</p>"
+          }
+        },
         "fieldName": {
           "target": "com.amazonaws.appsync#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the field to attach the resolver to.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "kind": {
-          "target": "com.amazonaws.appsync#ResolverKind",
-          "traits": {
-            "smithy.api#documentation": "<p>The resolver type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is\n               the default resolver type. A UNIT resolver enables you to execute a GraphQL query\n               against a single data source.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE\n               resolver enables you to execute a series of <code>Function</code> in a serial manner.\n               You can use a pipeline resolver to execute a GraphQL query against multiple data\n               sources.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "pipelineConfig": {
-          "target": "com.amazonaws.appsync#PipelineConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>PipelineConfig</code>.</p>"
           }
         },
         "responseMappingTemplate": {
@@ -1197,6 +1199,13 @@
           "target": "com.amazonaws.appsync#CachingConfig",
           "traits": {
             "smithy.api#documentation": "<p>The caching configuration for the resolver.</p>"
+          }
+        },
+        "requestMappingTemplate": {
+          "target": "com.amazonaws.appsync#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>The mapping template to be used for requests.</p>\n         <p>A resolver uses a request mapping template to convert a GraphQL expression into a format\n         that a data source can understand. Mapping templates are written in Apache Velocity\n         Template Language (VTL).</p>",
+            "smithy.api#required": {}
           }
         },
         "syncConfig": {
@@ -1213,25 +1222,16 @@
             "smithy.api#required": {}
           }
         },
-        "requestMappingTemplate": {
-          "target": "com.amazonaws.appsync#MappingTemplate",
+        "kind": {
+          "target": "com.amazonaws.appsync#ResolverKind",
           "traits": {
-            "smithy.api#documentation": "<p>The mapping template to be used for requests.</p>\n         <p>A resolver uses a request mapping template to convert a GraphQL expression into a format\n         that a data source can understand. Mapping templates are written in Apache Velocity\n         Template Language (VTL).</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The resolver type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is\n               the default resolver type. A UNIT resolver enables you to execute a GraphQL query\n               against a single data source.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE\n               resolver enables you to execute a series of <code>Function</code> in a serial manner.\n               You can use a pipeline resolver to execute a GraphQL query against multiple data\n               sources.</p>\n            </li>\n         </ul>"
           }
         },
-        "apiId": {
-          "target": "com.amazonaws.appsync#String",
+        "pipelineConfig": {
+          "target": "com.amazonaws.appsync#PipelineConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The ID for the GraphQL API for which the resolver is being created.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "dataSourceName": {
-          "target": "com.amazonaws.appsync#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the data source for which the resolver is being created.</p>"
+            "smithy.api#documentation": "<p>The <code>PipelineConfig</code>.</p>"
           }
         }
       }
@@ -1284,13 +1284,6 @@
     "com.amazonaws.appsync#CreateTypeRequest": {
       "type": "structure",
       "members": {
-        "definition": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The type definition, in GraphQL Schema Definition Language (SDL) format.</p>\n         <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL\n            documentation</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
@@ -1303,6 +1296,13 @@
           "target": "com.amazonaws.appsync#TypeDefinitionFormat",
           "traits": {
             "smithy.api#documentation": "<p>The type format: SDL or JSON.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "definition": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type definition, in GraphQL Schema Definition Language (SDL) format.</p>\n         <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL\n            documentation</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1322,10 +1322,10 @@
     "com.amazonaws.appsync#DataSource": {
       "type": "structure",
       "members": {
-        "serviceRoleArn": {
-          "target": "com.amazonaws.appsync#String",
+        "type": {
+          "target": "com.amazonaws.appsync#DataSourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS IAM service role ARN for the data source. The system assumes this role when\n         accessing the data source.</p>"
+            "smithy.api#documentation": "<p>The type of the data source.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>AMAZON_DYNAMODB</b>: The data source is an Amazon\n               DynamoDB table.</p>\n            </li>\n            <li>\n               <p>\n                  <b>AMAZON_ELASTICSEARCH</b>: The data source is an\n               Amazon Elasticsearch Service domain.</p>\n            </li>\n            <li>\n               <p>\n                  <b>AWS_LAMBDA</b>: The data source is an AWS Lambda\n               function.</p>\n            </li>\n            <li>\n               <p>\n                  <b>NONE</b>: There is no data source. This type is\n               used when you wish to invoke a GraphQL operation without connecting to a data source,\n               such as performing data transformation with resolvers or triggering a subscription to\n               be invoked from a mutation.</p>\n            </li>\n            <li>\n               <p>\n                  <b>HTTP</b>: The data source is an HTTP\n               endpoint.</p>\n            </li>\n            <li>\n               <p>\n                  <b>RELATIONAL_DATABASE</b>: The data source is a\n               relational database.</p>\n            </li>\n         </ul>"
           }
         },
         "relationalDatabaseConfig": {
@@ -1340,10 +1340,16 @@
             "smithy.api#documentation": "<p>Amazon Elasticsearch Service settings.</p>"
           }
         },
-        "dataSourceArn": {
+        "lambdaConfig": {
+          "target": "com.amazonaws.appsync#LambdaDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>AWS Lambda settings.</p>"
+          }
+        },
+        "serviceRoleArn": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>The data source ARN.</p>"
+            "smithy.api#documentation": "<p>The AWS IAM service role ARN for the data source. The system assumes this role when\n         accessing the data source.</p>"
           }
         },
         "description": {
@@ -1352,22 +1358,10 @@
             "smithy.api#documentation": "<p>The description of the data source.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.appsync#ResourceName",
+        "dynamodbConfig": {
+          "target": "com.amazonaws.appsync#DynamodbDataSourceConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the data source.</p>"
-          }
-        },
-        "lambdaConfig": {
-          "target": "com.amazonaws.appsync#LambdaDataSourceConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>AWS Lambda settings.</p>"
-          }
-        },
-        "type": {
-          "target": "com.amazonaws.appsync#DataSourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the data source.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>AMAZON_DYNAMODB</b>: The data source is an Amazon\n               DynamoDB table.</p>\n            </li>\n            <li>\n               <p>\n                  <b>AMAZON_ELASTICSEARCH</b>: The data source is an\n               Amazon Elasticsearch Service domain.</p>\n            </li>\n            <li>\n               <p>\n                  <b>AWS_LAMBDA</b>: The data source is an AWS Lambda\n               function.</p>\n            </li>\n            <li>\n               <p>\n                  <b>NONE</b>: There is no data source. This type is\n               used when you wish to invoke a GraphQL operation without connecting to a data source,\n               such as performing data transformation with resolvers or triggering a subscription to\n               be invoked from a mutation.</p>\n            </li>\n            <li>\n               <p>\n                  <b>HTTP</b>: The data source is an HTTP\n               endpoint.</p>\n            </li>\n            <li>\n               <p>\n                  <b>RELATIONAL_DATABASE</b>: The data source is a\n               relational database.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Amazon DynamoDB settings.</p>"
           }
         },
         "httpConfig": {
@@ -1376,10 +1370,16 @@
             "smithy.api#documentation": "<p>HTTP endpoint settings.</p>"
           }
         },
-        "dynamodbConfig": {
-          "target": "com.amazonaws.appsync#DynamodbDataSourceConfig",
+        "dataSourceArn": {
+          "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon DynamoDB settings.</p>"
+            "smithy.api#documentation": "<p>The data source ARN.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.appsync#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data source.</p>"
           }
         }
       },
@@ -1530,18 +1530,18 @@
     "com.amazonaws.appsync#DeleteApiKeyRequest": {
       "type": "structure",
       "members": {
-        "id": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID for the API key.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The API ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID for the API key.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1589,18 +1589,18 @@
     "com.amazonaws.appsync#DeleteDataSourceRequest": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.appsync#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the data source.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The API ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.appsync#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data source.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1847,12 +1847,6 @@
     "com.amazonaws.appsync#DeltaSyncConfig": {
       "type": "structure",
       "members": {
-        "deltaSyncTableTTL": {
-          "target": "com.amazonaws.appsync#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of minutes a Delta Sync log entry is stored in the Delta Sync table.</p>"
-          }
-        },
         "deltaSyncTableName": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
@@ -1864,6 +1858,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The number of minutes an Item is stored in the datasource.</p>"
           }
+        },
+        "deltaSyncTableTTL": {
+          "target": "com.amazonaws.appsync#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of minutes a Delta Sync log entry is stored in the Delta Sync table.</p>"
+          }
         }
       },
       "traits": {
@@ -1873,17 +1873,23 @@
     "com.amazonaws.appsync#DynamodbDataSourceConfig": {
       "type": "structure",
       "members": {
+        "awsRegion": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "useCallerCredentials": {
           "target": "com.amazonaws.appsync#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Set to TRUE to use Amazon Cognito credentials with this data source.</p>"
           }
         },
-        "awsRegion": {
-          "target": "com.amazonaws.appsync#String",
+        "versioned": {
+          "target": "com.amazonaws.appsync#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Region.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Set to TRUE to use Conflict Detection and Resolution with this data source.</p>"
           }
         },
         "deltaSyncConfig": {
@@ -1898,12 +1904,6 @@
             "smithy.api#documentation": "<p>The table name.</p>",
             "smithy.api#required": {}
           }
-        },
-        "versioned": {
-          "target": "com.amazonaws.appsync#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Set to TRUE to use Conflict Detection and Resolution with this data source.</p>"
-          }
         }
       },
       "traits": {
@@ -1913,17 +1913,17 @@
     "com.amazonaws.appsync#ElasticsearchDataSourceConfig": {
       "type": "structure",
       "members": {
-        "awsRegion": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Region.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "endpoint": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The endpoint.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "awsRegion": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2014,18 +2014,6 @@
     "com.amazonaws.appsync#FunctionConfiguration": {
       "type": "structure",
       "members": {
-        "requestMappingTemplate": {
-          "target": "com.amazonaws.appsync#MappingTemplate",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code> request mapping template. Functions support only the\n         2018-05-29 version of the request mapping template.</p>"
-          }
-        },
-        "functionArn": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the <code>Function</code> object.</p>"
-          }
-        },
         "functionId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
@@ -2038,10 +2026,10 @@
             "smithy.api#documentation": "<p>The version of the request mapping template. Currently only the 2018-05-29 version of\n         the template is supported.</p>"
           }
         },
-        "description": {
-          "target": "com.amazonaws.appsync#String",
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.appsync#MappingTemplate",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code> description.</p>"
+            "smithy.api#documentation": "<p>The <code>Function</code> response mapping template.</p>"
           }
         },
         "name": {
@@ -2050,16 +2038,28 @@
             "smithy.api#documentation": "<p>The name of the <code>Function</code> object.</p>"
           }
         },
-        "responseMappingTemplate": {
-          "target": "com.amazonaws.appsync#MappingTemplate",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code> response mapping template.</p>"
-          }
-        },
         "dataSourceName": {
           "target": "com.amazonaws.appsync#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the <code>DataSource</code>.</p>"
+          }
+        },
+        "functionArn": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the <code>Function</code> object.</p>"
+          }
+        },
+        "requestMappingTemplate": {
+          "target": "com.amazonaws.appsync#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>Function</code> request mapping template. Functions support only the\n         2018-05-29 version of the request mapping template.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>Function</code> description.</p>"
           }
         }
       },
@@ -2180,18 +2180,18 @@
     "com.amazonaws.appsync#GetDataSourceRequest": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.appsync#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the data source.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The API ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.appsync#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data source.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2240,18 +2240,18 @@
     "com.amazonaws.appsync#GetFunctionRequest": {
       "type": "structure",
       "members": {
-        "apiId": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The GraphQL API ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "functionId": {
           "target": "com.amazonaws.appsync#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The <code>Function</code> ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "apiId": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The GraphQL API ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2361,12 +2361,11 @@
     "com.amazonaws.appsync#GetIntrospectionSchemaRequest": {
       "type": "structure",
       "members": {
-        "format": {
-          "target": "com.amazonaws.appsync#OutputType",
+        "includeDirectives": {
+          "target": "com.amazonaws.appsync#BooleanValue",
           "traits": {
-            "smithy.api#documentation": "<p>The schema format: SDL or JSON.</p>",
-            "smithy.api#httpQuery": "format",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A flag that specifies whether the schema introspection should contain directives.</p>",
+            "smithy.api#httpQuery": "includeDirectives"
           }
         },
         "apiId": {
@@ -2377,11 +2376,12 @@
             "smithy.api#required": {}
           }
         },
-        "includeDirectives": {
-          "target": "com.amazonaws.appsync#BooleanValue",
+        "format": {
+          "target": "com.amazonaws.appsync#OutputType",
           "traits": {
-            "smithy.api#documentation": "<p>A flag that specifies whether the schema introspection should contain directives.</p>",
-            "smithy.api#httpQuery": "includeDirectives"
+            "smithy.api#documentation": "<p>The schema format: SDL or JSON.</p>",
+            "smithy.api#httpQuery": "format",
+            "smithy.api#required": {}
           }
         }
       }
@@ -2437,18 +2437,18 @@
             "smithy.api#required": {}
           }
         },
-        "apiId": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The API ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "fieldName": {
           "target": "com.amazonaws.appsync#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The resolver field name.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "apiId": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The API ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2564,11 +2564,11 @@
     "com.amazonaws.appsync#GetTypeRequest": {
       "type": "structure",
       "members": {
-        "format": {
-          "target": "com.amazonaws.appsync#TypeDefinitionFormat",
+        "typeName": {
+          "target": "com.amazonaws.appsync#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The type format: SDL or JSON.</p>",
-            "smithy.api#httpQuery": "format",
+            "smithy.api#documentation": "<p>The type name.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         },
@@ -2580,11 +2580,11 @@
             "smithy.api#required": {}
           }
         },
-        "typeName": {
-          "target": "com.amazonaws.appsync#ResourceName",
+        "format": {
+          "target": "com.amazonaws.appsync#TypeDefinitionFormat",
           "traits": {
-            "smithy.api#documentation": "<p>The type name.</p>",
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p>The type format: SDL or JSON.</p>",
+            "smithy.api#httpQuery": "format",
             "smithy.api#required": {}
           }
         }
@@ -2629,6 +2629,48 @@
             "smithy.api#documentation": "<p>A flag representing whether X-Ray tracing is enabled for this\n         <code>GraphqlApi</code>.</p>"
           }
         },
+        "logConfig": {
+          "target": "com.amazonaws.appsync#LogConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon CloudWatch Logs configuration.</p>"
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.appsync#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication type.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.appsync#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The API name.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN.</p>"
+          }
+        },
+        "uris": {
+          "target": "com.amazonaws.appsync#MapOfStringToString",
+          "traits": {
+            "smithy.api#documentation": "<p>The URIs.</p>"
+          }
+        },
+        "userPoolConfig": {
+          "target": "com.amazonaws.appsync#UserPoolConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Cognito user pool configuration.</p>"
+          }
+        },
+        "apiId": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The API ID.</p>"
+          }
+        },
         "openIDConnectConfig": {
           "target": "com.amazonaws.appsync#OpenIDConnectConfig",
           "traits": {
@@ -2639,48 +2681,6 @@
           "target": "com.amazonaws.appsync#AdditionalAuthenticationProviders",
           "traits": {
             "smithy.api#documentation": "<p>A list of additional authentication providers for the <code>GraphqlApi</code>\n         API.</p>"
-          }
-        },
-        "userPoolConfig": {
-          "target": "com.amazonaws.appsync#UserPoolConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Cognito user pool configuration.</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN.</p>"
-          }
-        },
-        "authenticationType": {
-          "target": "com.amazonaws.appsync#AuthenticationType",
-          "traits": {
-            "smithy.api#documentation": "<p>The authentication type.</p>"
-          }
-        },
-        "logConfig": {
-          "target": "com.amazonaws.appsync#LogConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon CloudWatch Logs configuration.</p>"
-          }
-        },
-        "uris": {
-          "target": "com.amazonaws.appsync#MapOfStringToString",
-          "traits": {
-            "smithy.api#documentation": "<p>The URIs.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.appsync#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The API name.</p>"
-          }
-        },
-        "apiId": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The API ID.</p>"
           }
         }
       },
@@ -2697,16 +2697,16 @@
     "com.amazonaws.appsync#HttpDataSourceConfig": {
       "type": "structure",
       "members": {
-        "authorizationConfig": {
-          "target": "com.amazonaws.appsync#AuthorizationConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The authorization config in case the HTTP endpoint requires authorization.</p>"
-          }
-        },
         "endpoint": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The HTTP URL endpoint. You can either specify the domain name or IP, and port\n         combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS\n         AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS\n         endpoints.</p>"
+          }
+        },
+        "authorizationConfig": {
+          "target": "com.amazonaws.appsync#AuthorizationConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The authorization config in case the HTTP endpoint requires authorization.</p>"
           }
         }
       },
@@ -2811,18 +2811,18 @@
             "smithy.api#required": {}
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.appsync#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.appsync#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.appsync#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       }
@@ -2885,19 +2885,19 @@
             "smithy.api#httpQuery": "nextToken"
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.appsync#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The API ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.appsync#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -2953,13 +2953,6 @@
     "com.amazonaws.appsync#ListFunctionsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.appsync#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.appsync#PaginationToken",
           "traits": {
@@ -2973,6 +2966,13 @@
             "smithy.api#documentation": "<p>The GraphQL API ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.appsync#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -3025,18 +3025,18 @@
     "com.amazonaws.appsync#ListGraphqlApisRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.appsync#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list. </p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.appsync#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.appsync#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list. </p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       }
@@ -3131,13 +3131,6 @@
             "smithy.api#required": {}
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.appsync#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
@@ -3151,6 +3144,13 @@
           "traits": {
             "smithy.api#documentation": "<p>An identifier that was returned from the previous call to this operation, which you can\n         use to return the next set of items in the list.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.appsync#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -3190,13 +3190,6 @@
             "smithy.api#required": {}
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.appsync#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
@@ -3204,22 +3197,29 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.appsync#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results you want the request to return.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
         }
       }
     },
     "com.amazonaws.appsync#ListResolversResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.appsync#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>An identifier to be passed in the next request to this operation to return the next set\n         of items in the list.</p>"
-          }
-        },
         "resolvers": {
           "target": "com.amazonaws.appsync#Resolvers",
           "traits": {
             "smithy.api#documentation": "<p>The <code>Resolver</code> objects.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.appsync#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier to be passed in the next request to this operation to return the next set\n         of items in the list.</p>"
           }
         }
       }
@@ -3329,11 +3329,12 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.appsync#PaginationToken",
+        "apiId": {
+          "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list. </p>",
-            "smithy.api#httpQuery": "nextToken"
+            "smithy.api#documentation": "<p>The API ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "format": {
@@ -3344,12 +3345,11 @@
             "smithy.api#required": {}
           }
         },
-        "apiId": {
-          "target": "com.amazonaws.appsync#String",
+        "nextToken": {
+          "target": "com.amazonaws.appsync#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The API ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list. </p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       }
@@ -3374,6 +3374,13 @@
     "com.amazonaws.appsync#LogConfig": {
       "type": "structure",
       "members": {
+        "fieldLogLevel": {
+          "target": "com.amazonaws.appsync#FieldLogLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>The field logging level. Values can be NONE, ERROR, or ALL. </p>\n         <ul>\n            <li>\n               <p>\n                  <b>NONE</b>: No field-level logs are\n               captured.</p>\n            </li>\n            <li>\n               <p>\n                  <b>ERROR</b>: Logs the following information only for\n               the fields that are in error:</p>\n               <ul>\n                  <li>\n                     <p>The error section in the server response.</p>\n                  </li>\n                  <li>\n                     <p>Field-level errors.</p>\n                  </li>\n                  <li>\n                     <p>The generated request/response functions that got resolved for error\n                     fields.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <b>ALL</b>: The following information is logged for\n               all fields in the query:</p>\n               <ul>\n                  <li>\n                     <p>Field-level tracing information.</p>\n                  </li>\n                  <li>\n                     <p>The generated request/response functions that got resolved for each\n                     field.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
         "excludeVerboseContent": {
           "target": "com.amazonaws.appsync#Boolean",
           "traits": {
@@ -3384,13 +3391,6 @@
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in\n         your account. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "fieldLogLevel": {
-          "target": "com.amazonaws.appsync#FieldLogLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>The field logging level. Values can be NONE, ERROR, or ALL. </p>\n         <ul>\n            <li>\n               <p>\n                  <b>NONE</b>: No field-level logs are\n               captured.</p>\n            </li>\n            <li>\n               <p>\n                  <b>ERROR</b>: Logs the following information only for\n               the fields that are in error:</p>\n               <ul>\n                  <li>\n                     <p>The error section in the server response.</p>\n                  </li>\n                  <li>\n                     <p>Field-level errors.</p>\n                  </li>\n                  <li>\n                     <p>The generated request/response functions that got resolved for error\n                     fields.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <b>ALL</b>: The following information is logged for\n               all fields in the query:</p>\n               <ul>\n                  <li>\n                     <p>Field-level tracing information.</p>\n                  </li>\n                  <li>\n                     <p>The generated request/response functions that got resolved for each\n                     field.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -3445,17 +3445,16 @@
     "com.amazonaws.appsync#OpenIDConnectConfig": {
       "type": "structure",
       "members": {
+        "authTTL": {
+          "target": "com.amazonaws.appsync#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of milliseconds a token is valid after being authenticated.</p>"
+          }
+        },
         "iatTTL": {
           "target": "com.amazonaws.appsync#Long",
           "traits": {
             "smithy.api#documentation": "<p>The number of milliseconds a token is valid after being issued to a user.</p>"
-          }
-        },
-        "issuer": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The issuer for the OpenID Connect configuration. The issuer returned by discovery must\n         exactly match the value of <code>iss</code> in the ID token.</p>",
-            "smithy.api#required": {}
           }
         },
         "clientId": {
@@ -3464,10 +3463,11 @@
             "smithy.api#documentation": "<p>The client identifier of the Relying party at the OpenID identity provider. This\n         identifier is typically obtained when the Relying party is registered with the OpenID\n         identity provider. You can specify a regular expression so the AWS AppSync can validate\n         against multiple client identifiers at a time.</p>"
           }
         },
-        "authTTL": {
-          "target": "com.amazonaws.appsync#Long",
+        "issuer": {
+          "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>The number of milliseconds a token is valid after being authenticated.</p>"
+            "smithy.api#documentation": "<p>The issuer for the OpenID Connect configuration. The issuer returned by discovery must\n         exactly match the value of <code>iss</code> in the ID token.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3517,18 +3517,6 @@
     "com.amazonaws.appsync#RdsHttpEndpointConfig": {
       "type": "structure",
       "members": {
-        "dbClusterIdentifier": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon RDS cluster ARN.</p>"
-          }
-        },
-        "awsSecretStoreArn": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>AWS secret store ARN for database credentials.</p>"
-          }
-        },
         "databaseName": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
@@ -3541,10 +3529,22 @@
             "smithy.api#documentation": "<p>AWS Region for RDS HTTP endpoint.</p>"
           }
         },
+        "dbClusterIdentifier": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon RDS cluster ARN.</p>"
+          }
+        },
         "schema": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>Logical schema name.</p>"
+          }
+        },
+        "awsSecretStoreArn": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>AWS secret store ARN for database credentials.</p>"
           }
         }
       },
@@ -3604,28 +3604,10 @@
             "smithy.api#documentation": "<p>The caching configuration for the resolver.</p>"
           }
         },
-        "resolverArn": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The resolver ARN.</p>"
-          }
-        },
         "dataSourceName": {
           "target": "com.amazonaws.appsync#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The resolver data source name.</p>"
-          }
-        },
-        "kind": {
-          "target": "com.amazonaws.appsync#ResolverKind",
-          "traits": {
-            "smithy.api#documentation": "<p>The resolver type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is\n               the default resolver type. A UNIT resolver enables you to execute a GraphQL query\n               against a single data source.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE\n               resolver enables you to execute a series of <code>Function</code> in a serial manner.\n               You can use a pipeline resolver to execute a GraphQL query against multiple data\n               sources.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "fieldName": {
-          "target": "com.amazonaws.appsync#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The resolver field name.</p>"
           }
         },
         "responseMappingTemplate": {
@@ -3634,16 +3616,34 @@
             "smithy.api#documentation": "<p>The response mapping template.</p>"
           }
         },
+        "requestMappingTemplate": {
+          "target": "com.amazonaws.appsync#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>The request mapping template.</p>"
+          }
+        },
+        "fieldName": {
+          "target": "com.amazonaws.appsync#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The resolver field name.</p>"
+          }
+        },
+        "resolverArn": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The resolver ARN.</p>"
+          }
+        },
         "pipelineConfig": {
           "target": "com.amazonaws.appsync#PipelineConfig",
           "traits": {
             "smithy.api#documentation": "<p>The <code>PipelineConfig</code>.</p>"
           }
         },
-        "requestMappingTemplate": {
-          "target": "com.amazonaws.appsync#MappingTemplate",
+        "kind": {
+          "target": "com.amazonaws.appsync#ResolverKind",
           "traits": {
-            "smithy.api#documentation": "<p>The request mapping template.</p>"
+            "smithy.api#documentation": "<p>The resolver type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is\n               the default resolver type. A UNIT resolver enables you to execute a GraphQL query\n               against a single data source.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE\n               resolver enables you to execute a series of <code>Function</code> in a serial manner.\n               You can use a pipeline resolver to execute a GraphQL query against multiple data\n               sources.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -3760,18 +3760,18 @@
     "com.amazonaws.appsync#StartSchemaCreationRequest": {
       "type": "structure",
       "members": {
+        "definition": {
+          "target": "com.amazonaws.appsync#Blob",
+          "traits": {
+            "smithy.api#documentation": "<p>The schema definition, in GraphQL schema language format.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The API ID.</p>",
             "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "definition": {
-          "target": "com.amazonaws.appsync#Blob",
-          "traits": {
-            "smithy.api#documentation": "<p>The schema definition, in GraphQL schema language format.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3930,10 +3930,16 @@
     "com.amazonaws.appsync#Type": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.appsync#ResourceName",
+        "definition": {
+          "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>The type name.</p>"
+            "smithy.api#documentation": "<p>The type definition.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type description.</p>"
           }
         },
         "format": {
@@ -3942,22 +3948,16 @@
             "smithy.api#documentation": "<p>The type format: SDL or JSON.</p>"
           }
         },
-        "definition": {
-          "target": "com.amazonaws.appsync#String",
+        "name": {
+          "target": "com.amazonaws.appsync#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The type definition.</p>"
+            "smithy.api#documentation": "<p>The type name.</p>"
           }
         },
         "arn": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The type ARN.</p>"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The type description.</p>"
           }
         }
       },
@@ -4098,17 +4098,18 @@
     "com.amazonaws.appsync#UpdateApiCacheRequest": {
       "type": "structure",
       "members": {
+        "apiId": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The GraphQL API Id.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "type": {
           "target": "com.amazonaws.appsync#ApiCacheType",
           "traits": {
             "smithy.api#documentation": "<p>The cache instance type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>T2_SMALL</b>: A t2.small instance type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>T2_MEDIUM</b>: A t2.medium instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_LARGE</b>: A r4.large instance type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_XLARGE</b>: A r4.xlarge instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_2XLARGE</b>: A r4.2xlarge instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_4XLARGE</b>: A r4.4xlarge instance\n               type.</p>\n            </li>\n            <li>\n               <p>\n                  <b>R4_8XLARGE</b>: A r4.8xlarge instance\n               type.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
-        "ttl": {
-          "target": "com.amazonaws.appsync#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>TTL in seconds for cache entries.</p>\n         <p>Valid values are between 1 and 3600 seconds.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4119,11 +4120,10 @@
             "smithy.api#required": {}
           }
         },
-        "apiId": {
-          "target": "com.amazonaws.appsync#String",
+        "ttl": {
+          "target": "com.amazonaws.appsync#Long",
           "traits": {
-            "smithy.api#documentation": "<p>The GraphQL API Id.</p>",
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p>TTL in seconds for cache entries.</p>\n         <p>Valid values are between 1 and 3600 seconds.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4192,14 +4192,6 @@
             "smithy.api#documentation": "<p>The time from update time after which the API key expires. The date is represented as\n         seconds since the epoch. For more information, see .</p>"
           }
         },
-        "id": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The API key ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
@@ -4212,6 +4204,14 @@
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the purpose of the API key.</p>"
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The API key ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4270,22 +4270,37 @@
             "smithy.api#documentation": "<p>The new Amazon DynamoDB configuration.</p>"
           }
         },
+        "apiId": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The API ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "relationalDatabaseConfig": {
+          "target": "com.amazonaws.appsync#RelationalDatabaseDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The new relational database configuration.</p>"
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.appsync#DataSourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The new data source type.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "lambdaConfig": {
           "target": "com.amazonaws.appsync#LambdaDataSourceConfig",
           "traits": {
             "smithy.api#documentation": "<p>The new AWS Lambda configuration.</p>"
           }
         },
-        "httpConfig": {
-          "target": "com.amazonaws.appsync#HttpDataSourceConfig",
+        "serviceRoleArn": {
+          "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>The new HTTP endpoint configuration.</p>"
-          }
-        },
-        "elasticsearchConfig": {
-          "target": "com.amazonaws.appsync#ElasticsearchDataSourceConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The new Elasticsearch Service configuration.</p>"
+            "smithy.api#documentation": "<p>The new service role ARN for the data source.</p>"
           }
         },
         "description": {
@@ -4302,31 +4317,16 @@
             "smithy.api#required": {}
           }
         },
-        "type": {
-          "target": "com.amazonaws.appsync#DataSourceType",
+        "httpConfig": {
+          "target": "com.amazonaws.appsync#HttpDataSourceConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The new data source type.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The new HTTP endpoint configuration.</p>"
           }
         },
-        "apiId": {
-          "target": "com.amazonaws.appsync#String",
+        "elasticsearchConfig": {
+          "target": "com.amazonaws.appsync#ElasticsearchDataSourceConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The API ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "serviceRoleArn": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The new service role ARN for the data source.</p>"
-          }
-        },
-        "relationalDatabaseConfig": {
-          "target": "com.amazonaws.appsync#RelationalDatabaseDataSourceConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The new relational database configuration.</p>"
+            "smithy.api#documentation": "<p>The new Elasticsearch Service configuration.</p>"
           }
         }
       }
@@ -4376,37 +4376,10 @@
     "com.amazonaws.appsync#UpdateFunctionRequest": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.appsync#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code> name.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "functionVersion": {
+        "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>version</code> of the request mapping template. Currently the supported value\n         is 2018-05-29. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "dataSourceName": {
-          "target": "com.amazonaws.appsync#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code>\n            <code>DataSource</code> name.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "responseMappingTemplate": {
-          "target": "com.amazonaws.appsync#MappingTemplate",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>Function</code> request mapping template. </p>"
-          }
-        },
-        "functionId": {
-          "target": "com.amazonaws.appsync#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The function ID.</p>",
+            "smithy.api#documentation": "<p>The GraphQL API ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4424,11 +4397,38 @@
             "smithy.api#required": {}
           }
         },
-        "apiId": {
+        "name": {
+          "target": "com.amazonaws.appsync#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>Function</code> name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "dataSourceName": {
+          "target": "com.amazonaws.appsync#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>Function</code>\n            <code>DataSource</code> name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "functionId": {
+          "target": "com.amazonaws.appsync#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The function ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.appsync#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>Function</code> request mapping template. </p>"
+          }
+        },
+        "functionVersion": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>The GraphQL API ID.</p>",
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p>The <code>version</code> of the request mapping template. Currently the supported value\n         is 2018-05-29. </p>",
             "smithy.api#required": {}
           }
         }
@@ -4497,10 +4497,28 @@
             "smithy.api#documentation": "<p>A list of additional authentication providers for the <code>GraphqlApi</code>\n         API.</p>"
           }
         },
+        "xrayEnabled": {
+          "target": "com.amazonaws.appsync#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A flag indicating whether to enable X-Ray tracing for the\n         <code>GraphqlApi</code>.</p>"
+          }
+        },
         "userPoolConfig": {
           "target": "com.amazonaws.appsync#UserPoolConfig",
           "traits": {
             "smithy.api#documentation": "<p>The new Amazon Cognito user pool configuration for the <code>GraphqlApi</code>\n         object.</p>"
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.appsync#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The new authentication type for the <code>GraphqlApi</code> object.</p>"
+          }
+        },
+        "openIDConnectConfig": {
+          "target": "com.amazonaws.appsync#OpenIDConnectConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The OpenID Connect configuration for the <code>GraphqlApi</code> object.</p>"
           }
         },
         "name": {
@@ -4510,30 +4528,12 @@
             "smithy.api#required": {}
           }
         },
-        "openIDConnectConfig": {
-          "target": "com.amazonaws.appsync#OpenIDConnectConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The OpenID Connect configuration for the <code>GraphqlApi</code> object.</p>"
-          }
-        },
         "apiId": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
             "smithy.api#documentation": "<p>The API ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "xrayEnabled": {
-          "target": "com.amazonaws.appsync#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>A flag indicating whether to enable X-Ray tracing for the\n         <code>GraphqlApi</code>.</p>"
-          }
-        },
-        "authenticationType": {
-          "target": "com.amazonaws.appsync#AuthenticationType",
-          "traits": {
-            "smithy.api#documentation": "<p>The new authentication type for the <code>GraphqlApi</code> object.</p>"
           }
         }
       }
@@ -4583,19 +4583,17 @@
     "com.amazonaws.appsync#UpdateResolverRequest": {
       "type": "structure",
       "members": {
-        "fieldName": {
-          "target": "com.amazonaws.appsync#ResourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The new field name.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "requestMappingTemplate": {
           "target": "com.amazonaws.appsync#MappingTemplate",
           "traits": {
             "smithy.api#documentation": "<p>The new request mapping template.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "kind": {
+          "target": "com.amazonaws.appsync#ResolverKind",
+          "traits": {
+            "smithy.api#documentation": "<p>The resolver type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is\n               the default resolver type. A UNIT resolver enables you to execute a GraphQL query\n               against a single data source.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE\n               resolver enables you to execute a series of <code>Function</code> in a serial manner.\n               You can use a pipeline resolver to execute a GraphQL query against multiple data\n               sources.</p>\n            </li>\n         </ul>"
           }
         },
         "dataSourceName": {
@@ -4604,16 +4602,16 @@
             "smithy.api#documentation": "<p>The new data source name.</p>"
           }
         },
-        "cachingConfig": {
-          "target": "com.amazonaws.appsync#CachingConfig",
+        "pipelineConfig": {
+          "target": "com.amazonaws.appsync#PipelineConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The caching configuration for the resolver.</p>"
+            "smithy.api#documentation": "<p>The <code>PipelineConfig</code>.</p>"
           }
         },
-        "responseMappingTemplate": {
-          "target": "com.amazonaws.appsync#MappingTemplate",
+        "syncConfig": {
+          "target": "com.amazonaws.appsync#SyncConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The new response mapping template.</p>"
+            "smithy.api#documentation": "<p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>"
           }
         },
         "typeName": {
@@ -4632,22 +4630,24 @@
             "smithy.api#required": {}
           }
         },
-        "syncConfig": {
-          "target": "com.amazonaws.appsync#SyncConfig",
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.appsync#MappingTemplate",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>"
+            "smithy.api#documentation": "<p>The new response mapping template.</p>"
           }
         },
-        "kind": {
-          "target": "com.amazonaws.appsync#ResolverKind",
+        "cachingConfig": {
+          "target": "com.amazonaws.appsync#CachingConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The resolver type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is\n               the default resolver type. A UNIT resolver enables you to execute a GraphQL query\n               against a single data source.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE\n               resolver enables you to execute a series of <code>Function</code> in a serial manner.\n               You can use a pipeline resolver to execute a GraphQL query against multiple data\n               sources.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The caching configuration for the resolver.</p>"
           }
         },
-        "pipelineConfig": {
-          "target": "com.amazonaws.appsync#PipelineConfig",
+        "fieldName": {
+          "target": "com.amazonaws.appsync#ResourceName",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>PipelineConfig</code>.</p>"
+            "smithy.api#documentation": "<p>The new field name.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4745,11 +4745,10 @@
     "com.amazonaws.appsync#UserPoolConfig": {
       "type": "structure",
       "members": {
-        "userPoolId": {
+        "appIdClientRegex": {
           "target": "com.amazonaws.appsync#String",
           "traits": {
-            "smithy.api#documentation": "<p>The user pool ID.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A regular expression for validating the incoming Amazon Cognito user pool app client\n         ID.</p>"
           }
         },
         "awsRegion": {
@@ -4759,16 +4758,17 @@
             "smithy.api#required": {}
           }
         },
-        "appIdClientRegex": {
-          "target": "com.amazonaws.appsync#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A regular expression for validating the incoming Amazon Cognito user pool app client\n         ID.</p>"
-          }
-        },
         "defaultAction": {
           "target": "com.amazonaws.appsync#DefaultAction",
           "traits": {
             "smithy.api#documentation": "<p>The action that you want your GraphQL API to take when a request that uses Amazon\n         Cognito user pool authentication doesn't match the Amazon Cognito user pool\n         configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "userPoolId": {
+          "target": "com.amazonaws.appsync#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user pool ID.</p>",
             "smithy.api#required": {}
           }
         }

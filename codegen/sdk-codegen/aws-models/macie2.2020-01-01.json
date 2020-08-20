@@ -97,18 +97,18 @@
     "com.amazonaws.macie2#AccessControlList": {
       "type": "structure",
       "members": {
-        "allowsPublicWriteAccess": {
-          "target": "com.amazonaws.macie2#__boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the ACL grants the general public with write access permissions for the bucket.</p>",
-            "smithy.api#jsonName": "allowsPublicWriteAccess"
-          }
-        },
         "allowsPublicReadAccess": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the ACL grants the general public with read access permissions for the bucket.</p>",
             "smithy.api#jsonName": "allowsPublicReadAccess"
+          }
+        },
+        "allowsPublicWriteAccess": {
+          "target": "com.amazonaws.macie2#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the ACL grants the general public with write access permissions for the bucket.</p>",
+            "smithy.api#jsonName": "allowsPublicWriteAccess"
           }
         }
       },
@@ -136,19 +136,19 @@
     "com.amazonaws.macie2#AccountDetail": {
       "type": "structure",
       "members": {
-        "email": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The email address for the account.</p>",
-            "smithy.api#jsonName": "email",
-            "smithy.api#required": {}
-          }
-        },
         "accountId": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID for the account.</p>",
             "smithy.api#jsonName": "accountId",
+            "smithy.api#required": {}
+          }
+        },
+        "email": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address for the account.</p>",
+            "smithy.api#jsonName": "email",
             "smithy.api#required": {}
           }
         }
@@ -175,18 +175,18 @@
     "com.amazonaws.macie2#AdminAccount": {
       "type": "structure",
       "members": {
-        "status": {
-          "target": "com.amazonaws.macie2#AdminStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the account as a delegated administrator of Amazon Macie for the organization.</p>",
-            "smithy.api#jsonName": "status"
-          }
-        },
         "accountId": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID for the account.</p>",
             "smithy.api#jsonName": "accountId"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.macie2#AdminStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the account as a delegated administrator of Amazon Macie for the organization.</p>",
+            "smithy.api#jsonName": "status"
           }
         }
       },
@@ -220,11 +220,11 @@
             "smithy.api#jsonName": "lastSeen"
           }
         },
-        "api": {
-          "target": "com.amazonaws.macie2#__string",
+        "firstSeen": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the operation that was invoked most recently and produced the finding.</p>",
-            "smithy.api#jsonName": "api"
+            "smithy.api#documentation": "<p>The first date and time, in UTC and extended ISO 8601 format, when any operation was invoked and produced the finding.</p>",
+            "smithy.api#jsonName": "firstSeen"
           }
         },
         "apiServiceName": {
@@ -234,11 +234,11 @@
             "smithy.api#jsonName": "apiServiceName"
           }
         },
-        "firstSeen": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
+        "api": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The first date and time, in UTC and extended ISO 8601 format, when any operation was invoked and produced the finding.</p>",
-            "smithy.api#jsonName": "firstSeen"
+            "smithy.api#documentation": "<p>The name of the operation that was invoked most recently and produced the finding.</p>",
+            "smithy.api#jsonName": "api"
           }
         }
       },
@@ -256,11 +256,11 @@
             "smithy.api#jsonName": "principalId"
           }
         },
-        "arn": {
+        "accessKeyId": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity that was used to get the credentials.</p>",
-            "smithy.api#jsonName": "arn"
+            "smithy.api#documentation": "<p>The AWS access key ID that identifies the credentials.</p>",
+            "smithy.api#jsonName": "accessKeyId"
           }
         },
         "accountId": {
@@ -277,11 +277,11 @@
             "smithy.api#jsonName": "sessionContext"
           }
         },
-        "accessKeyId": {
+        "arn": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS access key ID that identifies the credentials.</p>",
-            "smithy.api#jsonName": "accessKeyId"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity that was used to get the credentials.</p>",
+            "smithy.api#jsonName": "arn"
           }
         }
       },
@@ -292,18 +292,18 @@
     "com.amazonaws.macie2#AwsAccount": {
       "type": "structure",
       "members": {
-        "accountId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the AWS account.</p>",
-            "smithy.api#jsonName": "accountId"
-          }
-        },
         "principalId": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the entity that performed the action.</p>",
             "smithy.api#jsonName": "principalId"
+          }
+        },
+        "accountId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the AWS account.</p>",
+            "smithy.api#jsonName": "accountId"
           }
         }
       },
@@ -343,20 +343,6 @@
             "smithy.api#jsonName": "id"
           }
         },
-        "name": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The custom name of the custom data identifier.</p>",
-            "smithy.api#jsonName": "name"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The custom description of the custom data identifier.</p>",
-            "smithy.api#jsonName": "description"
-          }
-        },
         "deleted": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
@@ -369,6 +355,20 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>",
             "smithy.api#jsonName": "createdAt"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom description of the custom data identifier.</p>",
+            "smithy.api#jsonName": "description"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom name of the custom data identifier.</p>",
+            "smithy.api#jsonName": "name"
           }
         }
       },
@@ -457,11 +457,11 @@
             "smithy.api#jsonName": "restrictPublicBuckets"
           }
         },
-        "blockPublicPolicy": {
+        "blockPublicAcls": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 blocks public bucket policies for the bucket.</p>",
-            "smithy.api#jsonName": "blockPublicPolicy"
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 blocks public access control lists (ACLs) for the bucket and objects in the bucket.</p>",
+            "smithy.api#jsonName": "blockPublicAcls"
           }
         },
         "ignorePublicAcls": {
@@ -471,11 +471,11 @@
             "smithy.api#jsonName": "ignorePublicAcls"
           }
         },
-        "blockPublicAcls": {
+        "blockPublicPolicy": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 blocks public access control lists (ACLs) for the bucket and objects in the bucket.</p>",
-            "smithy.api#jsonName": "blockPublicAcls"
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 blocks public bucket policies for the bucket.</p>",
+            "smithy.api#jsonName": "blockPublicPolicy"
           }
         }
       },
@@ -515,13 +515,6 @@
     "com.amazonaws.macie2#BucketCountByEncryptionType": {
       "type": "structure",
       "members": {
-        "s3Managed": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of buckets that use an Amazon S3-managed key to encrypt objects. These buckets use Amazon S3-managed (SSE-S3) encryption.</p>",
-            "smithy.api#jsonName": "s3Managed"
-          }
-        },
         "kmsManaged": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
@@ -535,6 +528,13 @@
             "smithy.api#documentation": "<p>The total number of buckets that don't encrypt objects by default. Default encryption is disabled for these buckets.</p>",
             "smithy.api#jsonName": "unencrypted"
           }
+        },
+        "s3Managed": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of buckets that use an Amazon S3-managed key to encrypt objects. These buckets use Amazon S3-managed (SSE-S3) encryption.</p>",
+            "smithy.api#jsonName": "s3Managed"
+          }
         }
       },
       "traits": {
@@ -544,11 +544,11 @@
     "com.amazonaws.macie2#BucketCountBySharedAccessType": {
       "type": "structure",
       "members": {
-        "internal": {
+        "external": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of buckets that are shared with an AWS account that's part of the same Amazon Macie organization.</p>",
-            "smithy.api#jsonName": "internal"
+            "smithy.api#documentation": "<p>The total number of buckets that are shared with an AWS account that isn't part of the same Amazon Macie organization.</p>",
+            "smithy.api#jsonName": "external"
           }
         },
         "notShared": {
@@ -558,11 +558,11 @@
             "smithy.api#jsonName": "notShared"
           }
         },
-        "external": {
+        "internal": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of buckets that are shared with an AWS account that isn't part of the same Amazon Macie organization.</p>",
-            "smithy.api#jsonName": "external"
+            "smithy.api#documentation": "<p>The total number of buckets that are shared with an AWS account that's part of the same Amazon Macie organization.</p>",
+            "smithy.api#jsonName": "internal"
           }
         }
       },
@@ -585,32 +585,18 @@
     "com.amazonaws.macie2#BucketCriteriaAdditionalProperties": {
       "type": "structure",
       "members": {
-        "lt": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>A less than condition to apply to a specified attribute value for buckets.</p>",
-            "smithy.api#jsonName": "lt"
-          }
-        },
-        "gte": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>A greater than or equal to condition to apply to a specified attribute value for buckets.</p>",
-            "smithy.api#jsonName": "gte"
-          }
-        },
-        "neq": {
-          "target": "com.amazonaws.macie2#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A not equal to condition to apply to a specified attribute value for buckets.</p>",
-            "smithy.api#jsonName": "neq"
-          }
-        },
         "eq": {
           "target": "com.amazonaws.macie2#__listOf__string",
           "traits": {
             "smithy.api#documentation": "<p>An equal to condition to apply to a specified attribute value for buckets.</p>",
             "smithy.api#jsonName": "eq"
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The prefix of the buckets to include in the results.</p>",
+            "smithy.api#jsonName": "prefix"
           }
         },
         "lte": {
@@ -627,11 +613,25 @@
             "smithy.api#jsonName": "gt"
           }
         },
-        "prefix": {
-          "target": "com.amazonaws.macie2#__string",
+        "lt": {
+          "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>The prefix of the buckets to include in the results.</p>",
-            "smithy.api#jsonName": "prefix"
+            "smithy.api#documentation": "<p>A less than condition to apply to a specified attribute value for buckets.</p>",
+            "smithy.api#jsonName": "lt"
+          }
+        },
+        "neq": {
+          "target": "com.amazonaws.macie2#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A not equal to condition to apply to a specified attribute value for buckets.</p>",
+            "smithy.api#jsonName": "neq"
+          }
+        },
+        "gte": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>A greater than or equal to condition to apply to a specified attribute value for buckets.</p>",
+            "smithy.api#jsonName": "gte"
           }
         }
       },
@@ -642,11 +642,11 @@
     "com.amazonaws.macie2#BucketLevelPermissions": {
       "type": "structure",
       "members": {
-        "bucketPolicy": {
-          "target": "com.amazonaws.macie2#BucketPolicy",
+        "accessControlList": {
+          "target": "com.amazonaws.macie2#AccessControlList",
           "traits": {
-            "smithy.api#documentation": "<p>The permissions settings of the bucket policy for the bucket. This value is null if a bucket policy hasn't been defined for the bucket.</p>",
-            "smithy.api#jsonName": "bucketPolicy"
+            "smithy.api#documentation": "<p>The permissions settings of the access control list (ACL) for the bucket. This value is null if an ACL hasn't been defined for the bucket.</p>",
+            "smithy.api#jsonName": "accessControlList"
           }
         },
         "blockPublicAccess": {
@@ -656,11 +656,11 @@
             "smithy.api#jsonName": "blockPublicAccess"
           }
         },
-        "accessControlList": {
-          "target": "com.amazonaws.macie2#AccessControlList",
+        "bucketPolicy": {
+          "target": "com.amazonaws.macie2#BucketPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The permissions settings of the access control list (ACL) for the bucket. This value is null if an ACL hasn't been defined for the bucket.</p>",
-            "smithy.api#jsonName": "accessControlList"
+            "smithy.api#documentation": "<p>The permissions settings of the bucket policy for the bucket. This value is null if a bucket policy hasn't been defined for the bucket.</p>",
+            "smithy.api#jsonName": "bucketPolicy"
           }
         }
       },
@@ -671,13 +671,6 @@
     "com.amazonaws.macie2#BucketMetadata": {
       "type": "structure",
       "members": {
-        "classifiableObjectCount": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of objects that Amazon Macie can analyze in the bucket. These objects use a file format, file extension, or content type that Amazon Macie supports.</p>",
-            "smithy.api#jsonName": "classifiableObjectCount"
-          }
-        },
         "objectCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
@@ -685,11 +678,25 @@
             "smithy.api#jsonName": "objectCount"
           }
         },
+        "classifiableObjectCount": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of objects that Amazon Macie can analyze in the bucket. These objects use a file format, file extension, or content type that Amazon Macie supports.</p>",
+            "smithy.api#jsonName": "classifiableObjectCount"
+          }
+        },
         "sizeInBytes": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the bucket.</p>",
             "smithy.api#jsonName": "sizeInBytes"
+          }
+        },
+        "sharedAccess": {
+          "target": "com.amazonaws.macie2#SharedAccess",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the bucket is shared with another AWS account. Valid values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with an AWS account that isn’t part of the same Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with an AWS account that's part of the same Amazon Macie organization.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with other AWS accounts.</p></li></ul>",
+            "smithy.api#jsonName": "sharedAccess"
           }
         },
         "bucketName": {
@@ -706,39 +713,11 @@
             "smithy.api#jsonName": "objectCountByEncryptionType"
           }
         },
-        "publicAccess": {
-          "target": "com.amazonaws.macie2#BucketPublicAccess",
+        "replicationDetails": {
+          "target": "com.amazonaws.macie2#ReplicationDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the bucket is publicly accessible. If this value is true, an access control list (ACL), bucket policy, or block public access settings allow the bucket to be accessed by the general public.</p>",
-            "smithy.api#jsonName": "publicAccess"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.macie2#__listOfKeyValuePair",
-          "traits": {
-            "smithy.api#documentation": "<p>An array that specifies the tags (keys and values) that are associated with the bucket.</p>",
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "versioning": {
-          "target": "com.amazonaws.macie2#__boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether versioning is enabled for the bucket.</p>",
-            "smithy.api#jsonName": "versioning"
-          }
-        },
-        "bucketArn": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket.</p>",
-            "smithy.api#jsonName": "bucketArn"
-          }
-        },
-        "bucketCreatedAt": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the bucket was created.</p>",
-            "smithy.api#jsonName": "bucketCreatedAt"
+            "smithy.api#documentation": "<p>Specifies whether the bucket is configured to replicate one or more objects to buckets for other AWS accounts and, if so, which accounts.</p>",
+            "smithy.api#jsonName": "replicationDetails"
           }
         },
         "region": {
@@ -748,25 +727,18 @@
             "smithy.api#jsonName": "region"
           }
         },
-        "replicationDetails": {
-          "target": "com.amazonaws.macie2#ReplicationDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the bucket is configured to replicate one or more objects to buckets for other AWS accounts and, if so, which accounts.</p>",
-            "smithy.api#jsonName": "replicationDetails"
-          }
-        },
-        "lastUpdated": {
+        "bucketCreatedAt": {
           "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie last analyzed the bucket.</p>",
-            "smithy.api#jsonName": "lastUpdated"
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the bucket was created.</p>",
+            "smithy.api#jsonName": "bucketCreatedAt"
           }
         },
-        "sharedAccess": {
-          "target": "com.amazonaws.macie2#SharedAccess",
+        "sizeInBytesCompressed": {
+          "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the bucket is shared with another AWS account. Valid values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with an AWS account that isn’t part of the same Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with an AWS account that's part of the same Amazon Macie organization.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with other AWS accounts.</p></li></ul>",
-            "smithy.api#jsonName": "sharedAccess"
+            "smithy.api#documentation": "<p>The total compressed storage size, in bytes, of the bucket.</p>",
+            "smithy.api#jsonName": "sizeInBytesCompressed"
           }
         },
         "accountId": {
@@ -776,11 +748,39 @@
             "smithy.api#jsonName": "accountId"
           }
         },
-        "sizeInBytesCompressed": {
-          "target": "com.amazonaws.macie2#__long",
+        "bucketArn": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The total compressed storage size, in bytes, of the bucket.</p>",
-            "smithy.api#jsonName": "sizeInBytesCompressed"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket.</p>",
+            "smithy.api#jsonName": "bucketArn"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.macie2#__listOfKeyValuePair",
+          "traits": {
+            "smithy.api#documentation": "<p>An array that specifies the tags (keys and values) that are associated with the bucket.</p>",
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "publicAccess": {
+          "target": "com.amazonaws.macie2#BucketPublicAccess",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the bucket is publicly accessible. If this value is true, an access control list (ACL), bucket policy, or block public access settings allow the bucket to be accessed by the general public.</p>",
+            "smithy.api#jsonName": "publicAccess"
+          }
+        },
+        "lastUpdated": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie last analyzed the bucket.</p>",
+            "smithy.api#jsonName": "lastUpdated"
+          }
+        },
+        "versioning": {
+          "target": "com.amazonaws.macie2#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether versioning is enabled for the bucket.</p>",
+            "smithy.api#jsonName": "versioning"
           }
         }
       },
@@ -791,18 +791,18 @@
     "com.amazonaws.macie2#BucketPermissionConfiguration": {
       "type": "structure",
       "members": {
-        "accountLevelPermissions": {
-          "target": "com.amazonaws.macie2#AccountLevelPermissions",
-          "traits": {
-            "smithy.api#documentation": "<p>The account-level permissions settings that apply to the bucket.</p>",
-            "smithy.api#jsonName": "accountLevelPermissions"
-          }
-        },
         "bucketLevelPermissions": {
           "target": "com.amazonaws.macie2#BucketLevelPermissions",
           "traits": {
             "smithy.api#documentation": "<p>The bucket-level permissions settings for the bucket.</p>",
             "smithy.api#jsonName": "bucketLevelPermissions"
+          }
+        },
+        "accountLevelPermissions": {
+          "target": "com.amazonaws.macie2#AccountLevelPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>The account-level permissions settings that apply to the bucket.</p>",
+            "smithy.api#jsonName": "accountLevelPermissions"
           }
         }
       },
@@ -813,18 +813,18 @@
     "com.amazonaws.macie2#BucketPolicy": {
       "type": "structure",
       "members": {
-        "allowsPublicWriteAccess": {
-          "target": "com.amazonaws.macie2#__boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the bucket policy allows the general public to have write access to the bucket.</p>",
-            "smithy.api#jsonName": "allowsPublicWriteAccess"
-          }
-        },
         "allowsPublicReadAccess": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the bucket policy allows the general public to have read access to the bucket.</p>",
             "smithy.api#jsonName": "allowsPublicReadAccess"
+          }
+        },
+        "allowsPublicWriteAccess": {
+          "target": "com.amazonaws.macie2#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the bucket policy allows the general public to have write access to the bucket.</p>",
+            "smithy.api#jsonName": "allowsPublicWriteAccess"
           }
         }
       },
@@ -835,18 +835,18 @@
     "com.amazonaws.macie2#BucketPublicAccess": {
       "type": "structure",
       "members": {
-        "permissionConfiguration": {
-          "target": "com.amazonaws.macie2#BucketPermissionConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The account-level and bucket-level permissions for the bucket.</p>",
-            "smithy.api#jsonName": "permissionConfiguration"
-          }
-        },
         "effectivePermission": {
           "target": "com.amazonaws.macie2#EffectivePermission",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the bucket is publicly accessible due to the combination of permissions settings that apply to the bucket. Possible values are: PUBLIC, the bucket is publicly accessible; and, NOT_PUBLIC, the bucket isn't publicly accessible.</p>",
             "smithy.api#jsonName": "effectivePermission"
+          }
+        },
+        "permissionConfiguration": {
+          "target": "com.amazonaws.macie2#BucketPermissionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The account-level and bucket-level permissions for the bucket.</p>",
+            "smithy.api#jsonName": "permissionConfiguration"
           }
         }
       },
@@ -857,18 +857,18 @@
     "com.amazonaws.macie2#BucketSortCriteria": {
       "type": "structure",
       "members": {
-        "orderBy": {
-          "target": "com.amazonaws.macie2#OrderBy",
-          "traits": {
-            "smithy.api#documentation": "<p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>",
-            "smithy.api#jsonName": "orderBy"
-          }
-        },
         "attributeName": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the attribute to sort the results by. This value can be the name of any property that Amazon Macie defines as bucket metadata, such as bucketName, accountId, or lastUpdated.</p>",
             "smithy.api#jsonName": "attributeName"
+          }
+        },
+        "orderBy": {
+          "target": "com.amazonaws.macie2#OrderBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>",
+            "smithy.api#jsonName": "orderBy"
           }
         }
       },
@@ -886,11 +886,11 @@
             "smithy.api#jsonName": "jobArn"
           }
         },
-        "jobId": {
+        "detailedResultsLocation": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the classification job that produced the finding.</p>",
-            "smithy.api#jsonName": "jobId"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the file that contains the detailed record, including offsets, for the finding.</p>",
+            "smithy.api#jsonName": "detailedResultsLocation"
           }
         },
         "result": {
@@ -900,11 +900,11 @@
             "smithy.api#jsonName": "result"
           }
         },
-        "detailedResultsLocation": {
+        "jobId": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the file that contains the detailed record, including offsets, for the finding.</p>",
-            "smithy.api#jsonName": "detailedResultsLocation"
+            "smithy.api#documentation": "<p>The unique identifier for the classification job that produced the finding.</p>",
+            "smithy.api#jsonName": "jobId"
           }
         }
       },
@@ -951,18 +951,18 @@
             "smithy.api#jsonName": "sizeClassified"
           }
         },
-        "customDataIdentifiers": {
-          "target": "com.amazonaws.macie2#CustomDataIdentifiers",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of occurrences of the data that produced the finding, and the custom data identifiers that detected the data.</p>",
-            "smithy.api#jsonName": "customDataIdentifiers"
-          }
-        },
         "status": {
           "target": "com.amazonaws.macie2#ClassificationResultStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the finding.</p>",
             "smithy.api#jsonName": "status"
+          }
+        },
+        "customDataIdentifiers": {
+          "target": "com.amazonaws.macie2#CustomDataIdentifiers",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of occurrences of the data that produced the finding, and the custom data identifiers that detected the data.</p>",
+            "smithy.api#jsonName": "customDataIdentifiers"
           }
         }
       },
@@ -973,18 +973,18 @@
     "com.amazonaws.macie2#ClassificationResultStatus": {
       "type": "structure",
       "members": {
-        "reason": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A brief description of the status of the finding. Amazon Macie uses this value to notify you of any errors, warnings, or considerations that might impact your analysis of the finding.</p>",
-            "smithy.api#jsonName": "reason"
-          }
-        },
         "code": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The status of the finding, such as COMPLETE.</p>",
             "smithy.api#jsonName": "code"
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A brief description of the status of the finding. Amazon Macie uses this value to notify you of any errors, warnings, or considerations that might impact your analysis of the finding.</p>",
+            "smithy.api#jsonName": "reason"
           }
         }
       },
@@ -1052,6 +1052,13 @@
     "com.amazonaws.macie2#CreateClassificationJobRequest": {
       "type": "structure",
       "members": {
+        "tags": {
+          "target": "com.amazonaws.macie2#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of key-value pairs that specifies the tags to associate with the job.</p> <p>A job can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>",
+            "smithy.api#jsonName": "tags"
+          }
+        },
         "s3JobDefinition": {
           "target": "com.amazonaws.macie2#S3JobDefinition",
           "traits": {
@@ -1060,41 +1067,11 @@
             "smithy.api#required": {}
           }
         },
-        "customDataIdentifierIds": {
-          "target": "com.amazonaws.macie2#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The custom data identifiers to use for data analysis and classification.</p>",
-            "smithy.api#jsonName": "customDataIdentifierIds"
-          }
-        },
-        "clientToken": {
+        "description": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>",
-            "smithy.api#idempotencyToken": {},
-            "smithy.api#jsonName": "clientToken",
-            "smithy.api#required": {}
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.macie2#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A map of key-value pairs that specifies the tags to associate with the job.</p> <p>A job can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>",
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "scheduleFrequency": {
-          "target": "com.amazonaws.macie2#JobScheduleFrequency",
-          "traits": {
-            "smithy.api#documentation": "<p>The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value of the jobType property to ONE_TIME.</p>",
-            "smithy.api#jsonName": "scheduleFrequency"
-          }
-        },
-        "samplingPercentage": {
-          "target": "com.amazonaws.macie2#__integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If the value is less than 100, Amazon Macie randomly selects the objects to analyze, up to the specified percentage.</p>",
-            "smithy.api#jsonName": "samplingPercentage"
+            "smithy.api#documentation": "<p>A custom description of the job. The description can contain as many as 200 characters.</p>",
+            "smithy.api#jsonName": "description"
           }
         },
         "name": {
@@ -1103,13 +1080,6 @@
             "smithy.api#documentation": "<p>A custom name for the job. The name can contain as many as 500 characters.</p>",
             "smithy.api#jsonName": "name",
             "smithy.api#required": {}
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A custom description of the job. The description can contain as many as 200 characters.</p>",
-            "smithy.api#jsonName": "description"
           }
         },
         "initialRun": {
@@ -1125,6 +1095,36 @@
             "smithy.api#documentation": "<p>The schedule for running the job. Valid values are:</p> <ul><li><p>ONE_TIME - Run the job only once. If you specify this value, don't specify a value for the scheduleFrequency property.</p></li> <li><p>SCHEDULED - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the scheduleFrequency property to define the recurrence pattern for the job.</p></li></ul>",
             "smithy.api#jsonName": "jobType",
             "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#jsonName": "clientToken",
+            "smithy.api#required": {}
+          }
+        },
+        "scheduleFrequency": {
+          "target": "com.amazonaws.macie2#JobScheduleFrequency",
+          "traits": {
+            "smithy.api#documentation": "<p>The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value of the jobType property to ONE_TIME.</p>",
+            "smithy.api#jsonName": "scheduleFrequency"
+          }
+        },
+        "customDataIdentifierIds": {
+          "target": "com.amazonaws.macie2#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom data identifiers to use for data analysis and classification.</p>",
+            "smithy.api#jsonName": "customDataIdentifierIds"
+          }
+        },
+        "samplingPercentage": {
+          "target": "com.amazonaws.macie2#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If the value is less than 100, Amazon Macie randomly selects the objects to analyze, up to the specified percentage.</p>",
+            "smithy.api#jsonName": "samplingPercentage"
           }
         }
       }
@@ -1191,18 +1191,33 @@
     "com.amazonaws.macie2#CreateCustomDataIdentifierRequest": {
       "type": "structure",
       "members": {
-        "keywords": {
-          "target": "com.amazonaws.macie2#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters.</p>",
-            "smithy.api#jsonName": "keywords"
-          }
-        },
         "name": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>A custom name for the custom data identifier. The name can contain as many as 128 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see the identifier's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
             "smithy.api#jsonName": "name"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A custom description of the custom data identifier. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a custom data identifier. Other users of your account might be able to see the identifier's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
+            "smithy.api#jsonName": "description"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.macie2#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of key-value pairs that specifies the tags to associate with the custom data identifier.</p> <p>A custom data identifier can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>",
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#jsonName": "clientToken"
           }
         },
         "regex": {
@@ -1219,33 +1234,18 @@
             "smithy.api#jsonName": "maximumMatchDistance"
           }
         },
+        "keywords": {
+          "target": "com.amazonaws.macie2#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters.</p>",
+            "smithy.api#jsonName": "keywords"
+          }
+        },
         "ignoreWords": {
           "target": "com.amazonaws.macie2#__listOf__string",
           "traits": {
             "smithy.api#documentation": "<p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters.</p>",
             "smithy.api#jsonName": "ignoreWords"
-          }
-        },
-        "clientToken": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>",
-            "smithy.api#idempotencyToken": {},
-            "smithy.api#jsonName": "clientToken"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.macie2#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A map of key-value pairs that specifies the tags to associate with the custom data identifier.</p> <p>A custom data identifier can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>",
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A custom description of the custom data identifier. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a custom data identifier. Other users of your account might be able to see the identifier's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
-            "smithy.api#jsonName": "description"
           }
         }
       }
@@ -1305,28 +1305,6 @@
     "com.amazonaws.macie2#CreateFindingsFilterRequest": {
       "type": "structure",
       "members": {
-        "position": {
-          "target": "com.amazonaws.macie2#__integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>",
-            "smithy.api#jsonName": "position"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
-            "smithy.api#jsonName": "name",
-            "smithy.api#required": {}
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
-            "smithy.api#jsonName": "description"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.macie2#TagMap",
           "traits": {
@@ -1334,12 +1312,11 @@
             "smithy.api#jsonName": "tags"
           }
         },
-        "action": {
-          "target": "com.amazonaws.macie2#FindingsFilterAction",
+        "description": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The action to perform on findings that meet the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>",
-            "smithy.api#jsonName": "action",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
+            "smithy.api#jsonName": "description"
           }
         },
         "findingCriteria": {
@@ -1356,6 +1333,29 @@
             "smithy.api#documentation": "<p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#jsonName": "clientToken"
+          }
+        },
+        "action": {
+          "target": "com.amazonaws.macie2#FindingsFilterAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The action to perform on findings that meet the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>",
+            "smithy.api#jsonName": "action",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
+            "smithy.api#jsonName": "name",
+            "smithy.api#required": {}
+          }
+        },
+        "position": {
+          "target": "com.amazonaws.macie2#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>",
+            "smithy.api#jsonName": "position"
           }
         }
       }
@@ -1422,6 +1422,13 @@
     "com.amazonaws.macie2#CreateInvitationsRequest": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.</p>",
+            "smithy.api#jsonName": "message"
+          }
+        },
         "disableEmailNotification": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
@@ -1435,13 +1442,6 @@
             "smithy.api#documentation": "<p>An array that lists AWS account IDs, one for each account to send the invitation to.</p>",
             "smithy.api#jsonName": "accountIds",
             "smithy.api#required": {}
-          }
-        },
-        "message": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.</p>",
-            "smithy.api#jsonName": "message"
           }
         }
       }
@@ -1501,19 +1501,19 @@
     "com.amazonaws.macie2#CreateMemberRequest": {
       "type": "structure",
       "members": {
+        "tags": {
+          "target": "com.amazonaws.macie2#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.</p> <p>An account can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>",
+            "smithy.api#jsonName": "tags"
+          }
+        },
         "account": {
           "target": "com.amazonaws.macie2#AccountDetail",
           "traits": {
             "smithy.api#documentation": "<p>The details for the account to associate with the master account.</p>",
             "smithy.api#jsonName": "account",
             "smithy.api#required": {}
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.macie2#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.</p> <p>An account can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>",
-            "smithy.api#jsonName": "tags"
           }
         }
       }
@@ -1608,13 +1608,6 @@
             "smithy.api#jsonName": "eq"
           }
         },
-        "gt": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>A greater than condition to apply to a specified property value for findings.</p>",
-            "smithy.api#jsonName": "gt"
-          }
-        },
         "lte": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
@@ -1622,11 +1615,11 @@
             "smithy.api#jsonName": "lte"
           }
         },
-        "neq": {
-          "target": "com.amazonaws.macie2#__listOf__string",
+        "gt": {
+          "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>A not equal to condition to apply to a specified property value for findings.</p>",
-            "smithy.api#jsonName": "neq"
+            "smithy.api#documentation": "<p>A greater than condition to apply to a specified property value for findings.</p>",
+            "smithy.api#jsonName": "gt"
           }
         },
         "lt": {
@@ -1634,6 +1627,13 @@
           "traits": {
             "smithy.api#documentation": "<p>A less than condition to apply to a specified property value for findings.</p>",
             "smithy.api#jsonName": "lt"
+          }
+        },
+        "neq": {
+          "target": "com.amazonaws.macie2#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A not equal to condition to apply to a specified property value for findings.</p>",
+            "smithy.api#jsonName": "neq"
           }
         },
         "gte": {
@@ -1670,18 +1670,18 @@
             "smithy.api#jsonName": "name"
           }
         },
+        "description": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom description of the custom data identifier.</p>",
+            "smithy.api#jsonName": "description"
+          }
+        },
         "id": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the custom data identifier.</p>",
             "smithy.api#jsonName": "id"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>",
-            "smithy.api#jsonName": "createdAt"
           }
         },
         "arn": {
@@ -1691,11 +1691,11 @@
             "smithy.api#jsonName": "arn"
           }
         },
-        "description": {
-          "target": "com.amazonaws.macie2#__string",
+        "createdAt": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The custom description of the custom data identifier.</p>",
-            "smithy.api#jsonName": "description"
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>",
+            "smithy.api#jsonName": "createdAt"
           }
         }
       },
@@ -1706,18 +1706,18 @@
     "com.amazonaws.macie2#CustomDataIdentifiers": {
       "type": "structure",
       "members": {
-        "totalCount": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of occurrences of the data that was detected by the custom data identifiers and produced the finding.</p>",
-            "smithy.api#jsonName": "totalCount"
-          }
-        },
         "detections": {
           "target": "com.amazonaws.macie2#CustomDetections",
           "traits": {
             "smithy.api#documentation": "<p>The custom data identifiers that detected the data, and the number of occurrences of the data that each identifier detected.</p>",
             "smithy.api#jsonName": "detections"
+          }
+        },
+        "totalCount": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of occurrences of the data that was detected by the custom data identifiers and produced the finding.</p>",
+            "smithy.api#jsonName": "totalCount"
           }
         }
       },
@@ -1728,11 +1728,11 @@
     "com.amazonaws.macie2#CustomDetection": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.macie2#__string",
+        "count": {
+          "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the custom data identifier.</p>",
-            "smithy.api#jsonName": "arn"
+            "smithy.api#documentation": "<p>The total number of occurrences of the data that the custom data identifier detected for the finding.</p>",
+            "smithy.api#jsonName": "count"
           }
         },
         "name": {
@@ -1742,11 +1742,11 @@
             "smithy.api#jsonName": "name"
           }
         },
-        "count": {
-          "target": "com.amazonaws.macie2#__long",
+        "arn": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of occurrences of the data that the custom data identifier detected for the finding.</p>",
-            "smithy.api#jsonName": "count"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the custom data identifier.</p>",
+            "smithy.api#jsonName": "arn"
           }
         }
       },
@@ -2187,18 +2187,18 @@
             "smithy.api#jsonName": "sortCriteria"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The nextToken string that specifies which page of results to return in a paginated response.</p>",
-            "smithy.api#jsonName": "nextToken"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response. The default value is 50.</p>",
             "smithy.api#jsonName": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The nextToken string that specifies which page of results to return in a paginated response.</p>",
+            "smithy.api#jsonName": "nextToken"
           }
         },
         "criteria": {
@@ -2285,53 +2285,11 @@
     "com.amazonaws.macie2#DescribeClassificationJobResponse": {
       "type": "structure",
       "members": {
-        "statistics": {
-          "target": "com.amazonaws.macie2#Statistics",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of times that the job has run and processing statistics for the job's most recent run.</p>",
-            "smithy.api#jsonName": "statistics"
-          }
-        },
         "jobType": {
           "target": "com.amazonaws.macie2#JobType",
           "traits": {
             "smithy.api#documentation": "<p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job ran or will run only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis. The scheduleFrequency property indicates the recurrence pattern for the job.</p></li></ul>",
             "smithy.api#jsonName": "jobType"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The custom description of the job.</p>",
-            "smithy.api#jsonName": "description"
-          }
-        },
-        "jobId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the job.</p>",
-            "smithy.api#jsonName": "jobId"
-          }
-        },
-        "jobStatus": {
-          "target": "com.amazonaws.macie2#JobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - The job was cancelled by you or a user of the master account for your organization. A job might also be cancelled if ownership of an S3 bucket changed while the job was running, and that change affected the job's access to the bucket.</p></li> <li><p>COMPLETE - Amazon Macie finished processing all the data specified for the job.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to jobs that occur only once.</p></li> <li><p>PAUSED - Amazon Macie started the job, but completion of the job would exceed one or more quotas for your account.</p></li> <li><p>RUNNING - The job is in progress.</p></li></ul>",
-            "smithy.api#jsonName": "jobStatus"
-          }
-        },
-        "lastRunTime": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the job last ran.</p>",
-            "smithy.api#jsonName": "lastRunTime"
-          }
-        },
-        "s3JobDefinition": {
-          "target": "com.amazonaws.macie2#S3JobDefinition",
-          "traits": {
-            "smithy.api#documentation": "<p>The S3 buckets that the job is configured to analyze, and the scope of that analysis.</p>",
-            "smithy.api#jsonName": "s3JobDefinition"
           }
         },
         "clientToken": {
@@ -2349,32 +2307,25 @@
             "smithy.api#jsonName": "customDataIdentifierIds"
           }
         },
-        "scheduleFrequency": {
-          "target": "com.amazonaws.macie2#JobScheduleFrequency",
+        "lastRunTime": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The recurrence pattern for running the job. If the job is configured to run only once, this value is null.</p>",
-            "smithy.api#jsonName": "scheduleFrequency"
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the job last ran.</p>",
+            "smithy.api#jsonName": "lastRunTime"
           }
         },
-        "samplingPercentage": {
-          "target": "com.amazonaws.macie2#__integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The sampling depth, as a percentage, that the job applies when it processes objects.</p>",
-            "smithy.api#jsonName": "samplingPercentage"
-          }
-        },
-        "name": {
+        "jobArn": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The custom name of the job.</p>",
-            "smithy.api#jsonName": "name"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the job.</p>",
+            "smithy.api#jsonName": "jobArn"
           }
         },
-        "initialRun": {
-          "target": "com.amazonaws.macie2#__boolean",
+        "description": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the job has run for the first time.</p>",
-            "smithy.api#jsonName": "initialRun"
+            "smithy.api#documentation": "<p>The custom description of the job.</p>",
+            "smithy.api#jsonName": "description"
           }
         },
         "tags": {
@@ -2384,6 +2335,34 @@
             "smithy.api#jsonName": "tags"
           }
         },
+        "samplingPercentage": {
+          "target": "com.amazonaws.macie2#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The sampling depth, as a percentage, that the job applies when it processes objects.</p>",
+            "smithy.api#jsonName": "samplingPercentage"
+          }
+        },
+        "initialRun": {
+          "target": "com.amazonaws.macie2#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the job has run for the first time.</p>",
+            "smithy.api#jsonName": "initialRun"
+          }
+        },
+        "jobStatus": {
+          "target": "com.amazonaws.macie2#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - The job was cancelled by you or a user of the master account for your organization. A job might also be cancelled if ownership of an S3 bucket changed while the job was running, and that change affected the job's access to the bucket.</p></li> <li><p>COMPLETE - Amazon Macie finished processing all the data specified for the job.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to jobs that occur only once.</p></li> <li><p>PAUSED - Amazon Macie started the job, but completion of the job would exceed one or more quotas for your account.</p></li> <li><p>RUNNING - The job is in progress.</p></li></ul>",
+            "smithy.api#jsonName": "jobStatus"
+          }
+        },
+        "s3JobDefinition": {
+          "target": "com.amazonaws.macie2#S3JobDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 buckets that the job is configured to analyze, and the scope of that analysis.</p>",
+            "smithy.api#jsonName": "s3JobDefinition"
+          }
+        },
         "createdAt": {
           "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
@@ -2391,11 +2370,32 @@
             "smithy.api#jsonName": "createdAt"
           }
         },
-        "jobArn": {
+        "scheduleFrequency": {
+          "target": "com.amazonaws.macie2#JobScheduleFrequency",
+          "traits": {
+            "smithy.api#documentation": "<p>The recurrence pattern for running the job. If the job is configured to run only once, this value is null.</p>",
+            "smithy.api#jsonName": "scheduleFrequency"
+          }
+        },
+        "jobId": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the job.</p>",
-            "smithy.api#jsonName": "jobArn"
+            "smithy.api#documentation": "<p>The unique identifier for the job.</p>",
+            "smithy.api#jsonName": "jobId"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom name of the job.</p>",
+            "smithy.api#jsonName": "name"
+          }
+        },
+        "statistics": {
+          "target": "com.amazonaws.macie2#Statistics",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of times that the job has run and processing statistics for the job's most recent run.</p>",
+            "smithy.api#jsonName": "statistics"
           }
         }
       }
@@ -2817,20 +2817,20 @@
     "com.amazonaws.macie2#EnableOrganizationAdminAccountRequest": {
       "type": "structure",
       "members": {
-        "adminAccountId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID for the account.</p>",
-            "smithy.api#jsonName": "adminAccountId",
-            "smithy.api#required": {}
-          }
-        },
         "clientToken": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#jsonName": "clientToken"
+          }
+        },
+        "adminAccountId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID for the account.</p>",
+            "smithy.api#jsonName": "adminAccountId",
+            "smithy.api#required": {}
           }
         }
       }
@@ -2882,25 +2882,11 @@
     "com.amazonaws.macie2#FederatedUser": {
       "type": "structure",
       "members": {
-        "principalId": {
-          "target": "com.amazonaws.macie2#__string",
+        "sessionContext": {
+          "target": "com.amazonaws.macie2#SessionContext",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the entity that was used to get the credentials.</p>",
-            "smithy.api#jsonName": "principalId"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity that was used to get the credentials.</p>",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "accessKeyId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS access key ID that identifies the credentials.</p>",
-            "smithy.api#jsonName": "accessKeyId"
+            "smithy.api#documentation": "<p>The details of the session that was created for the credentials, including the entity that issued the session.</p>",
+            "smithy.api#jsonName": "sessionContext"
           }
         },
         "accountId": {
@@ -2910,11 +2896,25 @@
             "smithy.api#jsonName": "accountId"
           }
         },
-        "sessionContext": {
-          "target": "com.amazonaws.macie2#SessionContext",
+        "arn": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The details of the session that was created for the credentials, including the entity that issued the session.</p>",
-            "smithy.api#jsonName": "sessionContext"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the entity that was used to get the credentials.</p>",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "principalId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the entity that was used to get the credentials.</p>",
+            "smithy.api#jsonName": "principalId"
+          }
+        },
+        "accessKeyId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS access key ID that identifies the credentials.</p>",
+            "smithy.api#jsonName": "accessKeyId"
           }
         }
       },
@@ -2932,25 +2932,81 @@
             "smithy.api#jsonName": "id"
           }
         },
-        "severity": {
-          "target": "com.amazonaws.macie2#Severity",
+        "updatedAt": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The severity of the finding.</p>",
-            "smithy.api#jsonName": "severity"
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the finding was last updated. For sensitive data findings, this value is the same as the value for the createdAt property. Sensitive data findings aren't updated.</p>",
+            "smithy.api#jsonName": "updatedAt"
           }
         },
-        "archived": {
-          "target": "com.amazonaws.macie2#__boolean",
+        "classificationDetails": {
+          "target": "com.amazonaws.macie2#ClassificationDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the finding is archived.</p>",
-            "smithy.api#jsonName": "archived"
+            "smithy.api#documentation": "<p>The details of a sensitive data finding. This value is null for a policy finding.</p>",
+            "smithy.api#jsonName": "classificationDetails"
           }
         },
-        "type": {
-          "target": "com.amazonaws.macie2#FindingType",
+        "category": {
+          "target": "com.amazonaws.macie2#FindingCategory",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the finding.</p>",
-            "smithy.api#jsonName": "type"
+            "smithy.api#documentation": "<p>The category of the finding. Possible values are: CLASSIFICATION, for a sensitive data finding; and, POLICY, for a policy finding.</p>",
+            "smithy.api#jsonName": "category"
+          }
+        },
+        "resourcesAffected": {
+          "target": "com.amazonaws.macie2#ResourcesAffected",
+          "traits": {
+            "smithy.api#documentation": "<p>The resources that the finding applies to.</p>",
+            "smithy.api#jsonName": "resourcesAffected"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the finding was created.</p>",
+            "smithy.api#jsonName": "createdAt"
+          }
+        },
+        "partition": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS partition that Amazon Macie created the finding in.</p>",
+            "smithy.api#jsonName": "partition"
+          }
+        },
+        "schemaVersion": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the schema that was used to define the data structures in the finding.</p>",
+            "smithy.api#jsonName": "schemaVersion"
+          }
+        },
+        "title": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The brief description of the finding.</p>",
+            "smithy.api#jsonName": "title"
+          }
+        },
+        "count": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of occurrences of this finding.</p>",
+            "smithy.api#jsonName": "count"
+          }
+        },
+        "region": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region that Amazon Macie created the finding in.</p>",
+            "smithy.api#jsonName": "region"
+          }
+        },
+        "accountId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the AWS account that the finding applies to. This is typically the account that owns the affected resource.</p>",
+            "smithy.api#jsonName": "accountId"
           }
         },
         "sample": {
@@ -2967,11 +3023,25 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "count": {
-          "target": "com.amazonaws.macie2#__long",
+        "type": {
+          "target": "com.amazonaws.macie2#FindingType",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of occurrences of this finding.</p>",
-            "smithy.api#jsonName": "count"
+            "smithy.api#documentation": "<p>The type of the finding.</p>",
+            "smithy.api#jsonName": "type"
+          }
+        },
+        "severity": {
+          "target": "com.amazonaws.macie2#Severity",
+          "traits": {
+            "smithy.api#documentation": "<p>The severity of the finding.</p>",
+            "smithy.api#jsonName": "severity"
+          }
+        },
+        "archived": {
+          "target": "com.amazonaws.macie2#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the finding is archived.</p>",
+            "smithy.api#jsonName": "archived"
           }
         },
         "policyDetails": {
@@ -2979,76 +3049,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The details of a policy finding. This value is null for a sensitive data finding.</p>",
             "smithy.api#jsonName": "policyDetails"
-          }
-        },
-        "region": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Region that Amazon Macie created the finding in.</p>",
-            "smithy.api#jsonName": "region"
-          }
-        },
-        "title": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The brief description of the finding.</p>",
-            "smithy.api#jsonName": "title"
-          }
-        },
-        "schemaVersion": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the schema that was used to define the data structures in the finding.</p>",
-            "smithy.api#jsonName": "schemaVersion"
-          }
-        },
-        "partition": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS partition that Amazon Macie created the finding in.</p>",
-            "smithy.api#jsonName": "partition"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the finding was created.</p>",
-            "smithy.api#jsonName": "createdAt"
-          }
-        },
-        "resourcesAffected": {
-          "target": "com.amazonaws.macie2#ResourcesAffected",
-          "traits": {
-            "smithy.api#documentation": "<p>The resources that the finding applies to.</p>",
-            "smithy.api#jsonName": "resourcesAffected"
-          }
-        },
-        "updatedAt": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the finding was last updated. For sensitive data findings, this value is the same as the value for the createdAt property. Sensitive data findings aren't updated.</p>",
-            "smithy.api#jsonName": "updatedAt"
-          }
-        },
-        "category": {
-          "target": "com.amazonaws.macie2#FindingCategory",
-          "traits": {
-            "smithy.api#documentation": "<p>The category of the finding. Possible values are: CLASSIFICATION, for a sensitive data finding; and, POLICY, for a policy finding.</p>",
-            "smithy.api#jsonName": "category"
-          }
-        },
-        "accountId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the AWS account that the finding applies to. This is typically the account that owns the affected resource.</p>",
-            "smithy.api#jsonName": "accountId"
-          }
-        },
-        "classificationDetails": {
-          "target": "com.amazonaws.macie2#ClassificationDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>The details of a sensitive data finding. This value is null for a policy finding.</p>",
-            "smithy.api#jsonName": "classificationDetails"
           }
         }
       },
@@ -3059,18 +3059,18 @@
     "com.amazonaws.macie2#FindingAction": {
       "type": "structure",
       "members": {
-        "apiCallDetails": {
-          "target": "com.amazonaws.macie2#ApiCallDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>The invocation details of the API operation that an entity invoked for the affected resource, if the value for the actionType property is AWS_API_CALL.</p>",
-            "smithy.api#jsonName": "apiCallDetails"
-          }
-        },
         "actionType": {
           "target": "com.amazonaws.macie2#FindingActionType",
           "traits": {
             "smithy.api#documentation": "<p>The type of action that occurred for the affected resource. This value is typically AWS_API_CALL, which indicates that an entity invoked an API operation for the resource.</p>",
             "smithy.api#jsonName": "actionType"
+          }
+        },
+        "apiCallDetails": {
+          "target": "com.amazonaws.macie2#ApiCallDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The invocation details of the API operation that an entity invoked for the affected resource, if the value for the actionType property is AWS_API_CALL.</p>",
+            "smithy.api#jsonName": "apiCallDetails"
           }
         }
       },
@@ -3100,18 +3100,18 @@
             "smithy.api#jsonName": "domainDetails"
           }
         },
-        "userIdentity": {
-          "target": "com.amazonaws.macie2#UserIdentity",
-          "traits": {
-            "smithy.api#documentation": "<p>The type and other characteristics of the entity that performed the action on the affected resource.</p>",
-            "smithy.api#jsonName": "userIdentity"
-          }
-        },
         "ipAddressDetails": {
           "target": "com.amazonaws.macie2#IpAddressDetails",
           "traits": {
             "smithy.api#documentation": "<p>The IP address of the device that the entity used to perform the action on the affected resource. This object also provides information such as the owner and geographic location for the IP address.</p>",
             "smithy.api#jsonName": "ipAddressDetails"
+          }
+        },
+        "userIdentity": {
+          "target": "com.amazonaws.macie2#UserIdentity",
+          "traits": {
+            "smithy.api#documentation": "<p>The type and other characteristics of the entity that performed the action on the affected resource.</p>",
+            "smithy.api#jsonName": "userIdentity"
           }
         }
       },
@@ -3275,18 +3275,11 @@
     "com.amazonaws.macie2#FindingsFilterListItem": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.macie2#__string",
+        "action": {
+          "target": "com.amazonaws.macie2#FindingsFilterAction",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the filter.</p>",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.macie2#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the filter.</p>",
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "<p>The action that's performed on findings that meet the filter criteria. Possible values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>",
+            "smithy.api#jsonName": "action"
           }
         },
         "name": {
@@ -3296,11 +3289,11 @@
             "smithy.api#jsonName": "name"
           }
         },
-        "action": {
-          "target": "com.amazonaws.macie2#FindingsFilterAction",
+        "arn": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The action that's performed on findings that meet the filter criteria. Possible values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>",
-            "smithy.api#jsonName": "action"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the filter.</p>",
+            "smithy.api#jsonName": "arn"
           }
         },
         "id": {
@@ -3308,6 +3301,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the filter.</p>",
             "smithy.api#jsonName": "id"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.macie2#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the filter.</p>",
+            "smithy.api#jsonName": "tags"
           }
         }
       },
@@ -3377,32 +3377,11 @@
             "smithy.api#jsonName": "bucketCountByEncryptionType"
           }
         },
-        "classifiableObjectCount": {
+        "sizeInBytes": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of objects that Amazon Macie can analyze in all the buckets. These objects use a file format, file extension, or content type that Amazon Macie supports.</p>",
-            "smithy.api#jsonName": "classifiableObjectCount"
-          }
-        },
-        "objectCount": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of objects in all the buckets.</p>",
-            "smithy.api#jsonName": "objectCount"
-          }
-        },
-        "bucketCountByEffectivePermission": {
-          "target": "com.amazonaws.macie2#BucketCountByEffectivePermission",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of buckets that are publicly accessible based on a combination of permissions settings for each bucket.</p>",
-            "smithy.api#jsonName": "bucketCountByEffectivePermission"
-          }
-        },
-        "bucketCount": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of buckets.</p>",
-            "smithy.api#jsonName": "bucketCount"
+            "smithy.api#documentation": "<p>The total storage size, in bytes, of all the buckets.</p>",
+            "smithy.api#jsonName": "sizeInBytes"
           }
         },
         "lastUpdated": {
@@ -3412,11 +3391,25 @@
             "smithy.api#jsonName": "lastUpdated"
           }
         },
-        "bucketCountBySharedAccessType": {
-          "target": "com.amazonaws.macie2#BucketCountBySharedAccessType",
+        "classifiableObjectCount": {
+          "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of buckets that are shared with another AWS account.</p>",
-            "smithy.api#jsonName": "bucketCountBySharedAccessType"
+            "smithy.api#documentation": "<p>The total number of objects that Amazon Macie can analyze in all the buckets. These objects use a file format, file extension, or content type that Amazon Macie supports.</p>",
+            "smithy.api#jsonName": "classifiableObjectCount"
+          }
+        },
+        "bucketCountByEffectivePermission": {
+          "target": "com.amazonaws.macie2#BucketCountByEffectivePermission",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of buckets that are publicly accessible based on a combination of permissions settings for each bucket.</p>",
+            "smithy.api#jsonName": "bucketCountByEffectivePermission"
+          }
+        },
+        "objectCount": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of objects in all the buckets.</p>",
+            "smithy.api#jsonName": "objectCount"
           }
         },
         "sizeInBytesCompressed": {
@@ -3426,11 +3419,18 @@
             "smithy.api#jsonName": "sizeInBytesCompressed"
           }
         },
-        "sizeInBytes": {
+        "bucketCountBySharedAccessType": {
+          "target": "com.amazonaws.macie2#BucketCountBySharedAccessType",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of buckets that are shared with another AWS account.</p>",
+            "smithy.api#jsonName": "bucketCountBySharedAccessType"
+          }
+        },
+        "bucketCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>The total storage size, in bytes, of all the buckets.</p>",
-            "smithy.api#jsonName": "sizeInBytes"
+            "smithy.api#documentation": "<p>The total number of buckets.</p>",
+            "smithy.api#jsonName": "bucketCount"
           }
         }
       }
@@ -3547,32 +3547,11 @@
     "com.amazonaws.macie2#GetCustomDataIdentifierResponse": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.macie2#TagMap",
+        "createdAt": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the custom data identifier.</p>",
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "ignoreWords": {
-          "target": "com.amazonaws.macie2#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it.</p>",
-            "smithy.api#jsonName": "ignoreWords"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the custom data identifier.</p>",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The custom name of the custom data identifier.</p>",
-            "smithy.api#jsonName": "name"
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>",
+            "smithy.api#jsonName": "createdAt"
           }
         },
         "regex": {
@@ -3582,25 +3561,11 @@
             "smithy.api#jsonName": "regex"
           }
         },
-        "maximumMatchDistance": {
-          "target": "com.amazonaws.macie2#__integer",
+        "tags": {
+          "target": "com.amazonaws.macie2#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern.</p>",
-            "smithy.api#jsonName": "maximumMatchDistance"
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the custom data identifier.</p>",
-            "smithy.api#jsonName": "id"
-          }
-        },
-        "keywords": {
-          "target": "com.amazonaws.macie2#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match.</p>",
-            "smithy.api#jsonName": "keywords"
+            "smithy.api#documentation": "<p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the custom data identifier.</p>",
+            "smithy.api#jsonName": "tags"
           }
         },
         "description": {
@@ -3617,11 +3582,46 @@
             "smithy.api#jsonName": "deleted"
           }
         },
-        "createdAt": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
+        "maximumMatchDistance": {
+          "target": "com.amazonaws.macie2#__integer",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>",
-            "smithy.api#jsonName": "createdAt"
+            "smithy.api#documentation": "<p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern.</p>",
+            "smithy.api#jsonName": "maximumMatchDistance"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom name of the custom data identifier.</p>",
+            "smithy.api#jsonName": "name"
+          }
+        },
+        "keywords": {
+          "target": "com.amazonaws.macie2#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match.</p>",
+            "smithy.api#jsonName": "keywords"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the custom data identifier.</p>",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "ignoreWords": {
+          "target": "com.amazonaws.macie2#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it.</p>",
+            "smithy.api#jsonName": "ignoreWords"
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the custom data identifier.</p>",
+            "smithy.api#jsonName": "id"
           }
         }
       }
@@ -3669,6 +3669,20 @@
     "com.amazonaws.macie2#GetFindingStatisticsRequest": {
       "type": "structure",
       "members": {
+        "size": {
+          "target": "com.amazonaws.macie2#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response.</p>",
+            "smithy.api#jsonName": "size"
+          }
+        },
+        "sortCriteria": {
+          "target": "com.amazonaws.macie2#FindingStatisticsSortCriteria",
+          "traits": {
+            "smithy.api#documentation": "<p>The criteria to use to sort the query results.</p>",
+            "smithy.api#jsonName": "sortCriteria"
+          }
+        },
         "groupBy": {
           "target": "com.amazonaws.macie2#GroupBy",
           "traits": {
@@ -3677,25 +3691,11 @@
             "smithy.api#required": {}
           }
         },
-        "size": {
-          "target": "com.amazonaws.macie2#__integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response.</p>",
-            "smithy.api#jsonName": "size"
-          }
-        },
         "findingCriteria": {
           "target": "com.amazonaws.macie2#FindingCriteria",
           "traits": {
             "smithy.api#documentation": "<p>The criteria to use to filter the query results.</p>",
             "smithy.api#jsonName": "findingCriteria"
-          }
-        },
-        "sortCriteria": {
-          "target": "com.amazonaws.macie2#FindingStatisticsSortCriteria",
-          "traits": {
-            "smithy.api#documentation": "<p>The criteria to use to sort the query results.</p>",
-            "smithy.api#jsonName": "sortCriteria"
           }
         }
       }
@@ -3808,18 +3808,18 @@
     "com.amazonaws.macie2#GetFindingsFilterResponse": {
       "type": "structure",
       "members": {
-        "findingCriteria": {
-          "target": "com.amazonaws.macie2#FindingCriteria",
+        "arn": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The criteria that's used to filter findings.</p>",
-            "smithy.api#jsonName": "findingCriteria"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the filter.</p>",
+            "smithy.api#jsonName": "arn"
           }
         },
-        "position": {
-          "target": "com.amazonaws.macie2#__integer",
+        "id": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>",
-            "smithy.api#jsonName": "position"
+            "smithy.api#documentation": "<p>The unique identifier for the filter.</p>",
+            "smithy.api#jsonName": "id"
           }
         },
         "action": {
@@ -3836,6 +3836,20 @@
             "smithy.api#jsonName": "description"
           }
         },
+        "position": {
+          "target": "com.amazonaws.macie2#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>",
+            "smithy.api#jsonName": "position"
+          }
+        },
+        "findingCriteria": {
+          "target": "com.amazonaws.macie2#FindingCriteria",
+          "traits": {
+            "smithy.api#documentation": "<p>The criteria that's used to filter findings.</p>",
+            "smithy.api#jsonName": "findingCriteria"
+          }
+        },
         "name": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
@@ -3848,20 +3862,6 @@
           "traits": {
             "smithy.api#documentation": "<p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the filter.</p>",
             "smithy.api#jsonName": "tags"
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the filter.</p>",
-            "smithy.api#jsonName": "id"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the filter.</p>",
-            "smithy.api#jsonName": "arn"
           }
         }
       }
@@ -4001,6 +4001,13 @@
     "com.amazonaws.macie2#GetMacieSessionResponse": {
       "type": "structure",
       "members": {
+        "status": {
+          "target": "com.amazonaws.macie2#MacieStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the Amazon Macie account. Possible values are: PAUSED, the account is enabled but all Amazon Macie activities are suspended (paused) for the account; and, ENABLED, the account is enabled and all Amazon Macie activities are enabled for the account.</p>",
+            "smithy.api#jsonName": "status"
+          }
+        },
         "findingPublishingFrequency": {
           "target": "com.amazonaws.macie2#FindingPublishingFrequency",
           "traits": {
@@ -4008,11 +4015,11 @@
             "smithy.api#jsonName": "findingPublishingFrequency"
           }
         },
-        "serviceRole": {
-          "target": "com.amazonaws.macie2#__string",
+        "updatedAt": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service-linked role that allows Amazon Macie to monitor and analyze data in AWS resources for the account.</p>",
-            "smithy.api#jsonName": "serviceRole"
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Amazon Macie account.</p>",
+            "smithy.api#jsonName": "updatedAt"
           }
         },
         "createdAt": {
@@ -4022,18 +4029,11 @@
             "smithy.api#jsonName": "createdAt"
           }
         },
-        "status": {
-          "target": "com.amazonaws.macie2#MacieStatus",
+        "serviceRole": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the Amazon Macie account. Possible values are: PAUSED, the account is enabled but all Amazon Macie activities are suspended (paused) for the account; and, ENABLED, the account is enabled and all Amazon Macie activities are enabled for the account.</p>",
-            "smithy.api#jsonName": "status"
-          }
-        },
-        "updatedAt": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Amazon Macie account.</p>",
-            "smithy.api#jsonName": "updatedAt"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service-linked role that allows Amazon Macie to monitor and analyze data in AWS resources for the account.</p>",
+            "smithy.api#jsonName": "serviceRole"
           }
         }
       }
@@ -4150,6 +4150,20 @@
     "com.amazonaws.macie2#GetMemberResponse": {
       "type": "structure",
       "members": {
+        "accountId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID for the account.</p>",
+            "smithy.api#jsonName": "accountId"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account.</p>",
+            "smithy.api#jsonName": "arn"
+          }
+        },
         "invitedAt": {
           "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
@@ -4164,25 +4178,18 @@
             "smithy.api#jsonName": "updatedAt"
           }
         },
-        "masterAccountId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID for the master account.</p>",
-            "smithy.api#jsonName": "masterAccountId"
-          }
-        },
-        "accountId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID for the account.</p>",
-            "smithy.api#jsonName": "accountId"
-          }
-        },
         "email": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The email address for the account.</p>",
             "smithy.api#jsonName": "email"
+          }
+        },
+        "relationshipStatus": {
+          "target": "com.amazonaws.macie2#RelationshipStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the relationship between the account and the master account.</p>",
+            "smithy.api#jsonName": "relationshipStatus"
           }
         },
         "tags": {
@@ -4192,18 +4199,11 @@
             "smithy.api#jsonName": "tags"
           }
         },
-        "arn": {
+        "masterAccountId": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account.</p>",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "relationshipStatus": {
-          "target": "com.amazonaws.macie2#RelationshipStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the relationship between the account and the master account.</p>",
-            "smithy.api#jsonName": "relationshipStatus"
+            "smithy.api#documentation": "<p>The AWS account ID for the master account.</p>",
+            "smithy.api#jsonName": "masterAccountId"
           }
         }
       }
@@ -4258,18 +4258,18 @@
             "smithy.api#jsonName": "filterBy"
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.macie2#__integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response.</p>",
-            "smithy.api#jsonName": "maxResults"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The nextToken string that specifies which page of results to return in a paginated response.</p>",
             "smithy.api#jsonName": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.macie2#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response.</p>",
+            "smithy.api#jsonName": "maxResults"
           }
         },
         "sortBy": {
@@ -4382,18 +4382,18 @@
     "com.amazonaws.macie2#GroupCount": {
       "type": "structure",
       "members": {
-        "count": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of findings in the group of query results.</p>",
-            "smithy.api#jsonName": "count"
-          }
-        },
         "groupKey": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the property that defines the group in the query results, as specified by the groupBy property in the query request.</p>",
             "smithy.api#jsonName": "groupKey"
+          }
+        },
+        "count": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of findings in the group of query results.</p>",
+            "smithy.api#jsonName": "count"
           }
         }
       },
@@ -4404,13 +4404,6 @@
     "com.amazonaws.macie2#IamUser": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the principal that performed the action. The last section of the ARN contains the name of the user who performed the action.</p>",
-            "smithy.api#jsonName": "arn"
-          }
-        },
         "userName": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
@@ -4418,11 +4411,11 @@
             "smithy.api#jsonName": "userName"
           }
         },
-        "principalId": {
+        "arn": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the IAM user who performed the action.</p>",
-            "smithy.api#jsonName": "principalId"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the principal that performed the action. The last section of the ARN contains the name of the user who performed the action.</p>",
+            "smithy.api#jsonName": "arn"
           }
         },
         "accountId": {
@@ -4430,6 +4423,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the AWS account that's associated with the IAM user who performed the action.</p>",
             "smithy.api#jsonName": "accountId"
+          }
+        },
+        "principalId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the IAM user who performed the action.</p>",
+            "smithy.api#jsonName": "principalId"
           }
         }
       },
@@ -4457,13 +4457,6 @@
     "com.amazonaws.macie2#Invitation": {
       "type": "structure",
       "members": {
-        "invitedAt": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the invitation was sent.</p>",
-            "smithy.api#jsonName": "invitedAt"
-          }
-        },
         "accountId": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
@@ -4471,11 +4464,11 @@
             "smithy.api#jsonName": "accountId"
           }
         },
-        "invitationId": {
-          "target": "com.amazonaws.macie2#__string",
+        "invitedAt": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the invitation. Amazon Macie uses this identifier to validate the inviter account with the invitee account.</p>",
-            "smithy.api#jsonName": "invitationId"
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the invitation was sent.</p>",
+            "smithy.api#jsonName": "invitedAt"
           }
         },
         "relationshipStatus": {
@@ -4483,6 +4476,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The status of the relationship between the account that sent the invitation (<i>inviter account</i>) and the account that received the invitation (<i>invitee account</i>).</p>",
             "smithy.api#jsonName": "relationshipStatus"
+          }
+        },
+        "invitationId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the invitation. Amazon Macie uses this identifier to validate the inviter account with the invitee account.</p>",
+            "smithy.api#jsonName": "invitationId"
           }
         }
       },
@@ -4507,13 +4507,6 @@
             "smithy.api#jsonName": "ipGeoLocation"
           }
         },
-        "ipAddressV4": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Internet Protocol version 4 (IPv4) address of the device.</p>",
-            "smithy.api#jsonName": "ipAddressV4"
-          }
-        },
         "ipCountry": {
           "target": "com.amazonaws.macie2#IpCountry",
           "traits": {
@@ -4526,6 +4519,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The registered owner of the IP address.</p>",
             "smithy.api#jsonName": "ipOwner"
+          }
+        },
+        "ipAddressV4": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Internet Protocol version 4 (IPv4) address of the device.</p>",
+            "smithy.api#jsonName": "ipAddressV4"
           }
         }
       },
@@ -4551,18 +4551,18 @@
     "com.amazonaws.macie2#IpCountry": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the country that the IP address originated from.</p>",
-            "smithy.api#jsonName": "name"
-          }
-        },
         "code": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The two-character code, in ISO 3166-1 alpha-2 format, for the country that the IP address originated from. For example, US for the United States.</p>",
             "smithy.api#jsonName": "code"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the country that the IP address originated from.</p>",
+            "smithy.api#jsonName": "name"
           }
         }
       },
@@ -4573,18 +4573,18 @@
     "com.amazonaws.macie2#IpGeoLocation": {
       "type": "structure",
       "members": {
-        "lat": {
-          "target": "com.amazonaws.macie2#__double",
-          "traits": {
-            "smithy.api#documentation": "<p>The latitude coordinate of the location, rounded to four decimal places.</p>",
-            "smithy.api#jsonName": "lat"
-          }
-        },
         "lon": {
           "target": "com.amazonaws.macie2#__double",
           "traits": {
             "smithy.api#documentation": "<p>The longitude coordinate of the location, rounded to four decimal places.</p>",
             "smithy.api#jsonName": "lon"
+          }
+        },
+        "lat": {
+          "target": "com.amazonaws.macie2#__double",
+          "traits": {
+            "smithy.api#documentation": "<p>The latitude coordinate of the location, rounded to four decimal places.</p>",
+            "smithy.api#jsonName": "lat"
           }
         }
       },
@@ -4595,20 +4595,6 @@
     "com.amazonaws.macie2#IpOwner": {
       "type": "structure",
       "members": {
-        "asnOrg": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The organization identifier that's associated with the autonomous system number (ASN) for the autonomous system that included the IP address.</p>",
-            "smithy.api#jsonName": "asnOrg"
-          }
-        },
-        "org": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the organization that owned the IP address.</p>",
-            "smithy.api#jsonName": "org"
-          }
-        },
         "isp": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
@@ -4621,6 +4607,20 @@
           "traits": {
             "smithy.api#documentation": "<p>The autonomous system number (ASN) for the autonomous system that included the IP address.</p>",
             "smithy.api#jsonName": "asn"
+          }
+        },
+        "org": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the organization that owned the IP address.</p>",
+            "smithy.api#jsonName": "org"
+          }
+        },
+        "asnOrg": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The organization identifier that's associated with the autonomous system number (ASN) for the autonomous system that included the IP address.</p>",
+            "smithy.api#jsonName": "asnOrg"
           }
         }
       },
@@ -4667,6 +4667,13 @@
     "com.amazonaws.macie2#JobScheduleFrequency": {
       "type": "structure",
       "members": {
+        "weeklySchedule": {
+          "target": "com.amazonaws.macie2#WeeklySchedule",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a weekly recurrence pattern for running the job.</p>",
+            "smithy.api#jsonName": "weeklySchedule"
+          }
+        },
         "monthlySchedule": {
           "target": "com.amazonaws.macie2#MonthlySchedule",
           "traits": {
@@ -4680,13 +4687,6 @@
             "smithy.api#documentation": "<p>Specifies a daily recurrence pattern for running the job.</p>",
             "smithy.api#jsonName": "dailySchedule"
           }
-        },
-        "weeklySchedule": {
-          "target": "com.amazonaws.macie2#WeeklySchedule",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies a weekly recurrence pattern for running the job.</p>",
-            "smithy.api#jsonName": "weeklySchedule"
-          }
         }
       },
       "traits": {
@@ -4696,18 +4696,18 @@
     "com.amazonaws.macie2#JobScopeTerm": {
       "type": "structure",
       "members": {
-        "simpleScopeTerm": {
-          "target": "com.amazonaws.macie2#SimpleScopeTerm",
-          "traits": {
-            "smithy.api#documentation": "<p>A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job.</p>",
-            "smithy.api#jsonName": "simpleScopeTerm"
-          }
-        },
         "tagScopeTerm": {
           "target": "com.amazonaws.macie2#TagScopeTerm",
           "traits": {
             "smithy.api#documentation": "<p>A tag-based condition that defines the operator and a tag key or tag keys and values for including or excluding an object from the job.</p>",
             "smithy.api#jsonName": "tagScopeTerm"
+          }
+        },
+        "simpleScopeTerm": {
+          "target": "com.amazonaws.macie2#SimpleScopeTerm",
+          "traits": {
+            "smithy.api#documentation": "<p>A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job.</p>",
+            "smithy.api#jsonName": "simpleScopeTerm"
           }
         }
       },
@@ -4761,11 +4761,25 @@
     "com.amazonaws.macie2#JobSummary": {
       "type": "structure",
       "members": {
-        "bucketDefinitions": {
-          "target": "com.amazonaws.macie2#__listOfS3BucketDefinitionForJob",
+        "createdAt": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The S3 buckets that the job is configured to analyze.</p>",
-            "smithy.api#jsonName": "bucketDefinitions"
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the job was created.</p>",
+            "smithy.api#jsonName": "createdAt"
+          }
+        },
+        "jobType": {
+          "target": "com.amazonaws.macie2#JobType",
+          "traits": {
+            "smithy.api#documentation": "<p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job ran or will run only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis.</p></li></ul>",
+            "smithy.api#jsonName": "jobType"
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the job.</p>",
+            "smithy.api#jsonName": "jobId"
           }
         },
         "jobStatus": {
@@ -4782,25 +4796,11 @@
             "smithy.api#jsonName": "name"
           }
         },
-        "jobId": {
-          "target": "com.amazonaws.macie2#__string",
+        "bucketDefinitions": {
+          "target": "com.amazonaws.macie2#__listOfS3BucketDefinitionForJob",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the job.</p>",
-            "smithy.api#jsonName": "jobId"
-          }
-        },
-        "jobType": {
-          "target": "com.amazonaws.macie2#JobType",
-          "traits": {
-            "smithy.api#documentation": "<p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job ran or will run only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis.</p></li></ul>",
-            "smithy.api#jsonName": "jobType"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the job was created.</p>",
-            "smithy.api#jsonName": "createdAt"
+            "smithy.api#documentation": "<p>The S3 buckets that the job is configured to analyze.</p>",
+            "smithy.api#jsonName": "bucketDefinitions"
           }
         }
       },
@@ -4827,18 +4827,18 @@
     "com.amazonaws.macie2#KeyValuePair": {
       "type": "structure",
       "members": {
-        "key": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>One part of a key-value pair that comprises a tag. A tag key is a general label that acts as a category for more specific tag values.</p>",
-            "smithy.api#jsonName": "key"
-          }
-        },
         "value": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>One part of a key-value pair that comprises a tag. A tag value acts as a descriptor for a tag key. A tag value can be empty or null.</p>",
             "smithy.api#jsonName": "value"
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>One part of a key-value pair that comprises a tag. A tag key is a general label that acts as a category for more specific tag values.</p>",
+            "smithy.api#jsonName": "key"
           }
         }
       },
@@ -4898,6 +4898,13 @@
     "com.amazonaws.macie2#ListClassificationJobsRequest": {
       "type": "structure",
       "members": {
+        "filterCriteria": {
+          "target": "com.amazonaws.macie2#ListJobsFilterCriteria",
+          "traits": {
+            "smithy.api#documentation": "<p>The criteria to use to filter the results.</p>",
+            "smithy.api#jsonName": "filterCriteria"
+          }
+        },
         "maxResults": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
@@ -4910,13 +4917,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The criteria to use to sort the results.</p>",
             "smithy.api#jsonName": "sortCriteria"
-          }
-        },
-        "filterCriteria": {
-          "target": "com.amazonaws.macie2#ListJobsFilterCriteria",
-          "traits": {
-            "smithy.api#documentation": "<p>The criteria to use to filter the results.</p>",
-            "smithy.api#jsonName": "filterCriteria"
           }
         },
         "nextToken": {
@@ -5127,18 +5127,18 @@
     "com.amazonaws.macie2#ListFindingsFiltersResponse": {
       "type": "structure",
       "members": {
-        "findingsFilterListItems": {
-          "target": "com.amazonaws.macie2#__listOfFindingsFilterListItem",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects, one for each filter that's associated with the account.</p>",
-            "smithy.api#jsonName": "findingsFilterListItems"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>",
             "smithy.api#jsonName": "nextToken"
+          }
+        },
+        "findingsFilterListItems": {
+          "target": "com.amazonaws.macie2#__listOfFindingsFilterListItem",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of objects, one for each filter that's associated with the account.</p>",
+            "smithy.api#jsonName": "findingsFilterListItems"
           }
         }
       }
@@ -5153,11 +5153,11 @@
             "smithy.api#jsonName": "maxResults"
           }
         },
-        "findingCriteria": {
-          "target": "com.amazonaws.macie2#FindingCriteria",
+        "sortCriteria": {
+          "target": "com.amazonaws.macie2#SortCriteria",
           "traits": {
-            "smithy.api#documentation": "<p>The criteria to use to filter the results.</p>",
-            "smithy.api#jsonName": "findingCriteria"
+            "smithy.api#documentation": "<p>The criteria to use to sort the results.</p>",
+            "smithy.api#jsonName": "sortCriteria"
           }
         },
         "nextToken": {
@@ -5167,11 +5167,11 @@
             "smithy.api#jsonName": "nextToken"
           }
         },
-        "sortCriteria": {
-          "target": "com.amazonaws.macie2#SortCriteria",
+        "findingCriteria": {
+          "target": "com.amazonaws.macie2#FindingCriteria",
           "traits": {
-            "smithy.api#documentation": "<p>The criteria to use to sort the results.</p>",
-            "smithy.api#jsonName": "sortCriteria"
+            "smithy.api#documentation": "<p>The criteria to use to filter the results.</p>",
+            "smithy.api#jsonName": "findingCriteria"
           }
         }
       }
@@ -5179,18 +5179,18 @@
     "com.amazonaws.macie2#ListFindingsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>",
-            "smithy.api#jsonName": "nextToken"
-          }
-        },
         "findingIds": {
           "target": "com.amazonaws.macie2#__listOf__string",
           "traits": {
             "smithy.api#documentation": "<p>An array of strings, where each string is the unique identifier for a finding that meets the filter criteria specified in the request.</p>",
             "smithy.api#jsonName": "findingIds"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>",
+            "smithy.api#jsonName": "nextToken"
           }
         }
       }
@@ -5257,18 +5257,18 @@
     "com.amazonaws.macie2#ListInvitationsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>",
-            "smithy.api#jsonName": "nextToken"
-          }
-        },
         "invitations": {
           "target": "com.amazonaws.macie2#__listOfInvitation",
           "traits": {
             "smithy.api#documentation": "<p>An array of objects, one for each invitation that was received by the account.</p>",
             "smithy.api#jsonName": "invitations"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>",
+            "smithy.api#jsonName": "nextToken"
           }
         }
       }
@@ -5276,18 +5276,18 @@
     "com.amazonaws.macie2#ListJobsFilterCriteria": {
       "type": "structure",
       "members": {
-        "includes": {
-          "target": "com.amazonaws.macie2#__listOfListJobsFilterTerm",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects, one for each condition that determines which jobs to include in the results.</p>",
-            "smithy.api#jsonName": "includes"
-          }
-        },
         "excludes": {
           "target": "com.amazonaws.macie2#__listOfListJobsFilterTerm",
           "traits": {
             "smithy.api#documentation": "<p>An array of objects, one for each condition that determines which jobs to exclude from the results.</p>",
             "smithy.api#jsonName": "excludes"
+          }
+        },
+        "includes": {
+          "target": "com.amazonaws.macie2#__listOfListJobsFilterTerm",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of objects, one for each condition that determines which jobs to include in the results.</p>",
+            "smithy.api#jsonName": "includes"
           }
         }
       },
@@ -5322,11 +5322,11 @@
     "com.amazonaws.macie2#ListJobsFilterTerm": {
       "type": "structure",
       "members": {
-        "values": {
-          "target": "com.amazonaws.macie2#__listOf__string",
+        "key": {
+          "target": "com.amazonaws.macie2#ListJobsFilterKey",
           "traits": {
-            "smithy.api#documentation": "<p>An array that lists one or more values to use to filter the results.</p>",
-            "smithy.api#jsonName": "values"
+            "smithy.api#documentation": "<p>The property to use to filter the results.</p>",
+            "smithy.api#jsonName": "key"
           }
         },
         "comparator": {
@@ -5336,11 +5336,11 @@
             "smithy.api#jsonName": "comparator"
           }
         },
-        "key": {
-          "target": "com.amazonaws.macie2#ListJobsFilterKey",
+        "values": {
+          "target": "com.amazonaws.macie2#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "<p>The property to use to filter the results.</p>",
-            "smithy.api#jsonName": "key"
+            "smithy.api#documentation": "<p>An array that lists one or more values to use to filter the results.</p>",
+            "smithy.api#jsonName": "values"
           }
         }
       },
@@ -5437,18 +5437,18 @@
     "com.amazonaws.macie2#ListMembersRequest": {
       "type": "structure",
       "members": {
-        "onlyAssociated": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies which accounts to include in the response, based on the status of an account's relationship with the master account. By default, the response includes only current member accounts. To include all accounts, set the value for this parameter to false.</p>",
-            "smithy.api#httpQuery": "onlyAssociated"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.macie2#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of a paginated response.</p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "onlyAssociated": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies which accounts to include in the response, based on the status of an account's relationship with the master account. By default, the response includes only current member accounts. To include all accounts, set the value for this parameter to false.</p>",
+            "smithy.api#httpQuery": "onlyAssociated"
           }
         },
         "nextToken": {
@@ -5463,18 +5463,18 @@
     "com.amazonaws.macie2#ListMembersResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>",
-            "smithy.api#jsonName": "nextToken"
-          }
-        },
         "members": {
           "target": "com.amazonaws.macie2#__listOfMember",
           "traits": {
             "smithy.api#documentation": "<p>An array of objects, one for each account that's associated with the master account and meets the criteria specified by the onlyAssociated request parameter.</p>",
             "smithy.api#jsonName": "members"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>",
+            "smithy.api#jsonName": "nextToken"
           }
         }
       }
@@ -5800,18 +5800,18 @@
     "com.amazonaws.macie2#Member": {
       "type": "structure",
       "members": {
-        "relationshipStatus": {
-          "target": "com.amazonaws.macie2#RelationshipStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the relationship between the account and the master account.</p>",
-            "smithy.api#jsonName": "relationshipStatus"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.macie2#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the account in Amazon Macie.</p>",
             "smithy.api#jsonName": "tags"
+          }
+        },
+        "relationshipStatus": {
+          "target": "com.amazonaws.macie2#RelationshipStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the relationship between the account and the master account.</p>",
+            "smithy.api#jsonName": "relationshipStatus"
           }
         },
         "email": {
@@ -5821,11 +5821,11 @@
             "smithy.api#jsonName": "email"
           }
         },
-        "invitedAt": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
+        "masterAccountId": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.</p>",
-            "smithy.api#jsonName": "invitedAt"
+            "smithy.api#documentation": "<p>The AWS account ID for the master account.</p>",
+            "smithy.api#jsonName": "masterAccountId"
           }
         },
         "accountId": {
@@ -5835,18 +5835,11 @@
             "smithy.api#jsonName": "accountId"
           }
         },
-        "arn": {
-          "target": "com.amazonaws.macie2#__string",
+        "invitedAt": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account.</p>",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "masterAccountId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID for the master account.</p>",
-            "smithy.api#jsonName": "masterAccountId"
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.</p>",
+            "smithy.api#jsonName": "invitedAt"
           }
         },
         "updatedAt": {
@@ -5854,6 +5847,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the master account.</p>",
             "smithy.api#jsonName": "updatedAt"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account.</p>",
+            "smithy.api#jsonName": "arn"
           }
         }
       },
@@ -5886,18 +5886,18 @@
             "smithy.api#jsonName": "unencrypted"
           }
         },
-        "s3Managed": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of objects that are encrypted using an Amazon S3-managed key. The objects use Amazon S3-managed (SSE-S3) encryption.</p>",
-            "smithy.api#jsonName": "s3Managed"
-          }
-        },
         "customerManaged": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
             "smithy.api#documentation": "<p>The total number of objects that are encrypted using a customer-managed key. The objects use customer-provided server-side (SSE-C) encryption.</p>",
             "smithy.api#jsonName": "customerManaged"
+          }
+        },
+        "s3Managed": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of objects that are encrypted using an Amazon S3-managed key. The objects use Amazon S3-managed (SSE-S3) encryption.</p>",
+            "smithy.api#jsonName": "s3Managed"
           }
         },
         "kmsManaged": {
@@ -6065,11 +6065,11 @@
     "com.amazonaws.macie2#ReplicationDetails": {
       "type": "structure",
       "members": {
-        "replicationAccounts": {
-          "target": "com.amazonaws.macie2#__listOf__string",
+        "replicated": {
+          "target": "com.amazonaws.macie2#__boolean",
           "traits": {
-            "smithy.api#documentation": "<p>An array of AWS account IDs, one for each AWS account that the bucket is configured to replicate one or more objects to.</p>",
-            "smithy.api#jsonName": "replicationAccounts"
+            "smithy.api#documentation": "<p>Specifies whether the bucket is configured to replicate one or more objects to any destination.</p>",
+            "smithy.api#jsonName": "replicated"
           }
         },
         "replicatedExternally": {
@@ -6079,11 +6079,11 @@
             "smithy.api#jsonName": "replicatedExternally"
           }
         },
-        "replicated": {
-          "target": "com.amazonaws.macie2#__boolean",
+        "replicationAccounts": {
+          "target": "com.amazonaws.macie2#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the bucket is configured to replicate one or more objects to any destination.</p>",
-            "smithy.api#jsonName": "replicated"
+            "smithy.api#documentation": "<p>An array of AWS account IDs, one for each AWS account that the bucket is configured to replicate one or more objects to.</p>",
+            "smithy.api#jsonName": "replicationAccounts"
           }
         }
       },
@@ -6133,18 +6133,18 @@
     "com.amazonaws.macie2#S3Bucket": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket.</p>",
-            "smithy.api#jsonName": "arn"
-          }
-        },
         "owner": {
           "target": "com.amazonaws.macie2#S3BucketOwner",
           "traits": {
             "smithy.api#documentation": "<p>The display name and account identifier for the user who owns the bucket.</p>",
             "smithy.api#jsonName": "owner"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket.</p>",
+            "smithy.api#jsonName": "arn"
           }
         },
         "createdAt": {
@@ -6154,11 +6154,11 @@
             "smithy.api#jsonName": "createdAt"
           }
         },
-        "defaultServerSideEncryption": {
-          "target": "com.amazonaws.macie2#ServerSideEncryption",
+        "publicAccess": {
+          "target": "com.amazonaws.macie2#BucketPublicAccess",
           "traits": {
-            "smithy.api#documentation": "<p>The server-side encryption settings for the bucket.</p>",
-            "smithy.api#jsonName": "defaultServerSideEncryption"
+            "smithy.api#documentation": "<p>The permissions settings that determine whether the bucket is publicly accessible.</p>",
+            "smithy.api#jsonName": "publicAccess"
           }
         },
         "name": {
@@ -6168,18 +6168,18 @@
             "smithy.api#jsonName": "name"
           }
         },
+        "defaultServerSideEncryption": {
+          "target": "com.amazonaws.macie2#ServerSideEncryption",
+          "traits": {
+            "smithy.api#documentation": "<p>The server-side encryption settings for the bucket.</p>",
+            "smithy.api#jsonName": "defaultServerSideEncryption"
+          }
+        },
         "tags": {
           "target": "com.amazonaws.macie2#KeyValuePairList",
           "traits": {
             "smithy.api#documentation": "<p>The tags that are associated with the bucket.</p>",
             "smithy.api#jsonName": "tags"
-          }
-        },
-        "publicAccess": {
-          "target": "com.amazonaws.macie2#BucketPublicAccess",
-          "traits": {
-            "smithy.api#documentation": "<p>The permissions settings that determine whether the bucket is publicly accessible.</p>",
-            "smithy.api#jsonName": "publicAccess"
           }
         }
       },
@@ -6190,18 +6190,18 @@
     "com.amazonaws.macie2#S3BucketDefinitionForJob": {
       "type": "structure",
       "members": {
-        "accountId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the AWS account that owns one or more of the buckets. If specified, the job analyzes objects in all the buckets that are owned by the account and meet other conditions specified for the job.</p>",
-            "smithy.api#jsonName": "accountId"
-          }
-        },
         "buckets": {
           "target": "com.amazonaws.macie2#__listOf__string",
           "traits": {
             "smithy.api#documentation": "<p>An array that lists the names of the buckets.</p>",
             "smithy.api#jsonName": "buckets"
+          }
+        },
+        "accountId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the AWS account that owns one or more of the buckets. If specified, the job analyzes objects in all the buckets that are owned by the account and meet other conditions specified for the job.</p>",
+            "smithy.api#jsonName": "accountId"
           }
         }
       },
@@ -6242,19 +6242,19 @@
             "smithy.api#required": {}
           }
         },
+        "keyPrefix": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The path prefix to use in the path to the location in the bucket. This prefix specifies where to store classification results in the bucket.</p>",
+            "smithy.api#jsonName": "keyPrefix"
+          }
+        },
         "kmsKeyArn": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for encryption of the results. This must be the ARN of an existing CMK that's in the same AWS Region as the bucket.</p>",
             "smithy.api#jsonName": "kmsKeyArn",
             "smithy.api#required": {}
-          }
-        },
-        "keyPrefix": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The path prefix to use in the path to the location in the bucket. This prefix specifies where to store classification results in the bucket.</p>",
-            "smithy.api#jsonName": "keyPrefix"
           }
         }
       },
@@ -6287,67 +6287,11 @@
     "com.amazonaws.macie2#S3Object": {
       "type": "structure",
       "members": {
-        "eTag": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The entity tag (ETag) that identifies the affected version of the object. If the object was overwritten or changed after Amazon Macie produced the finding, this value might be different from the current ETag for the object.</p>",
-            "smithy.api#jsonName": "eTag"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.macie2#KeyValuePairList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags that are associated with the object.</p>",
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "versionId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier for the affected version of the object.</p>",
-            "smithy.api#jsonName": "versionId"
-          }
-        },
-        "lastModified": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the object was last modified.</p>",
-            "smithy.api#jsonName": "lastModified"
-          }
-        },
         "bucketArn": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket that contains the object.</p>",
             "smithy.api#jsonName": "bucketArn"
-          }
-        },
-        "storageClass": {
-          "target": "com.amazonaws.macie2#StorageClass",
-          "traits": {
-            "smithy.api#documentation": "<p>The storage class of the object.</p>",
-            "smithy.api#jsonName": "storageClass"
-          }
-        },
-        "key": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The full key (name) that's assigned to the object.</p>",
-            "smithy.api#jsonName": "key"
-          }
-        },
-        "size": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>The total storage size, in bytes, of the object.</p>",
-            "smithy.api#jsonName": "size"
-          }
-        },
-        "path": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The path to the object, including the full key (name).</p>",
-            "smithy.api#jsonName": "path"
           }
         },
         "extension": {
@@ -6357,6 +6301,34 @@
             "smithy.api#jsonName": "extension"
           }
         },
+        "versionId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the affected version of the object.</p>",
+            "smithy.api#jsonName": "versionId"
+          }
+        },
+        "eTag": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The entity tag (ETag) that identifies the affected version of the object. If the object was overwritten or changed after Amazon Macie produced the finding, this value might be different from the current ETag for the object.</p>",
+            "smithy.api#jsonName": "eTag"
+          }
+        },
+        "path": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The path to the object, including the full key (name).</p>",
+            "smithy.api#jsonName": "path"
+          }
+        },
+        "size": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total storage size, in bytes, of the object.</p>",
+            "smithy.api#jsonName": "size"
+          }
+        },
         "publicAccess": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
@@ -6364,11 +6336,39 @@
             "smithy.api#jsonName": "publicAccess"
           }
         },
+        "storageClass": {
+          "target": "com.amazonaws.macie2#StorageClass",
+          "traits": {
+            "smithy.api#documentation": "<p>The storage class of the object.</p>",
+            "smithy.api#jsonName": "storageClass"
+          }
+        },
+        "lastModified": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time, in UTC and extended ISO 8601 format, when the object was last modified.</p>",
+            "smithy.api#jsonName": "lastModified"
+          }
+        },
         "serverSideEncryption": {
           "target": "com.amazonaws.macie2#ServerSideEncryption",
           "traits": {
             "smithy.api#documentation": "<p>The server-side encryption settings for the object.</p>",
             "smithy.api#jsonName": "serverSideEncryption"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.macie2#KeyValuePairList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags that are associated with the object.</p>",
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The full key (name) that's assigned to the object.</p>",
+            "smithy.api#jsonName": "key"
           }
         }
       },
@@ -6445,18 +6445,18 @@
             "smithy.api#jsonName": "totalCount"
           }
         },
-        "detections": {
-          "target": "com.amazonaws.macie2#DefaultDetections",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects, one for each type of sensitive data that was detected. Each object reports the number of occurrences of a specific type of sensitive data that was detected.</p>",
-            "smithy.api#jsonName": "detections"
-          }
-        },
         "category": {
           "target": "com.amazonaws.macie2#SensitiveDataItemCategory",
           "traits": {
             "smithy.api#documentation": "<p>The category of sensitive data that was detected. For example: FINANCIAL_INFORMATION, for financial information such as credit card numbers; PERSONAL_INFORMATION, for personally identifiable information such as full names and mailing addresses; or, CUSTOM_IDENTIFIER, for data that was detected by a custom data identifier.</p>",
             "smithy.api#jsonName": "category"
+          }
+        },
+        "detections": {
+          "target": "com.amazonaws.macie2#DefaultDetections",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of objects, one for each type of sensitive data that was detected. Each object reports the number of occurrences of a specific type of sensitive data that was detected.</p>",
+            "smithy.api#jsonName": "detections"
           }
         }
       },
@@ -6513,11 +6513,11 @@
     "com.amazonaws.macie2#ServiceLimit": {
       "type": "structure",
       "members": {
-        "value": {
-          "target": "com.amazonaws.macie2#__long",
+        "isServiceLimited": {
+          "target": "com.amazonaws.macie2#__boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The value for the metric specified by the UsageByAccount.type field in the response.</p>",
-            "smithy.api#jsonName": "value"
+            "smithy.api#documentation": "<p>Specifies whether the account has met the quota that corresponds to the metric specified by the UsageByAccount.type field in the response.</p>",
+            "smithy.api#jsonName": "isServiceLimited"
           }
         },
         "unit": {
@@ -6527,11 +6527,11 @@
             "smithy.api#jsonName": "unit"
           }
         },
-        "isServiceLimited": {
-          "target": "com.amazonaws.macie2#__boolean",
+        "value": {
+          "target": "com.amazonaws.macie2#__long",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the account has met the quota that corresponds to the metric specified by the UsageByAccount.type field in the response.</p>",
-            "smithy.api#jsonName": "isServiceLimited"
+            "smithy.api#documentation": "<p>The value for the metric specified by the UsageByAccount.type field in the response.</p>",
+            "smithy.api#jsonName": "value"
           }
         }
       },
@@ -6581,18 +6581,18 @@
     "com.amazonaws.macie2#SessionContextAttributes": {
       "type": "structure",
       "members": {
-        "creationDate": {
-          "target": "com.amazonaws.macie2#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time, in UTC and ISO 8601 format, when the credentials were issued.</p>",
-            "smithy.api#jsonName": "creationDate"
-          }
-        },
         "mfaAuthenticated": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the credentials were authenticated with a multi-factor authentication (MFA) device.</p>",
             "smithy.api#jsonName": "mfaAuthenticated"
+          }
+        },
+        "creationDate": {
+          "target": "com.amazonaws.macie2#__timestampIso8601",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time, in UTC and ISO 8601 format, when the credentials were issued.</p>",
+            "smithy.api#jsonName": "creationDate"
           }
         }
       },
@@ -6608,13 +6608,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the AWS account that owns the entity that was used to get the credentials.</p>",
             "smithy.api#jsonName": "accountId"
-          }
-        },
-        "principalId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the entity that was used to get the credentials.</p>",
-            "smithy.api#jsonName": "principalId"
           }
         },
         "type": {
@@ -6637,6 +6630,13 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the source account, IAM user, or role that was used to get the credentials.</p>",
             "smithy.api#jsonName": "arn"
           }
+        },
+        "principalId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the entity that was used to get the credentials.</p>",
+            "smithy.api#jsonName": "principalId"
+          }
         }
       },
       "traits": {
@@ -6646,18 +6646,18 @@
     "com.amazonaws.macie2#Severity": {
       "type": "structure",
       "members": {
-        "score": {
-          "target": "com.amazonaws.macie2#__long",
-          "traits": {
-            "smithy.api#documentation": "<p>The numeric score for the severity value, ranging from 0 (least severe) to 4 (most severe).</p>",
-            "smithy.api#jsonName": "score"
-          }
-        },
         "description": {
           "target": "com.amazonaws.macie2#SeverityDescription",
           "traits": {
             "smithy.api#documentation": "<p>The textual representation of the severity value, such as Low or High.</p>",
             "smithy.api#jsonName": "description"
+          }
+        },
+        "score": {
+          "target": "com.amazonaws.macie2#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The numeric score for the severity value, ranging from 0 (least severe) to 4 (most severe).</p>",
+            "smithy.api#jsonName": "score"
           }
         }
       },
@@ -6707,6 +6707,13 @@
     "com.amazonaws.macie2#SimpleScopeTerm": {
       "type": "structure",
       "members": {
+        "comparator": {
+          "target": "com.amazonaws.macie2#JobComparator",
+          "traits": {
+            "smithy.api#documentation": "<p>The operator to use in the condition.</p>",
+            "smithy.api#jsonName": "comparator"
+          }
+        },
         "values": {
           "target": "com.amazonaws.macie2#__listOf__string",
           "traits": {
@@ -6719,13 +6726,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The property to use in the condition.</p>",
             "smithy.api#jsonName": "key"
-          }
-        },
-        "comparator": {
-          "target": "com.amazonaws.macie2#JobComparator",
-          "traits": {
-            "smithy.api#documentation": "<p>The operator to use in the condition.</p>",
-            "smithy.api#jsonName": "comparator"
           }
         }
       },
@@ -6845,19 +6845,19 @@
     "com.amazonaws.macie2#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "resourceArn": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the classification job, custom data identifier, findings filter, or member account.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "tags": {
           "target": "com.amazonaws.macie2#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A map of key-value pairs that specifies the tags to associate with the resource.</p> <p>A resource can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>",
             "smithy.api#jsonName": "tags",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the classification job, custom data identifier, findings filter, or member account.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -6884,18 +6884,18 @@
             "smithy.api#jsonName": "key"
           }
         },
-        "comparator": {
-          "target": "com.amazonaws.macie2#JobComparator",
-          "traits": {
-            "smithy.api#documentation": "<p>The operator to use in the condition.</p>",
-            "smithy.api#jsonName": "comparator"
-          }
-        },
         "target": {
           "target": "com.amazonaws.macie2#TagTarget",
           "traits": {
             "smithy.api#documentation": "<p>The type of object to apply the condition to.</p>",
             "smithy.api#jsonName": "target"
+          }
+        },
+        "comparator": {
+          "target": "com.amazonaws.macie2#JobComparator",
+          "traits": {
+            "smithy.api#documentation": "<p>The operator to use in the condition.</p>",
+            "smithy.api#jsonName": "comparator"
           }
         }
       },
@@ -6988,14 +6988,6 @@
             "smithy.api#required": {}
           }
         },
-        "sampleText": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The sample text to inspect by using the custom data identifier. The text can contain as many as 1,000 characters.</p>",
-            "smithy.api#jsonName": "sampleText",
-            "smithy.api#required": {}
-          }
-        },
         "ignoreWords": {
           "target": "com.amazonaws.macie2#__listOf__string",
           "traits": {
@@ -7015,6 +7007,14 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.</p>",
             "smithy.api#jsonName": "maximumMatchDistance"
+          }
+        },
+        "sampleText": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The sample text to inspect by using the custom data identifier. The text can contain as many as 1,000 characters.</p>",
+            "smithy.api#jsonName": "sampleText",
+            "smithy.api#required": {}
           }
         }
       }
@@ -7238,11 +7238,33 @@
     "com.amazonaws.macie2#UpdateFindingsFilterRequest": {
       "type": "structure",
       "members": {
+        "description": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
+            "smithy.api#jsonName": "description"
+          }
+        },
         "position": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
             "smithy.api#documentation": "<p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>",
             "smithy.api#jsonName": "position"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
+            "smithy.api#jsonName": "name"
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "action": {
@@ -7257,28 +7279,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The criteria to use to filter findings.</p>",
             "smithy.api#jsonName": "findingCriteria"
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
-            "smithy.api#jsonName": "name"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>",
-            "smithy.api#jsonName": "description"
           }
         }
       }
@@ -7345,18 +7345,18 @@
     "com.amazonaws.macie2#UpdateMacieSessionRequest": {
       "type": "structure",
       "members": {
-        "status": {
-          "target": "com.amazonaws.macie2#MacieStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether to change the status of the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>",
-            "smithy.api#jsonName": "status"
-          }
-        },
         "findingPublishingFrequency": {
           "target": "com.amazonaws.macie2#FindingPublishingFrequency",
           "traits": {
             "smithy.api#documentation": "Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).",
             "smithy.api#jsonName": "findingPublishingFrequency"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.macie2#MacieStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to change the status of the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>",
+            "smithy.api#jsonName": "status"
           }
         }
       }
@@ -7408,19 +7408,19 @@
     "com.amazonaws.macie2#UpdateMemberSessionRequest": {
       "type": "structure",
       "members": {
-        "id": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "status": {
           "target": "com.amazonaws.macie2#MacieStatus",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>",
             "smithy.api#jsonName": "status",
+            "smithy.api#required": {}
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -7490,11 +7490,11 @@
     "com.amazonaws.macie2#UsageByAccount": {
       "type": "structure",
       "members": {
-        "type": {
-          "target": "com.amazonaws.macie2#UsageType",
+        "estimatedCost": {
+          "target": "com.amazonaws.macie2#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION, for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing sensitive data.</p>",
-            "smithy.api#jsonName": "type"
+            "smithy.api#documentation": "<p>The estimated value for the metric.</p>",
+            "smithy.api#jsonName": "estimatedCost"
           }
         },
         "currency": {
@@ -7504,18 +7504,18 @@
             "smithy.api#jsonName": "currency"
           }
         },
-        "estimatedCost": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The estimated value for the metric.</p>",
-            "smithy.api#jsonName": "estimatedCost"
-          }
-        },
         "serviceLimit": {
           "target": "com.amazonaws.macie2#ServiceLimit",
           "traits": {
             "smithy.api#documentation": "<p>The current value for the quota that corresponds to the metric specified by the type field.</p>",
             "smithy.api#jsonName": "serviceLimit"
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.macie2#UsageType",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION, for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing sensitive data.</p>",
+            "smithy.api#jsonName": "type"
           }
         }
       },
@@ -7533,18 +7533,18 @@
             "smithy.api#jsonName": "freeTrialStartDate"
           }
         },
-        "usage": {
-          "target": "com.amazonaws.macie2#__listOfUsageByAccount",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of objects that contains usage data and quotas for the account. Each object contains the data for a specific usage metric and the corresponding quota.</p>",
-            "smithy.api#jsonName": "usage"
-          }
-        },
         "accountId": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the AWS account that the data applies to.</p>",
             "smithy.api#jsonName": "accountId"
+          }
+        },
+        "usage": {
+          "target": "com.amazonaws.macie2#__listOfUsageByAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of objects that contains usage data and quotas for the account. Each object contains the data for a specific usage metric and the corresponding quota.</p>",
+            "smithy.api#jsonName": "usage"
           }
         }
       },
@@ -7555,6 +7555,13 @@
     "com.amazonaws.macie2#UsageStatisticsFilter": {
       "type": "structure",
       "members": {
+        "values": {
+          "target": "com.amazonaws.macie2#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>An array that lists values to use in the condition, based on the value for the field specified by the key property. If the value for the key property is accountId, this array can specify multiple values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported field are:</p> <ul><li><p>accountId - The unique identifier for an AWS account.</p></li></ul> <ul><li><p>freeTrialStartDate - The date and time, in UTC and extended ISO 8601 format, when the free trial started for an account.</p></li></ul> <ul><li><p>serviceLimit - A Boolean (true or false) value that indicates whether an account has reached its monthly quota.</p></li></ul> <ul><li><p>total - A string that represents the current, estimated month-to-date cost for an account.</p></li></ul>",
+            "smithy.api#jsonName": "values"
+          }
+        },
         "key": {
           "target": "com.amazonaws.macie2#UsageStatisticsFilterKey",
           "traits": {
@@ -7567,13 +7574,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The operator to use in the condition. If the value for the key property is accountId, this value must be CONTAINS. If the value for the key property is any other supported field, this value can be EQ, GT, GTE, LT, LTE, or NE.</p>",
             "smithy.api#jsonName": "comparator"
-          }
-        },
-        "values": {
-          "target": "com.amazonaws.macie2#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>An array that lists values to use in the condition, based on the value for the field specified by the key property. If the value for the key property is accountId, this array can specify multiple values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported field are:</p> <ul><li><p>accountId - The unique identifier for an AWS account.</p></li></ul> <ul><li><p>freeTrialStartDate - The date and time, in UTC and extended ISO 8601 format, when the free trial started for an account.</p></li></ul> <ul><li><p>serviceLimit - A Boolean (true or false) value that indicates whether an account has reached its monthly quota.</p></li></ul> <ul><li><p>total - A string that represents the current, estimated month-to-date cost for an account.</p></li></ul>",
-            "smithy.api#jsonName": "values"
           }
         }
       },
@@ -7644,18 +7644,18 @@
     "com.amazonaws.macie2#UsageStatisticsSortBy": {
       "type": "structure",
       "members": {
-        "orderBy": {
-          "target": "com.amazonaws.macie2#OrderBy",
-          "traits": {
-            "smithy.api#documentation": "<p>The sort order to apply to the results, based on the value for the field specified by the key property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>",
-            "smithy.api#jsonName": "orderBy"
-          }
-        },
         "key": {
           "target": "com.amazonaws.macie2#UsageStatisticsSortKey",
           "traits": {
             "smithy.api#documentation": "<p>The field to sort the results by.</p>",
             "smithy.api#jsonName": "key"
+          }
+        },
+        "orderBy": {
+          "target": "com.amazonaws.macie2#OrderBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order to apply to the results, based on the value for the field specified by the key property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>",
+            "smithy.api#jsonName": "orderBy"
           }
         }
       },
@@ -7690,6 +7690,13 @@
     "com.amazonaws.macie2#UsageTotal": {
       "type": "structure",
       "members": {
+        "currency": {
+          "target": "com.amazonaws.macie2#Currency",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of currency that the value for the metric (estimatedCost) is reported in.</p>",
+            "smithy.api#jsonName": "currency"
+          }
+        },
         "estimatedCost": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
@@ -7702,13 +7709,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION, for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing sensitive data.</p>",
             "smithy.api#jsonName": "type"
-          }
-        },
-        "currency": {
-          "target": "com.amazonaws.macie2#Currency",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of currency that the value for the metric (estimatedCost) is reported in.</p>",
-            "smithy.api#jsonName": "currency"
           }
         }
       },
@@ -7735,6 +7735,13 @@
     "com.amazonaws.macie2#UserIdentity": {
       "type": "structure",
       "members": {
+        "assumedRole": {
+          "target": "com.amazonaws.macie2#AssumedRole",
+          "traits": {
+            "smithy.api#documentation": "<p>If the action was performed with temporary security credentials that were obtained using the AssumeRole operation of the AWS Security Token Service (AWS STS) API, the identifiers, session context, and other details about the identity.</p>",
+            "smithy.api#jsonName": "assumedRole"
+          }
+        },
         "awsAccount": {
           "target": "com.amazonaws.macie2#AwsAccount",
           "traits": {
@@ -7747,6 +7754,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of entity that performed the action.</p>",
             "smithy.api#jsonName": "type"
+          }
+        },
+        "awsService": {
+          "target": "com.amazonaws.macie2#AwsService",
+          "traits": {
+            "smithy.api#documentation": "<p>If the action was performed by an AWS account that belongs to an AWS service, the name of the service.</p>",
+            "smithy.api#jsonName": "awsService"
           }
         },
         "iamUser": {
@@ -7763,25 +7777,11 @@
             "smithy.api#jsonName": "federatedUser"
           }
         },
-        "awsService": {
-          "target": "com.amazonaws.macie2#AwsService",
-          "traits": {
-            "smithy.api#documentation": "<p>If the action was performed by an AWS account that belongs to an AWS service, the name of the service.</p>",
-            "smithy.api#jsonName": "awsService"
-          }
-        },
         "root": {
           "target": "com.amazonaws.macie2#UserIdentityRoot",
           "traits": {
             "smithy.api#documentation": "<p>If the action was performed using the credentials for your AWS account, the details of your account.</p>",
             "smithy.api#jsonName": "root"
-          }
-        },
-        "assumedRole": {
-          "target": "com.amazonaws.macie2#AssumedRole",
-          "traits": {
-            "smithy.api#documentation": "<p>If the action was performed with temporary security credentials that were obtained using the AssumeRole operation of the AWS Security Token Service (AWS STS) API, the identifiers, session context, and other details about the identity.</p>",
-            "smithy.api#jsonName": "assumedRole"
           }
         }
       },
@@ -7799,18 +7799,18 @@
             "smithy.api#jsonName": "principalId"
           }
         },
-        "accountId": {
-          "target": "com.amazonaws.macie2#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the AWS account.</p>",
-            "smithy.api#jsonName": "accountId"
-          }
-        },
         "arn": {
           "target": "com.amazonaws.macie2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the principal that performed the action. The last section of the ARN contains the name of the user or role that performed the action.</p>",
             "smithy.api#jsonName": "arn"
+          }
+        },
+        "accountId": {
+          "target": "com.amazonaws.macie2#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the AWS account.</p>",
+            "smithy.api#jsonName": "accountId"
           }
         }
       },

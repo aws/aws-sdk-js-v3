@@ -41,10 +41,10 @@
     "com.amazonaws.managedblockchain#ApprovalThresholdPolicy": {
       "type": "structure",
       "members": {
-        "ThresholdComparator": {
-          "target": "com.amazonaws.managedblockchain#ThresholdComparator",
+        "ProposalDurationInHours": {
+          "target": "com.amazonaws.managedblockchain#ProposalDurationInt",
           "traits": {
-            "smithy.api#documentation": "<p>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</p>"
+            "smithy.api#documentation": "<p>The duration from the time that a proposal is created until it expires. If members cast neither the required number of <code>YES</code> votes to approve the proposal nor the number of <code>NO</code> votes required to reject it before the duration expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> are not carried out.</p>"
           }
         },
         "ThresholdPercentage": {
@@ -53,10 +53,10 @@
             "smithy.api#documentation": "<p>The percentage of votes among all members that must be <code>YES</code> for a proposal to be approved. For example, a <code>ThresholdPercentage</code> value of <code>50</code> indicates 50%. The <code>ThresholdComparator</code> determines the precise comparison. If a <code>ThresholdPercentage</code> value of <code>50</code> is specified on a network with 10 members, along with a <code>ThresholdComparator</code> value of <code>GREATER_THAN</code>, this indicates that 6 <code>YES</code> votes are required for the proposal to be approved.</p>"
           }
         },
-        "ProposalDurationInHours": {
-          "target": "com.amazonaws.managedblockchain#ProposalDurationInt",
+        "ThresholdComparator": {
+          "target": "com.amazonaws.managedblockchain#ThresholdComparator",
           "traits": {
-            "smithy.api#documentation": "<p>The duration from the time that a proposal is created until it expires. If members cast neither the required number of <code>YES</code> votes to approve the proposal nor the number of <code>NO</code> votes required to reject it before the duration expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> are not carried out.</p>"
+            "smithy.api#documentation": "<p>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</p>"
           }
         }
       },
@@ -130,11 +130,10 @@
             "smithy.api#required": {}
           }
         },
-        "ClientRequestToken": {
-          "target": "com.amazonaws.managedblockchain#ClientRequestTokenString",
+        "MemberConfiguration": {
+          "target": "com.amazonaws.managedblockchain#MemberConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>",
-            "smithy.api#idempotencyToken": {},
+            "smithy.api#documentation": "<p>Member configuration parameters.</p>",
             "smithy.api#required": {}
           }
         },
@@ -145,10 +144,11 @@
             "smithy.api#required": {}
           }
         },
-        "MemberConfiguration": {
-          "target": "com.amazonaws.managedblockchain#MemberConfiguration",
+        "ClientRequestToken": {
+          "target": "com.amazonaws.managedblockchain#ClientRequestTokenString",
           "traits": {
-            "smithy.api#documentation": "<p>Member configuration parameters.</p>",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>",
+            "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
         }
@@ -219,30 +219,17 @@
             "smithy.api#documentation": "<p>An optional description for the network.</p>"
           }
         },
+        "Name": {
+          "target": "com.amazonaws.managedblockchain#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the network.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "MemberConfiguration": {
           "target": "com.amazonaws.managedblockchain#MemberConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Configuration properties for the first member within the network.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "FrameworkVersion": {
-          "target": "com.amazonaws.managedblockchain#FrameworkVersionString",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the blockchain framework that the network uses.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "FrameworkConfiguration": {
-          "target": "com.amazonaws.managedblockchain#NetworkFrameworkConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         Configuration properties of the blockchain framework relevant to the network configuration.\n      </p>"
-          }
-        },
-        "Framework": {
-          "target": "com.amazonaws.managedblockchain#Framework",
-          "traits": {
-            "smithy.api#documentation": "<p>The blockchain framework that the network uses.</p>",
             "smithy.api#required": {}
           }
         },
@@ -253,10 +240,23 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.managedblockchain#NameString",
+        "Framework": {
+          "target": "com.amazonaws.managedblockchain#Framework",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the network.</p>",
+            "smithy.api#documentation": "<p>The blockchain framework that the network uses.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FrameworkConfiguration": {
+          "target": "com.amazonaws.managedblockchain#NetworkFrameworkConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         Configuration properties of the blockchain framework relevant to the network configuration.\n      </p>"
+          }
+        },
+        "FrameworkVersion": {
+          "target": "com.amazonaws.managedblockchain#FrameworkVersionString",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the blockchain framework that the network uses.</p>",
             "smithy.api#required": {}
           }
         }
@@ -325,14 +325,6 @@
     "com.amazonaws.managedblockchain#CreateNodeInput": {
       "type": "structure",
       "members": {
-        "MemberId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "ClientRequestToken": {
           "target": "com.amazonaws.managedblockchain#ClientRequestTokenString",
           "traits": {
@@ -341,10 +333,10 @@
             "smithy.api#required": {}
           }
         },
-        "NetworkId": {
+        "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network in which this node runs.</p>",
+            "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -353,6 +345,14 @@
           "target": "com.amazonaws.managedblockchain#NodeConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The properties of a node configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NetworkId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the network in which this node runs.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -415,17 +415,11 @@
             "smithy.api#documentation": "<p>A description for the proposal that is visible to voting members, for example, \"Proposal to add Example Corp. as member.\"</p>"
           }
         },
-        "Actions": {
-          "target": "com.amazonaws.managedblockchain#ProposalActions",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of actions proposed, such as inviting a member or removing a member. The types of <code>Actions</code> in a proposal are mutually exclusive. For example, a proposal with <code>Invitations</code> actions cannot also contain <code>Removals</code> actions.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "MemberId": {
+        "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single AWS account.</p>",
+            "smithy.api#documentation": "<p>\n         The unique identifier of the network for which the proposal is made.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         },
@@ -437,11 +431,17 @@
             "smithy.api#required": {}
           }
         },
-        "NetworkId": {
+        "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The unique identifier of the network for which the proposal is made.</p>",
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p>The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single AWS account.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Actions": {
+          "target": "com.amazonaws.managedblockchain#ProposalActions",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of actions proposed, such as inviting a member or removing a member. The types of <code>Actions</code> in a proposal are mutually exclusive. For example, a proposal with <code>Invitations</code> actions cannot also contain <code>Removals</code> actions.</p>",
             "smithy.api#required": {}
           }
         }
@@ -498,18 +498,18 @@
     "com.amazonaws.managedblockchain#DeleteMemberInput": {
       "type": "structure",
       "members": {
-        "MemberId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member to remove.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network from which the member is removed.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MemberId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the member to remove.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -568,18 +568,18 @@
             "smithy.api#required": {}
           }
         },
-        "MemberId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "NodeId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the node.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MemberId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -677,18 +677,18 @@
     "com.amazonaws.managedblockchain#GetMemberInput": {
       "type": "structure",
       "members": {
-        "NetworkId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network to which the member belongs.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NetworkId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the network to which the member belongs.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -809,18 +809,18 @@
             "smithy.api#required": {}
           }
         },
-        "NetworkId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network to which the node belongs.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member that owns the node.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NetworkId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the network to which the node belongs.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -951,6 +951,15 @@
             "smithy.api#documentation": "<p>The date and time that the invitation expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, the invitee can no longer create a member and join the network using this <code>InvitationId</code>.</p>"
           }
         },
+        "CreationDate": {
+          "target": "com.amazonaws.managedblockchain#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the invitation was created.</p>"
+          }
+        },
+        "NetworkSummary": {
+          "target": "com.amazonaws.managedblockchain#NetworkSummary"
+        },
         "Status": {
           "target": "com.amazonaws.managedblockchain#InvitationStatus",
           "traits": {
@@ -962,15 +971,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the invitation.</p>"
           }
-        },
-        "CreationDate": {
-          "target": "com.amazonaws.managedblockchain#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the invitation was created.</p>"
-          }
-        },
-        "NetworkSummary": {
-          "target": "com.amazonaws.managedblockchain#NetworkSummary"
         }
       },
       "traits": {
@@ -1082,18 +1082,18 @@
     "com.amazonaws.managedblockchain#ListInvitationsInput": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.managedblockchain#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.managedblockchain#ProposalListMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of invitations to return.</p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       }
@@ -1101,16 +1101,16 @@
     "com.amazonaws.managedblockchain#ListInvitationsOutput": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.managedblockchain#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
-          }
-        },
         "Invitations": {
           "target": "com.amazonaws.managedblockchain#InvitationList",
           "traits": {
             "smithy.api#documentation": "<p>The invitations for the network.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
           }
         }
       }
@@ -1169,20 +1169,6 @@
             "smithy.api#required": {}
           }
         },
-        "Status": {
-          "target": "com.amazonaws.managedblockchain#MemberStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>An optional status specifier. If provided, only members currently in this status are listed.</p>",
-            "smithy.api#httpQuery": "status"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.managedblockchain#MemberListMaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of members to return in the request.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "IsOwned": {
           "target": "com.amazonaws.managedblockchain#IsOwned",
           "traits": {
@@ -1196,22 +1182,36 @@
             "smithy.api#documentation": "<p>The optional name of the member to list.</p>",
             "smithy.api#httpQuery": "name"
           }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.managedblockchain#MemberListMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of members to return in the request.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.managedblockchain#MemberStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional status specifier. If provided, only members currently in this status are listed.</p>",
+            "smithy.api#httpQuery": "status"
+          }
         }
       }
     },
     "com.amazonaws.managedblockchain#ListMembersOutput": {
       "type": "structure",
       "members": {
-        "Members": {
-          "target": "com.amazonaws.managedblockchain#MemberSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
+          }
+        },
+        "Members": {
+          "target": "com.amazonaws.managedblockchain#MemberSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>"
           }
         }
       }
@@ -1269,6 +1269,13 @@
             "smithy.api#httpQuery": "framework"
           }
         },
+        "Name": {
+          "target": "com.amazonaws.managedblockchain#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the network.</p>",
+            "smithy.api#httpQuery": "name"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.managedblockchain#NetworkListMaxResults",
           "traits": {
@@ -1281,13 +1288,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>",
             "smithy.api#httpQuery": "nextToken"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.managedblockchain#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the network.</p>",
-            "smithy.api#httpQuery": "name"
           }
         }
       }
@@ -1348,6 +1348,14 @@
     "com.amazonaws.managedblockchain#ListNodesInput": {
       "type": "structure",
       "members": {
+        "MemberId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the member who owns the nodes to list.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "Status": {
           "target": "com.amazonaws.managedblockchain#NodeStatus",
           "traits": {
@@ -1363,13 +1371,6 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.managedblockchain#NodeListMaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of nodes to list.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
@@ -1377,12 +1378,11 @@
             "smithy.api#httpQuery": "nextToken"
           }
         },
-        "MemberId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+        "MaxResults": {
+          "target": "com.amazonaws.managedblockchain#NodeListMaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member who owns the nodes to list.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of nodes to list.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -1390,16 +1390,16 @@
     "com.amazonaws.managedblockchain#ListNodesOutput": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.managedblockchain#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
-          }
-        },
         "Nodes": {
           "target": "com.amazonaws.managedblockchain#NodeSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>NodeSummary</code> objects that contain configuration properties for each node.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
           }
         }
       }
@@ -1443,6 +1443,14 @@
     "com.amazonaws.managedblockchain#ListProposalVotesInput": {
       "type": "structure",
       "members": {
+        "NetworkId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The unique identifier of the network.\n      </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
@@ -1464,30 +1472,22 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
-        },
-        "NetworkId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The unique identifier of the network.\n      </p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.managedblockchain#ListProposalVotesOutput": {
       "type": "structure",
       "members": {
-        "ProposalVotes": {
-          "target": "com.amazonaws.managedblockchain#ProposalVoteList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The listing of votes.\n      </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>\n         The pagination token that indicates the next set of results to retrieve.\n      </p>"
+          }
+        },
+        "ProposalVotes": {
+          "target": "com.amazonaws.managedblockchain#ProposalVoteList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The listing of votes.\n      </p>"
           }
         }
       }
@@ -1561,16 +1561,16 @@
     "com.amazonaws.managedblockchain#ListProposalsOutput": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.managedblockchain#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
-          }
-        },
         "Proposals": {
           "target": "com.amazonaws.managedblockchain#ProposalSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>The summary of each proposal made on the network.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
           }
         }
       }
@@ -1618,10 +1618,16 @@
             "smithy.api#documentation": "<p>An optional description for the member.</p>"
           }
         },
-        "CreationDate": {
-          "target": "com.amazonaws.managedblockchain#Timestamp",
+        "Name": {
+          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the member was created.</p>"
+            "smithy.api#documentation": "<p>The name of the member.</p>"
+          }
+        },
+        "LogPublishingConfiguration": {
+          "target": "com.amazonaws.managedblockchain#MemberLogPublishingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration properties for logging events associated with a member.</p>"
           }
         },
         "NetworkId": {
@@ -1642,16 +1648,10 @@
             "smithy.api#documentation": "<p>The status of a member.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CREATING</code> - The AWS account is in the process of creating a member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AVAILABLE</code> - The member has been created and can participate in the network.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATE_FAILED</code> - The AWS account attempted to create a member and creation failed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n         </ul>"
           }
         },
-        "LogPublishingConfiguration": {
-          "target": "com.amazonaws.managedblockchain#MemberLogPublishingConfiguration",
+        "CreationDate": {
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Configuration properties for logging events associated with a member.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the member.</p>"
+            "smithy.api#documentation": "<p>The date and time that the member was created.</p>"
           }
         }
       },
@@ -1669,10 +1669,10 @@
             "smithy.api#required": {}
           }
         },
-        "LogPublishingConfiguration": {
-          "target": "com.amazonaws.managedblockchain#MemberLogPublishingConfiguration",
+        "Description": {
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
-            "smithy.api#documentation": "<p></p>"
+            "smithy.api#documentation": "<p>An optional description of the member.</p>"
           }
         },
         "Name": {
@@ -1682,10 +1682,10 @@
             "smithy.api#required": {}
           }
         },
-        "Description": {
-          "target": "com.amazonaws.managedblockchain#DescriptionString",
+        "LogPublishingConfiguration": {
+          "target": "com.amazonaws.managedblockchain#MemberLogPublishingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>An optional description of the member.</p>"
+            "smithy.api#documentation": "<p></p>"
           }
         }
       },
@@ -1835,22 +1835,16 @@
     "com.amazonaws.managedblockchain#MemberSummary": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the member.</p>"
-          }
-        },
         "IsOwned": {
           "target": "com.amazonaws.managedblockchain#IsOwned",
           "traits": {
             "smithy.api#documentation": "<p>An indicator of whether the member is owned by your AWS account or a different AWS account.</p>"
           }
         },
-        "CreationDate": {
-          "target": "com.amazonaws.managedblockchain#Timestamp",
+        "Name": {
+          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the member was created.</p>"
+            "smithy.api#documentation": "<p>The name of the member.</p>"
           }
         },
         "Description": {
@@ -1859,16 +1853,22 @@
             "smithy.api#documentation": "<p>An optional description of the member.</p>"
           }
         },
+        "Status": {
+          "target": "com.amazonaws.managedblockchain#MemberStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the member.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CREATING</code> - The AWS account is in the process of creating a member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AVAILABLE</code> - The member has been created and can participate in the network.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATE_FAILED</code> - The AWS account attempted to create a member and creation failed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n         </ul>"
+          }
+        },
         "Id": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member.</p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.managedblockchain#MemberStatus",
+        "CreationDate": {
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the member.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CREATING</code> - The AWS account is in the process of creating a member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AVAILABLE</code> - The member has been created and can participate in the network.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATE_FAILED</code> - The AWS account attempted to create a member and creation failed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The date and time that the member was created.</p>"
           }
         }
       },
@@ -1895,10 +1895,16 @@
     "com.amazonaws.managedblockchain#Network": {
       "type": "structure",
       "members": {
-        "CreationDate": {
-          "target": "com.amazonaws.managedblockchain#Timestamp",
+        "VotingPolicy": {
+          "target": "com.amazonaws.managedblockchain#VotingPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the network was created.</p>"
+            "smithy.api#documentation": "<p>The voting rules for the network to decide if a proposal is accepted.</p>"
+          }
+        },
+        "VpcEndpointServiceName": {
+          "target": "com.amazonaws.managedblockchain#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The VPC endpoint service name of the VPC endpoint service of the network. Members use the VPC endpoint service name to create a VPC endpoint to access network resources.</p>"
           }
         },
         "FrameworkAttributes": {
@@ -1907,34 +1913,10 @@
             "smithy.api#documentation": "<p>Attributes of the blockchain framework that the network uses.</p>"
           }
         },
-        "VotingPolicy": {
-          "target": "com.amazonaws.managedblockchain#VotingPolicy",
+        "Status": {
+          "target": "com.amazonaws.managedblockchain#NetworkStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The voting rules for the network to decide if a proposal is accepted.</p>"
-          }
-        },
-        "Framework": {
-          "target": "com.amazonaws.managedblockchain#Framework",
-          "traits": {
-            "smithy.api#documentation": "<p>The blockchain framework that the network uses.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.managedblockchain#DescriptionString",
-          "traits": {
-            "smithy.api#documentation": "<p>Attributes of the blockchain framework for the network.</p>"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network.</p>"
-          }
-        },
-        "FrameworkVersion": {
-          "target": "com.amazonaws.managedblockchain#FrameworkVersionString",
-          "traits": {
-            "smithy.api#documentation": "<p>The version of the blockchain framework that the network uses.</p>"
+            "smithy.api#documentation": "<p>The current status of the network.</p>"
           }
         },
         "Name": {
@@ -1943,16 +1925,34 @@
             "smithy.api#documentation": "<p>The name of the network.</p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.managedblockchain#NetworkStatus",
+        "Framework": {
+          "target": "com.amazonaws.managedblockchain#Framework",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the network.</p>"
+            "smithy.api#documentation": "<p>The blockchain framework that the network uses.</p>"
           }
         },
-        "VpcEndpointServiceName": {
-          "target": "com.amazonaws.managedblockchain#String",
+        "Id": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The VPC endpoint service name of the VPC endpoint service of the network. Members use the VPC endpoint service name to create a VPC endpoint to access network resources.</p>"
+            "smithy.api#documentation": "<p>The unique identifier of the network.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
+          "traits": {
+            "smithy.api#documentation": "<p>Attributes of the blockchain framework for the network.</p>"
+          }
+        },
+        "FrameworkVersion": {
+          "target": "com.amazonaws.managedblockchain#FrameworkVersionString",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the blockchain framework that the network uses.</p>"
+          }
+        },
+        "CreationDate": {
+          "target": "com.amazonaws.managedblockchain#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the network was created.</p>"
           }
         }
       },
@@ -2073,28 +2073,10 @@
     "com.amazonaws.managedblockchain#NetworkSummary": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.managedblockchain#NameString",
+        "Id": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the network.</p>"
-          }
-        },
-        "CreationDate": {
-          "target": "com.amazonaws.managedblockchain#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the network was created.</p>"
-          }
-        },
-        "Framework": {
-          "target": "com.amazonaws.managedblockchain#Framework",
-          "traits": {
-            "smithy.api#documentation": "<p>The blockchain framework that the network uses.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.managedblockchain#NetworkStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the network.</p>"
+            "smithy.api#documentation": "<p>The unique identifier of the network.</p>"
           }
         },
         "FrameworkVersion": {
@@ -2103,16 +2085,34 @@
             "smithy.api#documentation": "<p>The version of the blockchain framework that the network uses.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+        "CreationDate": {
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network.</p>"
+            "smithy.api#documentation": "<p>The date and time that the network was created.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.managedblockchain#NetworkStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the network.</p>"
           }
         },
         "Description": {
           "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>An optional description of the network.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.managedblockchain#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the network.</p>"
+          }
+        },
+        "Framework": {
+          "target": "com.amazonaws.managedblockchain#Framework",
+          "traits": {
+            "smithy.api#documentation": "<p>The blockchain framework that the network uses.</p>"
           }
         }
       },
@@ -2141,34 +2141,10 @@
             "smithy.api#documentation": "<p>The unique identifier of the node.</p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.managedblockchain#NodeStatus",
+        "LogPublishingConfiguration": {
+          "target": "com.amazonaws.managedblockchain#NodeLogPublishingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the node.</p>"
-          }
-        },
-        "AvailabilityZone": {
-          "target": "com.amazonaws.managedblockchain#AvailabilityZoneString",
-          "traits": {
-            "smithy.api#documentation": "<p>The Availability Zone in which the node exists.</p>"
-          }
-        },
-        "MemberId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member to which the node belongs.</p>"
-          }
-        },
-        "CreationDate": {
-          "target": "com.amazonaws.managedblockchain#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the node was created.</p>"
-          }
-        },
-        "FrameworkAttributes": {
-          "target": "com.amazonaws.managedblockchain#NodeFrameworkAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>Attributes of the blockchain framework being used.</p>"
+            "smithy.api#documentation": "<p></p>"
           }
         },
         "NetworkId": {
@@ -2177,10 +2153,34 @@
             "smithy.api#documentation": "<p>The unique identifier of the network that the node is in.</p>"
           }
         },
-        "LogPublishingConfiguration": {
-          "target": "com.amazonaws.managedblockchain#NodeLogPublishingConfiguration",
+        "FrameworkAttributes": {
+          "target": "com.amazonaws.managedblockchain#NodeFrameworkAttributes",
           "traits": {
-            "smithy.api#documentation": "<p></p>"
+            "smithy.api#documentation": "<p>Attributes of the blockchain framework being used.</p>"
+          }
+        },
+        "MemberId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the member to which the node belongs.</p>"
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.managedblockchain#AvailabilityZoneString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone in which the node exists.</p>"
+          }
+        },
+        "CreationDate": {
+          "target": "com.amazonaws.managedblockchain#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the node was created.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.managedblockchain#NodeStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the node.</p>"
           }
         }
       },
@@ -2191,6 +2191,13 @@
     "com.amazonaws.managedblockchain#NodeConfiguration": {
       "type": "structure",
       "members": {
+        "AvailabilityZone": {
+          "target": "com.amazonaws.managedblockchain#AvailabilityZoneString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone in which the node exists.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "InstanceType": {
           "target": "com.amazonaws.managedblockchain#InstanceTypeString",
           "traits": {
@@ -2202,13 +2209,6 @@
           "target": "com.amazonaws.managedblockchain#NodeLogPublishingConfiguration",
           "traits": {
             "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "AvailabilityZone": {
-          "target": "com.amazonaws.managedblockchain#AvailabilityZoneString",
-          "traits": {
-            "smithy.api#documentation": "<p>The Availability Zone in which the node exists.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -2344,10 +2344,10 @@
             "smithy.api#documentation": "<p>The unique identifier of the node.</p>"
           }
         },
-        "CreationDate": {
-          "target": "com.amazonaws.managedblockchain#Timestamp",
+        "InstanceType": {
+          "target": "com.amazonaws.managedblockchain#InstanceTypeString",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the node was created.</p>"
+            "smithy.api#documentation": "<p>The EC2 instance type for the node.</p>"
           }
         },
         "Status": {
@@ -2356,10 +2356,10 @@
             "smithy.api#documentation": "<p>The status of the node.</p>"
           }
         },
-        "InstanceType": {
-          "target": "com.amazonaws.managedblockchain#InstanceTypeString",
+        "CreationDate": {
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The EC2 instance type for the node.</p>"
+            "smithy.api#documentation": "<p>The date and time that the node was created.</p>"
           }
         }
       },
@@ -2399,16 +2399,10 @@
     "com.amazonaws.managedblockchain#Proposal": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.managedblockchain#ProposalStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the proposal. Values are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> - The proposal is active and open for member voting.</p>\n            </li>\n            <li>\n               <p>\n                  <code>APPROVED</code> - The proposal was approved with sufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified proposal actions are carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EXPIRED</code> - Members did not cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error. The <code>ACTION_FAILED</code> status occurs even if only one ProposalAction fails and other actions are successful.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "OutstandingVoteCount": {
+        "NoVoteCount": {
           "target": "com.amazonaws.managedblockchain#VoteCount",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The number of votes remaining to be cast on the proposal by members. In other words, the number of members minus the sum of <code>YES</code> votes and <code>NO</code> votes.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The current total of <code>NO</code> votes cast on the proposal by members.\n      </p>"
           }
         },
         "CreationDate": {
@@ -2417,16 +2411,16 @@
             "smithy.api#documentation": "<p>\n         The date and time that the proposal was created.\n      </p>"
           }
         },
-        "NoVoteCount": {
+        "OutstandingVoteCount": {
           "target": "com.amazonaws.managedblockchain#VoteCount",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The current total of <code>NO</code> votes cast on the proposal by members.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The number of votes remaining to be cast on the proposal by members. In other words, the number of members minus the sum of <code>YES</code> votes and <code>NO</code> votes.\n      </p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.managedblockchain#DescriptionString",
+        "ProposedByMemberId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the proposal.</p>"
+            "smithy.api#documentation": "<p>The unique identifier of the member that created the proposal.</p>"
           }
         },
         "ProposedByMemberName": {
@@ -2441,22 +2435,16 @@
             "smithy.api#documentation": "<p>\n         The current total of <code>YES</code> votes cast on the proposal by members.\n      </p>"
           }
         },
-        "ProposedByMemberId": {
+        "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member that created the proposal.</p>"
+            "smithy.api#documentation": "<p>The unique identifier of the network for which the proposal is made.</p>"
           }
         },
-        "Actions": {
-          "target": "com.amazonaws.managedblockchain#ProposalActions",
+        "Description": {
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
-            "smithy.api#documentation": "<p>The actions to perform on the network if the proposal is <code>APPROVED</code>.</p>"
-          }
-        },
-        "ExpirationDate": {
-          "target": "com.amazonaws.managedblockchain#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.\n      </p>"
+            "smithy.api#documentation": "<p>The description of the proposal.</p>"
           }
         },
         "ProposalId": {
@@ -2465,10 +2453,22 @@
             "smithy.api#documentation": "<p>The unique identifier of the proposal.</p>"
           }
         },
-        "NetworkId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+        "ExpirationDate": {
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network for which the proposal is made.</p>"
+            "smithy.api#documentation": "<p>\n         The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.\n      </p>"
+          }
+        },
+        "Actions": {
+          "target": "com.amazonaws.managedblockchain#ProposalActions",
+          "traits": {
+            "smithy.api#documentation": "<p>The actions to perform on the network if the proposal is <code>APPROVED</code>.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.managedblockchain#ProposalStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the proposal. Values are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> - The proposal is active and open for member voting.</p>\n            </li>\n            <li>\n               <p>\n                  <code>APPROVED</code> - The proposal was approved with sufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified proposal actions are carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EXPIRED</code> - Members did not cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error. The <code>ACTION_FAILED</code> status occurs even if only one ProposalAction fails and other actions are successful.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -2479,16 +2479,16 @@
     "com.amazonaws.managedblockchain#ProposalActions": {
       "type": "structure",
       "members": {
-        "Invitations": {
-          "target": "com.amazonaws.managedblockchain#InviteActionList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account to create a member and join the network. \n      </p>"
-          }
-        },
         "Removals": {
           "target": "com.amazonaws.managedblockchain#RemoveActionList",
           "traits": {
             "smithy.api#documentation": "<p>\n         The actions to perform for an <code>APPROVED</code> proposal to remove a member from the network, which deletes the member and all associated member resources from the network. \n      </p>"
+          }
+        },
+        "Invitations": {
+          "target": "com.amazonaws.managedblockchain#InviteActionList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account to create a member and join the network. \n      </p>"
           }
         }
       },
@@ -2552,10 +2552,16 @@
             "smithy.api#documentation": "<p>The status of the proposal. Values are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> - The proposal is active and open for member voting.</p>\n            </li>\n            <li>\n               <p>\n                  <code>APPROVED</code> - The proposal was approved with sufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified proposal actions are carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EXPIRED</code> - Members did not cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error.</p>\n            </li>\n         </ul>"
           }
         },
-        "ProposalId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+        "CreationDate": {
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The unique identifier of the proposal.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The date and time that the proposal was created.\n      </p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The description of the proposal.\n      </p>"
           }
         },
         "ExpirationDate": {
@@ -2570,22 +2576,16 @@
             "smithy.api#documentation": "<p>\n         The name of the member that created the proposal.\n      </p>"
           }
         },
-        "CreationDate": {
-          "target": "com.amazonaws.managedblockchain#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The date and time that the proposal was created.\n      </p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.managedblockchain#DescriptionString",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The description of the proposal.\n      </p>"
-          }
-        },
         "ProposedByMemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the member that created the proposal.\n      </p>"
+          }
+        },
+        "ProposalId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The unique identifier of the proposal.\n      </p>"
           }
         }
       },
@@ -2901,12 +2901,6 @@
     "com.amazonaws.managedblockchain#UpdateMemberInput": {
       "type": "structure",
       "members": {
-        "LogPublishingConfiguration": {
-          "target": "com.amazonaws.managedblockchain#MemberLogPublishingConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>"
-          }
-        },
         "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
@@ -2921,6 +2915,12 @@
             "smithy.api#documentation": "<p>The unique ID of the member.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "LogPublishingConfiguration": {
+          "target": "com.amazonaws.managedblockchain#MemberLogPublishingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>"
           }
         }
       }
@@ -2966,12 +2966,6 @@
     "com.amazonaws.managedblockchain#UpdateNodeInput": {
       "type": "structure",
       "members": {
-        "LogPublishingConfiguration": {
-          "target": "com.amazonaws.managedblockchain#NodeLogPublishingConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>"
-          }
-        },
         "NodeId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
@@ -2980,18 +2974,24 @@
             "smithy.api#required": {}
           }
         },
-        "NetworkId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique ID of the Managed Blockchain network to which the node belongs.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the member that owns the node.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "LogPublishingConfiguration": {
+          "target": "com.amazonaws.managedblockchain#NodeLogPublishingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>"
+          }
+        },
+        "NetworkId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the Managed Blockchain network to which the node belongs.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3073,18 +3073,18 @@
             "smithy.api#required": {}
           }
         },
+        "VoterMemberId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the member casting the vote.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
         "ProposalId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the proposal.\n      </p>",
             "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "VoterMemberId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member casting the vote.\n      </p>",
             "smithy.api#required": {}
           }
         }
@@ -3097,10 +3097,10 @@
     "com.amazonaws.managedblockchain#VoteSummary": {
       "type": "structure",
       "members": {
-        "MemberId": {
-          "target": "com.amazonaws.managedblockchain#ResourceIdString",
+        "MemberName": {
+          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The unique identifier of the member that cast the vote.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The name of the member that cast the vote.\n      </p>"
           }
         },
         "Vote": {
@@ -3109,10 +3109,10 @@
             "smithy.api#documentation": "<p>\n         The vote value, either <code>YES</code> or <code>NO</code>.\n      </p>"
           }
         },
-        "MemberName": {
-          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
+        "MemberId": {
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The name of the member that cast the vote.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The unique identifier of the member that cast the vote.\n      </p>"
           }
         }
       },

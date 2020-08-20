@@ -46,11 +46,11 @@
     "com.amazonaws.qldbsession#BadRequestException": {
       "type": "structure",
       "members": {
-        "Code": {
-          "target": "com.amazonaws.qldbsession#ErrorCode"
-        },
         "Message": {
           "target": "com.amazonaws.qldbsession#ErrorMessage"
+        },
+        "Code": {
+          "target": "com.amazonaws.qldbsession#ErrorCode"
         }
       },
       "traits": {
@@ -86,16 +86,16 @@
     "com.amazonaws.qldbsession#CommitTransactionResult": {
       "type": "structure",
       "members": {
-        "CommitDigest": {
-          "target": "com.amazonaws.qldbsession#CommitDigest",
-          "traits": {
-            "smithy.api#documentation": "<p>The commit digest of the committed transaction.</p>"
-          }
-        },
         "TransactionId": {
           "target": "com.amazonaws.qldbsession#TransactionId",
           "traits": {
             "smithy.api#documentation": "<p>The transaction ID of the committed transaction.</p>"
+          }
+        },
+        "CommitDigest": {
+          "target": "com.amazonaws.qldbsession#CommitDigest",
+          "traits": {
+            "smithy.api#documentation": "<p>The commit digest of the committed transaction.</p>"
           }
         }
       },
@@ -126,6 +126,12 @@
     "com.amazonaws.qldbsession#ExecuteStatementRequest": {
       "type": "structure",
       "members": {
+        "Parameters": {
+          "target": "com.amazonaws.qldbsession#StatementParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the parameters for the parameterized statement in the request.</p>"
+          }
+        },
         "TransactionId": {
           "target": "com.amazonaws.qldbsession#TransactionId",
           "traits": {
@@ -138,12 +144,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the statement of the request.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Parameters": {
-          "target": "com.amazonaws.qldbsession#StatementParameters",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the parameters for the parameterized statement in the request.</p>"
           }
         }
       },
@@ -168,17 +168,17 @@
     "com.amazonaws.qldbsession#FetchPageRequest": {
       "type": "structure",
       "members": {
-        "TransactionId": {
-          "target": "com.amazonaws.qldbsession#TransactionId",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the transaction ID of the page to be fetched.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "NextPageToken": {
           "target": "com.amazonaws.qldbsession#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the next page token of the page to be fetched.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TransactionId": {
+          "target": "com.amazonaws.qldbsession#TransactionId",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the transaction ID of the page to be fetched.</p>",
             "smithy.api#required": {}
           }
         }
@@ -365,28 +365,22 @@
     "com.amazonaws.qldbsession#SendCommandRequest": {
       "type": "structure",
       "members": {
+        "StartSession": {
+          "target": "com.amazonaws.qldbsession#StartSessionRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>Command to start a new session. A session token is obtained as part of the\n         response.</p>"
+          }
+        },
         "CommitTransaction": {
           "target": "com.amazonaws.qldbsession#CommitTransactionRequest",
           "traits": {
             "smithy.api#documentation": "<p>Command to commit the specified transaction.</p>"
           }
         },
-        "ExecuteStatement": {
-          "target": "com.amazonaws.qldbsession#ExecuteStatementRequest",
+        "EndSession": {
+          "target": "com.amazonaws.qldbsession#EndSessionRequest",
           "traits": {
-            "smithy.api#documentation": "<p>Command to execute a statement in the specified transaction.</p>"
-          }
-        },
-        "SessionToken": {
-          "target": "com.amazonaws.qldbsession#SessionToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the session token for the current command. A session token is constant\n         throughout the life of the session.</p>\n         <p>To obtain a session token, run the <code>StartSession</code> command. This\n            <code>SessionToken</code> is required for every subsequent command that is issued during\n         the current session.</p>"
-          }
-        },
-        "FetchPage": {
-          "target": "com.amazonaws.qldbsession#FetchPageRequest",
-          "traits": {
-            "smithy.api#documentation": "<p>Command to fetch a page.</p>"
+            "smithy.api#documentation": "<p>Command to end the current session.</p>"
           }
         },
         "StartTransaction": {
@@ -401,16 +395,22 @@
             "smithy.api#documentation": "<p>Command to abort the current transaction.</p>"
           }
         },
-        "EndSession": {
-          "target": "com.amazonaws.qldbsession#EndSessionRequest",
+        "FetchPage": {
+          "target": "com.amazonaws.qldbsession#FetchPageRequest",
           "traits": {
-            "smithy.api#documentation": "<p>Command to end the current session.</p>"
+            "smithy.api#documentation": "<p>Command to fetch a page.</p>"
           }
         },
-        "StartSession": {
-          "target": "com.amazonaws.qldbsession#StartSessionRequest",
+        "SessionToken": {
+          "target": "com.amazonaws.qldbsession#SessionToken",
           "traits": {
-            "smithy.api#documentation": "<p>Command to start a new session. A session token is obtained as part of the\n         response.</p>"
+            "smithy.api#documentation": "<p>Specifies the session token for the current command. A session token is constant\n         throughout the life of the session.</p>\n         <p>To obtain a session token, run the <code>StartSession</code> command. This\n            <code>SessionToken</code> is required for every subsequent command that is issued during\n         the current session.</p>"
+          }
+        },
+        "ExecuteStatement": {
+          "target": "com.amazonaws.qldbsession#ExecuteStatementRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>Command to execute a statement in the specified transaction.</p>"
           }
         }
       }
@@ -418,10 +418,16 @@
     "com.amazonaws.qldbsession#SendCommandResult": {
       "type": "structure",
       "members": {
-        "StartTransaction": {
-          "target": "com.amazonaws.qldbsession#StartTransactionResult",
+        "EndSession": {
+          "target": "com.amazonaws.qldbsession#EndSessionResult",
           "traits": {
-            "smithy.api#documentation": "<p>Contains the details of the started transaction.</p>"
+            "smithy.api#documentation": "<p>Contains the details of the ended session.</p>"
+          }
+        },
+        "FetchPage": {
+          "target": "com.amazonaws.qldbsession#FetchPageResult",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the details of the fetched page.</p>"
           }
         },
         "AbortTransaction": {
@@ -436,16 +442,10 @@
             "smithy.api#documentation": "<p>Contains the details of the started session that includes a session token. This\n            <code>SessionToken</code> is required for every subsequent command that is issued during\n         the current session.</p>"
           }
         },
-        "EndSession": {
-          "target": "com.amazonaws.qldbsession#EndSessionResult",
+        "StartTransaction": {
+          "target": "com.amazonaws.qldbsession#StartTransactionResult",
           "traits": {
-            "smithy.api#documentation": "<p>Contains the details of the ended session.</p>"
-          }
-        },
-        "FetchPage": {
-          "target": "com.amazonaws.qldbsession#FetchPageResult",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains the details of the fetched page.</p>"
+            "smithy.api#documentation": "<p>Contains the details of the started transaction.</p>"
           }
         },
         "CommitTransaction": {

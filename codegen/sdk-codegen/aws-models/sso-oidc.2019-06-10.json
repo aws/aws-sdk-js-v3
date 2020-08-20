@@ -165,16 +165,10 @@
     "com.amazonaws.ssooidc#CreateTokenRequest": {
       "type": "structure",
       "members": {
-        "redirectUri": {
-          "target": "com.amazonaws.ssooidc#URI",
+        "scope": {
+          "target": "com.amazonaws.ssooidc#Scopes",
           "traits": {
-            "smithy.api#documentation": "<p>The location of the application that will receive the authorization code. Users authorize\n      the service to send the request to this location.</p>"
-          }
-        },
-        "code": {
-          "target": "com.amazonaws.ssooidc#AuthCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token.</p>"
+            "smithy.api#documentation": "<p>The list of scopes that is defined by the client. Upon authorization, this list is used to\n      restrict permissions when granting an access token.</p>"
           }
         },
         "clientId": {
@@ -184,10 +178,10 @@
             "smithy.api#required": {}
           }
         },
-        "refreshToken": {
-          "target": "com.amazonaws.ssooidc#RefreshToken",
+        "redirectUri": {
+          "target": "com.amazonaws.ssooidc#URI",
           "traits": {
-            "smithy.api#documentation": "<p>The token used to obtain an access token in the event that the access token is invalid or expired. This token is not issued by the service.</p>"
+            "smithy.api#documentation": "<p>The location of the application that will receive the authorization code. Users authorize\n      the service to send the request to this location.</p>"
           }
         },
         "grantType": {
@@ -197,11 +191,10 @@
             "smithy.api#required": {}
           }
         },
-        "clientSecret": {
-          "target": "com.amazonaws.ssooidc#ClientSecret",
+        "refreshToken": {
+          "target": "com.amazonaws.ssooidc#RefreshToken",
           "traits": {
-            "smithy.api#documentation": "<p>A secret string generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The token used to obtain an access token in the event that the access token is invalid or expired. This token is not issued by the service.</p>"
           }
         },
         "deviceCode": {
@@ -211,10 +204,17 @@
             "smithy.api#required": {}
           }
         },
-        "scope": {
-          "target": "com.amazonaws.ssooidc#Scopes",
+        "code": {
+          "target": "com.amazonaws.ssooidc#AuthCode",
           "traits": {
-            "smithy.api#documentation": "<p>The list of scopes that is defined by the client. Upon authorization, this list is used to\n      restrict permissions when granting an access token.</p>"
+            "smithy.api#documentation": "<p>The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token.</p>"
+          }
+        },
+        "clientSecret": {
+          "target": "com.amazonaws.ssooidc#ClientSecret",
+          "traits": {
+            "smithy.api#documentation": "<p>A secret string generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -222,6 +222,12 @@
     "com.amazonaws.ssooidc#CreateTokenResponse": {
       "type": "structure",
       "members": {
+        "expiresIn": {
+          "target": "com.amazonaws.ssooidc#ExpirationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the time in seconds when an access token will expire.</p>"
+          }
+        },
         "refreshToken": {
           "target": "com.amazonaws.ssooidc#RefreshToken",
           "traits": {
@@ -244,12 +250,6 @@
           "target": "com.amazonaws.ssooidc#TokenType",
           "traits": {
             "smithy.api#documentation": "<p>Used to notify the client that the returned token is an access token. The supported type\n      is <code>BearerToken</code>.</p>"
-          }
-        },
-        "expiresIn": {
-          "target": "com.amazonaws.ssooidc#ExpirationInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates the time in seconds when an access token will expire.</p>"
           }
         }
       }
@@ -342,11 +342,11 @@
     "com.amazonaws.ssooidc#InvalidGrantException": {
       "type": "structure",
       "members": {
-        "error": {
-          "target": "com.amazonaws.ssooidc#Error"
-        },
         "error_description": {
           "target": "com.amazonaws.ssooidc#ErrorDescription"
+        },
+        "error": {
+          "target": "com.amazonaws.ssooidc#Error"
         }
       },
       "traits": {
@@ -358,11 +358,11 @@
     "com.amazonaws.ssooidc#InvalidRequestException": {
       "type": "structure",
       "members": {
-        "error_description": {
-          "target": "com.amazonaws.ssooidc#ErrorDescription"
-        },
         "error": {
           "target": "com.amazonaws.ssooidc#Error"
+        },
+        "error_description": {
+          "target": "com.amazonaws.ssooidc#ErrorDescription"
         }
       },
       "traits": {
@@ -374,11 +374,11 @@
     "com.amazonaws.ssooidc#InvalidScopeException": {
       "type": "structure",
       "members": {
-        "error": {
-          "target": "com.amazonaws.ssooidc#Error"
-        },
         "error_description": {
           "target": "com.amazonaws.ssooidc#ErrorDescription"
+        },
+        "error": {
+          "target": "com.amazonaws.ssooidc#Error"
         }
       },
       "traits": {
@@ -429,10 +429,11 @@
     "com.amazonaws.ssooidc#RegisterClientRequest": {
       "type": "structure",
       "members": {
-        "scopes": {
-          "target": "com.amazonaws.ssooidc#Scopes",
+        "clientType": {
+          "target": "com.amazonaws.ssooidc#ClientType",
           "traits": {
-            "smithy.api#documentation": "<p>The list of scopes that are defined by the client. Upon authorization, this list is used\n      to restrict permissions when granting an access token.</p>"
+            "smithy.api#documentation": "<p>The type of client. The service supports only <code>public</code> as a client type. Anything other than public will be rejected by the service.</p>",
+            "smithy.api#required": {}
           }
         },
         "clientName": {
@@ -442,11 +443,10 @@
             "smithy.api#required": {}
           }
         },
-        "clientType": {
-          "target": "com.amazonaws.ssooidc#ClientType",
+        "scopes": {
+          "target": "com.amazonaws.ssooidc#Scopes",
           "traits": {
-            "smithy.api#documentation": "<p>The type of client. The service supports only <code>public</code> as a client type. Anything other than public will be rejected by the service.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The list of scopes that are defined by the client. Upon authorization, this list is used\n      to restrict permissions when granting an access token.</p>"
           }
         }
       }
@@ -454,16 +454,16 @@
     "com.amazonaws.ssooidc#RegisterClientResponse": {
       "type": "structure",
       "members": {
+        "authorizationEndpoint": {
+          "target": "com.amazonaws.ssooidc#URI",
+          "traits": {
+            "smithy.api#documentation": "<p>The endpoint where the client can request authorization.</p>"
+          }
+        },
         "clientSecret": {
           "target": "com.amazonaws.ssooidc#ClientSecret",
           "traits": {
             "smithy.api#documentation": "<p>A secret string generated for the client. The client will use this string to get\n      authenticated by the service in subsequent calls.</p>"
-          }
-        },
-        "clientSecretExpiresAt": {
-          "target": "com.amazonaws.ssooidc#LongTimeStampType",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will become invalid.</p>"
           }
         },
         "tokenEndpoint": {
@@ -478,16 +478,16 @@
             "smithy.api#documentation": "<p>The unique identifier string for each client. This client uses this identifier to get\n      authenticated by the service in subsequent calls.</p>"
           }
         },
+        "clientSecretExpiresAt": {
+          "target": "com.amazonaws.ssooidc#LongTimeStampType",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will become invalid.</p>"
+          }
+        },
         "clientIdIssuedAt": {
           "target": "com.amazonaws.ssooidc#LongTimeStampType",
           "traits": {
             "smithy.api#documentation": "<p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were issued.</p>"
-          }
-        },
-        "authorizationEndpoint": {
-          "target": "com.amazonaws.ssooidc#URI",
-          "traits": {
-            "smithy.api#documentation": "<p>The endpoint where the client can request authorization.</p>"
           }
         }
       }
@@ -556,17 +556,17 @@
     "com.amazonaws.ssooidc#StartDeviceAuthorizationRequest": {
       "type": "structure",
       "members": {
-        "startUrl": {
-          "target": "com.amazonaws.ssooidc#URI",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL for the AWS SSO user portal. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html\">Using\n        the User Portal</a> in the <i>AWS Single Sign-On User Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "clientSecret": {
           "target": "com.amazonaws.ssooidc#ClientSecret",
           "traits": {
             "smithy.api#documentation": "<p>A secret string that is generated for the client. This value should come from the\n      persisted result of the <a>RegisterClient</a> API operation.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "startUrl": {
+          "target": "com.amazonaws.ssooidc#URI",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL for the AWS SSO user portal. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html\">Using\n        the User Portal</a> in the <i>AWS Single Sign-On User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -582,22 +582,10 @@
     "com.amazonaws.ssooidc#StartDeviceAuthorizationResponse": {
       "type": "structure",
       "members": {
-        "verificationUriComplete": {
-          "target": "com.amazonaws.ssooidc#URI",
-          "traits": {
-            "smithy.api#documentation": "<p>An alternate URL that the client can use to automatically launch a browser. This process\n      skips the manual step in which the user visits the verification page and enters their\n      code.</p>"
-          }
-        },
         "verificationUri": {
           "target": "com.amazonaws.ssooidc#URI",
           "traits": {
             "smithy.api#documentation": "<p>The URI of the verification page that takes the <code>userCode</code> to authorize the device.</p>"
-          }
-        },
-        "expiresIn": {
-          "target": "com.amazonaws.ssooidc#ExpirationInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates the number of seconds in which the verification code will become invalid.</p>"
           }
         },
         "userCode": {
@@ -606,16 +594,28 @@
             "smithy.api#documentation": "<p>A one-time user verification code. This is needed to authorize an in-use device.</p>"
           }
         },
-        "deviceCode": {
-          "target": "com.amazonaws.ssooidc#DeviceCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The short-lived code that is used by the device when polling for a session token.</p>"
-          }
-        },
         "interval": {
           "target": "com.amazonaws.ssooidc#IntervalInSeconds",
           "traits": {
             "smithy.api#documentation": "<p>Indicates the number of seconds the client must wait between attempts when polling for a session.</p>"
+          }
+        },
+        "expiresIn": {
+          "target": "com.amazonaws.ssooidc#ExpirationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the number of seconds in which the verification code will become invalid.</p>"
+          }
+        },
+        "verificationUriComplete": {
+          "target": "com.amazonaws.ssooidc#URI",
+          "traits": {
+            "smithy.api#documentation": "<p>An alternate URL that the client can use to automatically launch a browser. This process\n      skips the manual step in which the user visits the verification page and enters their\n      code.</p>"
+          }
+        },
+        "deviceCode": {
+          "target": "com.amazonaws.ssooidc#DeviceCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The short-lived code that is used by the device when polling for a session token.</p>"
           }
         }
       }
@@ -629,11 +629,11 @@
     "com.amazonaws.ssooidc#UnauthorizedClientException": {
       "type": "structure",
       "members": {
-        "error_description": {
-          "target": "com.amazonaws.ssooidc#ErrorDescription"
-        },
         "error": {
           "target": "com.amazonaws.ssooidc#Error"
+        },
+        "error_description": {
+          "target": "com.amazonaws.ssooidc#ErrorDescription"
         }
       },
       "traits": {
@@ -645,11 +645,11 @@
     "com.amazonaws.ssooidc#UnsupportedGrantTypeException": {
       "type": "structure",
       "members": {
-        "error_description": {
-          "target": "com.amazonaws.ssooidc#ErrorDescription"
-        },
         "error": {
           "target": "com.amazonaws.ssooidc#Error"
+        },
+        "error_description": {
+          "target": "com.amazonaws.ssooidc#ErrorDescription"
         }
       },
       "traits": {

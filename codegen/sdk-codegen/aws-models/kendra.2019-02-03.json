@@ -166,10 +166,10 @@
     "com.amazonaws.kendra#AdditionalResultAttribute": {
       "type": "structure",
       "members": {
-        "ValueType": {
-          "target": "com.amazonaws.kendra#AdditionalResultAttributeValueType",
+        "Key": {
+          "target": "com.amazonaws.kendra#String",
           "traits": {
-            "smithy.api#documentation": "<p>The data type of the <code>Value</code> property.</p>",
+            "smithy.api#documentation": "<p>The key that identifies the attribute.</p>",
             "smithy.api#required": {}
           }
         },
@@ -180,10 +180,10 @@
             "smithy.api#required": {}
           }
         },
-        "Key": {
-          "target": "com.amazonaws.kendra#String",
+        "ValueType": {
+          "target": "com.amazonaws.kendra#AdditionalResultAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "<p>The key that identifies the attribute.</p>",
+            "smithy.api#documentation": "<p>The data type of the <code>Value</code> property.</p>",
             "smithy.api#required": {}
           }
         }
@@ -241,6 +241,36 @@
             "smithy.api#documentation": "<p>Performs an equals operation on two document attributes.</p>"
           }
         },
+        "AndAllFilters": {
+          "target": "com.amazonaws.kendra#AttributeFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>Performs a logical <code>AND</code> operation on all supplied filters.</p>"
+          }
+        },
+        "GreaterThan": {
+          "target": "com.amazonaws.kendra#DocumentAttribute",
+          "traits": {
+            "smithy.api#documentation": "<p>Performs a greater than operation on two document attributes. Use with a document\n         attribute of type <code>Integer</code> or <code>Long</code>.</p>"
+          }
+        },
+        "ContainsAny": {
+          "target": "com.amazonaws.kendra#DocumentAttribute",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns true when a document contains any of the specified document attributes.This\n         filter is only appicable to <code>StringListValue</code> metadata.</p>"
+          }
+        },
+        "LessThanOrEquals": {
+          "target": "com.amazonaws.kendra#DocumentAttribute",
+          "traits": {
+            "smithy.api#documentation": "<p>Performs a less than or equals operation on two document attributes. Use with a document\n         attribute of type <code>Integer</code> or <code>Long</code>.</p>"
+          }
+        },
+        "NotFilter": {
+          "target": "com.amazonaws.kendra#AttributeFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>Performs a logical <code>NOT</code> operation on all supplied filters.</p>"
+          }
+        },
         "GreaterThanOrEquals": {
           "target": "com.amazonaws.kendra#DocumentAttribute",
           "traits": {
@@ -253,46 +283,16 @@
             "smithy.api#documentation": "<p>Performs a logical <code>OR</code> operation on all supplied filters.</p>"
           }
         },
-        "LessThanOrEquals": {
-          "target": "com.amazonaws.kendra#DocumentAttribute",
-          "traits": {
-            "smithy.api#documentation": "<p>Performs a less than or equals operation on two document attributes. Use with a document\n         attribute of type <code>Integer</code> or <code>Long</code>.</p>"
-          }
-        },
-        "LessThan": {
-          "target": "com.amazonaws.kendra#DocumentAttribute",
-          "traits": {
-            "smithy.api#documentation": "<p>Performs a less than operation on two document attributes. Use with a document attribute\n         of type <code>Integer</code> or <code>Long</code>.</p>"
-          }
-        },
         "ContainsAll": {
           "target": "com.amazonaws.kendra#DocumentAttribute",
           "traits": {
             "smithy.api#documentation": "<p>Returns true when a document contains all of the specified document attributes. This\n         filter is only appicable to <code>StringListValue</code> metadata.</p>"
           }
         },
-        "NotFilter": {
-          "target": "com.amazonaws.kendra#AttributeFilter",
-          "traits": {
-            "smithy.api#documentation": "<p>Performs a logical <code>NOT</code> operation on all supplied filters.</p>"
-          }
-        },
-        "GreaterThan": {
+        "LessThan": {
           "target": "com.amazonaws.kendra#DocumentAttribute",
           "traits": {
-            "smithy.api#documentation": "<p>Performs a greater than operation on two document attributes. Use with a document\n         attribute of type <code>Integer</code> or <code>Long</code>.</p>"
-          }
-        },
-        "AndAllFilters": {
-          "target": "com.amazonaws.kendra#AttributeFilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>Performs a logical <code>AND</code> operation on all supplied filters.</p>"
-          }
-        },
-        "ContainsAny": {
-          "target": "com.amazonaws.kendra#DocumentAttribute",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns true when a document contains any of the specified document attributes.This\n         filter is only appicable to <code>StringListValue</code> metadata.</p>"
+            "smithy.api#documentation": "<p>Performs a less than operation on two document attributes. Use with a document attribute\n         of type <code>Integer</code> or <code>Long</code>.</p>"
           }
         }
       },
@@ -341,13 +341,6 @@
     "com.amazonaws.kendra#BatchDeleteDocumentRequest": {
       "type": "structure",
       "members": {
-        "DocumentIdList": {
-          "target": "com.amazonaws.kendra#DocumentIdList",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more identifiers for documents to delete from the index.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "IndexId": {
           "target": "com.amazonaws.kendra#IndexId",
           "traits": {
@@ -357,6 +350,13 @@
         },
         "DataSourceSyncJobMetricTarget": {
           "target": "com.amazonaws.kendra#DataSourceSyncJobMetricTarget"
+        },
+        "DocumentIdList": {
+          "target": "com.amazonaws.kendra#DocumentIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more identifiers for documents to delete from the index.</p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
@@ -380,16 +380,16 @@
             "smithy.api#documentation": "<p>The error code for why the document couldn't be removed from the index.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.kendra#DocumentId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the document that couldn't be removed from the index.</p>"
-          }
-        },
         "ErrorMessage": {
           "target": "com.amazonaws.kendra#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>An explanation for why the document couldn't be removed from the index.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.kendra#DocumentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the document that couldn't be removed from the index.</p>"
           }
         }
       },
@@ -441,17 +441,17 @@
     "com.amazonaws.kendra#BatchPutDocumentRequest": {
       "type": "structure",
       "members": {
-        "RoleArn": {
-          "target": "com.amazonaws.kendra#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a role that is allowed to run the\n        <code>BatchPutDocument</code> operation. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM Roles for\n        Amazon Kendra</a>.</p>"
-          }
-        },
         "Documents": {
           "target": "com.amazonaws.kendra#DocumentList",
           "traits": {
             "smithy.api#documentation": "<p>One or more documents to add to the index. </p>\n         <p>Documents have the following file size limits.</p>\n         <ul>\n            <li>\n               <p>5 MB total size for inline documents</p>\n            </li>\n            <li>\n               <p>50 MB total size for files from an S3 bucket</p>\n            </li>\n            <li>\n               <p>5 MB extracted text for any file</p>\n            </li>\n         </ul>\n         <p>For more information about file size and transaction per second quotas,\n      see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a role that is allowed to run the\n        <code>BatchPutDocument</code> operation. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM Roles for\n        Amazon Kendra</a>.</p>"
           }
         },
         "IndexId": {
@@ -593,10 +593,11 @@
             "smithy.api#required": {}
           }
         },
-        "FieldMappings": {
-          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
+        "DocumentDataColumnName": {
+          "target": "com.amazonaws.kendra#ColumnName",
           "traits": {
-            "smithy.api#documentation": "<p>An array of objects that map database column names to the corresponding fields in an\n            index. You must first create the fields in the index using the <a>UpdateIndex</a> operation.</p>"
+            "smithy.api#documentation": "<p>The column that contains the contents of the document.</p>",
+            "smithy.api#required": {}
           }
         },
         "DocumentTitleColumnName": {
@@ -612,11 +613,10 @@
             "smithy.api#required": {}
           }
         },
-        "DocumentDataColumnName": {
-          "target": "com.amazonaws.kendra#ColumnName",
+        "FieldMappings": {
+          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
           "traits": {
-            "smithy.api#documentation": "<p>The column that contains the contents of the document.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>An array of objects that map database column names to the corresponding fields in an\n            index. You must first create the fields in the index using the <a>UpdateIndex</a> operation.</p>"
           }
         }
       },
@@ -650,10 +650,10 @@
     "com.amazonaws.kendra#ConnectionConfiguration": {
       "type": "structure",
       "members": {
-        "TableName": {
-          "target": "com.amazonaws.kendra#TableName",
+        "SecretArn": {
+          "target": "com.amazonaws.kendra#SecretArn",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the table that contains the document data.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager. The\n            credentials should be a user/password pair. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html\">Using a\n                Database Data Source</a>. For more information about AWS Secrets Manager, see\n                <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html\"> What\n                Is AWS Secrets Manager </a> in the <i>AWS Secrets Manager</i> user\n            guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -664,6 +664,13 @@
             "smithy.api#required": {}
           }
         },
+        "DatabasePort": {
+          "target": "com.amazonaws.kendra#DatabasePort",
+          "traits": {
+            "smithy.api#documentation": "<p>The port that the database uses for connections.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "DatabaseHost": {
           "target": "com.amazonaws.kendra#DatabaseHost",
           "traits": {
@@ -671,17 +678,10 @@
             "smithy.api#required": {}
           }
         },
-        "SecretArn": {
-          "target": "com.amazonaws.kendra#SecretArn",
+        "TableName": {
+          "target": "com.amazonaws.kendra#TableName",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager. The\n            credentials should be a user/password pair. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html\">Using a\n                Database Data Source</a>. For more information about AWS Secrets Manager, see\n                <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html\"> What\n                Is AWS Secrets Manager </a> in the <i>AWS Secrets Manager</i> user\n            guide.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "DatabasePort": {
-          "target": "com.amazonaws.kendra#DatabasePort",
-          "traits": {
-            "smithy.api#documentation": "<p>The port that the database uses for connections.</p>",
+            "smithy.api#documentation": "<p>The name of the table that contains the document data.</p>",
             "smithy.api#required": {}
           }
         }
@@ -758,43 +758,16 @@
     "com.amazonaws.kendra#CreateDataSourceRequest": {
       "type": "structure",
       "members": {
-        "RoleArn": {
-          "target": "com.amazonaws.kendra#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a role with permission to access the data source. For\n      more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM\n        Roles for Amazon Kendra</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "IndexId": {
-          "target": "com.amazonaws.kendra#IndexId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the index that should be associated with this data source.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Description": {
           "target": "com.amazonaws.kendra#Description",
           "traits": {
             "smithy.api#documentation": "<p>A description for the data source.</p>"
           }
         },
-        "Schedule": {
-          "target": "com.amazonaws.kendra#ScanSchedule",
+        "Type": {
+          "target": "com.amazonaws.kendra#DataSourceType",
           "traits": {
-            "smithy.api#documentation": "<p>Sets the frequency that Amazon Kendra will check the documents in your repository and\n      update the index. If you don't set a schedule Amazon Kendra will not periodically update the\n      index. You can call the <code>StartDataSourceSyncJob</code> operation to update the\n      index.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#DataSourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique name for the data source. A data source name can't be changed without deleting\n      and recreating the data source.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Configuration": {
-          "target": "com.amazonaws.kendra#DataSourceConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The connector configuration information that is required to access the repository.</p>",
+            "smithy.api#documentation": "<p>The type of repository that contains the data source.</p>",
             "smithy.api#required": {}
           }
         },
@@ -804,10 +777,37 @@
             "smithy.api#documentation": "<p>A list of key-value pairs that identify the data source. You can use the tags\n    to identify and organize your resources and to control access to resources.</p>"
           }
         },
-        "Type": {
-          "target": "com.amazonaws.kendra#DataSourceType",
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The type of repository that contains the data source.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a role with permission to access the data source. For\n      more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM\n        Roles for Amazon Kendra</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#DataSourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique name for the data source. A data source name can't be changed without deleting\n      and recreating the data source.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Schedule": {
+          "target": "com.amazonaws.kendra#ScanSchedule",
+          "traits": {
+            "smithy.api#documentation": "<p>Sets the frequency that Amazon Kendra will check the documents in your repository and\n      update the index. If you don't set a schedule Amazon Kendra will not periodically update the\n      index. You can call the <code>StartDataSourceSyncJob</code> operation to update the\n      index.</p>"
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index that should be associated with this data source.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Configuration": {
+          "target": "com.amazonaws.kendra#DataSourceConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The connector configuration information that is required to access the repository.</p>",
             "smithy.api#required": {}
           }
         }
@@ -863,6 +863,19 @@
     "com.amazonaws.kendra#CreateFaqRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.kendra#FaqName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that should be associated with the FAQ.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.kendra#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of key-value pairs that identify the FAQ. You can use the tags\n            to identify and organize your resources and to control access to resources.</p>"
+          }
+        },
         "IndexId": {
           "target": "com.amazonaws.kendra#IndexId",
           "traits": {
@@ -883,23 +896,10 @@
             "smithy.api#documentation": "<p>A description of the FAQ.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.kendra#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of key-value pairs that identify the FAQ. You can use the tags\n            to identify and organize your resources and to control access to resources.</p>"
-          }
-        },
         "RoleArn": {
           "target": "com.amazonaws.kendra#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a role with permission to\n            access the S3 bucket that contains the FAQs. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM Roles for\n                Amazon Kendra</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#FaqName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that should be associated with the FAQ.</p>",
             "smithy.api#required": {}
           }
         }
@@ -973,11 +973,10 @@
             "smithy.api#documentation": "<p>A list of key-value pairs that identify the index. You can use the tags to identify and\n      organize your resources and to control access to resources.</p>"
           }
         },
-        "RoleArn": {
-          "target": "com.amazonaws.kendra#RoleArn",
+        "Edition": {
+          "target": "com.amazonaws.kendra#IndexEdition",
           "traits": {
-            "smithy.api#documentation": "<p>An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and\n      metrics. This is also the role used when you use the <code>BatchPutDocument</code> operation\n      to index documents from an Amazon S3 bucket.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The Amazon Kendra edition to use for the index. Choose <code>DEVELOPER_EDITION</code> for\n      indexes intended for development, testing, or proof of concept. Use\n        <code>ENTERPRISE_EDITION</code> for your production databases. Once you set the edition for\n      an index, it can't be changed. </p>"
           }
         },
         "Description": {
@@ -986,10 +985,11 @@
             "smithy.api#documentation": "<p>A description for the index.</p>"
           }
         },
-        "Edition": {
-          "target": "com.amazonaws.kendra#IndexEdition",
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Kendra edition to use for the index. Choose <code>DEVELOPER_EDITION</code> for\n      indexes intended for development, testing, or proof of concept. Use\n        <code>ENTERPRISE_EDITION</code> for your production databases. Once you set the edition for\n      an index, it can't be changed. </p>"
+            "smithy.api#documentation": "<p>An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and\n      metrics. This is also the role used when you use the <code>BatchPutDocument</code> operation\n      to index documents from an Amazon S3 bucket.</p>",
+            "smithy.api#required": {}
           }
         },
         "ClientToken": {
@@ -1015,16 +1015,10 @@
     "com.amazonaws.kendra#DataSourceConfiguration": {
       "type": "structure",
       "members": {
-        "S3Configuration": {
-          "target": "com.amazonaws.kendra#S3DataSourceConfiguration",
+        "SharePointConfiguration": {
+          "target": "com.amazonaws.kendra#SharePointConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Provides information to create a connector for a document repository in an Amazon S3\n            bucket.</p>"
-          }
-        },
-        "ServiceNowConfiguration": {
-          "target": "com.amazonaws.kendra#ServiceNowConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides configuration for data sources that connect to ServiceNow instances.</p>"
+            "smithy.api#documentation": "<p>Provides information necessary to create a connector for a Microsoft SharePoint\n            site.</p>"
           }
         },
         "SalesforceConfiguration": {
@@ -1033,10 +1027,10 @@
             "smithy.api#documentation": "<p>Provides configuration information for data sources that connect to a Salesforce\n            site.</p>"
           }
         },
-        "DatabaseConfiguration": {
-          "target": "com.amazonaws.kendra#DatabaseConfiguration",
+        "ServiceNowConfiguration": {
+          "target": "com.amazonaws.kendra#ServiceNowConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Provides information necessary to create a connector for a database.</p>"
+            "smithy.api#documentation": "<p>Provides configuration for data sources that connect to ServiceNow instances.</p>"
           }
         },
         "OneDriveConfiguration": {
@@ -1045,10 +1039,16 @@
             "smithy.api#documentation": "<p>Provided configuration for data sources that connect to Microsoft OneDrive.</p>"
           }
         },
-        "SharePointConfiguration": {
-          "target": "com.amazonaws.kendra#SharePointConfiguration",
+        "DatabaseConfiguration": {
+          "target": "com.amazonaws.kendra#DatabaseConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Provides information necessary to create a connector for a Microsoft SharePoint\n            site.</p>"
+            "smithy.api#documentation": "<p>Provides information necessary to create a connector for a database.</p>"
+          }
+        },
+        "S3Configuration": {
+          "target": "com.amazonaws.kendra#S3DataSourceConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides information to create a connector for a document repository in an Amazon S3\n            bucket.</p>"
           }
         }
       },
@@ -1159,6 +1159,18 @@
             "smithy.api#documentation": "<p>The UNIX datetime that the data source was lasted updated. </p>"
           }
         },
+        "Name": {
+          "target": "com.amazonaws.kendra#DataSourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data source.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.kendra#DataSourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the data source.</p>"
+          }
+        },
         "Status": {
           "target": "com.amazonaws.kendra#DataSourceStatus",
           "traits": {
@@ -1169,18 +1181,6 @@
           "target": "com.amazonaws.kendra#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The UNIX datetime that the data source was created.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.kendra#DataSourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the data source.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#DataSourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the data source.</p>"
           }
         }
       },
@@ -1197,16 +1197,28 @@
     "com.amazonaws.kendra#DataSourceSyncJob": {
       "type": "structure",
       "members": {
+        "StartTime": {
+          "target": "com.amazonaws.kendra#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The UNIX datetime that the synchronization job was started.</p>"
+          }
+        },
+        "ExecutionId": {
+          "target": "com.amazonaws.kendra#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the synchronization job.</p>"
+          }
+        },
         "DataSourceErrorCode": {
           "target": "com.amazonaws.kendra#String",
           "traits": {
             "smithy.api#documentation": "<p>If the reason that the synchronization failed is due to an error with the underlying\n            data source, this field contains a code that identifies the error.</p>"
           }
         },
-        "ErrorCode": {
-          "target": "com.amazonaws.kendra#ErrorCode",
+        "ErrorMessage": {
+          "target": "com.amazonaws.kendra#ErrorMessage",
           "traits": {
-            "smithy.api#documentation": "<p>If the <code>Status</code> field is set to <code>FAILED</code>, the\n                <code>ErrorCode</code> field contains a the reason that the synchronization\n            failed.</p>"
+            "smithy.api#documentation": "<p>If the <code>Status</code> field is set to <code>ERROR</code>, the\n                <code>ErrorMessage</code> field contains a description of the error that caused the\n            synchronization to fail.</p>"
           }
         },
         "Metrics": {
@@ -1221,28 +1233,16 @@
             "smithy.api#documentation": "<p>The execution status of the synchronization job. When the <code>Status</code> field is\n            set to <code>SUCCEEDED</code>, the synchronization job is done. If the status code is\n            set to <code>FAILED</code>, the <code>ErrorCode</code> and <code>ErrorMessage</code>\n            fields give you the reason for the failure.</p>"
           }
         },
-        "StartTime": {
-          "target": "com.amazonaws.kendra#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The UNIX datetime that the synchronization job was started.</p>"
-          }
-        },
         "EndTime": {
           "target": "com.amazonaws.kendra#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The UNIX datetime that the synchronization job was completed.</p>"
           }
         },
-        "ErrorMessage": {
-          "target": "com.amazonaws.kendra#ErrorMessage",
+        "ErrorCode": {
+          "target": "com.amazonaws.kendra#ErrorCode",
           "traits": {
-            "smithy.api#documentation": "<p>If the <code>Status</code> field is set to <code>ERROR</code>, the\n                <code>ErrorMessage</code> field contains a description of the error that caused the\n            synchronization to fail.</p>"
-          }
-        },
-        "ExecutionId": {
-          "target": "com.amazonaws.kendra#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the synchronization job.</p>"
+            "smithy.api#documentation": "<p>If the <code>Status</code> field is set to <code>FAILED</code>, the\n                <code>ErrorCode</code> field contains a the reason that the synchronization\n            failed.</p>"
           }
         }
       },
@@ -1291,10 +1291,16 @@
     "com.amazonaws.kendra#DataSourceSyncJobMetrics": {
       "type": "structure",
       "members": {
-        "DocumentsDeleted": {
+        "DocumentsFailed": {
           "target": "com.amazonaws.kendra#MetricValue",
           "traits": {
-            "smithy.api#documentation": "<p>The number of documents deleted from the data source up to now in the data source sync\n            run.</p>"
+            "smithy.api#documentation": "<p>The number of documents that failed to sync from the data source up to now in the data\n            source sync run.</p>"
+          }
+        },
+        "DocumentsModified": {
+          "target": "com.amazonaws.kendra#MetricValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of documents modified in the data source up to now in the data source sync\n            run.</p>"
           }
         },
         "DocumentsScanned": {
@@ -1303,22 +1309,16 @@
             "smithy.api#documentation": "<p>The current number of documents crawled by the current sync job in the data\n            source.</p>"
           }
         },
-        "DocumentsFailed": {
+        "DocumentsDeleted": {
           "target": "com.amazonaws.kendra#MetricValue",
           "traits": {
-            "smithy.api#documentation": "<p>The number of documents that failed to sync from the data source up to now in the data\n            source sync run.</p>"
+            "smithy.api#documentation": "<p>The number of documents deleted from the data source up to now in the data source sync\n            run.</p>"
           }
         },
         "DocumentsAdded": {
           "target": "com.amazonaws.kendra#MetricValue",
           "traits": {
             "smithy.api#documentation": "<p>The number of documents added from the data source up to now in the data source\n            sync.</p>"
-          }
-        },
-        "DocumentsModified": {
-          "target": "com.amazonaws.kendra#MetricValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of documents modified in the data source up to now in the data source sync\n            run.</p>"
           }
         }
       },
@@ -1364,10 +1364,10 @@
     "com.amazonaws.kendra#DataSourceToIndexFieldMapping": {
       "type": "structure",
       "members": {
-        "IndexFieldName": {
-          "target": "com.amazonaws.kendra#IndexFieldName",
+        "DataSourceFieldName": {
+          "target": "com.amazonaws.kendra#DataSourceFieldName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the field in the index.</p>",
+            "smithy.api#documentation": "<p>The name of the column or attribute in the data source.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1377,10 +1377,10 @@
             "smithy.api#documentation": "<p>The type of data stored in the column or attribute.</p>"
           }
         },
-        "DataSourceFieldName": {
-          "target": "com.amazonaws.kendra#DataSourceFieldName",
+        "IndexFieldName": {
+          "target": "com.amazonaws.kendra#IndexFieldName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the column or attribute in the data source.</p>",
+            "smithy.api#documentation": "<p>The name of the field in the index.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1464,10 +1464,11 @@
             "smithy.api#required": {}
           }
         },
-        "SqlConfiguration": {
-          "target": "com.amazonaws.kendra#SqlConfiguration",
+        "ColumnConfiguration": {
+          "target": "com.amazonaws.kendra#ColumnConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Provides information about how Amazon Kendra uses quote marks around SQL identifiers when\n            querying a database data source.</p>"
+            "smithy.api#documentation": "<p>Information about where the index should get the document information from the\n            database.</p>",
+            "smithy.api#required": {}
           }
         },
         "VpcConfiguration": {
@@ -1486,11 +1487,10 @@
             "smithy.api#required": {}
           }
         },
-        "ColumnConfiguration": {
-          "target": "com.amazonaws.kendra#ColumnConfiguration",
+        "SqlConfiguration": {
+          "target": "com.amazonaws.kendra#SqlConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Information about where the index should get the document information from the\n            database.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Provides information about how Amazon Kendra uses quote marks around SQL identifiers when\n            querying a database data source.</p>"
           }
         }
       },
@@ -1719,17 +1719,17 @@
     "com.amazonaws.kendra#DescribeDataSourceRequest": {
       "type": "structure",
       "members": {
-        "IndexId": {
-          "target": "com.amazonaws.kendra#IndexId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the index that contains the data source.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Id": {
           "target": "com.amazonaws.kendra#DataSourceId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the data source to describe.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index that contains the data source.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1750,28 +1750,40 @@
             "smithy.api#documentation": "<p>The current status of the data source. When the status is <code>ACTIVE</code> the data\n      source is ready to use. When the status is <code>FAILED</code>, the <code>ErrorMessage</code>\n      field contains the reason that the data source failed.</p>"
           }
         },
+        "Description": {
+          "target": "com.amazonaws.kendra#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the data source.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.kendra#DataSourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the data source.</p>"
+          }
+        },
+        "Schedule": {
+          "target": "com.amazonaws.kendra#ScanSchedule",
+          "traits": {
+            "smithy.api#documentation": "<p>The schedule that Amazon Kendra will update the data source.</p>"
+          }
+        },
         "CreatedAt": {
           "target": "com.amazonaws.kendra#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The Unix timestamp of when the data source was created.</p>"
           }
         },
+        "Configuration": {
+          "target": "com.amazonaws.kendra#DataSourceConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information that describes where the data source is located and how the data source is\n      configured. The specific information in the description depends on the data source\n      provider.</p>"
+          }
+        },
         "ErrorMessage": {
           "target": "com.amazonaws.kendra#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>When the <code>Status</code> field value is <code>FAILED</code>, the\n        <code>ErrorMessage</code> field contains a description of the error that caused the data\n      source to fail.</p>"
-          }
-        },
-        "RoleArn": {
-          "target": "com.amazonaws.kendra#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role that enables the data source to access its\n      resources.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.kendra#DataSourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the data source.</p>"
           }
         },
         "UpdatedAt": {
@@ -1786,28 +1798,16 @@
             "smithy.api#documentation": "<p>The name that you gave the data source when it was created.</p>"
           }
         },
-        "Schedule": {
-          "target": "com.amazonaws.kendra#ScanSchedule",
+        "Type": {
+          "target": "com.amazonaws.kendra#DataSourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The schedule that Amazon Kendra will update the data source.</p>"
+            "smithy.api#documentation": "<p>The type of the data source.</p>"
           }
         },
-        "Configuration": {
-          "target": "com.amazonaws.kendra#DataSourceConfiguration",
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>Information that describes where the data source is located and how the data source is\n      configured. The specific information in the description depends on the data source\n      provider.</p>"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.kendra#DataSourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the data source.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.kendra#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the data source.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role that enables the data source to access its\n      resources.</p>"
           }
         }
       }
@@ -1844,17 +1844,17 @@
     "com.amazonaws.kendra#DescribeFaqRequest": {
       "type": "structure",
       "members": {
-        "IndexId": {
-          "target": "com.amazonaws.kendra#IndexId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the index that contains the FAQ.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Id": {
           "target": "com.amazonaws.kendra#FaqId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the FAQ.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index that contains the FAQ.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1863,48 +1863,6 @@
     "com.amazonaws.kendra#DescribeFaqResponse": {
       "type": "structure",
       "members": {
-        "UpdatedAt": {
-          "target": "com.amazonaws.kendra#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the FAQ was last updated.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#FaqName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that you gave the FAQ when it was created.</p>"
-          }
-        },
-        "RoleArn": {
-          "target": "com.amazonaws.kendra#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role that provides access to\n        the S3 bucket containing the input files for the FAQ.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.kendra#FaqStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the FAQ. It is ready to use when the status is\n            <code>ACTIVE</code>.</p>"
-          }
-        },
-        "ErrorMessage": {
-          "target": "com.amazonaws.kendra#ErrorMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>If the <code>Status</code> field is <code>FAILED</code>, the <code>ErrorMessage</code>\n            field contains the reason why the FAQ failed.</p>"
-          }
-        },
-        "IndexId": {
-          "target": "com.amazonaws.kendra#IndexId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the index that contains the FAQ.</p>"
-          }
-        },
-        "CreatedAt": {
-          "target": "com.amazonaws.kendra#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the FAQ was created.</p>"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.kendra#FaqId",
           "traits": {
@@ -1919,6 +1877,48 @@
         },
         "S3Path": {
           "target": "com.amazonaws.kendra#S3Path"
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.kendra#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the FAQ was created.</p>"
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index that contains the FAQ.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.kendra#FaqStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the FAQ. It is ready to use when the status is\n            <code>ACTIVE</code>.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#FaqName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that you gave the FAQ when it was created.</p>"
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role that provides access to\n        the S3 bucket containing the input files for the FAQ.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.kendra#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>If the <code>Status</code> field is <code>FAILED</code>, the <code>ErrorMessage</code>\n            field contains the reason why the FAQ failed.</p>"
+          }
+        },
+        "UpdatedAt": {
+          "target": "com.amazonaws.kendra#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the FAQ was last updated.</p>"
+          }
         }
       }
     },
@@ -1972,6 +1972,18 @@
             "smithy.api#documentation": "<p>When th e<code>Status</code> field value is <code>FAILED</code>, the\n        <code>ErrorMessage</code> field contains a message that explains why.</p>"
           }
         },
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra permission to write\n      to your Amazon Cloudwatch logs.</p>"
+          }
+        },
+        "DocumentMetadataConfigurations": {
+          "target": "com.amazonaws.kendra#DocumentMetadataConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration settings for any metadata applied to the documents in the index.</p>"
+          }
+        },
         "Id": {
           "target": "com.amazonaws.kendra#IndexId",
           "traits": {
@@ -1984,28 +1996,10 @@
             "smithy.api#documentation": "<p>The description of the index.</p>"
           }
         },
-        "DocumentMetadataConfigurations": {
-          "target": "com.amazonaws.kendra#DocumentMetadataConfigurationList",
+        "CapacityUnits": {
+          "target": "com.amazonaws.kendra#CapacityUnitsConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Configuration settings for any metadata applied to the documents in the index.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.kendra#IndexStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the index. When the value is <code>ACTIVE</code>, the index is ready\n      for use. If the <code>Status</code> field value is <code>FAILED</code>, the\n        <code>ErrorMessage</code> field contains a message that explains why.</p>"
-          }
-        },
-        "CreatedAt": {
-          "target": "com.amazonaws.kendra#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The Unix datetime that the index was created.</p>"
-          }
-        },
-        "Edition": {
-          "target": "com.amazonaws.kendra#IndexEdition",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Kendra edition used for the index. You decide the edition when you create the\n      index.</p>"
+            "smithy.api#documentation": "<p>For enterprise edtion indexes, you can choose to use additional capacity to meet the needs\n      of your application. This contains the capacity units used for the index. A 0 for the query\n      capacity or the storage capacity indicates that the index is using the default capacity for\n      the index.</p>"
           }
         },
         "IndexStatistics": {
@@ -2014,22 +2008,10 @@
             "smithy.api#documentation": "<p>Provides information about the number of FAQ questions and answers and the number of text\n      documents indexed.</p>"
           }
         },
-        "ServerSideEncryptionConfiguration": {
-          "target": "com.amazonaws.kendra#ServerSideEncryptionConfiguration",
+        "CreatedAt": {
+          "target": "com.amazonaws.kendra#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the AWS KMS customer master key (CMK) used to encrypt your data.\n      Amazon Kendra doesn't support asymmetric CMKs.</p>"
-          }
-        },
-        "CapacityUnits": {
-          "target": "com.amazonaws.kendra#CapacityUnitsConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>For enterprise edtion indexes, you can choose to use additional capacity to meet the needs\n      of your application. This contains the capacity units used for the index. A 0 for the query\n      capacity or the storage capacity indicates that the index is using the default capacity for\n      the index.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#IndexName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the index.</p>"
+            "smithy.api#documentation": "<p>The Unix datetime that the index was created.</p>"
           }
         },
         "UpdatedAt": {
@@ -2038,10 +2020,28 @@
             "smithy.api#documentation": "<p>The Unix datetime that the index was last updated.</p>"
           }
         },
-        "RoleArn": {
-          "target": "com.amazonaws.kendra#RoleArn",
+        "Name": {
+          "target": "com.amazonaws.kendra#IndexName",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra permission to write\n      to your Amazon Cloudwatch logs.</p>"
+            "smithy.api#documentation": "<p>The name of the index.</p>"
+          }
+        },
+        "Edition": {
+          "target": "com.amazonaws.kendra#IndexEdition",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Kendra edition used for the index. You decide the edition when you create the\n      index.</p>"
+          }
+        },
+        "ServerSideEncryptionConfiguration": {
+          "target": "com.amazonaws.kendra#ServerSideEncryptionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the AWS KMS customer master key (CMK) used to encrypt your data.\n      Amazon Kendra doesn't support asymmetric CMKs.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.kendra#IndexStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the index. When the value is <code>ACTIVE</code>, the index is ready\n      for use. If the <code>Status</code> field value is <code>FAILED</code>, the\n        <code>ErrorMessage</code> field contains a message that explains why.</p>"
           }
         }
       }
@@ -2065,21 +2065,6 @@
             "smithy.api#documentation": "<p>Information to use for user context filtering.</p>"
           }
         },
-        "Title": {
-          "target": "com.amazonaws.kendra#Title",
-          "traits": {
-            "smithy.api#documentation": "<p>The title of the document.</p>"
-          }
-        },
-        "Blob": {
-          "target": "com.amazonaws.kendra#Blob",
-          "traits": {
-            "smithy.api#documentation": "<p>The contents of the document. </p>\n        <p>Documents passed to the <code>Blob</code> parameter must be base64 encoded. Your code\n            might not need to encode the document file bytes if you're using an AWS SDK to call\n            Amazon Kendra operations. If you are calling the Amazon Kendra endpoint directly using REST, you\n            must base64 encode the contents before sending.</p>"
-          }
-        },
-        "S3Path": {
-          "target": "com.amazonaws.kendra#S3Path"
-        },
         "ContentType": {
           "target": "com.amazonaws.kendra#ContentType",
           "traits": {
@@ -2093,10 +2078,25 @@
             "smithy.api#required": {}
           }
         },
+        "S3Path": {
+          "target": "com.amazonaws.kendra#S3Path"
+        },
+        "Blob": {
+          "target": "com.amazonaws.kendra#Blob",
+          "traits": {
+            "smithy.api#documentation": "<p>The contents of the document. </p>\n        <p>Documents passed to the <code>Blob</code> parameter must be base64 encoded. Your code\n            might not need to encode the document file bytes if you're using an AWS SDK to call\n            Amazon Kendra operations. If you are calling the Amazon Kendra endpoint directly using REST, you\n            must base64 encode the contents before sending.</p>"
+          }
+        },
         "Attributes": {
           "target": "com.amazonaws.kendra#DocumentAttributeList",
           "traits": {
             "smithy.api#documentation": "<p>Custom attributes to apply to the document. Use the custom attributes to provide\n            additional information for searching, to provide facets for refining searches, and to\n            provide additional information in the query response.</p>"
+          }
+        },
+        "Title": {
+          "target": "com.amazonaws.kendra#Title",
+          "traits": {
+            "smithy.api#documentation": "<p>The title of the document.</p>"
           }
         }
       },
@@ -2107,17 +2107,17 @@
     "com.amazonaws.kendra#DocumentAttribute": {
       "type": "structure",
       "members": {
-        "Key": {
-          "target": "com.amazonaws.kendra#DocumentAttributeKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier for the attribute.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Value": {
           "target": "com.amazonaws.kendra#DocumentAttributeValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the attribute.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.kendra#DocumentAttributeKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the attribute.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2178,10 +2178,10 @@
             "smithy.api#documentation": "<p>A string, such as \"department\".</p>"
           }
         },
-        "StringListValue": {
-          "target": "com.amazonaws.kendra#DocumentAttributeStringListValue",
+        "DateValue": {
+          "target": "com.amazonaws.kendra#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>A list of strings. </p>"
+            "smithy.api#documentation": "<p>A date expressed as an ISO 8601 string.</p>"
           }
         },
         "LongValue": {
@@ -2190,10 +2190,10 @@
             "smithy.api#documentation": "<p>A long integer value.</p>"
           }
         },
-        "DateValue": {
-          "target": "com.amazonaws.kendra#Timestamp",
+        "StringListValue": {
+          "target": "com.amazonaws.kendra#DocumentAttributeStringListValue",
           "traits": {
-            "smithy.api#documentation": "<p>A date expressed as an ISO 8601 string.</p>"
+            "smithy.api#documentation": "<p>A list of strings. </p>"
           }
         }
       },
@@ -2305,17 +2305,17 @@
             "smithy.api#required": {}
           }
         },
+        "Relevance": {
+          "target": "com.amazonaws.kendra#Relevance",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides manual tuning parameters to determine how the field affects the search\n            results.</p>"
+          }
+        },
         "Type": {
           "target": "com.amazonaws.kendra#DocumentAttributeValueType",
           "traits": {
             "smithy.api#documentation": "<p>The data type of the index field. </p>",
             "smithy.api#required": {}
-          }
-        },
-        "Relevance": {
-          "target": "com.amazonaws.kendra#Relevance",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides manual tuning parameters to determine how the field affects the search\n            results.</p>"
           }
         }
       },
@@ -2416,16 +2416,16 @@
     "com.amazonaws.kendra#FacetResult": {
       "type": "structure",
       "members": {
-        "DocumentAttributeKey": {
-          "target": "com.amazonaws.kendra#DocumentAttributeKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The key for the facet values. This is the same as the <code>DocumentAttributeKey</code>\n         provided in the query.</p>"
-          }
-        },
         "DocumentAttributeValueCountPairs": {
           "target": "com.amazonaws.kendra#DocumentAttributeValueCountPairList",
           "traits": {
             "smithy.api#documentation": "<p>An array of key/value pairs, where the key is the value of the attribute and the count\n         is the number of documents that share the key value.</p>"
+          }
+        },
+        "DocumentAttributeKey": {
+          "target": "com.amazonaws.kendra#DocumentAttributeKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The key for the facet values. This is the same as the <code>DocumentAttributeKey</code>\n         provided in the query.</p>"
           }
         }
       },
@@ -2504,10 +2504,22 @@
     "com.amazonaws.kendra#FaqSummary": {
       "type": "structure",
       "members": {
+        "UpdatedAt": {
+          "target": "com.amazonaws.kendra#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The UNIX datetime that the FAQ was last updated.</p>"
+          }
+        },
         "Id": {
           "target": "com.amazonaws.kendra#FaqId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the FAQ.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#FaqName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that you assigned the FAQ when you created or updated the FAQ.</p>"
           }
         },
         "Status": {
@@ -2520,18 +2532,6 @@
           "target": "com.amazonaws.kendra#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The UNIX datetime that the FAQ was added to the index.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#FaqName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that you assigned the FAQ when you created or updated the FAQ.</p>"
-          }
-        },
-        "UpdatedAt": {
-          "target": "com.amazonaws.kendra#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The UNIX datetime that the FAQ was last updated.</p>"
           }
         }
       },
@@ -2554,17 +2554,17 @@
             "smithy.api#documentation": "<p>Indicates whether the response is the best response. True if this is the best\n            response; otherwise, false.</p>"
           }
         },
-        "BeginOffset": {
-          "target": "com.amazonaws.kendra#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The zero-based location in the response string where the highlight starts.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "EndOffset": {
           "target": "com.amazonaws.kendra#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The zero-based location in the response string where the highlight ends.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "BeginOffset": {
+          "target": "com.amazonaws.kendra#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The zero-based location in the response string where the highlight starts.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2592,6 +2592,12 @@
     "com.amazonaws.kendra#IndexConfigurationSummary": {
       "type": "structure",
       "members": {
+        "Id": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the index. Use this to identify the index when you are using\n            operations such as <code>Query</code>, <code>DescribeIndex</code>,\n                <code>UpdateIndex</code>, and <code>DeleteIndex</code>.</p>"
+          }
+        },
         "UpdatedAt": {
           "target": "com.amazonaws.kendra#Timestamp",
           "traits": {
@@ -2599,10 +2605,16 @@
             "smithy.api#required": {}
           }
         },
-        "Id": {
-          "target": "com.amazonaws.kendra#IndexId",
+        "Edition": {
+          "target": "com.amazonaws.kendra#IndexEdition",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the index. Use this to identify the index when you are using\n            operations such as <code>Query</code>, <code>DescribeIndex</code>,\n                <code>UpdateIndex</code>, and <code>DeleteIndex</code>.</p>"
+            "smithy.api#documentation": "<p>Indicates whether the index is a enterprise edition index or a developer edition\n            index. </p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#IndexName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the index.</p>"
           }
         },
         "CreatedAt": {
@@ -2617,18 +2629,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The current status of the index. When the status is <code>ACTIVE</code>, the index is\n            ready to search.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Edition": {
-          "target": "com.amazonaws.kendra#IndexEdition",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the index is a enterprise edition index or a developer edition\n            index. </p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#IndexName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the index.</p>"
           }
         }
       },
@@ -2690,17 +2690,17 @@
     "com.amazonaws.kendra#IndexStatistics": {
       "type": "structure",
       "members": {
-        "TextDocumentStatistics": {
-          "target": "com.amazonaws.kendra#TextDocumentStatistics",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of text documents indexed.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FaqStatistics": {
           "target": "com.amazonaws.kendra#FaqStatistics",
           "traits": {
             "smithy.api#documentation": "<p>The number of question and answer topics in the index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TextDocumentStatistics": {
+          "target": "com.amazonaws.kendra#TextDocumentStatistics",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of text documents indexed.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2833,35 +2833,11 @@
     "com.amazonaws.kendra#ListDataSourceSyncJobsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.kendra#MaxResultsIntegerForListDataSourceSyncJobsRequest",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of synchronization jobs to return in the response. If there are fewer\n      results in the list, this response contains only the actual results.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.kendra#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the result of the previous request to <code>GetDataSourceSyncJobHistory</code> was\n      truncated, include the <code>NextToken</code> to fetch the next set of jobs.</p>"
-          }
-        },
-        "StatusFilter": {
-          "target": "com.amazonaws.kendra#DataSourceSyncJobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>When specified, only returns synchronization jobs with the <code>Status</code> field equal\n      to the specified status.</p>"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.kendra#DataSourceId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the data source.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "StartTimeFilter": {
-          "target": "com.amazonaws.kendra#TimeRange",
-          "traits": {
-            "smithy.api#documentation": "<p>When specified, the synchronization jobs returned in the list are limited to jobs between\n      the specified dates. </p>"
           }
         },
         "IndexId": {
@@ -2870,22 +2846,46 @@
             "smithy.api#documentation": "<p>The identifier of the index that contains the data source.</p>",
             "smithy.api#required": {}
           }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.kendra#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the result of the previous request to <code>GetDataSourceSyncJobHistory</code> was\n      truncated, include the <code>NextToken</code> to fetch the next set of jobs.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.kendra#MaxResultsIntegerForListDataSourceSyncJobsRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of synchronization jobs to return in the response. If there are fewer\n      results in the list, this response contains only the actual results.</p>"
+          }
+        },
+        "StartTimeFilter": {
+          "target": "com.amazonaws.kendra#TimeRange",
+          "traits": {
+            "smithy.api#documentation": "<p>When specified, the synchronization jobs returned in the list are limited to jobs between\n      the specified dates. </p>"
+          }
+        },
+        "StatusFilter": {
+          "target": "com.amazonaws.kendra#DataSourceSyncJobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>When specified, only returns synchronization jobs with the <code>Status</code> field equal\n      to the specified status.</p>"
+          }
         }
       }
     },
     "com.amazonaws.kendra#ListDataSourceSyncJobsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.kendra#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>GetDataSourceSyncJobHistory</code> operation returns a page of vocabularies at a\n      time. The maximum size of the page is set by the <code>MaxResults</code> parameter. If there\n      are more jobs in the list than the page size, Amazon Kendra returns the NextPage token. Include\n      the token in the next request to the <code>GetDataSourceSyncJobHistory</code> operation to\n      return in the next page of jobs.</p>"
-          }
-        },
         "History": {
           "target": "com.amazonaws.kendra#DataSourceSyncJobHistoryList",
           "traits": {
             "smithy.api#documentation": "<p>A history of synchronization jobs for the data source.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.kendra#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>GetDataSourceSyncJobHistory</code> operation returns a page of vocabularies at a\n      time. The maximum size of the page is set by the <code>MaxResults</code> parameter. If there\n      are more jobs in the list than the page size, Amazon Kendra returns the NextPage token. Include\n      the token in the next request to the <code>GetDataSourceSyncJobHistory</code> operation to\n      return in the next page of jobs.</p>"
           }
         }
       }
@@ -2934,16 +2934,16 @@
             "smithy.api#required": {}
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.kendra#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more data to retrieve),\n      Amazon Kendra returns a pagination token in the response. You can use this pagination token to\n      retrieve the next set of data sources (<code>DataSourceSummaryItems</code>). </p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.kendra#MaxResultsIntegerForListDataSourcesRequest",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of data sources to return.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.kendra#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous response was incomplete (because there is more data to retrieve),\n      Amazon Kendra returns a pagination token in the response. You can use this pagination token to\n      retrieve the next set of data sources (<code>DataSourceSummaryItems</code>). </p>"
           }
         }
       }
@@ -2951,16 +2951,16 @@
     "com.amazonaws.kendra#ListDataSourcesResponse": {
       "type": "structure",
       "members": {
-        "SummaryItems": {
-          "target": "com.amazonaws.kendra#DataSourceSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of summary information for one or more data sources.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.kendra#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>If the response is truncated, Amazon Kendra returns this token that you can use in the\n      subsequent request to retrieve the next set of data sources. </p>"
+          }
+        },
+        "SummaryItems": {
+          "target": "com.amazonaws.kendra#DataSourceSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of summary information for one or more data sources.</p>"
           }
         }
       }
@@ -3223,13 +3223,6 @@
             "smithy.api#required": {}
           }
         },
-        "OneDriveUsers": {
-          "target": "com.amazonaws.kendra#OneDriveUsers",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of user accounts whose documents should be indexed.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "TenantDomain": {
           "target": "com.amazonaws.kendra#TenantDomain",
           "traits": {
@@ -3237,10 +3230,17 @@
             "smithy.api#required": {}
           }
         },
-        "FieldMappings": {
-          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
+        "ExclusionPatterns": {
+          "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
           "traits": {
-            "smithy.api#documentation": "<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map Microsoft\n            OneDrive fields to custom fields in the Amazon Kendra index. You must first create the index\n            fields before you map OneDrive fields.</p>"
+            "smithy.api#documentation": "<p>List of regular expressions applied to documents. Items that match the exclusion\n            pattern are not indexed. If you provide both an inclusion pattern and an exclusion\n            pattern, any item that matches the exclusion pattern isn't indexed. </p>\n        <p>The exclusion pattern is applied to the file name.</p>"
+          }
+        },
+        "OneDriveUsers": {
+          "target": "com.amazonaws.kendra#OneDriveUsers",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of user accounts whose documents should be indexed.</p>",
+            "smithy.api#required": {}
           }
         },
         "InclusionPatterns": {
@@ -3249,10 +3249,10 @@
             "smithy.api#documentation": "<p>A list of regular expression patterns. Documents that match the pattern are included\n            in the index. Documents that don't match the pattern are excluded from the index. If a\n            document matches both an inclusion pattern and an exclusion pattern, the document is not\n            included in the index. </p>\n        <p>The exclusion pattern is applied to the file name.</p>"
           }
         },
-        "ExclusionPatterns": {
-          "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
+        "FieldMappings": {
+          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
           "traits": {
-            "smithy.api#documentation": "<p>List of regular expressions applied to documents. Items that match the exclusion\n            pattern are not indexed. If you provide both an inclusion pattern and an exclusion\n            pattern, any item that matches the exclusion pattern isn't indexed. </p>\n        <p>The exclusion pattern is applied to the file name.</p>"
+            "smithy.api#documentation": "<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map Microsoft\n            OneDrive fields to custom fields in the Amazon Kendra index. You must first create the index\n            fields before you map OneDrive fields.</p>"
           }
         }
       },
@@ -3320,10 +3320,10 @@
     "com.amazonaws.kendra#Principal": {
       "type": "structure",
       "members": {
-        "Access": {
-          "target": "com.amazonaws.kendra#ReadAccessType",
+        "Type": {
+          "target": "com.amazonaws.kendra#PrincipalType",
           "traits": {
-            "smithy.api#documentation": "<p>Whether to allow or deny access to the principal.</p>",
+            "smithy.api#documentation": "<p>The type of principal.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3334,10 +3334,10 @@
             "smithy.api#required": {}
           }
         },
-        "Type": {
-          "target": "com.amazonaws.kendra#PrincipalType",
+        "Access": {
+          "target": "com.amazonaws.kendra#ReadAccessType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of principal.</p>",
+            "smithy.api#documentation": "<p>Whether to allow or deny access to the principal.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3454,41 +3454,11 @@
             "smithy.api#documentation": "<p>Provides information that determines how the results of the query are sorted. You can\n         set the field that Amazon Kendra should sort the results on, and specify whether the results should\n         be sorted in ascending or descending order. In the case of ties in sorting the results, the\n         results are sorted by relevance.</p>\n         <p>If you don't provide sorting configuration, the results are sorted by the relevance that\n         Amazon Kendra determines for the result.</p>"
           }
         },
-        "PageSize": {
-          "target": "com.amazonaws.kendra#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>Sets the number of results that are returned in each page of results. The default page\n         size is 10. The maximum number of results returned is 100. If you ask for more than 100\n         results, only 100 are returned.</p>"
-          }
-        },
-        "PageNumber": {
-          "target": "com.amazonaws.kendra#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>Query results are returned in pages the size of the <code>PageSize</code> parameter. By\n         default, Amazon Kendra returns the first page of results. Use this parameter to get result\n         pages after the first one.</p>"
-          }
-        },
-        "RequestedDocumentAttributes": {
-          "target": "com.amazonaws.kendra#DocumentAttributeKeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of document attributes to include in the response. No other document attributes\n         are included in the response. By default all document attributes are included in the\n         response. </p>"
-          }
-        },
         "IndexId": {
           "target": "com.amazonaws.kendra#IndexId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the index to search. The identifier is returned in the response\n         from the  operation.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "QueryResultTypeFilter": {
-          "target": "com.amazonaws.kendra#QueryResultType",
-          "traits": {
-            "smithy.api#documentation": "<p>Sets the type of query. Only results for the specified query type are returned.</p>"
-          }
-        },
-        "Facets": {
-          "target": "com.amazonaws.kendra#FacetList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of documents attributes. Amazon Kendra returns a count for each attribute key\n         specified. You can use this information to help narrow the search for your user.</p>"
           }
         },
         "QueryText": {
@@ -3502,6 +3472,36 @@
           "target": "com.amazonaws.kendra#AttributeFilter",
           "traits": {
             "smithy.api#documentation": "<p>Enables filtered searches based on document attributes. You can only provide one\n         attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and\n            <code>OrAllFilters</code> parameters contain a list of other filters.</p>\n         <p>The <code>AttributeFilter</code> parameter enables you to create a set of filtering\n         rules that a document must satisfy to be included in the query results.</p>"
+          }
+        },
+        "PageNumber": {
+          "target": "com.amazonaws.kendra#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Query results are returned in pages the size of the <code>PageSize</code> parameter. By\n         default, Amazon Kendra returns the first page of results. Use this parameter to get result\n         pages after the first one.</p>"
+          }
+        },
+        "PageSize": {
+          "target": "com.amazonaws.kendra#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Sets the number of results that are returned in each page of results. The default page\n         size is 10. The maximum number of results returned is 100. If you ask for more than 100\n         results, only 100 are returned.</p>"
+          }
+        },
+        "Facets": {
+          "target": "com.amazonaws.kendra#FacetList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of documents attributes. Amazon Kendra returns a count for each attribute key\n         specified. You can use this information to help narrow the search for your user.</p>"
+          }
+        },
+        "QueryResultTypeFilter": {
+          "target": "com.amazonaws.kendra#QueryResultType",
+          "traits": {
+            "smithy.api#documentation": "<p>Sets the type of query. Only results for the specified query type are returned.</p>"
+          }
+        },
+        "RequestedDocumentAttributes": {
+          "target": "com.amazonaws.kendra#DocumentAttributeKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of document attributes to include in the response. No other document attributes\n         are included in the response. By default all document attributes are included in the\n         response. </p>"
           }
         }
       }
@@ -3521,16 +3521,16 @@
             "smithy.api#documentation": "<p>Contains the facet results. A <code>FacetResult</code> contains the counts for each\n         attribute key that was specified in the <code>Facets</code> input parameter.</p>"
           }
         },
-        "QueryId": {
-          "target": "com.amazonaws.kendra#QueryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the search. You use <code>QueryId</code> to identify the\n         search when using the feedback API.</p>"
-          }
-        },
         "TotalNumberOfResults": {
           "target": "com.amazonaws.kendra#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of items returned by the search. Use this to determine when you have\n         requested the last set of results.</p>"
+          }
+        },
+        "QueryId": {
+          "target": "com.amazonaws.kendra#QueryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the search. You use <code>QueryId</code> to identify the\n         search when using the feedback API.</p>"
           }
         }
       }
@@ -3544,28 +3544,10 @@
             "smithy.api#documentation": "<p>The unique identifier for the query result.</p>"
           }
         },
-        "DocumentExcerpt": {
+        "DocumentTitle": {
           "target": "com.amazonaws.kendra#TextWithHighlights",
           "traits": {
-            "smithy.api#documentation": "<p>An extract of the text in the document. Contains information about highlighting the\n         relevant terms in the excerpt.</p>"
-          }
-        },
-        "AdditionalAttributes": {
-          "target": "com.amazonaws.kendra#AdditionalResultAttributeList",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more additional attribues associated with the query result.</p>"
-          }
-        },
-        "DocumentId": {
-          "target": "com.amazonaws.kendra#DocumentId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the document.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.kendra#QueryResultType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of document. </p>"
+            "smithy.api#documentation": "<p>The title of the document. Contains the text of the title and information for\n         highlighting the relevant terms in the title.</p>"
           }
         },
         "DocumentURI": {
@@ -3574,16 +3556,34 @@
             "smithy.api#documentation": "<p>The URI of the original location of the document.</p>"
           }
         },
-        "DocumentTitle": {
-          "target": "com.amazonaws.kendra#TextWithHighlights",
-          "traits": {
-            "smithy.api#documentation": "<p>The title of the document. Contains the text of the title and information for\n         highlighting the relevant terms in the title.</p>"
-          }
-        },
         "DocumentAttributes": {
           "target": "com.amazonaws.kendra#DocumentAttributeList",
           "traits": {
             "smithy.api#documentation": "<p>An array of document attributes for the document that the query result maps to. For\n         example, the document author (Author) or the source URI (SourceUri) of the document.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.kendra#QueryResultType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of document. </p>"
+          }
+        },
+        "DocumentId": {
+          "target": "com.amazonaws.kendra#DocumentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the document.</p>"
+          }
+        },
+        "AdditionalAttributes": {
+          "target": "com.amazonaws.kendra#AdditionalResultAttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more additional attribues associated with the query result.</p>"
+          }
+        },
+        "DocumentExcerpt": {
+          "target": "com.amazonaws.kendra#TextWithHighlights",
+          "traits": {
+            "smithy.api#documentation": "<p>An extract of the text in the document. Contains information about highlighting the\n         relevant terms in the excerpt.</p>"
           }
         }
       },
@@ -3644,22 +3644,16 @@
     "com.amazonaws.kendra#Relevance": {
       "type": "structure",
       "members": {
+        "Freshness": {
+          "target": "com.amazonaws.kendra#DocumentMetadataBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates that this field determines how \"fresh\" a document is. For example, if\n            document 1 was created on November 5, and document 2 was created on October 31, document\n            1 is \"fresher\" than document 2. You can only set the <code>Freshness</code> field on one\n                <code>DATE</code> type field. Only applies to <code>DATE</code> fields.</p>"
+          }
+        },
         "ValueImportanceMap": {
           "target": "com.amazonaws.kendra#ValueImportanceMap",
           "traits": {
             "smithy.api#documentation": "<p>A list of values that should be given a different boost when they appear in the result\n            list. For example, if you are boosting a field called \"department,\" query terms that\n            match the department field are boosted in the result. However, you can add entries from\n            the department field to boost documents with those values higher. </p>\n        <p>For example, you can add entries to the map with names of departments. If you add\n            \"HR\",5 and \"Legal\",3 those departments are given special attention when they appear in\n            the metadata of a document. When those terms appear they are given the specified\n            importance instead of the regular importance for the boost.</p>"
-          }
-        },
-        "Importance": {
-          "target": "com.amazonaws.kendra#Importance",
-          "traits": {
-            "smithy.api#documentation": "<p>The relative importance of the field in the search. Larger numbers provide more of a\n            boost than smaller numbers.</p>"
-          }
-        },
-        "RankOrder": {
-          "target": "com.amazonaws.kendra#Order",
-          "traits": {
-            "smithy.api#documentation": "<p>Determines how values should be interpreted.</p>\n        <p>When the <code>RankOrder</code> field is <code>ASCENDING</code>, higher numbers are\n            better. For example, a document with a rating score of 10 is higher ranking than a\n            document with a rating score of 1.</p>\n        <p>When the <code>RankOrder</code> field is <code>DESCENDING</code>, lower numbers are\n            better. For example, in a task tracking application, a priority 1 task is more important\n            than a priority 5 task.</p>\n        <p>Only applies to <code>LONG</code> and <code>DOUBLE</code> fields.</p>"
           }
         },
         "Duration": {
@@ -3668,10 +3662,16 @@
             "smithy.api#documentation": "<p>Specifies the time period that the boost applies to. For example, to make the boost\n            apply to documents with the field value within the last month, you would use \"2628000s\".\n            Once the field value is beyond the specified range, the effect of the boost drops off.\n            The higher the importance, the faster the effect drops off. If you don't specify a\n            value, the default is 3 months. The value of the field is a numeric string followed by\n            the character \"s\", for example \"86400s\" for one day, or \"604800s\" for one week. </p>\n        <p>Only applies to <code>DATE</code> fields.</p>"
           }
         },
-        "Freshness": {
-          "target": "com.amazonaws.kendra#DocumentMetadataBoolean",
+        "RankOrder": {
+          "target": "com.amazonaws.kendra#Order",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates that this field determines how \"fresh\" a document is. For example, if\n            document 1 was created on November 5, and document 2 was created on October 31, document\n            1 is \"fresher\" than document 2. You can only set the <code>Freshness</code> field on one\n                <code>DATE</code> type field. Only applies to <code>DATE</code> fields.</p>"
+            "smithy.api#documentation": "<p>Determines how values should be interpreted.</p>\n        <p>When the <code>RankOrder</code> field is <code>ASCENDING</code>, higher numbers are\n            better. For example, a document with a rating score of 10 is higher ranking than a\n            document with a rating score of 1.</p>\n        <p>When the <code>RankOrder</code> field is <code>DESCENDING</code>, lower numbers are\n            better. For example, in a task tracking application, a priority 1 task is more important\n            than a priority 5 task.</p>\n        <p>Only applies to <code>LONG</code> and <code>DOUBLE</code> fields.</p>"
+          }
+        },
+        "Importance": {
+          "target": "com.amazonaws.kendra#Importance",
+          "traits": {
+            "smithy.api#documentation": "<p>The relative importance of the field in the search. Larger numbers provide more of a\n            boost than smaller numbers.</p>"
           }
         }
       },
@@ -3682,17 +3682,17 @@
     "com.amazonaws.kendra#RelevanceFeedback": {
       "type": "structure",
       "members": {
-        "RelevanceValue": {
-          "target": "com.amazonaws.kendra#RelevanceType",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether to document was relevant or not relevant to the search.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResultId": {
           "target": "com.amazonaws.kendra#ResultId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the search result that the user provided relevance feedback\n            for.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RelevanceValue": {
+          "target": "com.amazonaws.kendra#RelevanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to document was relevant or not relevant to the search.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3806,15 +3806,6 @@
     "com.amazonaws.kendra#S3DataSourceConfiguration": {
       "type": "structure",
       "members": {
-        "DocumentsMetadataConfiguration": {
-          "target": "com.amazonaws.kendra#DocumentsMetadataConfiguration"
-        },
-        "AccessControlListConfiguration": {
-          "target": "com.amazonaws.kendra#AccessControlListConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides the path to the S3 bucket that contains the user context filtering files for\n            the data source.</p>"
-          }
-        },
         "ExclusionPatterns": {
           "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
           "traits": {
@@ -3827,12 +3818,21 @@
             "smithy.api#documentation": "<p>A list of S3 prefixes for the documents that should be included in the index.</p>"
           }
         },
+        "AccessControlListConfiguration": {
+          "target": "com.amazonaws.kendra#AccessControlListConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides the path to the S3 bucket that contains the user context filtering files for\n            the data source.</p>"
+          }
+        },
         "BucketName": {
           "target": "com.amazonaws.kendra#S3BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket that contains the documents.</p>",
             "smithy.api#required": {}
           }
+        },
+        "DocumentsMetadataConfiguration": {
+          "target": "com.amazonaws.kendra#DocumentsMetadataConfiguration"
         }
       },
       "traits": {
@@ -3851,17 +3851,17 @@
     "com.amazonaws.kendra#S3Path": {
       "type": "structure",
       "members": {
-        "Bucket": {
-          "target": "com.amazonaws.kendra#S3BucketName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the S3 bucket that contains the file.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Key": {
           "target": "com.amazonaws.kendra#S3ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The name of the file.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Bucket": {
+          "target": "com.amazonaws.kendra#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the S3 bucket that contains the file.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3873,16 +3873,10 @@
     "com.amazonaws.kendra#SalesforceChatterFeedConfiguration": {
       "type": "structure",
       "members": {
-        "FieldMappings": {
-          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
+        "IncludeFilterTypes": {
+          "target": "com.amazonaws.kendra#SalesforceChatterFeedIncludeFilterTypes",
           "traits": {
-            "smithy.api#documentation": "<p>Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.</p>"
-          }
-        },
-        "DocumentTitleFieldName": {
-          "target": "com.amazonaws.kendra#DataSourceFieldName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the column in the Salesforce FeedItem table that contains the title of the\n            document. This is typically the <code>Title</code> collumn.</p>"
+            "smithy.api#documentation": "<p>Filters the documents in the feed based on status of the user. When you specify\n                <code>ACTIVE_USERS</code> only documents from users who have an active account are\n            indexed. When you specify <code>STANDARD_USER</code> only documents for Salesforce\n            standard users are documented. You can specify both.</p>"
           }
         },
         "DocumentDataFieldName": {
@@ -3892,10 +3886,16 @@
             "smithy.api#required": {}
           }
         },
-        "IncludeFilterTypes": {
-          "target": "com.amazonaws.kendra#SalesforceChatterFeedIncludeFilterTypes",
+        "DocumentTitleFieldName": {
+          "target": "com.amazonaws.kendra#DataSourceFieldName",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the documents in the feed based on status of the user. When you specify\n                <code>ACTIVE_USERS</code> only documents from users who have an active account are\n            indexed. When you specify <code>STANDARD_USER</code> only documents for Salesforce\n            standard users are documented. You can specify both.</p>"
+            "smithy.api#documentation": "<p>The name of the column in the Salesforce FeedItem table that contains the title of the\n            document. This is typically the <code>Title</code> collumn.</p>"
+          }
+        },
+        "FieldMappings": {
+          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
+          "traits": {
+            "smithy.api#documentation": "<p>Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.</p>"
           }
         }
       },
@@ -3939,13 +3939,6 @@
             "smithy.api#documentation": "<p>A list of regular expression patterns. Documents that match the patterns are included\n            in the index. Documents that don't match the patterns are excluded from the index. If a\n            document matches both an inclusion pattern and an exclusion pattern, the document is not\n            included in the index.</p>\n        <p>The regex is applied to the name of the attached file.</p>"
           }
         },
-        "ServerUrl": {
-          "target": "com.amazonaws.kendra#Url",
-          "traits": {
-            "smithy.api#documentation": "<p>The instance URL for the Salesforce site that you want to index.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SecretArn": {
           "target": "com.amazonaws.kendra#SecretArn",
           "traits": {
@@ -3953,10 +3946,23 @@
             "smithy.api#required": {}
           }
         },
-        "StandardObjectConfigurations": {
-          "target": "com.amazonaws.kendra#SalesforceStandardObjectConfigurationList",
+        "ServerUrl": {
+          "target": "com.amazonaws.kendra#Url",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the Salesforce standard objects that Amazon Kendra indexes.</p>"
+            "smithy.api#documentation": "<p>The instance URL for the Salesforce site that you want to index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CrawlAttachments": {
+          "target": "com.amazonaws.kendra#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether Amazon Kendra should index attachments to Salesforce objects.</p>"
+          }
+        },
+        "KnowledgeArticleConfiguration": {
+          "target": "com.amazonaws.kendra#SalesforceKnowledgeArticleConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies configuration information for the knowlege article types that Amazon Kendra\n            indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of\n            knowledge articles, or the custom fields of custom knowledge articles, but not\n            both.</p>"
           }
         },
         "StandardObjectAttachmentConfiguration": {
@@ -3971,16 +3977,10 @@
             "smithy.api#documentation": "<p>A list of regular expression patterns. Documents that match the patterns are excluded\n            from the index. Documents that don't match the patterns are included in the index. If a\n            document matches both an exclusion pattern and an inclusion pattern, the document is not\n            included in the index.</p>\n        <p>The regex is applied to the name of the attached file.</p>"
           }
         },
-        "CrawlAttachments": {
-          "target": "com.amazonaws.kendra#Boolean",
+        "StandardObjectConfigurations": {
+          "target": "com.amazonaws.kendra#SalesforceStandardObjectConfigurationList",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether Amazon Kendra should index attachments to Salesforce objects.</p>"
-          }
-        },
-        "KnowledgeArticleConfiguration": {
-          "target": "com.amazonaws.kendra#SalesforceKnowledgeArticleConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies configuration information for the knowlege article types that Amazon Kendra\n            indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of\n            knowledge articles, or the custom fields of custom knowledge articles, but not\n            both.</p>"
+            "smithy.api#documentation": "<p>Specifies the Salesforce standard objects that Amazon Kendra indexes.</p>"
           }
         },
         "ChatterFeedConfiguration": {
@@ -3997,19 +3997,6 @@
     "com.amazonaws.kendra#SalesforceCustomKnowledgeArticleTypeConfiguration": {
       "type": "structure",
       "members": {
-        "DocumentTitleFieldName": {
-          "target": "com.amazonaws.kendra#DataSourceFieldName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the field in the custom knowledge article that contains the document\n            title.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#SalesforceCustomKnowledgeArticleTypeName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the configuration.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "FieldMappings": {
           "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
           "traits": {
@@ -4021,6 +4008,19 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the field in the custom knowledge article that contains the document data\n            to index.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#SalesforceCustomKnowledgeArticleTypeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DocumentTitleFieldName": {
+          "target": "com.amazonaws.kendra#DataSourceFieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the field in the custom knowledge article that contains the document\n            title.</p>"
           }
         }
       },
@@ -4053,6 +4053,12 @@
     "com.amazonaws.kendra#SalesforceKnowledgeArticleConfiguration": {
       "type": "structure",
       "members": {
+        "StandardKnowledgeArticleTypeConfiguration": {
+          "target": "com.amazonaws.kendra#SalesforceStandardKnowledgeArticleTypeConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides configuration information for standard Salesforce knowledge articles.</p>"
+          }
+        },
         "IncludedStates": {
           "target": "com.amazonaws.kendra#SalesforceKnowledgeArticleStateList",
           "traits": {
@@ -4064,12 +4070,6 @@
           "target": "com.amazonaws.kendra#SalesforceCustomKnowledgeArticleTypeConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>Provides configuration information for custom Salesforce knowledge articles.</p>"
-          }
-        },
-        "StandardKnowledgeArticleTypeConfiguration": {
-          "target": "com.amazonaws.kendra#SalesforceStandardKnowledgeArticleTypeConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides configuration information for standard Salesforce knowledge articles.</p>"
           }
         }
       },
@@ -4111,13 +4111,6 @@
     "com.amazonaws.kendra#SalesforceStandardKnowledgeArticleTypeConfiguration": {
       "type": "structure",
       "members": {
-        "DocumentDataFieldName": {
-          "target": "com.amazonaws.kendra#DataSourceFieldName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the field that contains the document data to index.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DocumentTitleFieldName": {
           "target": "com.amazonaws.kendra#DataSourceFieldName",
           "traits": {
@@ -4128,6 +4121,13 @@
           "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
           "traits": {
             "smithy.api#documentation": "<p>One or more objects that map fields in the knowledge article to Amazon Kendra index fields.\n            The index field must exist before you can map a Salesforce field to it.</p>"
+          }
+        },
+        "DocumentDataFieldName": {
+          "target": "com.amazonaws.kendra#DataSourceFieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the field that contains the document data to index.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4158,29 +4158,29 @@
     "com.amazonaws.kendra#SalesforceStandardObjectConfiguration": {
       "type": "structure",
       "members": {
-        "FieldMappings": {
-          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more objects that map fields in the standard object to Amazon Kendra index fields.\n            The index field must exist before you can map a Salesforce field to it.</p>"
-          }
-        },
-        "DocumentDataFieldName": {
-          "target": "com.amazonaws.kendra#DataSourceFieldName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the field in the standard object table that contains the document\n            contents.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DocumentTitleFieldName": {
           "target": "com.amazonaws.kendra#DataSourceFieldName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the field in the standard object table that contains the document\n            titleB.</p>"
           }
         },
+        "FieldMappings": {
+          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more objects that map fields in the standard object to Amazon Kendra index fields.\n            The index field must exist before you can map a Salesforce field to it.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.kendra#SalesforceStandardObjectName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the standard object.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DocumentDataFieldName": {
+          "target": "com.amazonaws.kendra#DataSourceFieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the field in the standard object table that contains the document\n            contents.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4282,16 +4282,10 @@
     "com.amazonaws.kendra#Search": {
       "type": "structure",
       "members": {
-        "Searchable": {
+        "Facetable": {
           "target": "com.amazonaws.kendra#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Determines whether the field is used in the search. If the <code>Searchable</code>\n            field is <code>true</code>, you can use relevance tuning to manually tune how Amazon Kendra\n            weights the field in the search. The default is <code>true</code> for string fields and\n                <code>false</code> for number and date fields.</p>"
-          }
-        },
-        "Sortable": {
-          "target": "com.amazonaws.kendra#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Determines whether the field can be used to sort the results of a query. If you\n            specify sorting on a field that does not have <code>Sortable</code> set to\n                <code>true</code>, Amazon Kendra returns an exception. The default is\n            <code>false</code>.</p>"
+            "smithy.api#documentation": "<p>Indicates that the field can be used to create search facets, a count of results for\n            each value in the field. The default is <code>false</code> .</p>"
           }
         },
         "Displayable": {
@@ -4300,10 +4294,16 @@
             "smithy.api#documentation": "<p>Determines whether the field is returned in the query response. The default is\n                <code>true</code>.</p>"
           }
         },
-        "Facetable": {
+        "Sortable": {
           "target": "com.amazonaws.kendra#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates that the field can be used to create search facets, a count of results for\n            each value in the field. The default is <code>false</code> .</p>"
+            "smithy.api#documentation": "<p>Determines whether the field can be used to sort the results of a query. If you\n            specify sorting on a field that does not have <code>Sortable</code> set to\n                <code>true</code>, Amazon Kendra returns an exception. The default is\n            <code>false</code>.</p>"
+          }
+        },
+        "Searchable": {
+          "target": "com.amazonaws.kendra#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines whether the field is used in the search. If the <code>Searchable</code>\n            field is <code>true</code>, you can use relevance tuning to manually tune how Amazon Kendra\n            weights the field in the search. The default is <code>true</code> for string fields and\n                <code>false</code> for number and date fields.</p>"
           }
         }
       },
@@ -4372,10 +4372,10 @@
             "smithy.api#required": {}
           }
         },
-        "KnowledgeArticleConfiguration": {
-          "target": "com.amazonaws.kendra#ServiceNowKnowledgeArticleConfiguration",
+        "ServiceCatalogConfiguration": {
+          "target": "com.amazonaws.kendra#ServiceNowServiceCatalogConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Provides configuration information for crawling knowledge articles in the ServiceNow\n            site.</p>"
+            "smithy.api#documentation": "<p>Provides configuration information for crawling service catalogs in the ServiceNow\n            site.</p>"
           }
         },
         "SecretArn": {
@@ -4385,17 +4385,17 @@
             "smithy.api#required": {}
           }
         },
-        "ServiceCatalogConfiguration": {
-          "target": "com.amazonaws.kendra#ServiceNowServiceCatalogConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides configuration information for crawling service catalogs in the ServiceNow\n            site.</p>"
-          }
-        },
         "HostUrl": {
           "target": "com.amazonaws.kendra#ServiceNowHostUrl",
           "traits": {
             "smithy.api#documentation": "<p>The ServiceNow instance that the data source connects to. The host endpoint should\n            look like the following: <code>{instance}.service-now.com.</code>\n         </p>",
             "smithy.api#required": {}
+          }
+        },
+        "KnowledgeArticleConfiguration": {
+          "target": "com.amazonaws.kendra#ServiceNowKnowledgeArticleConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides configuration information for crawling knowledge articles in the ServiceNow\n            site.</p>"
           }
         }
       },
@@ -4416,22 +4416,10 @@
     "com.amazonaws.kendra#ServiceNowKnowledgeArticleConfiguration": {
       "type": "structure",
       "members": {
-        "CrawlAttachments": {
-          "target": "com.amazonaws.kendra#Boolean",
+        "DocumentTitleFieldName": {
+          "target": "com.amazonaws.kendra#DataSourceFieldName",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether Amazon Kendra should index attachments to knowledge articles.</p>"
-          }
-        },
-        "IncludeAttachmentFilePatterns": {
-          "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
-          "traits": {
-            "smithy.api#documentation": "<p>List of regular expressions applied to knowledge articles. Items that don't match the\n            inclusion pattern are not indexed. The regex is applied to the field specified in the\n                <code>PatternTargetField</code>.</p>"
-          }
-        },
-        "FieldMappings": {
-          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
-          "traits": {
-            "smithy.api#documentation": "<p>Mapping between ServiceNow fields and Amazon Kendra index fields. You must create the index\n            field before you map the field.</p>"
+            "smithy.api#documentation": "<p>The name of the ServiceNow field that is mapped to the index document title\n            field.</p>"
           }
         },
         "ExcludeAttachmentFilePatterns": {
@@ -4440,17 +4428,29 @@
             "smithy.api#documentation": "<p>List of regular expressions applied to knowledge articles. Items that don't match the\n            inclusion pattern are not indexed. The regex is applied to the field specified in the\n                <code>PatternTargetField</code>\n         </p>"
           }
         },
-        "DocumentTitleFieldName": {
-          "target": "com.amazonaws.kendra#DataSourceFieldName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the ServiceNow field that is mapped to the index document title\n            field.</p>"
-          }
-        },
         "DocumentDataFieldName": {
           "target": "com.amazonaws.kendra#DataSourceFieldName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ServiceNow field that is mapped to the index document contents field\n            in the Amazon Kendra index.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "CrawlAttachments": {
+          "target": "com.amazonaws.kendra#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether Amazon Kendra should index attachments to knowledge articles.</p>"
+          }
+        },
+        "FieldMappings": {
+          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
+          "traits": {
+            "smithy.api#documentation": "<p>Mapping between ServiceNow fields and Amazon Kendra index fields. You must create the index\n            field before you map the field.</p>"
+          }
+        },
+        "IncludeAttachmentFilePatterns": {
+          "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
+          "traits": {
+            "smithy.api#documentation": "<p>List of regular expressions applied to knowledge articles. Items that don't match the\n            inclusion pattern are not indexed. The regex is applied to the field specified in the\n                <code>PatternTargetField</code>.</p>"
           }
         }
       },
@@ -4467,16 +4467,11 @@
             "smithy.api#documentation": "<p>The name of the ServiceNow field that is mapped to the index document title\n            field.</p>"
           }
         },
-        "FieldMappings": {
-          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
+        "DocumentDataFieldName": {
+          "target": "com.amazonaws.kendra#DataSourceFieldName",
           "traits": {
-            "smithy.api#documentation": "<p>Mapping between ServiceNow fields and Amazon Kendra index fields. You must create the index\n            field before you map the field.</p>"
-          }
-        },
-        "IncludeAttachmentFilePatterns": {
-          "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
-          "traits": {
-            "smithy.api#documentation": "<p>Determines the types of file attachments that are included in the index. </p>"
+            "smithy.api#documentation": "<p>The name of the ServiceNow field that is mapped to the index document contents field\n            in the Amazon Kendra index.</p>",
+            "smithy.api#required": {}
           }
         },
         "CrawlAttachments": {
@@ -4491,11 +4486,16 @@
             "smithy.api#documentation": "<p>Determines the types of file attachments that are excluded from the index.</p>"
           }
         },
-        "DocumentDataFieldName": {
-          "target": "com.amazonaws.kendra#DataSourceFieldName",
+        "IncludeAttachmentFilePatterns": {
+          "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the ServiceNow field that is mapped to the index document contents field\n            in the Amazon Kendra index.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Determines the types of file attachments that are included in the index. </p>"
+          }
+        },
+        "FieldMappings": {
+          "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
+          "traits": {
+            "smithy.api#documentation": "<p>Mapping between ServiceNow fields and Amazon Kendra index fields. You must create the index\n            field before you map the field.</p>"
           }
         }
       },
@@ -4519,26 +4519,10 @@
     "com.amazonaws.kendra#SharePointConfiguration": {
       "type": "structure",
       "members": {
-        "CrawlAttachments": {
-          "target": "com.amazonaws.kendra#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            <code>TRUE</code> to include attachments to documents stored in your Microsoft\n            SharePoint site in the index; otherwise, <code>FALSE</code>.</p>"
-          }
-        },
-        "VpcConfiguration": {
-          "target": "com.amazonaws.kendra#DataSourceVpcConfiguration"
-        },
-        "Urls": {
-          "target": "com.amazonaws.kendra#SharePointUrlList",
-          "traits": {
-            "smithy.api#documentation": "<p>The URLs of the Microsoft SharePoint site that contains the documents that should be\n            indexed.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "InclusionPatterns": {
+        "ExclusionPatterns": {
           "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
           "traits": {
-            "smithy.api#documentation": "<p>A list of regular expression patterns. Documents that match the patterns are included\n            in the index. Documents that don't match the patterns are excluded from the index. If a\n            document matches both an inclusion pattern and an exclusion pattern, the document is not\n            included in the index.</p>\n        <p>The regex is applied to the display URL of the SharePoint document.</p>"
+            "smithy.api#documentation": "<p>A list of regular expression patterns. Documents that match the patterns are excluded\n            from the index. Documents that don't match the patterns are included in the index. If a\n            document matches both an exclusion pattern and an inclusion pattern, the document is not\n            included in the index.</p>\n        <p>The regex is applied to the display URL of the SharePoint document.</p>"
           }
         },
         "SecretArn": {
@@ -4548,22 +4532,29 @@
             "smithy.api#required": {}
           }
         },
+        "Urls": {
+          "target": "com.amazonaws.kendra#SharePointUrlList",
+          "traits": {
+            "smithy.api#documentation": "<p>The URLs of the Microsoft SharePoint site that contains the documents that should be\n            indexed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CrawlAttachments": {
+          "target": "com.amazonaws.kendra#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            <code>TRUE</code> to include attachments to documents stored in your Microsoft\n            SharePoint site in the index; otherwise, <code>FALSE</code>.</p>"
+          }
+        },
+        "UseChangeLog": {
+          "target": "com.amazonaws.kendra#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to <code>TRUE</code> to use the Microsoft SharePoint change log to determine the\n            documents that need to be updated in the index. Depending on the size of the SharePoint\n            change log, it may take longer for Amazon Kendra to use the change log than it takes it\n            to determine the changed documents using the Amazon Kendra document crawler.</p>"
+          }
+        },
         "FieldMappings": {
           "target": "com.amazonaws.kendra#DataSourceToIndexFieldMappingList",
           "traits": {
             "smithy.api#documentation": "<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map Microsoft\n            SharePoint attributes to custom fields in the Amazon Kendra index. You must first create the\n            index fields using the  operation before you map\n            SharePoint attributes. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html\">Mapping Data Source Fields</a>.</p>"
-          }
-        },
-        "ExclusionPatterns": {
-          "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of regular expression patterns. Documents that match the patterns are excluded\n            from the index. Documents that don't match the patterns are included in the index. If a\n            document matches both an exclusion pattern and an inclusion pattern, the document is not\n            included in the index.</p>\n        <p>The regex is applied to the display URL of the SharePoint document.</p>"
-          }
-        },
-        "DocumentTitleFieldName": {
-          "target": "com.amazonaws.kendra#DataSourceFieldName",
-          "traits": {
-            "smithy.api#documentation": "<p>The Microsoft SharePoint attribute field that contains the title of the\n            document.</p>"
           }
         },
         "SharePointVersion": {
@@ -4573,10 +4564,19 @@
             "smithy.api#required": {}
           }
         },
-        "UseChangeLog": {
-          "target": "com.amazonaws.kendra#Boolean",
+        "DocumentTitleFieldName": {
+          "target": "com.amazonaws.kendra#DataSourceFieldName",
           "traits": {
-            "smithy.api#documentation": "<p>Set to <code>TRUE</code> to use the Microsoft SharePoint change log to determine the\n            documents that need to be updated in the index. Depending on the size of the SharePoint\n            change log, it may take longer for Amazon Kendra to use the change log than it takes it\n            to determine the changed documents using the Amazon Kendra document crawler.</p>"
+            "smithy.api#documentation": "<p>The Microsoft SharePoint attribute field that contains the title of the\n            document.</p>"
+          }
+        },
+        "VpcConfiguration": {
+          "target": "com.amazonaws.kendra#DataSourceVpcConfiguration"
+        },
+        "InclusionPatterns": {
+          "target": "com.amazonaws.kendra#DataSourceInclusionsExclusionsStrings",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of regular expression patterns. Documents that match the patterns are included\n            in the index. Documents that don't match the patterns are excluded from the index. If a\n            document matches both an inclusion pattern and an exclusion pattern, the document is not\n            included in the index.</p>\n        <p>The regex is applied to the display URL of the SharePoint document.</p>"
           }
         }
       },
@@ -4625,17 +4625,17 @@
     "com.amazonaws.kendra#SortingConfiguration": {
       "type": "structure",
       "members": {
-        "DocumentAttributeKey": {
-          "target": "com.amazonaws.kendra#DocumentAttributeKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the document attribute used to sort the response. You can use any field\n            that has the <code>Sortable</code> flag set to true.</p>\n        <p>You can also sort by any of the following built-in attributes:</p>\n        <ul>\n            <li>\n                <p>_category</p>\n            </li>\n            <li>\n                <p>_created_at</p>\n            </li>\n            <li>\n                <p>_last_updated_at</p>\n            </li>\n            <li>\n                <p>_version</p>\n            </li>\n            <li>\n                <p>_view_count</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "SortOrder": {
           "target": "com.amazonaws.kendra#SortOrder",
           "traits": {
             "smithy.api#documentation": "<p>The order that the results should be returned in. In case of ties, the relevance\n            assigned to the result by Amazon Kendra is used as the tie-breaker.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DocumentAttributeKey": {
+          "target": "com.amazonaws.kendra#DocumentAttributeKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the document attribute used to sort the response. You can use any field\n            that has the <code>Sortable</code> flag set to true.</p>\n        <p>You can also sort by any of the following built-in attributes:</p>\n        <ul>\n            <li>\n                <p>_category</p>\n            </li>\n            <li>\n                <p>_created_at</p>\n            </li>\n            <li>\n                <p>_last_updated_at</p>\n            </li>\n            <li>\n                <p>_version</p>\n            </li>\n            <li>\n                <p>_view_count</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -4696,17 +4696,17 @@
     "com.amazonaws.kendra#StartDataSourceSyncJobRequest": {
       "type": "structure",
       "members": {
-        "IndexId": {
-          "target": "com.amazonaws.kendra#IndexId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the index that contains the data source.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Id": {
           "target": "com.amazonaws.kendra#DataSourceId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the data source to synchronize.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index that contains the data source.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4752,17 +4752,17 @@
     "com.amazonaws.kendra#StopDataSourceSyncJobRequest": {
       "type": "structure",
       "members": {
-        "IndexId": {
-          "target": "com.amazonaws.kendra#IndexId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the index that contains the data source.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Id": {
           "target": "com.amazonaws.kendra#DataSourceId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the data source for which to stop the synchronization jobs.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index that contains the data source.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4825,10 +4825,11 @@
             "smithy.api#required": {}
           }
         },
-        "ClickFeedbackItems": {
-          "target": "com.amazonaws.kendra#ClickFeedbackList",
+        "QueryId": {
+          "target": "com.amazonaws.kendra#QueryId",
           "traits": {
-            "smithy.api#documentation": "<p>Tells Amazon Kendra that a particular search result link was chosen by\n        the user. </p>"
+            "smithy.api#documentation": "<p>The identifier of the specific query for which you are submitting feedback. The \n        query ID is returned in the response to the  operation.</p>",
+            "smithy.api#required": {}
           }
         },
         "RelevanceFeedbackItems": {
@@ -4837,11 +4838,10 @@
             "smithy.api#documentation": "<p>Provides Amazon Kendra with relevant or not relevant feedback for whether a particular\n        item was relevant to the search.</p>"
           }
         },
-        "QueryId": {
-          "target": "com.amazonaws.kendra#QueryId",
+        "ClickFeedbackItems": {
+          "target": "com.amazonaws.kendra#ClickFeedbackList",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the specific query for which you are submitting feedback. The \n        query ID is returned in the response to the  operation.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Tells Amazon Kendra that a particular search result link was chosen by\n        the user. </p>"
           }
         }
       }
@@ -4881,17 +4881,17 @@
     "com.amazonaws.kendra#Tag": {
       "type": "structure",
       "members": {
-        "Key": {
-          "target": "com.amazonaws.kendra#TagKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The key for the tag. Keys are not case sensitive and must be unique for the index, FAQ, or\n      data source.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Value": {
           "target": "com.amazonaws.kendra#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>The value associated with the tag. The value may be an empty string but it can't be\n      null.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.kendra#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The key for the tag. Keys are not case sensitive and must be unique for the index, FAQ, or\n      data source.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4965,17 +4965,17 @@
     "com.amazonaws.kendra#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.kendra#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tag keys to add to the index, FAQ, or data source. If a tag already exists, the\n      existing value is replaced with the new value.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceARN": {
           "target": "com.amazonaws.kendra#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to tag.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.kendra#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tag keys to add to the index, FAQ, or data source. If a tag already exists, the\n      existing value is replaced with the new value.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5029,16 +5029,16 @@
     "com.amazonaws.kendra#TextWithHighlights": {
       "type": "structure",
       "members": {
-        "Text": {
-          "target": "com.amazonaws.kendra#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The text to display to the user.</p>"
-          }
-        },
         "Highlights": {
           "target": "com.amazonaws.kendra#HighlightList",
           "traits": {
             "smithy.api#documentation": "<p>The beginning and end of the text that should be highlighted.</p>"
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.kendra#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The text to display to the user.</p>"
           }
         }
       },
@@ -5062,16 +5062,16 @@
     "com.amazonaws.kendra#TimeRange": {
       "type": "structure",
       "members": {
-        "EndTime": {
-          "target": "com.amazonaws.kendra#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The UNIX datetime of the end of the time range.</p>"
-          }
-        },
         "StartTime": {
           "target": "com.amazonaws.kendra#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The UNIX datetime of the beginning of the time range.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.kendra#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The UNIX datetime of the end of the time range.</p>"
           }
         }
       },
@@ -5080,8 +5080,7 @@
       }
     },
     "com.amazonaws.kendra#Timestamp": {
-      "type": "timestamp",
-      "traits": {}
+      "type": "timestamp"
     },
     "com.amazonaws.kendra#Title": {
       "type": "string"
@@ -5170,6 +5169,32 @@
     "com.amazonaws.kendra#UpdateDataSourceRequest": {
       "type": "structure",
       "members": {
+        "Id": {
+          "target": "com.amazonaws.kendra#DataSourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the data source to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the new role to use when the data source is accessing\n      resources on your behalf.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#DataSourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the data source to update. The name of the data source can't be updated. To\n      rename a data source you must delete the data source and re-create it.</p>"
+          }
+        },
+        "IndexId": {
+          "target": "com.amazonaws.kendra#IndexId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the index that contains the data source to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Description": {
           "target": "com.amazonaws.kendra#Description",
           "traits": {
@@ -5183,32 +5208,6 @@
           "target": "com.amazonaws.kendra#ScanSchedule",
           "traits": {
             "smithy.api#documentation": "<p>The new update schedule for the data source.</p>"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.kendra#DataSourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the data source to update.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "IndexId": {
-          "target": "com.amazonaws.kendra#IndexId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the index that contains the data source to update.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#DataSourceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the data source to update. The name of the data source can't be updated. To\n      rename a data source you must delete the data source and re-create it.</p>"
-          }
-        },
-        "RoleArn": {
-          "target": "com.amazonaws.kendra#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the new role to use when the data source is accessing\n      resources on your behalf.</p>"
           }
         }
       }
@@ -5261,18 +5260,6 @@
             "smithy.api#required": {}
           }
         },
-        "RoleArn": {
-          "target": "com.amazonaws.kendra#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>A new IAM role that gives Amazon Kendra permission to access your Amazon CloudWatch\n      logs.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.kendra#IndexName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the index to update.</p>"
-          }
-        },
         "DocumentMetadataConfigurationUpdates": {
           "target": "com.amazonaws.kendra#DocumentMetadataConfigurationList",
           "traits": {
@@ -5283,6 +5270,18 @@
           "target": "com.amazonaws.kendra#Description",
           "traits": {
             "smithy.api#documentation": "<p>A new description for the index.</p>"
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.kendra#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>A new IAM role that gives Amazon Kendra permission to access your Amazon CloudWatch\n      logs.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.kendra#IndexName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the index to update.</p>"
           }
         }
       }

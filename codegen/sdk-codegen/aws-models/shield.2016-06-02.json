@@ -353,22 +353,16 @@
             "smithy.api#documentation": "<p>The time the attack started, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
+        "SubResources": {
+          "target": "com.amazonaws.shield#SubResourceSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>If applicable, additional detail about the resource being attacked, for example, IP\n         address or URL.</p>"
+          }
+        },
         "AttackProperties": {
           "target": "com.amazonaws.shield#AttackProperties",
           "traits": {
             "smithy.api#documentation": "<p>The array of <a>AttackProperty</a> objects.</p>"
-          }
-        },
-        "AttackId": {
-          "target": "com.amazonaws.shield#AttackId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) of the attack.</p>"
-          }
-        },
-        "Mitigations": {
-          "target": "com.amazonaws.shield#MitigationList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of mitigation actions taken for the attack.</p>"
           }
         },
         "ResourceArn": {
@@ -377,22 +371,28 @@
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>"
           }
         },
+        "AttackId": {
+          "target": "com.amazonaws.shield#AttackId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the attack.</p>"
+          }
+        },
         "EndTime": {
           "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the attack ended, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
-        "SubResources": {
-          "target": "com.amazonaws.shield#SubResourceSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p>If applicable, additional detail about the resource being attacked, for example, IP\n         address or URL.</p>"
-          }
-        },
         "AttackCounters": {
           "target": "com.amazonaws.shield#SummarizedCounterList",
           "traits": {
             "smithy.api#documentation": "<p>List of counters that describe the attack for the specified time period.</p>"
+          }
+        },
+        "Mitigations": {
+          "target": "com.amazonaws.shield#MitigationList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of mitigation actions taken for the attack.</p>"
           }
         }
       },
@@ -434,6 +434,12 @@
     "com.amazonaws.shield#AttackProperty": {
       "type": "structure",
       "members": {
+        "Total": {
+          "target": "com.amazonaws.shield#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>"
+          }
+        },
         "AttackLayer": {
           "target": "com.amazonaws.shield#AttackLayer",
           "traits": {
@@ -446,22 +452,16 @@
             "smithy.api#documentation": "<p>The unit of the <code>Value</code> of the contributions.</p>"
           }
         },
-        "TopContributors": {
-          "target": "com.amazonaws.shield#TopContributors",
-          "traits": {
-            "smithy.api#documentation": "<p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>"
-          }
-        },
-        "Total": {
-          "target": "com.amazonaws.shield#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>"
-          }
-        },
         "AttackPropertyIdentifier": {
           "target": "com.amazonaws.shield#AttackPropertyIdentifier",
           "traits": {
             "smithy.api#documentation": "<p>Defines the DDoS attack property information that is provided. The\n            <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code>\n         values are valid only for WordPress reflective pingback DDoS attacks.</p>"
+          }
+        },
+        "TopContributors": {
+          "target": "com.amazonaws.shield#TopContributors",
+          "traits": {
+            "smithy.api#documentation": "<p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>"
           }
         }
       },
@@ -517,22 +517,16 @@
     "com.amazonaws.shield#AttackSummary": {
       "type": "structure",
       "members": {
-        "EndTime": {
-          "target": "com.amazonaws.shield#AttackTimestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The end time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
-          }
-        },
         "AttackId": {
           "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the attack.</p>"
           }
         },
-        "StartTime": {
-          "target": "com.amazonaws.shield#AttackTimestamp",
+        "AttackVectors": {
+          "target": "com.amazonaws.shield#AttackVectorDescriptionList",
           "traits": {
-            "smithy.api#documentation": "<p>The start time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+            "smithy.api#documentation": "<p>The list of attacks for a specified time period.</p>"
           }
         },
         "ResourceArn": {
@@ -541,10 +535,16 @@
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>"
           }
         },
-        "AttackVectors": {
-          "target": "com.amazonaws.shield#AttackVectorDescriptionList",
+        "StartTime": {
+          "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The list of attacks for a specified time period.</p>"
+            "smithy.api#documentation": "<p>The start time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.shield#AttackTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         }
       },
@@ -604,16 +604,16 @@
     "com.amazonaws.shield#Contributor": {
       "type": "structure",
       "members": {
-        "Value": {
-          "target": "com.amazonaws.shield#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the contributor. This is dependent on the <code>AttackPropertyIdentifier</code>. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.shield#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>.</p>"
           }
         }
       },
@@ -936,16 +936,16 @@
     "com.amazonaws.shield#DescribeProtectionRequest": {
       "type": "structure",
       "members": {
-        "ProtectionId": {
-          "target": "com.amazonaws.shield#ProtectionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>"
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.shield#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>"
+          }
+        },
+        "ProtectionId": {
+          "target": "com.amazonaws.shield#ProtectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>"
           }
         }
       }
@@ -1144,17 +1144,17 @@
     "com.amazonaws.shield#DisassociateHealthCheckRequest": {
       "type": "structure",
       "members": {
-        "ProtectionId": {
-          "target": "com.amazonaws.shield#ProtectionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "HealthCheckArn": {
           "target": "com.amazonaws.shield#HealthCheckArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the health check that is associated with the protection.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ProtectionId": {
+          "target": "com.amazonaws.shield#ProtectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>",
             "smithy.api#required": {}
           }
         }
@@ -1194,17 +1194,17 @@
             "smithy.api#documentation": "<p>The phone number for the contact.</p>"
           }
         },
-        "ContactNotes": {
-          "target": "com.amazonaws.shield#ContactNotes",
-          "traits": {
-            "smithy.api#documentation": "<p>Additional notes regarding the contact. </p>"
-          }
-        },
         "EmailAddress": {
           "target": "com.amazonaws.shield#EmailAddress",
           "traits": {
             "smithy.api#documentation": "<p>The email address for the contact.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ContactNotes": {
+          "target": "com.amazonaws.shield#ContactNotes",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional notes regarding the contact. </p>"
           }
         }
       },
@@ -1379,16 +1379,16 @@
     "com.amazonaws.shield#Limit": {
       "type": "structure",
       "members": {
-        "Max": {
-          "target": "com.amazonaws.shield#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The type of protection.</p>"
+          }
+        },
+        "Max": {
+          "target": "com.amazonaws.shield#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>"
           }
         }
       },
@@ -1411,14 +1411,14 @@
     "com.amazonaws.shield#LimitsExceededException": {
       "type": "structure",
       "members": {
-        "message": {
-          "target": "com.amazonaws.shield#errorMessage"
+        "Limit": {
+          "target": "com.amazonaws.shield#LimitNumber"
         },
         "Type": {
           "target": "com.amazonaws.shield#LimitType"
         },
-        "Limit": {
-          "target": "com.amazonaws.shield#LimitNumber"
+        "message": {
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1458,22 +1458,16 @@
     "com.amazonaws.shield#ListAttacksRequest": {
       "type": "structure",
       "members": {
-        "StartTime": {
-          "target": "com.amazonaws.shield#TimeRange",
-          "traits": {
-            "smithy.api#documentation": "<p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.shield#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
             "smithy.api#documentation": "<p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>"
+          }
+        },
+        "ResourceArns": {
+          "target": "com.amazonaws.shield#ResourceArnFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left\n         blank, all applicable resources for this account will be included.</p>"
           }
         },
         "EndTime": {
@@ -1482,10 +1476,16 @@
             "smithy.api#documentation": "<p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>"
           }
         },
-        "ResourceArns": {
-          "target": "com.amazonaws.shield#ResourceArnFilterList",
+        "MaxResults": {
+          "target": "com.amazonaws.shield#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left\n         blank, all applicable resources for this account will be included.</p>"
+            "smithy.api#documentation": "<p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.shield#TimeRange",
+          "traits": {
+            "smithy.api#documentation": "<p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>"
           }
         }
       }
@@ -1539,16 +1539,16 @@
     "com.amazonaws.shield#ListProtectionsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.shield#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of <a>Protection</a> objects to be returned. If this is\n         left blank the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>Protection</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>Protection</a> objects yet to return. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
             "smithy.api#documentation": "<p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.shield#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of <a>Protection</a> objects to be returned. If this is\n         left blank the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>Protection</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>Protection</a> objects yet to return. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
           }
         }
       }
@@ -1693,10 +1693,10 @@
     "com.amazonaws.shield#Protection": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.shield#ProtectionName",
+        "HealthCheckIds": {
+          "target": "com.amazonaws.shield#HealthCheckIds",
           "traits": {
-            "smithy.api#documentation": "<p>The friendly name of the protection. For example, <code>My CloudFront distributions</code>.</p>"
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>"
           }
         },
         "ResourceArn": {
@@ -1705,16 +1705,16 @@
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>"
           }
         },
+        "Name": {
+          "target": "com.amazonaws.shield#ProtectionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The friendly name of the protection. For example, <code>My CloudFront distributions</code>.</p>"
+          }
+        },
         "Id": {
           "target": "com.amazonaws.shield#ProtectionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the protection.</p>"
-          }
-        },
-        "HealthCheckIds": {
-          "target": "com.amazonaws.shield#HealthCheckIds",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>"
           }
         }
       },
@@ -1810,10 +1810,10 @@
             "smithy.api#documentation": "<p>The counters that describe the details of the attack.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.shield#String",
+        "Type": {
+          "target": "com.amazonaws.shield#SubResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) of the <code>SubResource</code>.</p>"
+            "smithy.api#documentation": "<p>The <code>SubResource</code> type.</p>"
           }
         },
         "AttackVectors": {
@@ -1822,10 +1822,10 @@
             "smithy.api#documentation": "<p>The list of attack types and associated counters.</p>"
           }
         },
-        "Type": {
-          "target": "com.amazonaws.shield#SubResourceType",
+        "Id": {
+          "target": "com.amazonaws.shield#String",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>SubResource</code> type.</p>"
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the <code>SubResource</code>.</p>"
           }
         }
       },
@@ -1857,16 +1857,10 @@
     "com.amazonaws.shield#Subscription": {
       "type": "structure",
       "members": {
-        "TimeCommitmentInSeconds": {
-          "target": "com.amazonaws.shield#DurationInSeconds",
+        "StartTime": {
+          "target": "com.amazonaws.shield#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>"
-          }
-        },
-        "AutoRenew": {
-          "target": "com.amazonaws.shield#AutoRenew",
-          "traits": {
-            "smithy.api#documentation": "<p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>\n         <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>"
+            "smithy.api#documentation": "<p>The start time of the subscription, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "Limits": {
@@ -1875,22 +1869,28 @@
             "smithy.api#documentation": "<p>Specifies how many protections of a given type you can create.</p>"
           }
         },
+        "AutoRenew": {
+          "target": "com.amazonaws.shield#AutoRenew",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>\n         <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>"
+          }
+        },
         "EndTime": {
           "target": "com.amazonaws.shield#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time your subscription will end.</p>"
           }
         },
+        "TimeCommitmentInSeconds": {
+          "target": "com.amazonaws.shield#DurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>"
+          }
+        },
         "ProactiveEngagementStatus": {
           "target": "com.amazonaws.shield#ProactiveEngagementStatus",
           "traits": {
             "smithy.api#documentation": "<p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>\n         <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>\n         <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>"
-          }
-        },
-        "StartTime": {
-          "target": "com.amazonaws.shield#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The start time of the subscription, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         }
       },
@@ -1916,17 +1916,17 @@
     "com.amazonaws.shield#SummarizedAttackVector": {
       "type": "structure",
       "members": {
+        "VectorCounters": {
+          "target": "com.amazonaws.shield#SummarizedCounterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of counters that describe the details of the attack.</p>"
+          }
+        },
         "VectorType": {
           "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The attack type, for example, SNMP reflection or SYN flood.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "VectorCounters": {
-          "target": "com.amazonaws.shield#SummarizedCounterList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of counters that describe the details of the attack.</p>"
           }
         }
       },
@@ -1943,28 +1943,22 @@
     "com.amazonaws.shield#SummarizedCounter": {
       "type": "structure",
       "members": {
-        "Unit": {
-          "target": "com.amazonaws.shield#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The unit of the counters.</p>"
-          }
-        },
         "N": {
           "target": "com.amazonaws.shield#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of counters for a specified time period.</p>"
           }
         },
+        "Unit": {
+          "target": "com.amazonaws.shield#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unit of the counters.</p>"
+          }
+        },
         "Average": {
           "target": "com.amazonaws.shield#Double",
           "traits": {
             "smithy.api#documentation": "<p>The average value of the counter for a specified time period.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.shield#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The counter name.</p>"
           }
         },
         "Max": {
@@ -1977,6 +1971,12 @@
           "target": "com.amazonaws.shield#Double",
           "traits": {
             "smithy.api#documentation": "<p>The total of counter values for a specified time period.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.shield#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The counter name.</p>"
           }
         }
       },
@@ -1993,16 +1993,16 @@
     "com.amazonaws.shield#TimeRange": {
       "type": "structure",
       "members": {
-        "ToExclusive": {
-          "target": "com.amazonaws.shield#AttackTimestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The end time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
-          }
-        },
         "FromInclusive": {
           "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+          }
+        },
+        "ToExclusive": {
+          "target": "com.amazonaws.shield#AttackTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         }
       },

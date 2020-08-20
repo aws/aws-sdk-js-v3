@@ -171,10 +171,22 @@
             "smithy.api#documentation": "<p>The object that contains the name of your S3 bucket or your raw code.</p>"
           }
         },
-        "statusReason": {
-          "target": "com.amazonaws.signer#StatusReason",
+        "jobId": {
+          "target": "com.amazonaws.signer#JobId",
           "traits": {
-            "smithy.api#documentation": "<p>String value that contains the status reason.</p>"
+            "smithy.api#documentation": "<p>The ID of the signing job on output.</p>"
+          }
+        },
+        "signingMaterial": {
+          "target": "com.amazonaws.signer#SigningMaterial",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of your code signing certificate.</p>"
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.signer#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "<p>The microcontroller platform to which your signed code image will be\n\t\t\tdistributed.</p>"
           }
         },
         "status": {
@@ -183,16 +195,34 @@
             "smithy.api#documentation": "<p>Status of the signing job.</p>"
           }
         },
-        "profileName": {
-          "target": "com.amazonaws.signer#ProfileName",
+        "signedObject": {
+          "target": "com.amazonaws.signer#SignedObject",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the profile that initiated the signing operation.</p>"
+            "smithy.api#documentation": "<p>Name of the S3 bucket where the signed code image is saved by code signing.</p>"
           }
         },
-        "jobId": {
-          "target": "com.amazonaws.signer#JobId",
+        "statusReason": {
+          "target": "com.amazonaws.signer#StatusReason",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the signing job on output.</p>"
+            "smithy.api#documentation": "<p>String value that contains the status reason.</p>"
+          }
+        },
+        "requestedBy": {
+          "target": "com.amazonaws.signer#RequestedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM principal that requested the signing job.</p>"
+          }
+        },
+        "completedAt": {
+          "target": "com.amazonaws.signer#CompletedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>Date and time that the signing job was completed.</p>"
+          }
+        },
+        "overrides": {
+          "target": "com.amazonaws.signer#SigningPlatformOverrides",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of any overrides that were applied to the signing operation.</p>"
           }
         },
         "signingParameters": {
@@ -207,40 +237,10 @@
             "smithy.api#documentation": "<p>Date and time that the signing job was created.</p>"
           }
         },
-        "overrides": {
-          "target": "com.amazonaws.signer#SigningPlatformOverrides",
+        "profileName": {
+          "target": "com.amazonaws.signer#ProfileName",
           "traits": {
-            "smithy.api#documentation": "<p>A list of any overrides that were applied to the signing operation.</p>"
-          }
-        },
-        "completedAt": {
-          "target": "com.amazonaws.signer#CompletedAt",
-          "traits": {
-            "smithy.api#documentation": "<p>Date and time that the signing job was completed.</p>"
-          }
-        },
-        "requestedBy": {
-          "target": "com.amazonaws.signer#RequestedBy",
-          "traits": {
-            "smithy.api#documentation": "<p>The IAM principal that requested the signing job.</p>"
-          }
-        },
-        "platformId": {
-          "target": "com.amazonaws.signer#PlatformId",
-          "traits": {
-            "smithy.api#documentation": "<p>The microcontroller platform to which your signed code image will be\n\t\t\tdistributed.</p>"
-          }
-        },
-        "signedObject": {
-          "target": "com.amazonaws.signer#SignedObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the S3 bucket where the signed code image is saved by code signing.</p>"
-          }
-        },
-        "signingMaterial": {
-          "target": "com.amazonaws.signer#SigningMaterial",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of your code signing certificate.</p>"
+            "smithy.api#documentation": "<p>The name of the profile that initiated the signing operation.</p>"
           }
         }
       }
@@ -350,6 +350,24 @@
     "com.amazonaws.signer#GetSigningPlatformResponse": {
       "type": "structure",
       "members": {
+        "partner": {
+          "target": "com.amazonaws.signer#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of partner entities that use the target signing platform.</p>"
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.signer#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the target signing platform.</p>"
+          }
+        },
+        "signingConfiguration": {
+          "target": "com.amazonaws.signer#SigningConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of configurations applied to the target platform at signing.</p>"
+          }
+        },
         "category": {
           "target": "com.amazonaws.signer#Category",
           "traits": {
@@ -362,40 +380,22 @@
             "smithy.api#documentation": "<p>The format of the target platform's signing image.</p>"
           }
         },
-        "target": {
-          "target": "com.amazonaws.signer#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The validation template that is used by the target signing platform.</p>"
-          }
-        },
-        "signingConfiguration": {
-          "target": "com.amazonaws.signer#SigningConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of configurations applied to the target platform at signing.</p>"
-          }
-        },
         "maxSizeInMB": {
           "target": "com.amazonaws.signer#MaxSizeInMB",
           "traits": {
             "smithy.api#documentation": "<p>The maximum size (in MB) of the payload that can be signed by the target\n\t\t\tplatform.</p>"
           }
         },
+        "target": {
+          "target": "com.amazonaws.signer#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The validation template that is used by the target signing platform.</p>"
+          }
+        },
         "displayName": {
           "target": "com.amazonaws.signer#DisplayName",
           "traits": {
             "smithy.api#documentation": "<p>The display name of the target signing platform.</p>"
-          }
-        },
-        "platformId": {
-          "target": "com.amazonaws.signer#PlatformId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the target signing platform.</p>"
-          }
-        },
-        "partner": {
-          "target": "com.amazonaws.signer#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of partner entities that use the target signing platform.</p>"
           }
         }
       }
@@ -453,28 +453,16 @@
             "smithy.api#documentation": "<p>A list of overrides applied by the target signing profile for signing\n\t\t\toperations.</p>"
           }
         },
-        "platformId": {
-          "target": "com.amazonaws.signer#PlatformId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the platform that is used by the target signing profile.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.signer#SigningProfileStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the target signing profile.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.signer#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tags associated with the signing profile.</p>"
-          }
-        },
         "arn": {
           "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the signing profile.</p>"
+          }
+        },
+        "signingParameters": {
+          "target": "com.amazonaws.signer#SigningParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of key-value pairs for signing operations that is attached to the target signing\n\t\t\tprofile.</p>"
           }
         },
         "signingMaterial": {
@@ -483,16 +471,28 @@
             "smithy.api#documentation": "<p>The ARN of the certificate that the target profile uses for signing operations.</p>"
           }
         },
+        "platformId": {
+          "target": "com.amazonaws.signer#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the platform that is used by the target signing profile.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.signer#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tags associated with the signing profile.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.signer#SigningProfileStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the target signing profile.</p>"
+          }
+        },
         "profileName": {
           "target": "com.amazonaws.signer#ProfileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the target signing profile.</p>"
-          }
-        },
-        "signingParameters": {
-          "target": "com.amazonaws.signer#SigningParameters",
-          "traits": {
-            "smithy.api#documentation": "<p>A map of key-value pairs for signing operations that is attached to the target signing\n\t\t\tprofile.</p>"
           }
         }
       }
@@ -625,11 +625,11 @@
             "smithy.api#httpQuery": "platformId"
           }
         },
-        "status": {
-          "target": "com.amazonaws.signer#SigningStatus",
+        "maxResults": {
+          "target": "com.amazonaws.signer#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>A status value with which to filter your results.</p>",
-            "smithy.api#httpQuery": "status"
+            "smithy.api#documentation": "<p>Specifies the maximum number of items to return in the response. Use this parameter\n\t\t\twhen paginating results. If additional items exist beyond the number you specify, the\n\t\t\t\t<code>nextToken</code> element is set in the response. Use the\n\t\t\t\t<code>nextToken</code> value in a subsequent request to retrieve additional items.\n\t\t</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
@@ -639,18 +639,18 @@
             "smithy.api#httpQuery": "nextToken"
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.signer#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the maximum number of items to return in the response. Use this parameter\n\t\t\twhen paginating results. If additional items exist beyond the number you specify, the\n\t\t\t\t<code>nextToken</code> element is set in the response. Use the\n\t\t\t\t<code>nextToken</code> value in a subsequent request to retrieve additional items.\n\t\t</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "requestedBy": {
           "target": "com.amazonaws.signer#RequestedBy",
           "traits": {
             "smithy.api#documentation": "<p>The IAM principal that requested the signing job.</p>",
             "smithy.api#httpQuery": "requestedBy"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.signer#SigningStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>A status value with which to filter your results.</p>",
+            "smithy.api#httpQuery": "status"
           }
         }
       }
@@ -658,16 +658,16 @@
     "com.amazonaws.signer#ListSigningJobsResponse": {
       "type": "structure",
       "members": {
-        "jobs": {
-          "target": "com.amazonaws.signer#SigningJobs",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of your signing jobs.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.signer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>String for specifying the next set of paginated results.</p>"
+          }
+        },
+        "jobs": {
+          "target": "com.amazonaws.signer#SigningJobs",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of your signing jobs.</p>"
           }
         }
       }
@@ -711,11 +711,11 @@
     "com.amazonaws.signer#ListSigningPlatformsRequest": {
       "type": "structure",
       "members": {
-        "target": {
+        "nextToken": {
           "target": "com.amazonaws.signer#String",
           "traits": {
-            "smithy.api#documentation": "<p>The validation template that is used by the target signing platform.</p>",
-            "smithy.api#httpQuery": "target"
+            "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         },
         "maxResults": {
@@ -725,13 +725,6 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "category": {
-          "target": "com.amazonaws.signer#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The category type of a signing platform.</p>",
-            "smithy.api#httpQuery": "category"
-          }
-        },
         "partner": {
           "target": "com.amazonaws.signer#String",
           "traits": {
@@ -739,11 +732,18 @@
             "smithy.api#httpQuery": "partner"
           }
         },
-        "nextToken": {
+        "target": {
           "target": "com.amazonaws.signer#String",
           "traits": {
-            "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>",
-            "smithy.api#httpQuery": "nextToken"
+            "smithy.api#documentation": "<p>The validation template that is used by the target signing platform.</p>",
+            "smithy.api#httpQuery": "target"
+          }
+        },
+        "category": {
+          "target": "com.amazonaws.signer#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The category type of a signing platform.</p>",
+            "smithy.api#httpQuery": "category"
           }
         }
       }
@@ -751,16 +751,16 @@
     "com.amazonaws.signer#ListSigningPlatformsResponse": {
       "type": "structure",
       "members": {
-        "platforms": {
-          "target": "com.amazonaws.signer#SigningPlatforms",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of all platforms that match the request parameters.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return.</p>"
+          }
+        },
+        "platforms": {
+          "target": "com.amazonaws.signer#SigningPlatforms",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of all platforms that match the request parameters.</p>"
           }
         }
       }
@@ -801,18 +801,18 @@
     "com.amazonaws.signer#ListSigningProfilesRequest": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.signer#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "includeCanceled": {
           "target": "com.amazonaws.signer#bool",
           "traits": {
             "smithy.api#documentation": "<p>Designates whether to include profiles with the status of\n\t\t\t<code>CANCELED</code>.</p>",
             "smithy.api#httpQuery": "includeCanceled"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.signer#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         },
         "maxResults": {
@@ -827,16 +827,16 @@
     "com.amazonaws.signer#ListSigningProfilesResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.signer#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return.</p>"
-          }
-        },
         "profiles": {
           "target": "com.amazonaws.signer#SigningProfiles",
           "traits": {
             "smithy.api#documentation": "<p>A list of profiles that are available in the AWS account. This includes profiles with\n\t\t\tthe status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set\n\t\t\tto <code>true</code>.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.signer#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return.</p>"
           }
         }
       }
@@ -989,17 +989,16 @@
             "smithy.api#required": {}
           }
         },
+        "overrides": {
+          "target": "com.amazonaws.signer#SigningPlatformOverrides",
+          "traits": {
+            "smithy.api#documentation": "<p>A subfield of <code>platform</code>. This specifies any different configuration\n\t\t\toptions that you want to apply to the chosen platform (such as a different\n\t\t\t\t<code>hash-algorithm</code> or <code>signing-algorithm</code>).</p>"
+          }
+        },
         "signingParameters": {
           "target": "com.amazonaws.signer#SigningParameters",
           "traits": {
             "smithy.api#documentation": "<p>Map of key-value pairs for signing. These can include any information that you want to\n\t\t\tuse during signing.</p>"
-          }
-        },
-        "signingMaterial": {
-          "target": "com.amazonaws.signer#SigningMaterial",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Certificate Manager certificate that will be used to sign code with the new signing\n\t\t\tprofile.</p>",
-            "smithy.api#required": {}
           }
         },
         "platformId": {
@@ -1009,10 +1008,11 @@
             "smithy.api#required": {}
           }
         },
-        "overrides": {
-          "target": "com.amazonaws.signer#SigningPlatformOverrides",
+        "signingMaterial": {
+          "target": "com.amazonaws.signer#SigningMaterial",
           "traits": {
-            "smithy.api#documentation": "<p>A subfield of <code>platform</code>. This specifies any different configuration\n\t\t\toptions that you want to apply to the chosen platform (such as a different\n\t\t\t\t<code>hash-algorithm</code> or <code>signing-algorithm</code>).</p>"
+            "smithy.api#documentation": "<p>The AWS Certificate Manager certificate that will be used to sign code with the new signing\n\t\t\tprofile.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1087,10 +1087,10 @@
     "com.amazonaws.signer#S3Source": {
       "type": "structure",
       "members": {
-        "key": {
-          "target": "com.amazonaws.signer#Key",
+        "bucketName": {
+          "target": "com.amazonaws.signer#BucketName",
           "traits": {
-            "smithy.api#documentation": "<p>Key name of the bucket object that contains your unsigned code.</p>",
+            "smithy.api#documentation": "<p>Name of the S3 bucket.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1101,10 +1101,10 @@
             "smithy.api#required": {}
           }
         },
-        "bucketName": {
-          "target": "com.amazonaws.signer#BucketName",
+        "key": {
+          "target": "com.amazonaws.signer#Key",
           "traits": {
-            "smithy.api#documentation": "<p>Name of the S3 bucket.</p>",
+            "smithy.api#documentation": "<p>Key name of the bucket object that contains your unsigned code.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1172,17 +1172,17 @@
     "com.amazonaws.signer#SigningImageFormat": {
       "type": "structure",
       "members": {
-        "supportedFormats": {
-          "target": "com.amazonaws.signer#ImageFormats",
-          "traits": {
-            "smithy.api#documentation": "<p>The supported formats of a code signing image.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "defaultFormat": {
           "target": "com.amazonaws.signer#ImageFormat",
           "traits": {
             "smithy.api#documentation": "<p>The default format of a code signing image.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "supportedFormats": {
+          "target": "com.amazonaws.signer#ImageFormats",
+          "traits": {
+            "smithy.api#documentation": "<p>The supported formats of a code signing image.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1194,10 +1194,10 @@
     "com.amazonaws.signer#SigningJob": {
       "type": "structure",
       "members": {
-        "signingMaterial": {
-          "target": "com.amazonaws.signer#SigningMaterial",
+        "status": {
+          "target": "com.amazonaws.signer#SigningStatus",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of\n\t\t\tthe certificate used for the signing job.</p>"
+            "smithy.api#documentation": "<p>The status of the signing job.</p>"
           }
         },
         "source": {
@@ -1206,10 +1206,16 @@
             "smithy.api#documentation": "<p>A <code>Source</code> that contains information about a signing job's code image\n\t\t\tsource.</p>"
           }
         },
-        "signedObject": {
-          "target": "com.amazonaws.signer#SignedObject",
+        "jobId": {
+          "target": "com.amazonaws.signer#JobId",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>SignedObject</code> structure that contains information about a signing job's\n\t\t\tsigned code image.</p>"
+            "smithy.api#documentation": "<p>The ID of the signing job.</p>"
+          }
+        },
+        "signingMaterial": {
+          "target": "com.amazonaws.signer#SigningMaterial",
+          "traits": {
+            "smithy.api#documentation": "<p>A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of\n\t\t\tthe certificate used for the signing job.</p>"
           }
         },
         "createdAt": {
@@ -1218,16 +1224,10 @@
             "smithy.api#documentation": "<p>The date and time that the signing job was created.</p>"
           }
         },
-        "jobId": {
-          "target": "com.amazonaws.signer#JobId",
+        "signedObject": {
+          "target": "com.amazonaws.signer#SignedObject",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the signing job.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.signer#SigningStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the signing job.</p>"
+            "smithy.api#documentation": "<p>A <code>SignedObject</code> structure that contains information about a signing job's\n\t\t\tsigned code image.</p>"
           }
         }
       },
@@ -1280,17 +1280,20 @@
             "smithy.api#documentation": "<p>The types of targets that can be signed by a code signing platform.</p>"
           }
         },
+        "displayName": {
+          "target": "com.amazonaws.signer#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The display name of a code signing platform.</p>"
+          }
+        },
         "signingConfiguration": {
           "target": "com.amazonaws.signer#SigningConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration of a code signing platform. This includes the designated hash algorithm\n\t\t\tand encryption algorithm of a signing platform.</p>"
           }
         },
-        "displayName": {
-          "target": "com.amazonaws.signer#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The display name of a code signing platform.</p>"
-          }
+        "signingImageFormat": {
+          "target": "com.amazonaws.signer#SigningImageFormat"
         },
         "platformId": {
           "target": "com.amazonaws.signer#String",
@@ -1304,20 +1307,17 @@
             "smithy.api#documentation": "<p>The category of a code signing platform.</p>"
           }
         },
-        "maxSizeInMB": {
-          "target": "com.amazonaws.signer#MaxSizeInMB",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>"
-          }
-        },
         "partner": {
           "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>Any partner entities linked to a code signing platform.</p>"
           }
         },
-        "signingImageFormat": {
-          "target": "com.amazonaws.signer#SigningImageFormat"
+        "maxSizeInMB": {
+          "target": "com.amazonaws.signer#MaxSizeInMB",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>"
+          }
         }
       },
       "traits": {
@@ -1359,22 +1359,16 @@
             "smithy.api#documentation": "<p>The ACM certificate that is available for use by a signing profile.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.signer#SigningProfileStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of a code signing profile.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.signer#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tags associated with the signing profile.</p>"
-          }
-        },
         "signingParameters": {
           "target": "com.amazonaws.signer#SigningParameters",
           "traits": {
             "smithy.api#documentation": "<p>The parameters that are available for use by a code signing user.</p>"
+          }
+        },
+        "profileName": {
+          "target": "com.amazonaws.signer#ProfileName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the signing profile.</p>"
           }
         },
         "platformId": {
@@ -1389,10 +1383,16 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the signing profile.</p>"
           }
         },
-        "profileName": {
-          "target": "com.amazonaws.signer#ProfileName",
+        "tags": {
+          "target": "com.amazonaws.signer#TagMap",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the signing profile.</p>"
+            "smithy.api#documentation": "<p>A list of tags associated with the signing profile.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.signer#SigningProfileStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of a code signing profile.</p>"
           }
         }
       },
@@ -1500,17 +1500,17 @@
             "smithy.api#required": {}
           }
         },
-        "destination": {
-          "target": "com.amazonaws.signer#Destination",
-          "traits": {
-            "smithy.api#documentation": "<p>The S3 bucket in which to save your signed object. The destination contains the name\n\t\t\tof your bucket and an optional prefix.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "source": {
           "target": "com.amazonaws.signer#Source",
           "traits": {
             "smithy.api#documentation": "<p>The S3 bucket that contains the object to sign or a BLOB that contains your raw\n\t\t\tcode.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "destination": {
+          "target": "com.amazonaws.signer#Destination",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 bucket in which to save your signed object. The destination contains the name\n\t\t\tof your bucket and an optional prefix.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1675,19 +1675,19 @@
     "com.amazonaws.signer#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "tagKeys": {
-          "target": "com.amazonaws.signer#TagKeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tag keys to be removed from the signing profile.</p>",
-            "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": {}
-          }
-        },
         "resourceArn": {
           "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the signing profile.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazonaws.signer#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tag keys to be removed from the signing profile.</p>",
+            "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": {}
           }
         }

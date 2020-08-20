@@ -128,21 +128,6 @@
     "com.amazonaws.sagemakerruntime#InvokeEndpointInput": {
       "type": "structure",
       "members": {
-        "EndpointName": {
-          "target": "com.amazonaws.sagemakerruntime#EndpointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the endpoint that you specified when you created the endpoint using the\n                <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html\">CreateEndpoint</a> API. </p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "Accept": {
-          "target": "com.amazonaws.sagemakerruntime#Header",
-          "traits": {
-            "smithy.api#documentation": "<p>The desired MIME type of the inference in the response.</p>",
-            "smithy.api#httpHeader": "Accept"
-          }
-        },
         "ContentType": {
           "target": "com.amazonaws.sagemakerruntime#Header",
           "traits": {
@@ -156,6 +141,21 @@
             "smithy.api#documentation": "<p>Provides input data, in the format specified in the <code>ContentType</code>\n            request header. Amazon SageMaker passes all of the data in the body to the model. </p>",
             "smithy.api#httpPayload": {},
             "smithy.api#required": {}
+          }
+        },
+        "EndpointName": {
+          "target": "com.amazonaws.sagemakerruntime#EndpointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the endpoint that you specified when you created the endpoint using the\n                <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html\">CreateEndpoint</a> API. </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Accept": {
+          "target": "com.amazonaws.sagemakerruntime#Header",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired MIME type of the inference in the response.</p>",
+            "smithy.api#httpHeader": "Accept"
           }
         }
       }
@@ -202,9 +202,6 @@
     "com.amazonaws.sagemakerruntime#ModelError": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.sagemakerruntime#Message"
-        },
         "LogStreamArn": {
           "target": "com.amazonaws.sagemakerruntime#LogStreamArn",
           "traits": {
@@ -222,6 +219,9 @@
           "traits": {
             "smithy.api#documentation": "<p>\n            Original message. \n        </p>"
           }
+        },
+        "Message": {
+          "target": "com.amazonaws.sagemakerruntime#Message"
         }
       },
       "traits": {

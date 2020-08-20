@@ -56,6 +56,21 @@
     "com.amazonaws.serverlessapplicationrepository#ApplicationPolicyStatement": {
       "type": "structure",
       "members": {
+        "PrincipalOrgIDs": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of PrinciplalOrgIDs, which corresponds to AWS IAM <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#principal-org-id\">aws:PrincipalOrgID</a> global condition key.</p>",
+            "smithy.api#jsonName": "principalOrgIDs"
+          }
+        },
+        "Actions": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>For the list of actions supported for this operation, see <a href=\"https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions\">Application \n Permissions</a>.</p>",
+            "smithy.api#jsonName": "actions",
+            "smithy.api#required": {}
+          }
+        },
         "Principals": {
           "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
           "traits": {
@@ -70,21 +85,6 @@
             "smithy.api#documentation": "<p>A unique ID for the statement.</p>",
             "smithy.api#jsonName": "statementId"
           }
-        },
-        "Actions": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>For the list of actions supported for this operation, see <a href=\"https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions\">Application \n Permissions</a>.</p>",
-            "smithy.api#jsonName": "actions",
-            "smithy.api#required": {}
-          }
-        },
-        "PrincipalOrgIDs": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of PrinciplalOrgIDs, which corresponds to AWS IAM <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#principal-org-id\">aws:PrincipalOrgID</a> global condition key.</p>",
-            "smithy.api#jsonName": "principalOrgIDs"
-          }
         }
       },
       "traits": {
@@ -94,21 +94,6 @@
     "com.amazonaws.serverlessapplicationrepository#ApplicationSummary": {
       "type": "structure",
       "members": {
-        "SpdxLicenseId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>",
-            "smithy.api#jsonName": "spdxLicenseId"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>",
-            "smithy.api#jsonName": "name",
-            "smithy.api#required": {}
-          }
-        },
         "ApplicationId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -117,12 +102,11 @@
             "smithy.api#required": {}
           }
         },
-        "Author": {
+        "SpdxLicenseId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>",
-            "smithy.api#jsonName": "author",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>",
+            "smithy.api#jsonName": "spdxLicenseId"
           }
         },
         "HomePageUrl": {
@@ -139,11 +123,12 @@
             "smithy.api#jsonName": "labels"
           }
         },
-        "CreationTime": {
+        "Author": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
-            "smithy.api#jsonName": "creationTime"
+            "smithy.api#documentation": "<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>",
+            "smithy.api#jsonName": "author",
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -151,6 +136,21 @@
           "traits": {
             "smithy.api#documentation": "<p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>",
             "smithy.api#jsonName": "description",
+            "smithy.api#required": {}
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
+            "smithy.api#jsonName": "creationTime"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>",
+            "smithy.api#jsonName": "name",
             "smithy.api#required": {}
           }
         }
@@ -162,18 +162,18 @@
     "com.amazonaws.serverlessapplicationrepository#BadRequestException": {
       "type": "structure",
       "members": {
-        "ErrorCode": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>400</p>",
-            "smithy.api#jsonName": "errorCode"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>One of the parameters in the request is invalid.</p>",
             "smithy.api#jsonName": "message"
+          }
+        },
+        "ErrorCode": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>400</p>",
+            "smithy.api#jsonName": "errorCode"
           }
         }
       },
@@ -210,18 +210,18 @@
     "com.amazonaws.serverlessapplicationrepository#ConflictException": {
       "type": "structure",
       "members": {
-        "ErrorCode": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>409</p>",
-            "smithy.api#jsonName": "errorCode"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>The resource already exists.</p>",
             "smithy.api#jsonName": "message"
+          }
+        },
+        "ErrorCode": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>409</p>",
+            "smithy.api#jsonName": "errorCode"
           }
         }
       },
@@ -276,54 +276,11 @@
             "smithy.api#required": {}
           }
         },
-        "Author": {
+        "SpdxLicenseId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>",
-            "smithy.api#jsonName": "author",
-            "smithy.api#required": {}
-          }
-        },
-        "SourceCodeArchiveUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>",
-            "smithy.api#jsonName": "sourceCodeArchiveUrl"
-          }
-        },
-        "SourceCodeUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>",
-            "smithy.api#jsonName": "sourceCodeUrl"
-          }
-        },
-        "ReadmeBody": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A local text readme file in Markdown language that contains a more detailed description of the application and how it works.\n The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>",
-            "smithy.api#jsonName": "readmeBody"
-          }
-        },
-        "LicenseUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>",
-            "smithy.api#jsonName": "licenseUrl"
-          }
-        },
-        "HomePageUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>",
-            "smithy.api#jsonName": "homePageUrl"
-          }
-        },
-        "TemplateUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A link to the S3 object containing the packaged AWS SAM template of your application.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>",
-            "smithy.api#jsonName": "templateUrl"
+            "smithy.api#documentation": "<p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>",
+            "smithy.api#jsonName": "spdxLicenseId"
           }
         },
         "TemplateBody": {
@@ -333,18 +290,54 @@
             "smithy.api#jsonName": "templateBody"
           }
         },
+        "Author": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>",
+            "smithy.api#jsonName": "author",
+            "smithy.api#required": {}
+          }
+        },
+        "TemplateUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A link to the S3 object containing the packaged AWS SAM template of your application.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>",
+            "smithy.api#jsonName": "templateUrl"
+          }
+        },
+        "HomePageUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>",
+            "smithy.api#jsonName": "homePageUrl"
+          }
+        },
+        "ReadmeUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A link to the S3 object in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>",
+            "smithy.api#jsonName": "readmeUrl"
+          }
+        },
+        "LicenseUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>",
+            "smithy.api#jsonName": "licenseUrl"
+          }
+        },
+        "Labels": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>",
+            "smithy.api#jsonName": "labels"
+          }
+        },
         "SemanticVersion": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
             "smithy.api#jsonName": "semanticVersion"
-          }
-        },
-        "LicenseBody": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A local text file that contains the license of the app that matches the spdxLicenseID value of your application.\n The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>",
-            "smithy.api#jsonName": "licenseBody"
           }
         },
         "Name": {
@@ -355,25 +348,32 @@
             "smithy.api#required": {}
           }
         },
-        "ReadmeUrl": {
+        "LicenseBody": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A link to the S3 object in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>",
-            "smithy.api#jsonName": "readmeUrl"
+            "smithy.api#documentation": "<p>A local text file that contains the license of the app that matches the spdxLicenseID value of your application.\n The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>",
+            "smithy.api#jsonName": "licenseBody"
           }
         },
-        "Labels": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>",
-            "smithy.api#jsonName": "labels"
-          }
-        },
-        "SpdxLicenseId": {
+        "ReadmeBody": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>",
-            "smithy.api#jsonName": "spdxLicenseId"
+            "smithy.api#documentation": "<p>A local text readme file in Markdown language that contains a more detailed description of the application and how it works.\n The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>",
+            "smithy.api#jsonName": "readmeBody"
+          }
+        },
+        "SourceCodeUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>",
+            "smithy.api#jsonName": "sourceCodeUrl"
+          }
+        },
+        "SourceCodeArchiveUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>",
+            "smithy.api#jsonName": "sourceCodeArchiveUrl"
           }
         }
       }
@@ -388,25 +388,32 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "SpdxLicenseId": {
+        "Author": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A valid identifier from https://spdx.org/licenses/.</p>",
-            "smithy.api#jsonName": "spdxLicenseId"
+            "smithy.api#documentation": "<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>",
+            "smithy.api#jsonName": "author"
           }
         },
-        "IsVerifiedAuthor": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>",
-            "smithy.api#jsonName": "isVerifiedAuthor"
-          }
-        },
-        "Name": {
+        "ApplicationId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>",
-            "smithy.api#jsonName": "name"
+            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
+            "smithy.api#jsonName": "applicationId"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
+            "smithy.api#jsonName": "creationTime"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.serverlessapplicationrepository#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>Version information about the application.</p>",
+            "smithy.api#jsonName": "version"
           }
         },
         "LicenseUrl": {
@@ -423,6 +430,27 @@
             "smithy.api#jsonName": "readmeUrl"
           }
         },
+        "VerifiedAuthorUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>",
+            "smithy.api#jsonName": "verifiedAuthorUrl"
+          }
+        },
+        "IsVerifiedAuthor": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>",
+            "smithy.api#jsonName": "isVerifiedAuthor"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>",
+            "smithy.api#jsonName": "name"
+          }
+        },
         "HomePageUrl": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -437,39 +465,11 @@
             "smithy.api#jsonName": "labels"
           }
         },
-        "Version": {
-          "target": "com.amazonaws.serverlessapplicationrepository#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>Version information about the application.</p>",
-            "smithy.api#jsonName": "version"
-          }
-        },
-        "VerifiedAuthorUrl": {
+        "SpdxLicenseId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>",
-            "smithy.api#jsonName": "verifiedAuthorUrl"
-          }
-        },
-        "ApplicationId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
-            "smithy.api#jsonName": "applicationId"
-          }
-        },
-        "Author": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>",
-            "smithy.api#jsonName": "author"
-          }
-        },
-        "CreationTime": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
-            "smithy.api#jsonName": "creationTime"
+            "smithy.api#documentation": "<p>A valid identifier from https://spdx.org/licenses/.</p>",
+            "smithy.api#jsonName": "spdxLicenseId"
           }
         }
       }
@@ -511,21 +511,6 @@
     "com.amazonaws.serverlessapplicationrepository#CreateApplicationVersionRequest": {
       "type": "structure",
       "members": {
-        "ApplicationId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "TemplateBody": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The raw packaged AWS SAM template of your application.</p>",
-            "smithy.api#jsonName": "templateBody"
-          }
-        },
         "SemanticVersion": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -554,19 +539,27 @@
             "smithy.api#documentation": "<p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>",
             "smithy.api#jsonName": "sourceCodeUrl"
           }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "TemplateBody": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The raw packaged AWS SAM template of your application.</p>",
+            "smithy.api#jsonName": "templateBody"
+          }
         }
       }
     },
     "com.amazonaws.serverlessapplicationrepository#CreateApplicationVersionResponse": {
       "type": "structure",
       "members": {
-        "TemplateUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A link to the packaged AWS SAM template of your application.</p>",
-            "smithy.api#jsonName": "templateUrl"
-          }
-        },
         "SourceCodeArchiveUrl": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -574,39 +567,11 @@
             "smithy.api#jsonName": "sourceCodeArchiveUrl"
           }
         },
-        "ResourcesSupported": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether all of the AWS resources contained in this application are supported in the region\n in which it is being retrieved.</p>",
-            "smithy.api#jsonName": "resourcesSupported"
-          }
-        },
-        "CreationTime": {
+        "TemplateUrl": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
-            "smithy.api#jsonName": "creationTime"
-          }
-        },
-        "RequiredCapabilities": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__listOfCapability",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of values that you must specify before you can deploy certain applications.\n Some applications might include resources that can affect permissions in your AWS\n account, for example, by creating new AWS Identity and Access Management (IAM) users.\n For those applications, you must explicitly acknowledge their capabilities by\n specifying this parameter.</p><p>The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM,\n CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.</p><p>The following resources require you to specify CAPABILITY_IAM or\n CAPABILITY_NAMED_IAM:\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\">AWS::IAM::Group</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\">AWS::IAM::InstanceProfile</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html\">AWS::IAM::Policy</a>, and\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\">AWS::IAM::Role</a>.\n If the application contains IAM resources, you can specify either CAPABILITY_IAM\n or CAPABILITY_NAMED_IAM. If the application contains IAM resources\n with custom names, you must specify CAPABILITY_NAMED_IAM.</p><p>The following resources require you to specify CAPABILITY_RESOURCE_POLICY:\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html\">AWS::Lambda::Permission</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html\">AWS::IAM:Policy</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html\">AWS::ApplicationAutoScaling::ScalingPolicy</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html\">AWS::S3::BucketPolicy</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html\">AWS::SQS::QueuePolicy</a>, and\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html\">AWS::SNS::TopicPolicy</a>.</p><p>Applications that contain one or more nested applications require you to specify\n CAPABILITY_AUTO_EXPAND.</p><p>If your application template contains any of the above resources, we recommend that you review\n all permissions associated with the application before deploying. If you don't specify\n this parameter for an application that requires capabilities, the call will fail.</p>",
-            "smithy.api#jsonName": "requiredCapabilities"
-          }
-        },
-        "ApplicationId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
-            "smithy.api#jsonName": "applicationId"
-          }
-        },
-        "SourceCodeUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>",
-            "smithy.api#jsonName": "sourceCodeUrl"
+            "smithy.api#documentation": "<p>A link to the packaged AWS SAM template of your application.</p>",
+            "smithy.api#jsonName": "templateUrl"
           }
         },
         "ParameterDefinitions": {
@@ -616,11 +581,46 @@
             "smithy.api#jsonName": "parameterDefinitions"
           }
         },
+        "SourceCodeUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>",
+            "smithy.api#jsonName": "sourceCodeUrl"
+          }
+        },
         "SemanticVersion": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
             "smithy.api#jsonName": "semanticVersion"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
+            "smithy.api#jsonName": "creationTime"
+          }
+        },
+        "ResourcesSupported": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether all of the AWS resources contained in this application are supported in the region\n in which it is being retrieved.</p>",
+            "smithy.api#jsonName": "resourcesSupported"
+          }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
+            "smithy.api#jsonName": "applicationId"
+          }
+        },
+        "RequiredCapabilities": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__listOfCapability",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of values that you must specify before you can deploy certain applications.\n Some applications might include resources that can affect permissions in your AWS\n account, for example, by creating new AWS Identity and Access Management (IAM) users.\n For those applications, you must explicitly acknowledge their capabilities by\n specifying this parameter.</p><p>The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM,\n CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.</p><p>The following resources require you to specify CAPABILITY_IAM or\n CAPABILITY_NAMED_IAM:\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\">AWS::IAM::Group</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\">AWS::IAM::InstanceProfile</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html\">AWS::IAM::Policy</a>, and\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\">AWS::IAM::Role</a>.\n If the application contains IAM resources, you can specify either CAPABILITY_IAM\n or CAPABILITY_NAMED_IAM. If the application contains IAM resources\n with custom names, you must specify CAPABILITY_NAMED_IAM.</p><p>The following resources require you to specify CAPABILITY_RESOURCE_POLICY:\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html\">AWS::Lambda::Permission</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html\">AWS::IAM:Policy</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html\">AWS::ApplicationAutoScaling::ScalingPolicy</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html\">AWS::S3::BucketPolicy</a>,\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html\">AWS::SQS::QueuePolicy</a>, and\n <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html\">AWS::SNS::TopicPolicy</a>.</p><p>Applications that contain one or more nested applications require you to specify\n CAPABILITY_AUTO_EXPAND.</p><p>If your application template contains any of the above resources, we recommend that you review\n all permissions associated with the application before deploying. If you don't specify\n this parameter for an application that requires capabilities, the call will fail.</p>",
+            "smithy.api#jsonName": "requiredCapabilities"
           }
         }
       }
@@ -673,13 +673,6 @@
             "smithy.api#jsonName": "changeSetName"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__listOfTag",
-          "traits": {
-            "smithy.api#documentation": "<p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a>\n </i> API.</p>",
-            "smithy.api#jsonName": "tags"
-          }
-        },
         "StackName": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -688,33 +681,18 @@
             "smithy.api#required": {}
           }
         },
-        "ApplicationId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "ClientToken": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+        "Tags": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__listOfTag",
           "traits": {
             "smithy.api#documentation": "<p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a>\n </i> API.</p>",
-            "smithy.api#jsonName": "clientToken"
+            "smithy.api#jsonName": "tags"
           }
         },
-        "NotificationArns": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
+        "RollbackConfiguration": {
+          "target": "com.amazonaws.serverlessapplicationrepository#RollbackConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a>\n </i> API.</p>",
-            "smithy.api#jsonName": "notificationArns"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a>\n </i> API.</p>",
-            "smithy.api#jsonName": "description"
+            "smithy.api#jsonName": "rollbackConfiguration"
           }
         },
         "ResourceTypes": {
@@ -722,13 +700,6 @@
           "traits": {
             "smithy.api#documentation": "<p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a>\n </i> API.</p>",
             "smithy.api#jsonName": "resourceTypes"
-          }
-        },
-        "SemanticVersion": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
-            "smithy.api#jsonName": "semanticVersion"
           }
         },
         "Capabilities": {
@@ -745,30 +716,11 @@
             "smithy.api#jsonName": "parameterOverrides"
           }
         },
-        "RollbackConfiguration": {
-          "target": "com.amazonaws.serverlessapplicationrepository#RollbackConfiguration",
+        "Description": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a>\n </i> API.</p>",
-            "smithy.api#jsonName": "rollbackConfiguration"
-          }
-        }
-      }
-    },
-    "com.amazonaws.serverlessapplicationrepository#CreateCloudFormationChangeSetResponse": {
-      "type": "structure",
-      "members": {
-        "StackId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique ID of the stack.</p>",
-            "smithy.api#jsonName": "stackId"
-          }
-        },
-        "ApplicationId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
-            "smithy.api#jsonName": "applicationId"
+            "smithy.api#jsonName": "description"
           }
         },
         "SemanticVersion": {
@@ -778,11 +730,59 @@
             "smithy.api#jsonName": "semanticVersion"
           }
         },
+        "ClientToken": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a>\n </i> API.</p>",
+            "smithy.api#jsonName": "clientToken"
+          }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NotificationArns": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a>\n </i> API.</p>",
+            "smithy.api#jsonName": "notificationArns"
+          }
+        }
+      }
+    },
+    "com.amazonaws.serverlessapplicationrepository#CreateCloudFormationChangeSetResponse": {
+      "type": "structure",
+      "members": {
         "ChangeSetId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the change set.</p><p>Length constraints: Minimum length of 1.</p><p>Pattern: ARN:[-a-zA-Z0-9:/]*</p>",
             "smithy.api#jsonName": "changeSetId"
+          }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
+            "smithy.api#jsonName": "applicationId"
+          }
+        },
+        "StackId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the stack.</p>",
+            "smithy.api#jsonName": "stackId"
+          }
+        },
+        "SemanticVersion": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
+            "smithy.api#jsonName": "semanticVersion"
           }
         }
       }
@@ -824,13 +824,6 @@
     "com.amazonaws.serverlessapplicationrepository#CreateCloudFormationTemplateRequest": {
       "type": "structure",
       "members": {
-        "SemanticVersion": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
-            "smithy.api#jsonName": "semanticVersion"
-          }
-        },
         "ApplicationId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -838,25 +831,6 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
-        }
-      }
-    },
-    "com.amazonaws.serverlessapplicationrepository#CreateCloudFormationTemplateResponse": {
-      "type": "structure",
-      "members": {
-        "TemplateUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A link to the template that can be used to deploy the application using\n AWS CloudFormation.</p>",
-            "smithy.api#jsonName": "templateUrl"
-          }
-        },
-        "ExpirationTime": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time this template expires. Templates\n expire 1 hour after creation.</p>",
-            "smithy.api#jsonName": "expirationTime"
-          }
         },
         "SemanticVersion": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
@@ -864,19 +838,24 @@
             "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
             "smithy.api#jsonName": "semanticVersion"
           }
-        },
-        "ApplicationId": {
+        }
+      }
+    },
+    "com.amazonaws.serverlessapplicationrepository#CreateCloudFormationTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "ExpirationTime": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
-            "smithy.api#jsonName": "applicationId"
+            "smithy.api#documentation": "<p>The date and time this template expires. Templates\n expire 1 hour after creation.</p>",
+            "smithy.api#jsonName": "expirationTime"
           }
         },
-        "CreationTime": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+        "Status": {
+          "target": "com.amazonaws.serverlessapplicationrepository#Status",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
-            "smithy.api#jsonName": "creationTime"
+            "smithy.api#documentation": "<p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED\n </p>",
+            "smithy.api#jsonName": "status"
           }
         },
         "TemplateId": {
@@ -886,11 +865,32 @@
             "smithy.api#jsonName": "templateId"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.serverlessapplicationrepository#Status",
+        "CreationTime": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED\n </p>",
-            "smithy.api#jsonName": "status"
+            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
+            "smithy.api#jsonName": "creationTime"
+          }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
+            "smithy.api#jsonName": "applicationId"
+          }
+        },
+        "SemanticVersion": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
+            "smithy.api#jsonName": "semanticVersion"
+          }
+        },
+        "TemplateUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A link to the template that can be used to deploy the application using\n AWS CloudFormation.</p>",
+            "smithy.api#jsonName": "templateUrl"
           }
         }
       }
@@ -1096,18 +1096,11 @@
             "smithy.api#jsonName": "readmeUrl"
           }
         },
-        "HomePageUrl": {
+        "ApplicationId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>",
-            "smithy.api#jsonName": "homePageUrl"
-          }
-        },
-        "Labels": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>",
-            "smithy.api#jsonName": "labels"
+            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
+            "smithy.api#jsonName": "applicationId"
           }
         },
         "LicenseUrl": {
@@ -1124,11 +1117,18 @@
             "smithy.api#jsonName": "isVerifiedAuthor"
           }
         },
-        "Name": {
+        "CreationTime": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>",
-            "smithy.api#jsonName": "name"
+            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
+            "smithy.api#jsonName": "creationTime"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.serverlessapplicationrepository#Version",
+          "traits": {
+            "smithy.api#documentation": "<p>Version information about the application.</p>",
+            "smithy.api#jsonName": "version"
           }
         },
         "SpdxLicenseId": {
@@ -1145,18 +1145,18 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "CreationTime": {
+        "Name": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
-            "smithy.api#jsonName": "creationTime"
+            "smithy.api#documentation": "<p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\\\-]+\";</p>",
+            "smithy.api#jsonName": "name"
           }
         },
-        "Version": {
-          "target": "com.amazonaws.serverlessapplicationrepository#Version",
+        "Labels": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "<p>Version information about the application.</p>",
-            "smithy.api#jsonName": "version"
+            "smithy.api#documentation": "<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>",
+            "smithy.api#jsonName": "labels"
           }
         },
         "Author": {
@@ -1166,11 +1166,11 @@
             "smithy.api#jsonName": "author"
           }
         },
-        "ApplicationId": {
+        "HomePageUrl": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
-            "smithy.api#jsonName": "applicationId"
+            "smithy.api#documentation": "<p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>",
+            "smithy.api#jsonName": "homePageUrl"
           }
         }
       }
@@ -1212,18 +1212,18 @@
     "com.amazonaws.serverlessapplicationrepository#GetCloudFormationTemplateRequest": {
       "type": "structure",
       "members": {
-        "TemplateId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "ApplicationId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "TemplateId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1233,27 +1233,6 @@
     "com.amazonaws.serverlessapplicationrepository#GetCloudFormationTemplateResponse": {
       "type": "structure",
       "members": {
-        "ApplicationId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
-            "smithy.api#jsonName": "applicationId"
-          }
-        },
-        "TemplateId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}</p>",
-            "smithy.api#jsonName": "templateId"
-          }
-        },
-        "ExpirationTime": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time this template expires. Templates\n expire 1 hour after creation.</p>",
-            "smithy.api#jsonName": "expirationTime"
-          }
-        },
         "SemanticVersion": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -1268,6 +1247,20 @@
             "smithy.api#jsonName": "creationTime"
           }
         },
+        "TemplateId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}</p>",
+            "smithy.api#jsonName": "templateId"
+          }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
+            "smithy.api#jsonName": "applicationId"
+          }
+        },
         "Status": {
           "target": "com.amazonaws.serverlessapplicationrepository#Status",
           "traits": {
@@ -1280,6 +1273,13 @@
           "traits": {
             "smithy.api#documentation": "<p>A link to the template that can be used to deploy the application using\n AWS CloudFormation.</p>",
             "smithy.api#jsonName": "templateUrl"
+          }
+        },
+        "ExpirationTime": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time this template expires. Templates\n expire 1 hour after creation.</p>",
+            "smithy.api#jsonName": "expirationTime"
           }
         }
       }
@@ -1345,11 +1345,11 @@
     "com.amazonaws.serverlessapplicationrepository#ListApplicationDependenciesRequest": {
       "type": "structure",
       "members": {
-        "SemanticVersion": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+        "MaxItems": {
+          "target": "com.amazonaws.serverlessapplicationrepository#MaxItems",
           "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the application to get.</p>",
-            "smithy.api#httpQuery": "semanticVersion"
+            "smithy.api#documentation": "<p>The total number of items to return.</p>",
+            "smithy.api#httpQuery": "maxItems"
           }
         },
         "ApplicationId": {
@@ -1367,11 +1367,11 @@
             "smithy.api#httpQuery": "nextToken"
           }
         },
-        "MaxItems": {
-          "target": "com.amazonaws.serverlessapplicationrepository#MaxItems",
+        "SemanticVersion": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of items to return.</p>",
-            "smithy.api#httpQuery": "maxItems"
+            "smithy.api#documentation": "<p>The semantic version of the application to get.</p>",
+            "smithy.api#httpQuery": "semanticVersion"
           }
         }
       }
@@ -1379,18 +1379,18 @@
     "com.amazonaws.serverlessapplicationrepository#ListApplicationDependenciesResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to request the next page of results.</p>",
-            "smithy.api#jsonName": "nextToken"
-          }
-        },
         "Dependencies": {
           "target": "com.amazonaws.serverlessapplicationrepository#__listOfApplicationDependencySummary",
           "traits": {
             "smithy.api#documentation": "<p>An array of application summaries nested in the application.</p>",
             "smithy.api#jsonName": "dependencies"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>",
+            "smithy.api#jsonName": "nextToken"
           }
         }
       }
@@ -1432,13 +1432,6 @@
     "com.amazonaws.serverlessapplicationrepository#ListApplicationVersionsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A token to specify where to start paginating.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "MaxItems": {
           "target": "com.amazonaws.serverlessapplicationrepository#MaxItems",
           "traits": {
@@ -1452,6 +1445,13 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to specify where to start paginating.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         }
       }
@@ -1509,18 +1509,18 @@
     "com.amazonaws.serverlessapplicationrepository#ListApplicationsRequest": {
       "type": "structure",
       "members": {
-        "MaxItems": {
-          "target": "com.amazonaws.serverlessapplicationrepository#MaxItems",
-          "traits": {
-            "smithy.api#documentation": "<p>The total number of items to return.</p>",
-            "smithy.api#httpQuery": "maxItems"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>A token to specify where to start paginating.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxItems": {
+          "target": "com.amazonaws.serverlessapplicationrepository#MaxItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of items to return.</p>",
+            "smithy.api#httpQuery": "maxItems"
           }
         }
       }
@@ -1556,18 +1556,18 @@
     "com.amazonaws.serverlessapplicationrepository#NotFoundException": {
       "type": "structure",
       "members": {
-        "ErrorCode": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>404</p>",
-            "smithy.api#jsonName": "errorCode"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>",
             "smithy.api#jsonName": "message"
+          }
+        },
+        "ErrorCode": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>404</p>",
+            "smithy.api#jsonName": "errorCode"
           }
         }
       },
@@ -1580,25 +1580,11 @@
     "com.amazonaws.serverlessapplicationrepository#ParameterDefinition": {
       "type": "structure",
       "members": {
-        "MaxValue": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__integer",
-          "traits": {
-            "smithy.api#documentation": "<p>A numeric value that determines the largest numeric value that you want to allow for Number types.</p>",
-            "smithy.api#jsonName": "maxValue"
-          }
-        },
         "MinLength": {
           "target": "com.amazonaws.serverlessapplicationrepository#__integer",
           "traits": {
             "smithy.api#documentation": "<p>An integer value that determines the smallest number of characters that you want to allow for String types.</p>",
             "smithy.api#jsonName": "minLength"
-          }
-        },
-        "MaxLength": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__integer",
-          "traits": {
-            "smithy.api#documentation": "<p>An integer value that determines the largest number of characters that you want to allow for String types.</p>",
-            "smithy.api#jsonName": "maxLength"
           }
         },
         "Name": {
@@ -1609,11 +1595,67 @@
             "smithy.api#required": {}
           }
         },
-        "NoEcho": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__boolean",
+        "DefaultValue": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Whether to mask the parameter value whenever anyone makes a call that describes the stack. If you set the\n value to true, the parameter value is masked with asterisks (*****).</p>",
-            "smithy.api#jsonName": "noEcho"
+            "smithy.api#documentation": "<p>A value of the appropriate type for the template to use if no value is specified when a stack is created.\n If you define constraints for the parameter, you must specify a value that adheres to those constraints.</p>",
+            "smithy.api#jsonName": "defaultValue"
+          }
+        },
+        "MaxValue": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>A numeric value that determines the largest numeric value that you want to allow for Number types.</p>",
+            "smithy.api#jsonName": "maxValue"
+          }
+        },
+        "AllowedPattern": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A regular expression that represents the patterns to allow for String types.</p>",
+            "smithy.api#jsonName": "allowedPattern"
+          }
+        },
+        "MaxLength": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>An integer value that determines the largest number of characters that you want to allow for String types.</p>",
+            "smithy.api#jsonName": "maxLength"
+          }
+        },
+        "ConstraintDescription": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A string that explains a constraint when the constraint is violated. For example, without a constraint description,\n a parameter that has an allowed pattern of [A-Za-z0-9]+ displays the following error message when the user\n specifies an invalid value:</p><p>\n Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+\n </p><p>By adding a constraint description, such as \"must contain only uppercase and lowercase letters and numbers,\" you can display\n the following customized error message:</p><p>\n Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers.\n </p>",
+            "smithy.api#jsonName": "constraintDescription"
+          }
+        },
+        "MinValue": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__integer",
+          "traits": {
+            "smithy.api#documentation": "<p>A numeric value that determines the smallest numeric value that you want to allow for Number types.</p>",
+            "smithy.api#jsonName": "minValue"
+          }
+        },
+        "AllowedValues": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>An array containing the list of values allowed for the parameter.</p>",
+            "smithy.api#jsonName": "allowedValues"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the parameter.</p><p>Valid values: String | Number | List&lt;Number> | CommaDelimitedList\n </p><p>\n String: A literal string.</p><p>For example, users can specify \"MyUserName\".</p><p>\n Number: An integer or float. AWS CloudFormation validates the parameter value as a number. However, when you use the\n parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a string.</p><p>For example, users might specify \"8888\".</p><p>\n List&lt;Number>: An array of integers or floats that are separated by commas. AWS CloudFormation validates the parameter value as numbers. However, when\n you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a list of strings.</p><p>For example, users might specify \"80,20\", and then Ref results in [\"80\",\"20\"].</p><p>\n CommaDelimitedList: An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas.\n Also, each member string is space-trimmed.</p><p>For example, users might specify \"test,dev,prod\", and then Ref results in [\"test\",\"dev\",\"prod\"].</p>",
+            "smithy.api#jsonName": "type"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A string of up to 4,000 characters that describes the parameter.</p>",
+            "smithy.api#jsonName": "description"
           }
         },
         "ReferencedByResources": {
@@ -1624,53 +1666,11 @@
             "smithy.api#required": {}
           }
         },
-        "AllowedValues": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
+        "NoEcho": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__boolean",
           "traits": {
-            "smithy.api#documentation": "<p>An array containing the list of values allowed for the parameter.</p>",
-            "smithy.api#jsonName": "allowedValues"
-          }
-        },
-        "DefaultValue": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A value of the appropriate type for the template to use if no value is specified when a stack is created.\n If you define constraints for the parameter, you must specify a value that adheres to those constraints.</p>",
-            "smithy.api#jsonName": "defaultValue"
-          }
-        },
-        "ConstraintDescription": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A string that explains a constraint when the constraint is violated. For example, without a constraint description,\n a parameter that has an allowed pattern of [A-Za-z0-9]+ displays the following error message when the user\n specifies an invalid value:</p><p>\n Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+\n </p><p>By adding a constraint description, such as \"must contain only uppercase and lowercase letters and numbers,\" you can display\n the following customized error message:</p><p>\n Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers.\n </p>",
-            "smithy.api#jsonName": "constraintDescription"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A string of up to 4,000 characters that describes the parameter.</p>",
-            "smithy.api#jsonName": "description"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the parameter.</p><p>Valid values: String | Number | List&lt;Number> | CommaDelimitedList\n </p><p>\n String: A literal string.</p><p>For example, users can specify \"MyUserName\".</p><p>\n Number: An integer or float. AWS CloudFormation validates the parameter value as a number. However, when you use the\n parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a string.</p><p>For example, users might specify \"8888\".</p><p>\n List&lt;Number>: An array of integers or floats that are separated by commas. AWS CloudFormation validates the parameter value as numbers. However, when\n you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a list of strings.</p><p>For example, users might specify \"80,20\", and then Ref results in [\"80\",\"20\"].</p><p>\n CommaDelimitedList: An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas.\n Also, each member string is space-trimmed.</p><p>For example, users might specify \"test,dev,prod\", and then Ref results in [\"test\",\"dev\",\"prod\"].</p>",
-            "smithy.api#jsonName": "type"
-          }
-        },
-        "AllowedPattern": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A regular expression that represents the patterns to allow for String types.</p>",
-            "smithy.api#jsonName": "allowedPattern"
-          }
-        },
-        "MinValue": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__integer",
-          "traits": {
-            "smithy.api#documentation": "<p>A numeric value that determines the smallest numeric value that you want to allow for Number types.</p>",
-            "smithy.api#jsonName": "minValue"
+            "smithy.api#documentation": "<p>Whether to mask the parameter value whenever anyone makes a call that describes the stack. If you set the\n value to true, the parameter value is masked with asterisks (*****).</p>",
+            "smithy.api#jsonName": "noEcho"
           }
         }
       },
@@ -1978,19 +1978,19 @@
     "com.amazonaws.serverlessapplicationrepository#UnshareApplicationRequest": {
       "type": "structure",
       "members": {
-        "ApplicationId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "OrganizationId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Organization ID to unshare the application from.</p>",
             "smithy.api#jsonName": "organizationId",
+            "smithy.api#required": {}
+          }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -2036,11 +2036,12 @@
     "com.amazonaws.serverlessapplicationrepository#UpdateApplicationRequest": {
       "type": "structure",
       "members": {
-        "HomePageUrl": {
+        "ApplicationId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>",
-            "smithy.api#jsonName": "homePageUrl"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Author": {
@@ -2071,19 +2072,18 @@
             "smithy.api#jsonName": "readmeBody"
           }
         },
+        "HomePageUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>",
+            "smithy.api#jsonName": "homePageUrl"
+          }
+        },
         "Labels": {
           "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
           "traits": {
             "smithy.api#documentation": "<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>",
             "smithy.api#jsonName": "labels"
-          }
-        },
-        "ApplicationId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         }
       }
@@ -2091,6 +2091,20 @@
     "com.amazonaws.serverlessapplicationrepository#UpdateApplicationResponse": {
       "type": "structure",
       "members": {
+        "CreationTime": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
+            "smithy.api#jsonName": "creationTime"
+          }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
+            "smithy.api#jsonName": "applicationId"
+          }
+        },
         "Author": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -2105,32 +2119,11 @@
             "smithy.api#jsonName": "verifiedAuthorUrl"
           }
         },
-        "ReadmeUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+        "Version": {
+          "target": "com.amazonaws.serverlessapplicationrepository#Version",
           "traits": {
-            "smithy.api#documentation": "<p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>",
-            "smithy.api#jsonName": "readmeUrl"
-          }
-        },
-        "SpdxLicenseId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A valid identifier from https://spdx.org/licenses/.</p>",
-            "smithy.api#jsonName": "spdxLicenseId"
-          }
-        },
-        "IsVerifiedAuthor": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>",
-            "smithy.api#jsonName": "isVerifiedAuthor"
-          }
-        },
-        "LicenseUrl": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>",
-            "smithy.api#jsonName": "licenseUrl"
+            "smithy.api#documentation": "<p>Version information about the application.</p>",
+            "smithy.api#jsonName": "version"
           }
         },
         "Name": {
@@ -2140,25 +2133,25 @@
             "smithy.api#jsonName": "name"
           }
         },
-        "Labels": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>",
-            "smithy.api#jsonName": "labels"
-          }
-        },
-        "Version": {
-          "target": "com.amazonaws.serverlessapplicationrepository#Version",
-          "traits": {
-            "smithy.api#documentation": "<p>Version information about the application.</p>",
-            "smithy.api#jsonName": "version"
-          }
-        },
-        "HomePageUrl": {
+        "LicenseUrl": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>",
-            "smithy.api#jsonName": "homePageUrl"
+            "smithy.api#documentation": "<p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>",
+            "smithy.api#jsonName": "licenseUrl"
+          }
+        },
+        "IsVerifiedAuthor": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>",
+            "smithy.api#jsonName": "isVerifiedAuthor"
+          }
+        },
+        "ReadmeUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>",
+            "smithy.api#jsonName": "readmeUrl"
           }
         },
         "Description": {
@@ -2168,18 +2161,25 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "ApplicationId": {
+        "SpdxLicenseId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
-            "smithy.api#jsonName": "applicationId"
+            "smithy.api#documentation": "<p>A valid identifier from https://spdx.org/licenses/.</p>",
+            "smithy.api#jsonName": "spdxLicenseId"
           }
         },
-        "CreationTime": {
+        "HomePageUrl": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
-            "smithy.api#jsonName": "creationTime"
+            "smithy.api#documentation": "<p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>",
+            "smithy.api#jsonName": "homePageUrl"
+          }
+        },
+        "Labels": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\/@]+$\";</p>",
+            "smithy.api#jsonName": "labels"
           }
         }
       }
@@ -2187,14 +2187,6 @@
     "com.amazonaws.serverlessapplicationrepository#Version": {
       "type": "structure",
       "members": {
-        "SemanticVersion": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
-            "smithy.api#jsonName": "semanticVersion",
-            "smithy.api#required": {}
-          }
-        },
         "RequiredCapabilities": {
           "target": "com.amazonaws.serverlessapplicationrepository#__listOfCapability",
           "traits": {
@@ -2203,11 +2195,19 @@
             "smithy.api#required": {}
           }
         },
-        "TemplateUrl": {
+        "SemanticVersion": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
-            "smithy.api#documentation": "<p>A link to the packaged AWS SAM template of your application.</p>",
-            "smithy.api#jsonName": "templateUrl",
+            "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
+            "smithy.api#jsonName": "semanticVersion",
+            "smithy.api#required": {}
+          }
+        },
+        "ApplicationId": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
+            "smithy.api#jsonName": "applicationId",
             "smithy.api#required": {}
           }
         },
@@ -2226,6 +2226,22 @@
             "smithy.api#jsonName": "sourceCodeUrl"
           }
         },
+        "CreationTime": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
+            "smithy.api#jsonName": "creationTime",
+            "smithy.api#required": {}
+          }
+        },
+        "TemplateUrl": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A link to the packaged AWS SAM template of your application.</p>",
+            "smithy.api#jsonName": "templateUrl",
+            "smithy.api#required": {}
+          }
+        },
         "SourceCodeArchiveUrl": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -2238,22 +2254,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Whether all of the AWS resources contained in this application are supported in the region\n in which it is being retrieved.</p>",
             "smithy.api#jsonName": "resourcesSupported",
-            "smithy.api#required": {}
-          }
-        },
-        "CreationTime": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
-            "smithy.api#jsonName": "creationTime",
-            "smithy.api#required": {}
-          }
-        },
-        "ApplicationId": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The application Amazon Resource Name (ARN).</p>",
-            "smithy.api#jsonName": "applicationId",
             "smithy.api#required": {}
           }
         }
@@ -2272,14 +2272,6 @@
             "smithy.api#jsonName": "sourceCodeUrl"
           }
         },
-        "SemanticVersion": {
-          "target": "com.amazonaws.serverlessapplicationrepository#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
-            "smithy.api#jsonName": "semanticVersion",
-            "smithy.api#required": {}
-          }
-        },
         "ApplicationId": {
           "target": "com.amazonaws.serverlessapplicationrepository#__string",
           "traits": {
@@ -2293,6 +2285,14 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time this resource was created.</p>",
             "smithy.api#jsonName": "creationTime",
+            "smithy.api#required": {}
+          }
+        },
+        "SemanticVersion": {
+          "target": "com.amazonaws.serverlessapplicationrepository#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The semantic version of the application:</p><p>\n <a href=\"https://semver.org/\">https://semver.org/</a>\n </p>",
+            "smithy.api#jsonName": "semanticVersion",
             "smithy.api#required": {}
           }
         }

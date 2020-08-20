@@ -99,16 +99,16 @@
     "com.amazonaws.ram#AcceptResourceShareInvitationResponse": {
       "type": "structure",
       "members": {
-        "resourceShareInvitation": {
-          "target": "com.amazonaws.ram#ResourceShareInvitation",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the invitation.</p>"
-          }
-        },
         "clientToken": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
+          }
+        },
+        "resourceShareInvitation": {
+          "target": "com.amazonaws.ram#ResourceShareInvitation",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the invitation.</p>"
           }
         }
       }
@@ -304,16 +304,16 @@
             "smithy.api#required": {}
           }
         },
-        "replace": {
-          "target": "com.amazonaws.ram#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the permission should replace the permissions that are currently \n        \tassociated with the resource share. Use <code>true</code> to replace the current permissions. \n        \tUse <code>false</code> to add the permission to the current permission.</p>"
-          }
-        },
         "clientToken": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
+          }
+        },
+        "replace": {
+          "target": "com.amazonaws.ram#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the permission should replace the permissions that are currently \n        \tassociated with the resource share. Use <code>true</code> to replace the current permissions. \n        \tUse <code>false</code> to add the permission to the current permission.</p>"
           }
         },
         "resourceShareArn": {
@@ -328,16 +328,16 @@
     "com.amazonaws.ram#AssociateResourceSharePermissionResponse": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
-          }
-        },
         "returnValue": {
           "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the request succeeded.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         }
       }
@@ -345,16 +345,16 @@
     "com.amazonaws.ram#AssociateResourceShareRequest": {
       "type": "structure",
       "members": {
-        "principals": {
-          "target": "com.amazonaws.ram#PrincipalArnOrIdList",
-          "traits": {
-            "smithy.api#documentation": "<p>The principals.</p>"
-          }
-        },
         "clientToken": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
+          }
+        },
+        "principals": {
+          "target": "com.amazonaws.ram#PrincipalArnOrIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The principals.</p>"
           }
         },
         "resourceShareArn": {
@@ -375,16 +375,16 @@
     "com.amazonaws.ram#AssociateResourceShareResponse": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
-          }
-        },
         "resourceShareAssociations": {
           "target": "com.amazonaws.ram#ResourceShareAssociationList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the associations.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         }
       }
@@ -450,16 +450,29 @@
     "com.amazonaws.ram#CreateResourceShareRequest": {
       "type": "structure",
       "members": {
-        "allowExternalPrincipals": {
-          "target": "com.amazonaws.ram#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.ram#TagList",
           "traits": {
             "smithy.api#documentation": "<p>One or more tags.</p>"
+          }
+        },
+        "resourceArns": {
+          "target": "com.amazonaws.ram#ResourceArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource share.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "allowExternalPrincipals": {
+          "target": "com.amazonaws.ram#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>"
           }
         },
         "principals": {
@@ -478,19 +491,6 @@
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
-          }
-        },
-        "resourceArns": {
-          "target": "com.amazonaws.ram#ResourceArnList",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource share.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -698,17 +698,17 @@
             "smithy.api#required": {}
           }
         },
-        "clientToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
-          }
-        },
         "resourceShareArn": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         }
       }
@@ -733,16 +733,22 @@
     "com.amazonaws.ram#DisassociateResourceShareRequest": {
       "type": "structure",
       "members": {
-        "resourceArns": {
-          "target": "com.amazonaws.ram#ResourceArnList",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the resources.</p>"
-          }
-        },
         "clientToken": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
+          }
+        },
+        "principals": {
+          "target": "com.amazonaws.ram#PrincipalArnOrIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The principals.</p>"
+          }
+        },
+        "resourceArns": {
+          "target": "com.amazonaws.ram#ResourceArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the resources.</p>"
           }
         },
         "resourceShareArn": {
@@ -751,28 +757,22 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
             "smithy.api#required": {}
           }
-        },
-        "principals": {
-          "target": "com.amazonaws.ram#PrincipalArnOrIdList",
-          "traits": {
-            "smithy.api#documentation": "<p>The principals.</p>"
-          }
         }
       }
     },
     "com.amazonaws.ram#DisassociateResourceShareResponse": {
       "type": "structure",
       "members": {
-        "resourceShareAssociations": {
-          "target": "com.amazonaws.ram#ResourceShareAssociationList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the associations.</p>"
-          }
-        },
         "clientToken": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
+          }
+        },
+        "resourceShareAssociations": {
+          "target": "com.amazonaws.ram#ResourceShareAssociationList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the associations.</p>"
           }
         }
       }
@@ -861,17 +861,17 @@
     "com.amazonaws.ram#GetPermissionRequest": {
       "type": "structure",
       "members": {
-        "permissionVersion": {
-          "target": "com.amazonaws.ram#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier for the version of the permission.</p>"
-          }
-        },
         "permissionArn": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "permissionVersion": {
+          "target": "com.amazonaws.ram#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the version of the permission.</p>"
           }
         }
       }
@@ -932,17 +932,17 @@
     "com.amazonaws.ram#GetResourcePoliciesRequest": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
         "resourceArns": {
           "target": "com.amazonaws.ram#ResourceArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "maxResults": {
@@ -1024,6 +1024,12 @@
     "com.amazonaws.ram#GetResourceShareAssociationsRequest": {
       "type": "structure",
       "members": {
+        "associationStatus": {
+          "target": "com.amazonaws.ram#ResourceShareAssociationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The association status.</p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.ram#String",
           "traits": {
@@ -1036,10 +1042,17 @@
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
           }
         },
-        "resourceArn": {
+        "associationType": {
+          "target": "com.amazonaws.ram#ResourceShareAssociationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The association type. Specify <code>PRINCIPAL</code> to list the principals that are \n   \t\tassociated with the specified resource share. Specify <code>RESOURCE</code> to list \n   \t\tthe resources that are associated with the specified resource share.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "principal": {
           "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if the \n      \tassociation type is <code>PRINCIPAL</code>.</p>"
+            "smithy.api#documentation": "<p>The principal. You cannot specify this parameter if the association type is \n     \t<code>RESOURCE</code>.</p>"
           }
         },
         "maxResults": {
@@ -1048,23 +1061,10 @@
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
-        "associationType": {
-          "target": "com.amazonaws.ram#ResourceShareAssociationType",
-          "traits": {
-            "smithy.api#documentation": "<p>The association type. Specify <code>PRINCIPAL</code> to list the principals that are \n   \t\tassociated with the specified resource share. Specify <code>RESOURCE</code> to list \n   \t\tthe resources that are associated with the specified resource share.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "associationStatus": {
-          "target": "com.amazonaws.ram#ResourceShareAssociationStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The association status.</p>"
-          }
-        },
-        "principal": {
+        "resourceArn": {
           "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#documentation": "<p>The principal. You cannot specify this parameter if the association type is \n     \t<code>RESOURCE</code>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if the \n      \tassociation type is <code>PRINCIPAL</code>.</p>"
           }
         }
       }
@@ -1137,10 +1137,10 @@
     "com.amazonaws.ram#GetResourceShareInvitationsRequest": {
       "type": "structure",
       "members": {
-        "resourceShareArns": {
-          "target": "com.amazonaws.ram#ResourceShareArnList",
+        "maxResults": {
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "resourceShareInvitationArns": {
@@ -1155,10 +1155,10 @@
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.ram#MaxResults",
+        "resourceShareArns": {
+          "target": "com.amazonaws.ram#ResourceShareArnList",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
           }
         }
       }
@@ -1166,16 +1166,16 @@
     "com.amazonaws.ram#GetResourceShareInvitationsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
-          }
-        },
         "resourceShareInvitations": {
           "target": "com.amazonaws.ram#ResourceShareInvitationList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the invitations.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         }
       }
@@ -1237,6 +1237,25 @@
             "smithy.api#documentation": "<p>The status of the resource share.</p>"
           }
         },
+        "resourceShareArns": {
+          "target": "com.amazonaws.ram#ResourceShareArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
+          }
+        },
+        "resourceOwner": {
+          "target": "com.amazonaws.ram#ResourceOwner",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of owner.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tagFilters": {
+          "target": "com.amazonaws.ram#TagFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more tag filters.</p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.ram#String",
           "traits": {
@@ -1248,41 +1267,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource share.</p>"
           }
-        },
-        "tagFilters": {
-          "target": "com.amazonaws.ram#TagFilters",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more tag filters.</p>"
-          }
-        },
-        "resourceOwner": {
-          "target": "com.amazonaws.ram#ResourceOwner",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of owner.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "resourceShareArns": {
-          "target": "com.amazonaws.ram#ResourceShareArnList",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
-          }
         }
       }
     },
     "com.amazonaws.ram#GetResourceSharesResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
-          }
-        },
         "resourceShares": {
           "target": "com.amazonaws.ram#ResourceShareList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resource shares.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         }
       }
@@ -1465,17 +1465,17 @@
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
-          }
-        },
         "resourceShareInvitationArn": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the invitation.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         }
       }
@@ -1483,16 +1483,16 @@
     "com.amazonaws.ram#ListPendingInvitationResourcesResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
-          }
-        },
         "resources": {
           "target": "com.amazonaws.ram#ResourceList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resources included the resource share.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         }
       }
@@ -1534,16 +1534,16 @@
     "com.amazonaws.ram#ListPermissionsRequest": {
       "type": "structure",
       "members": {
-        "resourceType": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the resource type for which to list permissions. For example, to list only \n\t\tpermissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</p>"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+          }
+        },
+        "resourceType": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the resource type for which to list permissions. For example, to list only \n\t\tpermissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</p>"
           }
         },
         "nextToken": {
@@ -1628,22 +1628,10 @@
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
-        "resourceType": {
-          "target": "com.amazonaws.ram#String",
+        "resourceShareArns": {
+          "target": "com.amazonaws.ram#ResourceShareArnList",
           "traits": {
-            "smithy.api#documentation": "<p>The resource type.</p>\n   \t     <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> | \n   \t\t<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code>\n         </p>"
-          }
-        },
-        "resourceArn": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
-          }
-        },
-        "maxResults": {
-          "target": "com.amazonaws.ram#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
           }
         },
         "resourceOwner": {
@@ -1653,10 +1641,22 @@
             "smithy.api#required": {}
           }
         },
-        "resourceShareArns": {
-          "target": "com.amazonaws.ram#ResourceShareArnList",
+        "maxResults": {
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
+          }
+        },
+        "resourceType": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type.</p>\n   \t     <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> | \n   \t\t<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code>\n         </p>"
           }
         }
       }
@@ -1664,16 +1664,16 @@
     "com.amazonaws.ram#ListPrincipalsResponse": {
       "type": "structure",
       "members": {
-        "principals": {
-          "target": "com.amazonaws.ram#PrincipalList",
-          "traits": {
-            "smithy.api#documentation": "<p>The principals.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
+          }
+        },
+        "principals": {
+          "target": "com.amazonaws.ram#PrincipalList",
+          "traits": {
+            "smithy.api#documentation": "<p>The principals.</p>"
           }
         }
       }
@@ -1727,17 +1727,17 @@
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.ram#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
-          }
-        },
         "resourceShareArn": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.ram#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         }
       }
@@ -1793,16 +1793,16 @@
     "com.amazonaws.ram#ListResourceTypesRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.ram#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.ram#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         }
       }
@@ -1872,16 +1872,29 @@
     "com.amazonaws.ram#ListResourcesRequest": {
       "type": "structure",
       "members": {
-        "resourceArns": {
-          "target": "com.amazonaws.ram#ResourceArnList",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources.</p>"
-          }
-        },
         "resourceShareArns": {
           "target": "com.amazonaws.ram#ResourceShareArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
+          }
+        },
+        "principal": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The principal.</p>"
+          }
+        },
+        "resourceType": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type.</p>\n   \t     <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> | \n   \t\t<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code>\n         </p>"
+          }
+        },
+        "resourceOwner": {
+          "target": "com.amazonaws.ram#ResourceOwner",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of owner.</p>",
+            "smithy.api#required": {}
           }
         },
         "maxResults": {
@@ -1896,23 +1909,10 @@
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
-        "principal": {
-          "target": "com.amazonaws.ram#String",
+        "resourceArns": {
+          "target": "com.amazonaws.ram#ResourceArnList",
           "traits": {
-            "smithy.api#documentation": "<p>The principal.</p>"
-          }
-        },
-        "resourceOwner": {
-          "target": "com.amazonaws.ram#ResourceOwner",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of owner.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "resourceType": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The resource type.</p>\n   \t     <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> | \n   \t\t<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code>\n         </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources.</p>"
           }
         }
       }
@@ -2016,16 +2016,16 @@
     "com.amazonaws.ram#Principal": {
       "type": "structure",
       "members": {
-        "id": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the principal.</p>"
-          }
-        },
         "lastUpdatedTime": {
           "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the association was last updated.</p>"
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the principal.</p>"
           }
         },
         "resourceShareArn": {
@@ -2034,16 +2034,16 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         },
-        "external": {
-          "target": "com.amazonaws.ram#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>"
-          }
-        },
         "creationTime": {
           "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the principal was associated with the resource share.</p>"
+          }
+        },
+        "external": {
+          "target": "com.amazonaws.ram#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>"
           }
         }
       },
@@ -2186,17 +2186,17 @@
     "com.amazonaws.ram#RejectResourceShareInvitationRequest": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
-          }
-        },
         "resourceShareInvitationArn": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the invitation.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         }
       }
@@ -2204,16 +2204,16 @@
     "com.amazonaws.ram#RejectResourceShareInvitationResponse": {
       "type": "structure",
       "members": {
-        "clientToken": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
-          }
-        },
         "resourceShareInvitation": {
           "target": "com.amazonaws.ram#ResourceShareInvitation",
           "traits": {
             "smithy.api#documentation": "<p>Information about the invitation.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         }
       }
@@ -2221,34 +2221,10 @@
     "com.amazonaws.ram#Resource": {
       "type": "structure",
       "members": {
-        "statusMessage": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A message about the status of the resource.</p>"
-          }
-        },
-        "arn": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
-          }
-        },
-        "resourceGroupArn": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the resource group. This value is returned only if the resource is a resource\n\t\t\tgroup.</p>"
-          }
-        },
         "lastUpdatedTime": {
           "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the association was last updated.</p>"
-          }
-        },
-        "resourceShareArn": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         },
         "status": {
@@ -2257,16 +2233,40 @@
             "smithy.api#documentation": "<p>The status of the resource.</p>"
           }
         },
+        "arn": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
+          }
+        },
+        "statusMessage": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A message about the status of the resource.</p>"
+          }
+        },
         "type": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type.</p>"
           }
         },
+        "resourceShareArn": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
+          }
+        },
         "creationTime": {
           "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the resource was associated with the resource share.</p>"
+          }
+        },
+        "resourceGroupArn": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the resource group. This value is returned only if the resource is a resource\n\t\t\tgroup.</p>"
           }
         }
       },
@@ -2332,22 +2332,10 @@
             "smithy.api#documentation": "<p>The tags for the resource share.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.ram#ResourceShareStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the resource share.</p>"
-          }
-        },
         "creationTime": {
           "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the resource share was created.</p>"
-          }
-        },
-        "resourceShareArn": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         },
         "allowExternalPrincipals": {
@@ -2356,10 +2344,22 @@
             "smithy.api#documentation": "<p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>"
           }
         },
-        "lastUpdatedTime": {
-          "target": "com.amazonaws.ram#DateTime",
+        "name": {
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#documentation": "<p>The time when the resource share was last updated.</p>"
+            "smithy.api#documentation": "<p>The name of the resource share.</p>"
+          }
+        },
+        "featureSet": {
+          "target": "com.amazonaws.ram#ResourceShareFeatureSet",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates how the resource share was created. Possible values include:</p>\n\t        <ul>\n            <li>\n\t\t\t            <p>\n                  <code>CREATED_FROM_POLICY</code> - Indicates that the resource share was created from an AWS Identity\n\t\t\t\t\tand Access Management (AWS IAM) policy attached to a resource. These resource shares are\n\t\t\t\t\tvisible only to the AWS account that created it. They cannot be modified in\n\t\t\t\t\tAWS RAM.</p>\n\t\t          </li>\n            <li>\n\t\t\t            <p>\n                  <code>PROMOTING_TO_STANDARD</code> - The resource share is in the process \n\t\t\t\tof being promoted. For more information, see \n\t\t\t\t<a>PromoteResourceShareCreatedFromPolicy</a>.</p>\n\t\t          </li>\n            <li>\n\t\t\t            <p>\n                  <code>STANDARD</code> - Indicates that the resource share was created in AWS RAM using the console or\n\t\t\t\t\tAPIs. These resource shares are visible to all principals. They can be modified\n\t\t\t\t\tin AWS RAM.</p>\n\t\t          </li>\n         </ul>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.ram#ResourceShareStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the resource share.</p>"
           }
         },
         "statusMessage": {
@@ -2368,22 +2368,22 @@
             "smithy.api#documentation": "<p>A message about the status of the resource share.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource share.</p>"
-          }
-        },
         "owningAccountId": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS account that owns the resource share.</p>"
           }
         },
-        "featureSet": {
-          "target": "com.amazonaws.ram#ResourceShareFeatureSet",
+        "lastUpdatedTime": {
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates how the resource share was created. Possible values include:</p>\n\t        <ul>\n            <li>\n\t\t\t            <p>\n                  <code>CREATED_FROM_POLICY</code> - Indicates that the resource share was created from an AWS Identity\n\t\t\t\t\tand Access Management (AWS IAM) policy attached to a resource. These resource shares are\n\t\t\t\t\tvisible only to the AWS account that created it. They cannot be modified in\n\t\t\t\t\tAWS RAM.</p>\n\t\t          </li>\n            <li>\n\t\t\t            <p>\n                  <code>PROMOTING_TO_STANDARD</code> - The resource share is in the process \n\t\t\t\tof being promoted. For more information, see \n\t\t\t\t<a>PromoteResourceShareCreatedFromPolicy</a>.</p>\n\t\t          </li>\n            <li>\n\t\t\t            <p>\n                  <code>STANDARD</code> - Indicates that the resource share was created in AWS RAM using the console or\n\t\t\t\t\tAPIs. These resource shares are visible to all principals. They can be modified\n\t\t\t\t\tin AWS RAM.</p>\n\t\t          </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The time when the resource share was last updated.</p>"
+          }
+        },
+        "resourceShareArn": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         }
       },
@@ -2409,40 +2409,16 @@
             "smithy.api#documentation": "<p>The name of the resource share.</p>"
           }
         },
-        "creationTime": {
-          "target": "com.amazonaws.ram#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the association was created.</p>"
-          }
-        },
-        "lastUpdatedTime": {
-          "target": "com.amazonaws.ram#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the association was last updated.</p>"
-          }
-        },
-        "resourceShareArn": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
-          }
-        },
-        "associationType": {
-          "target": "com.amazonaws.ram#ResourceShareAssociationType",
-          "traits": {
-            "smithy.api#documentation": "<p>The association type.</p>"
-          }
-        },
         "statusMessage": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A message about the status of the association.</p>"
           }
         },
-        "external": {
-          "target": "com.amazonaws.ram#Boolean",
+        "status": {
+          "target": "com.amazonaws.ram#ResourceShareAssociationStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>"
+            "smithy.api#documentation": "<p>The status of the association.</p>"
           }
         },
         "associatedEntity": {
@@ -2451,10 +2427,34 @@
             "smithy.api#documentation": "<p>The associated entity. For resource associations, this is the ARN of the resource.\n       For principal associations, this is the ID of an AWS account or the ARN of an OU or\n       organization from AWS Organizations.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.ram#ResourceShareAssociationStatus",
+        "associationType": {
+          "target": "com.amazonaws.ram#ResourceShareAssociationType",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the association.</p>"
+            "smithy.api#documentation": "<p>The association type.</p>"
+          }
+        },
+        "external": {
+          "target": "com.amazonaws.ram#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>"
+          }
+        },
+        "lastUpdatedTime": {
+          "target": "com.amazonaws.ram#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the association was last updated.</p>"
+          }
+        },
+        "creationTime": {
+          "target": "com.amazonaws.ram#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the association was created.</p>"
+          }
+        },
+        "resourceShareArn": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         }
       },
@@ -2525,12 +2525,6 @@
     "com.amazonaws.ram#ResourceShareInvitation": {
       "type": "structure",
       "members": {
-        "resourceShareInvitationArn": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the invitation.</p>"
-          }
-        },
         "resourceShareAssociations": {
           "target": "com.amazonaws.ram#ResourceShareAssociationList",
           "traits": {
@@ -2538,24 +2532,6 @@
               "message": "This member has been deprecated. Use ListPendingInvitationResources."
             },
             "smithy.api#documentation": "<p>To view the resources associated with a pending resource share invitation, use \n      \t<a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html\">\n      \t\tListPendingInvitationResources</a>.</p>"
-          }
-        },
-        "resourceShareName": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource share.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.ram#ResourceShareInvitationStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the invitation.</p>"
-          }
-        },
-        "senderAccountId": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account that sent the invitation.</p>"
           }
         },
         "invitationTimestamp": {
@@ -2570,10 +2546,34 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         },
+        "resourceShareName": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource share.</p>"
+          }
+        },
+        "resourceShareInvitationArn": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the invitation.</p>"
+          }
+        },
         "receiverAccountId": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS account that received the invitation.</p>"
+          }
+        },
+        "senderAccountId": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS account that sent the invitation.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.ram#ResourceShareInvitationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the invitation.</p>"
           }
         }
       },
@@ -2710,10 +2710,16 @@
     "com.amazonaws.ram#ResourceSharePermissionDetail": {
       "type": "structure",
       "members": {
-        "arn": {
-          "target": "com.amazonaws.ram#String",
+        "defaultVersion": {
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the permission.</p>"
+            "smithy.api#documentation": "<p>The identifier for the version of the permission that is set as the \n    \t\tdefault version.</p>"
+          }
+        },
+        "lastUpdatedTime": {
+          "target": "com.amazonaws.ram#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the permission was last updated.</p>"
           }
         },
         "permission": {
@@ -2722,22 +2728,16 @@
             "smithy.api#documentation": "<p>The permission's effect and actions in JSON format. The <code>effect</code> indicates whether\n\t\t\tthe actions are allowed or denied. The <code>actions</code> list the API actions to\n\t\t\twhich the principal is granted or denied access.</p>"
           }
         },
+        "creationTime": {
+          "target": "com.amazonaws.ram#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the permission was created.</p>"
+          }
+        },
         "resourceType": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type to which the permission applies.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.ram#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the permission.</p>"
-          }
-        },
-        "defaultVersion": {
-          "target": "com.amazonaws.ram#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier for the version of the permission that is set as the \n    \t\tdefault version.</p>"
           }
         },
         "version": {
@@ -2746,16 +2746,16 @@
             "smithy.api#documentation": "<p>The identifier for the version of the permission.</p>"
           }
         },
-        "creationTime": {
-          "target": "com.amazonaws.ram#DateTime",
+        "arn": {
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time when the permission was created.</p>"
+            "smithy.api#documentation": "<p>The ARN of the permission.</p>"
           }
         },
-        "lastUpdatedTime": {
-          "target": "com.amazonaws.ram#DateTime",
+        "name": {
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time when the permission was last updated.</p>"
+            "smithy.api#documentation": "<p>The name of the permission.</p>"
           }
         }
       },
@@ -2775,16 +2775,28 @@
     "com.amazonaws.ram#ResourceSharePermissionSummary": {
       "type": "structure",
       "members": {
+        "status": {
+          "target": "com.amazonaws.ram#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the permission.</p>"
+          }
+        },
         "name": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the permission.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.ram#String",
+        "creationTime": {
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the permission.</p>"
+            "smithy.api#documentation": "<p>The date and time when the permission was created.</p>"
+          }
+        },
+        "defaultVersion": {
+          "target": "com.amazonaws.ram#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the version of the permission that is set as the default version.</p>"
           }
         },
         "arn": {
@@ -2799,28 +2811,16 @@
             "smithy.api#documentation": "<p>The type of resource to which the permission applies.</p>"
           }
         },
-        "lastUpdatedTime": {
-          "target": "com.amazonaws.ram#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time when the permission was last updated.</p>"
-          }
-        },
         "version": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the version of the permission.</p>"
           }
         },
-        "defaultVersion": {
-          "target": "com.amazonaws.ram#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier for the version of the permission that is set as the default version.</p>"
-          }
-        },
-        "creationTime": {
+        "lastUpdatedTime": {
           "target": "com.amazonaws.ram#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time when the permission was created.</p>"
+            "smithy.api#documentation": "<p>The date and time when the permission was last updated.</p>"
           }
         }
       },
@@ -2959,16 +2959,16 @@
     "com.amazonaws.ram#TagFilter": {
       "type": "structure",
       "members": {
-        "tagValues": {
-          "target": "com.amazonaws.ram#TagValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tag values.</p>"
-          }
-        },
         "tagKey": {
           "target": "com.amazonaws.ram#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The tag key.</p>"
+          }
+        },
+        "tagValues": {
+          "target": "com.amazonaws.ram#TagValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag values.</p>"
           }
         }
       },
@@ -3148,17 +3148,17 @@
     "com.amazonaws.ram#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "tagKeys": {
-          "target": "com.amazonaws.ram#TagKeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tag keys of the tags to remove.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "resourceShareArn": {
           "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazonaws.ram#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag keys of the tags to remove.</p>",
             "smithy.api#required": {}
           }
         }

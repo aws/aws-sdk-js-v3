@@ -32,11 +32,11 @@
     "com.amazonaws.chime#AccessDeniedException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.chime#String"
-        },
         "Code": {
           "target": "com.amazonaws.chime#ErrorCode"
+        },
+        "Message": {
+          "target": "com.amazonaws.chime#String"
         }
       },
       "traits": {
@@ -48,6 +48,32 @@
     "com.amazonaws.chime#Account": {
       "type": "structure",
       "members": {
+        "DefaultLicense": {
+          "target": "com.amazonaws.chime#License",
+          "traits": {
+            "smithy.api#documentation": "<p>The default license for the Amazon Chime account.</p>"
+          }
+        },
+        "AwsAccountId": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AccountType": {
+          "target": "com.amazonaws.chime#AccountType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime account type. For more information\n       about different account types, see <a href=\"https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html\">Managing Your Amazon Chime Accounts</a> in the\n       <i>Amazon\n         Chime Administration Guide</i>.</p>"
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Name": {
           "target": "com.amazonaws.chime#String",
           "traits": {
@@ -71,32 +97,6 @@
           "target": "com.amazonaws.chime#SigninDelegateGroupList",
           "traits": {
             "smithy.api#documentation": "<p>The sign-in delegate groups associated with the account.</p>"
-          }
-        },
-        "AwsAccountId": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "DefaultLicense": {
-          "target": "com.amazonaws.chime#License",
-          "traits": {
-            "smithy.api#documentation": "<p>The default license for the Amazon Chime account.</p>"
-          }
-        },
-        "AccountType": {
-          "target": "com.amazonaws.chime#AccountType",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime account type. For more information\n       about different account types, see <a href=\"https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html\">Managing Your Amazon Chime Accounts</a> in the\n       <i>Amazon\n         Chime Administration Guide</i>.</p>"
-          }
-        },
-        "AccountId": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -166,16 +166,16 @@
     "com.amazonaws.chime#AlexaForBusinessMetadata": {
       "type": "structure",
       "members": {
-        "AlexaForBusinessRoomArn": {
-          "target": "com.amazonaws.chime#SensitiveString",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the room resource.</p>"
-          }
-        },
         "IsAlexaForBusinessEnabled": {
           "target": "com.amazonaws.chime#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Starts or stops Alexa for Business.</p>"
+          }
+        },
+        "AlexaForBusinessRoomArn": {
+          "target": "com.amazonaws.chime#SensitiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the room resource.</p>"
           }
         }
       },
@@ -484,18 +484,18 @@
     "com.amazonaws.chime#AssociateSigninDelegateGroupsWithAccountRequest": {
       "type": "structure",
       "members": {
+        "SigninDelegateGroups": {
+          "target": "com.amazonaws.chime#SigninDelegateGroupList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sign-in delegate groups.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "AccountId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
             "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "SigninDelegateGroups": {
-          "target": "com.amazonaws.chime#SigninDelegateGroupList",
-          "traits": {
-            "smithy.api#documentation": "<p>The sign-in delegate groups.</p>",
             "smithy.api#required": {}
           }
         }
@@ -629,18 +629,18 @@
     "com.amazonaws.chime#BatchCreateAttendeeRequest": {
       "type": "structure",
       "members": {
+        "Attendees": {
+          "target": "com.amazonaws.chime#CreateAttendeeRequestItemList",
+          "traits": {
+            "smithy.api#documentation": "<p>The request containing the attendees to create.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "MeetingId": {
           "target": "com.amazonaws.chime#GuidString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime SDK meeting ID.</p>",
             "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "Attendees": {
-          "target": "com.amazonaws.chime#CreateAttendeeRequestItemList",
-          "traits": {
-            "smithy.api#documentation": "<p>The request containing the attendees to create.</p>",
             "smithy.api#required": {}
           }
         }
@@ -706,11 +706,10 @@
     "com.amazonaws.chime#BatchCreateRoomMembershipRequest": {
       "type": "structure",
       "members": {
-        "RoomId": {
-          "target": "com.amazonaws.chime#NonEmptyString",
+        "MembershipItemList": {
+          "target": "com.amazonaws.chime#MembershipItemList",
           "traits": {
-            "smithy.api#documentation": "<p>The room ID.</p>",
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p>The list of membership items.</p>",
             "smithy.api#required": {}
           }
         },
@@ -722,10 +721,11 @@
             "smithy.api#required": {}
           }
         },
-        "MembershipItemList": {
-          "target": "com.amazonaws.chime#MembershipItemList",
+        "RoomId": {
+          "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The list of membership items.</p>",
+            "smithy.api#documentation": "<p>The room ID.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -1090,6 +1090,12 @@
     "com.amazonaws.chime#Bot": {
       "type": "structure",
       "members": {
+        "Disabled": {
+          "target": "com.amazonaws.chime#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>When true, the bot is stopped from running in your account.</p>"
+          }
+        },
         "SecurityToken": {
           "target": "com.amazonaws.chime#SensitiveString",
           "traits": {
@@ -1108,12 +1114,6 @@
             "smithy.api#documentation": "<p>The bot type.</p>"
           }
         },
-        "Disabled": {
-          "target": "com.amazonaws.chime#NullableBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>When true, the bot is stopped from running in your account.</p>"
-          }
-        },
         "UserId": {
           "target": "com.amazonaws.chime#String",
           "traits": {
@@ -1126,10 +1126,10 @@
             "smithy.api#documentation": "<p>The bot display name.</p>"
           }
         },
-        "BotEmail": {
-          "target": "com.amazonaws.chime#SensitiveString",
+        "UpdatedTimestamp": {
+          "target": "com.amazonaws.chime#Iso8601Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The bot email address.</p>"
+            "smithy.api#documentation": "<p>The updated bot timestamp, in ISO 8601 format.</p>"
           }
         },
         "BotId": {
@@ -1138,10 +1138,10 @@
             "smithy.api#documentation": "<p>The bot ID.</p>"
           }
         },
-        "UpdatedTimestamp": {
-          "target": "com.amazonaws.chime#Iso8601Timestamp",
+        "BotEmail": {
+          "target": "com.amazonaws.chime#SensitiveString",
           "traits": {
-            "smithy.api#documentation": "<p>The updated bot timestamp, in ISO 8601 format.</p>"
+            "smithy.api#documentation": "<p>The bot email address.</p>"
           }
         }
       },
@@ -1417,16 +1417,16 @@
     "com.amazonaws.chime#CreateAttendeeError": {
       "type": "structure",
       "members": {
-        "ExternalUserId": {
-          "target": "com.amazonaws.chime#ExternalUserIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>"
-          }
-        },
         "ErrorCode": {
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>"
+          }
+        },
+        "ExternalUserId": {
+          "target": "com.amazonaws.chime#ExternalUserIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>"
           }
         },
         "ErrorMessage": {
@@ -1443,10 +1443,11 @@
     "com.amazonaws.chime#CreateAttendeeRequest": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.chime#AttendeeTagList",
+        "ExternalUserId": {
+          "target": "com.amazonaws.chime#ExternalUserIdType",
           "traits": {
-            "smithy.api#documentation": "<p>The tag key-value pairs.</p>"
+            "smithy.api#documentation": "<p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>",
+            "smithy.api#required": {}
           }
         },
         "MeetingId": {
@@ -1457,11 +1458,10 @@
             "smithy.api#required": {}
           }
         },
-        "ExternalUserId": {
-          "target": "com.amazonaws.chime#ExternalUserIdType",
+        "Tags": {
+          "target": "com.amazonaws.chime#AttendeeTagList",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The tag key-value pairs.</p>"
           }
         }
       }
@@ -1558,17 +1558,17 @@
             "smithy.api#required": {}
           }
         },
+        "Domain": {
+          "target": "com.amazonaws.chime#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain of the Amazon Chime Enterprise account.</p>"
+          }
+        },
         "DisplayName": {
           "target": "com.amazonaws.chime#SensitiveString",
           "traits": {
             "smithy.api#documentation": "<p>The bot display name.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Domain": {
-          "target": "com.amazonaws.chime#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The domain of the Amazon Chime Enterprise account.</p>"
           }
         }
       }
@@ -1627,6 +1627,12 @@
     "com.amazonaws.chime#CreateMeetingRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.chime#MeetingTagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag key-value pairs.</p>"
+          }
+        },
         "MediaRegion": {
           "target": "com.amazonaws.chime#String",
           "traits": {
@@ -1651,12 +1657,6 @@
           "target": "com.amazonaws.chime#MeetingNotificationConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.chime#MeetingTagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tag key-value pairs.</p>"
           }
         },
         "ExternalMeetingId": {
@@ -1750,16 +1750,16 @@
             "smithy.api#documentation": "<p>The Region in which to create the meeting. Default: <code>us-east-1</code>.</p> \n         <p>Available values: <code>ap-northeast-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.chime#MeetingTagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tag key-value pairs.</p>"
-          }
-        },
         "MeetingHostId": {
           "target": "com.amazonaws.chime#ExternalUserIdType",
           "traits": {
             "smithy.api#documentation": "<p>Reserved.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.chime#MeetingTagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag key-value pairs.</p>"
           }
         }
       }
@@ -1842,17 +1842,17 @@
     "com.amazonaws.chime#CreatePhoneNumberOrderRequest": {
       "type": "structure",
       "members": {
-        "ProductType": {
-          "target": "com.amazonaws.chime#PhoneNumberProductType",
-          "traits": {
-            "smithy.api#documentation": "<p>The phone number product type.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "E164PhoneNumbers": {
           "target": "com.amazonaws.chime#E164PhoneNumberList",
           "traits": {
             "smithy.api#documentation": "<p>List of phone numbers, in E.164 format.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ProductType": {
+          "target": "com.amazonaws.chime#PhoneNumberProductType",
+          "traits": {
+            "smithy.api#documentation": "<p>The phone number product type.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1925,16 +1925,16 @@
             "smithy.api#documentation": "<p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>"
           }
         },
-        "GeoMatchParams": {
-          "target": "com.amazonaws.chime#GeoMatchParams",
-          "traits": {
-            "smithy.api#documentation": "<p>The country and area code for the proxy phone number.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.chime#ProxySessionNameString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the proxy session.</p>"
+          }
+        },
+        "GeoMatchParams": {
+          "target": "com.amazonaws.chime#GeoMatchParams",
+          "traits": {
+            "smithy.api#documentation": "<p>The country and area code for the proxy phone number.</p>"
           }
         },
         "GeoMatchLevel": {
@@ -2069,17 +2069,17 @@
     "com.amazonaws.chime#CreateRoomMembershipRequest": {
       "type": "structure",
       "members": {
+        "Role": {
+          "target": "com.amazonaws.chime#RoomMembershipRole",
+          "traits": {
+            "smithy.api#documentation": "<p>The role of the member.</p>"
+          }
+        },
         "MemberId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime member ID (user ID or bot ID).</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Role": {
-          "target": "com.amazonaws.chime#RoomMembershipRole",
-          "traits": {
-            "smithy.api#documentation": "<p>The role of the member.</p>"
           }
         },
         "AccountId": {
@@ -2195,16 +2195,18 @@
     "com.amazonaws.chime#CreateUserRequest": {
       "type": "structure",
       "members": {
+        "AccountId": {
+          "target": "com.amazonaws.chime#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "Email": {
           "target": "com.amazonaws.chime#EmailAddress",
           "traits": {
             "smithy.api#documentation": "<p>The user's email address.</p>"
-          }
-        },
-        "Username": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The user name.</p>"
           }
         },
         "UserType": {
@@ -2213,12 +2215,10 @@
             "smithy.api#documentation": "<p>The user type.</p>"
           }
         },
-        "AccountId": {
-          "target": "com.amazonaws.chime#NonEmptyString",
+        "Username": {
+          "target": "com.amazonaws.chime#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The user name.</p>"
           }
         }
       }
@@ -2385,16 +2385,16 @@
     "com.amazonaws.chime#Credential": {
       "type": "structure",
       "members": {
-        "Username": {
-          "target": "com.amazonaws.chime#SensitiveString",
-          "traits": {
-            "smithy.api#documentation": "<p>The RFC2617 compliant user name associated with the SIP credentials, in US-ASCII\n      format.</p>"
-          }
-        },
         "Password": {
           "target": "com.amazonaws.chime#SensitiveString",
           "traits": {
             "smithy.api#documentation": "<p>The RFC2617 compliant password associated with the SIP credentials, in US-ASCII format.</p>"
+          }
+        },
+        "Username": {
+          "target": "com.amazonaws.chime#SensitiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>The RFC2617 compliant user name associated with the SIP credentials, in US-ASCII\n      format.</p>"
           }
         }
       },
@@ -2411,17 +2411,17 @@
     "com.amazonaws.chime#DNISEmergencyCallingConfiguration": {
       "type": "structure",
       "members": {
-        "TestPhoneNumber": {
-          "target": "com.amazonaws.chime#E164PhoneNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The DNIS phone number to route test emergency calls to, in E.164 format.</p>"
-          }
-        },
         "CallingCountry": {
           "target": "com.amazonaws.chime#Alpha2CountryCode",
           "traits": {
             "smithy.api#documentation": "<p>The country from which emergency calls are allowed, in ISO 3166-1 alpha-2 format.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "TestPhoneNumber": {
+          "target": "com.amazonaws.chime#E164PhoneNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The DNIS phone number to route test emergency calls to, in E.164 format.</p>"
           }
         },
         "EmergencyPhoneNumber": {
@@ -2859,10 +2859,10 @@
     "com.amazonaws.chime#DeleteRoomMembershipRequest": {
       "type": "structure",
       "members": {
-        "RoomId": {
+        "MemberId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The room ID.</p>",
+            "smithy.api#documentation": "<p>The member ID (user ID or bot ID).</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2875,10 +2875,10 @@
             "smithy.api#required": {}
           }
         },
-        "MemberId": {
+        "RoomId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The member ID (user ID or bot ID).</p>",
+            "smithy.api#documentation": "<p>The room ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3362,18 +3362,18 @@
     "com.amazonaws.chime#DisassociatePhoneNumberFromUserRequest": {
       "type": "structure",
       "members": {
-        "AccountId": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "UserId": {
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The user ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3569,18 +3569,18 @@
     "com.amazonaws.chime#DisassociateSigninDelegateGroupsFromAccountRequest": {
       "type": "structure",
       "members": {
-        "GroupNames": {
-          "target": "com.amazonaws.chime#NonEmptyStringList",
-          "traits": {
-            "smithy.api#documentation": "<p>The sign-in delegate group names.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "GroupNames": {
+          "target": "com.amazonaws.chime#NonEmptyStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sign-in delegate group names.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3709,6 +3709,12 @@
     "com.amazonaws.chime#EventsConfiguration": {
       "type": "structure",
       "members": {
+        "LambdaFunctionArn": {
+          "target": "com.amazonaws.chime#SensitiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>Lambda function ARN that allows a bot to receive outgoing events.</p>"
+          }
+        },
         "OutboundEventsHTTPSEndpoint": {
           "target": "com.amazonaws.chime#SensitiveString",
           "traits": {
@@ -3719,12 +3725,6 @@
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The bot ID.</p>"
-          }
-        },
-        "LambdaFunctionArn": {
-          "target": "com.amazonaws.chime#SensitiveString",
-          "traits": {
-            "smithy.api#documentation": "<p>Lambda function ARN that allows a bot to receive outgoing events.</p>"
           }
         }
       },
@@ -5392,10 +5392,10 @@
     "com.amazonaws.chime#Invite": {
       "type": "structure",
       "members": {
-        "InviteId": {
-          "target": "com.amazonaws.chime#String",
+        "EmailStatus": {
+          "target": "com.amazonaws.chime#EmailStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The invite ID.</p>"
+            "smithy.api#documentation": "<p>The status of the invite email.</p>"
           }
         },
         "Status": {
@@ -5404,10 +5404,10 @@
             "smithy.api#documentation": "<p>The status of the invite.</p>"
           }
         },
-        "EmailStatus": {
-          "target": "com.amazonaws.chime#EmailStatus",
+        "InviteId": {
+          "target": "com.amazonaws.chime#String",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the invite email.</p>"
+            "smithy.api#documentation": "<p>The invite ID.</p>"
           }
         },
         "EmailAddress": {
@@ -5630,18 +5630,18 @@
             "smithy.api#httpQuery": "name"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "next-token"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.chime#ProfileServiceMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. Defaults to 100.</p>",
             "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "next-token"
           }
         }
       }
@@ -5810,16 +5810,16 @@
     "com.amazonaws.chime#ListAttendeesResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>"
-          }
-        },
         "Attendees": {
           "target": "com.amazonaws.chime#AttendeeList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime SDK attendee information.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>"
           }
         }
       }
@@ -5872,18 +5872,18 @@
     "com.amazonaws.chime#ListBotsRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "next-token"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.chime#ResultMax",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default is 10.</p>",
             "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "next-token"
           }
         },
         "AccountId": {
@@ -6100,18 +6100,18 @@
     "com.amazonaws.chime#ListPhoneNumberOrdersRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "next-token"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.chime#ResultMax",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>",
             "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "next-token"
           }
         }
       }
@@ -6119,16 +6119,16 @@
     "com.amazonaws.chime#ListPhoneNumberOrdersResponse": {
       "type": "structure",
       "members": {
-        "PhoneNumberOrders": {
-          "target": "com.amazonaws.chime#PhoneNumberOrderList",
-          "traits": {
-            "smithy.api#documentation": "<p>The phone number order details.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>"
+          }
+        },
+        "PhoneNumberOrders": {
+          "target": "com.amazonaws.chime#PhoneNumberOrderList",
+          "traits": {
+            "smithy.api#documentation": "<p>The phone number order details.</p>"
           }
         }
       }
@@ -6185,25 +6185,11 @@
             "smithy.api#httpQuery": "filter-value"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "next-token"
-          }
-        },
         "FilterName": {
           "target": "com.amazonaws.chime#PhoneNumberAssociationName",
           "traits": {
             "smithy.api#documentation": "<p>The filter to use to limit the number of results.</p>",
             "smithy.api#httpQuery": "filter-name"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.chime#ResultMax",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>",
-            "smithy.api#httpQuery": "max-results"
           }
         },
         "ProductType": {
@@ -6218,6 +6204,20 @@
           "traits": {
             "smithy.api#documentation": "<p>The phone number status.</p>",
             "smithy.api#httpQuery": "status"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#ResultMax",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "next-token"
           }
         }
       }
@@ -6287,6 +6287,13 @@
     "com.amazonaws.chime#ListProxySessionsRequest": {
       "type": "structure",
       "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.chime#ResultMax",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
         "Status": {
           "target": "com.amazonaws.chime#ProxySessionStatus",
           "traits": {
@@ -6300,13 +6307,6 @@
             "smithy.api#documentation": "<p>The Amazon Chime voice connector ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.chime#ResultMax",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>",
-            "smithy.api#httpQuery": "max-results"
           }
         },
         "NextToken": {
@@ -6391,18 +6391,18 @@
             "smithy.api#required": {}
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "next-token"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.chime#ResultMax",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>",
             "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "next-token"
           }
         },
         "RoomId": {
@@ -6514,16 +6514,16 @@
     "com.amazonaws.chime#ListRoomsResponse": {
       "type": "structure",
       "members": {
-        "Rooms": {
-          "target": "com.amazonaws.chime#RoomList",
-          "traits": {
-            "smithy.api#documentation": "<p>The room details.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>"
+          }
+        },
+        "Rooms": {
+          "target": "com.amazonaws.chime#RoomList",
+          "traits": {
+            "smithy.api#documentation": "<p>The room details.</p>"
           }
         }
       }
@@ -6637,6 +6637,13 @@
     "com.amazonaws.chime#ListUsersRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        },
         "UserEmail": {
           "target": "com.amazonaws.chime#EmailAddress",
           "traits": {
@@ -6644,11 +6651,12 @@
             "smithy.api#httpQuery": "user-email"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.chime#String",
+        "AccountId": {
+          "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "next-token"
+            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "UserType": {
@@ -6663,14 +6671,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. Defaults to 100.</p>",
             "smithy.api#httpQuery": "max-results"
-          }
-        },
-        "AccountId": {
-          "target": "com.amazonaws.chime#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         }
       }
@@ -7012,16 +7012,16 @@
             "smithy.api#documentation": "<p>The turn control URL.</p>"
           }
         },
-        "ScreenSharingUrl": {
-          "target": "com.amazonaws.chime#UriType",
-          "traits": {
-            "smithy.api#documentation": "<p>The screen sharing URL.</p>"
-          }
-        },
         "ScreenDataUrl": {
           "target": "com.amazonaws.chime#UriType",
           "traits": {
             "smithy.api#documentation": "<p>The screen data URL.</p>"
+          }
+        },
+        "ScreenSharingUrl": {
+          "target": "com.amazonaws.chime#UriType",
+          "traits": {
+            "smithy.api#documentation": "<p>The screen sharing URL.</p>"
           }
         },
         "AudioHostUrl": {
@@ -7044,28 +7044,28 @@
     "com.amazonaws.chime#Meeting": {
       "type": "structure",
       "members": {
-        "MeetingId": {
-          "target": "com.amazonaws.chime#GuidString",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime SDK meeting ID.</p>"
-          }
-        },
         "ExternalMeetingId": {
           "target": "com.amazonaws.chime#ExternalMeetingIdType",
           "traits": {
             "smithy.api#documentation": "<p>The external meeting ID.</p>"
           }
         },
-        "MediaRegion": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Region in which to create the meeting. Available values: <code>ap-northeast-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.</p>"
-          }
-        },
         "MediaPlacement": {
           "target": "com.amazonaws.chime#MediaPlacement",
           "traits": {
             "smithy.api#documentation": "<p>The media placement for the meeting.</p>"
+          }
+        },
+        "MeetingId": {
+          "target": "com.amazonaws.chime#GuidString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime SDK meeting ID.</p>"
+          }
+        },
+        "MediaRegion": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region in which to create the meeting. Available values: <code>ap-northeast-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.</p>"
           }
         }
       },
@@ -7082,16 +7082,16 @@
     "com.amazonaws.chime#MeetingNotificationConfiguration": {
       "type": "structure",
       "members": {
-        "SnsTopicArn": {
-          "target": "com.amazonaws.chime#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The SNS topic ARN.</p>"
-          }
-        },
         "SqsQueueArn": {
           "target": "com.amazonaws.chime#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The SQS queue ARN.</p>"
+          }
+        },
+        "SnsTopicArn": {
+          "target": "com.amazonaws.chime#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The SNS topic ARN.</p>"
           }
         }
       },
@@ -7138,16 +7138,16 @@
             "smithy.api#documentation": "<p>The member ID (user ID or bot ID).</p>"
           }
         },
-        "FullName": {
-          "target": "com.amazonaws.chime#SensitiveString",
-          "traits": {
-            "smithy.api#documentation": "<p>The member name.</p>"
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>"
+          }
+        },
+        "FullName": {
+          "target": "com.amazonaws.chime#SensitiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>The member name.</p>"
           }
         },
         "MemberType": {
@@ -7170,16 +7170,16 @@
             "smithy.api#documentation": "<p>The error code.</p>"
           }
         },
-        "ErrorMessage": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The error message.</p>"
-          }
-        },
         "MemberId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The member ID.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>"
           }
         }
       },
@@ -7404,12 +7404,6 @@
     "com.amazonaws.chime#OriginationRoute": {
       "type": "structure",
       "members": {
-        "Protocol": {
-          "target": "com.amazonaws.chime#OriginationRouteProtocol",
-          "traits": {
-            "smithy.api#documentation": "<p>The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.</p>"
-          }
-        },
         "Weight": {
           "target": "com.amazonaws.chime#OriginationRouteWeight",
           "traits": {
@@ -7432,6 +7426,12 @@
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The FQDN or IP address to contact for origination traffic.</p>"
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.chime#OriginationRouteProtocol",
+          "traits": {
+            "smithy.api#documentation": "<p>The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.</p>"
           }
         }
       },
@@ -7521,6 +7521,12 @@
     "com.amazonaws.chime#PhoneNumber": {
       "type": "structure",
       "members": {
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Iso8601Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The phone number creation timestamp, in ISO 8601 format.</p>"
+          }
+        },
         "UpdatedTimestamp": {
           "target": "com.amazonaws.chime#Iso8601Timestamp",
           "traits": {
@@ -7531,6 +7537,12 @@
           "target": "com.amazonaws.chime#PhoneNumberType",
           "traits": {
             "smithy.api#documentation": "<p>The phone number type.</p>"
+          }
+        },
+        "CallingName": {
+          "target": "com.amazonaws.chime#CallingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The outbound calling name associated with the phone number.</p>"
           }
         },
         "PhoneNumberId": {
@@ -7545,16 +7557,10 @@
             "smithy.api#documentation": "<p>The phone number associations.</p>"
           }
         },
-        "CallingName": {
-          "target": "com.amazonaws.chime#CallingName",
+        "E164PhoneNumber": {
+          "target": "com.amazonaws.chime#E164PhoneNumber",
           "traits": {
-            "smithy.api#documentation": "<p>The outbound calling name associated with the phone number.</p>"
-          }
-        },
-        "CallingNameStatus": {
-          "target": "com.amazonaws.chime#CallingNameStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The outbound calling name status.</p>"
+            "smithy.api#documentation": "<p>The phone number, in E.164 format.</p>"
           }
         },
         "ProductType": {
@@ -7563,16 +7569,10 @@
             "smithy.api#documentation": "<p>The phone number product type.</p>"
           }
         },
-        "E164PhoneNumber": {
-          "target": "com.amazonaws.chime#E164PhoneNumber",
+        "CallingNameStatus": {
+          "target": "com.amazonaws.chime#CallingNameStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The phone number, in E.164 format.</p>"
-          }
-        },
-        "CreatedTimestamp": {
-          "target": "com.amazonaws.chime#Iso8601Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The phone number creation timestamp, in ISO 8601 format.</p>"
+            "smithy.api#documentation": "<p>The outbound calling name status.</p>"
           }
         },
         "Capabilities": {
@@ -7607,16 +7607,16 @@
             "smithy.api#documentation": "<p>The timestamp of the phone number association, in ISO 8601 format.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.chime#PhoneNumberAssociationName",
-          "traits": {
-            "smithy.api#documentation": "<p>Defines the association with an Amazon Chime account ID, user ID, Amazon Chime Voice\n      Connector ID, or Amazon Chime Voice Connector group ID.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>Contains the ID for the entity specified in Name.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#PhoneNumberAssociationName",
+          "traits": {
+            "smithy.api#documentation": "<p>Defines the association with an Amazon Chime account ID, user ID, Amazon Chime Voice\n      Connector ID, or Amazon Chime Voice Connector group ID.</p>"
           }
         }
       },
@@ -7656,6 +7656,12 @@
     "com.amazonaws.chime#PhoneNumberCapabilities": {
       "type": "structure",
       "members": {
+        "OutboundCall": {
+          "target": "com.amazonaws.chime#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows or denies outbound calling for the specified phone number.</p>"
+          }
+        },
         "InboundSMS": {
           "target": "com.amazonaws.chime#NullableBoolean",
           "traits": {
@@ -7668,22 +7674,16 @@
             "smithy.api#documentation": "<p>Allows or denies inbound calling for the specified phone number.</p>"
           }
         },
-        "OutboundCall": {
+        "OutboundSMS": {
           "target": "com.amazonaws.chime#NullableBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>Allows or denies outbound calling for the specified phone number.</p>"
+            "smithy.api#documentation": "<p>Allows or denies outbound SMS messaging for the specified phone number.</p>"
           }
         },
         "OutboundMMS": {
           "target": "com.amazonaws.chime#NullableBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Allows or denies outbound MMS messaging for the specified phone number.</p>"
-          }
-        },
-        "OutboundSMS": {
-          "target": "com.amazonaws.chime#NullableBoolean",
-          "traits": {
-            "smithy.api#documentation": "<p>Allows or denies outbound SMS messaging for the specified phone number.</p>"
           }
         },
         "InboundMMS": {
@@ -7754,16 +7754,16 @@
             "smithy.api#documentation": "<p>The ordered phone number details, such as the phone number in E.164 format and the\n     phone number status.</p>"
           }
         },
-        "CreatedTimestamp": {
-          "target": "com.amazonaws.chime#Iso8601Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The phone number order creation timestamp, in ISO 8601 format.</p>"
-          }
-        },
         "UpdatedTimestamp": {
           "target": "com.amazonaws.chime#Iso8601Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The updated phone number order timestamp, in ISO 8601 format.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Iso8601Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The phone number order creation timestamp, in ISO 8601 format.</p>"
           }
         },
         "ProductType": {
@@ -7925,16 +7925,16 @@
             "smithy.api#documentation": "<p>The phone number to route calls to after a proxy session expires.</p>"
           }
         },
-        "DefaultSessionExpiryMinutes": {
-          "target": "com.amazonaws.chime#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The default number of minutes allowed for proxy sessions.</p>"
-          }
-        },
         "Disabled": {
           "target": "com.amazonaws.chime#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>When true, stops proxy sessions from being created on the specified Amazon Chime Voice Connector.</p>"
+          }
+        },
+        "DefaultSessionExpiryMinutes": {
+          "target": "com.amazonaws.chime#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The default number of minutes allowed for proxy sessions.</p>"
           }
         },
         "PhoneNumberCountries": {
@@ -7951,10 +7951,52 @@
     "com.amazonaws.chime#ProxySession": {
       "type": "structure",
       "members": {
-        "Capabilities": {
-          "target": "com.amazonaws.chime#CapabilityList",
+        "NumberSelectionBehavior": {
+          "target": "com.amazonaws.chime#NumberSelectionBehavior",
           "traits": {
-            "smithy.api#documentation": "<p>The proxy session capabilities.</p>"
+            "smithy.api#documentation": "<p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#String128",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the proxy session.</p>"
+          }
+        },
+        "UpdatedTimestamp": {
+          "target": "com.amazonaws.chime#Iso8601Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated timestamp, in ISO 8601 format.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.chime#ProxySessionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the proxy session.</p>"
+          }
+        },
+        "GeoMatchLevel": {
+          "target": "com.amazonaws.chime#GeoMatchLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>"
+          }
+        },
+        "ProxySessionId": {
+          "target": "com.amazonaws.chime#NonEmptyString128",
+          "traits": {
+            "smithy.api#documentation": "<p>The proxy session ID.</p>"
+          }
+        },
+        "ExpiryMinutes": {
+          "target": "com.amazonaws.chime#PositiveInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of minutes allowed for the proxy session.</p>"
+          }
+        },
+        "VoiceConnectorId": {
+          "target": "com.amazonaws.chime#NonEmptyString128",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime voice connector ID.</p>"
           }
         },
         "Participants": {
@@ -7969,6 +8011,12 @@
             "smithy.api#documentation": "<p>The country and area code for the proxy phone number.</p>"
           }
         },
+        "Capabilities": {
+          "target": "com.amazonaws.chime#CapabilityList",
+          "traits": {
+            "smithy.api#documentation": "<p>The proxy session capabilities.</p>"
+          }
+        },
         "EndedTimestamp": {
           "target": "com.amazonaws.chime#Iso8601Timestamp",
           "traits": {
@@ -7979,54 +8027,6 @@
           "target": "com.amazonaws.chime#Iso8601Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The created timestamp, in ISO 8601 format.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.chime#String128",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the proxy session.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.chime#ProxySessionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the proxy session.</p>"
-          }
-        },
-        "UpdatedTimestamp": {
-          "target": "com.amazonaws.chime#Iso8601Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The updated timestamp, in ISO 8601 format.</p>"
-          }
-        },
-        "NumberSelectionBehavior": {
-          "target": "com.amazonaws.chime#NumberSelectionBehavior",
-          "traits": {
-            "smithy.api#documentation": "<p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>"
-          }
-        },
-        "ProxySessionId": {
-          "target": "com.amazonaws.chime#NonEmptyString128",
-          "traits": {
-            "smithy.api#documentation": "<p>The proxy session ID.</p>"
-          }
-        },
-        "GeoMatchLevel": {
-          "target": "com.amazonaws.chime#GeoMatchLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>"
-          }
-        },
-        "ExpiryMinutes": {
-          "target": "com.amazonaws.chime#PositiveInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of minutes allowed for the proxy session.</p>"
-          }
-        },
-        "VoiceConnectorId": {
-          "target": "com.amazonaws.chime#NonEmptyString128",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime voice connector ID.</p>"
           }
         }
       },
@@ -8492,12 +8492,6 @@
             "smithy.api#documentation": "<p>When true, stops proxy sessions from being created on the specified Amazon Chime Voice Connector.</p>"
           }
         },
-        "FallBackPhoneNumber": {
-          "target": "com.amazonaws.chime#E164PhoneNumber",
-          "traits": {
-            "smithy.api#documentation": "<p>The phone number to route calls to after a proxy session expires.</p>"
-          }
-        },
         "VoiceConnectorId": {
           "target": "com.amazonaws.chime#NonEmptyString128",
           "traits": {
@@ -8511,6 +8505,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The default number of minutes allowed for proxy sessions.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "FallBackPhoneNumber": {
+          "target": "com.amazonaws.chime#E164PhoneNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The phone number to route calls to after a proxy session expires.</p>"
           }
         },
         "PhoneNumberPoolCountries": {
@@ -8858,18 +8858,18 @@
             "smithy.api#required": {}
           }
         },
-        "AccountId": {
-          "target": "com.amazonaws.chime#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "RoomId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The room ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.chime#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -9043,11 +9043,11 @@
     "com.amazonaws.chime#ResourceLimitExceededException": {
       "type": "structure",
       "members": {
-        "Code": {
-          "target": "com.amazonaws.chime#ErrorCode"
-        },
         "Message": {
           "target": "com.amazonaws.chime#String"
+        },
+        "Code": {
+          "target": "com.amazonaws.chime#ErrorCode"
         }
       },
       "traits": {
@@ -9225,6 +9225,12 @@
         "Member": {
           "target": "com.amazonaws.chime#Member"
         },
+        "RoomId": {
+          "target": "com.amazonaws.chime#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The room ID.</p>"
+          }
+        },
         "UpdatedTimestamp": {
           "target": "com.amazonaws.chime#Iso8601Timestamp",
           "traits": {
@@ -9235,12 +9241,6 @@
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the user that invited the room member.</p>"
-          }
-        },
-        "RoomId": {
-          "target": "com.amazonaws.chime#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The room ID.</p>"
           }
         }
       },
@@ -9333,13 +9333,6 @@
             "smithy.api#httpQuery": "next-token"
           }
         },
-        "Country": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The country used to filter results.</p>",
-            "smithy.api#httpQuery": "country"
-          }
-        },
         "TollFreePrefix": {
           "target": "com.amazonaws.chime#TollFreePrefix",
           "traits": {
@@ -9347,11 +9340,18 @@
             "smithy.api#httpQuery": "toll-free-prefix"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.chime#PhoneNumberMaxResults",
+        "Country": {
+          "target": "com.amazonaws.chime#String",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>",
-            "smithy.api#httpQuery": "max-results"
+            "smithy.api#documentation": "<p>The country used to filter results.</p>",
+            "smithy.api#httpQuery": "country"
+          }
+        },
+        "City": {
+          "target": "com.amazonaws.chime#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The city used to filter results.</p>",
+            "smithy.api#httpQuery": "city"
           }
         },
         "State": {
@@ -9361,18 +9361,18 @@
             "smithy.api#httpQuery": "state"
           }
         },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#PhoneNumberMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
         "AreaCode": {
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The area code used to filter results.</p>",
             "smithy.api#httpQuery": "area-code"
-          }
-        },
-        "City": {
-          "target": "com.amazonaws.chime#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The city used to filter results.</p>",
-            "smithy.api#httpQuery": "city"
           }
         }
       }
@@ -9462,16 +9462,16 @@
             "smithy.api#required": {}
           }
         },
-        "StreamingNotificationTargets": {
-          "target": "com.amazonaws.chime#StreamingNotificationTargetList",
-          "traits": {
-            "smithy.api#documentation": "<p>The streaming notification targets.</p>"
-          }
-        },
         "Disabled": {
           "target": "com.amazonaws.chime#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>When true, media streaming to Amazon Kinesis is turned off.</p>"
+          }
+        },
+        "StreamingNotificationTargets": {
+          "target": "com.amazonaws.chime#StreamingNotificationTargetList",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming notification targets.</p>"
           }
         }
       },
@@ -9507,8 +9507,7 @@
       }
     },
     "com.amazonaws.chime#String": {
-      "type": "string",
-      "traits": {}
+      "type": "string"
     },
     "com.amazonaws.chime#String128": {
       "type": "string",
@@ -9598,18 +9597,18 @@
             "smithy.api#required": {}
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.chime#AttendeeTagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tag key-value pairs.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "AttendeeId": {
           "target": "com.amazonaws.chime#GuidString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime SDK attendee ID.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.chime#AttendeeTagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag key-value pairs.</p>",
             "smithy.api#required": {}
           }
         }
@@ -9746,17 +9745,17 @@
     "com.amazonaws.chime#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "ResourceARN": {
-          "target": "com.amazonaws.chime#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The resource ARN.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.chime#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tag key-value pairs.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceARN": {
+          "target": "com.amazonaws.chime#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource ARN.</p>",
             "smithy.api#required": {}
           }
         }
@@ -9804,12 +9803,6 @@
     "com.amazonaws.chime#Termination": {
       "type": "structure",
       "members": {
-        "Disabled": {
-          "target": "com.amazonaws.chime#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>When termination settings are disabled, outbound calls can not be made.</p>"
-          }
-        },
         "CallingRegions": {
           "target": "com.amazonaws.chime#CallingRegionList",
           "traits": {
@@ -9820,6 +9813,12 @@
           "target": "com.amazonaws.chime#E164PhoneNumber",
           "traits": {
             "smithy.api#documentation": "<p>The default caller ID phone number.</p>"
+          }
+        },
+        "Disabled": {
+          "target": "com.amazonaws.chime#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>When termination settings are disabled, outbound calls can not be made.</p>"
           }
         },
         "CpsLimit": {
@@ -9862,11 +9861,11 @@
     "com.amazonaws.chime#ThrottledClientException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.chime#String"
-        },
         "Code": {
           "target": "com.amazonaws.chime#ErrorCode"
+        },
+        "Message": {
+          "target": "com.amazonaws.chime#String"
         }
       },
       "traits": {
@@ -10649,6 +10648,14 @@
     "com.amazonaws.chime#UpdateBotRequest": {
       "type": "structure",
       "members": {
+        "AccountId": {
+          "target": "com.amazonaws.chime#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "BotId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
@@ -10661,14 +10668,6 @@
           "target": "com.amazonaws.chime#NullableBoolean",
           "traits": {
             "smithy.api#documentation": "<p>When true, stops the specified bot from running in your account.</p>"
-          }
-        },
-        "AccountId": {
-          "target": "com.amazonaws.chime#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         }
       }
@@ -10721,17 +10720,17 @@
     "com.amazonaws.chime#UpdateGlobalSettingsRequest": {
       "type": "structure",
       "members": {
-        "VoiceConnector": {
-          "target": "com.amazonaws.chime#VoiceConnectorSettings",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime Voice Connector settings.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "BusinessCalling": {
           "target": "com.amazonaws.chime#BusinessCallingSettings",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime Business Calling settings.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VoiceConnector": {
+          "target": "com.amazonaws.chime#VoiceConnectorSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime Voice Connector settings.</p>",
             "smithy.api#required": {}
           }
         }
@@ -10780,16 +10779,16 @@
     "com.amazonaws.chime#UpdatePhoneNumberRequest": {
       "type": "structure",
       "members": {
-        "CallingName": {
-          "target": "com.amazonaws.chime#CallingName",
-          "traits": {
-            "smithy.api#documentation": "<p>The outbound calling name associated with the phone number.</p>"
-          }
-        },
         "ProductType": {
           "target": "com.amazonaws.chime#PhoneNumberProductType",
           "traits": {
             "smithy.api#documentation": "<p>The product type.</p>"
+          }
+        },
+        "CallingName": {
+          "target": "com.amazonaws.chime#CallingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The outbound calling name associated with the phone number.</p>"
           }
         },
         "PhoneNumberId": {
@@ -10950,18 +10949,18 @@
             "smithy.api#required": {}
           }
         },
+        "ExpiryMinutes": {
+          "target": "com.amazonaws.chime#PositiveInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of minutes allowed for the proxy session.</p>"
+          }
+        },
         "VoiceConnectorId": {
           "target": "com.amazonaws.chime#NonEmptyString128",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime voice connector ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "ExpiryMinutes": {
-          "target": "com.amazonaws.chime#PositiveInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of minutes allowed for the proxy session.</p>"
           }
         }
       }
@@ -11074,18 +11073,18 @@
             "smithy.api#documentation": "<p>The role of the member.</p>"
           }
         },
-        "RoomId": {
-          "target": "com.amazonaws.chime#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The room ID.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "RoomId": {
+          "target": "com.amazonaws.chime#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The room ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11192,22 +11191,16 @@
             "smithy.api#required": {}
           }
         },
-        "AlexaForBusinessMetadata": {
-          "target": "com.amazonaws.chime#AlexaForBusinessMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>The Alexa for Business metadata.</p>"
-          }
-        },
         "LicenseType": {
           "target": "com.amazonaws.chime#License",
           "traits": {
             "smithy.api#documentation": "<p>The user license type to update. This must be a supported license type for the Amazon\n       Chime account that the user belongs to.</p>"
           }
         },
-        "UserType": {
-          "target": "com.amazonaws.chime#UserType",
+        "AlexaForBusinessMetadata": {
+          "target": "com.amazonaws.chime#AlexaForBusinessMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>The user type.</p>"
+            "smithy.api#documentation": "<p>The Alexa for Business metadata.</p>"
           }
         },
         "AccountId": {
@@ -11216,6 +11209,12 @@
             "smithy.api#documentation": "<p>The Amazon Chime account ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "UserType": {
+          "target": "com.amazonaws.chime#UserType",
+          "traits": {
+            "smithy.api#documentation": "<p>The user type.</p>"
           }
         }
       }
@@ -11316,18 +11315,18 @@
     "com.amazonaws.chime#UpdateUserSettingsRequest": {
       "type": "structure",
       "members": {
-        "UserSettings": {
-          "target": "com.amazonaws.chime#UserSettings",
-          "traits": {
-            "smithy.api#documentation": "<p>The user settings to update.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "UserId": {
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The user ID.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "UserSettings": {
+          "target": "com.amazonaws.chime#UserSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The user settings to update.</p>",
             "smithy.api#required": {}
           }
         },
@@ -11434,18 +11433,18 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.chime#VoiceConnectorGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Amazon Chime Voice Connector group.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "VoiceConnectorGroupId": {
           "target": "com.amazonaws.chime#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime Voice Connector group ID.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#VoiceConnectorGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon Chime Voice Connector group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -11465,17 +11464,17 @@
     "com.amazonaws.chime#UpdateVoiceConnectorRequest": {
       "type": "structure",
       "members": {
-        "RequireEncryption": {
-          "target": "com.amazonaws.chime#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>When enabled, requires encryption for the Amazon Chime Voice Connector.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.chime#VoiceConnectorName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon Chime Voice Connector.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RequireEncryption": {
+          "target": "com.amazonaws.chime#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>When enabled, requires encryption for the Amazon Chime Voice Connector.</p>",
             "smithy.api#required": {}
           }
         },
@@ -11512,42 +11511,6 @@
     "com.amazonaws.chime#User": {
       "type": "structure",
       "members": {
-        "LicenseType": {
-          "target": "com.amazonaws.chime#License",
-          "traits": {
-            "smithy.api#documentation": "<p>The license type for the user.</p>"
-          }
-        },
-        "AlexaForBusinessMetadata": {
-          "target": "com.amazonaws.chime#AlexaForBusinessMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>The Alexa for Business metadata.</p>"
-          }
-        },
-        "PrimaryEmail": {
-          "target": "com.amazonaws.chime#EmailAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The primary email address of the user.</p>"
-          }
-        },
-        "PrimaryProvisionedNumber": {
-          "target": "com.amazonaws.chime#SensitiveString",
-          "traits": {
-            "smithy.api#documentation": "<p>The primary phone number associated with the user.</p>"
-          }
-        },
-        "UserType": {
-          "target": "com.amazonaws.chime#UserType",
-          "traits": {
-            "smithy.api#documentation": "<p>The user type.</p>"
-          }
-        },
-        "UserInvitationStatus": {
-          "target": "com.amazonaws.chime#InviteStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The user invite status.</p>"
-          }
-        },
         "InvitedOn": {
           "target": "com.amazonaws.chime#Iso8601Timestamp",
           "traits": {
@@ -11589,6 +11552,42 @@
           "traits": {
             "smithy.api#documentation": "<p>The user ID.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "LicenseType": {
+          "target": "com.amazonaws.chime#License",
+          "traits": {
+            "smithy.api#documentation": "<p>The license type for the user.</p>"
+          }
+        },
+        "PrimaryProvisionedNumber": {
+          "target": "com.amazonaws.chime#SensitiveString",
+          "traits": {
+            "smithy.api#documentation": "<p>The primary phone number associated with the user.</p>"
+          }
+        },
+        "PrimaryEmail": {
+          "target": "com.amazonaws.chime#EmailAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The primary email address of the user.</p>"
+          }
+        },
+        "AlexaForBusinessMetadata": {
+          "target": "com.amazonaws.chime#AlexaForBusinessMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The Alexa for Business metadata.</p>"
+          }
+        },
+        "UserType": {
+          "target": "com.amazonaws.chime#UserType",
+          "traits": {
+            "smithy.api#documentation": "<p>The user type.</p>"
+          }
+        },
+        "UserInvitationStatus": {
+          "target": "com.amazonaws.chime#InviteStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The user invite status.</p>"
           }
         }
       },
@@ -11697,16 +11696,16 @@
             "smithy.api#documentation": "<p>The Amazon Chime Voice Connector ID.</p>"
           }
         },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Iso8601Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Chime Voice Connector creation timestamp, in ISO 8601 format.</p>"
+          }
+        },
         "UpdatedTimestamp": {
           "target": "com.amazonaws.chime#Iso8601Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The updated Amazon Chime Voice Connector timestamp, in ISO 8601 format.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.chime#VoiceConnectorName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the Amazon Chime Voice Connector.</p>"
           }
         },
         "RequireEncryption": {
@@ -11721,16 +11720,16 @@
             "smithy.api#documentation": "<p>The AWS Region in which the Amazon Chime Voice Connector is created. Default: <code>us-east-1</code>.</p>"
           }
         },
+        "Name": {
+          "target": "com.amazonaws.chime#VoiceConnectorName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon Chime Voice Connector.</p>"
+          }
+        },
         "OutboundHostName": {
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The outbound host name for the Amazon Chime Voice Connector.</p>"
-          }
-        },
-        "CreatedTimestamp": {
-          "target": "com.amazonaws.chime#Iso8601Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime Voice Connector creation timestamp, in ISO 8601 format.</p>"
           }
         }
       },

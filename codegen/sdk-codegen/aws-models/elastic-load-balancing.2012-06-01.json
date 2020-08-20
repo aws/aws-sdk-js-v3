@@ -38,11 +38,10 @@
             "smithy.api#documentation": "<p>The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.</p>\n        <p>Default: 60 minutes</p>"
           }
         },
-        "Enabled": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessLogEnabled",
+        "S3BucketName": {
+          "target": "com.amazonaws.elasticloadbalancing#S3BucketName",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether access logs are enabled for the load balancer.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket where the access logs are stored.</p>"
           }
         },
         "S3BucketPrefix": {
@@ -51,10 +50,11 @@
             "smithy.api#documentation": "<p>The logical hierarchy you created for your Amazon S3 bucket, for example <code>my-bucket-prefix/prod</code>.  \n            If the prefix is not provided, the log is placed at the root level of the bucket.</p>"
           }
         },
-        "S3BucketName": {
-          "target": "com.amazonaws.elasticloadbalancing#S3BucketName",
+        "Enabled": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessLogEnabled",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket where the access logs are stored.</p>"
+            "smithy.api#documentation": "<p>Specifies whether access logs are enabled for the load balancer.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -96,17 +96,17 @@
     "com.amazonaws.elasticloadbalancing#AddAvailabilityZonesInput": {
       "type": "structure",
       "members": {
-        "LoadBalancerName": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "AvailabilityZones": {
           "target": "com.amazonaws.elasticloadbalancing#AvailabilityZones",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zones. These must be in the same region as the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
             "smithy.api#required": {}
           }
         }
@@ -285,17 +285,17 @@
     "com.amazonaws.elasticloadbalancing#ApplySecurityGroupsToLoadBalancerInput": {
       "type": "structure",
       "members": {
-        "LoadBalancerName": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SecurityGroups": {
           "target": "com.amazonaws.elasticloadbalancing#SecurityGroups",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
             "smithy.api#required": {}
           }
         }
@@ -460,17 +460,17 @@
     "com.amazonaws.elasticloadbalancing#ConfigureHealthCheckInput": {
       "type": "structure",
       "members": {
-        "LoadBalancerName": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "HealthCheck": {
           "target": "com.amazonaws.elasticloadbalancing#HealthCheck",
           "traits": {
             "smithy.api#documentation": "<p>The configuration information.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
             "smithy.api#required": {}
           }
         }
@@ -550,6 +550,32 @@
     "com.amazonaws.elasticloadbalancing#CreateAccessPointInput": {
       "type": "structure",
       "members": {
+        "LoadBalancerName": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the load balancer.</p>\n        <p>This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.elasticloadbalancing#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tags to assign to the load balancer.</p>\n        <p>For more information about tagging your load balancer, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html\">Tag Your Classic Load Balancer</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>"
+          }
+        },
+        "Listeners": {
+          "target": "com.amazonaws.elasticloadbalancing#Listeners",
+          "traits": {
+            "smithy.api#documentation": "<p>The listeners.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html\">Listeners for Your Classic Load Balancer</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SecurityGroups": {
+          "target": "com.amazonaws.elasticloadbalancing#SecurityGroups",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the security groups to assign to the load balancer.</p>"
+          }
+        },
         "Scheme": {
           "target": "com.amazonaws.elasticloadbalancing#LoadBalancerScheme",
           "traits": {
@@ -566,32 +592,6 @@
           "target": "com.amazonaws.elasticloadbalancing#AvailabilityZones",
           "traits": {
             "smithy.api#documentation": "<p>One or more Availability Zones from the same region as the load balancer.</p>\n        <p>You must specify at least one Availability Zone.</p>\n        <p>You can add more Availability Zones after you create the load balancer using \n            <a>EnableAvailabilityZonesForLoadBalancer</a>.</p>"
-          }
-        },
-        "Listeners": {
-          "target": "com.amazonaws.elasticloadbalancing#Listeners",
-          "traits": {
-            "smithy.api#documentation": "<p>The listeners.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html\">Listeners for Your Classic Load Balancer</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "LoadBalancerName": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the load balancer.</p>\n        <p>This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.elasticloadbalancing#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of tags to assign to the load balancer.</p>\n        <p>For more information about tagging your load balancer, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html\">Tag Your Classic Load Balancer</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>"
-          }
-        },
-        "SecurityGroups": {
-          "target": "com.amazonaws.elasticloadbalancing#SecurityGroups",
-          "traits": {
-            "smithy.api#documentation": "<p>The IDs of the security groups to assign to the load balancer.</p>"
           }
         }
       },
@@ -711,17 +711,17 @@
             "smithy.api#required": {}
           }
         },
+        "CookieExpirationPeriod": {
+          "target": "com.amazonaws.elasticloadbalancing#CookieExpirationPeriod",
+          "traits": {
+            "smithy.api#documentation": "<p>The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.</p>"
+          }
+        },
         "LoadBalancerName": {
           "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "CookieExpirationPeriod": {
-          "target": "com.amazonaws.elasticloadbalancing#CookieExpirationPeriod",
-          "traits": {
-            "smithy.api#documentation": "<p>The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.</p>"
           }
         }
       },
@@ -876,17 +876,18 @@
     "com.amazonaws.elasticloadbalancing#CreateLoadBalancerPolicyInput": {
       "type": "structure",
       "members": {
+        "LoadBalancerName": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "PolicyName": {
           "target": "com.amazonaws.elasticloadbalancing#PolicyName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "PolicyAttributes": {
-          "target": "com.amazonaws.elasticloadbalancing#PolicyAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>The policy attributes.</p>"
           }
         },
         "PolicyTypeName": {
@@ -896,11 +897,10 @@
             "smithy.api#required": {}
           }
         },
-        "LoadBalancerName": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
+        "PolicyAttributes": {
+          "target": "com.amazonaws.elasticloadbalancing#PolicyAttributes",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The policy attributes.</p>"
           }
         }
       },
@@ -979,17 +979,17 @@
     "com.amazonaws.elasticloadbalancing#DeleteLoadBalancerListenerInput": {
       "type": "structure",
       "members": {
-        "LoadBalancerName": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "LoadBalancerPorts": {
           "target": "com.amazonaws.elasticloadbalancing#Ports",
           "traits": {
             "smithy.api#documentation": "<p>The client port numbers of the listeners.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the load balancer.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1087,17 +1087,17 @@
     "com.amazonaws.elasticloadbalancing#DeregisterEndPointsInput": {
       "type": "structure",
       "members": {
-        "Instances": {
-          "target": "com.amazonaws.elasticloadbalancing#Instances",
-          "traits": {
-            "smithy.api#documentation": "<p>The IDs of the instances.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "LoadBalancerName": {
           "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Instances": {
+          "target": "com.amazonaws.elasticloadbalancing#Instances",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the instances.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1143,12 +1143,6 @@
     "com.amazonaws.elasticloadbalancing#DescribeAccessPointsInput": {
       "type": "structure",
       "members": {
-        "PageSize": {
-          "target": "com.amazonaws.elasticloadbalancing#PageSize",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return with this call (a number from 1 to 400). The default is 400.</p>"
-          }
-        },
         "LoadBalancerNames": {
           "target": "com.amazonaws.elasticloadbalancing#LoadBalancerNames",
           "traits": {
@@ -1159,6 +1153,12 @@
           "target": "com.amazonaws.elasticloadbalancing#Marker",
           "traits": {
             "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous call.)</p>"
+          }
+        },
+        "PageSize": {
+          "target": "com.amazonaws.elasticloadbalancing#PageSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with this call (a number from 1 to 400). The default is 400.</p>"
           }
         }
       },
@@ -1201,16 +1201,16 @@
     "com.amazonaws.elasticloadbalancing#DescribeAccountLimitsInput": {
       "type": "structure",
       "members": {
-        "Marker": {
-          "target": "com.amazonaws.elasticloadbalancing#Marker",
-          "traits": {
-            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous call.)</p>"
-          }
-        },
         "PageSize": {
           "target": "com.amazonaws.elasticloadbalancing#PageSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with this call.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.elasticloadbalancing#Marker",
+          "traits": {
+            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous call.)</p>"
           }
         }
       }
@@ -1218,16 +1218,16 @@
     "com.amazonaws.elasticloadbalancing#DescribeAccountLimitsOutput": {
       "type": "structure",
       "members": {
-        "Limits": {
-          "target": "com.amazonaws.elasticloadbalancing#Limits",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the limits.</p>"
-          }
-        },
         "NextMarker": {
           "target": "com.amazonaws.elasticloadbalancing#Marker",
           "traits": {
             "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>"
+          }
+        },
+        "Limits": {
+          "target": "com.amazonaws.elasticloadbalancing#Limits",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the limits.</p>"
           }
         }
       }
@@ -1235,17 +1235,17 @@
     "com.amazonaws.elasticloadbalancing#DescribeEndPointStateInput": {
       "type": "structure",
       "members": {
-        "Instances": {
-          "target": "com.amazonaws.elasticloadbalancing#Instances",
-          "traits": {
-            "smithy.api#documentation": "<p>The IDs of the instances.</p>"
-          }
-        },
         "LoadBalancerName": {
           "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Instances": {
+          "target": "com.amazonaws.elasticloadbalancing#Instances",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the instances.</p>"
           }
         }
       },
@@ -1532,17 +1532,17 @@
     "com.amazonaws.elasticloadbalancing#DetachLoadBalancerFromSubnetsInput": {
       "type": "structure",
       "members": {
-        "Subnets": {
-          "target": "com.amazonaws.elasticloadbalancing#Subnets",
-          "traits": {
-            "smithy.api#documentation": "<p>The IDs of the subnets.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "LoadBalancerName": {
           "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Subnets": {
+          "target": "com.amazonaws.elasticloadbalancing#Subnets",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the subnets.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1783,10 +1783,10 @@
             "smithy.api#required": {}
           }
         },
-        "Interval": {
-          "target": "com.amazonaws.elasticloadbalancing#HealthCheckInterval",
+        "HealthyThreshold": {
+          "target": "com.amazonaws.elasticloadbalancing#HealthyThreshold",
           "traits": {
-            "smithy.api#documentation": "<p>The approximate interval, in seconds, between health checks of an individual instance.</p>",
+            "smithy.api#documentation": "<p>The number of consecutive health checks successes required before moving the instance to the <code>Healthy</code> state.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1804,10 +1804,10 @@
             "smithy.api#required": {}
           }
         },
-        "HealthyThreshold": {
-          "target": "com.amazonaws.elasticloadbalancing#HealthyThreshold",
+        "Interval": {
+          "target": "com.amazonaws.elasticloadbalancing#HealthCheckInterval",
           "traits": {
-            "smithy.api#documentation": "<p>The number of consecutive health checks successes required before moving the instance to the <code>Healthy</code> state.</p>",
+            "smithy.api#documentation": "<p>The approximate interval, in seconds, between health checks of an individual instance.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1891,12 +1891,6 @@
             "smithy.api#documentation": "<p>A description of the instance state. This string can contain one or more of the following messages.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>N/A</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>A transient error occurred. Please try again later.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance has failed at least the UnhealthyThreshold number of health checks consecutively.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance has not passed the configured HealthyThreshold number of health checks consecutively.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance registration is still in progress.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is in the EC2 Availability Zone for which LoadBalancer is not configured to route traffic to.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is not currently registered with the LoadBalancer.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance deregistration currently in progress.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Disable Availability Zone is currently in progress.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is in pending state.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is in stopped state.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is in terminated state.</code>\n               </p>\n            </li>\n         </ul>"
           }
         },
-        "ReasonCode": {
-          "target": "com.amazonaws.elasticloadbalancing#ReasonCode",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the cause of <code>OutOfService</code> instances.\n         Specifically, whether the cause is Elastic Load Balancing or the instance.</p>\n        <p>Valid values: <code>ELB</code> | <code>Instance</code> | <code>N/A</code>\n         </p>"
-          }
-        },
         "InstanceId": {
           "target": "com.amazonaws.elasticloadbalancing#InstanceId",
           "traits": {
@@ -1907,6 +1901,12 @@
           "target": "com.amazonaws.elasticloadbalancing#State",
           "traits": {
             "smithy.api#documentation": "<p>The current state of the instance.</p>\n        <p>Valid values: <code>InService</code> | <code>OutOfService</code> | <code>Unknown</code>\n         </p>"
+          }
+        },
+        "ReasonCode": {
+          "target": "com.amazonaws.elasticloadbalancing#ReasonCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the cause of <code>OutOfService</code> instances.\n         Specifically, whether the cause is Elastic Load Balancing or the instance.</p>\n        <p>Valid values: <code>ELB</code> | <code>Instance</code> | <code>N/A</code>\n         </p>"
           }
         }
       },
@@ -2000,16 +2000,16 @@
     "com.amazonaws.elasticloadbalancing#LBCookieStickinessPolicy": {
       "type": "structure",
       "members": {
-        "PolicyName": {
-          "target": "com.amazonaws.elasticloadbalancing#PolicyName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the policy. This name must be unique within the set of policies for this load balancer.</p>"
-          }
-        },
         "CookieExpirationPeriod": {
           "target": "com.amazonaws.elasticloadbalancing#CookieExpirationPeriod",
           "traits": {
             "smithy.api#documentation": "<p>The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.</p>"
+          }
+        },
+        "PolicyName": {
+          "target": "com.amazonaws.elasticloadbalancing#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the policy. This name must be unique within the set of policies for this load balancer.</p>"
           }
         }
       },
@@ -2046,23 +2046,23 @@
     "com.amazonaws.elasticloadbalancing#Listener": {
       "type": "structure",
       "members": {
-        "InstanceProtocol": {
-          "target": "com.amazonaws.elasticloadbalancing#Protocol",
-          "traits": {
-            "smithy.api#documentation": "<p>The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.</p>\n   \t    <p>If the front-end protocol is HTTP, HTTPS, TCP, or SSL, <code>InstanceProtocol</code> must be at the same protocol.</p>\n   \t    <p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is secure,\n   \t       (HTTPS or SSL), the listener's <code>InstanceProtocol</code> must also be secure.</p> \n        <p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is HTTP or TCP,\n           the listener's <code>InstanceProtocol</code> must be HTTP or TCP.</p>"
-          }
-        },
-        "Protocol": {
-          "target": "com.amazonaws.elasticloadbalancing#Protocol",
-          "traits": {
-            "smithy.api#documentation": "<p>The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SSLCertificateId": {
           "target": "com.amazonaws.elasticloadbalancing#SSLCertificateId",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the server certificate.</p>"
+          }
+        },
+        "LoadBalancerPort": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessPointPort",
+          "traits": {
+            "smithy.api#documentation": "<p>The port on which the load balancer is listening. On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceProtocol": {
+          "target": "com.amazonaws.elasticloadbalancing#Protocol",
+          "traits": {
+            "smithy.api#documentation": "<p>The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.</p>\n   \t    <p>If the front-end protocol is HTTP, HTTPS, TCP, or SSL, <code>InstanceProtocol</code> must be at the same protocol.</p>\n   \t    <p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is secure,\n   \t       (HTTPS or SSL), the listener's <code>InstanceProtocol</code> must also be secure.</p> \n        <p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is HTTP or TCP,\n           the listener's <code>InstanceProtocol</code> must be HTTP or TCP.</p>"
           }
         },
         "InstancePort": {
@@ -2072,10 +2072,10 @@
             "smithy.api#required": {}
           }
         },
-        "LoadBalancerPort": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessPointPort",
+        "Protocol": {
+          "target": "com.amazonaws.elasticloadbalancing#Protocol",
           "traits": {
-            "smithy.api#documentation": "<p>The port on which the load balancer is listening. On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.</p>",
+            "smithy.api#documentation": "<p>The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2087,16 +2087,16 @@
     "com.amazonaws.elasticloadbalancing#ListenerDescription": {
       "type": "structure",
       "members": {
-        "PolicyNames": {
-          "target": "com.amazonaws.elasticloadbalancing#PolicyNames",
-          "traits": {
-            "smithy.api#documentation": "<p>The policies. If there are no policies enabled, the list is empty.</p>"
-          }
-        },
         "Listener": {
           "target": "com.amazonaws.elasticloadbalancing#Listener",
           "traits": {
             "smithy.api#documentation": "<p>The listener.</p>"
+          }
+        },
+        "PolicyNames": {
+          "target": "com.amazonaws.elasticloadbalancing#PolicyNames",
+          "traits": {
+            "smithy.api#documentation": "<p>The policies. If there are no policies enabled, the list is empty.</p>"
           }
         }
       },
@@ -2145,24 +2145,6 @@
     "com.amazonaws.elasticloadbalancing#LoadBalancerAttributes": {
       "type": "structure",
       "members": {
-        "CrossZoneLoadBalancing": {
-          "target": "com.amazonaws.elasticloadbalancing#CrossZoneLoadBalancing",
-          "traits": {
-            "smithy.api#documentation": "<p>If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.</p> \n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html\">Configure Cross-Zone Load Balancing</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>"
-          }
-        },
-        "ConnectionDraining": {
-          "target": "com.amazonaws.elasticloadbalancing#ConnectionDraining",
-          "traits": {
-            "smithy.api#documentation": "<p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html\">Configure Connection Draining</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>"
-          }
-        },
-        "AdditionalAttributes": {
-          "target": "com.amazonaws.elasticloadbalancing#AdditionalAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>This parameter is reserved.</p>"
-          }
-        },
         "ConnectionSettings": {
           "target": "com.amazonaws.elasticloadbalancing#ConnectionSettings",
           "traits": {
@@ -2173,6 +2155,24 @@
           "target": "com.amazonaws.elasticloadbalancing#AccessLog",
           "traits": {
             "smithy.api#documentation": "<p>If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html\">Enable Access Logs</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>"
+          }
+        },
+        "AdditionalAttributes": {
+          "target": "com.amazonaws.elasticloadbalancing#AdditionalAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>This parameter is reserved.</p>"
+          }
+        },
+        "CrossZoneLoadBalancing": {
+          "target": "com.amazonaws.elasticloadbalancing#CrossZoneLoadBalancing",
+          "traits": {
+            "smithy.api#documentation": "<p>If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.</p> \n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html\">Configure Cross-Zone Load Balancing</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>"
+          }
+        },
+        "ConnectionDraining": {
+          "target": "com.amazonaws.elasticloadbalancing#ConnectionDraining",
+          "traits": {
+            "smithy.api#documentation": "<p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html\">Configure Connection Draining</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>"
           }
         }
       },
@@ -2189,52 +2189,10 @@
             "smithy.api#documentation": "<p>Information about your EC2 instances.</p>"
           }
         },
-        "LoadBalancerName": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the load balancer.</p>"
-          }
-        },
-        "Subnets": {
-          "target": "com.amazonaws.elasticloadbalancing#Subnets",
-          "traits": {
-            "smithy.api#documentation": "<p>The IDs of the subnets for the load balancer.</p>"
-          }
-        },
-        "AvailabilityZones": {
-          "target": "com.amazonaws.elasticloadbalancing#AvailabilityZones",
-          "traits": {
-            "smithy.api#documentation": "<p>The Availability Zones for the load balancer.</p>"
-          }
-        },
-        "VPCId": {
-          "target": "com.amazonaws.elasticloadbalancing#VPCId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the VPC for the load balancer.</p>"
-          }
-        },
-        "CanonicalHostedZoneNameID": {
+        "DNSName": {
           "target": "com.amazonaws.elasticloadbalancing#DNSName",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>"
-          }
-        },
-        "ListenerDescriptions": {
-          "target": "com.amazonaws.elasticloadbalancing#ListenerDescriptions",
-          "traits": {
-            "smithy.api#documentation": "<p>The listeners for the load balancer.</p>"
-          }
-        },
-        "HealthCheck": {
-          "target": "com.amazonaws.elasticloadbalancing#HealthCheck",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the health checks conducted on the load balancer.</p>"
-          }
-        },
-        "Policies": {
-          "target": "com.amazonaws.elasticloadbalancing#Policies",
-          "traits": {
-            "smithy.api#documentation": "<p>The policies defined for the load balancer.</p>"
+            "smithy.api#documentation": "<p>The DNS name of the load balancer.</p>"
           }
         },
         "CreatedTime": {
@@ -2249,16 +2207,10 @@
             "smithy.api#documentation": "<p>The type of load balancer. Valid only for load balancers in a VPC.</p>\n         <p>If <code>Scheme</code> is <code>internet-facing</code>, the load balancer\n           has a public DNS name that resolves to a public IP address.</p>\n        <p>If <code>Scheme</code> is <code>internal</code>, the load balancer has a public \n           DNS name that resolves to a private IP address.</p>"
           }
         },
-        "Instances": {
-          "target": "com.amazonaws.elasticloadbalancing#Instances",
+        "SecurityGroups": {
+          "target": "com.amazonaws.elasticloadbalancing#SecurityGroups",
           "traits": {
-            "smithy.api#documentation": "<p>The IDs of the instances for the load balancer.</p>"
-          }
-        },
-        "DNSName": {
-          "target": "com.amazonaws.elasticloadbalancing#DNSName",
-          "traits": {
-            "smithy.api#documentation": "<p>The DNS name of the load balancer.</p>"
+            "smithy.api#documentation": "<p>The security groups for the load balancer. Valid only for load balancers in a VPC.</p>"
           }
         },
         "CanonicalHostedZoneName": {
@@ -2267,16 +2219,64 @@
             "smithy.api#documentation": "<p>The DNS name of the load balancer.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html\">Configure a Custom Domain Name</a> \n            in the <i>Classic Load Balancers Guide</i>.</p>"
           }
         },
-        "SecurityGroups": {
-          "target": "com.amazonaws.elasticloadbalancing#SecurityGroups",
+        "CanonicalHostedZoneNameID": {
+          "target": "com.amazonaws.elasticloadbalancing#DNSName",
           "traits": {
-            "smithy.api#documentation": "<p>The security groups for the load balancer. Valid only for load balancers in a VPC.</p>"
+            "smithy.api#documentation": "<p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>"
+          }
+        },
+        "Instances": {
+          "target": "com.amazonaws.elasticloadbalancing#Instances",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the instances for the load balancer.</p>"
+          }
+        },
+        "ListenerDescriptions": {
+          "target": "com.amazonaws.elasticloadbalancing#ListenerDescriptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The listeners for the load balancer.</p>"
+          }
+        },
+        "HealthCheck": {
+          "target": "com.amazonaws.elasticloadbalancing#HealthCheck",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the health checks conducted on the load balancer.</p>"
+          }
+        },
+        "AvailabilityZones": {
+          "target": "com.amazonaws.elasticloadbalancing#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zones for the load balancer.</p>"
           }
         },
         "SourceSecurityGroup": {
           "target": "com.amazonaws.elasticloadbalancing#SourceSecurityGroup",
           "traits": {
             "smithy.api#documentation": "<p>The security group for the load balancer, which you can use as part of your inbound rules for your registered instances. \n            To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.</p>"
+          }
+        },
+        "VPCId": {
+          "target": "com.amazonaws.elasticloadbalancing#VPCId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the VPC for the load balancer.</p>"
+          }
+        },
+        "Policies": {
+          "target": "com.amazonaws.elasticloadbalancing#Policies",
+          "traits": {
+            "smithy.api#documentation": "<p>The policies defined for the load balancer.</p>"
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the load balancer.</p>"
+          }
+        },
+        "Subnets": {
+          "target": "com.amazonaws.elasticloadbalancing#Subnets",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the subnets for the load balancer.</p>"
           }
         }
       },
@@ -2343,17 +2343,17 @@
     "com.amazonaws.elasticloadbalancing#ModifyLoadBalancerAttributesInput": {
       "type": "structure",
       "members": {
-        "LoadBalancerAttributes": {
-          "target": "com.amazonaws.elasticloadbalancing#LoadBalancerAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>The attributes for the load balancer.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "LoadBalancerName": {
           "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LoadBalancerAttributes": {
+          "target": "com.amazonaws.elasticloadbalancing#LoadBalancerAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>The attributes for the load balancer.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2417,16 +2417,16 @@
             "smithy.api#documentation": "<p>The policies other than the stickiness policies.</p>"
           }
         },
-        "AppCookieStickinessPolicies": {
-          "target": "com.amazonaws.elasticloadbalancing#AppCookieStickinessPolicies",
-          "traits": {
-            "smithy.api#documentation": "<p>The stickiness policies created using <a>CreateAppCookieStickinessPolicy</a>.</p>"
-          }
-        },
         "LBCookieStickinessPolicies": {
           "target": "com.amazonaws.elasticloadbalancing#LBCookieStickinessPolicies",
           "traits": {
             "smithy.api#documentation": "<p>The stickiness policies created using <a>CreateLBCookieStickinessPolicy</a>.</p>"
+          }
+        },
+        "AppCookieStickinessPolicies": {
+          "target": "com.amazonaws.elasticloadbalancing#AppCookieStickinessPolicies",
+          "traits": {
+            "smithy.api#documentation": "<p>The stickiness policies created using <a>CreateAppCookieStickinessPolicy</a>.</p>"
           }
         }
       },
@@ -2437,16 +2437,16 @@
     "com.amazonaws.elasticloadbalancing#PolicyAttribute": {
       "type": "structure",
       "members": {
-        "AttributeName": {
-          "target": "com.amazonaws.elasticloadbalancing#AttributeName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the attribute.</p>"
-          }
-        },
         "AttributeValue": {
           "target": "com.amazonaws.elasticloadbalancing#AttributeValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the attribute.</p>"
+          }
+        },
+        "AttributeName": {
+          "target": "com.amazonaws.elasticloadbalancing#AttributeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the attribute.</p>"
           }
         }
       },
@@ -2457,16 +2457,16 @@
     "com.amazonaws.elasticloadbalancing#PolicyAttributeDescription": {
       "type": "structure",
       "members": {
-        "AttributeValue": {
-          "target": "com.amazonaws.elasticloadbalancing#AttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the attribute.</p>"
-          }
-        },
         "AttributeName": {
           "target": "com.amazonaws.elasticloadbalancing#AttributeName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the attribute.</p>"
+          }
+        },
+        "AttributeValue": {
+          "target": "com.amazonaws.elasticloadbalancing#AttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the attribute.</p>"
           }
         }
       },
@@ -2483,10 +2483,16 @@
     "com.amazonaws.elasticloadbalancing#PolicyAttributeTypeDescription": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.elasticloadbalancing#Description",
+        "AttributeType": {
+          "target": "com.amazonaws.elasticloadbalancing#AttributeType",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the attribute.</p>"
+            "smithy.api#documentation": "<p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>"
+          }
+        },
+        "AttributeName": {
+          "target": "com.amazonaws.elasticloadbalancing#AttributeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the attribute.</p>"
           }
         },
         "DefaultValue": {
@@ -2501,16 +2507,10 @@
             "smithy.api#documentation": "<p>The cardinality of the attribute.</p> \n        <p>Valid values:</p>\n            <ul>\n            <li>\n               <p>ONE(1) : Single value required</p>\n            </li>\n            <li>\n               <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p>\n            </li>\n            <li>\n               <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p>\n            </li>\n            <li>\n               <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p>\n            </li>\n         </ul>"
           }
         },
-        "AttributeName": {
-          "target": "com.amazonaws.elasticloadbalancing#AttributeName",
+        "Description": {
+          "target": "com.amazonaws.elasticloadbalancing#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the attribute.</p>"
-          }
-        },
-        "AttributeType": {
-          "target": "com.amazonaws.elasticloadbalancing#AttributeType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>"
+            "smithy.api#documentation": "<p>A description of the attribute.</p>"
           }
         }
       },
@@ -2533,10 +2533,10 @@
     "com.amazonaws.elasticloadbalancing#PolicyDescription": {
       "type": "structure",
       "members": {
-        "PolicyAttributeDescriptions": {
-          "target": "com.amazonaws.elasticloadbalancing#PolicyAttributeDescriptions",
+        "PolicyTypeName": {
+          "target": "com.amazonaws.elasticloadbalancing#PolicyTypeName",
           "traits": {
-            "smithy.api#documentation": "<p>The policy attributes.</p>"
+            "smithy.api#documentation": "<p>The name of the policy type.</p>"
           }
         },
         "PolicyName": {
@@ -2545,10 +2545,10 @@
             "smithy.api#documentation": "<p>The name of the policy.</p>"
           }
         },
-        "PolicyTypeName": {
-          "target": "com.amazonaws.elasticloadbalancing#PolicyTypeName",
+        "PolicyAttributeDescriptions": {
+          "target": "com.amazonaws.elasticloadbalancing#PolicyAttributeDescriptions",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the policy type.</p>"
+            "smithy.api#documentation": "<p>The policy attributes.</p>"
           }
         }
       },
@@ -2587,12 +2587,6 @@
     "com.amazonaws.elasticloadbalancing#PolicyTypeDescription": {
       "type": "structure",
       "members": {
-        "PolicyTypeName": {
-          "target": "com.amazonaws.elasticloadbalancing#PolicyTypeName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the policy type.</p>"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.elasticloadbalancing#Description",
           "traits": {
@@ -2603,6 +2597,12 @@
           "target": "com.amazonaws.elasticloadbalancing#PolicyAttributeTypeDescriptions",
           "traits": {
             "smithy.api#documentation": "<p>The description of the policy attributes associated with the policies defined by Elastic Load Balancing.</p>"
+          }
+        },
+        "PolicyTypeName": {
+          "target": "com.amazonaws.elasticloadbalancing#PolicyTypeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the policy type.</p>"
           }
         }
       },
@@ -2709,17 +2709,17 @@
     "com.amazonaws.elasticloadbalancing#RemoveAvailabilityZonesInput": {
       "type": "structure",
       "members": {
-        "AvailabilityZones": {
-          "target": "com.amazonaws.elasticloadbalancing#AvailabilityZones",
-          "traits": {
-            "smithy.api#documentation": "<p>The Availability Zones.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "LoadBalancerName": {
           "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AvailabilityZones": {
+          "target": "com.amazonaws.elasticloadbalancing#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zones.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2762,17 +2762,17 @@
     "com.amazonaws.elasticloadbalancing#RemoveTagsInput": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.elasticloadbalancing#TagKeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of tag keys to remove.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "LoadBalancerNames": {
           "target": "com.amazonaws.elasticloadbalancing#LoadBalancerNames",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer. You can specify a maximum of one load balancer name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.elasticloadbalancing#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of tag keys to remove.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2962,6 +2962,13 @@
     "com.amazonaws.elasticloadbalancing#SetLoadBalancerPoliciesOfListenerInput": {
       "type": "structure",
       "members": {
+        "LoadBalancerPort": {
+          "target": "com.amazonaws.elasticloadbalancing#AccessPointPort",
+          "traits": {
+            "smithy.api#documentation": "<p>The external port of the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "PolicyNames": {
           "target": "com.amazonaws.elasticloadbalancing#PolicyNames",
           "traits": {
@@ -2973,13 +2980,6 @@
           "target": "com.amazonaws.elasticloadbalancing#AccessPointName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "LoadBalancerPort": {
-          "target": "com.amazonaws.elasticloadbalancing#AccessPointPort",
-          "traits": {
-            "smithy.api#documentation": "<p>The external port of the load balancer.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2998,16 +2998,16 @@
     "com.amazonaws.elasticloadbalancing#SourceSecurityGroup": {
       "type": "structure",
       "members": {
-        "GroupName": {
-          "target": "com.amazonaws.elasticloadbalancing#SecurityGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the security group.</p>"
-          }
-        },
         "OwnerAlias": {
           "target": "com.amazonaws.elasticloadbalancing#SecurityGroupOwnerAlias",
           "traits": {
             "smithy.api#documentation": "<p>The owner of the security group.</p>"
+          }
+        },
+        "GroupName": {
+          "target": "com.amazonaws.elasticloadbalancing#SecurityGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the security group.</p>"
           }
         }
       },

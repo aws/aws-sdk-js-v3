@@ -141,23 +141,23 @@
     "com.amazonaws.mobile#BundleDetails": {
       "type": "structure",
       "members": {
-        "iconUrl": {
-          "target": "com.amazonaws.mobile#IconUrl"
-        },
-        "bundleId": {
-          "target": "com.amazonaws.mobile#BundleId"
+        "availablePlatforms": {
+          "target": "com.amazonaws.mobile#Platforms"
         },
         "description": {
           "target": "com.amazonaws.mobile#BundleDescription"
         },
-        "version": {
-          "target": "com.amazonaws.mobile#BundleVersion"
+        "bundleId": {
+          "target": "com.amazonaws.mobile#BundleId"
         },
         "title": {
           "target": "com.amazonaws.mobile#BundleTitle"
         },
-        "availablePlatforms": {
-          "target": "com.amazonaws.mobile#Platforms"
+        "iconUrl": {
+          "target": "com.amazonaws.mobile#IconUrl"
+        },
+        "version": {
+          "target": "com.amazonaws.mobile#BundleVersion"
         }
       },
       "traits": {
@@ -250,11 +250,11 @@
             "smithy.api#httpQuery": "region"
           }
         },
-        "name": {
-          "target": "com.amazonaws.mobile#ProjectName",
+        "contents": {
+          "target": "com.amazonaws.mobile#Contents",
           "traits": {
-            "smithy.api#documentation": "<p>\n            Name of the project.\n        </p>",
-            "smithy.api#httpQuery": "name"
+            "smithy.api#documentation": "<p>\n            ZIP or YAML file which contains configuration settings to be used when creating\n            the project. This may be the contents of the file downloaded from the URL provided\n            in an export project operation.\n        </p>",
+            "smithy.api#httpPayload": {}
           }
         },
         "snapshotId": {
@@ -264,11 +264,11 @@
             "smithy.api#httpQuery": "snapshotId"
           }
         },
-        "contents": {
-          "target": "com.amazonaws.mobile#Contents",
+        "name": {
+          "target": "com.amazonaws.mobile#ProjectName",
           "traits": {
-            "smithy.api#documentation": "<p>\n            ZIP or YAML file which contains configuration settings to be used when creating\n            the project. This may be the contents of the file downloaded from the URL provided\n            in an export project operation.\n        </p>",
-            "smithy.api#httpPayload": {}
+            "smithy.api#documentation": "<p>\n            Name of the project.\n        </p>",
+            "smithy.api#httpQuery": "name"
           }
         }
       },
@@ -470,19 +470,19 @@
     "com.amazonaws.mobile#DescribeProjectRequest": {
       "type": "structure",
       "members": {
-        "syncFromResources": {
-          "target": "com.amazonaws.mobile#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.\n        </p>",
-            "smithy.api#httpQuery": "syncFromResources"
-          }
-        },
         "projectId": {
           "target": "com.amazonaws.mobile#ProjectId",
           "traits": {
             "smithy.api#documentation": "<p>\n            Unique project identifier.\n        </p>",
             "smithy.api#httpQuery": "projectId",
             "smithy.api#required": {}
+          }
+        },
+        "syncFromResources": {
+          "target": "com.amazonaws.mobile#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.\n        </p>",
+            "smithy.api#httpQuery": "syncFromResources"
           }
         }
       },
@@ -553,13 +553,6 @@
     "com.amazonaws.mobile#ExportBundleRequest": {
       "type": "structure",
       "members": {
-        "platform": {
-          "target": "com.amazonaws.mobile#Platform",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            Developer desktop or target application platform.\n        </p>",
-            "smithy.api#httpQuery": "platform"
-          }
-        },
         "projectId": {
           "target": "com.amazonaws.mobile#ProjectId",
           "traits": {
@@ -573,6 +566,13 @@
             "smithy.api#documentation": "<p>\n            Unique bundle identifier.\n        </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "platform": {
+          "target": "com.amazonaws.mobile#Platform",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Developer desktop or target application platform.\n        </p>",
+            "smithy.api#httpQuery": "platform"
           }
         }
       },
@@ -650,12 +650,6 @@
     "com.amazonaws.mobile#ExportProjectResult": {
       "type": "structure",
       "members": {
-        "shareUrl": {
-          "target": "com.amazonaws.mobile#ShareUrl",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            URL which can be shared to allow other AWS users to create their own project\n            in AWS Mobile Hub with the same configuration as the specified project. This\n            URL pertains to a snapshot in time of the project configuration that is created\n            when this API is called. If you want to share additional changes to your project\n            configuration, then you will need to create and share a new snapshot by calling\n            this method again.\n        </p>"
-          }
-        },
         "snapshotId": {
           "target": "com.amazonaws.mobile#SnapshotId",
           "traits": {
@@ -666,6 +660,12 @@
           "target": "com.amazonaws.mobile#DownloadUrl",
           "traits": {
             "smithy.api#documentation": "<p>\n            URL which can be used to download the exported project configuation file(s).\n        </p>"
+          }
+        },
+        "shareUrl": {
+          "target": "com.amazonaws.mobile#ShareUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            URL which can be shared to allow other AWS users to create their own project\n            in AWS Mobile Hub with the same configuration as the specified project. This\n            URL pertains to a snapshot in time of the project configuration that is created\n            when this API is called. If you want to share additional changes to your project\n            configuration, then you will need to create and share a new snapshot by calling\n            this method again.\n        </p>"
           }
         }
       },
@@ -781,16 +781,16 @@
     "com.amazonaws.mobile#ListBundlesResult": {
       "type": "structure",
       "members": {
-        "bundleList": {
-          "target": "com.amazonaws.mobile#BundleList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            A list of bundles.\n        </p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.mobile#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>\n            Pagination token. If non-null pagination token is returned in a result,\n            then pass its value in another request to fetch more entries.\n        </p>"
+          }
+        },
+        "bundleList": {
+          "target": "com.amazonaws.mobile#BundleList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            A list of bundles.\n        </p>"
           }
         }
       },
@@ -949,8 +949,23 @@
         "resources": {
           "target": "com.amazonaws.mobile#Resources"
         },
+        "name": {
+          "target": "com.amazonaws.mobile#ProjectName"
+        },
+        "projectId": {
+          "target": "com.amazonaws.mobile#ProjectId"
+        },
         "state": {
           "target": "com.amazonaws.mobile#ProjectState"
+        },
+        "region": {
+          "target": "com.amazonaws.mobile#ProjectRegion"
+        },
+        "createdDate": {
+          "target": "com.amazonaws.mobile#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Date the project was created.\n        </p>"
+          }
         },
         "consoleUrl": {
           "target": "com.amazonaws.mobile#ConsoleUrl",
@@ -963,21 +978,6 @@
           "traits": {
             "smithy.api#documentation": "<p>\n            Date of the last modification of the project.\n        </p>"
           }
-        },
-        "createdDate": {
-          "target": "com.amazonaws.mobile#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            Date the project was created.\n        </p>"
-          }
-        },
-        "region": {
-          "target": "com.amazonaws.mobile#ProjectRegion"
-        },
-        "projectId": {
-          "target": "com.amazonaws.mobile#ProjectId"
-        },
-        "name": {
-          "target": "com.amazonaws.mobile#ProjectName"
         }
       },
       "traits": {
@@ -1054,9 +1054,6 @@
     "com.amazonaws.mobile#Resource": {
       "type": "structure",
       "members": {
-        "type": {
-          "target": "com.amazonaws.mobile#ResourceType"
-        },
         "feature": {
           "target": "com.amazonaws.mobile#Feature"
         },
@@ -1068,6 +1065,9 @@
         },
         "arn": {
           "target": "com.amazonaws.mobile#ResourceArn"
+        },
+        "type": {
+          "target": "com.amazonaws.mobile#ResourceType"
         }
       },
       "traits": {
@@ -1104,14 +1104,14 @@
     "com.amazonaws.mobile#ServiceUnavailableException": {
       "type": "structure",
       "members": {
+        "message": {
+          "target": "com.amazonaws.mobile#ErrorMessage"
+        },
         "retryAfterSeconds": {
           "target": "com.amazonaws.mobile#ErrorMessage",
           "traits": {
             "smithy.api#httpHeader": "Retry-After"
           }
-        },
-        "message": {
-          "target": "com.amazonaws.mobile#ErrorMessage"
         }
       },
       "traits": {
@@ -1210,19 +1210,19 @@
     "com.amazonaws.mobile#UpdateProjectRequest": {
       "type": "structure",
       "members": {
+        "contents": {
+          "target": "com.amazonaws.mobile#Contents",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            ZIP or YAML file which contains project configuration to be updated. This should\n            be the contents of the file downloaded from the URL provided in an export project\n            operation.\n        </p>",
+            "smithy.api#httpPayload": {}
+          }
+        },
         "projectId": {
           "target": "com.amazonaws.mobile#ProjectId",
           "traits": {
             "smithy.api#documentation": "<p>\n            Unique project identifier.\n        </p>",
             "smithy.api#httpQuery": "projectId",
             "smithy.api#required": {}
-          }
-        },
-        "contents": {
-          "target": "com.amazonaws.mobile#Contents",
-          "traits": {
-            "smithy.api#documentation": "<p>\n            ZIP or YAML file which contains project configuration to be updated. This should\n            be the contents of the file downloaded from the URL provided in an export project\n            operation.\n        </p>",
-            "smithy.api#httpPayload": {}
           }
         }
       },

@@ -127,42 +127,6 @@
             "smithy.api#documentation": "<p>The virtual private cloud (VPC) endpoint settings that are configured for your file\n      transfer protocol-enabled server. When you host your endpoint within your VPC, you can make it\n      accessible only to resources within your VPC, or you can attach Elastic IPs and make it\n      accessible to clients over the internet. Your VPC's default security groups are\n      automatically assigned to your endpoint.</p>"
           }
         },
-        "EndpointType": {
-          "target": "com.amazonaws.transfer#EndpointType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of VPC endpoint that you want your file transfer protocol-enabled server to\n      connect to. You can choose to connect to the public internet or a VPC endpoint. With a VPC\n      endpoint, you can restrict access to your server and resources only within your VPC.</p>\n\n         <note>\n            <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With\n        this endpoint type, you have the option to directly associate up to three Elastic IPv4\n        addresses (BYO IP included) with your server's endpoint and use VPC security groups to\n        restrict traffic by the client's public IP address. This is not possible with\n          <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>\n         </note>"
-          }
-        },
-        "IdentityProviderDetails": {
-          "target": "com.amazonaws.transfer#IdentityProviderDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>Required when <code>IdentityProviderType</code> is set to <code>API_GATEWAY</code>.\n      Accepts an array containing all of the information required to call a customer-supplied\n      authentication API, including the API Gateway URL. Not required when\n        <code>IdentityProviderType</code> is set to <code>SERVICE_MANAGED</code>.</p>"
-          }
-        },
-        "LoggingRole": {
-          "target": "com.amazonaws.transfer#Role",
-          "traits": {
-            "smithy.api#documentation": "<p>Allows the service to write your users' activity to your Amazon CloudWatch logs for\n      monitoring and auditing purposes.</p>"
-          }
-        },
-        "IdentityProviderType": {
-          "target": "com.amazonaws.transfer#IdentityProviderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the mode of authentication for a file transfer protocol-enabled server. The\n      default value is <code>SERVICE_MANAGED</code>, which allows you to store and access user\n      credentials within the AWS Transfer Family service. Use the <code>API_GATEWAY</code> value to\n      integrate with an identity provider of your choosing. The <code>API_GATEWAY</code> setting\n      requires you to provide an API Gateway endpoint URL to call for authentication using the\n        <code>IdentityProviderDetails</code> parameter.</p>"
-          }
-        },
-        "Protocols": {
-          "target": "com.amazonaws.transfer#Protocols",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the file transfer protocol or protocols over which your file transfer protocol\n      client can connect to your server's endpoint. The available protocols are:</p>\n\n         <ul>\n            <li>\n               <p>\n                  <code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over\n          SSH</p>\n            </li>\n            <li>\n               <p>\n                  <code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS\n          encryption</p>\n            </li>\n            <li>\n               <p>\n                  <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate\n        Manager (ACM) which will be used to identify your server when clients connect to it over\n        FTPS.</p>\n\n            <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the\n          <code>EndpointType</code> must be <code>VPC</code> and the\n          <code>IdentityProviderType</code> must be <code>API_GATEWAY</code>.</p>\n\n            <p>If <code>Protocol</code> includes <code>FTP</code>, then\n          <code>AddressAllocationIds</code> cannot be associated.</p>\n\n            <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>\n        can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to\n          <code>SERVICE_MANAGED</code>.</p>\n         </note>"
-          }
-        },
-        "HostKey": {
-          "target": "com.amazonaws.transfer#HostKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The RSA private key as generated by the <code>ssh-keygen -N \"\" -m PEM -f\n        my-new-server-key</code> command.</p>\n\n         <important>\n            <p>If you aren't planning to migrate existing users from an existing SFTP-enabled\n        server to a new server, don't update the host key. Accidentally changing a\n        server's host key can be disruptive.</p>\n         </important>\n\n      \n\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key\">Change the host key for your SFTP-enabled server</a> in the <i>AWS Transfer\n        Family User Guide</i>.</p>"
-          }
-        },
         "Certificate": {
           "target": "com.amazonaws.transfer#Certificate",
           "traits": {
@@ -173,6 +137,42 @@
           "target": "com.amazonaws.transfer#Tags",
           "traits": {
             "smithy.api#documentation": "<p>Key-value pairs that can be used to group and search for file transfer protocol-enabled\n      servers.</p>"
+          }
+        },
+        "IdentityProviderType": {
+          "target": "com.amazonaws.transfer#IdentityProviderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the mode of authentication for a file transfer protocol-enabled server. The\n      default value is <code>SERVICE_MANAGED</code>, which allows you to store and access user\n      credentials within the AWS Transfer Family service. Use the <code>API_GATEWAY</code> value to\n      integrate with an identity provider of your choosing. The <code>API_GATEWAY</code> setting\n      requires you to provide an API Gateway endpoint URL to call for authentication using the\n        <code>IdentityProviderDetails</code> parameter.</p>"
+          }
+        },
+        "HostKey": {
+          "target": "com.amazonaws.transfer#HostKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The RSA private key as generated by the <code>ssh-keygen -N \"\" -m PEM -f\n        my-new-server-key</code> command.</p>\n\n         <important>\n            <p>If you aren't planning to migrate existing users from an existing SFTP-enabled\n        server to a new server, don't update the host key. Accidentally changing a\n        server's host key can be disruptive.</p>\n         </important>\n\n      \n\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key\">Change the host key for your SFTP-enabled server</a> in the <i>AWS Transfer\n        Family User Guide</i>.</p>"
+          }
+        },
+        "Protocols": {
+          "target": "com.amazonaws.transfer#Protocols",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the file transfer protocol or protocols over which your file transfer protocol\n      client can connect to your server's endpoint. The available protocols are:</p>\n\n         <ul>\n            <li>\n               <p>\n                  <code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over\n          SSH</p>\n            </li>\n            <li>\n               <p>\n                  <code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS\n          encryption</p>\n            </li>\n            <li>\n               <p>\n                  <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate\n        Manager (ACM) which will be used to identify your server when clients connect to it over\n        FTPS.</p>\n\n            <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the\n          <code>EndpointType</code> must be <code>VPC</code> and the\n          <code>IdentityProviderType</code> must be <code>API_GATEWAY</code>.</p>\n\n            <p>If <code>Protocol</code> includes <code>FTP</code>, then\n          <code>AddressAllocationIds</code> cannot be associated.</p>\n\n            <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>\n        can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to\n          <code>SERVICE_MANAGED</code>.</p>\n         </note>"
+          }
+        },
+        "EndpointType": {
+          "target": "com.amazonaws.transfer#EndpointType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of VPC endpoint that you want your file transfer protocol-enabled server to\n      connect to. You can choose to connect to the public internet or a VPC endpoint. With a VPC\n      endpoint, you can restrict access to your server and resources only within your VPC.</p>\n\n         <note>\n            <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With\n        this endpoint type, you have the option to directly associate up to three Elastic IPv4\n        addresses (BYO IP included) with your server's endpoint and use VPC security groups to\n        restrict traffic by the client's public IP address. This is not possible with\n          <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>\n         </note>"
+          }
+        },
+        "LoggingRole": {
+          "target": "com.amazonaws.transfer#Role",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows the service to write your users' activity to your Amazon CloudWatch logs for\n      monitoring and auditing purposes.</p>"
+          }
+        },
+        "IdentityProviderDetails": {
+          "target": "com.amazonaws.transfer#IdentityProviderDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Required when <code>IdentityProviderType</code> is set to <code>API_GATEWAY</code>.\n      Accepts an array containing all of the information required to call a customer-supplied\n      authentication API, including the API Gateway URL. Not required when\n        <code>IdentityProviderType</code> is set to <code>SERVICE_MANAGED</code>.</p>"
           }
         }
       }
@@ -221,13 +221,6 @@
     "com.amazonaws.transfer#CreateUserRequest": {
       "type": "structure",
       "members": {
-        "UserName": {
-          "target": "com.amazonaws.transfer#UserName",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique string that identifies a user and is associated with a file transfer\n      protocol-enabled server as specified by the <code>ServerId</code>. This user name must be a\n      minimum of 3 and a maximum of 32 characters long. The following are valid characters: a-z,\n      A-Z, 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ServerId": {
           "target": "com.amazonaws.transfer#ServerId",
           "traits": {
@@ -235,16 +228,11 @@
             "smithy.api#required": {}
           }
         },
-        "HomeDirectory": {
-          "target": "com.amazonaws.transfer#HomeDirectory",
+        "UserName": {
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
-            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the file transfer\n      protocol-enabled server using the client.</p>\n\n         <p>An example is\n      <i>\n               <code>your-Amazon-S3-bucket-name>/home/username</code>\n            </i>.</p>"
-          }
-        },
-        "HomeDirectoryMappings": {
-          "target": "com.amazonaws.transfer#HomeDirectoryMappings",
-          "traits": {
-            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to\n      your user and how you want to make them visible. You will need to specify the\n        \"<code>Entry</code>\" and \"<code>Target</code>\" pair, where <code>Entry</code> shows how the\n      path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify\n      a target, it will be displayed as is. You will need to also make sure that your IAM role\n      provides access to paths in <code>Target</code>. The following is an example.</p>\n\n         <p>\n            <code>'[ \"/bucket2/documentation\", { \"Entry\": \"your-personal-report.pdf\", \"Target\":\n        \"/bucket3/customized-reports/${transfer:UserName}.pdf\" } ]'</code>\n         </p>\n\n         <p>In most cases, you can use this value instead of the scope-down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>\n\n         <note>\n            <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will\n        be ignored. As a workaround, you can use the Amazon S3 api to create 0 byte objects as place\n        holders for your directory. If using the CLI, use the <code>s3api</code> call instead of\n          <code>s3</code> so you can use the put-object operation. For example, you use the\n        following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make\n        sure that the end of the key name ends in a '/' for it to be considered a folder.</p>\n         </note>"
+            "smithy.api#documentation": "<p>A unique string that identifies a user and is associated with a file transfer\n      protocol-enabled server as specified by the <code>ServerId</code>. This user name must be a\n      minimum of 3 and a maximum of 32 characters long. The following are valid characters: a-z,\n      A-Z, 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>",
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -253,10 +241,11 @@
             "smithy.api#documentation": "<p>Key-value pairs that can be used to group and search for users. Tags are metadata attached\n      to users for any purpose.</p>"
           }
         },
-        "HomeDirectoryType": {
-          "target": "com.amazonaws.transfer#HomeDirectoryType",
+        "Role": {
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
-            "smithy.api#documentation": "<p>The type of landing directory (folder) you want your users' home directory to be when\n      they log into the file transfer protocol-enabled server. If you set it to <code>PATH</code>,\n      the user will see the absolute Amazon S3 bucket paths as is in their file transfer protocol\n      clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the\n        <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your\n      users.</p>"
+            "smithy.api#documentation": "<p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies\n      attached to this role will determine the level of access you want to provide your users when\n      transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also\n      contain a trust relationship that allows the file transfer protocol-enabled server to access\n      your resources when servicing your users' transfer requests.</p>",
+            "smithy.api#required": {}
           }
         },
         "Policy": {
@@ -271,11 +260,22 @@
             "smithy.api#documentation": "<p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the file\n      transfer protocol-enabled server.</p>"
           }
         },
-        "Role": {
-          "target": "com.amazonaws.transfer#Role",
+        "HomeDirectoryMappings": {
+          "target": "com.amazonaws.transfer#HomeDirectoryMappings",
           "traits": {
-            "smithy.api#documentation": "<p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies\n      attached to this role will determine the level of access you want to provide your users when\n      transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also\n      contain a trust relationship that allows the file transfer protocol-enabled server to access\n      your resources when servicing your users' transfer requests.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to\n      your user and how you want to make them visible. You will need to specify the\n        \"<code>Entry</code>\" and \"<code>Target</code>\" pair, where <code>Entry</code> shows how the\n      path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify\n      a target, it will be displayed as is. You will need to also make sure that your IAM role\n      provides access to paths in <code>Target</code>. The following is an example.</p>\n\n         <p>\n            <code>'[ \"/bucket2/documentation\", { \"Entry\": \"your-personal-report.pdf\", \"Target\":\n        \"/bucket3/customized-reports/${transfer:UserName}.pdf\" } ]'</code>\n         </p>\n\n         <p>In most cases, you can use this value instead of the scope-down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>\n\n         <note>\n            <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will\n        be ignored. As a workaround, you can use the Amazon S3 api to create 0 byte objects as place\n        holders for your directory. If using the CLI, use the <code>s3api</code> call instead of\n          <code>s3</code> so you can use the put-object operation. For example, you use the\n        following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make\n        sure that the end of the key name ends in a '/' for it to be considered a folder.</p>\n         </note>"
+          }
+        },
+        "HomeDirectory": {
+          "target": "com.amazonaws.transfer#HomeDirectory",
+          "traits": {
+            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the file transfer\n      protocol-enabled server using the client.</p>\n\n         <p>An example is\n      <i>\n               <code>your-Amazon-S3-bucket-name>/home/username</code>\n            </i>.</p>"
+          }
+        },
+        "HomeDirectoryType": {
+          "target": "com.amazonaws.transfer#HomeDirectoryType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of landing directory (folder) you want your users' home directory to be when\n      they log into the file transfer protocol-enabled server. If you set it to <code>PATH</code>,\n      the user will see the absolute Amazon S3 bucket paths as is in their file transfer protocol\n      clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the\n        <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your\n      users.</p>"
           }
         }
       }
@@ -283,17 +283,17 @@
     "com.amazonaws.transfer#CreateUserResponse": {
       "type": "structure",
       "members": {
-        "ServerId": {
-          "target": "com.amazonaws.transfer#ServerId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the file transfer protocol-enabled server that the user is attached to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "UserName": {
           "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>A unique string that identifies a user account associated with a file transfer\n      protocol-enabled server.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ServerId": {
+          "target": "com.amazonaws.transfer#ServerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the file transfer protocol-enabled server that the user is attached to.</p>",
             "smithy.api#required": {}
           }
         }
@@ -513,17 +513,17 @@
     "com.amazonaws.transfer#DescribeUserRequest": {
       "type": "structure",
       "members": {
-        "UserName": {
-          "target": "com.amazonaws.transfer#UserName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the user assigned to one or more file transfer protocol-enabled servers. User\n      names are part of the sign-in credentials to use the AWS Transfer Family service and perform\n      file transfer tasks.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ServerId": {
           "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for a file transfer protocol-enabled server that has\n      this user assigned.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UserName": {
+          "target": "com.amazonaws.transfer#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user assigned to one or more file transfer protocol-enabled servers. User\n      names are part of the sign-in credentials to use the AWS Transfer Family service and perform\n      file transfer tasks.</p>",
             "smithy.api#required": {}
           }
         }
@@ -564,10 +564,10 @@
             "smithy.api#required": {}
           }
         },
-        "UserCount": {
-          "target": "com.amazonaws.transfer#UserCount",
+        "IdentityProviderDetails": {
+          "target": "com.amazonaws.transfer#IdentityProviderDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of users that are assigned to a file transfer protocol-enabled server\n      you specified with the <code>ServerId</code>.</p>"
+            "smithy.api#documentation": "<p>Specifies information to call a customer-supplied authentication API. This field is not\n      populated when the <code>IdentityProviderType</code> of a file transfer protocol-enabled\n      server is <code>SERVICE_MANAGED</code>.</p>"
           }
         },
         "LoggingRole": {
@@ -576,28 +576,40 @@
             "smithy.api#documentation": "<p>Specifies the AWS Identity and Access Management (IAM) role that allows a file transfer\n      protocol-enabled server to turn on Amazon CloudWatch logging for Amazon S3 events. When set,\n      user activity can be viewed in your CloudWatch logs.</p>"
           }
         },
-        "IdentityProviderDetails": {
-          "target": "com.amazonaws.transfer#IdentityProviderDetails",
+        "Tags": {
+          "target": "com.amazonaws.transfer#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies information to call a customer-supplied authentication API. This field is not\n      populated when the <code>IdentityProviderType</code> of a file transfer protocol-enabled\n      server is <code>SERVICE_MANAGED</code>.</p>"
+            "smithy.api#documentation": "<p>Specifies the key-value pairs that you can use to search for and group file transfer\n      protocol-enabled servers that were assigned to the server that was described.</p>"
           }
         },
-        "ServerId": {
-          "target": "com.amazonaws.transfer#ServerId",
+        "UserCount": {
+          "target": "com.amazonaws.transfer#UserCount",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the unique system-assigned identifier for a file transfer protocol-enabled\n      server that you instantiate.</p>"
+            "smithy.api#documentation": "<p>Specifies the number of users that are assigned to a file transfer protocol-enabled server\n      you specified with the <code>ServerId</code>.</p>"
           }
         },
-        "State": {
-          "target": "com.amazonaws.transfer#State",
+        "IdentityProviderType": {
+          "target": "com.amazonaws.transfer#IdentityProviderType",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the condition of a file transfer protocol-enabled server for the server that was\n      described. A value of <code>ONLINE</code> indicates that the server can accept jobs and\n      transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server\n      cannot perform file transfer operations.</p>\n\n         <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is\n      in an intermediate state, either not fully able to respond, or not fully offline. The values\n      of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error\n      condition.</p>"
+            "smithy.api#documentation": "<p>Specifies the mode of authentication method enabled for this service. A value of\n        <code>SERVICE_MANAGED</code> means that you are using this file transfer protocol-enabled\n      server to store and access user credentials within the service. A value of\n        <code>API_GATEWAY</code> indicates that you have integrated an API Gateway endpoint that\n      will be invoked for authenticating your user into the service.</p>"
+          }
+        },
+        "Certificate": {
+          "target": "com.amazonaws.transfer#Certificate",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the ARN of the AWS Certificate Manager (ACM) certificate. Required when\n        <code>Protocols</code> is set to <code>FTPS</code>.</p>"
           }
         },
         "EndpointDetails": {
           "target": "com.amazonaws.transfer#EndpointDetails",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the virtual private cloud (VPC) endpoint settings that you configured for your\n      file transfer protocol-enabled server.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.transfer#State",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the condition of a file transfer protocol-enabled server for the server that was\n      described. A value of <code>ONLINE</code> indicates that the server can accept jobs and\n      transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server\n      cannot perform file transfer operations.</p>\n\n         <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is\n      in an intermediate state, either not fully able to respond, or not fully offline. The values\n      of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error\n      condition.</p>"
           }
         },
         "HostKeyFingerprint": {
@@ -612,22 +624,10 @@
             "smithy.api#documentation": "<p>Specifies the file transfer protocol or protocols over which your file transfer protocol\n      client can connect to your server's endpoint. The available protocols are:</p>\n\n         <ul>\n            <li>\n               <p>\n                  <code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over\n          SSH</p>\n            </li>\n            <li>\n               <p>\n                  <code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS\n          encryption</p>\n            </li>\n            <li>\n               <p>\n                  <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</p>\n            </li>\n         </ul>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.transfer#Tags",
+        "ServerId": {
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the key-value pairs that you can use to search for and group file transfer\n      protocol-enabled servers that were assigned to the server that was described.</p>"
-          }
-        },
-        "IdentityProviderType": {
-          "target": "com.amazonaws.transfer#IdentityProviderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the mode of authentication method enabled for this service. A value of\n        <code>SERVICE_MANAGED</code> means that you are using this file transfer protocol-enabled\n      server to store and access user credentials within the service. A value of\n        <code>API_GATEWAY</code> indicates that you have integrated an API Gateway endpoint that\n      will be invoked for authenticating your user into the service.</p>"
-          }
-        },
-        "Certificate": {
-          "target": "com.amazonaws.transfer#Certificate",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the ARN of the AWS Certificate Manager (ACM) certificate. Required when\n        <code>Protocols</code> is set to <code>FTPS</code>.</p>"
+            "smithy.api#documentation": "<p>Specifies the unique system-assigned identifier for a file transfer protocol-enabled\n      server that you instantiate.</p>"
           }
         }
       },
@@ -638,11 +638,10 @@
     "com.amazonaws.transfer#DescribedUser": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.transfer#Arn",
+        "HomeDirectoryMappings": {
+          "target": "com.amazonaws.transfer#HomeDirectoryMappings",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the unique Amazon Resource Name (ARN) for the user that was requested to be\n      described.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Specifies the logical directory mappings that specify what Amazon S3 paths and keys should\n      be visible to your user and how you want to make them visible. You will need to specify the\n        \"<code>Entry</code>\" and \"<code>Target</code>\" pair, where <code>Entry</code> shows how the\n      path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify\n      a target, it will be displayed as is. You will need to also make sure that your AWS Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>.</p>\n\n         <p>In most cases, you can use this value instead of the scope-down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>"
           }
         },
         "HomeDirectoryType": {
@@ -651,34 +650,10 @@
             "smithy.api#documentation": "<p>Specifies the type of landing directory (folder) you mapped for your users to see when\n      they log into the file transfer protocol-enabled server. If you set it to <code>PATH</code>,\n      the user will see the absolute Amazon S3 bucket paths as is in their file transfer protocol\n      clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the\n        <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your\n      users.</p>"
           }
         },
-        "Role": {
-          "target": "com.amazonaws.transfer#Role",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the IAM role that controls your users' access to your Amazon S3 bucket. The\n      policies attached to this role will determine the level of access you want to provide your\n      users when transferring files into and out of your Amazon S3 bucket or buckets. The IAM role\n      should also contain a trust relationship that allows a file transfer protocol-enabled server\n      to access your resources when servicing your users' transfer requests.</p>"
-          }
-        },
         "Policy": {
           "target": "com.amazonaws.transfer#Policy",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the name of the policy in use for the described user.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.transfer#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the key-value pairs for the user requested. Tag can be used to search for and\n      group users for a variety of purposes.</p>"
-          }
-        },
-        "UserName": {
-          "target": "com.amazonaws.transfer#UserName",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the name of the user that was requested to be described. User names are used for\n      authentication purposes. This is the string that will be used by your user when they log in to\n      your file transfer protocol-enabled server.</p>"
-          }
-        },
-        "HomeDirectory": {
-          "target": "com.amazonaws.transfer#HomeDirectory",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the landing directory (or folder), which is the location that files are written\n      to or read from in an Amazon S3 bucket, for the described user. An example is\n          <i>\n               <code>your-Amazon-S3-bucket-name>/home/username</code>\n            </i>.</p>"
           }
         },
         "SshPublicKeys": {
@@ -687,10 +662,35 @@
             "smithy.api#documentation": "<p>Specifies the public key portion of the Secure Shell (SSH) keys stored for the described\n      user.</p>"
           }
         },
-        "HomeDirectoryMappings": {
-          "target": "com.amazonaws.transfer#HomeDirectoryMappings",
+        "HomeDirectory": {
+          "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the logical directory mappings that specify what Amazon S3 paths and keys should\n      be visible to your user and how you want to make them visible. You will need to specify the\n        \"<code>Entry</code>\" and \"<code>Target</code>\" pair, where <code>Entry</code> shows how the\n      path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify\n      a target, it will be displayed as is. You will need to also make sure that your AWS Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>.</p>\n\n         <p>In most cases, you can use this value instead of the scope-down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>"
+            "smithy.api#documentation": "<p>Specifies the landing directory (or folder), which is the location that files are written\n      to or read from in an Amazon S3 bucket, for the described user. An example is\n          <i>\n               <code>your-Amazon-S3-bucket-name>/home/username</code>\n            </i>.</p>"
+          }
+        },
+        "UserName": {
+          "target": "com.amazonaws.transfer#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the name of the user that was requested to be described. User names are used for\n      authentication purposes. This is the string that will be used by your user when they log in to\n      your file transfer protocol-enabled server.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.transfer#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the key-value pairs for the user requested. Tag can be used to search for and\n      group users for a variety of purposes.</p>"
+          }
+        },
+        "Role": {
+          "target": "com.amazonaws.transfer#Role",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the IAM role that controls your users' access to your Amazon S3 bucket. The\n      policies attached to this role will determine the level of access you want to provide your\n      users when transferring files into and out of your Amazon S3 bucket or buckets. The IAM role\n      should also contain a trust relationship that allows a file transfer protocol-enabled server\n      to access your resources when servicing your users' transfer requests.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.transfer#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the unique Amazon Resource Name (ARN) for the user that was requested to be\n      described.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -707,10 +707,10 @@
             "smithy.api#documentation": "<p>A list of subnet IDs that are required to host your file transfer protocol-enabled server\n      endpoint in your VPC.</p>\n\n         <note>\n            <p>This property can only be used when <code>EndpointType</code> is set to\n        <code>VPC</code>.</p>\n         </note>"
           }
         },
-        "VpcId": {
-          "target": "com.amazonaws.transfer#VpcId",
+        "VpcEndpointId": {
+          "target": "com.amazonaws.transfer#VpcEndpointId",
           "traits": {
-            "smithy.api#documentation": "<p>The VPC ID of the VPC in which a file transfer protocol-enabled server's endpoint\n      will be hosted.</p>\n\n         <note>\n            <p>This property can only be used when <code>EndpointType</code> is set to\n        <code>VPC</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The ID of the VPC endpoint.</p>\n\n         <note>\n            <p>This property can only be used when <code>EndpointType</code> is set to\n          <code>VPC_ENDPOINT</code>.</p>\n         </note>"
           }
         },
         "AddressAllocationIds": {
@@ -719,10 +719,10 @@
             "smithy.api#documentation": "<p>A list of address allocation IDs that are required to attach an Elastic IP address to your\n      file transfer protocol-enabled server's endpoint. This is only valid in the\n        <code>UpdateServer</code> API.</p>\n\n         <note>\n            <p>This property can only be use when <code>EndpointType</code> is set to\n        <code>VPC</code>.</p>\n         </note>"
           }
         },
-        "VpcEndpointId": {
-          "target": "com.amazonaws.transfer#VpcEndpointId",
+        "VpcId": {
+          "target": "com.amazonaws.transfer#VpcId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the VPC endpoint.</p>\n\n         <note>\n            <p>This property can only be used when <code>EndpointType</code> is set to\n          <code>VPC_ENDPOINT</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The VPC ID of the VPC in which a file transfer protocol-enabled server's endpoint\n      will be hosted.</p>\n\n         <note>\n            <p>This property can only be used when <code>EndpointType</code> is set to\n        <code>VPC</code>.</p>\n         </note>"
           }
         }
       },
@@ -762,17 +762,17 @@
     "com.amazonaws.transfer#HomeDirectoryMapEntry": {
       "type": "structure",
       "members": {
-        "Entry": {
-          "target": "com.amazonaws.transfer#MapEntry",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents an entry and a target for <code>HomeDirectoryMappings</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Target": {
           "target": "com.amazonaws.transfer#MapTarget",
           "traits": {
             "smithy.api#documentation": "<p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Entry": {
+          "target": "com.amazonaws.transfer#MapEntry",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents an entry and a target for <code>HomeDirectoryMappings</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -824,16 +824,16 @@
     "com.amazonaws.transfer#IdentityProviderDetails": {
       "type": "structure",
       "members": {
-        "InvocationRole": {
-          "target": "com.amazonaws.transfer#Role",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides the type of <code>InvocationRole</code> used to authenticate the user\n      account.</p>"
-          }
-        },
         "Url": {
           "target": "com.amazonaws.transfer#Url",
           "traits": {
             "smithy.api#documentation": "<p>Provides the location of the service endpoint used to authenticate users.</p>"
+          }
+        },
+        "InvocationRole": {
+          "target": "com.amazonaws.transfer#Role",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides the type of <code>InvocationRole</code> used to authenticate the user\n      account.</p>"
           }
         }
       },
@@ -892,6 +892,13 @@
     "com.amazonaws.transfer#ImportSshPublicKeyRequest": {
       "type": "structure",
       "members": {
+        "SshPublicKeyBody": {
+          "target": "com.amazonaws.transfer#SshPublicKeyBody",
+          "traits": {
+            "smithy.api#documentation": "<p>The public key portion of an SSH key pair.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ServerId": {
           "target": "com.amazonaws.transfer#ServerId",
           "traits": {
@@ -905,23 +912,16 @@
             "smithy.api#documentation": "<p>The name of the user account that is assigned to one or more file transfer\n      protocol-enabled servers.</p>",
             "smithy.api#required": {}
           }
-        },
-        "SshPublicKeyBody": {
-          "target": "com.amazonaws.transfer#SshPublicKeyBody",
-          "traits": {
-            "smithy.api#documentation": "<p>The public key portion of an SSH key pair.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.transfer#ImportSshPublicKeyResponse": {
       "type": "structure",
       "members": {
-        "UserName": {
-          "target": "com.amazonaws.transfer#UserName",
+        "SshPublicKeyId": {
+          "target": "com.amazonaws.transfer#SshPublicKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>A user name assigned to the <code>ServerID</code> value that you specified.</p>",
+            "smithy.api#documentation": "<p>The name given to a public key by the system that was imported.</p>",
             "smithy.api#required": {}
           }
         },
@@ -932,10 +932,10 @@
             "smithy.api#required": {}
           }
         },
-        "SshPublicKeyId": {
-          "target": "com.amazonaws.transfer#SshPublicKeyId",
+        "UserName": {
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
-            "smithy.api#documentation": "<p>The name given to a public key by the system that was imported.</p>",
+            "smithy.api#documentation": "<p>A user name assigned to the <code>ServerID</code> value that you specified.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1043,17 +1043,17 @@
     "com.amazonaws.transfer#ListServersResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.transfer#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>When you can get additional results from the <code>ListServers</code> operation, a\n        <code>NextToken</code> parameter is returned in the output. In a following command, you can\n      pass in the <code>NextToken</code> parameter to continue listing additional file transfer\n      protocol-enabled servers.</p>"
-          }
-        },
         "Servers": {
           "target": "com.amazonaws.transfer#ListedServers",
           "traits": {
             "smithy.api#documentation": "<p>An array of file transfer protocol-enabled servers that were listed.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.transfer#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>When you can get additional results from the <code>ListServers</code> operation, a\n        <code>NextToken</code> parameter is returned in the output. In a following command, you can\n      pass in the <code>NextToken</code> parameter to continue listing additional file transfer\n      protocol-enabled servers.</p>"
           }
         }
       }
@@ -1173,16 +1173,16 @@
     "com.amazonaws.transfer#ListUsersRequest": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.transfer#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>When you can get additional results from the <code>ListUsers</code> call, a\n        <code>NextToken</code> parameter is returned in the output. You can then pass in a\n      subsequent command to the <code>NextToken</code> parameter to continue listing additional\n      users.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.transfer#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of users to return as a response to the <code>ListUsers</code>\n      request.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.transfer#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>When you can get additional results from the <code>ListUsers</code> call, a\n        <code>NextToken</code> parameter is returned in the output. You can then pass in a\n      subsequent command to the <code>NextToken</code> parameter to continue listing additional\n      users.</p>"
           }
         },
         "ServerId": {
@@ -1204,17 +1204,17 @@
             "smithy.api#required": {}
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.transfer#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>When you can get additional results from the <code>ListUsers</code> call, a\n        <code>NextToken</code> parameter is returned in the output. You can then pass in a\n      subsequent command to the <code>NextToken</code> parameter to continue listing additional\n      users.</p>"
-          }
-        },
         "ServerId": {
           "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for a file transfer protocol-enabled server that the\n      users are assigned to.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.transfer#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>When you can get additional results from the <code>ListUsers</code> call, a\n        <code>NextToken</code> parameter is returned in the output. You can then pass in a\n      subsequent command to the <code>NextToken</code> parameter to continue listing additional\n      users.</p>"
           }
         }
       }
@@ -1222,6 +1222,36 @@
     "com.amazonaws.transfer#ListedServer": {
       "type": "structure",
       "members": {
+        "UserCount": {
+          "target": "com.amazonaws.transfer#UserCount",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of users that are assigned to a file transfer protocol-enabled server\n      you specified with the <code>ServerId</code>.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.transfer#State",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the condition of a file transfer protocol-enabled server for the server that was\n      described. A value of <code>ONLINE</code> indicates that the server can accept jobs and\n      transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server\n      cannot perform file transfer operations.</p>\n\n         <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is\n      in an intermediate state, either not fully able to respond, or not fully offline. The values\n      of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error\n      condition.</p>"
+          }
+        },
+        "EndpointType": {
+          "target": "com.amazonaws.transfer#EndpointType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the type of VPC endpoint that your file transfer protocol-enabled server is\n      connected to. If your server is connected to a VPC endpoint, your server isn't accessible\n      over the public internet.</p>"
+          }
+        },
+        "LoggingRole": {
+          "target": "com.amazonaws.transfer#Role",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the AWS Identity and Access Management (IAM) role that allows a file transfer\n      protocol-enabled server to turn on Amazon CloudWatch logging.</p>"
+          }
+        },
+        "ServerId": {
+          "target": "com.amazonaws.transfer#ServerId",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the unique system assigned identifier for a file transfer protocol-enabled\n      servers that were listed.</p>"
+          }
+        },
         "IdentityProviderType": {
           "target": "com.amazonaws.transfer#IdentityProviderType",
           "traits": {
@@ -1233,36 +1263,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the unique Amazon Resource Name (ARN) for a file transfer protocol-enabled\n      server to be listed.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "ServerId": {
-          "target": "com.amazonaws.transfer#ServerId",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the unique system assigned identifier for a file transfer protocol-enabled\n      servers that were listed.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.transfer#State",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the condition of a file transfer protocol-enabled server for the server that was\n      described. A value of <code>ONLINE</code> indicates that the server can accept jobs and\n      transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server\n      cannot perform file transfer operations.</p>\n\n         <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is\n      in an intermediate state, either not fully able to respond, or not fully offline. The values\n      of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error\n      condition.</p>"
-          }
-        },
-        "UserCount": {
-          "target": "com.amazonaws.transfer#UserCount",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the number of users that are assigned to a file transfer protocol-enabled server\n      you specified with the <code>ServerId</code>.</p>"
-          }
-        },
-        "LoggingRole": {
-          "target": "com.amazonaws.transfer#Role",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the AWS Identity and Access Management (IAM) role that allows a file transfer\n      protocol-enabled server to turn on Amazon CloudWatch logging.</p>"
-          }
-        },
-        "EndpointType": {
-          "target": "com.amazonaws.transfer#EndpointType",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the type of VPC endpoint that your file transfer protocol-enabled server is\n      connected to. If your server is connected to a VPC endpoint, your server isn't accessible\n      over the public internet.</p>"
           }
         }
       },
@@ -1279,23 +1279,10 @@
     "com.amazonaws.transfer#ListedUser": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.transfer#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides the unique Amazon Resource Name (ARN) for the user that you want to learn\n      about.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "HomeDirectoryType": {
           "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the type of landing directory (folder) you mapped for your users' home\n      directory. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket\n      paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you\n      will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to\n      make Amazon S3 paths visible to your users.</p>"
-          }
-        },
-        "Role": {
-          "target": "com.amazonaws.transfer#Role",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the role that is in use by this user. A <i>role</i> is an AWS\n      Identity and Access Management (IAM) entity that, in this case, allows a file transfer\n      protocol-enabled server to act on a user's behalf. It allows the server to inherit the\n      trust relationship that enables that user to perform file operations to their Amazon S3\n      bucket.</p>"
           }
         },
         "UserName": {
@@ -1304,16 +1291,29 @@
             "smithy.api#documentation": "<p>Specifies the name of the user whose ARN was specified. User names are used for\n      authentication purposes.</p>"
           }
         },
-        "HomeDirectory": {
-          "target": "com.amazonaws.transfer#HomeDirectory",
+        "Role": {
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the location that files are written to or read from an Amazon S3 bucket for the\n      user you specify by their ARN.</p>"
+            "smithy.api#documentation": "<p>Specifies the role that is in use by this user. A <i>role</i> is an AWS\n      Identity and Access Management (IAM) entity that, in this case, allows a file transfer\n      protocol-enabled server to act on a user's behalf. It allows the server to inherit the\n      trust relationship that enables that user to perform file operations to their Amazon S3\n      bucket.</p>"
           }
         },
         "SshPublicKeyCount": {
           "target": "com.amazonaws.transfer#SshPublicKeyCount",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of SSH public keys stored for the user you specified.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.transfer#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides the unique Amazon Resource Name (ARN) for the user that you want to learn\n      about.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "HomeDirectory": {
+          "target": "com.amazonaws.transfer#HomeDirectory",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the location that files are written to or read from an Amazon S3 bucket for the\n      user you specify by their ARN.</p>"
           }
         }
       },
@@ -1431,14 +1431,14 @@
             "smithy.api#required": {}
           }
         },
-        "Message": {
-          "target": "com.amazonaws.transfer#Message",
+        "ResourceType": {
+          "target": "com.amazonaws.transfer#ResourceType",
           "traits": {
             "smithy.api#required": {}
           }
         },
-        "ResourceType": {
-          "target": "com.amazonaws.transfer#ResourceType",
+        "Message": {
+          "target": "com.amazonaws.transfer#Message",
           "traits": {
             "smithy.api#required": {}
           }
@@ -1543,17 +1543,17 @@
             "smithy.api#required": {}
           }
         },
-        "SshPublicKeyBody": {
-          "target": "com.amazonaws.transfer#SshPublicKeyBody",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the content of the SSH public key as specified by the\n      <code>PublicKeyId</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DateImported": {
           "target": "com.amazonaws.transfer#DateImported",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the date that the public key was added to the user account.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SshPublicKeyBody": {
+          "target": "com.amazonaws.transfer#SshPublicKeyBody",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the content of the SSH public key as specified by the\n      <code>PublicKeyId</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1855,18 +1855,10 @@
     "com.amazonaws.transfer#TestIdentityProviderRequest": {
       "type": "structure",
       "members": {
-        "ServerId": {
-          "target": "com.amazonaws.transfer#ServerId",
+        "UserPassword": {
+          "target": "com.amazonaws.transfer#UserPassword",
           "traits": {
-            "smithy.api#documentation": "<p>A system-assigned identifier for a specific file transfer protocol-enabled server. That\n      server's user authentication method is tested with a user name and password.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "UserName": {
-          "target": "com.amazonaws.transfer#UserName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the user account to be tested.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The password of the user account to be tested.</p>"
           }
         },
         "SourceIp": {
@@ -1881,10 +1873,18 @@
             "smithy.api#documentation": "<p>The type of file transfer protocol to be tested.</p>\n\n         <p>The available protocols are:</p>\n\n         <ul>\n            <li>\n               <p>Secure Shell (SSH) File Transfer Protocol (SFTP)</p>\n            </li>\n            <li>\n               <p>File Transfer Protocol Secure (FTPS)</p>\n            </li>\n            <li>\n               <p>File Transfer Protocol (FTP)</p>\n            </li>\n         </ul>"
           }
         },
-        "UserPassword": {
-          "target": "com.amazonaws.transfer#UserPassword",
+        "ServerId": {
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
-            "smithy.api#documentation": "<p>The password of the user account to be tested.</p>"
+            "smithy.api#documentation": "<p>A system-assigned identifier for a specific file transfer protocol-enabled server. That\n      server's user authentication method is tested with a user name and password.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UserName": {
+          "target": "com.amazonaws.transfer#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the user account to be tested.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1904,17 +1904,17 @@
             "smithy.api#documentation": "<p>A message that indicates whether the test was successful or not.</p>"
           }
         },
-        "Url": {
-          "target": "com.amazonaws.transfer#Url",
-          "traits": {
-            "smithy.api#documentation": "<p>The endpoint of the service used to authenticate a user.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "StatusCode": {
           "target": "com.amazonaws.transfer#StatusCode",
           "traits": {
             "smithy.api#documentation": "<p>The HTTP status code that is the response from your API Gateway.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Url": {
+          "target": "com.amazonaws.transfer#Url",
+          "traits": {
+            "smithy.api#documentation": "<p>The endpoint of the service used to authenticate a user.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2093,16 +2093,35 @@
     "com.amazonaws.transfer#UpdateServerRequest": {
       "type": "structure",
       "members": {
-        "IdentityProviderDetails": {
-          "target": "com.amazonaws.transfer#IdentityProviderDetails",
+        "EndpointDetails": {
+          "target": "com.amazonaws.transfer#EndpointDetails",
           "traits": {
-            "smithy.api#documentation": "<p>An array containing all of the information required to call a customer's\n      authentication API method.</p>"
+            "smithy.api#documentation": "<p>The virtual private cloud (VPC) endpoint settings that are configured for your file\n      transfer protocol-enabled server. With a VPC endpoint, you can restrict access to your server\n      to resources only within your VPC. To control incoming internet traffic, you will need to\n      associate one or more Elastic IP addresses with your server's endpoint.</p>"
           }
         },
         "EndpointType": {
           "target": "com.amazonaws.transfer#EndpointType",
           "traits": {
             "smithy.api#documentation": "<p>The type of endpoint that you want your file transfer protocol-enabled server to connect\n      to. You can choose to connect to the public internet or a VPC endpoint. With a VPC endpoint,\n      you can restrict access to your server and resources only within your VPC.</p>\n\n         <note>\n            <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With\n        this endpoint type, you have the option to directly associate up to three Elastic IPv4\n        addresses (BYO IP included) with your server's endpoint and use VPC security groups to\n        restrict traffic by the client's public IP address. This is not possible with\n          <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>\n         </note>"
+          }
+        },
+        "IdentityProviderDetails": {
+          "target": "com.amazonaws.transfer#IdentityProviderDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>An array containing all of the information required to call a customer's\n      authentication API method.</p>"
+          }
+        },
+        "ServerId": {
+          "target": "com.amazonaws.transfer#ServerId",
+          "traits": {
+            "smithy.api#documentation": "<p>A system-assigned unique identifier for a file transfer protocol-enabled server instance\n      that the user account is assigned to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LoggingRole": {
+          "target": "com.amazonaws.transfer#NullableRole",
+          "traits": {
+            "smithy.api#documentation": "<p>Changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 events to\n      be logged in Amazon CloudWatch, turning logging on or off.</p>"
           }
         },
         "HostKey": {
@@ -2117,29 +2136,10 @@
             "smithy.api#documentation": "<p>Specifies the file transfer protocol or protocols over which your file transfer protocol\n      client can connect to your server's endpoint. The available protocols are:</p>\n\n         <ul>\n            <li>\n               <p>Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over SSH</p>\n            </li>\n            <li>\n               <p>File Transfer Protocol Secure (FTPS): File transfer with TLS encryption</p>\n            </li>\n            <li>\n               <p>File Transfer Protocol (FTP): Unencrypted file transfer</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate\n        Manager (ACM) which will be used to identify your server when clients connect to it over\n        FTPS.</p>\n\n            <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the\n          <code>EndpointType</code> must be <code>VPC</code> and the\n          <code>IdentityProviderType</code> must be <code>API_GATEWAY</code>.</p>\n\n            <p>If <code>Protocol</code> includes <code>FTP</code>, then\n          <code>AddressAllocationIds</code> cannot be associated.</p>\n\n            <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>\n        can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to\n          <code>SERVICE_MANAGED</code>.</p>\n         </note>"
           }
         },
-        "LoggingRole": {
-          "target": "com.amazonaws.transfer#NullableRole",
-          "traits": {
-            "smithy.api#documentation": "<p>Changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 events to\n      be logged in Amazon CloudWatch, turning logging on or off.</p>"
-          }
-        },
         "Certificate": {
           "target": "com.amazonaws.transfer#Certificate",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required\n      when <code>Protocols</code> is set to <code>FTPS</code>.</p>\n\n         <p>To request a new public certificate, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html\">Request a public certificate</a>\n      in the <i> AWS Certificate Manager User Guide</i>.</p>\n\n         <p>To import an existing certificate into ACM, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html\">Importing certificates into ACM</a>\n      in the <i> AWS Certificate Manager User Guide</i>.</p>\n\n         <p>To request a private certificate to use FTPS through private IP addresses, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html\">Request a\n        private certificate</a> in the <i> AWS Certificate Manager User\n      Guide</i>.</p>\n\n         <p>Certificates with the following cryptographic algorithms and key sizes are\n      supported:</p>\n\n         <ul>\n            <li>\n               <p>2048-bit RSA (RSA_2048)</p>\n            </li>\n            <li>\n               <p>4096-bit RSA (RSA_4096)</p>\n            </li>\n            <li>\n               <p>Elliptic Prime Curve 256 bit (EC_prime256v1)</p>\n            </li>\n            <li>\n               <p>Elliptic Prime Curve 384 bit (EC_secp384r1)</p>\n            </li>\n            <li>\n               <p>Elliptic Prime Curve 521 bit (EC_secp521r1)</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP\n        address specified and information about the issuer.</p>\n         </note>"
-          }
-        },
-        "EndpointDetails": {
-          "target": "com.amazonaws.transfer#EndpointDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>The virtual private cloud (VPC) endpoint settings that are configured for your file\n      transfer protocol-enabled server. With a VPC endpoint, you can restrict access to your server\n      to resources only within your VPC. To control incoming internet traffic, you will need to\n      associate one or more Elastic IP addresses with your server's endpoint.</p>"
-          }
-        },
-        "ServerId": {
-          "target": "com.amazonaws.transfer#ServerId",
-          "traits": {
-            "smithy.api#documentation": "<p>A system-assigned unique identifier for a file transfer protocol-enabled server instance\n      that the user account is assigned to.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -2188,10 +2188,10 @@
     "com.amazonaws.transfer#UpdateUserRequest": {
       "type": "structure",
       "members": {
-        "HomeDirectoryMappings": {
-          "target": "com.amazonaws.transfer#HomeDirectoryMappings",
+        "Policy": {
+          "target": "com.amazonaws.transfer#Policy",
           "traits": {
-            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to\n      your user and how you want to make them visible. You will need to specify the\n        \"<code>Entry</code>\" and \"<code>Target</code>\" pair, where <code>Entry</code> shows how the\n      path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify\n      a target, it will be displayed as is. You will need to also make sure that your IAM role\n      provides access to paths in <code>Target</code>. The following is an example.</p>\n\n         <p>\n            <code>'[ \"/bucket2/documentation\", { \"Entry\": \"your-personal-report.pdf\", \"Target\":\n        \"/bucket3/customized-reports/${transfer:UserName}.pdf\" } ]'</code>\n         </p>\n\n         <p>In most cases, you can use this value instead of the scope-down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>\n\n         <note>\n            <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will\n        be ignored. As a workaround, you can use the Amazon S3 api to create 0 byte objects as place\n        holders for your directory. If using the CLI, use the <code>s3api</code> call instead of\n          <code>s3</code> so you can use the put-object operation. For example, you use the\n        following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make\n        sure that the end of the key name ends in a / for it to be considered a folder.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Allows you to supply a scope-down policy for your user so you can use the same IAM role\n      across multiple users. The policy scopes down user access to portions of your Amazon S3\n      bucket. Variables you can use inside this policy include <code>${Transfer:UserName}</code>,\n        <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>\n         <note>\n            <p>For scope-down policies, AWS Transfer Family stores the policy as a JSON blob, instead\n        of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass\n        it in the <code>Policy</code> argument.</p>\n\n         \n\n            <p>For an example of a scope-down policy, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/users.html#users-policies-scope-down\">Creating a scope-down\n          policy</a>.</p>\n\n         \n\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html\">AssumeRole</a> in the <i>AWS\n          Security Token Service API Reference</i>.</p>\n         </note>"
           }
         },
         "Role": {
@@ -2200,10 +2200,24 @@
             "smithy.api#documentation": "<p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies\n      attached to this role will determine the level of access you want to provide your users when\n      transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also\n      contain a trust relationship that allows the file transfer protocol-enabled server to access\n      your resources when servicing your users' transfer requests.</p>"
           }
         },
-        "Policy": {
-          "target": "com.amazonaws.transfer#Policy",
+        "ServerId": {
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
-            "smithy.api#documentation": "<p>Allows you to supply a scope-down policy for your user so you can use the same IAM role\n      across multiple users. The policy scopes down user access to portions of your Amazon S3\n      bucket. Variables you can use inside this policy include <code>${Transfer:UserName}</code>,\n        <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>\n         <note>\n            <p>For scope-down policies, AWS Transfer Family stores the policy as a JSON blob, instead\n        of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass\n        it in the <code>Policy</code> argument.</p>\n\n         \n\n            <p>For an example of a scope-down policy, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/users.html#users-policies-scope-down\">Creating a scope-down\n          policy</a>.</p>\n\n         \n\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html\">AssumeRole</a> in the <i>AWS\n          Security Token Service API Reference</i>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>A system-assigned unique identifier for a file transfer protocol-enabled server instance\n      that the user account is assigned to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UserName": {
+          "target": "com.amazonaws.transfer#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique string that identifies a user and is associated with a file transfer\n      protocol-enabled server as specified by the <code>ServerId</code>. This is the string that\n      will be used by your user when they log in to your server. This user name is a minimum of 3\n      and a maximum of 32 characters long. The following are valid characters: a-z, A-Z, 0-9,\n      underscore, and hyphen. The user name can't start with a hyphen.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "HomeDirectoryMappings": {
+          "target": "com.amazonaws.transfer#HomeDirectoryMappings",
+          "traits": {
+            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to\n      your user and how you want to make them visible. You will need to specify the\n        \"<code>Entry</code>\" and \"<code>Target</code>\" pair, where <code>Entry</code> shows how the\n      path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify\n      a target, it will be displayed as is. You will need to also make sure that your IAM role\n      provides access to paths in <code>Target</code>. The following is an example.</p>\n\n         <p>\n            <code>'[ \"/bucket2/documentation\", { \"Entry\": \"your-personal-report.pdf\", \"Target\":\n        \"/bucket3/customized-reports/${transfer:UserName}.pdf\" } ]'</code>\n         </p>\n\n         <p>In most cases, you can use this value instead of the scope-down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>\n\n         <note>\n            <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will\n        be ignored. As a workaround, you can use the Amazon S3 api to create 0 byte objects as place\n        holders for your directory. If using the CLI, use the <code>s3api</code> call instead of\n          <code>s3</code> so you can use the put-object operation. For example, you use the\n        following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make\n        sure that the end of the key name ends in a / for it to be considered a folder.</p>\n         </note>"
           }
         },
         "HomeDirectory": {
@@ -2217,37 +2231,23 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of landing directory (folder) you want your users' home directory to be when\n      they log into the file transfer protocol-enabled server. If you set it to <code>PATH</code>,\n      the user will see the absolute Amazon S3 bucket paths as is in their file transfer protocol\n      clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the\n        <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your\n      users.</p>"
           }
-        },
-        "UserName": {
-          "target": "com.amazonaws.transfer#UserName",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique string that identifies a user and is associated with a file transfer\n      protocol-enabled server as specified by the <code>ServerId</code>. This is the string that\n      will be used by your user when they log in to your server. This user name is a minimum of 3\n      and a maximum of 32 characters long. The following are valid characters: a-z, A-Z, 0-9,\n      underscore, and hyphen. The user name can't start with a hyphen.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ServerId": {
-          "target": "com.amazonaws.transfer#ServerId",
-          "traits": {
-            "smithy.api#documentation": "<p>A system-assigned unique identifier for a file transfer protocol-enabled server instance\n      that the user account is assigned to.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.transfer#UpdateUserResponse": {
       "type": "structure",
       "members": {
-        "ServerId": {
-          "target": "com.amazonaws.transfer#ServerId",
-          "traits": {
-            "smithy.api#documentation": "<p>A system-assigned unique identifier for a file transfer protocol-enabled server instance\n      that the user account is assigned to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "UserName": {
           "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a user that is assigned to a file transfer protocol-enabled\n      server instance that was specified in the request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ServerId": {
+          "target": "com.amazonaws.transfer#ServerId",
+          "traits": {
+            "smithy.api#documentation": "<p>A system-assigned unique identifier for a file transfer protocol-enabled server instance\n      that the user account is assigned to.</p>",
             "smithy.api#required": {}
           }
         }

@@ -120,16 +120,11 @@
             "smithy.api#idempotencyToken": {}
           }
         },
-        "tags": {
-          "target": "com.amazonaws.savingsplans#TagMap",
+        "savingsPlanOfferingId": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingId",
           "traits": {
-            "smithy.api#documentation": "<p>One or more tags.</p>"
-          }
-        },
-        "upfrontPaymentAmount": {
-          "target": "com.amazonaws.savingsplans#Amount",
-          "traits": {
-            "smithy.api#documentation": "<p>The up-front payment amount. This is a whole number between 50 and 99 percent of the total value of the Savings Plan.\n       This parameter is supported only if the payment option is <code>Partial Upfront</code>.</p>"
+            "smithy.api#documentation": "<p>The ID of the offering.</p>",
+            "smithy.api#required": {}
           }
         },
         "commitment": {
@@ -139,11 +134,16 @@
             "smithy.api#required": {}
           }
         },
-        "savingsPlanOfferingId": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingId",
+        "upfrontPaymentAmount": {
+          "target": "com.amazonaws.savingsplans#Amount",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the offering.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The up-front payment amount. This is a whole number between 50 and 99 percent of the total value of the Savings Plan.\n       This parameter is supported only if the payment option is <code>Partial Upfront</code>.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.savingsplans#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more tags.</p>"
           }
         }
       }
@@ -212,12 +212,6 @@
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve additional results, make another\n         call with the returned token value.</p>"
           }
         },
-        "filters": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRateFilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>The filters.</p>"
-          }
-        },
         "savingsPlanId": {
           "target": "com.amazonaws.savingsplans#SavingsPlanId",
           "traits": {
@@ -230,12 +224,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
+        },
+        "filters": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRateFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filters.</p>"
+          }
         }
       }
     },
     "com.amazonaws.savingsplans#DescribeSavingsPlanRatesResponse": {
       "type": "structure",
       "members": {
+        "searchResults": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRateList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Savings Plans rates.</p>"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.savingsplans#PaginationToken",
           "traits": {
@@ -246,12 +252,6 @@
           "target": "com.amazonaws.savingsplans#SavingsPlanId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the Savings Plan.</p>"
-          }
-        },
-        "searchResults": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRateList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the Savings Plans rates.</p>"
           }
         }
       }
@@ -315,16 +315,34 @@
             "smithy.api#documentation": "<p>The services.</p>"
           }
         },
+        "savingsPlanPaymentOptions": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanPaymentOptionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment options.</p>"
+          }
+        },
         "products": {
           "target": "com.amazonaws.savingsplans#SavingsPlanProductTypeList",
           "traits": {
             "smithy.api#documentation": "<p>The AWS products.</p>"
           }
         },
-        "savingsPlanPaymentOptions": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanPaymentOptionList",
+        "nextToken": {
+          "target": "com.amazonaws.savingsplans#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The payment options.</p>"
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "savingsPlanOfferingIds": {
+          "target": "com.amazonaws.savingsplans#UUIDs",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the offerings.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.savingsplans#PageSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve additional results, make another\n       call with the returned token value.</p>"
           }
         },
         "usageTypes": {
@@ -339,34 +357,16 @@
             "smithy.api#documentation": "<p>The specific AWS operation for the line item in the billing report.</p>"
           }
         },
-        "filters": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingRateFiltersList",
-          "traits": {
-            "smithy.api#documentation": "<p>The filters.</p>"
-          }
-        },
         "savingsPlanTypes": {
           "target": "com.amazonaws.savingsplans#SavingsPlanTypeList",
           "traits": {
             "smithy.api#documentation": "<p>The plan types.</p>"
           }
         },
-        "savingsPlanOfferingIds": {
-          "target": "com.amazonaws.savingsplans#UUIDs",
+        "filters": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingRateFiltersList",
           "traits": {
-            "smithy.api#documentation": "<p>The IDs of the offerings.</p>"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.savingsplans#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
-          }
-        },
-        "maxResults": {
-          "target": "com.amazonaws.savingsplans#PageSize",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve additional results, make another\n       call with the returned token value.</p>"
+            "smithy.api#documentation": "<p>The filters.</p>"
           }
         }
       }
@@ -422,22 +422,16 @@
             "smithy.api#documentation": "<p>The descriptions.</p>"
           }
         },
-        "durations": {
-          "target": "com.amazonaws.savingsplans#DurationsList",
-          "traits": {
-            "smithy.api#documentation": "<p>The durations, in seconds.</p>"
-          }
-        },
         "offeringIds": {
           "target": "com.amazonaws.savingsplans#UUIDs",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the offerings.</p>"
           }
         },
-        "planTypes": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanTypeList",
+        "currencies": {
+          "target": "com.amazonaws.savingsplans#CurrencyList",
           "traits": {
-            "smithy.api#documentation": "<p>The plan type.</p>"
+            "smithy.api#documentation": "<p>The currencies.</p>"
           }
         },
         "usageTypes": {
@@ -446,10 +440,22 @@
             "smithy.api#documentation": "<p>The usage details of the line item in the billing report.</p>"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.savingsplans#PaginationToken",
+        "planTypes": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanTypeList",
           "traits": {
-            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+            "smithy.api#documentation": "<p>The plan type.</p>"
+          }
+        },
+        "durations": {
+          "target": "com.amazonaws.savingsplans#DurationsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The durations, in seconds.</p>"
+          }
+        },
+        "paymentOptions": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanPaymentOptionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment options.</p>"
           }
         },
         "operations": {
@@ -464,16 +470,10 @@
             "smithy.api#documentation": "<p>The filters.</p>"
           }
         },
-        "maxResults": {
-          "target": "com.amazonaws.savingsplans#PageSize",
+        "productType": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanProductType",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve additional results, make another\n       call with the returned token value.</p>"
-          }
-        },
-        "paymentOptions": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanPaymentOptionList",
-          "traits": {
-            "smithy.api#documentation": "<p>The payment options.</p>"
+            "smithy.api#documentation": "<p>The product type.</p>"
           }
         },
         "serviceCodes": {
@@ -482,16 +482,16 @@
             "smithy.api#documentation": "<p>The services.</p>"
           }
         },
-        "currencies": {
-          "target": "com.amazonaws.savingsplans#CurrencyList",
+        "maxResults": {
+          "target": "com.amazonaws.savingsplans#PageSize",
           "traits": {
-            "smithy.api#documentation": "<p>The currencies.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve additional results, make another\n       call with the returned token value.</p>"
           }
         },
-        "productType": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanProductType",
+        "nextToken": {
+          "target": "com.amazonaws.savingsplans#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The product type.</p>"
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         }
       }
@@ -499,16 +499,16 @@
     "com.amazonaws.savingsplans#DescribeSavingsPlansOfferingsResponse": {
       "type": "structure",
       "members": {
-        "searchResults": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingsList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the Savings Plans offerings.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.savingsplans#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are no more \n       results to return.</p>"
+          }
+        },
+        "searchResults": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Savings Plans offerings.</p>"
           }
         }
       }
@@ -522,10 +522,16 @@
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call. To retrieve additional results, make another\n       call with the returned token value.</p>"
           }
         },
-        "filters": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanFilterList",
+        "savingsPlanArns": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanArnList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the Savings Plans.</p>"
+          }
+        },
+        "savingsPlanIds": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the Savings Plans.</p>"
           }
         },
         "nextToken": {
@@ -540,16 +546,10 @@
             "smithy.api#documentation": "<p>The states.</p>"
           }
         },
-        "savingsPlanIds": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanIdList",
+        "filters": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanFilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The IDs of the Savings Plans.</p>"
-          }
-        },
-        "savingsPlanArns": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanArnList",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the Savings Plans.</p>"
+            "smithy.api#documentation": "<p>The filters.</p>"
           }
         }
       }
@@ -557,16 +557,16 @@
     "com.amazonaws.savingsplans#DescribeSavingsPlansResponse": {
       "type": "structure",
       "members": {
-        "savingsPlans": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the Savings Plans.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.savingsplans#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are no more \n       results to return.</p>"
+          }
+        },
+        "savingsPlans": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Savings Plans.</p>"
           }
         }
       }
@@ -703,10 +703,16 @@
             "smithy.api#documentation": "<p>The duration, in seconds.</p>"
           }
         },
-        "planType": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanType",
+        "planDescription": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The plan type.</p>"
+            "smithy.api#documentation": "<p>The description.</p>"
+          }
+        },
+        "offeringId": {
+          "target": "com.amazonaws.savingsplans#UUID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the offering.</p>"
           }
         },
         "currency": {
@@ -715,22 +721,16 @@
             "smithy.api#documentation": "<p>The currency.</p>"
           }
         },
-        "planDescription": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>The description.</p>"
-          }
-        },
         "paymentOption": {
           "target": "com.amazonaws.savingsplans#SavingsPlanPaymentOption",
           "traits": {
             "smithy.api#documentation": "<p>The payment option.</p>"
           }
         },
-        "offeringId": {
-          "target": "com.amazonaws.savingsplans#UUID",
+        "planType": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the offering.</p>"
+            "smithy.api#documentation": "<p>The plan type.</p>"
           }
         }
       },
@@ -766,28 +766,34 @@
             "smithy.api#documentation": "<p>The hourly commitment, in USD.</p>"
           }
         },
+        "end": {
+          "target": "com.amazonaws.savingsplans#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time.</p>"
+          }
+        },
+        "start": {
+          "target": "com.amazonaws.savingsplans#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time.</p>"
+          }
+        },
         "paymentOption": {
           "target": "com.amazonaws.savingsplans#SavingsPlanPaymentOption",
           "traits": {
             "smithy.api#documentation": "<p>The payment option.</p>"
           }
         },
-        "savingsPlanId": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Savings Plan.</p>"
-          }
-        },
-        "savingsPlanType": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanType",
-          "traits": {
-            "smithy.api#documentation": "<p>The plan type.</p>"
-          }
-        },
-        "recurringPaymentAmount": {
+        "upfrontPaymentAmount": {
           "target": "com.amazonaws.savingsplans#Amount",
           "traits": {
-            "smithy.api#documentation": "<p>The recurring payment amount.</p>"
+            "smithy.api#documentation": "<p>The up-front payment amount.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.savingsplans#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more tags.</p>"
           }
         },
         "savingsPlanArn": {
@@ -796,34 +802,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Savings Plan.</p>"
           }
         },
-        "region": {
-          "target": "com.amazonaws.savingsplans#Region",
+        "offeringId": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingId",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Region.</p>"
-          }
-        },
-        "state": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state.</p>"
-          }
-        },
-        "currency": {
-          "target": "com.amazonaws.savingsplans#CurrencyCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The currency.</p>"
-          }
-        },
-        "end": {
-          "target": "com.amazonaws.savingsplans#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The end time.</p>"
-          }
-        },
-        "productTypes": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanProductTypeList",
-          "traits": {
-            "smithy.api#documentation": "<p>The product types.</p>"
+            "smithy.api#documentation": "<p>The ID of the offering.</p>"
           }
         },
         "description": {
@@ -838,34 +820,52 @@
             "smithy.api#documentation": "<p>The EC2 instance family.</p>"
           }
         },
+        "currency": {
+          "target": "com.amazonaws.savingsplans#CurrencyCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The currency.</p>"
+          }
+        },
+        "region": {
+          "target": "com.amazonaws.savingsplans#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region.</p>"
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state.</p>"
+          }
+        },
+        "productTypes": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanProductTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The product types.</p>"
+          }
+        },
+        "recurringPaymentAmount": {
+          "target": "com.amazonaws.savingsplans#Amount",
+          "traits": {
+            "smithy.api#documentation": "<p>The recurring payment amount.</p>"
+          }
+        },
         "termDurationInSeconds": {
           "target": "com.amazonaws.savingsplans#TermDurationInSeconds",
           "traits": {
             "smithy.api#documentation": "<p>The duration of the term, in seconds.</p>"
           }
         },
-        "upfrontPaymentAmount": {
-          "target": "com.amazonaws.savingsplans#Amount",
+        "savingsPlanType": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanType",
           "traits": {
-            "smithy.api#documentation": "<p>The up-front payment amount.</p>"
+            "smithy.api#documentation": "<p>The plan type.</p>"
           }
         },
-        "offeringId": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingId",
+        "savingsPlanId": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the offering.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.savingsplans#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more tags.</p>"
-          }
-        },
-        "start": {
-          "target": "com.amazonaws.savingsplans#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The start time.</p>"
+            "smithy.api#documentation": "<p>The ID of the Savings Plan.</p>"
           }
         }
       },
@@ -959,34 +959,10 @@
             "smithy.api#documentation": "<p>The properties.</p>"
           }
         },
-        "usageType": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanUsageType",
-          "traits": {
-            "smithy.api#documentation": "<p>The usage details of the line item in the billing report.</p>"
-          }
-        },
         "description": {
           "target": "com.amazonaws.savingsplans#SavingsPlanDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description.</p>"
-          }
-        },
-        "currency": {
-          "target": "com.amazonaws.savingsplans#CurrencyCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The currency.</p>"
-          }
-        },
-        "offeringId": {
-          "target": "com.amazonaws.savingsplans#UUID",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the offering.</p>"
-          }
-        },
-        "paymentOption": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanPaymentOption",
-          "traits": {
-            "smithy.api#documentation": "<p>The payment option.</p>"
           }
         },
         "productTypes": {
@@ -1012,6 +988,30 @@
           "traits": {
             "smithy.api#documentation": "<p>The specific AWS operation for the line item in the billing report.</p>"
           }
+        },
+        "usageType": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanUsageType",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage details of the line item in the billing report.</p>"
+          }
+        },
+        "paymentOption": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanPaymentOption",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment option.</p>"
+          }
+        },
+        "offeringId": {
+          "target": "com.amazonaws.savingsplans#UUID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the offering.</p>"
+          }
+        },
+        "currency": {
+          "target": "com.amazonaws.savingsplans#CurrencyCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The currency.</p>"
+          }
         }
       },
       "traits": {
@@ -1036,16 +1036,16 @@
     "com.amazonaws.savingsplans#SavingsPlanOfferingFilterElement": {
       "type": "structure",
       "members": {
-        "values": {
-          "target": "com.amazonaws.savingsplans#FilterValuesList",
-          "traits": {
-            "smithy.api#documentation": "<p>The filter values.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.savingsplans#SavingsPlanOfferingFilterAttribute",
           "traits": {
             "smithy.api#documentation": "<p>The filter name.</p>"
+          }
+        },
+        "values": {
+          "target": "com.amazonaws.savingsplans#FilterValuesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filter values.</p>"
           }
         }
       },
@@ -1065,16 +1065,16 @@
     "com.amazonaws.savingsplans#SavingsPlanOfferingProperty": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingPropertyKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The property name.</p>"
-          }
-        },
         "value": {
           "target": "com.amazonaws.savingsplans#JsonSafeFilterValueString",
           "traits": {
             "smithy.api#documentation": "<p>The property value.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanOfferingPropertyKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The property name.</p>"
           }
         }
       },
@@ -1106,28 +1106,10 @@
     "com.amazonaws.savingsplans#SavingsPlanOfferingRate": {
       "type": "structure",
       "members": {
-        "rate": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRatePricePerUnit",
-          "traits": {
-            "smithy.api#documentation": "<p>The Savings Plan rate.</p>"
-          }
-        },
-        "unit": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRateUnit",
-          "traits": {
-            "smithy.api#documentation": "<p>The unit.</p>"
-          }
-        },
         "serviceCode": {
           "target": "com.amazonaws.savingsplans#SavingsPlanRateServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>The service.</p>"
-          }
-        },
-        "savingsPlanOffering": {
-          "target": "com.amazonaws.savingsplans#ParentSavingsPlanOffering",
-          "traits": {
-            "smithy.api#documentation": "<p>The Savings Plan offering.</p>"
           }
         },
         "operation": {
@@ -1136,10 +1118,10 @@
             "smithy.api#documentation": "<p>The specific AWS operation for the line item in the billing report.</p>"
           }
         },
-        "usageType": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRateUsageType",
+        "unit": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRateUnit",
           "traits": {
-            "smithy.api#documentation": "<p>The usage details of the line item in the billing report.</p>"
+            "smithy.api#documentation": "<p>The unit.</p>"
           }
         },
         "properties": {
@@ -1148,10 +1130,28 @@
             "smithy.api#documentation": "<p>The properties.</p>"
           }
         },
+        "usageType": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRateUsageType",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage details of the line item in the billing report.</p>"
+          }
+        },
+        "savingsPlanOffering": {
+          "target": "com.amazonaws.savingsplans#ParentSavingsPlanOffering",
+          "traits": {
+            "smithy.api#documentation": "<p>The Savings Plan offering.</p>"
+          }
+        },
         "productType": {
           "target": "com.amazonaws.savingsplans#SavingsPlanProductType",
           "traits": {
             "smithy.api#documentation": "<p>The product type.</p>"
+          }
+        },
+        "rate": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRatePricePerUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The Savings Plan rate.</p>"
           }
         }
       },
@@ -1162,16 +1162,16 @@
     "com.amazonaws.savingsplans#SavingsPlanOfferingRateFilterElement": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRateFilterAttribute",
-          "traits": {
-            "smithy.api#documentation": "<p>The filter name.</p>"
-          }
-        },
         "values": {
           "target": "com.amazonaws.savingsplans#FilterValuesList",
           "traits": {
             "smithy.api#documentation": "<p>The filter values.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRateFilterAttribute",
+          "traits": {
+            "smithy.api#documentation": "<p>The filter name.</p>"
           }
         }
       },
@@ -1188,16 +1188,16 @@
     "com.amazonaws.savingsplans#SavingsPlanOfferingRateProperty": {
       "type": "structure",
       "members": {
-        "value": {
-          "target": "com.amazonaws.savingsplans#JsonSafeFilterValueString",
-          "traits": {
-            "smithy.api#documentation": "<p>The property value.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.savingsplans#JsonSafeFilterValueString",
           "traits": {
             "smithy.api#documentation": "<p>The property name.</p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.savingsplans#JsonSafeFilterValueString",
+          "traits": {
+            "smithy.api#documentation": "<p>The property value.</p>"
           }
         }
       },
@@ -1292,10 +1292,10 @@
     "com.amazonaws.savingsplans#SavingsPlanRate": {
       "type": "structure",
       "members": {
-        "serviceCode": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRateServiceCode",
+        "rate": {
+          "target": "com.amazonaws.savingsplans#Amount",
           "traits": {
-            "smithy.api#documentation": "<p>The service.</p>"
+            "smithy.api#documentation": "<p>The rate.</p>"
           }
         },
         "usageType": {
@@ -1304,28 +1304,16 @@
             "smithy.api#documentation": "<p>The usage details of the line item in the billing report.</p>"
           }
         },
-        "properties": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRatePropertyList",
+        "currency": {
+          "target": "com.amazonaws.savingsplans#CurrencyCode",
           "traits": {
-            "smithy.api#documentation": "<p>The properties.</p>"
+            "smithy.api#documentation": "<p>The currency.</p>"
           }
         },
-        "operation": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRateOperation",
+        "serviceCode": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRateServiceCode",
           "traits": {
-            "smithy.api#documentation": "<p>The specific AWS operation for the line item in the billing report.</p>"
-          }
-        },
-        "rate": {
-          "target": "com.amazonaws.savingsplans#Amount",
-          "traits": {
-            "smithy.api#documentation": "<p>The rate.</p>"
-          }
-        },
-        "productType": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanProductType",
-          "traits": {
-            "smithy.api#documentation": "<p>The product type.</p>"
+            "smithy.api#documentation": "<p>The service.</p>"
           }
         },
         "unit": {
@@ -1334,10 +1322,22 @@
             "smithy.api#documentation": "<p>The unit.</p>"
           }
         },
-        "currency": {
-          "target": "com.amazonaws.savingsplans#CurrencyCode",
+        "productType": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanProductType",
           "traits": {
-            "smithy.api#documentation": "<p>The currency.</p>"
+            "smithy.api#documentation": "<p>The product type.</p>"
+          }
+        },
+        "operation": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRateOperation",
+          "traits": {
+            "smithy.api#documentation": "<p>The specific AWS operation for the line item in the billing report.</p>"
+          }
+        },
+        "properties": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRatePropertyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties.</p>"
           }
         }
       },
@@ -1469,16 +1469,16 @@
     "com.amazonaws.savingsplans#SavingsPlanRateProperty": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanRatePropertyKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The property name.</p>"
-          }
-        },
         "value": {
           "target": "com.amazonaws.savingsplans#JsonSafeFilterValueString",
           "traits": {
             "smithy.api#documentation": "<p>The property value.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanRatePropertyKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The property name.</p>"
           }
         }
       },
@@ -1852,17 +1852,17 @@
     "com.amazonaws.savingsplans#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "resourceArn": {
-          "target": "com.amazonaws.savingsplans#SavingsPlanArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "tagKeys": {
           "target": "com.amazonaws.savingsplans#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The tag keys.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.savingsplans#SavingsPlanArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
             "smithy.api#required": {}
           }
         }

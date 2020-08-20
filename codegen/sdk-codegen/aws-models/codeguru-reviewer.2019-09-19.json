@@ -139,18 +139,18 @@
     "com.amazonaws.codegurureviewer#AssociateRepositoryRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.codegurureviewer#ClientRequestToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>\n         <p>To add a new repository association, this parameter specifies a unique \n        identifier for the new repository association that helps ensure idempotency.</p>\n\n         <p>If you use the AWS CLI or one of the AWS SDKs to call this operation, you \n        can leave this parameter empty. The CLI or SDK generates a random UUID for you \n        and includes that in the request. If you don't use the SDK and instead generate \n        a raw HTTP request to the Secrets Manager service endpoint, you must generate \n        a ClientRequestToken yourself for new versions and include that value in the request.</p>\n\n         <p>You typically interact with this value if you implement your own retry \n        logic and want to ensure that a given repository association is not created twice. \n        We recommend that you generate a UUID-type value to ensure uniqueness within the \n        specified repository association.</p>\n\n         <p>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate repository\n        associations if there are failures and retries. </p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
         "Repository": {
           "target": "com.amazonaws.codegurureviewer#Repository",
           "traits": {
             "smithy.api#documentation": "<p>The repository to associate.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.codegurureviewer#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>\n         <p>To add a new repository association, this parameter specifies a unique \n        identifier for the new repository association that helps ensure idempotency.</p>\n\n         <p>If you use the AWS CLI or one of the AWS SDKs to call this operation, you \n        can leave this parameter empty. The CLI or SDK generates a random UUID for you \n        and includes that in the request. If you don't use the SDK and instead generate \n        a raw HTTP request to the Secrets Manager service endpoint, you must generate \n        a ClientRequestToken yourself for new versions and include that value in the request.</p>\n\n         <p>You typically interact with this value if you implement your own retry \n        logic and want to ensure that a given repository association is not created twice. \n        We recommend that you generate a UUID-type value to ensure uniqueness within the \n        specified repository association.</p>\n\n         <p>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate repository\n        associations if there are failures and retries. </p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -203,46 +203,16 @@
     "com.amazonaws.codegurureviewer#CodeReview": {
       "type": "structure",
       "members": {
-        "Metrics": {
-          "target": "com.amazonaws.codegurureviewer#Metrics",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The statistics from the code review.\n      </p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.codegurureviewer#JobState",
-          "traits": {
-            "smithy.api#documentation": "<p>The valid code review states are:</p>\n         <ul>\n            <li>            \n               <p>\n                  <code>Completed</code>: The code review is complete.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <code>Pending</code>: The code review started and has not completed or failed.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>Failed</code>: The code review failed.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <code>Deleting</code>: The code review is being deleted.\n            </p>\n            </li>\n         </ul>"
-          }
-        },
         "StateReason": {
           "target": "com.amazonaws.codegurureviewer#StateReason",
           "traits": {
             "smithy.api#documentation": "<p>\n         The reason for the state of the code review.\n      </p>"
           }
         },
-        "RepositoryName": {
-          "target": "com.amazonaws.codegurureviewer#Name",
+        "Type": {
+          "target": "com.amazonaws.codegurureviewer#Type",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The name of the repository.\n      </p>"
-          }
-        },
-        "CodeReviewArn": {
-          "target": "com.amazonaws.codegurureviewer#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">\n               <code>CodeReview</code>\n            </a> object.\n      </p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.codegurureviewer#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The name of the code review.\n      </p>"
-          }
-        },
-        "PullRequestId": {
-          "target": "com.amazonaws.codegurureviewer#PullRequestId",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The pull request ID for the code review.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The type of code review.\n      </p>"
           }
         },
         "Owner": {
@@ -251,22 +221,16 @@
             "smithy.api#documentation": "<p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the \n      account that owns the repository. For a GitHub or Bitbucket repository, this is the username for the account that owns the repository.</p>"
           }
         },
-        "LastUpdatedTimeStamp": {
-          "target": "com.amazonaws.codegurureviewer#TimeStamp",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The time, in milliseconds since the epoch, when the code review was last updated.\n      </p>"
-          }
-        },
         "SourceCodeType": {
           "target": "com.amazonaws.codegurureviewer#SourceCodeType",
           "traits": {
             "smithy.api#documentation": "<p>\n         The type of the source code for the code review.\n      </p>"
           }
         },
-        "CreatedTimeStamp": {
+        "LastUpdatedTimeStamp": {
           "target": "com.amazonaws.codegurureviewer#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The time, in milliseconds since the epoch, when the code review was created.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The time, in milliseconds since the epoch, when the code review was last updated.\n      </p>"
           }
         },
         "ProviderType": {
@@ -275,10 +239,46 @@
             "smithy.api#documentation": "<p>\n         The type of repository that contains the reviewed code (for example, GitHub or Bitbucket).\n      </p>"
           }
         },
-        "Type": {
-          "target": "com.amazonaws.codegurureviewer#Type",
+        "CodeReviewArn": {
+          "target": "com.amazonaws.codegurureviewer#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The type of code review.\n      </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">\n               <code>CodeReview</code>\n            </a> object.\n      </p>"
+          }
+        },
+        "PullRequestId": {
+          "target": "com.amazonaws.codegurureviewer#PullRequestId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The pull request ID for the code review.\n      </p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.codegurureviewer#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The name of the code review.\n      </p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.codegurureviewer#JobState",
+          "traits": {
+            "smithy.api#documentation": "<p>The valid code review states are:</p>\n         <ul>\n            <li>            \n               <p>\n                  <code>Completed</code>: The code review is complete.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <code>Pending</code>: The code review started and has not completed or failed.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>Failed</code>: The code review failed.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <code>Deleting</code>: The code review is being deleted.\n            </p>\n            </li>\n         </ul>"
+          }
+        },
+        "Metrics": {
+          "target": "com.amazonaws.codegurureviewer#Metrics",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The statistics from the code review.\n      </p>"
+          }
+        },
+        "CreatedTimeStamp": {
+          "target": "com.amazonaws.codegurureviewer#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The time, in milliseconds since the epoch, when the code review was created.\n      </p>"
+          }
+        },
+        "RepositoryName": {
+          "target": "com.amazonaws.codegurureviewer#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The name of the repository.\n      </p>"
           }
         }
       },
@@ -307,16 +307,16 @@
             "smithy.api#documentation": "<p>\n         The state of the code review.\n      </p>\n         <p>The valid code review states are:</p>\n         <ul>\n            <li>            \n               <p>\n                  <code>Completed</code>: The code review is complete.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <code>Pending</code>: The code review started and has not completed or failed.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>Failed</code>: The code review failed.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <code>Deleting</code>: The code review is being deleted.\n            </p>\n            </li>\n         </ul>"
           }
         },
-        "RepositoryName": {
-          "target": "com.amazonaws.codegurureviewer#Name",
+        "MetricsSummary": {
+          "target": "com.amazonaws.codegurureviewer#MetricsSummary",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The name of the repository.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The statistics from the code review.\n      </p>"
           }
         },
-        "LastUpdatedTimeStamp": {
-          "target": "com.amazonaws.codegurureviewer#TimeStamp",
+        "PullRequestId": {
+          "target": "com.amazonaws.codegurureviewer#PullRequestId",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The time, in milliseconds since the epoch, when the code review was last updated.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The pull request ID for the code review.\n      </p>"
           }
         },
         "CodeReviewArn": {
@@ -325,16 +325,16 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">\n               <code>CodeReview</code>\n            </a> object.\n      </p>"
           }
         },
-        "Type": {
-          "target": "com.amazonaws.codegurureviewer#Type",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The type of the code review.\n      </p>"
-          }
-        },
         "Owner": {
           "target": "com.amazonaws.codegurureviewer#Owner",
           "traits": {
             "smithy.api#documentation": "<p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the \n      account that owns the repository. For a GitHub or Bitbucket repository, this is the username for the account that owns the repository.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.codegurureviewer#Type",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The type of the code review.\n      </p>"
           }
         },
         "CreatedTimeStamp": {
@@ -349,16 +349,16 @@
             "smithy.api#documentation": "<p>\n         The name of the code review.\n      </p>"
           }
         },
-        "PullRequestId": {
-          "target": "com.amazonaws.codegurureviewer#PullRequestId",
+        "LastUpdatedTimeStamp": {
+          "target": "com.amazonaws.codegurureviewer#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The pull request ID for the code review.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The time, in milliseconds since the epoch, when the code review was last updated.\n      </p>"
           }
         },
-        "MetricsSummary": {
-          "target": "com.amazonaws.codegurureviewer#MetricsSummary",
+        "RepositoryName": {
+          "target": "com.amazonaws.codegurureviewer#Name",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The statistics from the code review.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The name of the repository.\n      </p>"
           }
         }
       },
@@ -513,19 +513,19 @@
     "com.amazonaws.codegurureviewer#DescribeRecommendationFeedbackRequest": {
       "type": "structure",
       "members": {
-        "CodeReviewArn": {
-          "target": "com.amazonaws.codegurureviewer#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">\n               <code>CodeReview</code>\n            </a> object.\n      </p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "RecommendationId": {
           "target": "com.amazonaws.codegurureviewer#RecommendationId",
           "traits": {
             "smithy.api#documentation": "<p>\n         The recommendation ID that can be used to track the provided recommendations and then to collect the feedback.\n      </p>",
             "smithy.api#httpQuery": "RecommendationId",
+            "smithy.api#required": {}
+          }
+        },
+        "CodeReviewArn": {
+          "target": "com.amazonaws.codegurureviewer#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">\n               <code>CodeReview</code>\n            </a> object.\n      </p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         },
@@ -789,11 +789,11 @@
     "com.amazonaws.codegurureviewer#ListCodeReviewsRequest": {
       "type": "structure",
       "members": {
-        "ProviderTypes": {
-          "target": "com.amazonaws.codegurureviewer#ProviderTypes",
+        "MaxResults": {
+          "target": "com.amazonaws.codegurureviewer#ListCodeReviewsMaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>\n         List of provider types for filtering that needs to be applied before displaying the result. For example, <code>providerTypes=[GitHub]</code>  lists code reviews from GitHub.\n      </p>",
-            "smithy.api#httpQuery": "ProviderTypes"
+            "smithy.api#documentation": "<p>\n         The maximum number of results that are returned per call. The default is 100.\n      </p>",
+            "smithy.api#httpQuery": "MaxResults"
           }
         },
         "NextToken": {
@@ -803,11 +803,11 @@
             "smithy.api#httpQuery": "NextToken"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.codegurureviewer#ListCodeReviewsMaxResults",
+        "RepositoryNames": {
+          "target": "com.amazonaws.codegurureviewer#RepositoryNames",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The maximum number of results that are returned per call. The default is 100.\n      </p>",
-            "smithy.api#httpQuery": "MaxResults"
+            "smithy.api#documentation": "<p>\n         List of repository names for filtering that needs to be applied before displaying the result.\n      </p>",
+            "smithy.api#httpQuery": "RepositoryNames"
           }
         },
         "Type": {
@@ -818,18 +818,18 @@
             "smithy.api#required": {}
           }
         },
-        "RepositoryNames": {
-          "target": "com.amazonaws.codegurureviewer#RepositoryNames",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         List of repository names for filtering that needs to be applied before displaying the result.\n      </p>",
-            "smithy.api#httpQuery": "RepositoryNames"
-          }
-        },
         "States": {
           "target": "com.amazonaws.codegurureviewer#JobStates",
           "traits": {
             "smithy.api#documentation": "<p>\n         List of states for filtering that needs to be applied before displaying the result. For example, <code>states=[Pending]</code> lists code reviews in the Pending state.\n      </p>\n         <p>The valid code review states are:</p>\n         <ul>\n            <li>            \n               <p>\n                  <code>Completed</code>: The code review is complete.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <code>Pending</code>: The code review started and has not completed or failed.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>Failed</code>: The code review failed.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <code>Deleting</code>: The code review is being deleted.\n            </p>\n            </li>\n         </ul>",
             "smithy.api#httpQuery": "States"
+          }
+        },
+        "ProviderTypes": {
+          "target": "com.amazonaws.codegurureviewer#ProviderTypes",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         List of provider types for filtering that needs to be applied before displaying the result. For example, <code>providerTypes=[GitHub]</code>  lists code reviews from GitHub.\n      </p>",
+            "smithy.api#httpQuery": "ProviderTypes"
           }
         }
       }
@@ -837,16 +837,16 @@
     "com.amazonaws.codegurureviewer#ListCodeReviewsResponse": {
       "type": "structure",
       "members": {
-        "CodeReviewSummaries": {
-          "target": "com.amazonaws.codegurureviewer#CodeReviewSummaries",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         A list of code reviews that meet the criteria of the request.\n      </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.codegurureviewer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>\n         Pagination token.\n      </p>"
+          }
+        },
+        "CodeReviewSummaries": {
+          "target": "com.amazonaws.codegurureviewer#CodeReviewSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         A list of code reviews that meet the criteria of the request.\n      </p>"
           }
         }
       }
@@ -907,19 +907,19 @@
             "smithy.api#httpQuery": "UserIds"
           }
         },
-        "RecommendationIds": {
-          "target": "com.amazonaws.codegurureviewer#RecommendationIds",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         Used to query the recommendation feedback for a given recommendation. \n      </p>",
-            "smithy.api#httpQuery": "RecommendationIds"
-          }
-        },
         "CodeReviewArn": {
           "target": "com.amazonaws.codegurureviewer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">\n               <code>CodeReview</code>\n            </a> object.\n      </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "RecommendationIds": {
+          "target": "com.amazonaws.codegurureviewer#RecommendationIds",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         Used to query the recommendation feedback for a given recommendation. \n      </p>",
+            "smithy.api#httpQuery": "RecommendationIds"
           }
         },
         "NextToken": {
@@ -1067,25 +1067,11 @@
     "com.amazonaws.codegurureviewer#ListRepositoryAssociationsRequest": {
       "type": "structure",
       "members": {
-        "Owners": {
-          "target": "com.amazonaws.codegurureviewer#Owners",
+        "MaxResults": {
+          "target": "com.amazonaws.codegurureviewer#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>List of owners to use as a filter. \n        For AWS CodeCommit, it is the name of the CodeCommit account that was\n        used to associate the repository. For other repository source providers, such as Bitbucket, this is name of the account \n        that was used to associate the repository. </p>",
-            "smithy.api#httpQuery": "Owner"
-          }
-        },
-        "Names": {
-          "target": "com.amazonaws.codegurureviewer#Names",
-          "traits": {
-            "smithy.api#documentation": "<p>List of repository names to use as a filter.</p>",
-            "smithy.api#httpQuery": "Name"
-          }
-        },
-        "States": {
-          "target": "com.amazonaws.codegurureviewer#RepositoryAssociationStates",
-          "traits": {
-            "smithy.api#documentation": "<p>List of repository association states to use as a filter.</p>\n         <p>The valid repository association states are:</p>\n         <ul>\n            <li>            \n               <p>\n                  <b>Associated</b>: The repository \n               association is complete.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Associating</b>: CodeGuru Reviewer is:               \n            </p>\n               <ul>\n                  <li>\n                     <p>\n                     Setting up pull request notifications. This is required \n                     for pull requests to trigger a CodeGuru Reviewer review.\n                  </p>\n                     <note>\n                        <p>\n                        If your repository <code>ProviderType</code> is <code>GitHub</code> or <code>Bitbucket</code>, \n                        CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks, \n                        reviews of code in your repository cannot be triggered.\n                     </p>\n                     </note>\n                  </li>\n                  <li>\n                     <p>\n                     Setting up source code access. This is required for CodeGuru Reviewer to securely \n                     clone code in your repository.\n                  </p>\n                  </li>\n               </ul>            \n            </li>\n            <li>\n               <p>\n                  <b>Failed</b>: The repository failed to associate or disassociate.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request notifications and \n               source code access.\n            </p>\n            </li>\n         </ul>",
-            "smithy.api#httpQuery": "State"
+            "smithy.api#documentation": "<p>The maximum number of repository association results returned by <code>ListRepositoryAssociations</code> \n         in paginated output. When this parameter is used, <code>ListRepositoryAssociations</code> only returns \n         <code>maxResults</code> results in a single page with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListRepositoryAssociations</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 100. If this parameter is not used, <code>ListRepositoryAssociations</code>\n         returns up to 100 results and a <code>nextToken</code> value if applicable. </p>",
+            "smithy.api#httpQuery": "MaxResults"
           }
         },
         "NextToken": {
@@ -1102,11 +1088,25 @@
             "smithy.api#httpQuery": "ProviderType"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.codegurureviewer#MaxResults",
+        "States": {
+          "target": "com.amazonaws.codegurureviewer#RepositoryAssociationStates",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of repository association results returned by <code>ListRepositoryAssociations</code> \n         in paginated output. When this parameter is used, <code>ListRepositoryAssociations</code> only returns \n         <code>maxResults</code> results in a single page with a <code>nextToken</code> response \n         element. The remaining results of the initial request \n         can be seen by sending another <code>ListRepositoryAssociations</code> request with the returned \n         <code>nextToken</code> value. \n         This value can be between 1 and 100. If this parameter is not used, <code>ListRepositoryAssociations</code>\n         returns up to 100 results and a <code>nextToken</code> value if applicable. </p>",
-            "smithy.api#httpQuery": "MaxResults"
+            "smithy.api#documentation": "<p>List of repository association states to use as a filter.</p>\n         <p>The valid repository association states are:</p>\n         <ul>\n            <li>            \n               <p>\n                  <b>Associated</b>: The repository \n               association is complete.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Associating</b>: CodeGuru Reviewer is:               \n            </p>\n               <ul>\n                  <li>\n                     <p>\n                     Setting up pull request notifications. This is required \n                     for pull requests to trigger a CodeGuru Reviewer review.\n                  </p>\n                     <note>\n                        <p>\n                        If your repository <code>ProviderType</code> is <code>GitHub</code> or <code>Bitbucket</code>, \n                        CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks, \n                        reviews of code in your repository cannot be triggered.\n                     </p>\n                     </note>\n                  </li>\n                  <li>\n                     <p>\n                     Setting up source code access. This is required for CodeGuru Reviewer to securely \n                     clone code in your repository.\n                  </p>\n                  </li>\n               </ul>            \n            </li>\n            <li>\n               <p>\n                  <b>Failed</b>: The repository failed to associate or disassociate.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request notifications and \n               source code access.\n            </p>\n            </li>\n         </ul>",
+            "smithy.api#httpQuery": "State"
+          }
+        },
+        "Owners": {
+          "target": "com.amazonaws.codegurureviewer#Owners",
+          "traits": {
+            "smithy.api#documentation": "<p>List of owners to use as a filter. \n        For AWS CodeCommit, it is the name of the CodeCommit account that was\n        used to associate the repository. For other repository source providers, such as Bitbucket, this is name of the account \n        that was used to associate the repository. </p>",
+            "smithy.api#httpQuery": "Owner"
+          }
+        },
+        "Names": {
+          "target": "com.amazonaws.codegurureviewer#Names",
+          "traits": {
+            "smithy.api#documentation": "<p>List of repository names to use as a filter.</p>",
+            "smithy.api#httpQuery": "Name"
           }
         }
       }
@@ -1147,16 +1147,16 @@
     "com.amazonaws.codegurureviewer#Metrics": {
       "type": "structure",
       "members": {
-        "FindingsCount": {
-          "target": "com.amazonaws.codegurureviewer#FindingsCount",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         Total number of recommendations found in the code review.\n      </p>"
-          }
-        },
         "MeteredLinesOfCodeCount": {
           "target": "com.amazonaws.codegurureviewer#MeteredLinesOfCodeCount",
           "traits": {
             "smithy.api#documentation": "<p>\n        Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions, \n        this includes all lines of code in the files added to the pull request. In subsequent revisions, for files that already \n        existed in the pull request, this includes only the changed lines of code. In both cases, this does not include non-code lines such as comments \n        and import statements. For example, if you submit a pull request containing 5 files, each with 500 lines of code, and in \n        a subsequent revision you added a new file with 200 lines of code, and also modified a total of 25 lines across the initial 5 files, \n        <code>MeteredLinesOfCodeCount</code> includes the first 5 files (5 * 500 = 2,500 lines), the new file (200 lines) and the 25 changed lines of\n         code for a total of 2,725 lines of code.\n      </p>"
+          }
+        },
+        "FindingsCount": {
+          "target": "com.amazonaws.codegurureviewer#FindingsCount",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         Total number of recommendations found in the code review.\n      </p>"
           }
         }
       },
@@ -1167,16 +1167,16 @@
     "com.amazonaws.codegurureviewer#MetricsSummary": {
       "type": "structure",
       "members": {
-        "FindingsCount": {
-          "target": "com.amazonaws.codegurureviewer#FindingsCount",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         Total number of recommendations found in the code review.\n      </p>"
-          }
-        },
         "MeteredLinesOfCodeCount": {
           "target": "com.amazonaws.codegurureviewer#MeteredLinesOfCodeCount",
           "traits": {
             "smithy.api#documentation": "<p>\n         Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions, \n         this includes all lines of code in the files added to the pull request. In subsequent revisions, for files that already \n         existed in the pull request, this includes only the changed lines of code. In both cases, this does not include non-code lines such as comments \n         and import statements. For example, if you submit a pull request containing 5 files, each with 500 lines of code, and in \n         a subsequent revision you added a new file with 200 lines of code, and also modified a total of 25 lines across the initial 5 files, \n         <code>MeteredLinesOfCodeCount</code> includes the first 5 files (5 * 500 = 2,500 lines), the new file (200 lines) and the 25 changed lines of\n         code for a total of 2,725 lines of code.\n      </p>"
+          }
+        },
+        "FindingsCount": {
+          "target": "com.amazonaws.codegurureviewer#FindingsCount",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         Total number of recommendations found in the code review.\n      </p>"
           }
         }
       },
@@ -1338,17 +1338,17 @@
             "smithy.api#required": {}
           }
         },
-        "RecommendationId": {
-          "target": "com.amazonaws.codegurureviewer#RecommendationId",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The recommendation ID that can be used to track the provided recommendations and then to collect the feedback.\n      </p>",
-            "smithy.api#required": {}
-          }
-        },
         "CodeReviewArn": {
           "target": "com.amazonaws.codegurureviewer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">\n               <code>CodeReview</code>\n            </a> object.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RecommendationId": {
+          "target": "com.amazonaws.codegurureviewer#RecommendationId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The recommendation ID that can be used to track the provided recommendations and then to collect the feedback.\n      </p>",
             "smithy.api#required": {}
           }
         }
@@ -1400,6 +1400,18 @@
             "smithy.api#documentation": "<p>\n         The time at which the feedback was created.\n      </p>"
           }
         },
+        "CodeReviewArn": {
+          "target": "com.amazonaws.codegurureviewer#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">\n               <code>CodeReview</code>\n            </a> object.\n      </p>"
+          }
+        },
+        "Reactions": {
+          "target": "com.amazonaws.codegurureviewer#Reactions",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         List for storing reactions. Reactions are utf-8 text code for emojis. You can send an empty list to clear off all your feedback.\n      </p>"
+          }
+        },
         "UserId": {
           "target": "com.amazonaws.codegurureviewer#UserId",
           "traits": {
@@ -1410,18 +1422,6 @@
           "target": "com.amazonaws.codegurureviewer#TimeStamp",
           "traits": {
             "smithy.api#documentation": "<p>\n         The time at which the feedback was last updated. \n      </p>"
-          }
-        },
-        "Reactions": {
-          "target": "com.amazonaws.codegurureviewer#Reactions",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         List for storing reactions. Reactions are utf-8 text code for emojis. You can send an empty list to clear off all your feedback.\n      </p>"
-          }
-        },
-        "CodeReviewArn": {
-          "target": "com.amazonaws.codegurureviewer#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">\n               <code>CodeReview</code>\n            </a> object.\n      </p>"
           }
         }
       },
@@ -1438,6 +1438,12 @@
     "com.amazonaws.codegurureviewer#RecommendationFeedbackSummary": {
       "type": "structure",
       "members": {
+        "Reactions": {
+          "target": "com.amazonaws.codegurureviewer#Reactions",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         List for storing reactions. Reactions are utf-8 text code for emojis.\n      </p>"
+          }
+        },
         "RecommendationId": {
           "target": "com.amazonaws.codegurureviewer#RecommendationId",
           "traits": {
@@ -1448,12 +1454,6 @@
           "target": "com.amazonaws.codegurureviewer#UserId",
           "traits": {
             "smithy.api#documentation": "<p>\n         The ID of the user that gave the feedback.\n      </p>\n         <p>\n         The <code>UserId</code> is an IAM principal that can be specified as an AWS account ID or an Amazon Resource Name (ARN). For \n         more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying\">\n            Specifying a Principal</a> in the <i>AWS Identity and Access Management User Guide</i>.\n      </p>"
-          }
-        },
-        "Reactions": {
-          "target": "com.amazonaws.codegurureviewer#Reactions",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         List for storing reactions. Reactions are utf-8 text code for emojis.\n      </p>"
           }
         }
       },
@@ -1491,6 +1491,12 @@
     "com.amazonaws.codegurureviewer#RecommendationSummary": {
       "type": "structure",
       "members": {
+        "FilePath": {
+          "target": "com.amazonaws.codegurureviewer#FilePath",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the file on which a recommendation is provided.</p>"
+          }
+        },
         "Description": {
           "target": "com.amazonaws.codegurureviewer#Text",
           "traits": {
@@ -1514,12 +1520,6 @@
           "traits": {
             "smithy.api#documentation": "<p>\n         Last line where the recommendation is applicable in the source commit or source branch. For a single line comment the start line and end line values are the same.\n      </p>"
           }
-        },
-        "FilePath": {
-          "target": "com.amazonaws.codegurureviewer#FilePath",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the file on which a recommendation is provided.</p>"
-          }
         }
       },
       "traits": {
@@ -1529,12 +1529,6 @@
     "com.amazonaws.codegurureviewer#Repository": {
       "type": "structure",
       "members": {
-        "CodeCommit": {
-          "target": "com.amazonaws.codegurureviewer#CodeCommitRepository",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about an AWS CodeCommit repository.</p>"
-          }
-        },
         "GitHubEnterpriseServer": {
           "target": "com.amazonaws.codegurureviewer#ThirdPartySourceRepository",
           "traits": {
@@ -1546,6 +1540,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n         Information about a Bitbucket repository.\n      </p>"
           }
+        },
+        "CodeCommit": {
+          "target": "com.amazonaws.codegurureviewer#CodeCommitRepository",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about an AWS CodeCommit repository.</p>"
+          }
         }
       },
       "traits": {
@@ -1555,12 +1555,6 @@
     "com.amazonaws.codegurureviewer#RepositoryAssociation": {
       "type": "structure",
       "members": {
-        "StateReason": {
-          "target": "com.amazonaws.codegurureviewer#StateReason",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of why the repository association is in the current state.</p>"
-          }
-        },
         "AssociationArn": {
           "target": "com.amazonaws.codegurureviewer#Arn",
           "traits": {
@@ -1573,36 +1567,6 @@
             "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, when the repository association was last updated.</p>"
           }
         },
-        "Owner": {
-          "target": "com.amazonaws.codegurureviewer#Owner",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the \n      account that owns the repository. For a GitHub or Bitbucket repository, this is the username for the account that owns the repository.</p>"
-          }
-        },
-        "ConnectionArn": {
-          "target": "com.amazonaws.codegurureviewer#ConnectionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is \n         <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html\">Connection</a> in \n         the <i>AWS CodeStar Connections API Reference</i>.\n      </p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.codegurureviewer#RepositoryAssociationState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the repository association.</p>\n         <p>The valid repository association states are:</p>\n         <ul>\n            <li>            \n               <p>\n                  <b>Associated</b>: The repository \n               association is complete.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Associating</b>: CodeGuru Reviewer is:               \n            </p>\n               <ul>\n                  <li>\n                     <p>\n                     Setting up pull request notifications. This is required \n                     for pull requests to trigger a CodeGuru Reviewer review.\n                  </p>\n                     <note>\n                        <p>\n                        If your repository <code>ProviderType</code> is <code>GitHub</code> or <code>Bitbucket</code>, \n                        CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks, \n                        reviews of code in your repository cannot be triggered.\n                     </p>\n                     </note>\n                  </li>\n                  <li>\n                     <p>\n                     Setting up source code access. This is required for CodeGuru Reviewer to securely \n                     clone code in your repository.\n                  </p>\n                  </li>\n               </ul>            \n            </li>\n            <li>\n               <p>\n                  <b>Failed</b>: The repository failed to associate or disassociate.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request notifications and \n               source code access.\n            </p>\n            </li>\n         </ul>"
-          }
-        },
-        "AssociationId": {
-          "target": "com.amazonaws.codegurureviewer#AssociationId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the repository association.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.codegurureviewer#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the repository.</p>"
-          }
-        },
         "CreatedTimeStamp": {
           "target": "com.amazonaws.codegurureviewer#TimeStamp",
           "traits": {
@@ -1613,6 +1577,42 @@
           "target": "com.amazonaws.codegurureviewer#ProviderType",
           "traits": {
             "smithy.api#documentation": "<p>The provider type of the repository association.</p>"
+          }
+        },
+        "StateReason": {
+          "target": "com.amazonaws.codegurureviewer#StateReason",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of why the repository association is in the current state.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.codegurureviewer#RepositoryAssociationState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the repository association.</p>\n         <p>The valid repository association states are:</p>\n         <ul>\n            <li>            \n               <p>\n                  <b>Associated</b>: The repository \n               association is complete.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Associating</b>: CodeGuru Reviewer is:               \n            </p>\n               <ul>\n                  <li>\n                     <p>\n                     Setting up pull request notifications. This is required \n                     for pull requests to trigger a CodeGuru Reviewer review.\n                  </p>\n                     <note>\n                        <p>\n                        If your repository <code>ProviderType</code> is <code>GitHub</code> or <code>Bitbucket</code>, \n                        CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks, \n                        reviews of code in your repository cannot be triggered.\n                     </p>\n                     </note>\n                  </li>\n                  <li>\n                     <p>\n                     Setting up source code access. This is required for CodeGuru Reviewer to securely \n                     clone code in your repository.\n                  </p>\n                  </li>\n               </ul>            \n            </li>\n            <li>\n               <p>\n                  <b>Failed</b>: The repository failed to associate or disassociate.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request notifications and \n               source code access.\n            </p>\n            </li>\n         </ul>"
+          }
+        },
+        "ConnectionArn": {
+          "target": "com.amazonaws.codegurureviewer#ConnectionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is \n         <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html\">Connection</a> in \n         the <i>AWS CodeStar Connections API Reference</i>.\n      </p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.codegurureviewer#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the repository.</p>"
+          }
+        },
+        "AssociationId": {
+          "target": "com.amazonaws.codegurureviewer#AssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the repository association.</p>"
+          }
+        },
+        "Owner": {
+          "target": "com.amazonaws.codegurureviewer#Owner",
+          "traits": {
+            "smithy.api#documentation": "<p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the \n      account that owns the repository. For a GitHub or Bitbucket repository, this is the username for the account that owns the repository.</p>"
           }
         }
       },
@@ -1664,40 +1664,10 @@
     "com.amazonaws.codegurureviewer#RepositoryAssociationSummary": {
       "type": "structure",
       "members": {
-        "LastUpdatedTimeStamp": {
-          "target": "com.amazonaws.codegurureviewer#TimeStamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, since the repository association\n        was last updated.\n      </p>"
-          }
-        },
-        "ProviderType": {
-          "target": "com.amazonaws.codegurureviewer#ProviderType",
-          "traits": {
-            "smithy.api#documentation": "<p>The provider type of the repository association.</p>"
-          }
-        },
-        "ConnectionArn": {
-          "target": "com.amazonaws.codegurureviewer#ConnectionArn",
-          "traits": {
-            "smithy.api#documentation": "<p>\n         The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is \n         <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html\">Connection</a> in \n         the <i>AWS CodeStar Connections API Reference</i>.\n      </p>"
-          }
-        },
         "State": {
           "target": "com.amazonaws.codegurureviewer#RepositoryAssociationState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the repository association.</p>\n         <p>The valid repository association states are:</p>\n         <ul>\n            <li>            \n               <p>\n                  <b>Associated</b>: The repository \n               association is complete.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Associating</b>: CodeGuru Reviewer is:               \n            </p>\n               <ul>\n                  <li>\n                     <p>\n                     Setting up pull request notifications. This is required \n                     for pull requests to trigger a CodeGuru Reviewer review.\n                  </p>\n                     <note>\n                        <p>\n                        If your repository <code>ProviderType</code> is <code>GitHub</code> or <code>Bitbucket</code>, \n                        CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks, \n                        reviews of code in your repository cannot be triggered.\n                     </p>\n                     </note>\n                  </li>\n                  <li>\n                     <p>\n                     Setting up source code access. This is required for CodeGuru Reviewer to securely \n                     clone code in your repository.\n                  </p>\n                  </li>\n               </ul>            \n            </li>\n            <li>\n               <p>\n                  <b>Failed</b>: The repository failed to associate or disassociate.\n            </p>            \n            </li>\n            <li>\n               <p>\n                  <b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request notifications and \n               source code access.\n            </p>\n            </li>\n         </ul>"
-          }
-        },
-        "AssociationArn": {
-          "target": "com.amazonaws.codegurureviewer#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the  \n         <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">\n               <code>RepositoryAssociation</code>\n            </a> object. \n      </p>"
-          }
-        },
-        "Owner": {
-          "target": "com.amazonaws.codegurureviewer#Owner",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the \n      account that owns the repository. For a GitHub or Bitbucket repository, this is the username for the account that owns the repository.</p>"
           }
         },
         "AssociationId": {
@@ -1706,10 +1676,40 @@
             "smithy.api#documentation": "<p>\n         The repository association ID.\n      </p>"
           }
         },
+        "ProviderType": {
+          "target": "com.amazonaws.codegurureviewer#ProviderType",
+          "traits": {
+            "smithy.api#documentation": "<p>The provider type of the repository association.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.codegurureviewer#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the repository association.</p>"
+          }
+        },
+        "AssociationArn": {
+          "target": "com.amazonaws.codegurureviewer#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the  \n         <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">\n               <code>RepositoryAssociation</code>\n            </a> object. \n      </p>"
+          }
+        },
+        "ConnectionArn": {
+          "target": "com.amazonaws.codegurureviewer#ConnectionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is \n         <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html\">Connection</a> in \n         the <i>AWS CodeStar Connections API Reference</i>.\n      </p>"
+          }
+        },
+        "Owner": {
+          "target": "com.amazonaws.codegurureviewer#Owner",
+          "traits": {
+            "smithy.api#documentation": "<p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the \n      account that owns the repository. For a GitHub or Bitbucket repository, this is the username for the account that owns the repository.</p>"
+          }
+        },
+        "LastUpdatedTimeStamp": {
+          "target": "com.amazonaws.codegurureviewer#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in milliseconds since the epoch, since the repository association\n        was last updated.\n      </p>"
           }
         }
       },
@@ -1777,10 +1777,10 @@
     "com.amazonaws.codegurureviewer#ThirdPartySourceRepository": {
       "type": "structure",
       "members": {
-        "ConnectionArn": {
-          "target": "com.amazonaws.codegurureviewer#ConnectionArn",
+        "Owner": {
+          "target": "com.amazonaws.codegurureviewer#Owner",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is \n         <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html\">Connection</a> in \n         the <i>AWS CodeStar Connections API Reference</i>.\n      </p>",
+            "smithy.api#documentation": "<p>\n         The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository, \n         this is the username for the account that owns the repository. \n      </p>",
             "smithy.api#required": {}
           }
         },
@@ -1791,10 +1791,10 @@
             "smithy.api#required": {}
           }
         },
-        "Owner": {
-          "target": "com.amazonaws.codegurureviewer#Owner",
+        "ConnectionArn": {
+          "target": "com.amazonaws.codegurureviewer#ConnectionArn",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository, \n         this is the username for the account that owns the repository. \n      </p>",
+            "smithy.api#documentation": "<p>\n         The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is \n         <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html\">Connection</a> in \n         the <i>AWS CodeStar Connections API Reference</i>.\n      </p>",
             "smithy.api#required": {}
           }
         }

@@ -137,6 +137,12 @@
     "com.amazonaws.schemas#CreateDiscovererRequest": {
       "type": "structure",
       "members": {
+        "Description": {
+          "target": "com.amazonaws.schemas#__stringMin0Max256",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the discoverer.</p>"
+          }
+        },
         "SourceArn": {
           "target": "com.amazonaws.schemas#__stringMin20Max1600",
           "traits": {
@@ -150,40 +156,17 @@
             "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
             "smithy.api#jsonName": "tags"
           }
-        },
-        "Description": {
-          "target": "com.amazonaws.schemas#__stringMin0Max256",
-          "traits": {
-            "smithy.api#documentation": "<p>A description for the discoverer.</p>"
-          }
         }
       }
     },
     "com.amazonaws.schemas#CreateDiscovererResponse": {
       "type": "structure",
       "members": {
-        "SourceArn": {
-          "target": "com.amazonaws.schemas#__string",
+        "Tags": {
+          "target": "com.amazonaws.schemas#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the event bus.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the discoverer.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.schemas#DiscovererState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the discoverer.</p>"
-          }
-        },
-        "DiscovererId": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
+            "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
+            "smithy.api#jsonName": "tags"
           }
         },
         "DiscovererArn": {
@@ -192,11 +175,28 @@
             "smithy.api#documentation": "<p>The ARN of the discoverer.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.schemas#Tags",
+        "DiscovererId": {
+          "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the discoverer.</p>"
+          }
+        },
+        "SourceArn": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the event bus.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.schemas#DiscovererState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the discoverer.</p>"
           }
         }
       }
@@ -241,12 +241,11 @@
     "com.amazonaws.schemas#CreateRegistryRequest": {
       "type": "structure",
       "members": {
-        "RegistryName": {
-          "target": "com.amazonaws.schemas#__string",
+        "Tags": {
+          "target": "com.amazonaws.schemas#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the registry.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Tags to associate with the registry.</p>",
+            "smithy.api#jsonName": "tags"
           }
         },
         "Description": {
@@ -255,11 +254,12 @@
             "smithy.api#documentation": "<p>A description of the registry to be created.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.schemas#Tags",
+        "RegistryName": {
+          "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Tags to associate with the registry.</p>",
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "<p>The name of the registry.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -273,12 +273,6 @@
             "smithy.api#documentation": "<p>The description of the registry.</p>"
           }
         },
-        "RegistryName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the registry.</p>"
-          }
-        },
         "RegistryArn": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -290,6 +284,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Tags associated with the registry.</p>",
             "smithy.api#jsonName": "tags"
+          }
+        },
+        "RegistryName": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the registry.</p>"
           }
         }
       }
@@ -328,14 +328,6 @@
     "com.amazonaws.schemas#CreateSchemaRequest": {
       "type": "structure",
       "members": {
-        "RegistryName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the registry.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "Content": {
           "target": "com.amazonaws.schemas#__stringMin1Max100000",
           "traits": {
@@ -351,12 +343,6 @@
             "smithy.api#required": {}
           }
         },
-        "Description": {
-          "target": "com.amazonaws.schemas#__stringMin0Max256",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the schema.</p>"
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.schemas#Tags",
           "traits": {
@@ -368,6 +354,20 @@
           "target": "com.amazonaws.schemas#Type",
           "traits": {
             "smithy.api#documentation": "<p>The type of schema.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.schemas#__stringMin0Max256",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the schema.</p>"
+          }
+        },
+        "RegistryName": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the registry.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -382,34 +382,16 @@
             "smithy.api#documentation": "<p>The name of the schema.</p>"
           }
         },
-        "VersionCreatedDate": {
-          "target": "com.amazonaws.schemas#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the schema version was created.</p>"
-          }
-        },
         "SchemaArn": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the schema.</p>"
           }
         },
-        "Type": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the schema.</p>"
-          }
-        },
-        "LastModified": {
+        "VersionCreatedDate": {
           "target": "com.amazonaws.schemas#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that schema was modified.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.schemas#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "<p>The date the schema version was created.</p>"
           }
         },
         "SchemaVersion": {
@@ -422,6 +404,24 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The description of the schema.</p>"
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.schemas#__timestampIso8601",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that schema was modified.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the schema.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.schemas#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
           }
         }
       }
@@ -658,6 +658,14 @@
     "com.amazonaws.schemas#DeleteSchemaVersionRequest": {
       "type": "structure",
       "members": {
+        "SchemaName": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -670,14 +678,6 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "The version number of the schema",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "SchemaName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the schema.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -731,10 +731,10 @@
             "smithy.api#httpQuery": "schemaVersion"
           }
         },
-        "SchemaName": {
+        "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the schema.</p>",
+            "smithy.api#documentation": "<p>The name of the registry.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -747,10 +747,10 @@
             "smithy.api#required": {}
           }
         },
-        "RegistryName": {
+        "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the registry.</p>",
+            "smithy.api#documentation": "<p>The name of the schema.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -760,6 +760,18 @@
     "com.amazonaws.schemas#DescribeCodeBindingResponse": {
       "type": "structure",
       "members": {
+        "SchemaVersion": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number of the schema.</p>"
+          }
+        },
+        "CreationDate": {
+          "target": "com.amazonaws.schemas#__timestampIso8601",
+          "traits": {
+            "smithy.api#documentation": "<p>The time and date that the code binding was created.</p>"
+          }
+        },
         "LastModified": {
           "target": "com.amazonaws.schemas#__timestampIso8601",
           "traits": {
@@ -770,18 +782,6 @@
           "target": "com.amazonaws.schemas#CodeGenerationStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of code binding generation.</p>"
-          }
-        },
-        "CreationDate": {
-          "target": "com.amazonaws.schemas#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The time and date that the code binding was created.</p>"
-          }
-        },
-        "SchemaVersion": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number of the schema.</p>"
           }
         }
       }
@@ -839,28 +839,16 @@
     "com.amazonaws.schemas#DescribeDiscovererResponse": {
       "type": "structure",
       "members": {
-        "DiscovererId": {
-          "target": "com.amazonaws.schemas#__string",
+        "State": {
+          "target": "com.amazonaws.schemas#DiscovererState",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
+            "smithy.api#documentation": "<p>The state of the discoverer.</p>"
           }
         },
         "Description": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The description of the discoverer.</p>"
-          }
-        },
-        "SourceArn": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the event bus.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.schemas#DiscovererState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the discoverer.</p>"
           }
         },
         "DiscovererArn": {
@@ -874,6 +862,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
             "smithy.api#jsonName": "tags"
+          }
+        },
+        "DiscovererId": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
+          }
+        },
+        "SourceArn": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the event bus.</p>"
           }
         }
       }
@@ -931,16 +931,17 @@
     "com.amazonaws.schemas#DescribeRegistryResponse": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.schemas#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags associated with the registry.</p>",
+            "smithy.api#jsonName": "tags"
+          }
+        },
         "Description": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The description of the registry.</p>"
-          }
-        },
-        "RegistryName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the registry.</p>"
           }
         },
         "RegistryArn": {
@@ -949,11 +950,10 @@
             "smithy.api#documentation": "<p>The ARN of the registry.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.schemas#Tags",
+        "RegistryName": {
+          "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Tags associated with the registry.</p>",
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "<p>The name of the registry.</p>"
           }
         }
       }
@@ -1026,28 +1026,23 @@
     "com.amazonaws.schemas#DescribeSchemaResponse": {
       "type": "structure",
       "members": {
-        "VersionCreatedDate": {
-          "target": "com.amazonaws.schemas#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the schema version was created.</p>"
-          }
-        },
         "SchemaVersion": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The version number of the schema</p>"
           }
         },
-        "Content": {
+        "Type": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The source of the schema definition.</p>"
+            "smithy.api#documentation": "<p>The type of the schema.</p>"
           }
         },
-        "Description": {
-          "target": "com.amazonaws.schemas#__string",
+        "Tags": {
+          "target": "com.amazonaws.schemas#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the schema.</p>"
+            "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
+            "smithy.api#jsonName": "tags"
           }
         },
         "SchemaArn": {
@@ -1062,23 +1057,28 @@
             "smithy.api#documentation": "<p>The name of the schema.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.schemas#Tags",
-          "traits": {
-            "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the schema.</p>"
-          }
-        },
         "LastModified": {
           "target": "com.amazonaws.schemas#__timestampIso8601",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that schema was modified.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the schema.</p>"
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The source of the schema definition.</p>"
+          }
+        },
+        "VersionCreatedDate": {
+          "target": "com.amazonaws.schemas#__timestampIso8601",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the schema version was created.</p>"
           }
         }
       }
@@ -1101,23 +1101,10 @@
     "com.amazonaws.schemas#DiscovererSummary": {
       "type": "structure",
       "members": {
-        "Tags": {
-          "target": "com.amazonaws.schemas#Tags",
+        "State": {
+          "target": "com.amazonaws.schemas#DiscovererState",
           "traits": {
-            "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "DiscovererId": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
-          }
-        },
-        "DiscovererArn": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the discoverer.</p>"
+            "smithy.api#documentation": "<p>The state of the discoverer.</p>"
           }
         },
         "SourceArn": {
@@ -1126,10 +1113,23 @@
             "smithy.api#documentation": "<p>The ARN of the event bus.</p>"
           }
         },
-        "State": {
-          "target": "com.amazonaws.schemas#DiscovererState",
+        "DiscovererId": {
+          "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the discoverer.</p>"
+            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.schemas#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "DiscovererArn": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the discoverer.</p>"
           }
         }
       }
@@ -1197,21 +1197,6 @@
     "com.amazonaws.schemas#GetCodeBindingSourceRequest": {
       "type": "structure",
       "members": {
-        "SchemaVersion": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifying this limits the results to only this schema version.</p>",
-            "smithy.api#httpQuery": "schemaVersion"
-          }
-        },
-        "SchemaName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the schema.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -1226,6 +1211,21 @@
             "smithy.api#documentation": "<p>The language of the code binding.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "SchemaName": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "SchemaVersion": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifying this limits the results to only this schema version.</p>",
+            "smithy.api#httpQuery": "schemaVersion"
           }
         }
       }
@@ -1278,17 +1278,17 @@
     "com.amazonaws.schemas#GetDiscoveredSchemaRequest": {
       "type": "structure",
       "members": {
-        "Type": {
-          "target": "com.amazonaws.schemas#Type",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of event.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Events": {
           "target": "com.amazonaws.schemas#__listOfGetDiscoveredSchemaVersionItemInput",
           "traits": {
             "smithy.api#documentation": "<p>An array of strings where each string is a JSON event. These are the events that were used to generate the schema. The array includes a single type of event and has a maximum size of 10 events.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.schemas#Type",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of event.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1553,11 +1553,11 @@
             "smithy.api#httpQuery": "nextToken"
           }
         },
-        "Scope": {
+        "RegistryNamePrefix": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Can be set to Local or AWS to limit responses to your custom registries, or the ones provided by AWS.</p>",
-            "smithy.api#httpQuery": "scope"
+            "smithy.api#documentation": "<p>Specifying this limits the results to only those registry names that start with the specified prefix.</p>",
+            "smithy.api#httpQuery": "registryNamePrefix"
           }
         },
         "Limit": {
@@ -1566,11 +1566,11 @@
             "smithy.api#httpQuery": "limit"
           }
         },
-        "RegistryNamePrefix": {
+        "Scope": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Specifying this limits the results to only those registry names that start with the specified prefix.</p>",
-            "smithy.api#httpQuery": "registryNamePrefix"
+            "smithy.api#documentation": "<p>Can be set to Local or AWS to limit responses to your custom registries, or the ones provided by AWS.</p>",
+            "smithy.api#httpQuery": "scope"
           }
         }
       }
@@ -1578,16 +1578,16 @@
     "com.amazonaws.schemas#ListRegistriesResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>"
-          }
-        },
         "Registries": {
           "target": "com.amazonaws.schemas#__listOfRegistrySummary",
           "traits": {
             "smithy.api#documentation": "<p>An array of registry summaries.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>"
           }
         }
       }
@@ -1640,6 +1640,14 @@
             "smithy.api#required": {}
           }
         },
+        "SchemaName": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -1651,14 +1659,6 @@
           "target": "com.amazonaws.schemas#__integer",
           "traits": {
             "smithy.api#httpQuery": "limit"
-          }
-        },
-        "SchemaName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the schema.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         }
       }
@@ -1731,12 +1731,6 @@
             "smithy.api#httpQuery": "schemaNamePrefix"
           }
         },
-        "Limit": {
-          "target": "com.amazonaws.schemas#__integer",
-          "traits": {
-            "smithy.api#httpQuery": "limit"
-          }
-        },
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -1744,22 +1738,28 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "Limit": {
+          "target": "com.amazonaws.schemas#__integer",
+          "traits": {
+            "smithy.api#httpQuery": "limit"
+          }
         }
       }
     },
     "com.amazonaws.schemas#ListSchemasResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>"
-          }
-        },
         "Schemas": {
           "target": "com.amazonaws.schemas#__listOfSchemaSummary",
           "traits": {
             "smithy.api#documentation": "<p>An array of schema summaries.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>"
           }
         }
       }
@@ -1915,14 +1915,6 @@
             "smithy.api#httpQuery": "schemaVersion"
           }
         },
-        "RegistryName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the registry.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -1938,6 +1930,14 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "RegistryName": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the registry.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
         }
       }
     },
@@ -1950,10 +1950,10 @@
             "smithy.api#documentation": "<p>The time and date that the code binding was created.</p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.schemas#CodeGenerationStatus",
+        "LastModified": {
+          "target": "com.amazonaws.schemas#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of code binding generation.</p>"
+            "smithy.api#documentation": "<p>The date and time that code bindings were modified.</p>"
           }
         },
         "SchemaVersion": {
@@ -1962,10 +1962,10 @@
             "smithy.api#documentation": "<p>The version number of the schema.</p>"
           }
         },
-        "LastModified": {
-          "target": "com.amazonaws.schemas#__timestampIso8601",
+        "Status": {
+          "target": "com.amazonaws.schemas#CodeGenerationStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that code bindings were modified.</p>"
+            "smithy.api#documentation": "<p>The current status of code binding generation.</p>"
           }
         }
       }
@@ -2013,13 +2013,6 @@
     "com.amazonaws.schemas#PutResourcePolicyRequest": {
       "type": "structure",
       "members": {
-        "RegistryName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the registry.</p>",
-            "smithy.api#httpQuery": "registryName"
-          }
-        },
         "RevisionId": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -2031,6 +2024,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The resource-based policy.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "RegistryName": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the registry.</p>",
+            "smithy.api#httpQuery": "registryName"
           }
         }
       },
@@ -2064,17 +2064,17 @@
             "smithy.api#documentation": "<p>The ARN of the registry.</p>"
           }
         },
+        "RegistryName": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the registry.</p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.schemas#Tags",
           "traits": {
             "smithy.api#documentation": "<p>Tags associated with the registry.</p>",
             "smithy.api#jsonName": "tags"
-          }
-        },
-        "RegistryName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the registry.</p>"
           }
         }
       }
@@ -2094,11 +2094,10 @@
             "smithy.api#documentation": "<p>The ARN of the schema.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.schemas#Tags",
+        "VersionCount": {
+          "target": "com.amazonaws.schemas#__long",
           "traits": {
-            "smithy.api#documentation": "<p>Tags associated with the schema.</p>",
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "<p>The number of versions available for the schema.</p>"
           }
         },
         "LastModified": {
@@ -2107,10 +2106,11 @@
             "smithy.api#documentation": "<p>The date and time that schema was modified.</p>"
           }
         },
-        "VersionCount": {
-          "target": "com.amazonaws.schemas#__long",
+        "Tags": {
+          "target": "com.amazonaws.schemas#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>The number of versions available for the schema.</p>"
+            "smithy.api#documentation": "<p>Tags associated with the schema.</p>",
+            "smithy.api#jsonName": "tags"
           }
         }
       },
@@ -2121,6 +2121,12 @@
     "com.amazonaws.schemas#SchemaVersionSummary": {
       "type": "structure",
       "members": {
+        "SchemaVersion": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number of the schema.</p>"
+          }
+        },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -2132,22 +2138,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the schema version.</p>"
           }
-        },
-        "SchemaVersion": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number of the schema.</p>"
-          }
         }
       }
     },
     "com.amazonaws.schemas#SearchSchemaSummary": {
       "type": "structure",
       "members": {
-        "SchemaArn": {
-          "target": "com.amazonaws.schemas#__string",
+        "SchemaVersions": {
+          "target": "com.amazonaws.schemas#__listOfSearchSchemaVersionSummary",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the schema.</p>"
+            "smithy.api#documentation": "<p>An array of schema version summaries.</p>"
           }
         },
         "SchemaName": {
@@ -2156,16 +2156,16 @@
             "smithy.api#documentation": "<p>The name of the schema.</p>"
           }
         },
+        "SchemaArn": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the schema.</p>"
+          }
+        },
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the registry.</p>"
-          }
-        },
-        "SchemaVersions": {
-          "target": "com.amazonaws.schemas#__listOfSearchSchemaVersionSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of schema version summaries.</p>"
           }
         }
       }
@@ -2232,10 +2232,12 @@
             "smithy.api#required": {}
           }
         },
-        "Limit": {
-          "target": "com.amazonaws.schemas#__integer",
+        "RegistryName": {
+          "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpQuery": "limit"
+            "smithy.api#documentation": "<p>The name of the registry.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -2245,12 +2247,10 @@
             "smithy.api#httpQuery": "nextToken"
           }
         },
-        "RegistryName": {
-          "target": "com.amazonaws.schemas#__string",
+        "Limit": {
+          "target": "com.amazonaws.schemas#__integer",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the registry.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#httpQuery": "limit"
           }
         }
       }
@@ -2258,16 +2258,16 @@
     "com.amazonaws.schemas#SearchSchemasResponse": {
       "type": "structure",
       "members": {
-        "Schemas": {
-          "target": "com.amazonaws.schemas#__listOfSearchSchemaSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of SearchSchemaSummary information.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>"
+          }
+        },
+        "Schemas": {
+          "target": "com.amazonaws.schemas#__listOfSearchSchemaSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of SearchSchemaSummary information.</p>"
           }
         }
       }
@@ -2348,16 +2348,16 @@
     "com.amazonaws.schemas#StartDiscovererResponse": {
       "type": "structure",
       "members": {
-        "DiscovererId": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
-          }
-        },
         "State": {
           "target": "com.amazonaws.schemas#DiscovererState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the discoverer.</p>"
+          }
+        },
+        "DiscovererId": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
           }
         }
       }
@@ -2415,16 +2415,16 @@
     "com.amazonaws.schemas#StopDiscovererResponse": {
       "type": "structure",
       "members": {
-        "DiscovererId": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
-          }
-        },
         "State": {
           "target": "com.amazonaws.schemas#DiscovererState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the discoverer.</p>"
+          }
+        },
+        "DiscovererId": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
           }
         }
       }
@@ -2502,17 +2502,17 @@
     "com.amazonaws.schemas#TooManyRequestsException": {
       "type": "structure",
       "members": {
-        "Code": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Code": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2587,19 +2587,19 @@
     "com.amazonaws.schemas#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "TagKeys": {
-          "target": "com.amazonaws.schemas#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "<p>Keys of key-value pairs.</p>",
-            "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": {}
-          }
-        },
         "ResourceArn": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.schemas#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>Keys of key-value pairs.</p>",
+            "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": {}
           }
         }
@@ -2645,6 +2645,12 @@
     "com.amazonaws.schemas#UpdateDiscovererRequest": {
       "type": "structure",
       "members": {
+        "Description": {
+          "target": "com.amazonaws.schemas#__stringMin0Max256",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the discoverer to update.</p>"
+          }
+        },
         "DiscovererId": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -2652,34 +2658,29 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
-        },
-        "Description": {
-          "target": "com.amazonaws.schemas#__stringMin0Max256",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the discoverer to update.</p>"
-          }
         }
       }
     },
     "com.amazonaws.schemas#UpdateDiscovererResponse": {
       "type": "structure",
       "members": {
-        "DiscovererArn": {
-          "target": "com.amazonaws.schemas#__string",
+        "Tags": {
+          "target": "com.amazonaws.schemas#Tags",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the discoverer.</p>"
-          }
-        },
-        "DiscovererId": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
+            "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
+            "smithy.api#jsonName": "tags"
           }
         },
         "Description": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The description of the discoverer.</p>"
+          }
+        },
+        "DiscovererArn": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the discoverer.</p>"
           }
         },
         "State": {
@@ -2694,11 +2695,10 @@
             "smithy.api#documentation": "<p>The ARN of the event bus.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.schemas#Tags",
+        "DiscovererId": {
+          "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>Tags associated with the resource.</p>",
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "<p>The ID of the discoverer.</p>"
           }
         }
       }
@@ -2743,18 +2743,18 @@
     "com.amazonaws.schemas#UpdateRegistryRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.schemas#__stringMin0Max256",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the registry to update.</p>"
-          }
-        },
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the registry.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.schemas#__stringMin0Max256",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the registry to update.</p>"
           }
         }
       },
@@ -2778,16 +2778,16 @@
             "smithy.api#jsonName": "tags"
           }
         },
-        "RegistryArn": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the registry.</p>"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The description of the registry.</p>"
+          }
+        },
+        "RegistryArn": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the registry.</p>"
           }
         }
       }
@@ -2829,6 +2829,12 @@
     "com.amazonaws.schemas#UpdateSchemaRequest": {
       "type": "structure",
       "members": {
+        "Content": {
+          "target": "com.amazonaws.schemas#__stringMin1Max100000",
+          "traits": {
+            "smithy.api#documentation": "<p>The source of the schema definition.</p>"
+          }
+        },
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
@@ -2837,17 +2843,12 @@
             "smithy.api#required": {}
           }
         },
-        "Content": {
-          "target": "com.amazonaws.schemas#__stringMin1Max100000",
+        "SchemaName": {
+          "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The source of the schema definition.</p>"
-          }
-        },
-        "ClientTokenId": {
-          "target": "com.amazonaws.schemas#__stringMin0Max36",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the client token.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>The name of the schema.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -2862,12 +2863,11 @@
             "smithy.api#documentation": "<p>The schema type for the events schema.</p>"
           }
         },
-        "SchemaName": {
-          "target": "com.amazonaws.schemas#__string",
+        "ClientTokenId": {
+          "target": "com.amazonaws.schemas#__stringMin0Max36",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the schema.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The ID of the client token.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -2881,36 +2881,6 @@
             "smithy.api#documentation": "<p>The description of the schema.</p>"
           }
         },
-        "VersionCreatedDate": {
-          "target": "com.amazonaws.schemas#__timestampIso8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The date the schema version was created.</p>"
-          }
-        },
-        "SchemaVersion": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The version number of the schema</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the schema.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.schemas#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "SchemaName": {
-          "target": "com.amazonaws.schemas#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the schema.</p>"
-          }
-        },
         "LastModified": {
           "target": "com.amazonaws.schemas#__timestampIso8601",
           "traits": {
@@ -2921,6 +2891,36 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the schema.</p>"
+          }
+        },
+        "SchemaName": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema.</p>"
+          }
+        },
+        "SchemaVersion": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number of the schema</p>"
+          }
+        },
+        "VersionCreatedDate": {
+          "target": "com.amazonaws.schemas#__timestampIso8601",
+          "traits": {
+            "smithy.api#documentation": "<p>The date the schema version was created.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.schemas#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.schemas#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the schema.</p>"
           }
         }
       }

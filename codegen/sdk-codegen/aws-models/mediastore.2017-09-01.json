@@ -74,10 +74,10 @@
             "smithy.api#documentation": "<p>The DNS endpoint of the container. Use the endpoint to identify the specific\n         container when sending requests to the data plane. The service assigns this value when the\n         container is created. Once the value has been assigned, it does not change.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.mediastore#ContainerName",
+        "ARN": {
+          "target": "com.amazonaws.mediastore#ContainerARN",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the container.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the container. The ARN has the following\n         format:</p>\n         <p>arn:aws:<region>:<account that owns this container>:container/<name of\n         container> </p>\n         <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>"
           }
         },
         "Status": {
@@ -92,16 +92,16 @@
             "smithy.api#documentation": "<p>The state of access logging on the container. This value is <code>false</code> by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to <code>true</code>, indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.</p>"
           }
         },
-        "ARN": {
-          "target": "com.amazonaws.mediastore#ContainerARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the container. The ARN has the following\n         format:</p>\n         <p>arn:aws:<region>:<account that owns this container>:container/<name of\n         container> </p>\n         <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>"
-          }
-        },
         "CreationTime": {
           "target": "com.amazonaws.mediastore#TimeStamp",
           "traits": {
             "smithy.api#documentation": "<p>Unix timestamp.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.mediastore#ContainerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the container.</p>"
           }
         }
       },
@@ -251,23 +251,16 @@
     "com.amazonaws.mediastore#CorsRule": {
       "type": "structure",
       "members": {
-        "AllowedOrigins": {
-          "target": "com.amazonaws.mediastore#AllowedOrigins",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more response headers that you want users to be able to access from their\n         applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>\n         <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string\n         value can include only one wildcard character (*), for example, http://*.example.com.\n         Additionally, you can specify only one wildcard character to allow cross-origin access for\n         all origins.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "MaxAgeSeconds": {
-          "target": "com.amazonaws.mediastore#MaxAgeSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>The time in seconds that your browser caches the preflight response for the specified\n         resource.</p>\n         <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>"
-          }
-        },
         "ExposeHeaders": {
           "target": "com.amazonaws.mediastore#ExposeHeaders",
           "traits": {
             "smithy.api#documentation": "<p>One or more headers in the response that you want users to be able to access from\n         their applications (for example, from a JavaScript <code>XMLHttpRequest</code>\n         object).</p>\n         <p>This element is optional for each rule.</p>"
+          }
+        },
+        "AllowedMethods": {
+          "target": "com.amazonaws.mediastore#AllowedMethods",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies an HTTP method that the origin that is specified in the rule is allowed to\n         execute.</p>\n         <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one\n            <code>AllowedOrigins</code> element.</p>"
           }
         },
         "AllowedHeaders": {
@@ -277,10 +270,17 @@
             "smithy.api#required": {}
           }
         },
-        "AllowedMethods": {
-          "target": "com.amazonaws.mediastore#AllowedMethods",
+        "MaxAgeSeconds": {
+          "target": "com.amazonaws.mediastore#MaxAgeSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies an HTTP method that the origin that is specified in the rule is allowed to\n         execute.</p>\n         <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one\n            <code>AllowedOrigins</code> element.</p>"
+            "smithy.api#documentation": "<p>The time in seconds that your browser caches the preflight response for the specified\n         resource.</p>\n         <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>"
+          }
+        },
+        "AllowedOrigins": {
+          "target": "com.amazonaws.mediastore#AllowedOrigins",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more response headers that you want users to be able to access from their\n         applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>\n         <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string\n         value can include only one wildcard character (*), for example, http://*.example.com.\n         Additionally, you can specify only one wildcard character to allow cross-origin access for\n         all origins.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1090,17 +1090,17 @@
     "com.amazonaws.mediastore#MetricPolicy": {
       "type": "structure",
       "members": {
+        "MetricPolicyRules": {
+          "target": "com.amazonaws.mediastore#MetricPolicyRules",
+          "traits": {
+            "smithy.api#documentation": "<p>A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <a href=\"https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas\">request a quota increase</a> to allow up to 300 rules per policy.</p>"
+          }
+        },
         "ContainerLevelMetrics": {
           "target": "com.amazonaws.mediastore#ContainerLevelMetrics",
           "traits": {
             "smithy.api#documentation": "<p>A setting to enable or disable metrics at the container level.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "MetricPolicyRules": {
-          "target": "com.amazonaws.mediastore#MetricPolicyRules",
-          "traits": {
-            "smithy.api#documentation": "<p>A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <a href=\"https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas\">request a quota increase</a> to allow up to 300 rules per policy.</p>"
           }
         }
       },
@@ -1111,17 +1111,17 @@
     "com.amazonaws.mediastore#MetricPolicyRule": {
       "type": "structure",
       "members": {
-        "ObjectGroupName": {
-          "target": "com.amazonaws.mediastore#ObjectGroupName",
-          "traits": {
-            "smithy.api#documentation": "<p>A name that allows you to refer to the object group.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ObjectGroup": {
           "target": "com.amazonaws.mediastore#ObjectGroup",
           "traits": {
             "smithy.api#documentation": "<p>A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ObjectGroupName": {
+          "target": "com.amazonaws.mediastore#ObjectGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>A name that allows you to refer to the object group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1266,17 +1266,17 @@
     "com.amazonaws.mediastore#PutCorsPolicyInput": {
       "type": "structure",
       "members": {
-        "ContainerName": {
-          "target": "com.amazonaws.mediastore#ContainerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the container that you want to assign the CORS policy to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "CorsPolicy": {
           "target": "com.amazonaws.mediastore#CorsPolicy",
           "traits": {
             "smithy.api#documentation": "<p>The CORS policy to apply to the container.  </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ContainerName": {
+          "target": "com.amazonaws.mediastore#ContainerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the container that you want to assign the CORS policy to.</p>",
             "smithy.api#required": {}
           }
         }

@@ -84,16 +84,16 @@
     "com.amazonaws.forecastquery#DataPoint": {
       "type": "structure",
       "members": {
-        "Timestamp": {
-          "target": "com.amazonaws.forecastquery#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp of the specific forecast.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.forecastquery#Double",
           "traits": {
             "smithy.api#documentation": "<p>The forecast value.</p>"
+          }
+        },
+        "Timestamp": {
+          "target": "com.amazonaws.forecastquery#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of the specific forecast.</p>"
           }
         }
       },
@@ -238,12 +238,6 @@
             "smithy.api#required": {}
           }
         },
-        "EndDate": {
-          "target": "com.amazonaws.forecastquery#DateTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss\n      (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.forecastquery#NextToken",
           "traits": {
@@ -261,6 +255,12 @@
           "target": "com.amazonaws.forecastquery#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss\n      (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>"
+          }
+        },
+        "EndDate": {
+          "target": "com.amazonaws.forecastquery#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss\n      (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>"
           }
         }
       }
