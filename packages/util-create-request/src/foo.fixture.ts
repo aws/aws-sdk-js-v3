@@ -24,7 +24,7 @@ export const fooClient: Client<any, InputTypesUnion, OutputTypesUnion, any> = {
   config: {},
   middlewareStack: constructStack<InputTypesUnion, OutputTypesUnion>(),
   send: (command: Command<InputTypesUnion, OutputTypesUnion, any, OperationInput, OperationOutput>) =>
-    command.resolveMiddleware(this.middlewareStack, this.config, undefined)({ input }),
+    command.resolveMiddleware(fooClient.middlewareStack, fooClient.config, undefined)({ input }),
   destroy: () => {},
 };
 
