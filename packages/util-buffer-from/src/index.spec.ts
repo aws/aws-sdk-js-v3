@@ -40,6 +40,7 @@ describe("fromArrayBuffer", () => {
 
     beforeEach(() => {
       (Buffer as any).mockClear();
+      // @ts-ignore TODO: remove support as v3 is going to support Node.js v10+
       delete Buffer.from;
     });
 
@@ -116,6 +117,7 @@ describe("fromString", () => {
 
     beforeEach(() => {
       (Buffer as any).mockClear();
+      // @ts-ignore TODO: remove support as v3 is going to support Node.js v10+
       delete Buffer.from;
     });
 
