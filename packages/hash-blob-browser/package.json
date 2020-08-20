@@ -28,7 +28,7 @@
     "@aws-sdk/util-hex-encoding": "1.0.0-gamma.5",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
-    "typescript": "~3.9.3"
+    "typescript": "~4.0.2"
   },
   "react-native": {
     "@aws-sdk/chunked-blob-reader": "@aws-sdk/chunked-blob-reader-native"
