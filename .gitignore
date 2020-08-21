@@ -18,7 +18,7 @@ jspm_packages
 .node_repl_history
 *.tgz
 .yarn-integrity
-
+.DS_Store
 .vscode/launch.json
 
 lerna-debug.log

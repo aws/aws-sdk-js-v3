@@ -1,0 +1,51 @@
+import { CodeBuild } from "../CodeBuild";
+import { CodeBuildClient } from "../CodeBuildClient";
+import {
+  ListBuildBatchesCommand,
+  ListBuildBatchesCommandInput,
+  ListBuildBatchesCommandOutput,
+} from "../commands/ListBuildBatchesCommand";
+import { CodeBuildPaginationConfiguration } from "./Interfaces";
+import { Paginator } from "@aws-sdk/types";
+
+const makePagedClientRequest = async (
+  client: CodeBuildClient,
+  input: ListBuildBatchesCommandInput,
+  ...args: any
+): Promise<ListBuildBatchesCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new ListBuildBatchesCommand(input, ...args));
+};
+const makePagedRequest = async (
+  client: CodeBuild,
+  input: ListBuildBatchesCommandInput,
+  ...args: any
+): Promise<ListBuildBatchesCommandOutput> => {
+  // @ts-ignore
+  return await client.listBuildBatches(input, ...args);
+};
+export async function* listBuildBatchesPaginate(
+  config: CodeBuildPaginationConfiguration,
+  input: ListBuildBatchesCommandInput,
+  ...additionalArguments: any
+): Paginator<ListBuildBatchesCommandOutput> {
+  let token: string | undefined = config.startingToken || "";
+  let hasNext = true;
+  let page: ListBuildBatchesCommandOutput;
+  while (hasNext) {
+    input["nextToken"] = token;
+    input["maxResults"] = config.pageSize;
+    if (config.client instanceof CodeBuild) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof CodeBuildClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected CodeBuild | CodeBuildClient");
+    }
+    yield page;
+    token = page["nextToken"];
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}
