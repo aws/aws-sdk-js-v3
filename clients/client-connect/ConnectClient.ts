@@ -43,12 +43,28 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import {
+  ResumeContactRecordingCommandInput,
+  ResumeContactRecordingCommandOutput,
+} from "./commands/ResumeContactRecordingCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
+import {
+  StartContactRecordingCommandInput,
+  StartContactRecordingCommandOutput,
+} from "./commands/StartContactRecordingCommand";
 import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
+import {
+  StopContactRecordingCommandInput,
+  StopContactRecordingCommandOutput,
+} from "./commands/StopContactRecordingCommand";
+import {
+  SuspendContactRecordingCommandInput,
+  SuspendContactRecordingCommandOutput,
+} from "./commands/SuspendContactRecordingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -141,9 +157,13 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
+  | ResumeContactRecordingCommandInput
   | StartChatContactCommandInput
+  | StartContactRecordingCommandInput
   | StartOutboundVoiceContactCommandInput
   | StopContactCommandInput
+  | StopContactRecordingCommandInput
+  | SuspendContactRecordingCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateContactAttributesCommandInput
@@ -172,9 +192,13 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
+  | ResumeContactRecordingCommandOutput
   | StartChatContactCommandOutput
+  | StartContactRecordingCommandOutput
   | StartOutboundVoiceContactCommandOutput
   | StopContactCommandOutput
+  | StopContactRecordingCommandOutput
+  | SuspendContactRecordingCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateContactAttributesCommandOutput

@@ -151,6 +151,18 @@ import {
   DisassociateConnectionFromLagCommandInput,
   DisassociateConnectionFromLagCommandOutput,
 } from "../commands/DisassociateConnectionFromLagCommand";
+import {
+  ListVirtualInterfaceTestHistoryCommandInput,
+  ListVirtualInterfaceTestHistoryCommandOutput,
+} from "../commands/ListVirtualInterfaceTestHistoryCommand";
+import {
+  StartBgpFailoverTestCommandInput,
+  StartBgpFailoverTestCommandOutput,
+} from "../commands/StartBgpFailoverTestCommand";
+import {
+  StopBgpFailoverTestCommandInput,
+  StopBgpFailoverTestCommandOutput,
+} from "../commands/StopBgpFailoverTestCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -248,6 +260,8 @@ import {
   Interconnects,
   Lag,
   Lags,
+  ListVirtualInterfaceTestHistoryRequest,
+  ListVirtualInterfaceTestHistoryResponse,
   Loa,
   Location,
   Locations,
@@ -260,6 +274,10 @@ import {
   NewTransitVirtualInterfaceAllocation,
   ResourceTag,
   RouteFilterPrefix,
+  StartBgpFailoverTestRequest,
+  StartBgpFailoverTestResponse,
+  StopBgpFailoverTestRequest,
+  StopBgpFailoverTestResponse,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -273,6 +291,7 @@ import {
   VirtualGateway,
   VirtualGateways,
   VirtualInterface,
+  VirtualInterfaceTestHistory,
   VirtualInterfaces,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -902,6 +921,45 @@ export const serializeAws_json1_1DisassociateConnectionFromLagCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateConnectionFromLagRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand = async (
+  input: ListVirtualInterfaceTestHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OvertureService.ListVirtualInterfaceTestHistory",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListVirtualInterfaceTestHistoryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartBgpFailoverTestCommand = async (
+  input: StartBgpFailoverTestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OvertureService.StartBgpFailoverTest",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartBgpFailoverTestRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopBgpFailoverTestCommand = async (
+  input: StopBgpFailoverTestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OvertureService.StopBgpFailoverTest",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopBgpFailoverTestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4202,6 +4260,198 @@ const deserializeAws_json1_1DisassociateConnectionFromLagCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVirtualInterfaceTestHistoryCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListVirtualInterfaceTestHistoryResponse(data, context);
+  const response: ListVirtualInterfaceTestHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListVirtualInterfaceTestHistoryResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVirtualInterfaceTestHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StartBgpFailoverTestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBgpFailoverTestCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StartBgpFailoverTestCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartBgpFailoverTestResponse(data, context);
+  const response: StartBgpFailoverTestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartBgpFailoverTestResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartBgpFailoverTestCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBgpFailoverTestCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StopBgpFailoverTestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopBgpFailoverTestCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StopBgpFailoverTestCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopBgpFailoverTestResponse(data, context);
+  const response: StopBgpFailoverTestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StopBgpFailoverTestResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopBgpFailoverTestCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopBgpFailoverTestCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4722,6 +4972,10 @@ const serializeAws_json1_1AssociateVirtualInterfaceRequest = (
   };
 };
 
+const serializeAws_json1_1BGPPeerIdList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1ConfirmConnectionRequest = (
   input: ConfirmConnectionRequest,
   context: __SerdeContext
@@ -5123,6 +5377,20 @@ const serializeAws_json1_1DisassociateConnectionFromLagRequest = (
   };
 };
 
+const serializeAws_json1_1ListVirtualInterfaceTestHistoryRequest = (
+  input: ListVirtualInterfaceTestHistoryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bgpPeers !== undefined && { bgpPeers: serializeAws_json1_1BGPPeerIdList(input.bgpPeers, context) }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.status !== undefined && { status: input.status }),
+    ...(input.testId !== undefined && { testId: input.testId }),
+    ...(input.virtualInterfaceId !== undefined && { virtualInterfaceId: input.virtualInterfaceId }),
+  };
+};
+
 const serializeAws_json1_1NewBGPPeer = (input: NewBGPPeer, context: __SerdeContext): any => {
   return {
     ...(input.addressFamily !== undefined && { addressFamily: input.addressFamily }),
@@ -5256,6 +5524,26 @@ const serializeAws_json1_1RouteFilterPrefixList = (input: RouteFilterPrefix[], c
   return input.map((entry) => serializeAws_json1_1RouteFilterPrefix(entry, context));
 };
 
+const serializeAws_json1_1StartBgpFailoverTestRequest = (
+  input: StartBgpFailoverTestRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bgpPeers !== undefined && { bgpPeers: serializeAws_json1_1BGPPeerIdList(input.bgpPeers, context) }),
+    ...(input.testDurationInMinutes !== undefined && { testDurationInMinutes: input.testDurationInMinutes }),
+    ...(input.virtualInterfaceId !== undefined && { virtualInterfaceId: input.virtualInterfaceId }),
+  };
+};
+
+const serializeAws_json1_1StopBgpFailoverTestRequest = (
+  input: StopBgpFailoverTestRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.virtualInterfaceId !== undefined && { virtualInterfaceId: input.virtualInterfaceId }),
+  };
+};
+
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.key !== undefined && { key: input.key }),
@@ -5380,6 +5668,10 @@ const deserializeAws_json1_1BGPPeer = (output: any, context: __SerdeContext): BG
     customerAddress:
       output.customerAddress !== undefined && output.customerAddress !== null ? output.customerAddress : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1BGPPeerIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1BGPPeerList = (output: any, context: __SerdeContext): BGPPeer[] => {
@@ -6021,6 +6313,20 @@ const deserializeAws_json1_1Lags = (output: any, context: __SerdeContext): Lags 
   } as any;
 };
 
+const deserializeAws_json1_1ListVirtualInterfaceTestHistoryResponse = (
+  output: any,
+  context: __SerdeContext
+): ListVirtualInterfaceTestHistoryResponse => {
+  return {
+    __type: "ListVirtualInterfaceTestHistoryResponse",
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    virtualInterfaceTestHistory:
+      output.virtualInterfaceTestHistory !== undefined && output.virtualInterfaceTestHistory !== null
+        ? deserializeAws_json1_1VirtualInterfaceTestHistoryList(output.virtualInterfaceTestHistory, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Loa = (output: any, context: __SerdeContext): Loa => {
   return {
     __type: "Loa",
@@ -6092,6 +6398,32 @@ const deserializeAws_json1_1RouteFilterPrefix = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1RouteFilterPrefixList = (output: any, context: __SerdeContext): RouteFilterPrefix[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1RouteFilterPrefix(entry, context));
+};
+
+const deserializeAws_json1_1StartBgpFailoverTestResponse = (
+  output: any,
+  context: __SerdeContext
+): StartBgpFailoverTestResponse => {
+  return {
+    __type: "StartBgpFailoverTestResponse",
+    virtualInterfaceTest:
+      output.virtualInterfaceTest !== undefined && output.virtualInterfaceTest !== null
+        ? deserializeAws_json1_1VirtualInterfaceTestHistory(output.virtualInterfaceTest, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StopBgpFailoverTestResponse = (
+  output: any,
+  context: __SerdeContext
+): StopBgpFailoverTestResponse => {
+  return {
+    __type: "StopBgpFailoverTestResponse",
+    virtualInterfaceTest:
+      output.virtualInterfaceTest !== undefined && output.virtualInterfaceTest !== null
+        ? deserializeAws_json1_1VirtualInterfaceTestHistory(output.virtualInterfaceTest, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -6241,6 +6573,43 @@ const deserializeAws_json1_1VirtualInterfaces = (output: any, context: __SerdeCo
         ? deserializeAws_json1_1VirtualInterfaceList(output.virtualInterfaces, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1VirtualInterfaceTestHistory = (
+  output: any,
+  context: __SerdeContext
+): VirtualInterfaceTestHistory => {
+  return {
+    __type: "VirtualInterfaceTestHistory",
+    bgpPeers:
+      output.bgpPeers !== undefined && output.bgpPeers !== null
+        ? deserializeAws_json1_1BGPPeerIdList(output.bgpPeers, context)
+        : undefined,
+    endTime:
+      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+    ownerAccount: output.ownerAccount !== undefined && output.ownerAccount !== null ? output.ownerAccount : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? new Date(Math.round(output.startTime * 1000))
+        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    testDurationInMinutes:
+      output.testDurationInMinutes !== undefined && output.testDurationInMinutes !== null
+        ? output.testDurationInMinutes
+        : undefined,
+    testId: output.testId !== undefined && output.testId !== null ? output.testId : undefined,
+    virtualInterfaceId:
+      output.virtualInterfaceId !== undefined && output.virtualInterfaceId !== null
+        ? output.virtualInterfaceId
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1VirtualInterfaceTestHistoryList = (
+  output: any,
+  context: __SerdeContext
+): VirtualInterfaceTestHistory[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1VirtualInterfaceTestHistory(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

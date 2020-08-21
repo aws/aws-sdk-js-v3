@@ -1,5 +1,10 @@
 import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
 import {
+  AdvertiseByoipCidrCommand,
+  AdvertiseByoipCidrCommandInput,
+  AdvertiseByoipCidrCommandOutput,
+} from "./commands/AdvertiseByoipCidrCommand";
+import {
   CreateAcceleratorCommand,
   CreateAcceleratorCommandInput,
   CreateAcceleratorCommandOutput,
@@ -30,6 +35,11 @@ import {
   DeleteListenerCommandOutput,
 } from "./commands/DeleteListenerCommand";
 import {
+  DeprovisionByoipCidrCommand,
+  DeprovisionByoipCidrCommandInput,
+  DeprovisionByoipCidrCommandOutput,
+} from "./commands/DeprovisionByoipCidrCommand";
+import {
   DescribeAcceleratorAttributesCommand,
   DescribeAcceleratorAttributesCommandInput,
   DescribeAcceleratorAttributesCommandOutput,
@@ -55,6 +65,11 @@ import {
   ListAcceleratorsCommandOutput,
 } from "./commands/ListAcceleratorsCommand";
 import {
+  ListByoipCidrsCommand,
+  ListByoipCidrsCommandInput,
+  ListByoipCidrsCommandOutput,
+} from "./commands/ListByoipCidrsCommand";
+import {
   ListEndpointGroupsCommand,
   ListEndpointGroupsCommandInput,
   ListEndpointGroupsCommandOutput,
@@ -64,6 +79,22 @@ import {
   ListListenersCommandInput,
   ListListenersCommandOutput,
 } from "./commands/ListListenersCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ProvisionByoipCidrCommand,
+  ProvisionByoipCidrCommandInput,
+  ProvisionByoipCidrCommandOutput,
+} from "./commands/ProvisionByoipCidrCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateAcceleratorAttributesCommand,
   UpdateAcceleratorAttributesCommandInput,
@@ -84,23 +115,30 @@ import {
   UpdateListenerCommandInput,
   UpdateListenerCommandOutput,
 } from "./commands/UpdateListenerCommand";
+import {
+  WithdrawByoipCidrCommand,
+  WithdrawByoipCidrCommandInput,
+  WithdrawByoipCidrCommandOutput,
+} from "./commands/WithdrawByoipCidrCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS Global Accelerator</fullname>
  * 		       <p>This is the <i>AWS Global Accelerator API Reference</i>. This guide is for developers who need detailed information about
  * 			AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html">AWS Global Accelerator Developer Guide</a>. </p>
- * 		       <p>AWS Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for
- * 			internet applications used by a global audience. </p>
+ * 		       <p>AWS Global Accelerator is a service in which you create accelerators to improve availability and performance of your applications for
+ * 			local and global users. </p>
  *
  * 		       <important>
- * 			         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
+ * 			         <p>You must specify the US West (Oregon) Region to create or update accelerators.</p>
  * 		       </important>
  *
- * 		       <p>Global Accelerator provides you with static IP addresses that you associate with your accelerator. These IP addresses are anycast
+ * 		       <p>By default, Global Accelerator provides you with static IP addresses that you associate with your accelerator. (Instead of using the
+ * 			IP addresses that Global Accelerator provides, you can configure these entry points to be IPv4 addresses from your own IP address ranges
+ * 			that you bring to Global Accelerator.) The static IP addresses are anycast
  * 			from the AWS edge network and distribute incoming application traffic across multiple endpoint resources in multiple
- * 			AWS Regions, which increases the availability of your applications. Endpoints can be Elastic IP addresses, Network Load Balancers,
- * 			and Application Load Balancers that are located in one AWS Region or multiple Regions.</p>
+ * 			AWS Regions, which increases the availability of your applications. Endpoints can be Network Load Balancers, Application Load Balancers, EC2 instances,
+ * 			or Elastic IP addresses that are located in one AWS Region or multiple Regions.</p>
  *
  * 		       <p>Global Accelerator uses the AWS global network to route traffic to the optimal regional endpoint based on health, client
  * 			location, and policies that you configure. The service reacts instantly to changes in health or configuration to
@@ -111,10 +149,23 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 		       <dl>
  *             <dt>Static IP address</dt>
  *             <dd>
- * 					          <p>AWS Global Accelerator provides you with a set of static IP addresses which are anycast from the AWS edge network
- * 						and serve as the single fixed entry points for your clients. If you already have Elastic Load Balancing or
- * 						Elastic IP address resources set up for your applications, you can easily add those to Global Accelerator to allow the
- * 						resources to be accessed by a Global Accelerator static IP address.</p>
+ * 					          <p>By default, AWS Global Accelerator provides you with a set of static IP addresses that are anycast from the AWS edge network
+ * 						and serve as the single fixed entry points for your clients. Or you can configure these entry points to be IPv4 addresses
+ * 						from your own IP address ranges that you bring to Global Accelerator (BYOIP). For more information,
+ * 						see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own IP Addresses (BYOIP)</a> in
+ * 						the <i>AWS Global Accelerator Developer Guide</i>. If you already have load balancers, EC2 instances, or
+ * 						Elastic IP addresses set up for your applications, you can easily add those to Global Accelerator to allow the
+ * 						resources to be accessed by the static IP addresses.</p>
+ * 					          <important>
+ *                   <p>The static IP addresses remain assigned to your accelerator for as long as it exists, even
+ * 						if you disable the accelerator and
+ * 						it no longer accepts or routes traffic. However, when you <i>delete</i> an accelerator, you lose the
+ * 						static IP addresses that are assigned to it, so you can no longer route traffic by using them.
+ * 						You can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator. For more information,
+ * 						see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html">Authentication and Access Control</a> in
+ * 						the <i>AWS Global Accelerator Developer Guide</i>.
+ * 					</p>
+ *                </important>
  * 				        </dd>
  *             <dt>Accelerator</dt>
  *             <dd>
@@ -122,12 +173,20 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 						and performance for your internet applications that have a global audience. Each accelerator includes one or
  * 						more listeners.</p>
  * 				        </dd>
+ *             <dt>DNS name</dt>
+ *             <dd>
+ *                <p>Global Accelerator assigns each accelerator a default Domain Name System (DNS)
+ * 					name, similar to <code>a1234567890abcdef.awsglobalaccelerator.com</code>,
+ * 					that points to your Global Accelerator static IP addresses. Depending
+ * 					on the use case, you can use your accelerator's static IP addresses or DNS name to route traffic
+ * 					to your accelerator, or set up DNS records to route traffic using your own custom domain name.</p>
+ * 				        </dd>
  *             <dt>Network zone</dt>
  *             <dd>
  * 					          <p>A network zone services the static IP addresses for your accelerator from a unique IP subnet. Similar to an
  * 						AWS Availability Zone, a network zone is an isolated unit with its own set of physical infrastructure.
  *
- * 						When you configure an accelerator, Global Accelerator allocates two IPv4 addresses for it. If one IP address from a
+ * 						When you configure an accelerator, by default, Global Accelerator allocates two IPv4 addresses for it. If one IP address from a
  * 						network zone becomes unavailable due to IP address blocking by certain client networks, or network
  * 						disruptions, then client applications can retry on the healthy static IP address from the other isolated
  * 						network zone.</p>
@@ -150,7 +209,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 				        </dd>
  *             <dt>Endpoint</dt>
  *             <dd>
- * 					          <p>An endpoint is an Elastic IP address, Network Load Balancer, or Application Load Balancer. Traffic is routed to endpoints based on several
+ * 					          <p>An endpoint is a Network Load Balancer, Application Load Balancer, EC2 instance, or Elastic IP address. Traffic is routed to endpoints based on several
  * 						factors, including the geo-proximity to the user, the health of the endpoint, and the configuration
  * 						options that you choose, such as endpoint weights. For each endpoint, you can configure weights, which are
  * 						numbers that you can use to specify the proportion of traffic to route to each one. This can be useful,
@@ -160,12 +219,55 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
+   * <p>Advertises an IPv4 address range that is provisioned for use with your AWS resources
+   * 			through bring your own IP addresses (BYOIP). It can take a few minutes before traffic to
+   * 			the specified addresses starts routing to AWS because of propagation delays. To
+   * 			see an AWS CLI example of advertising an address range, scroll down to
+   * 			<b>Example</b>.</p>
+   * 		       <p>To stop advertising the BYOIP address range, use <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">
+   * 			WithdrawByoipCidr</a>.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+   * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   */
+  public advertiseByoipCidr(
+    args: AdvertiseByoipCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AdvertiseByoipCidrCommandOutput>;
+  public advertiseByoipCidr(
+    args: AdvertiseByoipCidrCommandInput,
+    cb: (err: any, data?: AdvertiseByoipCidrCommandOutput) => void
+  ): void;
+  public advertiseByoipCidr(
+    args: AdvertiseByoipCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AdvertiseByoipCidrCommandOutput) => void
+  ): void;
+  public advertiseByoipCidr(
+    args: AdvertiseByoipCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdvertiseByoipCidrCommandOutput) => void),
+    cb?: (err: any, data?: AdvertiseByoipCidrCommandOutput) => void
+  ): Promise<AdvertiseByoipCidrCommandOutput> | void {
+    const command = new AdvertiseByoipCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
    * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. To see an AWS CLI
    * 			example of creating an accelerator, scroll down to <b>Example</b>.</p>
+   * 		       <p>If you bring your own IP address ranges to AWS Global Accelerator (BYOIP), you can assign IP addresses from your own
+   * 			pool to your accelerator as the static IP address entry points. Only one IP address from each of your IP
+   * 			address ranges can be used for each accelerator.</p>
    *
    * 		       <important>
-   * 			         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
+   * 			         <p>You must specify the US West (Oregon) Region to create or update accelerators.</p>
    * 		       </important>
    */
   public createAccelerator(
@@ -265,8 +367,21 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   * <p>Delete an accelerator. Note: before you can delete an accelerator, you must disable it and remove all dependent resources
-   * 			(listeners and endpoint groups).</p>
+   * <p>Delete an accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources
+   * 			(listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p>
+   * 		       <important>
+   *             <p>When you create an accelerator, by default, Global Accelerator provides you with a set of two static IP addresses.
+   * 			Alternatively, you can bring your own IP address ranges to Global Accelerator and assign IP addresses from those ranges.
+   * 		</p>
+   * 		          <p>The IP
+   * 			addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and
+   * 			it no longer accepts or routes traffic. However, when you <i>delete</i> an accelerator, you lose the
+   * 			static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them.
+   * 			As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators. You
+   * 			can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html">Authentication and Access Control</a> in
+   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          </important>
    */
   public deleteAccelerator(
     args: DeleteAcceleratorCommandInput,
@@ -362,6 +477,46 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * <p>Releases the specified address range that you provisioned to use with your AWS resources
+   * 			through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. To
+   * 			see an AWS CLI example of deprovisioning an address range, scroll down to
+   * 			<b>Example</b>.</p>
+   * 		       <p>Before you can release an address range, you must stop advertising it by using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">WithdrawByoipCidr</a> and you must not have
+   * 			any accelerators that are using static IP addresses allocated from its address range.
+   * 		</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+   * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   */
+  public deprovisionByoipCidr(
+    args: DeprovisionByoipCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeprovisionByoipCidrCommandOutput>;
+  public deprovisionByoipCidr(
+    args: DeprovisionByoipCidrCommandInput,
+    cb: (err: any, data?: DeprovisionByoipCidrCommandOutput) => void
+  ): void;
+  public deprovisionByoipCidr(
+    args: DeprovisionByoipCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeprovisionByoipCidrCommandOutput) => void
+  ): void;
+  public deprovisionByoipCidr(
+    args: DeprovisionByoipCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprovisionByoipCidrCommandOutput) => void),
+    cb?: (err: any, data?: DeprovisionByoipCidrCommandOutput) => void
+  ): Promise<DeprovisionByoipCidrCommandOutput> | void {
+    const command = new DeprovisionByoipCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describe an accelerator. To see an AWS CLI example of describing an accelerator, scroll down to <b>Example</b>.</p>
    */
   public describeAccelerator(
@@ -394,7 +549,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   * <p>Describe the attributes of an accelerator.</p>
+   * <p>Describe the attributes of an accelerator. To see an AWS CLI example of describing the attributes of an accelerator,
+   * 			scroll down to <b>Example</b>.</p>
    */
   public describeAcceleratorAttributes(
     args: DescribeAcceleratorAttributesCommandInput,
@@ -426,7 +582,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   * <p>Describe an endpoint group.</p>
+   * <p>Describe an endpoint group. To see an AWS CLI example of describing
+   * 			an endpoint group, scroll down to <b>Example</b>.</p>
    */
   public describeEndpointGroup(
     args: DescribeEndpointGroupCommandInput,
@@ -458,7 +615,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   * <p>Describe a listener.</p>
+   * <p>Describe a listener. To see an AWS CLI example of describing a listener, scroll down to <b>Example</b>.</p>
    */
   public describeListener(
     args: DescribeListenerCommandInput,
@@ -490,7 +647,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   * <p>List the accelerators for an AWS account.</p>
+   * <p>List the accelerators for an AWS account. To see an AWS CLI example of listing the accelerators for an AWS account,
+   * 			scroll down to <b>Example</b>.</p>
    */
   public listAccelerators(
     args: ListAcceleratorsCommandInput,
@@ -522,7 +680,43 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   * <p>List the endpoint groups that are associated with a listener.</p>
+   * <p>Lists the IP address ranges that were specified in calls to <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html">ProvisionByoipCidr</a>, including
+   * 			the current state and a history of state changes.</p>
+   * 		       <p>To see an AWS CLI example of listing BYOIP CIDR addresses, scroll down to
+   * 			<b>Example</b>.</p>
+   */
+  public listByoipCidrs(
+    args: ListByoipCidrsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListByoipCidrsCommandOutput>;
+  public listByoipCidrs(
+    args: ListByoipCidrsCommandInput,
+    cb: (err: any, data?: ListByoipCidrsCommandOutput) => void
+  ): void;
+  public listByoipCidrs(
+    args: ListByoipCidrsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListByoipCidrsCommandOutput) => void
+  ): void;
+  public listByoipCidrs(
+    args: ListByoipCidrsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListByoipCidrsCommandOutput) => void),
+    cb?: (err: any, data?: ListByoipCidrsCommandOutput) => void
+  ): Promise<ListByoipCidrsCommandOutput> | void {
+    const command = new ListByoipCidrsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List the endpoint groups that are associated with a listener. To see an AWS CLI example of listing
+   * 			the endpoint groups for listener, scroll down to <b>Example</b>.</p>
    */
   public listEndpointGroups(
     args: ListEndpointGroupsCommandInput,
@@ -554,7 +748,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   * <p>List the listeners for an accelerator.</p>
+   * <p>List the listeners for an accelerator. To see an AWS CLI example of listing the listeners for an accelerator,
+   * 			scroll down to <b>Example</b>.</p>
    */
   public listListeners(
     args: ListListenersCommandInput,
@@ -586,11 +781,150 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * <p>List all tags for an accelerator. To see an AWS CLI example of listing tags for an accelerator,
+   * 			scroll down to <b>Example</b>.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+   * 			in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>. </p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provisions an IP address range to use with your AWS resources through bring your own IP
+   * 			addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned,
+   * 			it is ready to be advertised using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/AdvertiseByoipCidr.html">
+   * 			AdvertiseByoipCidr</a>.</p>
+   * 		       <p>To see an AWS CLI example of provisioning an address range for BYOIP, scroll down to
+   * 			<b>Example</b>.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+   * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   */
+  public provisionByoipCidr(
+    args: ProvisionByoipCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ProvisionByoipCidrCommandOutput>;
+  public provisionByoipCidr(
+    args: ProvisionByoipCidrCommandInput,
+    cb: (err: any, data?: ProvisionByoipCidrCommandOutput) => void
+  ): void;
+  public provisionByoipCidr(
+    args: ProvisionByoipCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProvisionByoipCidrCommandOutput) => void
+  ): void;
+  public provisionByoipCidr(
+    args: ProvisionByoipCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ProvisionByoipCidrCommandOutput) => void),
+    cb?: (err: any, data?: ProvisionByoipCidrCommandOutput) => void
+  ): Promise<ProvisionByoipCidrCommandOutput> | void {
+    const command = new ProvisionByoipCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Add tags to an accelerator resource. To see an AWS CLI example of adding tags to an accelerator, scroll down to
+   * 			<b>Example</b>.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+   * 			in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>. </p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove tags from a Global Accelerator resource. When you specify a tag key, the action removes both that key and its associated value. To
+   * 			see an AWS CLI example of removing tags from an accelerator, scroll down to <b>Example</b>.
+   * 			The operation succeeds even if you attempt to remove tags from an accelerator that was already removed.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+   * 			in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Update an accelerator. To see an AWS CLI example of updating an accelerator,
    * 			scroll down to <b>Example</b>.</p>
    *
    * 		       <important>
-   * 			         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
+   * 			         <p>You must specify the US West (Oregon) Region to create or update accelerators.</p>
    * 		       </important>
    */
   public updateAccelerator(
@@ -688,7 +1022,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   * <p>Update a listener.</p>
+   * <p>Update a listener. To see an AWS CLI example of updating listener, scroll down to <b>Example</b>.</p>
    */
   public updateListener(
     args: UpdateListenerCommandInput,
@@ -709,6 +1043,45 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
     cb?: (err: any, data?: UpdateListenerCommandOutput) => void
   ): Promise<UpdateListenerCommandOutput> | void {
     const command = new UpdateListenerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops advertising an address range that is provisioned as an address pool.
+   * 			You can perform this operation at most once every 10 seconds, even if you specify different address
+   * 			ranges each time. To see an AWS CLI example of withdrawing an address range for BYOIP so
+   * 			it will no longer be advertised by AWS, scroll down to <b>Example</b>.</p>
+   * 		       <p>It can take a few minutes before traffic to the specified addresses stops routing to AWS because of
+   * 			propagation delays.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+   * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   */
+  public withdrawByoipCidr(
+    args: WithdrawByoipCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<WithdrawByoipCidrCommandOutput>;
+  public withdrawByoipCidr(
+    args: WithdrawByoipCidrCommandInput,
+    cb: (err: any, data?: WithdrawByoipCidrCommandOutput) => void
+  ): void;
+  public withdrawByoipCidr(
+    args: WithdrawByoipCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: WithdrawByoipCidrCommandOutput) => void
+  ): void;
+  public withdrawByoipCidr(
+    args: WithdrawByoipCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: WithdrawByoipCidrCommandOutput) => void),
+    cb?: (err: any, data?: WithdrawByoipCidrCommandOutput) => void
+  ): Promise<WithdrawByoipCidrCommandOutput> | void {
+    const command = new WithdrawByoipCidrCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

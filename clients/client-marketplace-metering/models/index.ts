@@ -265,6 +265,13 @@ export namespace InvalidUsageDimensionException {
 export interface MeterUsageRequest {
   __type?: "MeterUsageRequest";
   /**
+   * <p>Timestamp, in UTC, for which the usage is being reported. Your application can
+   *             meter usage for up to one hour in the past. Make sure the timestamp value is not before
+   *             the start of the software usage.</p>
+   */
+  Timestamp: Date | undefined;
+
+  /**
    * <p>Checks whether you have the permissions required for the action, but does not make
    *             the request. If you have the permissions, the request returns DryRunOperation;
    *             otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not
@@ -280,23 +287,16 @@ export interface MeterUsageRequest {
   ProductCode: string | undefined;
 
   /**
-   * <p>Timestamp, in UTC, for which the usage is being reported. Your application can
-   *             meter usage for up to one hour in the past. Make sure the timestamp value is not before
-   *             the start of the software usage.</p>
+   * <p>Consumption value for the hour. Defaults to <code>0</code> if not
+   *             specified.</p>
    */
-  Timestamp: Date | undefined;
+  UsageQuantity?: number;
 
   /**
    * <p>It will be one of the fcp dimension name provided during the publishing of the
    *             product.</p>
    */
   UsageDimension: string | undefined;
-
-  /**
-   * <p>Consumption value for the hour. Defaults to <code>0</code> if not
-   *             specified.</p>
-   */
-  UsageQuantity?: number;
 }
 
 export namespace MeterUsageRequest {
@@ -323,7 +323,7 @@ export namespace MeterUsageResult {
 
 /**
  * <p>AWS Marketplace does not support metering usage from the underlying platform.
- *             Currently, only Amazon ECS is supported.</p>
+ *             Currently, Amazon ECS, Amazon EKS, and AWS Fargate are supported.</p>
  */
 export interface PlatformNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "PlatformNotSupportedException";
@@ -341,17 +341,17 @@ export namespace PlatformNotSupportedException {
 export interface RegisterUsageRequest {
   __type?: "RegisterUsageRequest";
   /**
-   * <p>(Optional) To scope down the registration to a specific running software instance
-   *             and guard against replay attacks.</p>
-   */
-  Nonce?: string;
-
-  /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new
    *             product.</p>
    */
   ProductCode: string | undefined;
+
+  /**
+   * <p>(Optional) To scope down the registration to a specific running software instance
+   *             and guard against replay attacks.</p>
+   */
+  Nonce?: string;
 
   /**
    * <p>Public Key Version provided by AWS Marketplace</p>
@@ -413,18 +413,18 @@ export namespace ResolveCustomerRequest {
 export interface ResolveCustomerResult {
   __type?: "ResolveCustomerResult";
   /**
-   * <p>The CustomerIdentifier is used to identify an individual customer in your
-   *             application. Calls to BatchMeterUsage require CustomerIdentifiers for each
-   *             UsageRecord.</p>
-   */
-  CustomerIdentifier?: string;
-
-  /**
    * <p>The product code is returned to confirm that the buyer is registering for your
    *             product. Subsequent BatchMeterUsage calls should be made using this product
    *             code.</p>
    */
   ProductCode?: string;
+
+  /**
+   * <p>The CustomerIdentifier is used to identify an individual customer in your
+   *             application. Calls to BatchMeterUsage require CustomerIdentifiers for each
+   *             UsageRecord.</p>
+   */
+  CustomerIdentifier?: string;
 }
 
 export namespace ResolveCustomerResult {
@@ -475,10 +475,17 @@ export namespace TimestampOutOfBoundsException {
 export interface UsageRecord {
   __type?: "UsageRecord";
   /**
-   * <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and
-   *             represents an individual buyer in your application.</p>
+   * <p>Timestamp, in UTC, for which the usage is being reported.</p>
+   *         <p>Your application can meter usage for up to one hour in the past. Make sure the
+   *             timestamp value is not before the start of the software usage.</p>
    */
-  CustomerIdentifier: string | undefined;
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>The quantity of usage consumed by the customer for the given dimension and time.
+   *             Defaults to <code>0</code> if not specified.</p>
+   */
+  Quantity?: number;
 
   /**
    * <p>During the process of registering a product on AWS Marketplace, up to eight
@@ -488,17 +495,10 @@ export interface UsageRecord {
   Dimension: string | undefined;
 
   /**
-   * <p>The quantity of usage consumed by the customer for the given dimension and time.
-   *             Defaults to <code>0</code> if not specified.</p>
+   * <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and
+   *             represents an individual buyer in your application.</p>
    */
-  Quantity?: number;
-
-  /**
-   * <p>Timestamp, in UTC, for which the usage is being reported.</p>
-   *         <p>Your application can meter usage for up to one hour in the past. Make sure the
-   *             timestamp value is not before the start of the software usage.</p>
-   */
-  Timestamp: Date | undefined;
+  CustomerIdentifier: string | undefined;
 }
 
 export namespace UsageRecord {

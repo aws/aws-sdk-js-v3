@@ -5,6 +5,7 @@ import {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "../commands/DeleteAccessPointPolicyCommand";
+import { DeleteJobTaggingCommandInput, DeleteJobTaggingCommandOutput } from "../commands/DeleteJobTaggingCommand";
 import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput,
@@ -19,6 +20,7 @@ import {
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "../commands/GetAccessPointPolicyStatusCommand";
+import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "../commands/GetJobTaggingCommand";
 import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
@@ -29,6 +31,7 @@ import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "../commands/PutAccessPointPolicyCommand";
+import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "../commands/PutJobTaggingCommand";
 import {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
@@ -64,12 +67,17 @@ import {
   S3Grant,
   S3Grantee,
   S3InitiateRestoreObjectOperation,
+  S3ObjectLockLegalHold,
   S3ObjectMetadata,
   S3ObjectOwner,
+  S3Retention,
   S3SetObjectAclOperation,
+  S3SetObjectLegalHoldOperation,
+  S3SetObjectRetentionOperation,
   S3SetObjectTaggingOperation,
   S3Tag,
   TooManyRequestsException,
+  TooManyTagsException,
   VpcConfiguration,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -193,6 +201,14 @@ export const serializeAws_restXmlCreateJobCommand = async (
     const node = new __XmlNode("IAMRoleArn").addChildNode(new __XmlText(input.RoleArn)).withName("RoleArn");
     bodyNode.addChildNode(node);
   }
+  if (input.Tags !== undefined) {
+    const nodes = serializeAws_restXmlS3TagSet(input.Tags, context);
+    const containerNode = new __XmlNode("Tags");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
   body += bodyNode.toString();
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -254,6 +270,37 @@ export const serializeAws_restXmlDeleteAccessPointPolicyCommand = async (
     resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlDeleteJobTaggingCommand = async (
+  input: DeleteJobTaggingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/jobs/{JobId}/tagging";
+  if (input.JobId !== undefined) {
+    const labelValue: string = input.JobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: JobId.");
+    }
+    resolvedPath = resolvedPath.replace("{JobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: JobId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -414,6 +461,37 @@ export const serializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   });
 };
 
+export const serializeAws_restXmlGetJobTaggingCommand = async (
+  input: GetJobTaggingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/jobs/{JobId}/tagging";
+  if (input.JobId !== undefined) {
+    const labelValue: string = input.JobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: JobId.");
+    }
+    resolvedPath = resolvedPath.replace("{JobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: JobId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   input: GetPublicAccessBlockCommandInput,
   context: __SerdeContext
@@ -475,8 +553,8 @@ export const serializeAws_restXmlListJobsCommand = async (
   let resolvedPath = "/v20180820/jobs";
   const query: any = {
     ...(input.JobStatuses !== undefined && { jobStatuses: (input.JobStatuses || []).map((_entry) => _entry) }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -517,6 +595,49 @@ export const serializeAws_restXmlPutAccessPointPolicyCommand = async (
   if (input.Policy !== undefined) {
     const node = new __XmlNode("Policy").addChildNode(new __XmlText(input.Policy)).withName("Policy");
     bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlPutJobTaggingCommand = async (
+  input: PutJobTaggingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/jobs/{JobId}/tagging";
+  if (input.JobId !== undefined) {
+    const labelValue: string = input.JobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: JobId.");
+    }
+    resolvedPath = resolvedPath.replace("{JobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: JobId.");
+  }
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("PutJobTaggingRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.Tags !== undefined) {
+    const nodes = serializeAws_restXmlS3TagSet(input.Tags, context);
+    const containerNode = new __XmlNode("Tags");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -614,8 +735,8 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
     throw new Error("No value provided for input HTTP label: JobId.");
   }
   const query: any = {
-    ...(input.RequestedJobStatus !== undefined && { requestedJobStatus: input.RequestedJobStatus }),
     ...(input.StatusUpdateReason !== undefined && { statusUpdateReason: input.StatusUpdateReason }),
+    ...(input.RequestedJobStatus !== undefined && { requestedJobStatus: input.RequestedJobStatus }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -823,6 +944,74 @@ const deserializeAws_restXmlDeleteAccessPointPolicyCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlDeleteJobTaggingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteJobTaggingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restXmlDeleteJobTaggingCommandError(output, context);
+  }
+  const contents: DeleteJobTaggingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteJobTaggingResult",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlDeleteJobTaggingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteJobTaggingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.s3control#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restXmlInternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.s3control#NotFoundException":
+      response = {
+        ...(await deserializeAws_restXmlNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.s3control#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -1130,6 +1319,81 @@ const deserializeAws_restXmlGetAccessPointPolicyStatusCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlGetJobTaggingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJobTaggingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restXmlGetJobTaggingCommandError(output, context);
+  }
+  const contents: GetJobTaggingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetJobTaggingResult",
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Tags === "") {
+    contents.Tags = [];
+  }
+  if (data["Tags"] !== undefined && data["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_restXmlS3TagSet(__getArrayIfSingleItem(data["Tags"]["member"]), context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlGetJobTaggingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJobTaggingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.s3control#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restXmlInternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.s3control#NotFoundException":
+      response = {
+        ...(await deserializeAws_restXmlNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.s3control#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1350,6 +1614,82 @@ const deserializeAws_restXmlPutAccessPointPolicyCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlPutJobTaggingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutJobTaggingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restXmlPutJobTaggingCommandError(output, context);
+  }
+  const contents: PutJobTaggingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutJobTaggingResult",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlPutJobTaggingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutJobTaggingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.s3control#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restXmlInternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.s3control#NotFoundException":
+      response = {
+        ...(await deserializeAws_restXmlNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.s3control#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restXmlTooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.s3control#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_restXmlTooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -1743,6 +2083,23 @@ const deserializeAws_restXmlTooManyRequestsExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restXmlTooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
+  return contents;
+};
+
 const serializeAws_restXmlJobManifest = (input: JobManifest, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobManifest");
   if (input.Location !== undefined) {
@@ -1768,12 +2125,12 @@ const serializeAws_restXmlJobManifestFieldList = (
 
 const serializeAws_restXmlJobManifestLocation = (input: JobManifestLocation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobManifestLocation");
-  if (input.ETag !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(input.ETag)).withName("ETag");
-    bodyNode.addChildNode(node);
-  }
   if (input.ObjectArn !== undefined) {
     const node = new __XmlNode("S3KeyArnString").addChildNode(new __XmlText(input.ObjectArn)).withName("ObjectArn");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ETag !== undefined) {
+    const node = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(input.ETag)).withName("ETag");
     bodyNode.addChildNode(node);
   }
   if (input.ObjectVersionId !== undefined) {
@@ -1787,6 +2144,10 @@ const serializeAws_restXmlJobManifestLocation = (input: JobManifestLocation, con
 
 const serializeAws_restXmlJobManifestSpec = (input: JobManifestSpec, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobManifestSpec");
+  if (input.Format !== undefined) {
+    const node = new __XmlNode("JobManifestFormat").addChildNode(new __XmlText(input.Format)).withName("Format");
+    bodyNode.addChildNode(node);
+  }
   if (input.Fields !== undefined) {
     const nodes = serializeAws_restXmlJobManifestFieldList(input.Fields, context);
     const containerNode = new __XmlNode("Fields");
@@ -1795,17 +2156,15 @@ const serializeAws_restXmlJobManifestSpec = (input: JobManifestSpec, context: __
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Format !== undefined) {
-    const node = new __XmlNode("JobManifestFormat").addChildNode(new __XmlText(input.Format)).withName("Format");
-    bodyNode.addChildNode(node);
-  }
   return bodyNode;
 };
 
 const serializeAws_restXmlJobOperation = (input: JobOperation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobOperation");
-  if (input.LambdaInvoke !== undefined) {
-    const node = serializeAws_restXmlLambdaInvokeOperation(input.LambdaInvoke, context).withName("LambdaInvoke");
+  if (input.S3PutObjectLegalHold !== undefined) {
+    const node = serializeAws_restXmlS3SetObjectLegalHoldOperation(input.S3PutObjectLegalHold, context).withName(
+      "S3PutObjectLegalHold"
+    );
     bodyNode.addChildNode(node);
   }
   if (input.S3InitiateRestoreObject !== undefined) {
@@ -1814,18 +2173,28 @@ const serializeAws_restXmlJobOperation = (input: JobOperation, context: __SerdeC
     );
     bodyNode.addChildNode(node);
   }
-  if (input.S3PutObjectAcl !== undefined) {
-    const node = serializeAws_restXmlS3SetObjectAclOperation(input.S3PutObjectAcl, context).withName("S3PutObjectAcl");
+  if (input.S3PutObjectTagging !== undefined) {
+    const node = serializeAws_restXmlS3SetObjectTaggingOperation(input.S3PutObjectTagging, context).withName(
+      "S3PutObjectTagging"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.LambdaInvoke !== undefined) {
+    const node = serializeAws_restXmlLambdaInvokeOperation(input.LambdaInvoke, context).withName("LambdaInvoke");
+    bodyNode.addChildNode(node);
+  }
+  if (input.S3PutObjectRetention !== undefined) {
+    const node = serializeAws_restXmlS3SetObjectRetentionOperation(input.S3PutObjectRetention, context).withName(
+      "S3PutObjectRetention"
+    );
     bodyNode.addChildNode(node);
   }
   if (input.S3PutObjectCopy !== undefined) {
     const node = serializeAws_restXmlS3CopyObjectOperation(input.S3PutObjectCopy, context).withName("S3PutObjectCopy");
     bodyNode.addChildNode(node);
   }
-  if (input.S3PutObjectTagging !== undefined) {
-    const node = serializeAws_restXmlS3SetObjectTaggingOperation(input.S3PutObjectTagging, context).withName(
-      "S3PutObjectTagging"
-    );
+  if (input.S3PutObjectAcl !== undefined) {
+    const node = serializeAws_restXmlS3SetObjectAclOperation(input.S3PutObjectAcl, context).withName("S3PutObjectAcl");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -1833,18 +2202,6 @@ const serializeAws_restXmlJobOperation = (input: JobOperation, context: __SerdeC
 
 const serializeAws_restXmlJobReport = (input: JobReport, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("JobReport");
-  if (input.Bucket !== undefined) {
-    const node = new __XmlNode("S3BucketArnString").addChildNode(new __XmlText(input.Bucket)).withName("Bucket");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Enabled !== undefined) {
-    const node = new __XmlNode("Boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Format !== undefined) {
-    const node = new __XmlNode("JobReportFormat").addChildNode(new __XmlText(input.Format)).withName("Format");
-    bodyNode.addChildNode(node);
-  }
   if (input.Prefix !== undefined) {
     const node = new __XmlNode("ReportPrefixString").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
     bodyNode.addChildNode(node);
@@ -1853,13 +2210,25 @@ const serializeAws_restXmlJobReport = (input: JobReport, context: __SerdeContext
     const node = new __XmlNode("JobReportScope").addChildNode(new __XmlText(input.ReportScope)).withName("ReportScope");
     bodyNode.addChildNode(node);
   }
+  if (input.Enabled !== undefined) {
+    const node = new __XmlNode("Boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Bucket !== undefined) {
+    const node = new __XmlNode("S3BucketArnString").addChildNode(new __XmlText(input.Bucket)).withName("Bucket");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Format !== undefined) {
+    const node = new __XmlNode("JobReportFormat").addChildNode(new __XmlText(input.Format)).withName("Format");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
 const serializeAws_restXmlLambdaInvokeOperation = (input: LambdaInvokeOperation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LambdaInvokeOperation");
   if (input.FunctionArn !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength1024String")
+    const node = new __XmlNode("FunctionArnString")
       .addChildNode(new __XmlText(input.FunctionArn))
       .withName("FunctionArn");
     bodyNode.addChildNode(node);
@@ -1872,6 +2241,12 @@ const serializeAws_restXmlPublicAccessBlockConfiguration = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("PublicAccessBlockConfiguration");
+  if (input.IgnorePublicAcls !== undefined) {
+    const node = new __XmlNode("Setting")
+      .addChildNode(new __XmlText(String(input.IgnorePublicAcls)))
+      .withName("IgnorePublicAcls");
+    bodyNode.addChildNode(node);
+  }
   if (input.BlockPublicAcls !== undefined) {
     const node = new __XmlNode("Setting")
       .addChildNode(new __XmlText(String(input.BlockPublicAcls)))
@@ -1882,12 +2257,6 @@ const serializeAws_restXmlPublicAccessBlockConfiguration = (
     const node = new __XmlNode("Setting")
       .addChildNode(new __XmlText(String(input.BlockPublicPolicy)))
       .withName("BlockPublicPolicy");
-    bodyNode.addChildNode(node);
-  }
-  if (input.IgnorePublicAcls !== undefined) {
-    const node = new __XmlNode("Setting")
-      .addChildNode(new __XmlText(String(input.IgnorePublicAcls)))
-      .withName("IgnorePublicAcls");
     bodyNode.addChildNode(node);
   }
   if (input.RestrictPublicBuckets !== undefined) {
@@ -1918,16 +2287,16 @@ const serializeAws_restXmlS3AccessControlList = (input: S3AccessControlList, con
 
 const serializeAws_restXmlS3AccessControlPolicy = (input: S3AccessControlPolicy, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3AccessControlPolicy");
-  if (input.AccessControlList !== undefined) {
-    const node = serializeAws_restXmlS3AccessControlList(input.AccessControlList, context).withName(
-      "AccessControlList"
-    );
-    bodyNode.addChildNode(node);
-  }
   if (input.CannedAccessControlList !== undefined) {
     const node = new __XmlNode("S3CannedAccessControlList")
       .addChildNode(new __XmlText(input.CannedAccessControlList))
       .withName("CannedAccessControlList");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AccessControlList !== undefined) {
+    const node = serializeAws_restXmlS3AccessControlList(input.AccessControlList, context).withName(
+      "AccessControlList"
+    );
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -1935,24 +2304,28 @@ const serializeAws_restXmlS3AccessControlPolicy = (input: S3AccessControlPolicy,
 
 const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3CopyObjectOperation");
-  if (input.AccessControlGrants !== undefined) {
-    const nodes = serializeAws_restXmlS3GrantList(input.AccessControlGrants, context);
-    const containerNode = new __XmlNode("AccessControlGrants");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.CannedAccessControlList !== undefined) {
-    const node = new __XmlNode("S3CannedAccessControlList")
-      .addChildNode(new __XmlText(input.CannedAccessControlList))
-      .withName("CannedAccessControlList");
+  if (input.RedirectLocation !== undefined) {
+    const node = new __XmlNode("NonEmptyMaxLength2048String")
+      .addChildNode(new __XmlText(input.RedirectLocation))
+      .withName("RedirectLocation");
     bodyNode.addChildNode(node);
   }
-  if (input.MetadataDirective !== undefined) {
-    const node = new __XmlNode("S3MetadataDirective")
-      .addChildNode(new __XmlText(input.MetadataDirective))
-      .withName("MetadataDirective");
+  if (input.ObjectLockLegalHoldStatus !== undefined) {
+    const node = new __XmlNode("S3ObjectLockLegalHoldStatus")
+      .addChildNode(new __XmlText(input.ObjectLockLegalHoldStatus))
+      .withName("ObjectLockLegalHoldStatus");
+    bodyNode.addChildNode(node);
+  }
+  if (input.SSEAwsKmsKeyId !== undefined) {
+    const node = new __XmlNode("KmsKeyArnString")
+      .addChildNode(new __XmlText(input.SSEAwsKmsKeyId))
+      .withName("SSEAwsKmsKeyId");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectLockMode !== undefined) {
+    const node = new __XmlNode("S3ObjectLockMode")
+      .addChildNode(new __XmlText(input.ObjectLockMode))
+      .withName("ObjectLockMode");
     bodyNode.addChildNode(node);
   }
   if (input.ModifiedSinceConstraint !== undefined) {
@@ -1961,8 +2334,30 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
       .withName("ModifiedSinceConstraint");
     bodyNode.addChildNode(node);
   }
-  if (input.NewObjectMetadata !== undefined) {
-    const node = serializeAws_restXmlS3ObjectMetadata(input.NewObjectMetadata, context).withName("NewObjectMetadata");
+  if (input.AccessControlGrants !== undefined) {
+    const nodes = serializeAws_restXmlS3GrantList(input.AccessControlGrants, context);
+    const containerNode = new __XmlNode("AccessControlGrants");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.MetadataDirective !== undefined) {
+    const node = new __XmlNode("S3MetadataDirective")
+      .addChildNode(new __XmlText(input.MetadataDirective))
+      .withName("MetadataDirective");
+    bodyNode.addChildNode(node);
+  }
+  if (input.CannedAccessControlList !== undefined) {
+    const node = new __XmlNode("S3CannedAccessControlList")
+      .addChildNode(new __XmlText(input.CannedAccessControlList))
+      .withName("CannedAccessControlList");
+    bodyNode.addChildNode(node);
+  }
+  if (input.RequesterPays !== undefined) {
+    const node = new __XmlNode("Boolean")
+      .addChildNode(new __XmlText(String(input.RequesterPays)))
+      .withName("RequesterPays");
     bodyNode.addChildNode(node);
   }
   if (input.NewObjectTagging !== undefined) {
@@ -1973,40 +2368,10 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.ObjectLockLegalHoldStatus !== undefined) {
-    const node = new __XmlNode("S3ObjectLockLegalHoldStatus")
-      .addChildNode(new __XmlText(input.ObjectLockLegalHoldStatus))
-      .withName("ObjectLockLegalHoldStatus");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ObjectLockMode !== undefined) {
-    const node = new __XmlNode("S3ObjectLockMode")
-      .addChildNode(new __XmlText(input.ObjectLockMode))
-      .withName("ObjectLockMode");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ObjectLockRetainUntilDate !== undefined) {
+  if (input.UnModifiedSinceConstraint !== undefined) {
     const node = new __XmlNode("TimeStamp")
-      .addChildNode(new __XmlText(input.ObjectLockRetainUntilDate.toISOString().split(".")[0] + "Z"))
-      .withName("ObjectLockRetainUntilDate");
-    bodyNode.addChildNode(node);
-  }
-  if (input.RedirectLocation !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength2048String")
-      .addChildNode(new __XmlText(input.RedirectLocation))
-      .withName("RedirectLocation");
-    bodyNode.addChildNode(node);
-  }
-  if (input.RequesterPays !== undefined) {
-    const node = new __XmlNode("Boolean")
-      .addChildNode(new __XmlText(String(input.RequesterPays)))
-      .withName("RequesterPays");
-    bodyNode.addChildNode(node);
-  }
-  if (input.SSEAwsKmsKeyId !== undefined) {
-    const node = new __XmlNode("KmsKeyArnString")
-      .addChildNode(new __XmlText(input.SSEAwsKmsKeyId))
-      .withName("SSEAwsKmsKeyId");
+      .addChildNode(new __XmlText(input.UnModifiedSinceConstraint.toISOString().split(".")[0] + "Z"))
+      .withName("UnModifiedSinceConstraint");
     bodyNode.addChildNode(node);
   }
   if (input.StorageClass !== undefined) {
@@ -2015,10 +2380,20 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
       .withName("StorageClass");
     bodyNode.addChildNode(node);
   }
+  if (input.NewObjectMetadata !== undefined) {
+    const node = serializeAws_restXmlS3ObjectMetadata(input.NewObjectMetadata, context).withName("NewObjectMetadata");
+    bodyNode.addChildNode(node);
+  }
   if (input.TargetKeyPrefix !== undefined) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.TargetKeyPrefix))
       .withName("TargetKeyPrefix");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectLockRetainUntilDate !== undefined) {
+    const node = new __XmlNode("TimeStamp")
+      .addChildNode(new __XmlText(input.ObjectLockRetainUntilDate.toISOString().split(".")[0] + "Z"))
+      .withName("ObjectLockRetainUntilDate");
     bodyNode.addChildNode(node);
   }
   if (input.TargetResource !== undefined) {
@@ -2027,23 +2402,17 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
       .withName("TargetResource");
     bodyNode.addChildNode(node);
   }
-  if (input.UnModifiedSinceConstraint !== undefined) {
-    const node = new __XmlNode("TimeStamp")
-      .addChildNode(new __XmlText(input.UnModifiedSinceConstraint.toISOString().split(".")[0] + "Z"))
-      .withName("UnModifiedSinceConstraint");
-    bodyNode.addChildNode(node);
-  }
   return bodyNode;
 };
 
 const serializeAws_restXmlS3Grant = (input: S3Grant, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3Grant");
-  if (input.Grantee !== undefined) {
-    const node = serializeAws_restXmlS3Grantee(input.Grantee, context).withName("Grantee");
-    bodyNode.addChildNode(node);
-  }
   if (input.Permission !== undefined) {
     const node = new __XmlNode("S3Permission").addChildNode(new __XmlText(input.Permission)).withName("Permission");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Grantee !== undefined) {
+    const node = serializeAws_restXmlS3Grantee(input.Grantee, context).withName("Grantee");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -2051,16 +2420,16 @@ const serializeAws_restXmlS3Grant = (input: S3Grant, context: __SerdeContext): a
 
 const serializeAws_restXmlS3Grantee = (input: S3Grantee, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3Grantee");
-  if (input.DisplayName !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength1024String")
-      .addChildNode(new __XmlText(input.DisplayName))
-      .withName("DisplayName");
-    bodyNode.addChildNode(node);
-  }
   if (input.Identifier !== undefined) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.Identifier))
       .withName("Identifier");
+    bodyNode.addChildNode(node);
+  }
+  if (input.DisplayName !== undefined) {
+    const node = new __XmlNode("NonEmptyMaxLength1024String")
+      .addChildNode(new __XmlText(input.DisplayName))
+      .withName("DisplayName");
     bodyNode.addChildNode(node);
   }
   if (input.TypeIdentifier !== undefined) {
@@ -2099,66 +2468,29 @@ const serializeAws_restXmlS3InitiateRestoreObjectOperation = (
   return bodyNode;
 };
 
+const serializeAws_restXmlS3ObjectLockLegalHold = (input: S3ObjectLockLegalHold, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("S3ObjectLockLegalHold");
+  if (input.Status !== undefined) {
+    const node = new __XmlNode("S3ObjectLockLegalHoldStatus")
+      .addChildNode(new __XmlText(input.Status))
+      .withName("Status");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlS3ObjectMetadata = (input: S3ObjectMetadata, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3ObjectMetadata");
-  if (input.CacheControl !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength1024String")
-      .addChildNode(new __XmlText(input.CacheControl))
-      .withName("CacheControl");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ContentDisposition !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength1024String")
-      .addChildNode(new __XmlText(input.ContentDisposition))
-      .withName("ContentDisposition");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ContentEncoding !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength1024String")
-      .addChildNode(new __XmlText(input.ContentEncoding))
-      .withName("ContentEncoding");
-    bodyNode.addChildNode(node);
-  }
   if (input.ContentLanguage !== undefined) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.ContentLanguage))
       .withName("ContentLanguage");
     bodyNode.addChildNode(node);
   }
-  if (input.ContentLength !== undefined) {
-    const node = new __XmlNode("S3ContentLength")
-      .addChildNode(new __XmlText(String(input.ContentLength)))
-      .withName("ContentLength");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ContentMD5 !== undefined) {
+  if (input.ContentEncoding !== undefined) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
-      .addChildNode(new __XmlText(input.ContentMD5))
-      .withName("ContentMD5");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ContentType !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength1024String")
-      .addChildNode(new __XmlText(input.ContentType))
-      .withName("ContentType");
-    bodyNode.addChildNode(node);
-  }
-  if (input.HttpExpiresDate !== undefined) {
-    const node = new __XmlNode("TimeStamp")
-      .addChildNode(new __XmlText(input.HttpExpiresDate.toISOString().split(".")[0] + "Z"))
-      .withName("HttpExpiresDate");
-    bodyNode.addChildNode(node);
-  }
-  if (input.RequesterCharged !== undefined) {
-    const node = new __XmlNode("Boolean")
-      .addChildNode(new __XmlText(String(input.RequesterCharged)))
-      .withName("RequesterCharged");
-    bodyNode.addChildNode(node);
-  }
-  if (input.SSEAlgorithm !== undefined) {
-    const node = new __XmlNode("S3SSEAlgorithm")
-      .addChildNode(new __XmlText(input.SSEAlgorithm))
-      .withName("SSEAlgorithm");
+      .addChildNode(new __XmlText(input.ContentEncoding))
+      .withName("ContentEncoding");
     bodyNode.addChildNode(node);
   }
   if (input.UserMetadata !== undefined) {
@@ -2169,19 +2501,82 @@ const serializeAws_restXmlS3ObjectMetadata = (input: S3ObjectMetadata, context: 
     });
     bodyNode.addChildNode(containerNode);
   }
+  if (input.ContentLength !== undefined) {
+    const node = new __XmlNode("S3ContentLength")
+      .addChildNode(new __XmlText(String(input.ContentLength)))
+      .withName("ContentLength");
+    bodyNode.addChildNode(node);
+  }
+  if (input.SSEAlgorithm !== undefined) {
+    const node = new __XmlNode("S3SSEAlgorithm")
+      .addChildNode(new __XmlText(input.SSEAlgorithm))
+      .withName("SSEAlgorithm");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ContentMD5 !== undefined) {
+    const node = new __XmlNode("NonEmptyMaxLength1024String")
+      .addChildNode(new __XmlText(input.ContentMD5))
+      .withName("ContentMD5");
+    bodyNode.addChildNode(node);
+  }
+  if (input.RequesterCharged !== undefined) {
+    const node = new __XmlNode("Boolean")
+      .addChildNode(new __XmlText(String(input.RequesterCharged)))
+      .withName("RequesterCharged");
+    bodyNode.addChildNode(node);
+  }
+  if (input.CacheControl !== undefined) {
+    const node = new __XmlNode("NonEmptyMaxLength1024String")
+      .addChildNode(new __XmlText(input.CacheControl))
+      .withName("CacheControl");
+    bodyNode.addChildNode(node);
+  }
+  if (input.HttpExpiresDate !== undefined) {
+    const node = new __XmlNode("TimeStamp")
+      .addChildNode(new __XmlText(input.HttpExpiresDate.toISOString().split(".")[0] + "Z"))
+      .withName("HttpExpiresDate");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ContentDisposition !== undefined) {
+    const node = new __XmlNode("NonEmptyMaxLength1024String")
+      .addChildNode(new __XmlText(input.ContentDisposition))
+      .withName("ContentDisposition");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ContentType !== undefined) {
+    const node = new __XmlNode("NonEmptyMaxLength1024String")
+      .addChildNode(new __XmlText(input.ContentType))
+      .withName("ContentType");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
 const serializeAws_restXmlS3ObjectOwner = (input: S3ObjectOwner, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3ObjectOwner");
+  if (input.ID !== undefined) {
+    const node = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(input.ID)).withName("ID");
+    bodyNode.addChildNode(node);
+  }
   if (input.DisplayName !== undefined) {
     const node = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(input.DisplayName))
       .withName("DisplayName");
     bodyNode.addChildNode(node);
   }
-  if (input.ID !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(input.ID)).withName("ID");
+  return bodyNode;
+};
+
+const serializeAws_restXmlS3Retention = (input: S3Retention, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("S3Retention");
+  if (input.RetainUntilDate !== undefined) {
+    const node = new __XmlNode("TimeStamp")
+      .addChildNode(new __XmlText(input.RetainUntilDate.toISOString().split(".")[0] + "Z"))
+      .withName("RetainUntilDate");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Mode !== undefined) {
+    const node = new __XmlNode("S3ObjectLockRetentionMode").addChildNode(new __XmlText(input.Mode)).withName("Mode");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -2193,6 +2588,36 @@ const serializeAws_restXmlS3SetObjectAclOperation = (input: S3SetObjectAclOperat
     const node = serializeAws_restXmlS3AccessControlPolicy(input.AccessControlPolicy, context).withName(
       "AccessControlPolicy"
     );
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlS3SetObjectLegalHoldOperation = (
+  input: S3SetObjectLegalHoldOperation,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("S3SetObjectLegalHoldOperation");
+  if (input.LegalHold !== undefined) {
+    const node = serializeAws_restXmlS3ObjectLockLegalHold(input.LegalHold, context).withName("LegalHold");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlS3SetObjectRetentionOperation = (
+  input: S3SetObjectRetentionOperation,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("S3SetObjectRetentionOperation");
+  if (input.Retention !== undefined) {
+    const node = serializeAws_restXmlS3Retention(input.Retention, context).withName("Retention");
+    bodyNode.addChildNode(node);
+  }
+  if (input.BypassGovernanceRetention !== undefined) {
+    const node = new __XmlNode("Boolean")
+      .addChildNode(new __XmlText(String(input.BypassGovernanceRetention)))
+      .withName("BypassGovernanceRetention");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -2216,12 +2641,12 @@ const serializeAws_restXmlS3SetObjectTaggingOperation = (
 
 const serializeAws_restXmlS3Tag = (input: S3Tag, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3Tag");
-  if (input.Key !== undefined) {
-    const node = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(input.Key)).withName("Key");
+  if (input.Value !== undefined) {
+    const node = new __XmlNode("TagValueString").addChildNode(new __XmlText(input.Value)).withName("Value");
     bodyNode.addChildNode(node);
   }
-  if (input.Value !== undefined) {
-    const node = new __XmlNode("MaxLength1024String").addChildNode(new __XmlText(input.Value)).withName("Value");
+  if (input.Key !== undefined) {
+    const node = new __XmlNode("TagKeyString").addChildNode(new __XmlText(input.Key)).withName("Key");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -2257,22 +2682,22 @@ const serializeAws_restXmlVpcConfiguration = (input: VpcConfiguration, context: 
 const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext): AccessPoint => {
   let contents: any = {
     __type: "AccessPoint",
-    Bucket: undefined,
-    Name: undefined,
-    NetworkOrigin: undefined,
     VpcConfiguration: undefined,
+    Bucket: undefined,
+    NetworkOrigin: undefined,
+    Name: undefined,
   };
+  if (output["VpcConfiguration"] !== undefined) {
+    contents.VpcConfiguration = deserializeAws_restXmlVpcConfiguration(output["VpcConfiguration"], context);
+  }
   if (output["Bucket"] !== undefined) {
     contents.Bucket = output["Bucket"];
-  }
-  if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
   }
   if (output["NetworkOrigin"] !== undefined) {
     contents.NetworkOrigin = output["NetworkOrigin"];
   }
-  if (output["VpcConfiguration"] !== undefined) {
-    contents.VpcConfiguration = deserializeAws_restXmlVpcConfiguration(output["VpcConfiguration"], context);
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -2284,32 +2709,35 @@ const deserializeAws_restXmlAccessPointList = (output: any, context: __SerdeCont
 const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContext): JobDescriptor => {
   let contents: any = {
     __type: "JobDescriptor",
-    ConfirmationRequired: undefined,
-    CreationTime: undefined,
-    Description: undefined,
-    FailureReasons: undefined,
+    Manifest: undefined,
     JobArn: undefined,
     JobId: undefined,
-    Manifest: undefined,
-    Operation: undefined,
-    Priority: undefined,
-    ProgressSummary: undefined,
-    Report: undefined,
-    RoleArn: undefined,
-    Status: undefined,
-    StatusUpdateReason: undefined,
-    SuspendedCause: undefined,
     SuspendedDate: undefined,
+    FailureReasons: undefined,
+    RoleArn: undefined,
+    SuspendedCause: undefined,
+    Operation: undefined,
+    Description: undefined,
+    CreationTime: undefined,
+    StatusUpdateReason: undefined,
+    Report: undefined,
+    ProgressSummary: undefined,
+    ConfirmationRequired: undefined,
+    Status: undefined,
+    Priority: undefined,
     TerminationDate: undefined,
   };
-  if (output["ConfirmationRequired"] !== undefined) {
-    contents.ConfirmationRequired = output["ConfirmationRequired"] == "true";
+  if (output["Manifest"] !== undefined) {
+    contents.Manifest = deserializeAws_restXmlJobManifest(output["Manifest"], context);
   }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["CreationTime"]);
+  if (output["JobArn"] !== undefined) {
+    contents.JobArn = output["JobArn"];
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+  if (output["JobId"] !== undefined) {
+    contents.JobId = output["JobId"];
+  }
+  if (output["SuspendedDate"] !== undefined) {
+    contents.SuspendedDate = new Date(output["SuspendedDate"]);
   }
   if (output.FailureReasons === "") {
     contents.FailureReasons = [];
@@ -2320,41 +2748,38 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
       context
     );
   }
-  if (output["JobArn"] !== undefined) {
-    contents.JobArn = output["JobArn"];
-  }
-  if (output["JobId"] !== undefined) {
-    contents.JobId = output["JobId"];
-  }
-  if (output["Manifest"] !== undefined) {
-    contents.Manifest = deserializeAws_restXmlJobManifest(output["Manifest"], context);
-  }
-  if (output["Operation"] !== undefined) {
-    contents.Operation = deserializeAws_restXmlJobOperation(output["Operation"], context);
-  }
-  if (output["Priority"] !== undefined) {
-    contents.Priority = parseInt(output["Priority"]);
-  }
-  if (output["ProgressSummary"] !== undefined) {
-    contents.ProgressSummary = deserializeAws_restXmlJobProgressSummary(output["ProgressSummary"], context);
-  }
-  if (output["Report"] !== undefined) {
-    contents.Report = deserializeAws_restXmlJobReport(output["Report"], context);
-  }
   if (output["RoleArn"] !== undefined) {
     contents.RoleArn = output["RoleArn"];
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
-  if (output["StatusUpdateReason"] !== undefined) {
-    contents.StatusUpdateReason = output["StatusUpdateReason"];
   }
   if (output["SuspendedCause"] !== undefined) {
     contents.SuspendedCause = output["SuspendedCause"];
   }
-  if (output["SuspendedDate"] !== undefined) {
-    contents.SuspendedDate = new Date(output["SuspendedDate"]);
+  if (output["Operation"] !== undefined) {
+    contents.Operation = deserializeAws_restXmlJobOperation(output["Operation"], context);
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["CreationTime"] !== undefined) {
+    contents.CreationTime = new Date(output["CreationTime"]);
+  }
+  if (output["StatusUpdateReason"] !== undefined) {
+    contents.StatusUpdateReason = output["StatusUpdateReason"];
+  }
+  if (output["Report"] !== undefined) {
+    contents.Report = deserializeAws_restXmlJobReport(output["Report"], context);
+  }
+  if (output["ProgressSummary"] !== undefined) {
+    contents.ProgressSummary = deserializeAws_restXmlJobProgressSummary(output["ProgressSummary"], context);
+  }
+  if (output["ConfirmationRequired"] !== undefined) {
+    contents.ConfirmationRequired = output["ConfirmationRequired"] == "true";
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["Priority"] !== undefined) {
+    contents.Priority = parseInt(output["Priority"]);
   }
   if (output["TerminationDate"] !== undefined) {
     contents.TerminationDate = new Date(output["TerminationDate"]);
@@ -2365,14 +2790,14 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
 const deserializeAws_restXmlJobFailure = (output: any, context: __SerdeContext): JobFailure => {
   let contents: any = {
     __type: "JobFailure",
-    FailureCode: undefined,
     FailureReason: undefined,
+    FailureCode: undefined,
   };
-  if (output["FailureCode"] !== undefined) {
-    contents.FailureCode = output["FailureCode"];
-  }
   if (output["FailureReason"] !== undefined) {
     contents.FailureReason = output["FailureReason"];
+  }
+  if (output["FailureCode"] !== undefined) {
+    contents.FailureCode = output["FailureCode"];
   }
   return contents;
 };
@@ -2384,38 +2809,38 @@ const deserializeAws_restXmlJobFailureList = (output: any, context: __SerdeConte
 const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeContext): JobListDescriptor => {
   let contents: any = {
     __type: "JobListDescriptor",
-    CreationTime: undefined,
-    Description: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Priority: undefined,
     ProgressSummary: undefined,
-    Status: undefined,
+    Priority: undefined,
+    JobId: undefined,
+    Description: undefined,
     TerminationDate: undefined,
+    CreationTime: undefined,
+    Status: undefined,
+    Operation: undefined,
   };
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["CreationTime"]);
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["JobId"] !== undefined) {
-    contents.JobId = output["JobId"];
-  }
-  if (output["Operation"] !== undefined) {
-    contents.Operation = output["Operation"];
+  if (output["ProgressSummary"] !== undefined) {
+    contents.ProgressSummary = deserializeAws_restXmlJobProgressSummary(output["ProgressSummary"], context);
   }
   if (output["Priority"] !== undefined) {
     contents.Priority = parseInt(output["Priority"]);
   }
-  if (output["ProgressSummary"] !== undefined) {
-    contents.ProgressSummary = deserializeAws_restXmlJobProgressSummary(output["ProgressSummary"], context);
+  if (output["JobId"] !== undefined) {
+    contents.JobId = output["JobId"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["TerminationDate"] !== undefined) {
+    contents.TerminationDate = new Date(output["TerminationDate"]);
+  }
+  if (output["CreationTime"] !== undefined) {
+    contents.CreationTime = new Date(output["CreationTime"]);
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
-  if (output["TerminationDate"] !== undefined) {
-    contents.TerminationDate = new Date(output["TerminationDate"]);
+  if (output["Operation"] !== undefined) {
+    contents.Operation = output["Operation"];
   }
   return contents;
 };
@@ -2449,15 +2874,15 @@ const deserializeAws_restXmlJobManifestFieldList = (
 const deserializeAws_restXmlJobManifestLocation = (output: any, context: __SerdeContext): JobManifestLocation => {
   let contents: any = {
     __type: "JobManifestLocation",
-    ETag: undefined,
     ObjectArn: undefined,
+    ETag: undefined,
     ObjectVersionId: undefined,
   };
-  if (output["ETag"] !== undefined) {
-    contents.ETag = output["ETag"];
-  }
   if (output["ObjectArn"] !== undefined) {
     contents.ObjectArn = output["ObjectArn"];
+  }
+  if (output["ETag"] !== undefined) {
+    contents.ETag = output["ETag"];
   }
   if (output["ObjectVersionId"] !== undefined) {
     contents.ObjectVersionId = output["ObjectVersionId"];
@@ -2468,9 +2893,12 @@ const deserializeAws_restXmlJobManifestLocation = (output: any, context: __Serde
 const deserializeAws_restXmlJobManifestSpec = (output: any, context: __SerdeContext): JobManifestSpec => {
   let contents: any = {
     __type: "JobManifestSpec",
-    Fields: undefined,
     Format: undefined,
+    Fields: undefined,
   };
+  if (output["Format"] !== undefined) {
+    contents.Format = output["Format"];
+  }
   if (output.Fields === "") {
     contents.Fields = [];
   }
@@ -2480,23 +2908,25 @@ const deserializeAws_restXmlJobManifestSpec = (output: any, context: __SerdeCont
       context
     );
   }
-  if (output["Format"] !== undefined) {
-    contents.Format = output["Format"];
-  }
   return contents;
 };
 
 const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext): JobOperation => {
   let contents: any = {
     __type: "JobOperation",
-    LambdaInvoke: undefined,
+    S3PutObjectLegalHold: undefined,
     S3InitiateRestoreObject: undefined,
-    S3PutObjectAcl: undefined,
-    S3PutObjectCopy: undefined,
     S3PutObjectTagging: undefined,
+    LambdaInvoke: undefined,
+    S3PutObjectRetention: undefined,
+    S3PutObjectCopy: undefined,
+    S3PutObjectAcl: undefined,
   };
-  if (output["LambdaInvoke"] !== undefined) {
-    contents.LambdaInvoke = deserializeAws_restXmlLambdaInvokeOperation(output["LambdaInvoke"], context);
+  if (output["S3PutObjectLegalHold"] !== undefined) {
+    contents.S3PutObjectLegalHold = deserializeAws_restXmlS3SetObjectLegalHoldOperation(
+      output["S3PutObjectLegalHold"],
+      context
+    );
   }
   if (output["S3InitiateRestoreObject"] !== undefined) {
     contents.S3InitiateRestoreObject = deserializeAws_restXmlS3InitiateRestoreObjectOperation(
@@ -2504,17 +2934,26 @@ const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext
       context
     );
   }
-  if (output["S3PutObjectAcl"] !== undefined) {
-    contents.S3PutObjectAcl = deserializeAws_restXmlS3SetObjectAclOperation(output["S3PutObjectAcl"], context);
-  }
-  if (output["S3PutObjectCopy"] !== undefined) {
-    contents.S3PutObjectCopy = deserializeAws_restXmlS3CopyObjectOperation(output["S3PutObjectCopy"], context);
-  }
   if (output["S3PutObjectTagging"] !== undefined) {
     contents.S3PutObjectTagging = deserializeAws_restXmlS3SetObjectTaggingOperation(
       output["S3PutObjectTagging"],
       context
     );
+  }
+  if (output["LambdaInvoke"] !== undefined) {
+    contents.LambdaInvoke = deserializeAws_restXmlLambdaInvokeOperation(output["LambdaInvoke"], context);
+  }
+  if (output["S3PutObjectRetention"] !== undefined) {
+    contents.S3PutObjectRetention = deserializeAws_restXmlS3SetObjectRetentionOperation(
+      output["S3PutObjectRetention"],
+      context
+    );
+  }
+  if (output["S3PutObjectCopy"] !== undefined) {
+    contents.S3PutObjectCopy = deserializeAws_restXmlS3CopyObjectOperation(output["S3PutObjectCopy"], context);
+  }
+  if (output["S3PutObjectAcl"] !== undefined) {
+    contents.S3PutObjectAcl = deserializeAws_restXmlS3SetObjectAclOperation(output["S3PutObjectAcl"], context);
   }
   return contents;
 };
@@ -2522,18 +2961,18 @@ const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext
 const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeContext): JobProgressSummary => {
   let contents: any = {
     __type: "JobProgressSummary",
-    NumberOfTasksFailed: undefined,
     NumberOfTasksSucceeded: undefined,
     TotalNumberOfTasks: undefined,
+    NumberOfTasksFailed: undefined,
   };
-  if (output["NumberOfTasksFailed"] !== undefined) {
-    contents.NumberOfTasksFailed = parseInt(output["NumberOfTasksFailed"]);
-  }
   if (output["NumberOfTasksSucceeded"] !== undefined) {
     contents.NumberOfTasksSucceeded = parseInt(output["NumberOfTasksSucceeded"]);
   }
   if (output["TotalNumberOfTasks"] !== undefined) {
     contents.TotalNumberOfTasks = parseInt(output["TotalNumberOfTasks"]);
+  }
+  if (output["NumberOfTasksFailed"] !== undefined) {
+    contents.NumberOfTasksFailed = parseInt(output["NumberOfTasksFailed"]);
   }
   return contents;
 };
@@ -2541,26 +2980,26 @@ const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeC
 const deserializeAws_restXmlJobReport = (output: any, context: __SerdeContext): JobReport => {
   let contents: any = {
     __type: "JobReport",
-    Bucket: undefined,
-    Enabled: undefined,
-    Format: undefined,
     Prefix: undefined,
     ReportScope: undefined,
+    Enabled: undefined,
+    Bucket: undefined,
+    Format: undefined,
   };
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = output["Bucket"];
-  }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
-  }
-  if (output["Format"] !== undefined) {
-    contents.Format = output["Format"];
-  }
   if (output["Prefix"] !== undefined) {
     contents.Prefix = output["Prefix"];
   }
   if (output["ReportScope"] !== undefined) {
     contents.ReportScope = output["ReportScope"];
+  }
+  if (output["Enabled"] !== undefined) {
+    contents.Enabled = output["Enabled"] == "true";
+  }
+  if (output["Bucket"] !== undefined) {
+    contents.Bucket = output["Bucket"];
+  }
+  if (output["Format"] !== undefined) {
+    contents.Format = output["Format"];
   }
   return contents;
 };
@@ -2593,19 +3032,19 @@ const deserializeAws_restXmlPublicAccessBlockConfiguration = (
 ): PublicAccessBlockConfiguration => {
   let contents: any = {
     __type: "PublicAccessBlockConfiguration",
+    IgnorePublicAcls: undefined,
     BlockPublicAcls: undefined,
     BlockPublicPolicy: undefined,
-    IgnorePublicAcls: undefined,
     RestrictPublicBuckets: undefined,
   };
+  if (output["IgnorePublicAcls"] !== undefined) {
+    contents.IgnorePublicAcls = output["IgnorePublicAcls"] == "true";
+  }
   if (output["BlockPublicAcls"] !== undefined) {
     contents.BlockPublicAcls = output["BlockPublicAcls"] == "true";
   }
   if (output["BlockPublicPolicy"] !== undefined) {
     contents.BlockPublicPolicy = output["BlockPublicPolicy"] == "true";
-  }
-  if (output["IgnorePublicAcls"] !== undefined) {
-    contents.IgnorePublicAcls = output["IgnorePublicAcls"] == "true";
   }
   if (output["RestrictPublicBuckets"] !== undefined) {
     contents.RestrictPublicBuckets = output["RestrictPublicBuckets"] == "true";
@@ -2634,14 +3073,14 @@ const deserializeAws_restXmlS3AccessControlList = (output: any, context: __Serde
 const deserializeAws_restXmlS3AccessControlPolicy = (output: any, context: __SerdeContext): S3AccessControlPolicy => {
   let contents: any = {
     __type: "S3AccessControlPolicy",
-    AccessControlList: undefined,
     CannedAccessControlList: undefined,
+    AccessControlList: undefined,
   };
-  if (output["AccessControlList"] !== undefined) {
-    contents.AccessControlList = deserializeAws_restXmlS3AccessControlList(output["AccessControlList"], context);
-  }
   if (output["CannedAccessControlList"] !== undefined) {
     contents.CannedAccessControlList = output["CannedAccessControlList"];
+  }
+  if (output["AccessControlList"] !== undefined) {
+    contents.AccessControlList = deserializeAws_restXmlS3AccessControlList(output["AccessControlList"], context);
   }
   return contents;
 };
@@ -2649,23 +3088,38 @@ const deserializeAws_restXmlS3AccessControlPolicy = (output: any, context: __Ser
 const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __SerdeContext): S3CopyObjectOperation => {
   let contents: any = {
     __type: "S3CopyObjectOperation",
-    AccessControlGrants: undefined,
-    CannedAccessControlList: undefined,
-    MetadataDirective: undefined,
-    ModifiedSinceConstraint: undefined,
-    NewObjectMetadata: undefined,
-    NewObjectTagging: undefined,
-    ObjectLockLegalHoldStatus: undefined,
-    ObjectLockMode: undefined,
-    ObjectLockRetainUntilDate: undefined,
     RedirectLocation: undefined,
-    RequesterPays: undefined,
+    ObjectLockLegalHoldStatus: undefined,
     SSEAwsKmsKeyId: undefined,
-    StorageClass: undefined,
-    TargetKeyPrefix: undefined,
-    TargetResource: undefined,
+    ObjectLockMode: undefined,
+    ModifiedSinceConstraint: undefined,
+    AccessControlGrants: undefined,
+    MetadataDirective: undefined,
+    CannedAccessControlList: undefined,
+    RequesterPays: undefined,
+    NewObjectTagging: undefined,
     UnModifiedSinceConstraint: undefined,
+    StorageClass: undefined,
+    NewObjectMetadata: undefined,
+    TargetKeyPrefix: undefined,
+    ObjectLockRetainUntilDate: undefined,
+    TargetResource: undefined,
   };
+  if (output["RedirectLocation"] !== undefined) {
+    contents.RedirectLocation = output["RedirectLocation"];
+  }
+  if (output["ObjectLockLegalHoldStatus"] !== undefined) {
+    contents.ObjectLockLegalHoldStatus = output["ObjectLockLegalHoldStatus"];
+  }
+  if (output["SSEAwsKmsKeyId"] !== undefined) {
+    contents.SSEAwsKmsKeyId = output["SSEAwsKmsKeyId"];
+  }
+  if (output["ObjectLockMode"] !== undefined) {
+    contents.ObjectLockMode = output["ObjectLockMode"];
+  }
+  if (output["ModifiedSinceConstraint"] !== undefined) {
+    contents.ModifiedSinceConstraint = new Date(output["ModifiedSinceConstraint"]);
+  }
   if (output.AccessControlGrants === "") {
     contents.AccessControlGrants = [];
   }
@@ -2675,17 +3129,14 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
       context
     );
   }
-  if (output["CannedAccessControlList"] !== undefined) {
-    contents.CannedAccessControlList = output["CannedAccessControlList"];
-  }
   if (output["MetadataDirective"] !== undefined) {
     contents.MetadataDirective = output["MetadataDirective"];
   }
-  if (output["ModifiedSinceConstraint"] !== undefined) {
-    contents.ModifiedSinceConstraint = new Date(output["ModifiedSinceConstraint"]);
+  if (output["CannedAccessControlList"] !== undefined) {
+    contents.CannedAccessControlList = output["CannedAccessControlList"];
   }
-  if (output["NewObjectMetadata"] !== undefined) {
-    contents.NewObjectMetadata = deserializeAws_restXmlS3ObjectMetadata(output["NewObjectMetadata"], context);
+  if (output["RequesterPays"] !== undefined) {
+    contents.RequesterPays = output["RequesterPays"] == "true";
   }
   if (output.NewObjectTagging === "") {
     contents.NewObjectTagging = [];
@@ -2696,35 +3147,23 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
       context
     );
   }
-  if (output["ObjectLockLegalHoldStatus"] !== undefined) {
-    contents.ObjectLockLegalHoldStatus = output["ObjectLockLegalHoldStatus"];
-  }
-  if (output["ObjectLockMode"] !== undefined) {
-    contents.ObjectLockMode = output["ObjectLockMode"];
-  }
-  if (output["ObjectLockRetainUntilDate"] !== undefined) {
-    contents.ObjectLockRetainUntilDate = new Date(output["ObjectLockRetainUntilDate"]);
-  }
-  if (output["RedirectLocation"] !== undefined) {
-    contents.RedirectLocation = output["RedirectLocation"];
-  }
-  if (output["RequesterPays"] !== undefined) {
-    contents.RequesterPays = output["RequesterPays"] == "true";
-  }
-  if (output["SSEAwsKmsKeyId"] !== undefined) {
-    contents.SSEAwsKmsKeyId = output["SSEAwsKmsKeyId"];
+  if (output["UnModifiedSinceConstraint"] !== undefined) {
+    contents.UnModifiedSinceConstraint = new Date(output["UnModifiedSinceConstraint"]);
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = output["StorageClass"];
   }
+  if (output["NewObjectMetadata"] !== undefined) {
+    contents.NewObjectMetadata = deserializeAws_restXmlS3ObjectMetadata(output["NewObjectMetadata"], context);
+  }
   if (output["TargetKeyPrefix"] !== undefined) {
     contents.TargetKeyPrefix = output["TargetKeyPrefix"];
   }
+  if (output["ObjectLockRetainUntilDate"] !== undefined) {
+    contents.ObjectLockRetainUntilDate = new Date(output["ObjectLockRetainUntilDate"]);
+  }
   if (output["TargetResource"] !== undefined) {
     contents.TargetResource = output["TargetResource"];
-  }
-  if (output["UnModifiedSinceConstraint"] !== undefined) {
-    contents.UnModifiedSinceConstraint = new Date(output["UnModifiedSinceConstraint"]);
   }
   return contents;
 };
@@ -2732,14 +3171,14 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
 const deserializeAws_restXmlS3Grant = (output: any, context: __SerdeContext): S3Grant => {
   let contents: any = {
     __type: "S3Grant",
-    Grantee: undefined,
     Permission: undefined,
+    Grantee: undefined,
   };
-  if (output["Grantee"] !== undefined) {
-    contents.Grantee = deserializeAws_restXmlS3Grantee(output["Grantee"], context);
-  }
   if (output["Permission"] !== undefined) {
     contents.Permission = output["Permission"];
+  }
+  if (output["Grantee"] !== undefined) {
+    contents.Grantee = deserializeAws_restXmlS3Grantee(output["Grantee"], context);
   }
   return contents;
 };
@@ -2747,15 +3186,15 @@ const deserializeAws_restXmlS3Grant = (output: any, context: __SerdeContext): S3
 const deserializeAws_restXmlS3Grantee = (output: any, context: __SerdeContext): S3Grantee => {
   let contents: any = {
     __type: "S3Grantee",
-    DisplayName: undefined,
     Identifier: undefined,
+    DisplayName: undefined,
     TypeIdentifier: undefined,
   };
-  if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = output["DisplayName"];
-  }
   if (output["Identifier"] !== undefined) {
     contents.Identifier = output["Identifier"];
+  }
+  if (output["DisplayName"] !== undefined) {
+    contents.DisplayName = output["DisplayName"];
   }
   if (output["TypeIdentifier"] !== undefined) {
     contents.TypeIdentifier = output["TypeIdentifier"];
@@ -2785,50 +3224,37 @@ const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
   return contents;
 };
 
+const deserializeAws_restXmlS3ObjectLockLegalHold = (output: any, context: __SerdeContext): S3ObjectLockLegalHold => {
+  let contents: any = {
+    __type: "S3ObjectLockLegalHold",
+    Status: undefined,
+  };
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeContext): S3ObjectMetadata => {
   let contents: any = {
     __type: "S3ObjectMetadata",
-    CacheControl: undefined,
-    ContentDisposition: undefined,
-    ContentEncoding: undefined,
     ContentLanguage: undefined,
-    ContentLength: undefined,
-    ContentMD5: undefined,
-    ContentType: undefined,
-    HttpExpiresDate: undefined,
-    RequesterCharged: undefined,
-    SSEAlgorithm: undefined,
+    ContentEncoding: undefined,
     UserMetadata: undefined,
+    ContentLength: undefined,
+    SSEAlgorithm: undefined,
+    ContentMD5: undefined,
+    RequesterCharged: undefined,
+    CacheControl: undefined,
+    HttpExpiresDate: undefined,
+    ContentDisposition: undefined,
+    ContentType: undefined,
   };
-  if (output["CacheControl"] !== undefined) {
-    contents.CacheControl = output["CacheControl"];
-  }
-  if (output["ContentDisposition"] !== undefined) {
-    contents.ContentDisposition = output["ContentDisposition"];
-  }
-  if (output["ContentEncoding"] !== undefined) {
-    contents.ContentEncoding = output["ContentEncoding"];
-  }
   if (output["ContentLanguage"] !== undefined) {
     contents.ContentLanguage = output["ContentLanguage"];
   }
-  if (output["ContentLength"] !== undefined) {
-    contents.ContentLength = parseInt(output["ContentLength"]);
-  }
-  if (output["ContentMD5"] !== undefined) {
-    contents.ContentMD5 = output["ContentMD5"];
-  }
-  if (output["ContentType"] !== undefined) {
-    contents.ContentType = output["ContentType"];
-  }
-  if (output["HttpExpiresDate"] !== undefined) {
-    contents.HttpExpiresDate = new Date(output["HttpExpiresDate"]);
-  }
-  if (output["RequesterCharged"] !== undefined) {
-    contents.RequesterCharged = output["RequesterCharged"] == "true";
-  }
-  if (output["SSEAlgorithm"] !== undefined) {
-    contents.SSEAlgorithm = output["SSEAlgorithm"];
+  if (output["ContentEncoding"] !== undefined) {
+    contents.ContentEncoding = output["ContentEncoding"];
   }
   if (output.UserMetadata === "") {
     contents.UserMetadata = {};
@@ -2839,20 +3265,59 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
       context
     );
   }
+  if (output["ContentLength"] !== undefined) {
+    contents.ContentLength = parseInt(output["ContentLength"]);
+  }
+  if (output["SSEAlgorithm"] !== undefined) {
+    contents.SSEAlgorithm = output["SSEAlgorithm"];
+  }
+  if (output["ContentMD5"] !== undefined) {
+    contents.ContentMD5 = output["ContentMD5"];
+  }
+  if (output["RequesterCharged"] !== undefined) {
+    contents.RequesterCharged = output["RequesterCharged"] == "true";
+  }
+  if (output["CacheControl"] !== undefined) {
+    contents.CacheControl = output["CacheControl"];
+  }
+  if (output["HttpExpiresDate"] !== undefined) {
+    contents.HttpExpiresDate = new Date(output["HttpExpiresDate"]);
+  }
+  if (output["ContentDisposition"] !== undefined) {
+    contents.ContentDisposition = output["ContentDisposition"];
+  }
+  if (output["ContentType"] !== undefined) {
+    contents.ContentType = output["ContentType"];
+  }
   return contents;
 };
 
 const deserializeAws_restXmlS3ObjectOwner = (output: any, context: __SerdeContext): S3ObjectOwner => {
   let contents: any = {
     __type: "S3ObjectOwner",
-    DisplayName: undefined,
     ID: undefined,
+    DisplayName: undefined,
   };
+  if (output["ID"] !== undefined) {
+    contents.ID = output["ID"];
+  }
   if (output["DisplayName"] !== undefined) {
     contents.DisplayName = output["DisplayName"];
   }
-  if (output["ID"] !== undefined) {
-    contents.ID = output["ID"];
+  return contents;
+};
+
+const deserializeAws_restXmlS3Retention = (output: any, context: __SerdeContext): S3Retention => {
+  let contents: any = {
+    __type: "S3Retention",
+    RetainUntilDate: undefined,
+    Mode: undefined,
+  };
+  if (output["RetainUntilDate"] !== undefined) {
+    contents.RetainUntilDate = new Date(output["RetainUntilDate"]);
+  }
+  if (output["Mode"] !== undefined) {
+    contents.Mode = output["Mode"];
   }
   return contents;
 };
@@ -2867,6 +3332,38 @@ const deserializeAws_restXmlS3SetObjectAclOperation = (
   };
   if (output["AccessControlPolicy"] !== undefined) {
     contents.AccessControlPolicy = deserializeAws_restXmlS3AccessControlPolicy(output["AccessControlPolicy"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlS3SetObjectLegalHoldOperation = (
+  output: any,
+  context: __SerdeContext
+): S3SetObjectLegalHoldOperation => {
+  let contents: any = {
+    __type: "S3SetObjectLegalHoldOperation",
+    LegalHold: undefined,
+  };
+  if (output["LegalHold"] !== undefined) {
+    contents.LegalHold = deserializeAws_restXmlS3ObjectLockLegalHold(output["LegalHold"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlS3SetObjectRetentionOperation = (
+  output: any,
+  context: __SerdeContext
+): S3SetObjectRetentionOperation => {
+  let contents: any = {
+    __type: "S3SetObjectRetentionOperation",
+    Retention: undefined,
+    BypassGovernanceRetention: undefined,
+  };
+  if (output["Retention"] !== undefined) {
+    contents.Retention = deserializeAws_restXmlS3Retention(output["Retention"], context);
+  }
+  if (output["BypassGovernanceRetention"] !== undefined) {
+    contents.BypassGovernanceRetention = output["BypassGovernanceRetention"] == "true";
   }
   return contents;
 };
@@ -2891,14 +3388,14 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
 const deserializeAws_restXmlS3Tag = (output: any, context: __SerdeContext): S3Tag => {
   let contents: any = {
     __type: "S3Tag",
-    Key: undefined,
     Value: undefined,
+    Key: undefined,
   };
-  if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
-  }
   if (output["Value"] !== undefined) {
     contents.Value = output["Value"];
+  }
+  if (output["Key"] !== undefined) {
+    contents.Key = output["Key"];
   }
   return contents;
 };

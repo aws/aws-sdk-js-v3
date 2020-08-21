@@ -1,5 +1,10 @@
 import { CloudFrontClient } from "./CloudFrontClient";
 import {
+  CreateCachePolicyCommand,
+  CreateCachePolicyCommandInput,
+  CreateCachePolicyCommandOutput,
+} from "./commands/CreateCachePolicyCommand";
+import {
   CreateCloudFrontOriginAccessIdentityCommand,
   CreateCloudFrontOriginAccessIdentityCommandInput,
   CreateCloudFrontOriginAccessIdentityCommandOutput,
@@ -30,6 +35,11 @@ import {
   CreateInvalidationCommandOutput,
 } from "./commands/CreateInvalidationCommand";
 import {
+  CreateOriginRequestPolicyCommand,
+  CreateOriginRequestPolicyCommandInput,
+  CreateOriginRequestPolicyCommandOutput,
+} from "./commands/CreateOriginRequestPolicyCommand";
+import {
   CreatePublicKeyCommand,
   CreatePublicKeyCommandInput,
   CreatePublicKeyCommandOutput,
@@ -44,6 +54,11 @@ import {
   CreateStreamingDistributionWithTagsCommandInput,
   CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand";
+import {
+  DeleteCachePolicyCommand,
+  DeleteCachePolicyCommandInput,
+  DeleteCachePolicyCommandOutput,
+} from "./commands/DeleteCachePolicyCommand";
 import {
   DeleteCloudFrontOriginAccessIdentityCommand,
   DeleteCloudFrontOriginAccessIdentityCommandInput,
@@ -65,6 +80,11 @@ import {
   DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand";
 import {
+  DeleteOriginRequestPolicyCommand,
+  DeleteOriginRequestPolicyCommandInput,
+  DeleteOriginRequestPolicyCommandOutput,
+} from "./commands/DeleteOriginRequestPolicyCommand";
+import {
   DeletePublicKeyCommand,
   DeletePublicKeyCommandInput,
   DeletePublicKeyCommandOutput,
@@ -74,6 +94,16 @@ import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
+import {
+  GetCachePolicyCommand,
+  GetCachePolicyCommandInput,
+  GetCachePolicyCommandOutput,
+} from "./commands/GetCachePolicyCommand";
+import {
+  GetCachePolicyConfigCommand,
+  GetCachePolicyConfigCommandInput,
+  GetCachePolicyConfigCommandOutput,
+} from "./commands/GetCachePolicyConfigCommand";
 import {
   GetCloudFrontOriginAccessIdentityCommand,
   GetCloudFrontOriginAccessIdentityCommandInput,
@@ -120,6 +150,16 @@ import {
   GetInvalidationCommandOutput,
 } from "./commands/GetInvalidationCommand";
 import {
+  GetOriginRequestPolicyCommand,
+  GetOriginRequestPolicyCommandInput,
+  GetOriginRequestPolicyCommandOutput,
+} from "./commands/GetOriginRequestPolicyCommand";
+import {
+  GetOriginRequestPolicyConfigCommand,
+  GetOriginRequestPolicyConfigCommandInput,
+  GetOriginRequestPolicyConfigCommandOutput,
+} from "./commands/GetOriginRequestPolicyConfigCommand";
+import {
   GetPublicKeyCommand,
   GetPublicKeyCommandInput,
   GetPublicKeyCommandOutput,
@@ -140,10 +180,25 @@ import {
   GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand";
 import {
+  ListCachePoliciesCommand,
+  ListCachePoliciesCommandInput,
+  ListCachePoliciesCommandOutput,
+} from "./commands/ListCachePoliciesCommand";
+import {
   ListCloudFrontOriginAccessIdentitiesCommand,
   ListCloudFrontOriginAccessIdentitiesCommandInput,
   ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "./commands/ListCloudFrontOriginAccessIdentitiesCommand";
+import {
+  ListDistributionsByCachePolicyIdCommand,
+  ListDistributionsByCachePolicyIdCommandInput,
+  ListDistributionsByCachePolicyIdCommandOutput,
+} from "./commands/ListDistributionsByCachePolicyIdCommand";
+import {
+  ListDistributionsByOriginRequestPolicyIdCommand,
+  ListDistributionsByOriginRequestPolicyIdCommandInput,
+  ListDistributionsByOriginRequestPolicyIdCommandOutput,
+} from "./commands/ListDistributionsByOriginRequestPolicyIdCommand";
 import {
   ListDistributionsByWebACLIdCommand,
   ListDistributionsByWebACLIdCommandInput,
@@ -170,6 +225,11 @@ import {
   ListInvalidationsCommandOutput,
 } from "./commands/ListInvalidationsCommand";
 import {
+  ListOriginRequestPoliciesCommand,
+  ListOriginRequestPoliciesCommandInput,
+  ListOriginRequestPoliciesCommandOutput,
+} from "./commands/ListOriginRequestPoliciesCommand";
+import {
   ListPublicKeysCommand,
   ListPublicKeysCommandInput,
   ListPublicKeysCommandOutput,
@@ -191,6 +251,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateCachePolicyCommand,
+  UpdateCachePolicyCommandInput,
+  UpdateCachePolicyCommandOutput,
+} from "./commands/UpdateCachePolicyCommand";
+import {
   UpdateCloudFrontOriginAccessIdentityCommand,
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
@@ -211,6 +276,11 @@ import {
   UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand";
 import {
+  UpdateOriginRequestPolicyCommand,
+  UpdateOriginRequestPolicyCommandInput,
+  UpdateOriginRequestPolicyCommandOutput,
+} from "./commands/UpdateOriginRequestPolicyCommand";
+import {
   UpdatePublicKeyCommand,
   UpdatePublicKeyCommandInput,
   UpdatePublicKeyCommandOutput,
@@ -228,6 +298,58 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class CloudFront extends CloudFrontClient {
+  /**
+   * <p>Creates a cache policy.</p>
+   * 		       <p>After you create a cache policy, you can attach it to one or more cache behaviors. When it’s
+   * 			attached to a cache behavior, the cache policy determines the following:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The values that CloudFront includes in the <i>cache key</i>. These values can
+   * 					include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to
+   * 					find an object in its cache that it can return to the viewer.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The default, minimum, and maximum time to live (TTL) values that you want objects to stay
+   * 					in the CloudFront cache.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>The headers, cookies, and query strings that are included in the cache key are automatically
+   * 			included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t
+   * 			find an object in its cache that matches the request’s cache key. If you want to send
+   * 			values to the origin but <i>not</i> include them in the cache key, use
+   * 			<code>CreateOriginRequestPolicy</code>.</p>
+   * 		       <p>For more information about cache policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">Controlling the cache key</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public createCachePolicy(
+    args: CreateCachePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCachePolicyCommandOutput>;
+  public createCachePolicy(
+    args: CreateCachePolicyCommandInput,
+    cb: (err: any, data?: CreateCachePolicyCommandOutput) => void
+  ): void;
+  public createCachePolicy(
+    args: CreateCachePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCachePolicyCommandOutput) => void
+  ): void;
+  public createCachePolicy(
+    args: CreateCachePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCachePolicyCommandOutput) => void),
+    cb?: (err: any, data?: CreateCachePolicyCommandOutput) => void
+  ): Promise<CreateCachePolicyCommandOutput> | void {
+    const command = new CreateCachePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
    * 			use an origin access identity to require users to access your content using a CloudFront URL instead
@@ -436,6 +558,62 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Creates an origin request policy.</p>
+   * 		       <p>After you create an origin request policy, you can attach it to one or more cache behaviors.
+   * 			When it’s attached to a cache behavior, the origin request policy determines the values
+   * 			that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends
+   * 			to the origin includes the following:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The request body and the URL path (without the domain name) from the viewer
+   * 					request.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The headers that CloudFront automatically includes in every origin request, including
+   * 					<code>Host</code>, <code>User-Agent</code>, and <code>X-Amz-Cf-Id</code>.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>All HTTP headers, cookies, and URL query strings that are specified in the cache policy or
+   * 					the origin request policy. These can include items from the viewer request and,
+   * 					in the case of headers, additional ones that are added by CloudFront.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>CloudFront sends a request when it can’t find a valid object in its cache that matches the
+   * 			request. If you want to send values to the origin and also include them in the cache
+   * 			key, use <code>CreateCachePolicy</code>.</p>
+   * 		       <p>For more information about origin request policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html">Controlling origin requests</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public createOriginRequestPolicy(
+    args: CreateOriginRequestPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOriginRequestPolicyCommandOutput>;
+  public createOriginRequestPolicy(
+    args: CreateOriginRequestPolicyCommandInput,
+    cb: (err: any, data?: CreateOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public createOriginRequestPolicy(
+    args: CreateOriginRequestPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public createOriginRequestPolicy(
+    args: CreateOriginRequestPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOriginRequestPolicyCommandOutput) => void),
+    cb?: (err: any, data?: CreateOriginRequestPolicyCommandOutput) => void
+  ): Promise<CreateOriginRequestPolicyCommandOutput> | void {
+    const command = new CreateOriginRequestPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Add a new public key to CloudFront to use, for example, for field-level encryption. You can add a maximum of 10 public keys with one AWS account.</p>
    */
   public createPublicKey(
@@ -545,6 +723,44 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void
   ): Promise<CreateStreamingDistributionWithTagsCommandOutput> | void {
     const command = new CreateStreamingDistributionWithTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a cache policy.</p>
+   * 		       <p>You cannot delete a cache policy if it’s attached to a cache behavior. First update your
+   * 			distributions to remove the cache policy from all cache behaviors, then delete the cache
+   * 			policy.</p>
+   * 		       <p>To delete a cache policy, you must provide the policy’s identifier and version. To get these
+   * 			values, you can use <code>ListCachePolicies</code> or
+   * 			<code>GetCachePolicy</code>.</p>
+   */
+  public deleteCachePolicy(
+    args: DeleteCachePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCachePolicyCommandOutput>;
+  public deleteCachePolicy(
+    args: DeleteCachePolicyCommandInput,
+    cb: (err: any, data?: DeleteCachePolicyCommandOutput) => void
+  ): void;
+  public deleteCachePolicy(
+    args: DeleteCachePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCachePolicyCommandOutput) => void
+  ): void;
+  public deleteCachePolicy(
+    args: DeleteCachePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCachePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCachePolicyCommandOutput) => void
+  ): Promise<DeleteCachePolicyCommandOutput> | void {
+    const command = new DeleteCachePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -684,6 +900,44 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Deletes an origin request policy.</p>
+   * 		       <p>You cannot delete an origin request policy if it’s attached to any cache behaviors. First
+   * 			update your distributions to remove the origin request policy from all cache behaviors,
+   * 			then delete the origin request policy.</p>
+   * 		       <p>To delete an origin request policy, you must provide the policy’s identifier and version. To
+   * 			get the identifier, you can use <code>ListOriginRequestPolicies</code> or
+   * 			<code>GetOriginRequestPolicy</code>.</p>
+   */
+  public deleteOriginRequestPolicy(
+    args: DeleteOriginRequestPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOriginRequestPolicyCommandOutput>;
+  public deleteOriginRequestPolicy(
+    args: DeleteOriginRequestPolicyCommandInput,
+    cb: (err: any, data?: DeleteOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public deleteOriginRequestPolicy(
+    args: DeleteOriginRequestPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public deleteOriginRequestPolicy(
+    args: DeleteOriginRequestPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOriginRequestPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteOriginRequestPolicyCommandOutput) => void
+  ): Promise<DeleteOriginRequestPolicyCommandOutput> | void {
+    const command = new DeleteOriginRequestPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Remove a public key you previously added to CloudFront.</p>
    */
   public deletePublicKey(
@@ -784,6 +1038,88 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: DeleteStreamingDistributionCommandOutput) => void
   ): Promise<DeleteStreamingDistributionCommandOutput> | void {
     const command = new DeleteStreamingDistributionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a cache policy, including the following metadata:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The policy’s identifier.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The date and time when the policy was last modified.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>To get a cache policy, you must provide the policy’s identifier. If the cache policy is
+   * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
+   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is
+   * 			not attached to a cache behavior, you can get the identifier using
+   * 			<code>ListCachePolicies</code>.</p>
+   */
+  public getCachePolicy(
+    args: GetCachePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCachePolicyCommandOutput>;
+  public getCachePolicy(
+    args: GetCachePolicyCommandInput,
+    cb: (err: any, data?: GetCachePolicyCommandOutput) => void
+  ): void;
+  public getCachePolicy(
+    args: GetCachePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCachePolicyCommandOutput) => void
+  ): void;
+  public getCachePolicy(
+    args: GetCachePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCachePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetCachePolicyCommandOutput) => void
+  ): Promise<GetCachePolicyCommandOutput> | void {
+    const command = new GetCachePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a cache policy configuration.</p>
+   * 		       <p>To get a cache policy configuration, you must provide the policy’s identifier. If the cache
+   * 			policy is attached to a distribution’s cache behavior, you can get the policy’s
+   * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
+   * 			cache policy is not attached to a cache behavior, you can get the identifier using
+   * 			<code>ListCachePolicies</code>.</p>
+   */
+  public getCachePolicyConfig(
+    args: GetCachePolicyConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCachePolicyConfigCommandOutput>;
+  public getCachePolicyConfig(
+    args: GetCachePolicyConfigCommandInput,
+    cb: (err: any, data?: GetCachePolicyConfigCommandOutput) => void
+  ): void;
+  public getCachePolicyConfig(
+    args: GetCachePolicyConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCachePolicyConfigCommandOutput) => void
+  ): void;
+  public getCachePolicyConfig(
+    args: GetCachePolicyConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCachePolicyConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetCachePolicyConfigCommandOutput) => void
+  ): Promise<GetCachePolicyConfigCommandOutput> | void {
+    const command = new GetCachePolicyConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1085,6 +1421,89 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets an origin request policy, including the following metadata:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The policy’s identifier.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The date and time when the policy was last modified.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>To get an origin request policy, you must provide the policy’s identifier. If the origin
+   * 			request policy is attached to a distribution’s cache behavior, you can get the policy’s
+   * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
+   * 			origin request policy is not attached to a cache behavior, you can get the identifier
+   * 			using <code>ListOriginRequestPolicies</code>.</p>
+   */
+  public getOriginRequestPolicy(
+    args: GetOriginRequestPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOriginRequestPolicyCommandOutput>;
+  public getOriginRequestPolicy(
+    args: GetOriginRequestPolicyCommandInput,
+    cb: (err: any, data?: GetOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public getOriginRequestPolicy(
+    args: GetOriginRequestPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public getOriginRequestPolicy(
+    args: GetOriginRequestPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOriginRequestPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetOriginRequestPolicyCommandOutput) => void
+  ): Promise<GetOriginRequestPolicyCommandOutput> | void {
+    const command = new GetOriginRequestPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets an origin request policy configuration.</p>
+   * 		       <p>To get an origin request policy configuration, you must provide the policy’s identifier. If
+   * 			the origin request policy is attached to a distribution’s cache behavior, you can get
+   * 			the policy’s identifier using <code>ListDistributions</code> or
+   * 			<code>GetDistribution</code>. If the origin request policy is not attached to a cache
+   * 			behavior, you can get the identifier using
+   * 			<code>ListOriginRequestPolicies</code>.</p>
+   */
+  public getOriginRequestPolicyConfig(
+    args: GetOriginRequestPolicyConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOriginRequestPolicyConfigCommandOutput>;
+  public getOriginRequestPolicyConfig(
+    args: GetOriginRequestPolicyConfigCommandInput,
+    cb: (err: any, data?: GetOriginRequestPolicyConfigCommandOutput) => void
+  ): void;
+  public getOriginRequestPolicyConfig(
+    args: GetOriginRequestPolicyConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOriginRequestPolicyConfigCommandOutput) => void
+  ): void;
+  public getOriginRequestPolicyConfig(
+    args: GetOriginRequestPolicyConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOriginRequestPolicyConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetOriginRequestPolicyConfigCommandOutput) => void
+  ): Promise<GetOriginRequestPolicyConfigCommandOutput> | void {
+    const command = new GetOriginRequestPolicyConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get the public key information.</p>
    */
   public getPublicKey(
@@ -1210,6 +1629,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets a list of cache policies.</p>
+   * 		       <p>You can optionally apply a filter to return only the managed policies created by AWS, or
+   * 			only the custom policies created in your AWS account.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listCachePolicies(
+    args: ListCachePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCachePoliciesCommandOutput>;
+  public listCachePolicies(
+    args: ListCachePoliciesCommandInput,
+    cb: (err: any, data?: ListCachePoliciesCommandOutput) => void
+  ): void;
+  public listCachePolicies(
+    args: ListCachePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCachePoliciesCommandOutput) => void
+  ): void;
+  public listCachePolicies(
+    args: ListCachePoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCachePoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListCachePoliciesCommandOutput) => void
+  ): Promise<ListCachePoliciesCommandOutput> | void {
+    const command = new ListCachePoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists origin access identities.</p>
    */
   public listCloudFrontOriginAccessIdentities(
@@ -1263,6 +1721,84 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: ListDistributionsCommandOutput) => void
   ): Promise<ListDistributionsCommandOutput> | void {
     const command = new ListDistributionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
+   * 			associated with the specified cache policy.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listDistributionsByCachePolicyId(
+    args: ListDistributionsByCachePolicyIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByCachePolicyIdCommandOutput>;
+  public listDistributionsByCachePolicyId(
+    args: ListDistributionsByCachePolicyIdCommandInput,
+    cb: (err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByCachePolicyId(
+    args: ListDistributionsByCachePolicyIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByCachePolicyId(
+    args: ListDistributionsByCachePolicyIdCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void),
+    cb?: (err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void
+  ): Promise<ListDistributionsByCachePolicyIdCommandOutput> | void {
+    const command = new ListDistributionsByCachePolicyIdCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
+   * 			associated with the specified origin request policy.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listDistributionsByOriginRequestPolicyId(
+    args: ListDistributionsByOriginRequestPolicyIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput>;
+  public listDistributionsByOriginRequestPolicyId(
+    args: ListDistributionsByOriginRequestPolicyIdCommandInput,
+    cb: (err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByOriginRequestPolicyId(
+    args: ListDistributionsByOriginRequestPolicyIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByOriginRequestPolicyId(
+    args: ListDistributionsByOriginRequestPolicyIdCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void),
+    cb?: (err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void
+  ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput> | void {
+    const command = new ListDistributionsByOriginRequestPolicyIdCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1391,6 +1927,45 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: ListInvalidationsCommandOutput) => void
   ): Promise<ListInvalidationsCommandOutput> | void {
     const command = new ListInvalidationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of origin request policies.</p>
+   * 		       <p>You can optionally apply a filter to return only the managed policies created by AWS, or
+   * 			only the custom policies created in your AWS account.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listOriginRequestPolicies(
+    args: ListOriginRequestPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOriginRequestPoliciesCommandOutput>;
+  public listOriginRequestPolicies(
+    args: ListOriginRequestPoliciesCommandInput,
+    cb: (err: any, data?: ListOriginRequestPoliciesCommandOutput) => void
+  ): void;
+  public listOriginRequestPolicies(
+    args: ListOriginRequestPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOriginRequestPoliciesCommandOutput) => void
+  ): void;
+  public listOriginRequestPolicies(
+    args: ListOriginRequestPoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOriginRequestPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListOriginRequestPoliciesCommandOutput) => void
+  ): Promise<ListOriginRequestPoliciesCommandOutput> | void {
+    const command = new ListOriginRequestPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1545,6 +2120,55 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a cache policy configuration.</p>
+   * 		       <p>When you update a cache policy configuration, all the fields are updated with the
+   * 			values provided in the request. You cannot update some fields independent of others. To
+   * 			update a cache policy configuration:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Use <code>GetCachePolicyConfig</code> to get the current configuration.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Locally modify the fields in the cache policy configuration that you want to
+   * 					update.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Call <code>UpdateCachePolicy</code> by providing the entire cache policy
+   * 					configuration, including the fields that you modified and those that you
+   * 					didn’t.</p>
+   * 			         </li>
+   *          </ol>
+   */
+  public updateCachePolicy(
+    args: UpdateCachePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCachePolicyCommandOutput>;
+  public updateCachePolicy(
+    args: UpdateCachePolicyCommandInput,
+    cb: (err: any, data?: UpdateCachePolicyCommandOutput) => void
+  ): void;
+  public updateCachePolicy(
+    args: UpdateCachePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCachePolicyCommandOutput) => void
+  ): void;
+  public updateCachePolicy(
+    args: UpdateCachePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCachePolicyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCachePolicyCommandOutput) => void
+  ): Promise<UpdateCachePolicyCommandOutput> | void {
+    const command = new UpdateCachePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1751,6 +2375,55 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new UpdateFieldLevelEncryptionProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an origin request policy configuration.</p>
+   * 		       <p>When you update an origin request policy configuration, all the fields are updated
+   * 			with the values provided in the request. You cannot update some fields independent of
+   * 			others. To update an origin request policy configuration:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Use <code>GetOriginRequestPolicyConfig</code> to get the current configuration.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Locally modify the fields in the origin request policy configuration that you
+   * 					want to update.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Call <code>UpdateOriginRequestPolicy</code> by providing the entire origin
+   * 					request policy configuration, including the fields that you modified and those
+   * 					that you didn’t.</p>
+   * 			         </li>
+   *          </ol>
+   */
+  public updateOriginRequestPolicy(
+    args: UpdateOriginRequestPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOriginRequestPolicyCommandOutput>;
+  public updateOriginRequestPolicy(
+    args: UpdateOriginRequestPolicyCommandInput,
+    cb: (err: any, data?: UpdateOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public updateOriginRequestPolicy(
+    args: UpdateOriginRequestPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public updateOriginRequestPolicy(
+    args: UpdateOriginRequestPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOriginRequestPolicyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOriginRequestPolicyCommandOutput) => void
+  ): Promise<UpdateOriginRequestPolicyCommandOutput> | void {
+    const command = new UpdateOriginRequestPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

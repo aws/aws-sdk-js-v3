@@ -20,6 +20,11 @@ import {
   CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
 import {
+  CreateHostedConfigurationVersionCommand,
+  CreateHostedConfigurationVersionCommandInput,
+  CreateHostedConfigurationVersionCommandOutput,
+} from "./commands/CreateHostedConfigurationVersionCommand";
+import {
   DeleteApplicationCommand,
   DeleteApplicationCommandInput,
   DeleteApplicationCommandOutput,
@@ -39,6 +44,11 @@ import {
   DeleteEnvironmentCommandInput,
   DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
+import {
+  DeleteHostedConfigurationVersionCommand,
+  DeleteHostedConfigurationVersionCommandInput,
+  DeleteHostedConfigurationVersionCommandOutput,
+} from "./commands/DeleteHostedConfigurationVersionCommand";
 import {
   GetApplicationCommand,
   GetApplicationCommandInput,
@@ -70,6 +80,11 @@ import {
   GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  GetHostedConfigurationVersionCommand,
+  GetHostedConfigurationVersionCommandInput,
+  GetHostedConfigurationVersionCommandOutput,
+} from "./commands/GetHostedConfigurationVersionCommand";
+import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -94,6 +109,11 @@ import {
   ListEnvironmentsCommandInput,
   ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
+import {
+  ListHostedConfigurationVersionsCommand,
+  ListHostedConfigurationVersionsCommandInput,
+  ListHostedConfigurationVersionsCommandOutput,
+} from "./commands/ListHostedConfigurationVersionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -145,24 +165,25 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <fullname>AWS AppConfig</fullname>
  *          <p>Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy
- *          application configurations. AppConfig supports controlled deployments to applications of any size
- *          and includes built-in validation checks and monitoring. You can use AppConfig with applications
- *          hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT
+ *          application configurations. AppConfig supports controlled deployments to applications of any
+ *          size and includes built-in validation checks and monitoring. You can use AppConfig with
+ *          applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT
  *          devices.</p>
  *
  *          <p>To prevent errors when deploying application configurations, especially for production
- *          systems where a simple typo could cause an unexpected outage, AppConfig includes validators. A
- *          validator provides a syntactic or semantic check to ensure that the configuration you want
- *          to deploy works as intended. To validate your application configuration data, you provide a
- *          schema or a Lambda function that runs against the configuration. The configuration
- *          deployment or update can only proceed when the configuration data is valid.</p>
+ *          systems where a simple typo could cause an unexpected outage, AppConfig includes validators.
+ *          A validator provides a syntactic or semantic check to ensure that the configuration you
+ *          want to deploy works as intended. To validate your application configuration data, you
+ *          provide a schema or a Lambda function that runs against the configuration. The
+ *          configuration deployment or update can only proceed when the configuration data is
+ *          valid.</p>
  *
  *          <p>During a configuration deployment, AppConfig monitors the application to ensure that the
- *          deployment is successful. If the system encounters an error, AppConfig rolls back the change to
- *          minimize impact for your application users. You can configure a deployment strategy for
+ *          deployment is successful. If the system encounters an error, AppConfig rolls back the change
+ *          to minimize impact for your application users. You can configure a deployment strategy for
  *          each application or environment that includes deployment criteria, including velocity, bake
- *          time, and alarms to monitor. Similar to error monitoring, if a deployment triggers an alarm,
- *          AppConfig automatically rolls back to the previous version. </p>
+ *          time, and alarms to monitor. Similar to error monitoring, if a deployment triggers an
+ *          alarm, AppConfig automatically rolls back to the previous version. </p>
  *
  *          <p>AppConfig supports multiple use cases. Here are some examples.</p>
  *          <ul>
@@ -174,18 +195,19 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Feature toggle</b>: Use AppConfig to turn on new features
- *                that require a timely deployment, such as a product launch or announcement. </p>
+ *                   <b>Feature toggle</b>: Use AppConfig to turn on new
+ *                features that require a timely deployment, such as a product launch or announcement.
+ *             </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>User membership</b>: Use AppConfig to allow premium
+ *                   <b>Allow list</b>: Use AppConfig to allow premium
  *                subscribers to access paid content. </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Operational issues</b>: Use AppConfig to reduce stress on
- *                your application when a dependency or other external factor impacts the
+ *                   <b>Operational issues</b>: Use AppConfig to reduce stress
+ *                on your application when a dependency or other external factor impacts the
  *                system.</p>
  *             </li>
  *          </ul>
@@ -228,9 +250,9 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Information that enables AppConfig to access the configuration source. Valid configuration
-   *          sources include Systems Manager (SSM) documents and SSM Parameter Store parameters. A configuration
-   *          profile includes the following information.</p>
+   * <p>Information that enables AppConfig to access the configuration source. Valid
+   *          configuration sources include Systems Manager (SSM) documents, SSM Parameter Store parameters, and
+   *          Amazon S3 objects. A configuration profile includes the following information.</p>
    *          <ul>
    *             <li>
    *                <p>The Uri location of the configuration data.</p>
@@ -243,6 +265,9 @@ export class AppConfig extends AppConfigClient {
    *                Schema or an AWS Lambda function.</p>
    *             </li>
    *          </ul>
+   *          <p>For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
+   *             Configuration and a Configuration Profile</a> in the
+   *             <i>AWS AppConfig User Guide</i>.</p>
    */
   public createConfigurationProfile(
     args: CreateConfigurationProfileCommandInput,
@@ -336,6 +361,38 @@ export class AppConfig extends AppConfigClient {
     cb?: (err: any, data?: CreateEnvironmentCommandOutput) => void
   ): Promise<CreateEnvironmentCommandOutput> | void {
     const command = new CreateEnvironmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create a new configuration in the AppConfig configuration store.</p>
+   */
+  public createHostedConfigurationVersion(
+    args: CreateHostedConfigurationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHostedConfigurationVersionCommandOutput>;
+  public createHostedConfigurationVersion(
+    args: CreateHostedConfigurationVersionCommandInput,
+    cb: (err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void
+  ): void;
+  public createHostedConfigurationVersion(
+    args: CreateHostedConfigurationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void
+  ): void;
+  public createHostedConfigurationVersion(
+    args: CreateHostedConfigurationVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateHostedConfigurationVersionCommandOutput) => void
+  ): Promise<CreateHostedConfigurationVersionCommandOutput> | void {
+    const command = new CreateHostedConfigurationVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -479,6 +536,38 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * <p>Delete a version of a configuration from the AppConfig configuration store.</p>
+   */
+  public deleteHostedConfigurationVersion(
+    args: DeleteHostedConfigurationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHostedConfigurationVersionCommandOutput>;
+  public deleteHostedConfigurationVersion(
+    args: DeleteHostedConfigurationVersionCommandInput,
+    cb: (err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void
+  ): void;
+  public deleteHostedConfigurationVersion(
+    args: DeleteHostedConfigurationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void
+  ): void;
+  public deleteHostedConfigurationVersion(
+    args: DeleteHostedConfigurationVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void
+  ): Promise<DeleteHostedConfigurationVersionCommandOutput> | void {
+    const command = new DeleteHostedConfigurationVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieve information about an application.</p>
    */
   public getApplication(
@@ -511,7 +600,19 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Retrieve information about a configuration.</p>
+   * <p>Receive information about a configuration.</p>
+   *          <important>
+   *             <p>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
+   *             to identify the configuration version on your clients. If you don’t send
+   *                <code>ClientConfigurationVersion</code> with each call to
+   *                <code>GetConfiguration</code>, your clients receive the current configuration. You
+   *             are charged each time your clients receive a configuration.</p>
+   *             <p>To avoid excess charges, we recommend that you include the
+   *                <code>ClientConfigurationVersion</code> value with every call to
+   *                <code>GetConfiguration</code>. This value must be saved on your client. Subsequent
+   *             calls to <code>GetConfiguration</code> must pass this value by using the
+   *                <code>ClientConfigurationVersion</code> parameter. </p>
+   *          </important>
    */
   public getConfiguration(
     args: GetConfigurationCommandInput,
@@ -644,8 +745,8 @@ export class AppConfig extends AppConfigClient {
 
   /**
    * <p>Retrieve information about an environment. An environment is a logical deployment group
-   *          of AppConfig applications, such as applications in a <code>Production</code> environment or in
-   *          an <code>EU_Region</code> environment. Each configuration deployment targets an
+   *          of AppConfig applications, such as applications in a <code>Production</code> environment or
+   *          in an <code>EU_Region</code> environment. Each configuration deployment targets an
    *          environment. You can enable one or more Amazon CloudWatch alarms for an environment. If an alarm is
    *          triggered during a deployment, AppConfig roles back the configuration.</p>
    */
@@ -668,6 +769,38 @@ export class AppConfig extends AppConfigClient {
     cb?: (err: any, data?: GetEnvironmentCommandOutput) => void
   ): Promise<GetEnvironmentCommandOutput> | void {
     const command = new GetEnvironmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get information about a specific configuration version.</p>
+   */
+  public getHostedConfigurationVersion(
+    args: GetHostedConfigurationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHostedConfigurationVersionCommandOutput>;
+  public getHostedConfigurationVersion(
+    args: GetHostedConfigurationVersionCommandInput,
+    cb: (err: any, data?: GetHostedConfigurationVersionCommandOutput) => void
+  ): void;
+  public getHostedConfigurationVersion(
+    args: GetHostedConfigurationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetHostedConfigurationVersionCommandOutput) => void
+  ): void;
+  public getHostedConfigurationVersion(
+    args: GetHostedConfigurationVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostedConfigurationVersionCommandOutput) => void),
+    cb?: (err: any, data?: GetHostedConfigurationVersionCommandOutput) => void
+  ): Promise<GetHostedConfigurationVersionCommandOutput> | void {
+    const command = new GetHostedConfigurationVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -839,6 +972,39 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * <p>View a list of configurations stored in the AppConfig configuration store by
+   *          version.</p>
+   */
+  public listHostedConfigurationVersions(
+    args: ListHostedConfigurationVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHostedConfigurationVersionsCommandOutput>;
+  public listHostedConfigurationVersions(
+    args: ListHostedConfigurationVersionsCommandInput,
+    cb: (err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void
+  ): void;
+  public listHostedConfigurationVersions(
+    args: ListHostedConfigurationVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void
+  ): void;
+  public listHostedConfigurationVersions(
+    args: ListHostedConfigurationVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListHostedConfigurationVersionsCommandOutput) => void
+  ): Promise<ListHostedConfigurationVersionsCommandOutput> | void {
+    const command = new ListHostedConfigurationVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the list of key-value tags assigned to the resource.</p>
    */
   public listTagsForResource(
@@ -937,9 +1103,9 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Metadata to assign to an AppConfig resource. Tags help organize and categorize your AppConfig
-   *          resources. Each tag consists of a key and an optional value, both of which you define. You
-   *          can specify a maximum of 50 tags for a resource.</p>
+   * <p>Metadata to assign to an AppConfig resource. Tags help organize and categorize your
+   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
+   *          define. You can specify a maximum of 50 tags for a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

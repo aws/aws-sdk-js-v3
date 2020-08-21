@@ -40,6 +40,11 @@ import {
   GetBootstrapBrokersCommandOutput,
 } from "./commands/GetBootstrapBrokersCommand";
 import {
+  GetCompatibleKafkaVersionsCommand,
+  GetCompatibleKafkaVersionsCommandInput,
+  GetCompatibleKafkaVersionsCommandOutput,
+} from "./commands/GetCompatibleKafkaVersionsCommand";
+import {
   ListClusterOperationsCommand,
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
@@ -59,12 +64,22 @@ import {
   ListConfigurationsCommandInput,
   ListConfigurationsCommandOutput,
 } from "./commands/ListConfigurationsCommand";
+import {
+  ListKafkaVersionsCommand,
+  ListKafkaVersionsCommandInput,
+  ListKafkaVersionsCommandOutput,
+} from "./commands/ListKafkaVersionsCommand";
 import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  RebootBrokerCommand,
+  RebootBrokerCommandInput,
+  RebootBrokerCommandOutput,
+} from "./commands/RebootBrokerCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -86,6 +101,11 @@ import {
   UpdateClusterConfigurationCommandInput,
   UpdateClusterConfigurationCommandOutput,
 } from "./commands/UpdateClusterConfigurationCommand";
+import {
+  UpdateClusterKafkaVersionCommand,
+  UpdateClusterKafkaVersionCommandInput,
+  UpdateClusterKafkaVersionCommandOutput,
+} from "./commands/UpdateClusterKafkaVersionCommand";
 import {
   UpdateMonitoringCommand,
   UpdateMonitoringCommandInput,
@@ -354,6 +374,38 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>
+   */
+  public getCompatibleKafkaVersions(
+    args: GetCompatibleKafkaVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCompatibleKafkaVersionsCommandOutput>;
+  public getCompatibleKafkaVersions(
+    args: GetCompatibleKafkaVersionsCommandInput,
+    cb: (err: any, data?: GetCompatibleKafkaVersionsCommandOutput) => void
+  ): void;
+  public getCompatibleKafkaVersions(
+    args: GetCompatibleKafkaVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCompatibleKafkaVersionsCommandOutput) => void
+  ): void;
+  public getCompatibleKafkaVersions(
+    args: GetCompatibleKafkaVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCompatibleKafkaVersionsCommandOutput) => void),
+    cb?: (err: any, data?: GetCompatibleKafkaVersionsCommandOutput) => void
+  ): Promise<GetCompatibleKafkaVersionsCommandOutput> | void {
+    const command = new GetCompatibleKafkaVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
    */
   public listClusterOperations(
@@ -479,6 +531,38 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * <p>Returns a list of Kafka versions.</p>
+   */
+  public listKafkaVersions(
+    args: ListKafkaVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKafkaVersionsCommandOutput>;
+  public listKafkaVersions(
+    args: ListKafkaVersionsCommandInput,
+    cb: (err: any, data?: ListKafkaVersionsCommandOutput) => void
+  ): void;
+  public listKafkaVersions(
+    args: ListKafkaVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKafkaVersionsCommandOutput) => void
+  ): void;
+  public listKafkaVersions(
+    args: ListKafkaVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKafkaVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListKafkaVersionsCommandOutput) => void
+  ): Promise<ListKafkaVersionsCommandOutput> | void {
+    const command = new ListKafkaVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of the broker nodes in the cluster.</p>
    */
   public listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
@@ -526,6 +610,35 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Reboots brokers.
+   */
+  public rebootBroker(
+    args: RebootBrokerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootBrokerCommandOutput>;
+  public rebootBroker(args: RebootBrokerCommandInput, cb: (err: any, data?: RebootBrokerCommandOutput) => void): void;
+  public rebootBroker(
+    args: RebootBrokerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootBrokerCommandOutput) => void
+  ): void;
+  public rebootBroker(
+    args: RebootBrokerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootBrokerCommandOutput) => void),
+    cb?: (err: any, data?: RebootBrokerCommandOutput) => void
+  ): Promise<RebootBrokerCommandOutput> | void {
+    const command = new RebootBrokerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -680,6 +793,38 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: UpdateClusterConfigurationCommandOutput) => void
   ): Promise<UpdateClusterConfigurationCommandOutput> | void {
     const command = new UpdateClusterConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the Apache Kafka version for the cluster.</p>
+   */
+  public updateClusterKafkaVersion(
+    args: UpdateClusterKafkaVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterKafkaVersionCommandOutput>;
+  public updateClusterKafkaVersion(
+    args: UpdateClusterKafkaVersionCommandInput,
+    cb: (err: any, data?: UpdateClusterKafkaVersionCommandOutput) => void
+  ): void;
+  public updateClusterKafkaVersion(
+    args: UpdateClusterKafkaVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClusterKafkaVersionCommandOutput) => void
+  ): void;
+  public updateClusterKafkaVersion(
+    args: UpdateClusterKafkaVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClusterKafkaVersionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateClusterKafkaVersionCommandOutput) => void
+  ): Promise<UpdateClusterKafkaVersionCommandOutput> | void {
+    const command = new UpdateClusterKafkaVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

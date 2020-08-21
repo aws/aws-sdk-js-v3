@@ -15,6 +15,8 @@ import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNo
 import { ListProposalVotesCommandInput, ListProposalVotesCommandOutput } from "./commands/ListProposalVotesCommand";
 import { ListProposalsCommandInput, ListProposalsCommandOutput } from "./commands/ListProposalsCommand";
 import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
+import { UpdateMemberCommandInput, UpdateMemberCommandOutput } from "./commands/UpdateMemberCommand";
+import { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
 import { VoteOnProposalCommandInput, VoteOnProposalCommandOutput } from "./commands/VoteOnProposalCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -81,6 +83,8 @@ export type ServiceInputTypes =
   | ListProposalVotesCommandInput
   | ListProposalsCommandInput
   | RejectInvitationCommandInput
+  | UpdateMemberCommandInput
+  | UpdateNodeCommandInput
   | VoteOnProposalCommandInput;
 
 export type ServiceOutputTypes =
@@ -101,6 +105,8 @@ export type ServiceOutputTypes =
   | ListProposalVotesCommandOutput
   | ListProposalsCommandOutput
   | RejectInvitationCommandOutput
+  | UpdateMemberCommandOutput
+  | UpdateNodeCommandOutput
   | VoteOnProposalCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

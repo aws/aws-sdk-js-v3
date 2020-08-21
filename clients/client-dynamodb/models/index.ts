@@ -7,20 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface ArchivalSummary {
   __type?: "ArchivalSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the backup the table was archived
-   *          to, when applicable in the archival reason. If you wish to restore this
-   *          backup to the same table name, you will need to delete the original
-   *          table.</p>
-   */
-  ArchivalBackupArn?: string;
-
-  /**
-   * <p>The date and time when table archival was initiated by DynamoDB,
-   *          in UNIX epoch time format.</p>
-   */
-  ArchivalDateTime?: Date;
-
-  /**
    * <p>The reason DynamoDB archived the table. Currently, the only
    *          possible value is:</p>
    *
@@ -35,6 +21,20 @@ export interface ArchivalSummary {
    *          </ul>
    */
   ArchivalReason?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup the table was archived
+   *          to, when applicable in the archival reason. If you wish to restore this
+   *          backup to the same table name, you will need to delete the original
+   *          table.</p>
+   */
+  ArchivalBackupArn?: string;
+
+  /**
+   * <p>The date and time when table archival was initiated by DynamoDB,
+   *          in UNIX epoch time format.</p>
+   */
+  ArchivalDateTime?: Date;
 }
 
 export namespace ArchivalSummary {
@@ -51,11 +51,6 @@ export type AttributeAction = "ADD" | "DELETE" | "PUT";
  */
 export interface AttributeDefinition {
   __type?: "AttributeDefinition";
-  /**
-   * <p>A name for the attribute.</p>
-   */
-  AttributeName: string | undefined;
-
   /**
    * <p>The data type for the attribute, where:</p>
    *          <ul>
@@ -74,6 +69,11 @@ export interface AttributeDefinition {
    *          </ul>
    */
   AttributeType: ScalarAttributeType | string | undefined;
+
+  /**
+   * <p>A name for the attribute.</p>
+   */
+  AttributeName: string | undefined;
 }
 
 export namespace AttributeDefinition {
@@ -92,53 +92,12 @@ export namespace AttributeDefinition {
 export interface AttributeValue {
   __type?: "AttributeValue";
   /**
-   * <p>An attribute of type Binary.  For example:</p>
-   *          <p>
-   *             <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
-   *          </p>
-   */
-  B?: Uint8Array;
-
-  /**
    * <p>An attribute of type Boolean.  For example:</p>
    *          <p>
    *             <code>"BOOL": true</code>
    *          </p>
    */
   BOOL?: boolean;
-
-  /**
-   * <p>An attribute of type Binary Set.  For example:</p>
-   *          <p>
-   *             <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
-   *          </p>
-   */
-  BS?: Uint8Array[];
-
-  /**
-   * <p>An attribute of type List.  For example:</p>
-   *          <p>
-   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
-   *          </p>
-   */
-  L?: AttributeValue[];
-
-  /**
-   * <p>An attribute of type Map.  For example:</p>
-   *          <p>
-   *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
-   *          </p>
-   */
-  M?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>An attribute of type Number.  For example:</p>
-   *          <p>
-   *             <code>"N": "123.45"</code>
-   *          </p>
-   *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
-   */
-  N?: string;
 
   /**
    * <p>An attribute of type Number Set.  For example:</p>
@@ -150,12 +109,28 @@ export interface AttributeValue {
   NS?: string[];
 
   /**
+   * <p>An attribute of type Binary Set.  For example:</p>
+   *          <p>
+   *             <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
+   *          </p>
+   */
+  BS?: Uint8Array[];
+
+  /**
    * <p>An attribute of type Null.  For example:</p>
    *          <p>
    *             <code>"NULL": true</code>
    *          </p>
    */
   NULL?: boolean;
+
+  /**
+   * <p>An attribute of type String Set.  For example:</p>
+   *          <p>
+   *             <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
+   *          </p>
+   */
+  SS?: string[];
 
   /**
    * <p>An attribute of type  String. For example:</p>
@@ -166,12 +141,37 @@ export interface AttributeValue {
   S?: string;
 
   /**
-   * <p>An attribute of type String Set.  For example:</p>
+   * <p>An attribute of type Binary.  For example:</p>
    *          <p>
-   *             <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
+   *             <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
    *          </p>
    */
-  SS?: string[];
+  B?: Uint8Array;
+
+  /**
+   * <p>An attribute of type Map.  For example:</p>
+   *          <p>
+   *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
+   *          </p>
+   */
+  M?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>An attribute of type List.  For example:</p>
+   *          <p>
+   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
+   *          </p>
+   */
+  L?: AttributeValue[];
+
+  /**
+   * <p>An attribute of type Number.  For example:</p>
+   *          <p>
+   *             <code>"N": "123.45"</code>
+   *          </p>
+   *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
+   */
+  N?: string;
 }
 
 export namespace AttributeValue {
@@ -355,14 +355,9 @@ export namespace AutoScalingPolicyUpdate {
 export interface AutoScalingSettingsDescription {
   __type?: "AutoScalingSettingsDescription";
   /**
-   * <p>Disabled auto scaling for this global table or global secondary index.</p>
+   * <p>Information about the scaling policies.</p>
    */
-  AutoScalingDisabled?: boolean;
-
-  /**
-   * <p>Role ARN used for configuring the auto scaling policy.</p>
-   */
-  AutoScalingRoleArn?: string;
+  ScalingPolicies?: AutoScalingPolicyDescription[];
 
   /**
    * <p>The maximum capacity units that a global table or global secondary index should be scaled up to.</p>
@@ -375,9 +370,14 @@ export interface AutoScalingSettingsDescription {
   MinimumUnits?: number;
 
   /**
-   * <p>Information about the scaling policies.</p>
+   * <p>Disabled auto scaling for this global table or global secondary index.</p>
    */
-  ScalingPolicies?: AutoScalingPolicyDescription[];
+  AutoScalingDisabled?: boolean;
+
+  /**
+   * <p>Role ARN used for configuring the auto scaling policy.</p>
+   */
+  AutoScalingRoleArn?: string;
 }
 
 export namespace AutoScalingSettingsDescription {
@@ -399,16 +399,6 @@ export interface AutoScalingSettingsUpdate {
   AutoScalingDisabled?: boolean;
 
   /**
-   * <p>Role ARN used for configuring auto scaling policy.</p>
-   */
-  AutoScalingRoleArn?: string;
-
-  /**
-   * <p>The maximum capacity units that a global table or global secondary index should be scaled up to.</p>
-   */
-  MaximumUnits?: number;
-
-  /**
    * <p>The minimum capacity units that a global table or global secondary index should be scaled down to.</p>
    */
   MinimumUnits?: number;
@@ -417,6 +407,16 @@ export interface AutoScalingSettingsUpdate {
    * <p>The scaling policy to apply for scaling target global table or global secondary index capacity units.</p>
    */
   ScalingPolicyUpdate?: AutoScalingPolicyUpdate;
+
+  /**
+   * <p>The maximum capacity units that a global table or global secondary index should be scaled up to.</p>
+   */
+  MaximumUnits?: number;
+
+  /**
+   * <p>Role ARN used for configuring auto scaling policy.</p>
+   */
+  AutoScalingRoleArn?: string;
 }
 
 export namespace AutoScalingSettingsUpdate {
@@ -432,12 +432,13 @@ export namespace AutoScalingSettingsUpdate {
 export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
   __type?: "AutoScalingTargetTrackingScalingPolicyConfigurationDescription";
   /**
-   * <p>Indicates whether scale in by the target tracking policy is disabled. If the value is true,
-   *       scale in is disabled and the target tracking policy won't remove capacity from the scalable resource.
-   *       Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource.
-   *       The default value is false.</p>
+   * <p>The amount of time, in seconds, after a scale out activity completes before another scale out
+   *       activity can start. While the cooldown period is in effect, the capacity that has been added
+   *       by the previous scale out event that initiated the cooldown is calculated as part of the
+   *       desired capacity for the next scale out. You should continuously (but not excessively)
+   *       scale out.</p>
    */
-  DisableScaleIn?: boolean;
+  ScaleOutCooldown?: number;
 
   /**
    * <p>The amount of time, in seconds, after a scale in activity completes before another scale
@@ -450,13 +451,12 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
   ScaleInCooldown?: number;
 
   /**
-   * <p>The amount of time, in seconds, after a scale out activity completes before another scale out
-   *       activity can start. While the cooldown period is in effect, the capacity that has been added
-   *       by the previous scale out event that initiated the cooldown is calculated as part of the
-   *       desired capacity for the next scale out. You should continuously (but not excessively)
-   *       scale out.</p>
+   * <p>Indicates whether scale in by the target tracking policy is disabled. If the value is true,
+   *       scale in is disabled and the target tracking policy won't remove capacity from the scalable resource.
+   *       Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource.
+   *       The default value is false.</p>
    */
-  ScaleOutCooldown?: number;
+  DisableScaleIn?: boolean;
 
   /**
    * <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).</p>
@@ -478,12 +478,13 @@ export namespace AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
 export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
   __type?: "AutoScalingTargetTrackingScalingPolicyConfigurationUpdate";
   /**
-   * <p>Indicates whether scale in by the target tracking policy is disabled. If the value is true,
-   *       scale in is disabled and the target tracking policy won't remove capacity from the scalable resource.
-   *       Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource.
-   *       The default value is false.</p>
+   * <p>The amount of time, in seconds, after a scale out activity completes before another scale out
+   *       activity can start. While the cooldown period is in effect, the capacity that has been added
+   *       by the previous scale out event that initiated the cooldown is calculated as part of the
+   *       desired capacity for the next scale out. You should continuously (but not excessively)
+   *       scale out.</p>
    */
-  DisableScaleIn?: boolean;
+  ScaleOutCooldown?: number;
 
   /**
    * <p>The amount of time, in seconds, after a scale in activity completes before another scale
@@ -496,13 +497,12 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
   ScaleInCooldown?: number;
 
   /**
-   * <p>The amount of time, in seconds, after a scale out activity completes before another scale out
-   *       activity can start. While the cooldown period is in effect, the capacity that has been added
-   *       by the previous scale out event that initiated the cooldown is calculated as part of the
-   *       desired capacity for the next scale out. You should continuously (but not excessively)
-   *       scale out.</p>
+   * <p>Indicates whether scale in by the target tracking policy is disabled. If the value is true,
+   *       scale in is disabled and the target tracking policy won't remove capacity from the scalable resource.
+   *       Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource.
+   *       The default value is false.</p>
    */
-  ScaleOutCooldown?: number;
+  DisableScaleIn?: boolean;
 
   /**
    * <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).</p>
@@ -524,9 +524,9 @@ export namespace AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
 export interface BackupDescription {
   __type?: "BackupDescription";
   /**
-   * <p>Contains the details of the backup created for the table. </p>
+   * <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
    */
-  BackupDetails?: BackupDetails;
+  SourceTableFeatureDetails?: SourceTableFeatureDetails;
 
   /**
    * <p>Contains the details of the table when the backup was created. </p>
@@ -534,9 +534,9 @@ export interface BackupDescription {
   SourceTableDetails?: SourceTableDetails;
 
   /**
-   * <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
+   * <p>Contains the details of the backup created for the table. </p>
    */
-  SourceTableFeatureDetails?: SourceTableFeatureDetails;
+  BackupDetails?: BackupDetails;
 }
 
 export namespace BackupDescription {
@@ -552,9 +552,9 @@ export namespace BackupDescription {
 export interface BackupDetails {
   __type?: "BackupDetails";
   /**
-   * <p>ARN associated with the backup.</p>
+   * <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED. </p>
    */
-  BackupArn: string | undefined;
+  BackupStatus: BackupStatus | string | undefined;
 
   /**
    * <p>Time at which the backup was created. This is the request time of the backup. </p>
@@ -566,21 +566,6 @@ export interface BackupDetails {
    *       on-demand backup expires automatically 35 days after its creation.</p>
    */
   BackupExpiryDateTime?: Date;
-
-  /**
-   * <p>Name of the requested backup.</p>
-   */
-  BackupName: string | undefined;
-
-  /**
-   * <p>Size of the backup in bytes.</p>
-   */
-  BackupSizeBytes?: number;
-
-  /**
-   * <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED. </p>
-   */
-  BackupStatus: BackupStatus | string | undefined;
 
   /**
    * <p>BackupType:</p>
@@ -603,6 +588,21 @@ export interface BackupDetails {
    *          </ul>
    */
   BackupType: BackupType | string | undefined;
+
+  /**
+   * <p>Name of the requested backup.</p>
+   */
+  BackupName: string | undefined;
+
+  /**
+   * <p>ARN associated with the backup.</p>
+   */
+  BackupArn: string | undefined;
+
+  /**
+   * <p>Size of the backup in bytes.</p>
+   */
+  BackupSizeBytes?: number;
 }
 
 export namespace BackupDetails {
@@ -652,14 +652,9 @@ export type BackupStatus = "AVAILABLE" | "CREATING" | "DELETED";
 export interface BackupSummary {
   __type?: "BackupSummary";
   /**
-   * <p>ARN associated with the backup.</p>
+   * <p>Name of the specified backup.</p>
    */
-  BackupArn?: string;
-
-  /**
-   * <p>Time at which the backup was created.</p>
-   */
-  BackupCreationDateTime?: Date;
+  BackupName?: string;
 
   /**
    * <p>Time at which the automatic on-demand backup created by DynamoDB will expire. This
@@ -669,19 +664,24 @@ export interface BackupSummary {
   BackupExpiryDateTime?: Date;
 
   /**
-   * <p>Name of the specified backup.</p>
+   * <p>ARN associated with the backup.</p>
    */
-  BackupName?: string;
+  BackupArn?: string;
 
   /**
-   * <p>Size of the backup in bytes.</p>
+   * <p>Name of the table.</p>
    */
-  BackupSizeBytes?: number;
+  TableName?: string;
 
   /**
-   * <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
+   * <p>Unique identifier for the table.</p>
    */
-  BackupStatus?: BackupStatus | string;
+  TableId?: string;
+
+  /**
+   * <p>ARN associated with the table.</p>
+   */
+  TableArn?: string;
 
   /**
    * <p>BackupType:</p>
@@ -706,19 +706,19 @@ export interface BackupSummary {
   BackupType?: BackupType | string;
 
   /**
-   * <p>ARN associated with the table.</p>
+   * <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
    */
-  TableArn?: string;
+  BackupStatus?: BackupStatus | string;
 
   /**
-   * <p>Unique identifier for the table.</p>
+   * <p>Time at which the backup was created.</p>
    */
-  TableId?: string;
+  BackupCreationDateTime?: Date;
 
   /**
-   * <p>Name of the table.</p>
+   * <p>Size of the backup in bytes.</p>
    */
-  TableName?: string;
+  BackupSizeBytes?: number;
 }
 
 export namespace BackupSummary {
@@ -864,6 +864,12 @@ export namespace BatchGetItemInput {
 export interface BatchGetItemOutput {
   __type?: "BatchGetItemOutput";
   /**
+   * <p>A map of table name to a list of items. Each object in <code>Responses</code> consists of a table
+   *       name, along with a map of attribute data consisting of the data type and attribute value.</p>
+   */
+  Responses?: { [key: string]: { [key: string]: AttributeValue }[] };
+
+  /**
    * <p>The read capacity units consumed by the entire <code>BatchGetItem</code> operation.</p>
    *          <p>Each element consists of:</p>
    *          <ul>
@@ -878,12 +884,6 @@ export interface BatchGetItemOutput {
    *          </ul>
    */
   ConsumedCapacity?: ConsumedCapacity[];
-
-  /**
-   * <p>A map of table name to a list of items. Each object in <code>Responses</code> consists of a table
-   *       name, along with a map of attribute data consisting of the data type and attribute value.</p>
-   */
-  Responses?: { [key: string]: { [key: string]: AttributeValue }[] };
 
   /**
    * <p>A map of tables and their respective keys that were not processed with the current response.
@@ -929,6 +929,26 @@ export namespace BatchGetItemOutput {
 export interface BatchWriteItemInput {
   __type?: "BatchWriteItemInput";
   /**
+   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+
+  /**
    * <p>A map of one or more table names and, for each table, a list of operations to be performed
    *         (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the map consists of the
    *       following:</p>
@@ -970,26 +990,6 @@ export interface BatchWriteItemInput {
   RequestItems: { [key: string]: WriteRequest[] } | undefined;
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
-   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
-   *             </li>
-   *          </ul>
-   */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
-
-  /**
    * <p>Determines whether item collection metrics are returned.  If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during
    *       the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
    */
@@ -1008,46 +1008,6 @@ export namespace BatchWriteItemInput {
  */
 export interface BatchWriteItemOutput {
   __type?: "BatchWriteItemOutput";
-  /**
-   * <p>The capacity units consumed by the entire <code>BatchWriteItem</code> operation.</p>
-   *          <p>Each element consists of:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TableName</code> - The table that consumed the provisioned throughput.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CapacityUnits</code> - The total number of capacity units consumed.</p>
-   *             </li>
-   *          </ul>
-   */
-  ConsumedCapacity?: ConsumedCapacity[];
-
-  /**
-   * <p>A list of tables that were processed by <code>BatchWriteItem</code> and, for each table,
-   *       information about any item collections that were affected by individual <code>DeleteItem</code> or
-   *         <code>PutItem</code> operations.</p>
-   *          <p>Each entry consists of the following subelements:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as
-   *           the partition key value of the item.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SizeEstimateRangeGB</code> - An estimate of item collection size, expressed in GB. This is
-   *           a two-element array containing a lower bound and an upper bound for the estimate. The
-   *           estimate includes the size of all the items in the table, plus the size of all attributes
-   *           projected into all of the local secondary indexes on the table. Use this estimate to measure whether a
-   *           local secondary index is approaching its size limit.</p>
-   *                <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
-   *             </li>
-   *          </ul>
-   */
-  ItemCollectionMetrics?: { [key: string]: ItemCollectionMetrics[] };
-
   /**
    * <p>A map of tables and requests against those tables that were not processed. The
    *         <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide
@@ -1089,6 +1049,46 @@ export interface BatchWriteItemOutput {
    *         <code>UnprocessedItems</code> map.</p>
    */
   UnprocessedItems?: { [key: string]: WriteRequest[] };
+
+  /**
+   * <p>The capacity units consumed by the entire <code>BatchWriteItem</code> operation.</p>
+   *          <p>Each element consists of:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TableName</code> - The table that consumed the provisioned throughput.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CapacityUnits</code> - The total number of capacity units consumed.</p>
+   *             </li>
+   *          </ul>
+   */
+  ConsumedCapacity?: ConsumedCapacity[];
+
+  /**
+   * <p>A list of tables that were processed by <code>BatchWriteItem</code> and, for each table,
+   *       information about any item collections that were affected by individual <code>DeleteItem</code> or
+   *         <code>PutItem</code> operations.</p>
+   *          <p>Each entry consists of the following subelements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as
+   *           the partition key value of the item.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SizeEstimateRangeGB</code> - An estimate of item collection size, expressed in GB. This is
+   *           a two-element array containing a lower bound and an upper bound for the estimate. The
+   *           estimate includes the size of all the items in the table, plus the size of all attributes
+   *           projected into all of the local secondary indexes on the table. Use this estimate to measure whether a
+   *           local secondary index is approaching its size limit.</p>
+   *                <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
+   *             </li>
+   *          </ul>
+   */
+  ItemCollectionMetrics?: { [key: string]: ItemCollectionMetrics[] };
 }
 
 export namespace BatchWriteItemOutput {
@@ -1106,6 +1106,11 @@ export type BillingMode = "PAY_PER_REQUEST" | "PROVISIONED";
 export interface BillingModeSummary {
   __type?: "BillingModeSummary";
   /**
+   * <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
+   */
+  LastUpdateToPayPerRequestDateTime?: Date;
+
+  /**
    * <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
    *          <ul>
    *             <li>
@@ -1120,11 +1125,6 @@ export interface BillingModeSummary {
    *          </ul>
    */
   BillingMode?: BillingMode | string;
-
-  /**
-   * <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
-   */
-  LastUpdateToPayPerRequestDateTime?: Date;
 }
 
 export namespace BillingModeSummary {
@@ -1144,9 +1144,9 @@ export namespace BillingModeSummary {
 export interface CancellationReason {
   __type?: "CancellationReason";
   /**
-   * <p>Status code for the result of the cancelled transaction.</p>
+   * <p>Cancellation reason message description.</p>
    */
-  Code?: string;
+  Message?: string;
 
   /**
    * <p>Item in the request which caused the transaction to get cancelled.</p>
@@ -1154,9 +1154,9 @@ export interface CancellationReason {
   Item?: { [key: string]: AttributeValue };
 
   /**
-   * <p>Cancellation reason message description.</p>
+   * <p>Status code for the result of the cancelled transaction.</p>
    */
-  Message?: string;
+  Code?: string;
 }
 
 export namespace CancellationReason {
@@ -1177,14 +1177,14 @@ export interface Capacity {
   CapacityUnits?: number;
 
   /**
-   * <p>The total number of read capacity units consumed on a table or an index.</p>
-   */
-  ReadCapacityUnits?: number;
-
-  /**
    * <p>The total number of write capacity units consumed on a table or an index.</p>
    */
   WriteCapacityUnits?: number;
+
+  /**
+   * <p>The total number of read capacity units consumed on a table or an index.</p>
+   */
+  ReadCapacityUnits?: number;
 }
 
 export namespace Capacity {
@@ -1430,25 +1430,9 @@ export type ConditionalOperator = "AND" | "OR";
 export interface ConditionCheck {
   __type?: "ConditionCheck";
   /**
-   * <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
-   */
-  ConditionExpression: string | undefined;
-
-  /**
-   * <p>One or more substitution tokens for attribute names in an expression.</p>
-   */
-  ExpressionAttributeNames?: { [key: string]: string };
-
-  /**
    * <p>One or more values that can be substituted in an expression.</p>
    */
   ExpressionAttributeValues?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The primary key of the item to be checked. Each element consists of an
-   *       attribute name and a value for that attribute.</p>
-   */
-  Key: { [key: string]: AttributeValue } | undefined;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to
@@ -1459,9 +1443,25 @@ export interface ConditionCheck {
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
+   * <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
+   */
+  ConditionExpression: string | undefined;
+
+  /**
+   * <p>The primary key of the item to be checked. Each element consists of an
+   *       attribute name and a value for that attribute.</p>
+   */
+  Key: { [key: string]: AttributeValue } | undefined;
+
+  /**
    * <p>Name of the table for the check item request.</p>
    */
   TableName: string | undefined;
+
+  /**
+   * <p>One or more substitution tokens for attribute names in an expression.</p>
+   */
+  ExpressionAttributeNames?: { [key: string]: string };
 }
 
 export namespace ConditionCheck {
@@ -1481,6 +1481,21 @@ export namespace ConditionCheck {
 export interface ConsumedCapacity {
   __type?: "ConsumedCapacity";
   /**
+   * <p>The amount of throughput consumed on the table affected by the operation.</p>
+   */
+  Table?: Capacity;
+
+  /**
+   * <p>The name of the table that was affected by the operation.</p>
+   */
+  TableName?: string;
+
+  /**
+   * <p>The amount of throughput consumed on each local index affected by the operation.</p>
+   */
+  LocalSecondaryIndexes?: { [key: string]: Capacity };
+
+  /**
    * <p>The total number of capacity units consumed by the operation.</p>
    */
   CapacityUnits?: number;
@@ -1491,24 +1506,9 @@ export interface ConsumedCapacity {
   GlobalSecondaryIndexes?: { [key: string]: Capacity };
 
   /**
-   * <p>The amount of throughput consumed on each local index affected by the operation.</p>
-   */
-  LocalSecondaryIndexes?: { [key: string]: Capacity };
-
-  /**
    * <p>The total number of read capacity units consumed by the operation.</p>
    */
   ReadCapacityUnits?: number;
-
-  /**
-   * <p>The amount of throughput consumed on the table affected by the operation.</p>
-   */
-  Table?: Capacity;
-
-  /**
-   * <p>The name of the table that was affected by the operation.</p>
-   */
-  TableName?: string;
 
   /**
    * <p>The total number of write capacity units consumed by the operation.</p>
@@ -1577,14 +1577,14 @@ export type ContributorInsightsStatus = "DISABLED" | "DISABLING" | "ENABLED" | "
 export interface ContributorInsightsSummary {
   __type?: "ContributorInsightsSummary";
   /**
-   * <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
-   */
-  ContributorInsightsStatus?: ContributorInsightsStatus | string;
-
-  /**
    * <p>Name of the index associated with the summary, if any.</p>
    */
   IndexName?: string;
+
+  /**
+   * <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
+   */
+  ContributorInsightsStatus?: ContributorInsightsStatus | string;
 
   /**
    * <p>Name of the table associated with the summary.</p>
@@ -1602,14 +1602,14 @@ export namespace ContributorInsightsSummary {
 export interface CreateBackupInput {
   __type?: "CreateBackupInput";
   /**
-   * <p>Specified name for the backup.</p>
-   */
-  BackupName: string | undefined;
-
-  /**
    * <p>The name of the table.</p>
    */
   TableName: string | undefined;
+
+  /**
+   * <p>Specified name for the backup.</p>
+   */
+  BackupName: string | undefined;
 }
 
 export namespace CreateBackupInput {
@@ -1640,6 +1640,13 @@ export namespace CreateBackupOutput {
 export interface CreateGlobalSecondaryIndexAction {
   __type?: "CreateGlobalSecondaryIndexAction";
   /**
+   * <p>Represents attributes that are copied (projected) from the table into an index. These
+   *          are in addition to the primary key attributes and index key attributes, which are
+   *          automatically projected.</p>
+   */
+  Projection: Projection | undefined;
+
+  /**
    * <p>The name of the global secondary index to be created.</p>
    */
   IndexName: string | undefined;
@@ -1648,13 +1655,6 @@ export interface CreateGlobalSecondaryIndexAction {
    * <p>The key schema for the global secondary index.</p>
    */
   KeySchema: KeySchemaElement[] | undefined;
-
-  /**
-   * <p>Represents attributes that are copied (projected) from the table into an index. These
-   *          are in addition to the primary key attributes and index key attributes, which are
-   *          automatically projected.</p>
-   */
-  Projection: Projection | undefined;
 
   /**
    * <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
@@ -1729,6 +1729,11 @@ export namespace CreateReplicaAction {
 export interface CreateReplicationGroupMemberAction {
   __type?: "CreateReplicationGroupMemberAction";
   /**
+   * <p>The Region where the new replica will be created.</p>
+   */
+  RegionName: string | undefined;
+
+  /**
    * <p>Replica-specific global secondary index settings.</p>
    */
   GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
@@ -1746,11 +1751,6 @@ export interface CreateReplicationGroupMemberAction {
    *          provisioned throughput settings.</p>
    */
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
-
-  /**
-   * <p>The Region where the new replica will be created.</p>
-   */
-  RegionName: string | undefined;
 }
 
 export namespace CreateReplicationGroupMemberAction {
@@ -1767,25 +1767,100 @@ export namespace CreateReplicationGroupMemberAction {
 export interface CreateTableInput {
   __type?: "CreateTableInput";
   /**
-   * <p>An array of attributes that describe the key schema for the table and indexes.</p>
+   * <p>Represents the settings used to enable server-side encryption.</p>
    */
-  AttributeDefinitions: AttributeDefinition[] | undefined;
+  SSESpecification?: SSESpecification;
 
   /**
-   * <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
+   * <p>The settings for DynamoDB Streams on the table. These settings consist of:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
+   *                     <code>StreamEnabled</code> - Indicates whether DynamoDB Streams is to be enabled
+   *                     (true) or disabled (false).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>.
-   *             </p>
+   *                   <code>StreamViewType</code> - When an item in the table is modified, <code>StreamViewType</code>
+   *           determines what information is written to the table's stream. Valid values for
+   *             <code>StreamViewType</code> are:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>KEYS_ONLY</code> - Only the key attributes of the modified item are written to the
+   *               stream.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>NEW_IMAGE</code> - The entire item, as it appears after it was modified, is written
+   *             to the stream.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>OLD_IMAGE</code> - The entire item, as it appeared before it was modified, is
+   *             written to the stream.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are
+   *             written to the stream.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *          </ul>
    */
-  BillingMode?: BillingMode | string;
+  StreamSpecification?: StreamSpecification;
+
+  /**
+   * <p>Specifies the attributes that make up the primary key for a table or an index. The attributes
+   *       in <code>KeySchema</code> must also be defined in the <code>AttributeDefinitions</code> array. For more
+   *       information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the
+   *         <i>Amazon DynamoDB Developer Guide</i>.</p>
+   *          <p>Each <code>KeySchemaElement</code> in the array is composed of:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AttributeName</code> - The name of this key attribute.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KeyType</code> - The role that the key attribute will assume:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>HASH</code> - partition key</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>RANGE</code> - sort key</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The partition key of an item is also known as its <i>hash
+   *                 attribute</i>. The term "hash attribute" derives from the DynamoDB usage of
+   *                 an internal hash function to evenly distribute data items across partitions, based
+   *                 on their partition key values.</p>
+   *             <p>The sort key of an item is also known as its <i>range attribute</i>.
+   *         The term "range attribute" derives from the way DynamoDB stores items with the same
+   *         partition key physically close together, in sorted order by the sort key value.</p>
+   *          </note>
+   *
+   *          <p>For a simple primary key (partition key), you must provide
+   *       exactly one element with a <code>KeyType</code> of <code>HASH</code>.</p>
+   *          <p>For a composite primary key (partition key and sort key), you must provide exactly two
+   *       elements, in this order: The first element must have a <code>KeyType</code> of <code>HASH</code>,
+   *       and the second element must have a <code>KeyType</code> of <code>RANGE</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Working with Tables</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  KeySchema: KeySchemaElement[] | undefined;
+
+  /**
+   * <p>An array of attributes that describe the key schema for the table and indexes.</p>
+   */
+  AttributeDefinitions: AttributeDefinition[] | undefined;
 
   /**
    * <p>One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:</p>
@@ -1847,50 +1922,20 @@ export interface CreateTableInput {
   GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
 
   /**
-   * <p>Specifies the attributes that make up the primary key for a table or an index. The attributes
-   *       in <code>KeySchema</code> must also be defined in the <code>AttributeDefinitions</code> array. For more
-   *       information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the
-   *         <i>Amazon DynamoDB Developer Guide</i>.</p>
-   *          <p>Each <code>KeySchemaElement</code> in the array is composed of:</p>
+   * <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AttributeName</code> - The name of this key attribute.</p>
+   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>KeyType</code> - The role that the key attribute will assume:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>HASH</code> - partition key</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>RANGE</code> - sort key</p>
-   *                   </li>
-   *                </ul>
+   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>.
+   *             </p>
    *             </li>
    *          </ul>
-   *          <note>
-   *             <p>The partition key of an item is also known as its <i>hash
-   *                 attribute</i>. The term "hash attribute" derives from the DynamoDB usage of
-   *                 an internal hash function to evenly distribute data items across partitions, based
-   *                 on their partition key values.</p>
-   *             <p>The sort key of an item is also known as its <i>range attribute</i>.
-   *         The term "range attribute" derives from the way DynamoDB stores items with the same
-   *         partition key physically close together, in sorted order by the sort key value.</p>
-   *          </note>
-   *
-   *          <p>For a simple primary key (partition key), you must provide
-   *       exactly one element with a <code>KeyType</code> of <code>HASH</code>.</p>
-   *          <p>For a composite primary key (partition key and sort key), you must provide exactly two
-   *       elements, in this order: The first element must have a <code>KeyType</code> of <code>HASH</code>,
-   *       and the second element must have a <code>KeyType</code> of <code>RANGE</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Working with Tables</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
    */
-  KeySchema: KeySchemaElement[] | undefined;
+  BillingMode?: BillingMode | string;
 
   /**
    * <p>One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.</p>
@@ -1965,59 +2010,14 @@ export interface CreateTableInput {
   ProvisionedThroughput?: ProvisionedThroughput;
 
   /**
-   * <p>Represents the settings used to enable server-side encryption.</p>
+   * <p>A list of key-value pairs to label the table. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>.</p>
    */
-  SSESpecification?: SSESpecification;
-
-  /**
-   * <p>The settings for DynamoDB Streams on the table. These settings consist of:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                     <code>StreamEnabled</code> - Indicates whether DynamoDB Streams is to be enabled
-   *                     (true) or disabled (false).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>StreamViewType</code> - When an item in the table is modified, <code>StreamViewType</code>
-   *           determines what information is written to the table's stream. Valid values for
-   *             <code>StreamViewType</code> are:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>KEYS_ONLY</code> - Only the key attributes of the modified item are written to the
-   *               stream.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>NEW_IMAGE</code> - The entire item, as it appears after it was modified, is written
-   *             to the stream.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>OLD_IMAGE</code> - The entire item, as it appeared before it was modified, is
-   *             written to the stream.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are
-   *             written to the stream.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   */
-  StreamSpecification?: StreamSpecification;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the table to create.</p>
    */
   TableName: string | undefined;
-
-  /**
-   * <p>A list of key-value pairs to label the table. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateTableInput {
@@ -2051,14 +2051,9 @@ export namespace CreateTableOutput {
 export interface Delete {
   __type?: "Delete";
   /**
-   * <p>A condition that must be satisfied in order for a conditional delete to succeed.</p>
+   * <p>Name of the table in which the item to be deleted resides.</p>
    */
-  ConditionExpression?: string;
-
-  /**
-   * <p>One or more substitution tokens for attribute names in an expression.</p>
-   */
-  ExpressionAttributeNames?: { [key: string]: string };
+  TableName: string | undefined;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -2072,17 +2067,22 @@ export interface Delete {
   Key: { [key: string]: AttributeValue } | undefined;
 
   /**
+   * <p>A condition that must be satisfied in order for a conditional delete to succeed.</p>
+   */
+  ConditionExpression?: string;
+
+  /**
+   * <p>One or more substitution tokens for attribute names in an expression.</p>
+   */
+  ExpressionAttributeNames?: { [key: string]: string };
+
+  /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to
    *         get the item attributes if the <code>Delete</code> condition fails.
    *         For <code>ReturnValuesOnConditionCheckFailure</code>, the valid
    *         values are: NONE and ALL_OLD.</p>
    */
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
-
-  /**
-   * <p>Name of the table in which the item to be deleted resides.</p>
-   */
-  TableName: string | undefined;
 }
 
 export namespace Delete {
@@ -2146,6 +2146,25 @@ export namespace DeleteGlobalSecondaryIndexAction {
 export interface DeleteItemInput {
   __type?: "DeleteItemInput";
   /**
+   * <p>One or more values that can be substituted in an expression.</p>
+   *          <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p>
+   *          <p>
+   *             <code>Available | Backordered | Discontinued</code>
+   *          </p>
+   *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
+   *          <p>
+   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code>
+   *          </p>
+   *          <p>You could then use these values in an expression, such as this:</p>
+   *          <p>
+   *             <code>ProductStatus IN (:avail, :back, :disc)</code>
+   *          </p>
+   *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+
+  /**
    * <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code> to
    *       succeed.</p>
    *          <p>An expression can contain any of the following:</p>
@@ -2172,16 +2191,66 @@ export interface DeleteItemInput {
   ConditionExpression?: string;
 
   /**
-   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.  For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of
+   *       the item to delete.</p>
+   *          <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
    */
-  ConditionalOperator?: ConditionalOperator | string;
+  Key: { [key: string]: AttributeValue } | undefined;
 
   /**
    * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.  For more information, see
    *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
   Expected?: { [key: string]: ExpectedAttributeValue };
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.  For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  ConditionalOperator?: ConditionalOperator | string;
+
+  /**
+   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+
+  /**
+   * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they
+   *       were deleted. For <code>DeleteItem</code>, the valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is
+   *             <code>NONE</code>, then nothing is returned. (This setting is the default for
+   *             <code>ReturnValues</code>.)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_OLD</code> - The content of the old item is returned.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however,
+   *         <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or
+   *         <code>ALL_OLD</code>.</p>
+   *          </note>
+   */
+  ReturnValues?: ReturnValue | string;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
@@ -2229,79 +2298,10 @@ export interface DeleteItemInput {
   ExpressionAttributeNames?: { [key: string]: string };
 
   /**
-   * <p>One or more values that can be substituted in an expression.</p>
-   *          <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p>
-   *          <p>
-   *             <code>Available | Backordered | Discontinued</code>
-   *          </p>
-   *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
-   *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code>
-   *          </p>
-   *          <p>You could then use these values in an expression, such as this:</p>
-   *          <p>
-   *             <code>ProductStatus IN (:avail, :back, :disc)</code>
-   *          </p>
-   *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of
-   *       the item to delete.</p>
-   *          <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-   */
-  Key: { [key: string]: AttributeValue } | undefined;
-
-  /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
-   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
-   *             </li>
-   *          </ul>
-   */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
-
-  /**
    * <p>Determines whether item collection metrics are returned.  If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during
    *       the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
    */
   ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
-
-  /**
-   * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they
-   *       were deleted. For <code>DeleteItem</code>, the valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is
-   *             <code>NONE</code>, then nothing is returned. (This setting is the default for
-   *             <code>ReturnValues</code>.)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_OLD</code> - The content of the old item is returned.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however,
-   *         <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or
-   *         <code>ALL_OLD</code>.</p>
-   *          </note>
-   */
-  ReturnValues?: ReturnValue | string;
 
   /**
    * <p>The name of the table from which to delete the item.</p>
@@ -2321,23 +2321,6 @@ export namespace DeleteItemInput {
  */
 export interface DeleteItemOutput {
   __type?: "DeleteItemOutput";
-  /**
-   * <p>A map of attribute names to <code>AttributeValue</code> objects, representing the item as it
-   *       appeared before the <code>DeleteItem</code> operation. This map appears in the response only if
-   *         <code>ReturnValues</code> was specified as <code>ALL_OLD</code> in the request.</p>
-   */
-  Attributes?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The capacity units consumed by the <code>DeleteItem</code> operation. The data
-   *             returned includes the total provisioned throughput consumed, along with statistics for
-   *             the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is
-   *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
-   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Mode</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  ConsumedCapacity?: ConsumedCapacity;
-
   /**
    * <p>Information about item collections, if any, that were affected by the
    *                 <code>DeleteItem</code> operation.
@@ -2367,6 +2350,23 @@ export interface DeleteItemOutput {
    *          </ul>
    */
   ItemCollectionMetrics?: ItemCollectionMetrics;
+
+  /**
+   * <p>A map of attribute names to <code>AttributeValue</code> objects, representing the item as it
+   *       appeared before the <code>DeleteItem</code> operation. This map appears in the response only if
+   *         <code>ReturnValues</code> was specified as <code>ALL_OLD</code> in the request.</p>
+   */
+  Attributes?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>The capacity units consumed by the <code>DeleteItem</code> operation. The data
+   *             returned includes the total provisioned throughput consumed, along with statistics for
+   *             the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is
+   *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
+   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Mode</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ConsumedCapacity?: ConsumedCapacity;
 }
 
 export namespace DeleteItemOutput {
@@ -2550,16 +2550,6 @@ export namespace DescribeContributorInsightsInput {
 export interface DescribeContributorInsightsOutput {
   __type?: "DescribeContributorInsightsOutput";
   /**
-   * <p>List of names of the associated Alpine rules.</p>
-   */
-  ContributorInsightsRuleList?: string[];
-
-  /**
-   * <p>Current Status contributor insights.</p>
-   */
-  ContributorInsightsStatus?: ContributorInsightsStatus | string;
-
-  /**
    * <p>Returns information about the last failure that encountered.</p>
    *          <p>The most common exceptions for a FAILED status are:</p>
    *          <ul>
@@ -2581,9 +2571,19 @@ export interface DescribeContributorInsightsOutput {
   FailureException?: FailureException;
 
   /**
-   * <p>The name of the global secondary index being described.</p>
+   * <p>List of names of the associated Alpine rules.</p>
    */
-  IndexName?: string;
+  ContributorInsightsRuleList?: string[];
+
+  /**
+   * <p>The name of the table being described.</p>
+   */
+  TableName?: string;
+
+  /**
+   * <p>Current Status contributor insights.</p>
+   */
+  ContributorInsightsStatus?: ContributorInsightsStatus | string;
 
   /**
    * <p>Timestamp of the last time the status was changed.</p>
@@ -2591,9 +2591,9 @@ export interface DescribeContributorInsightsOutput {
   LastUpdateDateTime?: Date;
 
   /**
-   * <p>The name of the table being described.</p>
+   * <p>The name of the global secondary index being described.</p>
    */
-  TableName?: string;
+  IndexName?: string;
 }
 
 export namespace DescribeContributorInsightsOutput {
@@ -2677,14 +2677,14 @@ export namespace DescribeGlobalTableSettingsInput {
 export interface DescribeGlobalTableSettingsOutput {
   __type?: "DescribeGlobalTableSettingsOutput";
   /**
-   * <p>The name of the global table.</p>
-   */
-  GlobalTableName?: string;
-
-  /**
    * <p>The Region-specific settings for the global table.</p>
    */
   ReplicaSettings?: ReplicaSettingsDescription[];
+
+  /**
+   * <p>The name of the global table.</p>
+   */
+  GlobalTableName?: string;
 }
 
 export namespace DescribeGlobalTableSettingsOutput {
@@ -2714,16 +2714,17 @@ export namespace DescribeLimitsInput {
 export interface DescribeLimitsOutput {
   __type?: "DescribeLimitsOutput";
   /**
-   * <p>The maximum total read capacity units that your account allows you to provision across
-   *             all of your tables in this Region.</p>
-   */
-  AccountMaxReadCapacityUnits?: number;
-
-  /**
    * <p>The maximum total write capacity units that your account allows you to provision across
    *             all of your tables in this Region.</p>
    */
   AccountMaxWriteCapacityUnits?: number;
+
+  /**
+   * <p>The maximum write capacity units that your account allows you to provision for a new
+   *             table that you are creating in this Region, including the write capacity units
+   *             provisioned for its global secondary indexes (GSIs).</p>
+   */
+  TableMaxWriteCapacityUnits?: number;
 
   /**
    * <p>The maximum read capacity units that your account allows you to provision for a new
@@ -2733,11 +2734,10 @@ export interface DescribeLimitsOutput {
   TableMaxReadCapacityUnits?: number;
 
   /**
-   * <p>The maximum write capacity units that your account allows you to provision for a new
-   *             table that you are creating in this Region, including the write capacity units
-   *             provisioned for its global secondary indexes (GSIs).</p>
+   * <p>The maximum total read capacity units that your account allows you to provision across
+   *             all of your tables in this Region.</p>
    */
-  TableMaxWriteCapacityUnits?: number;
+  AccountMaxReadCapacityUnits?: number;
 }
 
 export namespace DescribeLimitsOutput {
@@ -2851,14 +2851,14 @@ export namespace DescribeTimeToLiveOutput {
 export interface Endpoint {
   __type?: "Endpoint";
   /**
-   * <p>IP address of the endpoint.</p>
-   */
-  Address: string | undefined;
-
-  /**
    * <p>Endpoint cache time to live (TTL) value.</p>
    */
   CachePeriodInMinutes: number | undefined;
+
+  /**
+   * <p>IP address of the endpoint.</p>
+   */
+  Address: string | undefined;
 }
 
 export namespace Endpoint {
@@ -2897,6 +2897,14 @@ export namespace Endpoint {
 export interface ExpectedAttributeValue {
   __type?: "ExpectedAttributeValue";
   /**
+   * <p>Represents the data for the expected attribute.</p>
+   *          <p>Each attribute value is described as a name-value pair.  The name is the data type, and the value is the data itself.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the
+   *          <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  Value?: AttributeValue;
+
+  /**
    * <p>One or more values to evaluate against the supplied attribute. The number of values in the
    *       list depends on the <code>ComparisonOperator</code> being used.</p>
    *          <p>For type Number, value comparisons are numeric.</p>
@@ -2907,6 +2915,40 @@ export interface ExpectedAttributeValue {
    *          <p>For information on specifying data types in JSON, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON Data Format</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
   AttributeValueList?: AttributeValue[];
+
+  /**
+   * <p>Causes DynamoDB to evaluate the value before attempting a conditional operation:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>Exists</code> is <code>true</code>, DynamoDB will check to see if that attribute value
+   *           already exists in the table. If it is found, then the operation succeeds. If it is not
+   *           found, the operation fails with a <code>ConditionCheckFailedException</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>Exists</code> is <code>false</code>, DynamoDB assumes that the attribute value does
+   *             not exist in the table. If in fact the value does not exist, then the assumption
+   *           is valid and the operation succeeds. If the value is found, despite the assumption that it
+   *           does not exist, the operation fails with a <code>ConditionCheckFailedException</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default setting for <code>Exists</code> is <code>true</code>. If you supply a <code>Value</code> all
+   *       by itself, DynamoDB assumes the attribute exists: You don't have to set <code>Exists</code> to
+   *         <code>true</code>, because it is implied.</p>
+   *          <p>DynamoDB returns a <code>ValidationException</code> if:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Exists</code> is <code>true</code> but there is no <code>Value</code> to check. (You expect a
+   *           value to exist, but don't specify what that value is.)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Exists</code> is <code>false</code> but you also provide a <code>Value</code>. (You cannot
+   *           expect an attribute to have a value, while also expecting it not to exist.)</p>
+   *             </li>
+   *          </ul>
+   */
+  Exists?: boolean;
 
   /**
    * <p>A comparator for evaluating attributes in the <code>AttributeValueList</code>. For example, equals,
@@ -3057,48 +3099,6 @@ export interface ExpectedAttributeValue {
    *          </ul>
    */
   ComparisonOperator?: ComparisonOperator | string;
-
-  /**
-   * <p>Causes DynamoDB to evaluate the value before attempting a conditional operation:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If <code>Exists</code> is <code>true</code>, DynamoDB will check to see if that attribute value
-   *           already exists in the table. If it is found, then the operation succeeds. If it is not
-   *           found, the operation fails with a <code>ConditionCheckFailedException</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>Exists</code> is <code>false</code>, DynamoDB assumes that the attribute value does
-   *             not exist in the table. If in fact the value does not exist, then the assumption
-   *           is valid and the operation succeeds. If the value is found, despite the assumption that it
-   *           does not exist, the operation fails with a <code>ConditionCheckFailedException</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The default setting for <code>Exists</code> is <code>true</code>. If you supply a <code>Value</code> all
-   *       by itself, DynamoDB assumes the attribute exists: You don't have to set <code>Exists</code> to
-   *         <code>true</code>, because it is implied.</p>
-   *          <p>DynamoDB returns a <code>ValidationException</code> if:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Exists</code> is <code>true</code> but there is no <code>Value</code> to check. (You expect a
-   *           value to exist, but don't specify what that value is.)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Exists</code> is <code>false</code> but you also provide a <code>Value</code>. (You cannot
-   *           expect an attribute to have a value, while also expecting it not to exist.)</p>
-   *             </li>
-   *          </ul>
-   */
-  Exists?: boolean;
-
-  /**
-   * <p>Represents the data for the expected attribute.</p>
-   *          <p>Each attribute value is described as a name-value pair.  The name is the data type, and the value is the data itself.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the
-   *          <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  Value?: AttributeValue;
 }
 
 export namespace ExpectedAttributeValue {
@@ -3144,12 +3144,6 @@ export interface Get {
   ExpressionAttributeNames?: { [key: string]: string };
 
   /**
-   * <p>A map of attribute names to <code>AttributeValue</code> objects that
-   *         specifies the primary key of the item to retrieve.</p>
-   */
-  Key: { [key: string]: AttributeValue } | undefined;
-
-  /**
    * <p>A string that identifies one or more attributes of the specified item
    *         to retrieve from the table.  The attributes in the expression must be
    *         separated by commas. If no attribute names are specified, then all
@@ -3157,6 +3151,12 @@ export interface Get {
    *         attributes are not found, they do not appear in the result.</p>
    */
   ProjectionExpression?: string;
+
+  /**
+   * <p>A map of attribute names to <code>AttributeValue</code> objects that
+   *         specifies the primary key of the item to retrieve.</p>
+   */
+  Key: { [key: string]: AttributeValue } | undefined;
 
   /**
    * <p>The name of the table from which to retrieve the specified item.</p>
@@ -3177,15 +3177,24 @@ export namespace Get {
 export interface GetItemInput {
   __type?: "GetItemInput";
   /**
+   * <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
+   *          <p>If no attribute names are specified, then all attributes are returned. If any of the
+   *             requested attributes are not found, they do not appear in the result.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ProjectionExpression?: string;
+
+  /**
+   * <p>The name of the table containing the requested item.</p>
+   */
+  TableName: string | undefined;
+
+  /**
    * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
    *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
   AttributesToGet?: string[];
-
-  /**
-   * <p>Determines the read consistency model:  If set to <code>true</code>, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.</p>
-   */
-  ConsistentRead?: boolean;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
@@ -3233,22 +3242,6 @@ export interface GetItemInput {
   ExpressionAttributeNames?: { [key: string]: string };
 
   /**
-   * <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of
-   *       the item to retrieve.</p>
-   *          <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-   */
-  Key: { [key: string]: AttributeValue } | undefined;
-
-  /**
-   * <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
-   *          <p>If no attribute names are specified, then all attributes are returned. If any of the
-   *             requested attributes are not found, they do not appear in the result.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  ProjectionExpression?: string;
-
-  /**
    * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
    *          <ul>
    *             <li>
@@ -3269,9 +3262,16 @@ export interface GetItemInput {
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 
   /**
-   * <p>The name of the table containing the requested item.</p>
+   * <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of
+   *       the item to retrieve.</p>
+   *          <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
    */
-  TableName: string | undefined;
+  Key: { [key: string]: AttributeValue } | undefined;
+
+  /**
+   * <p>Determines the read consistency model:  If set to <code>true</code>, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.</p>
+   */
+  ConsistentRead?: boolean;
 }
 
 export namespace GetItemInput {
@@ -3316,6 +3316,19 @@ export namespace GetItemOutput {
 export interface GlobalSecondaryIndex {
   __type?: "GlobalSecondaryIndex";
   /**
+   * <p>Represents attributes that are copied (projected) from the table into the global
+   *          secondary index. These are in addition to the primary key attributes and index key
+   *          attributes, which are automatically projected. </p>
+   */
+  Projection: Projection | undefined;
+
+  /**
+   * <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
+   *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
    * <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
    */
   IndexName: string | undefined;
@@ -3342,19 +3355,6 @@ export interface GlobalSecondaryIndex {
    *          </note>
    */
   KeySchema: KeySchemaElement[] | undefined;
-
-  /**
-   * <p>Represents attributes that are copied (projected) from the table into the global
-   *          secondary index. These are in addition to the primary key attributes and index key
-   *          attributes, which are automatically projected. </p>
-   */
-  Projection: Projection | undefined;
-
-  /**
-   * <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
-   *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  ProvisionedThroughput?: ProvisionedThroughput;
 }
 
 export namespace GlobalSecondaryIndex {
@@ -3396,29 +3396,16 @@ export namespace GlobalSecondaryIndexAutoScalingUpdate {
 export interface GlobalSecondaryIndexDescription {
   __type?: "GlobalSecondaryIndexDescription";
   /**
-   * <p>Indicates whether the index is currently backfilling. <i>Backfilling</i> is the process of reading items from
-   *       the table and determining whether they can be added to the index. (Not all items will qualify:  For example, a partition key
-   *       cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed,
-   *       the backfilling operation is complete and <code>Backfilling</code> is false.</p>
-   *          <p>You can delete an index that is being created during the <code>Backfilling</code> phase
-   *          when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You
-   *          can't delete the index that is being created when <code>IndexStatus</code> is set to
-   *          CREATING and <code>Backfilling</code> is false. </p>
-   *          <note>
-   *             <p>For indexes that were created during a <code>CreateTable</code> operation, the <code>Backfilling</code> attribute does not appear in the <code>DescribeTable</code> output.</p>
-   *          </note>
+   * <p>Represents attributes that are copied (projected) from the table into the global
+   *          secondary index. These are in addition to the primary key attributes and index key
+   *          attributes, which are automatically projected. </p>
    */
-  Backfilling?: boolean;
+  Projection?: Projection;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
+   * <p>The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
    */
-  IndexArn?: string;
-
-  /**
-   * <p>The name of the global secondary index.</p>
-   */
-  IndexName?: string;
+  ItemCount?: number;
 
   /**
    * <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
@@ -3426,32 +3413,9 @@ export interface GlobalSecondaryIndexDescription {
   IndexSizeBytes?: number;
 
   /**
-   * <p>The current state of the global secondary index:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code> - The index is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATING</code> - The index is being updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - The index is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> - The index is ready for use.</p>
-   *             </li>
-   *          </ul>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
    */
-  IndexStatus?: IndexStatus | string;
-
-  /**
-   * <p>The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-   */
-  ItemCount?: number;
+  IndexArn?: string;
 
   /**
    * <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p>
@@ -3477,17 +3441,53 @@ export interface GlobalSecondaryIndexDescription {
   KeySchema?: KeySchemaElement[];
 
   /**
-   * <p>Represents attributes that are copied (projected) from the table into the global
-   *          secondary index. These are in addition to the primary key attributes and index key
-   *          attributes, which are automatically projected. </p>
+   * <p>The name of the global secondary index.</p>
    */
-  Projection?: Projection;
+  IndexName?: string;
+
+  /**
+   * <p>The current state of the global secondary index:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The index is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code> - The index is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The index is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The index is ready for use.</p>
+   *             </li>
+   *          </ul>
+   */
+  IndexStatus?: IndexStatus | string;
 
   /**
    * <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
    *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
   ProvisionedThroughput?: ProvisionedThroughputDescription;
+
+  /**
+   * <p>Indicates whether the index is currently backfilling. <i>Backfilling</i> is the process of reading items from
+   *       the table and determining whether they can be added to the index. (Not all items will qualify:  For example, a partition key
+   *       cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed,
+   *       the backfilling operation is complete and <code>Backfilling</code> is false.</p>
+   *          <p>You can delete an index that is being created during the <code>Backfilling</code> phase
+   *          when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You
+   *          can't delete the index that is being created when <code>IndexStatus</code> is set to
+   *          CREATING and <code>Backfilling</code> is false. </p>
+   *          <note>
+   *             <p>For indexes that were created during a <code>CreateTable</code> operation, the <code>Backfilling</code> attribute does not appear in the <code>DescribeTable</code> output.</p>
+   *          </note>
+   */
+  Backfilling?: boolean;
 }
 
 export namespace GlobalSecondaryIndexDescription {
@@ -3532,17 +3532,17 @@ export interface GlobalSecondaryIndexInfo {
   KeySchema?: KeySchemaElement[];
 
   /**
+   * <p>Represents the provisioned throughput settings for the specified global secondary index. </p>
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
    * <p>Represents attributes that are copied (projected) from the table into
    *       the global secondary index. These are in addition to the primary
    *       key attributes and index key attributes, which are automatically
    *       projected. </p>
    */
   Projection?: Projection;
-
-  /**
-   * <p>Represents the provisioned throughput settings for the specified global secondary index. </p>
-   */
-  ProvisionedThroughput?: ProvisionedThroughput;
 }
 
 export namespace GlobalSecondaryIndexInfo {
@@ -3568,6 +3568,11 @@ export namespace GlobalSecondaryIndexInfo {
  */
 export interface GlobalSecondaryIndexUpdate {
   __type?: "GlobalSecondaryIndexUpdate";
+  /**
+   * <p>The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.</p>
+   */
+  Update?: UpdateGlobalSecondaryIndexAction;
+
   /**
    * <p>The parameters required for creating a global secondary index on an existing table:</p>
    *          <ul>
@@ -3604,11 +3609,6 @@ export interface GlobalSecondaryIndexUpdate {
    * <p>The name of an existing global secondary index to be removed.</p>
    */
   Delete?: DeleteGlobalSecondaryIndexAction;
-
-  /**
-   * <p>The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.</p>
-   */
-  Update?: UpdateGlobalSecondaryIndexAction;
 }
 
 export namespace GlobalSecondaryIndexUpdate {
@@ -3624,14 +3624,14 @@ export namespace GlobalSecondaryIndexUpdate {
 export interface GlobalTable {
   __type?: "GlobalTable";
   /**
-   * <p>The global table name.</p>
-   */
-  GlobalTableName?: string;
-
-  /**
    * <p>The Regions where the global table has replicas.</p>
    */
   ReplicationGroup?: Replica[];
+
+  /**
+   * <p>The global table name.</p>
+   */
+  GlobalTableName?: string;
 }
 
 export namespace GlobalTable {
@@ -3668,14 +3668,9 @@ export interface GlobalTableDescription {
   CreationDateTime?: Date;
 
   /**
-   * <p>The unique identifier of the global table.</p>
+   * <p>The Regions where the global table has replicas.</p>
    */
-  GlobalTableArn?: string;
-
-  /**
-   * <p>The global table name.</p>
-   */
-  GlobalTableName?: string;
+  ReplicationGroup?: ReplicaDescription[];
 
   /**
    * <p>The current state of the global table:</p>
@@ -3701,9 +3696,14 @@ export interface GlobalTableDescription {
   GlobalTableStatus?: GlobalTableStatus | string;
 
   /**
-   * <p>The Regions where the global table has replicas.</p>
+   * <p>The global table name.</p>
    */
-  ReplicationGroup?: ReplicaDescription[];
+  GlobalTableName?: string;
+
+  /**
+   * <p>The unique identifier of the global table.</p>
+   */
+  GlobalTableArn?: string;
 }
 
 export namespace GlobalTableDescription {
@@ -3719,6 +3719,12 @@ export namespace GlobalTableDescription {
 export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
   __type?: "GlobalTableGlobalSecondaryIndexSettingsUpdate";
   /**
+   * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code>
+   *          </p>
+   */
+  ProvisionedWriteCapacityUnits?: number;
+
+  /**
    * <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
    */
   IndexName: string | undefined;
@@ -3728,12 +3734,6 @@ export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
    *          units.</p>
    */
   ProvisionedWriteCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
-
-  /**
-   * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code>
-   *          </p>
-   */
-  ProvisionedWriteCapacityUnits?: number;
 }
 
 export namespace GlobalTableGlobalSecondaryIndexSettingsUpdate {
@@ -3919,10 +3919,18 @@ export namespace ItemResponse {
 export interface KeysAndAttributes {
   __type?: "KeysAndAttributes";
   /**
-   * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
-   *          <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">Legacy Conditional Parameters</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars,
+   *          sets, or elements of a JSON document. The attributes in the <code>ProjectionExpression</code> must be separated by
+   *          commas.</p>
+   *          <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  AttributesToGet?: string[];
+  ProjectionExpression?: string;
+
+  /**
+   * <p>The primary key attribute values that define the items and the attributes associated with the items.</p>
+   */
+  Keys: { [key: string]: AttributeValue }[] | undefined;
 
   /**
    * <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent
@@ -3975,18 +3983,10 @@ export interface KeysAndAttributes {
   ExpressionAttributeNames?: { [key: string]: string };
 
   /**
-   * <p>The primary key attribute values that define the items and the attributes associated with the items.</p>
+   * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
+   *          <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">Legacy Conditional Parameters</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  Keys: { [key: string]: AttributeValue }[] | undefined;
-
-  /**
-   * <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars,
-   *          sets, or elements of a JSON document. The attributes in the <code>ProjectionExpression</code> must be separated by
-   *          commas.</p>
-   *          <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  ProjectionExpression?: string;
+  AttributesToGet?: string[];
 }
 
 export namespace KeysAndAttributes {
@@ -4007,11 +4007,6 @@ export namespace KeysAndAttributes {
  */
 export interface KeySchemaElement {
   __type?: "KeySchemaElement";
-  /**
-   * <p>The name of a key attribute.</p>
-   */
-  AttributeName: string | undefined;
-
   /**
    * <p>The role that this key attribute will assume:</p>
    *          <ul>
@@ -4034,6 +4029,11 @@ export interface KeySchemaElement {
    *          </note>
    */
   KeyType: KeyType | string | undefined;
+
+  /**
+   * <p>The name of a key attribute.</p>
+   */
+  AttributeName: string | undefined;
 }
 
 export namespace KeySchemaElement {
@@ -4096,6 +4096,11 @@ export interface ListBackupsInput {
   BackupType?: BackupTypeFilter | string;
 
   /**
+   * <p>Only backups created before this time are listed. <code>TimeRangeUpperBound</code> is exclusive. </p>
+   */
+  TimeRangeUpperBound?: Date;
+
+  /**
    * <p>
    *             <code>LastEvaluatedBackupArn</code> is the Amazon Resource Name (ARN) of the backup last
    *             evaluated when the current page of results was returned, inclusive of the current page
@@ -4105,9 +4110,9 @@ export interface ListBackupsInput {
   ExclusiveStartBackupArn?: string;
 
   /**
-   * <p>Maximum number of backups to return at once.</p>
+   * <p>Only backups created after this time are listed. <code>TimeRangeLowerBound</code> is inclusive.</p>
    */
-  Limit?: number;
+  TimeRangeLowerBound?: Date;
 
   /**
    * <p>The backups from the table specified by <code>TableName</code> are listed. </p>
@@ -4115,14 +4120,9 @@ export interface ListBackupsInput {
   TableName?: string;
 
   /**
-   * <p>Only backups created after this time are listed. <code>TimeRangeLowerBound</code> is inclusive.</p>
+   * <p>Maximum number of backups to return at once.</p>
    */
-  TimeRangeLowerBound?: Date;
-
-  /**
-   * <p>Only backups created before this time are listed. <code>TimeRangeUpperBound</code> is exclusive. </p>
-   */
-  TimeRangeUpperBound?: Date;
+  Limit?: number;
 }
 
 export namespace ListBackupsInput {
@@ -4166,6 +4166,11 @@ export namespace ListBackupsOutput {
 export interface ListContributorInsightsInput {
   __type?: "ListContributorInsightsInput";
   /**
+   * <p>The name of the table.</p>
+   */
+  TableName?: string;
+
+  /**
    * <p>Maximum number of results to return per page.</p>
    */
   MaxResults?: number;
@@ -4174,11 +4179,6 @@ export interface ListContributorInsightsInput {
    * <p>A token to for the desired page, if there is one.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The name of the table.</p>
-   */
-  TableName?: string;
 }
 
 export namespace ListContributorInsightsInput {
@@ -4191,14 +4191,14 @@ export namespace ListContributorInsightsInput {
 export interface ListContributorInsightsOutput {
   __type?: "ListContributorInsightsOutput";
   /**
-   * <p>A list of ContributorInsightsSummary.</p>
-   */
-  ContributorInsightsSummaries?: ContributorInsightsSummary[];
-
-  /**
    * <p>A token to go to the next page if there is one.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of ContributorInsightsSummary.</p>
+   */
+  ContributorInsightsSummaries?: ContributorInsightsSummary[];
 }
 
 export namespace ListContributorInsightsOutput {
@@ -4216,7 +4216,9 @@ export interface ListGlobalTablesInput {
   ExclusiveStartGlobalTableName?: string;
 
   /**
-   * <p>The maximum number of table names to return.</p>
+   * <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p>
+   *          <p>If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point,
+   *          with a table name in the <code>LastEvaluatedGlobalTableName</code> to apply in a subsequent operation to the <code>ExclusiveStartGlobalTableName</code> parameter.</p>
    */
   Limit?: number;
 
@@ -4259,16 +4261,16 @@ export namespace ListGlobalTablesOutput {
 export interface ListTablesInput {
   __type?: "ListTablesInput";
   /**
+   * <p>A maximum number of table names to return. If this parameter is not specified, the limit is 100.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>The first table name that this operation will evaluate. Use the value that was returned for
    *         <code>LastEvaluatedTableName</code> in a previous operation, so that you can obtain the next page
    *       of results.</p>
    */
   ExclusiveStartTableName?: string;
-
-  /**
-   * <p>A maximum number of table names to return. If this parameter is not specified, the limit is 100.</p>
-   */
-  Limit?: number;
 }
 
 export namespace ListTablesInput {
@@ -4284,6 +4286,14 @@ export namespace ListTablesInput {
 export interface ListTablesOutput {
   __type?: "ListTablesOutput";
   /**
+   * <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p>
+   *          <p>If <code>LastEvaluatedTableName</code> also appears in the output, you can use this value as the
+   *         <code>ExclusiveStartTableName</code> parameter in a subsequent <code>ListTables</code> request and
+   *       obtain the next page of results.</p>
+   */
+  TableNames?: string[];
+
+  /**
    * <p>The name of the last table in the current page of results. Use this value as the
    *         <code>ExclusiveStartTableName</code> in a new request to obtain the next page of results, until
    *       all the table names are returned.</p>
@@ -4291,14 +4301,6 @@ export interface ListTablesOutput {
    *       there are no more table names to be retrieved.</p>
    */
   LastEvaluatedTableName?: string;
-
-  /**
-   * <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p>
-   *          <p>If <code>LastEvaluatedTableName</code> also appears in the output, you can use this value as the
-   *         <code>ExclusiveStartTableName</code> parameter in a subsequent <code>ListTables</code> request and
-   *       obtain the next page of results.</p>
-   */
-  TableNames?: string[];
 }
 
 export namespace ListTablesOutput {
@@ -4356,9 +4358,11 @@ export namespace ListTagsOfResourceOutput {
 export interface LocalSecondaryIndex {
   __type?: "LocalSecondaryIndex";
   /**
-   * <p>The name of the local secondary index. The name must be unique among all other indexes on this table.</p>
+   * <p>Represents attributes that are copied (projected) from the table into the local
+   *          secondary index. These are in addition to the primary key attributes and index key
+   *          attributes, which are automatically projected. </p>
    */
-  IndexName: string | undefined;
+  Projection: Projection | undefined;
 
   /**
    * <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p>
@@ -4384,11 +4388,9 @@ export interface LocalSecondaryIndex {
   KeySchema: KeySchemaElement[] | undefined;
 
   /**
-   * <p>Represents attributes that are copied (projected) from the table into the local
-   *          secondary index. These are in addition to the primary key attributes and index key
-   *          attributes, which are automatically projected. </p>
+   * <p>The name of the local secondary index. The name must be unique among all other indexes on this table.</p>
    */
-  Projection: Projection | undefined;
+  IndexName: string | undefined;
 }
 
 export namespace LocalSecondaryIndex {
@@ -4412,6 +4414,13 @@ export interface LocalSecondaryIndexDescription {
    * <p>Represents the name of the local secondary index.</p>
    */
   IndexName?: string;
+
+  /**
+   * <p>Represents attributes that are copied (projected) from the table into the global
+   *          secondary index. These are in addition to the primary key attributes and index key
+   *          attributes, which are automatically projected. </p>
+   */
+  Projection?: Projection;
 
   /**
    * <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
@@ -4445,13 +4454,6 @@ export interface LocalSecondaryIndexDescription {
    *          </note>
    */
   KeySchema?: KeySchemaElement[];
-
-  /**
-   * <p>Represents attributes that are copied (projected) from the table into the global
-   *          secondary index. These are in addition to the primary key attributes and index key
-   *          attributes, which are automatically projected. </p>
-   */
-  Projection?: Projection;
 }
 
 export namespace LocalSecondaryIndexDescription {
@@ -4520,13 +4522,6 @@ export interface PointInTimeRecoveryDescription {
   EarliestRestorableDateTime?: Date;
 
   /**
-   * <p>
-   *             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
-   *      </p>
-   */
-  LatestRestorableDateTime?: Date;
-
-  /**
    * <p>The current state of point in time recovery:</p>
    *          <ul>
    *             <li>
@@ -4544,6 +4539,13 @@ export interface PointInTimeRecoveryDescription {
    *          </ul>
    */
   PointInTimeRecoveryStatus?: PointInTimeRecoveryStatus | string;
+
+  /**
+   * <p>
+   *             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
+   *      </p>
+   */
+  LatestRestorableDateTime?: Date;
 }
 
 export namespace PointInTimeRecoveryDescription {
@@ -4596,14 +4598,6 @@ export namespace PointInTimeRecoveryUnavailableException {
 export interface Projection {
   __type?: "Projection";
   /**
-   * <p>Represents the non-key attribute names which will be projected into the index.</p>
-   *          <p>For local secondary indexes, the total count of <code>NonKeyAttributes</code> summed across all of the local secondary indexes,
-   *       must not exceed 20. If you project the same attribute into two
-   *       different indexes, this counts as two distinct attributes when determining the total.</p>
-   */
-  NonKeyAttributes?: string[];
-
-  /**
    * <p>The set of attributes that are projected into the index:</p>
    *          <ul>
    *             <li>
@@ -4623,6 +4617,14 @@ export interface Projection {
    *          </ul>
    */
   ProjectionType?: ProjectionType | string;
+
+  /**
+   * <p>Represents the non-key attribute names which will be projected into the index.</p>
+   *          <p>For local secondary indexes, the total count of <code>NonKeyAttributes</code> summed across all of the local secondary indexes,
+   *       must not exceed 20. If you project the same attribute into two
+   *       different indexes, this counts as two distinct attributes when determining the total.</p>
+   */
+  NonKeyAttributes?: string[];
 }
 
 export namespace Projection {
@@ -4671,9 +4673,10 @@ export namespace ProvisionedThroughput {
 export interface ProvisionedThroughputDescription {
   __type?: "ProvisionedThroughputDescription";
   /**
-   * <p>The date and time of the last provisioned throughput decrease for this table.</p>
+   * <p>The maximum number of writes consumed per second before DynamoDB returns a
+   *         <code>ThrottlingException</code>.</p>
    */
-  LastDecreaseDateTime?: Date;
+  WriteCapacityUnits?: number;
 
   /**
    * <p>The date and time of the last provisioned throughput increase for this table.</p>
@@ -4687,18 +4690,17 @@ export interface ProvisionedThroughputDescription {
   NumberOfDecreasesToday?: number;
 
   /**
+   * <p>The date and time of the last provisioned throughput decrease for this table.</p>
+   */
+  LastDecreaseDateTime?: Date;
+
+  /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
    *         <code>ThrottlingException</code>. Eventually consistent reads require less effort than strongly
    *       consistent reads, so a setting of 50 <code>ReadCapacityUnits</code> per second provides 100
    *       eventually consistent <code>ReadCapacityUnits</code> per second.</p>
    */
   ReadCapacityUnits?: number;
-
-  /**
-   * <p>The maximum number of writes consumed per second before DynamoDB returns a
-   *         <code>ThrottlingException</code>.</p>
-   */
-  WriteCapacityUnits?: number;
 }
 
 export namespace ProvisionedThroughputDescription {
@@ -4758,28 +4760,19 @@ export namespace ProvisionedThroughputOverride {
 export interface Put {
   __type?: "Put";
   /**
-   * <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
-   */
-  ConditionExpression?: string;
-
-  /**
-   * <p>One or more substitution tokens for attribute names in an expression.</p>
-   */
-  ExpressionAttributeNames?: { [key: string]: string };
-
-  /**
    * <p>One or more values that can be substituted in an expression.</p>
    */
   ExpressionAttributeValues?: { [key: string]: AttributeValue };
 
   /**
-   * <p>A map of attribute name to attribute values, representing the primary key
-   *         of the item to be written by <code>PutItem</code>. All of the table's primary key
-   *         attributes must be specified, and their data types must match those of the table's
-   *         key schema. If any attributes are present in the item that are part of an index
-   *         key schema for the table, their types must match the index key schema. </p>
+   * <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
    */
-  Item: { [key: string]: AttributeValue } | undefined;
+  ConditionExpression?: string;
+
+  /**
+   * <p>Name of the table in which to write the item.</p>
+   */
+  TableName: string | undefined;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to
@@ -4790,9 +4783,18 @@ export interface Put {
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
-   * <p>Name of the table in which to write the item.</p>
+   * <p>One or more substitution tokens for attribute names in an expression.</p>
    */
-  TableName: string | undefined;
+  ExpressionAttributeNames?: { [key: string]: string };
+
+  /**
+   * <p>A map of attribute name to attribute values, representing the primary key
+   *         of the item to be written by <code>PutItem</code>. All of the table's primary key
+   *         attributes must be specified, and their data types must match those of the table's
+   *         key schema. If any attributes are present in the item that are part of an index
+   *         key schema for the table, their types must match the index key schema. </p>
+   */
+  Item: { [key: string]: AttributeValue } | undefined;
 }
 
 export namespace Put {
@@ -4808,42 +4810,10 @@ export namespace Put {
 export interface PutItemInput {
   __type?: "PutItemInput";
   /**
-   * <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to
-   *       succeed.</p>
-   *          <p>An expression can contain any of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code>
-   *                </p>
-   *                <p>These function names are case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Comparison operators: <code>= | <> |
-   *             < | > | <= | >= |
-   *             BETWEEN | IN </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p> Logical operators: <code>AND | OR | NOT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   * <p>Determines whether item collection metrics are returned.  If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during
+   *       the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
    */
-  ConditionExpression?: string;
-
-  /**
-   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.  For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  ConditionalOperator?: ConditionalOperator | string;
-
-  /**
-   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.  For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  Expected?: { [key: string]: ExpectedAttributeValue };
+  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
@@ -4891,61 +4861,6 @@ export interface PutItemInput {
   ExpressionAttributeNames?: { [key: string]: string };
 
   /**
-   * <p>One or more values that can be substituted in an expression.</p>
-   *          <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p>
-   *          <p>
-   *             <code>Available | Backordered | Discontinued</code>
-   *          </p>
-   *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
-   *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code>
-   *          </p>
-   *          <p>You could then use these values in an expression, such as this:</p>
-   *          <p>
-   *             <code>ProductStatus IN (:avail, :back, :disc)</code>
-   *          </p>
-   *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
-   *          <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
-   *          <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
-   *          <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer
-   *             Guide</i>.</p>
-   *          <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
-   */
-  Item: { [key: string]: AttributeValue } | undefined;
-
-  /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
-   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
-   *             </li>
-   *          </ul>
-   */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
-
-  /**
-   * <p>Determines whether item collection metrics are returned.  If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during
-   *       the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-   */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
-
-  /**
    * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they
    *       were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p>
    *          <ul>
@@ -4973,6 +4888,95 @@ export interface PutItemInput {
    * <p>The name of the table to contain the item.</p>
    */
   TableName: string | undefined;
+
+  /**
+   * <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
+   *          <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
+   *          <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
+   *          <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
+   *
+   *          <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer
+   *             Guide</i>.</p>
+   *          <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
+   */
+  Item: { [key: string]: AttributeValue } | undefined;
+
+  /**
+   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+
+  /**
+   * <p>One or more values that can be substituted in an expression.</p>
+   *          <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p>
+   *          <p>
+   *             <code>Available | Backordered | Discontinued</code>
+   *          </p>
+   *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
+   *          <p>
+   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code>
+   *          </p>
+   *          <p>You could then use these values in an expression, such as this:</p>
+   *          <p>
+   *             <code>ProductStatus IN (:avail, :back, :disc)</code>
+   *          </p>
+   *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to
+   *       succeed.</p>
+   *          <p>An expression can contain any of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code>
+   *                </p>
+   *                <p>These function names are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Comparison operators: <code>= | <> |
+   *             < | > | <= | >= |
+   *             BETWEEN | IN </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p> Logical operators: <code>AND | OR | NOT</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ConditionExpression?: string;
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.  For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  ConditionalOperator?: ConditionalOperator | string;
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.  For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  Expected?: { [key: string]: ExpectedAttributeValue };
 }
 
 export namespace PutItemInput {
@@ -4987,23 +4991,6 @@ export namespace PutItemInput {
  */
 export interface PutItemOutput {
   __type?: "PutItemOutput";
-  /**
-   * <p>The attribute values as they appeared before the <code>PutItem</code> operation, but only if
-   *         <code>ReturnValues</code> is specified as <code>ALL_OLD</code> in the request. Each element
-   *       consists of an attribute name and an attribute value.</p>
-   */
-  Attributes?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The capacity units consumed by the <code>PutItem</code> operation. The data returned
-   *             includes the total provisioned throughput consumed, along with statistics for the table
-   *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
-   *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Read/Write Capacity Mode</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  ConsumedCapacity?: ConsumedCapacity;
-
   /**
    * <p>Information about item collections, if any, that were affected by the
    *                 <code>PutItem</code> operation. <code>ItemCollectionMetrics</code>
@@ -5031,6 +5018,23 @@ export interface PutItemOutput {
    *          </ul>
    */
   ItemCollectionMetrics?: ItemCollectionMetrics;
+
+  /**
+   * <p>The capacity units consumed by the <code>PutItem</code> operation. The data returned
+   *             includes the total provisioned throughput consumed, along with statistics for the table
+   *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
+   *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Read/Write Capacity Mode</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ConsumedCapacity?: ConsumedCapacity;
+
+  /**
+   * <p>The attribute values as they appeared before the <code>PutItem</code> operation, but only if
+   *         <code>ReturnValues</code> is specified as <code>ALL_OLD</code> in the request. Each element
+   *       consists of an attribute name and an attribute value.</p>
+   */
+  Attributes?: { [key: string]: AttributeValue };
 }
 
 export namespace PutItemOutput {
@@ -5068,31 +5072,55 @@ export namespace PutRequest {
 export interface QueryInput {
   __type?: "QueryInput";
   /**
-   * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>This is a legacy parameter.  Use <code>KeyConditionExpression</code> instead.   For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  AttributesToGet?: string[];
+  KeyConditions?: { [key: string]: Condition };
 
   /**
-   * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.  For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>Specifies the order for index traversal: If <code>true</code> (default), the traversal is performed in ascending order; if <code>false</code>, the traversal is performed in descending order. </p>
+   *          <p>Items with the same partition key value are stored in sorted order by sort key. If the sort key data type is Number, the results are stored in numeric order. For type String, the results are stored in order of UTF-8 bytes. For type Binary, DynamoDB treats each byte of the binary data as unsigned.</p>
+   *          <p>If <code>ScanIndexForward</code> is <code>true</code>, DynamoDB returns the results in the order in which they are stored (by sort key value). This is the default behavior. If <code>ScanIndexForward</code> is <code>false</code>, DynamoDB reads the results in reverse order by sort key value, and then returns the results to the client.</p>
    */
-  ConditionalOperator?: ConditionalOperator | string;
+  ScanIndexForward?: boolean;
 
   /**
-   * <p>Determines the read consistency model:  If set to <code>true</code>, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.</p>
-   *          <p>Strongly consistent reads
-   *       are not supported on global secondary indexes. If you query a global secondary index with <code>ConsistentRead</code> set to
-   *     <code>true</code>, you will receive a <code>ValidationException</code>.</p>
+   * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.   For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  ConsistentRead?: boolean;
+  QueryFilter?: { [key: string]: Condition };
 
   /**
-   * <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
-   *          <p>The data type for <code>ExclusiveStartKey</code> must be String, Number, or Binary. No
-   *             set data types are allowed.</p>
+   * <p>The name of the table containing the requested items.</p>
    */
-  ExclusiveStartKey?: { [key: string]: AttributeValue };
+  TableName: string | undefined;
+
+  /**
+   * <p>The name of an index to query. This index can be any local secondary index or global secondary index on the table. Note that
+   *        if you use the <code>IndexName</code> parameter, you must also provide <code>TableName.</code>
+   *          </p>
+   */
+  IndexName?: string;
+
+  /**
+   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
@@ -5141,6 +5169,12 @@ export interface QueryInput {
   ExpressionAttributeNames?: { [key: string]: string };
 
   /**
+   * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  AttributesToGet?: string[];
+
+  /**
    * <p>One or more values that can be substituted in an expression.</p>
    *          <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the
    *             <i>ProductStatus</i> attribute was one of the following: </p>
@@ -5160,6 +5194,101 @@ export interface QueryInput {
   ExpressionAttributeValues?: { [key: string]: AttributeValue };
 
   /**
+   * <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
+   *          <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
+   *          <p>For more information, see
+   *       <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  ProjectionExpression?: string;
+
+  /**
+   * <p>Determines the read consistency model:  If set to <code>true</code>, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.</p>
+   *          <p>Strongly consistent reads
+   *       are not supported on global secondary indexes. If you query a global secondary index with <code>ConsistentRead</code> set to
+   *     <code>true</code>, you will receive a <code>ValidationException</code>.</p>
+   */
+  ConsistentRead?: boolean;
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.  For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  ConditionalOperator?: ConditionalOperator | string;
+
+  /**
+   * <p>The attributes to be returned in the
+   *           result. You can retrieve all item attributes, specific item attributes, the count of
+   *           matching items, or in the case of an index, some or all of the attributes projected into
+   *           the index.</p>
+   *          <ul>
+   *             <li>
+   *               <p>
+   *                     <code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the
+   *                     specified table or index. If you query a local secondary index, then for each
+   *                     matching item in the index, DynamoDB fetches the entire item from the parent
+   *                     table. If the index is configured to project all item attributes, then all of
+   *                     the data can be obtained from the local secondary index, and no fetching is
+   *                     required.</p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index.
+   *                   Retrieves all attributes that have been projected into the index. If the
+   *                   index is configured to project all attributes, this return value is
+   *                   equivalent to specifying <code>ALL_ATTRIBUTES</code>.</p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>COUNT</code> - Returns the number of matching items, rather than the
+   *                   matching items themselves.</p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in
+   *                   <code>AttributesToGet</code>. This return value is equivalent to
+   *                   specifying <code>AttributesToGet</code> without specifying any value
+   *                   for <code>Select</code>.</p>
+   *               <p>If you query or scan a local secondary index and request only attributes that
+   *                     are projected into that index, the operation will read only the index and not
+   *                     the table. If any of the requested attributes are not projected into the local
+   *                     secondary index, DynamoDB fetches each of these attributes from the parent
+   *                     table. This extra fetching incurs additional throughput cost and latency.</p>
+   *               <p>If you query or scan a global secondary index, you can only request
+   *                   attributes that are projected into the index. Global secondary index queries
+   *                   cannot fetch attributes from the parent table.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If neither <code>Select</code> nor <code>AttributesToGet</code>
+   *           are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a
+   *           table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot
+   *           use both <code>Select</code> and <code>AttributesToGet</code>
+   *           together in a single request, unless the value for <code>Select</code> is
+   *           <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying
+   *           <code>AttributesToGet</code> without any value for
+   *           <code>Select</code>.)</p>
+   *          <note>
+   *             <p>If you use the <code>ProjectionExpression</code> parameter, then
+   *               the value for <code>Select</code> can only be
+   *               <code>SPECIFIC_ATTRIBUTES</code>. Any other value for
+   *               <code>Select</code> will return an error.</p>
+   *          </note>
+   */
+  Select?: Select | string;
+
+  /**
+   * <p>The maximum number of items to evaluate (not necessarily the number of matching items).
+   *             If DynamoDB processes the number of items up to the limit while processing the results,
+   *             it stops the operation and returns the matching values up to that point, and a key in
+   *                 <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can
+   *             pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
+   *             DynamoDB reaches this limit, it stops the operation and returns the matching values up
+   *             to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
+   *             operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Query and Scan</a> in the <i>Amazon DynamoDB Developer
+   *             Guide</i>.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>A string that contains conditions that DynamoDB applies after the <code>Query</code> operation, but
    *        before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code>
    *        criteria are not returned.</p>
@@ -5174,11 +5303,11 @@ export interface QueryInput {
   FilterExpression?: string;
 
   /**
-   * <p>The name of an index to query. This index can be any local secondary index or global secondary index on the table. Note that
-   *        if you use the <code>IndexName</code> parameter, you must also provide <code>TableName.</code>
-   *          </p>
+   * <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
+   *          <p>The data type for <code>ExclusiveStartKey</code> must be String, Number, or Binary. No
+   *             set data types are allowed.</p>
    */
-  IndexName?: string;
+  ExclusiveStartKey?: { [key: string]: AttributeValue };
 
   /**
    * <p>The condition that specifies the key values for items to be retrieved by the
@@ -5296,131 +5425,6 @@ export interface QueryInput {
    *         Names and Values</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
   KeyConditionExpression?: string;
-
-  /**
-   * <p>This is a legacy parameter.  Use <code>KeyConditionExpression</code> instead.   For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  KeyConditions?: { [key: string]: Condition };
-
-  /**
-   * <p>The maximum number of items to evaluate (not necessarily the number of matching items).
-   *             If DynamoDB processes the number of items up to the limit while processing the results,
-   *             it stops the operation and returns the matching values up to that point, and a key in
-   *                 <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can
-   *             pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
-   *             DynamoDB reaches this limit, it stops the operation and returns the matching values up
-   *             to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
-   *             operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Query and Scan</a> in the <i>Amazon DynamoDB Developer
-   *             Guide</i>.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
-   *          <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
-   *          <p>For more information, see
-   *       <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  ProjectionExpression?: string;
-
-  /**
-   * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.   For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  QueryFilter?: { [key: string]: Condition };
-
-  /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
-   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
-   *             </li>
-   *          </ul>
-   */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
-
-  /**
-   * <p>Specifies the order for index traversal: If <code>true</code> (default), the traversal is performed in ascending order; if <code>false</code>, the traversal is performed in descending order. </p>
-   *          <p>Items with the same partition key value are stored in sorted order by sort key. If the sort key data type is Number, the results are stored in numeric order. For type String, the results are stored in order of UTF-8 bytes. For type Binary, DynamoDB treats each byte of the binary data as unsigned.</p>
-   *          <p>If <code>ScanIndexForward</code> is <code>true</code>, DynamoDB returns the results in the order in which they are stored (by sort key value). This is the default behavior. If <code>ScanIndexForward</code> is <code>false</code>, DynamoDB reads the results in reverse order by sort key value, and then returns the results to the client.</p>
-   */
-  ScanIndexForward?: boolean;
-
-  /**
-   * <p>The attributes to be returned in the
-   *           result. You can retrieve all item attributes, specific item attributes, the count of
-   *           matching items, or in the case of an index, some or all of the attributes projected into
-   *           the index.</p>
-   *          <ul>
-   *             <li>
-   *               <p>
-   *                     <code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the
-   *                     specified table or index. If you query a local secondary index, then for each
-   *                     matching item in the index, DynamoDB fetches the entire item from the parent
-   *                     table. If the index is configured to project all item attributes, then all of
-   *                     the data can be obtained from the local secondary index, and no fetching is
-   *                     required.</p>
-   *             </li>
-   *             <li>
-   *               <p>
-   *                   <code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index.
-   *                   Retrieves all attributes that have been projected into the index. If the
-   *                   index is configured to project all attributes, this return value is
-   *                   equivalent to specifying <code>ALL_ATTRIBUTES</code>.</p>
-   *             </li>
-   *             <li>
-   *               <p>
-   *                   <code>COUNT</code> - Returns the number of matching items, rather than the
-   *                   matching items themselves.</p>
-   *             </li>
-   *             <li>
-   *               <p>
-   *                   <code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in
-   *                   <code>AttributesToGet</code>. This return value is equivalent to
-   *                   specifying <code>AttributesToGet</code> without specifying any value
-   *                   for <code>Select</code>.</p>
-   *               <p>If you query or scan a local secondary index and request only attributes that
-   *                     are projected into that index, the operation will read only the index and not
-   *                     the table. If any of the requested attributes are not projected into the local
-   *                     secondary index, DynamoDB fetches each of these attributes from the parent
-   *                     table. This extra fetching incurs additional throughput cost and latency.</p>
-   *               <p>If you query or scan a global secondary index, you can only request
-   *                   attributes that are projected into the index. Global secondary index queries
-   *                   cannot fetch attributes from the parent table.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If neither <code>Select</code> nor <code>AttributesToGet</code>
-   *           are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a
-   *           table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot
-   *           use both <code>Select</code> and <code>AttributesToGet</code>
-   *           together in a single request, unless the value for <code>Select</code> is
-   *           <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying
-   *           <code>AttributesToGet</code> without any value for
-   *           <code>Select</code>.)</p>
-   *          <note>
-   *             <p>If you use the <code>ProjectionExpression</code> parameter, then
-   *               the value for <code>Select</code> can only be
-   *               <code>SPECIFIC_ATTRIBUTES</code>. Any other value for
-   *               <code>Select</code> will return an error.</p>
-   *          </note>
-   */
-  Select?: Select | string;
-
-  /**
-   * <p>The name of the table containing the requested items.</p>
-   */
-  TableName: string | undefined;
 }
 
 export namespace QueryInput {
@@ -5436,14 +5440,14 @@ export namespace QueryInput {
 export interface QueryOutput {
   __type?: "QueryOutput";
   /**
-   * <p>The capacity units consumed by the <code>Query</code> operation. The data returned
-   *             includes the total provisioned throughput consumed, along with statistics for the table
-   *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
-   *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   * <p>The number of items evaluated, before any <code>QueryFilter</code> is applied. A high
+   *         <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient
+   *         <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and ScannedCount</a> in the
+   *       <i>Amazon DynamoDB Developer Guide</i>.</p>
+   *          <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as
+   *         <code>Count</code>.</p>
    */
-  ConsumedCapacity?: ConsumedCapacity;
+  ScannedCount?: number;
 
   /**
    * <p>The number of items in the response.</p>
@@ -5461,21 +5465,21 @@ export interface QueryOutput {
   Items?: { [key: string]: AttributeValue }[];
 
   /**
+   * <p>The capacity units consumed by the <code>Query</code> operation. The data returned
+   *             includes the total provisioned throughput consumed, along with statistics for the table
+   *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
+   *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ConsumedCapacity?: ConsumedCapacity;
+
+  /**
    * <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
    *          <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
    *          <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
    */
   LastEvaluatedKey?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The number of items evaluated, before any <code>QueryFilter</code> is applied. A high
-   *         <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient
-   *         <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and ScannedCount</a> in the
-   *       <i>Amazon DynamoDB Developer Guide</i>.</p>
-   *          <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as
-   *         <code>Count</code>.</p>
-   */
-  ScannedCount?: number;
 }
 
 export namespace QueryOutput {
@@ -5525,11 +5529,6 @@ export namespace ReplicaAlreadyExistsException {
 export interface ReplicaAutoScalingDescription {
   __type?: "ReplicaAutoScalingDescription";
   /**
-   * <p>Replica-specific global secondary index auto scaling settings.</p>
-   */
-  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexAutoScalingDescription[];
-
-  /**
    * <p>The Region where the replica exists.</p>
    */
   RegionName?: string;
@@ -5568,6 +5567,11 @@ export interface ReplicaAutoScalingDescription {
    *          </ul>
    */
   ReplicaStatus?: ReplicaStatus | string;
+
+  /**
+   * <p>Replica-specific global secondary index auto scaling settings.</p>
+   */
+  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexAutoScalingDescription[];
 }
 
 export namespace ReplicaAutoScalingDescription {
@@ -5583,11 +5587,6 @@ export namespace ReplicaAutoScalingDescription {
 export interface ReplicaAutoScalingUpdate {
   __type?: "ReplicaAutoScalingUpdate";
   /**
-   * <p>The Region where the replica exists.</p>
-   */
-  RegionName: string | undefined;
-
-  /**
    * <p>Represents the auto scaling settings of global secondary indexes that will
    *          be modified.</p>
    */
@@ -5598,6 +5597,11 @@ export interface ReplicaAutoScalingUpdate {
    *          secondary index.</p>
    */
   ReplicaProvisionedReadCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
+
+  /**
+   * <p>The Region where the replica exists.</p>
+   */
+  RegionName: string | undefined;
 }
 
 export namespace ReplicaAutoScalingUpdate {
@@ -5613,26 +5617,20 @@ export namespace ReplicaAutoScalingUpdate {
 export interface ReplicaDescription {
   __type?: "ReplicaDescription";
   /**
+   * <p>The name of the Region.</p>
+   */
+  RegionName?: string;
+
+  /**
    * <p>Replica-specific global secondary index settings.</p>
    */
   GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexDescription[];
-
-  /**
-   * <p>The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS
-   *          encryption.</p>
-   */
-  KMSMasterKeyId?: string;
 
   /**
    * <p>Replica-specific provisioned throughput. If not described, uses the source table's
    *          provisioned throughput settings.</p>
    */
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
-
-  /**
-   * <p>The name of the Region.</p>
-   */
-  RegionName?: string;
 
   /**
    * <p>The current state of the replica:</p>
@@ -5658,15 +5656,21 @@ export interface ReplicaDescription {
   ReplicaStatus?: ReplicaStatus | string;
 
   /**
-   * <p>Detailed information about the replica status.</p>
-   */
-  ReplicaStatusDescription?: string;
-
-  /**
    * <p>Specifies the progress of a Create, Update, or Delete action on the replica
    *          as a percentage.</p>
    */
   ReplicaStatusPercentProgress?: string;
+
+  /**
+   * <p>The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS
+   *          encryption.</p>
+   */
+  KMSMasterKeyId?: string;
+
+  /**
+   * <p>Detailed information about the replica status.</p>
+   */
+  ReplicaStatusDescription?: string;
 }
 
 export namespace ReplicaDescription {
@@ -5706,6 +5710,18 @@ export namespace ReplicaGlobalSecondaryIndex {
 export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
   __type?: "ReplicaGlobalSecondaryIndexAutoScalingDescription";
   /**
+   * <p>Represents the auto scaling settings for a global table or global secondary
+   *          index.</p>
+   */
+  ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+
+  /**
+   * <p>Represents the auto scaling settings for a global table or global secondary
+   *          index.</p>
+   */
+  ProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+
+  /**
    * <p>The name of the global secondary index.</p>
    */
   IndexName?: string;
@@ -5732,18 +5748,6 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
    *          </ul>
    */
   IndexStatus?: IndexStatus | string;
-
-  /**
-   * <p>Represents the auto scaling settings for a global table or global secondary
-   *          index.</p>
-   */
-  ProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
-
-  /**
-   * <p>Represents the auto scaling settings for a global table or global secondary
-   *          index.</p>
-   */
-  ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
 }
 
 export namespace ReplicaGlobalSecondaryIndexAutoScalingDescription {
@@ -5761,15 +5765,15 @@ export namespace ReplicaGlobalSecondaryIndexAutoScalingDescription {
 export interface ReplicaGlobalSecondaryIndexAutoScalingUpdate {
   __type?: "ReplicaGlobalSecondaryIndexAutoScalingUpdate";
   /**
-   * <p>The name of the global secondary index.</p>
-   */
-  IndexName?: string;
-
-  /**
    * <p>Represents the auto scaling settings to be modified for a global table or global
    *          secondary index.</p>
    */
   ProvisionedReadCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
+
+  /**
+   * <p>The name of the global secondary index.</p>
+   */
+  IndexName?: string;
 }
 
 export namespace ReplicaGlobalSecondaryIndexAutoScalingUpdate {
@@ -5786,14 +5790,14 @@ export namespace ReplicaGlobalSecondaryIndexAutoScalingUpdate {
 export interface ReplicaGlobalSecondaryIndexDescription {
   __type?: "ReplicaGlobalSecondaryIndexDescription";
   /**
-   * <p>The name of the global secondary index.</p>
-   */
-  IndexName?: string;
-
-  /**
    * <p>If not described, uses the source table GSI's read capacity settings.</p>
    */
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+
+  /**
+   * <p>The name of the global secondary index.</p>
+   */
+  IndexName?: string;
 }
 
 export namespace ReplicaGlobalSecondaryIndexDescription {
@@ -5810,9 +5814,10 @@ export namespace ReplicaGlobalSecondaryIndexDescription {
 export interface ReplicaGlobalSecondaryIndexSettingsDescription {
   __type?: "ReplicaGlobalSecondaryIndexSettingsDescription";
   /**
-   * <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
+   * <p>Auto scaling settings for a global secondary index replica's write capacity
+   *          units.</p>
    */
-  IndexName: string | undefined;
+  ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
 
   /**
    * <p>
@@ -5839,6 +5844,16 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
   IndexStatus?: IndexStatus | string;
 
   /**
+   * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
+   */
+  ProvisionedWriteCapacityUnits?: number;
+
+  /**
+   * <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
+   */
+  IndexName: string | undefined;
+
+  /**
    * <p>Auto scaling settings for a global secondary index replica's read capacity units.</p>
    */
   ProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
@@ -5847,17 +5862,6 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
    */
   ProvisionedReadCapacityUnits?: number;
-
-  /**
-   * <p>Auto scaling settings for a global secondary index replica's write capacity
-   *          units.</p>
-   */
-  ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
-
-  /**
-   * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
-   */
-  ProvisionedWriteCapacityUnits?: number;
 }
 
 export namespace ReplicaGlobalSecondaryIndexSettingsDescription {
@@ -5874,11 +5878,6 @@ export namespace ReplicaGlobalSecondaryIndexSettingsDescription {
 export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
   __type?: "ReplicaGlobalSecondaryIndexSettingsUpdate";
   /**
-   * <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
-   */
-  IndexName: string | undefined;
-
-  /**
    * <p>Auto scaling settings for managing a global secondary index replica's read capacity
    *          units.</p>
    */
@@ -5888,6 +5887,11 @@ export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
    */
   ProvisionedReadCapacityUnits?: number;
+
+  /**
+   * <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
+   */
+  IndexName: string | undefined;
 }
 
 export namespace ReplicaGlobalSecondaryIndexSettingsUpdate {
@@ -5920,24 +5924,9 @@ export namespace ReplicaNotFoundException {
 export interface ReplicaSettingsDescription {
   __type?: "ReplicaSettingsDescription";
   /**
-   * <p>The Region name of the replica.</p>
+   * <p>Auto scaling settings for a global table replica's write capacity units.</p>
    */
-  RegionName: string | undefined;
-
-  /**
-   * <p>The read/write capacity mode of the replica.</p>
-   */
-  ReplicaBillingModeSummary?: BillingModeSummary;
-
-  /**
-   * <p>Replica global secondary index settings for the global table.</p>
-   */
-  ReplicaGlobalSecondaryIndexSettings?: ReplicaGlobalSecondaryIndexSettingsDescription[];
-
-  /**
-   * <p>Auto scaling settings for a global table replica's read capacity units.</p>
-   */
-  ReplicaProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ReplicaProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
 
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>.
@@ -5948,9 +5937,9 @@ export interface ReplicaSettingsDescription {
   ReplicaProvisionedReadCapacityUnits?: number;
 
   /**
-   * <p>Auto scaling settings for a global table replica's write capacity units.</p>
+   * <p>Auto scaling settings for a global table replica's read capacity units.</p>
    */
-  ReplicaProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ReplicaProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.
@@ -5958,6 +5947,11 @@ export interface ReplicaSettingsDescription {
    *         Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
   ReplicaProvisionedWriteCapacityUnits?: number;
+
+  /**
+   * <p>The Region name of the replica.</p>
+   */
+  RegionName: string | undefined;
 
   /**
    * <p>The current state of the Region:</p>
@@ -5981,6 +5975,16 @@ export interface ReplicaSettingsDescription {
    *          </ul>
    */
   ReplicaStatus?: ReplicaStatus | string;
+
+  /**
+   * <p>The read/write capacity mode of the replica.</p>
+   */
+  ReplicaBillingModeSummary?: BillingModeSummary;
+
+  /**
+   * <p>Replica global secondary index settings for the global table.</p>
+   */
+  ReplicaGlobalSecondaryIndexSettings?: ReplicaGlobalSecondaryIndexSettingsDescription[];
 }
 
 export namespace ReplicaSettingsDescription {
@@ -5996,9 +6000,9 @@ export namespace ReplicaSettingsDescription {
 export interface ReplicaSettingsUpdate {
   __type?: "ReplicaSettingsUpdate";
   /**
-   * <p>The Region of the replica to be added.</p>
+   * <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
    */
-  RegionName: string | undefined;
+  ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
 
   /**
    * <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
@@ -6006,9 +6010,9 @@ export interface ReplicaSettingsUpdate {
   ReplicaGlobalSecondaryIndexSettingsUpdate?: ReplicaGlobalSecondaryIndexSettingsUpdate[];
 
   /**
-   * <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
+   * <p>The Region of the replica to be added.</p>
    */
-  ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
+  RegionName: string | undefined;
 
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>.
@@ -6050,14 +6054,14 @@ export type ReplicaStatus = "ACTIVE" | "CREATING" | "CREATION_FAILED" | "DELETIN
 export interface ReplicationGroupUpdate {
   __type?: "ReplicationGroupUpdate";
   /**
-   * <p>The parameters required for creating a replica for the table.</p>
-   */
-  Create?: CreateReplicationGroupMemberAction;
-
-  /**
    * <p>The parameters required for deleting a replica for the table.</p>
    */
   Delete?: DeleteReplicationGroupMemberAction;
+
+  /**
+   * <p>The parameters required for creating a replica for the table.</p>
+   */
+  Create?: CreateReplicationGroupMemberAction;
 
   /**
    * <p>The parameters required for updating a replica for the table.</p>
@@ -6169,16 +6173,6 @@ export namespace ResourceNotFoundException {
 export interface RestoreSummary {
   __type?: "RestoreSummary";
   /**
-   * <p>Point in time or source backup time.</p>
-   */
-  RestoreDateTime: Date | undefined;
-
-  /**
-   * <p>Indicates if a restore is in progress or not.</p>
-   */
-  RestoreInProgress: boolean | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the backup from which the table was restored.</p>
    */
   SourceBackupArn?: string;
@@ -6187,6 +6181,16 @@ export interface RestoreSummary {
    * <p>The ARN of the source table of the backup that is being restored.</p>
    */
   SourceTableArn?: string;
+
+  /**
+   * <p>Point in time or source backup time.</p>
+   */
+  RestoreDateTime: Date | undefined;
+
+  /**
+   * <p>Indicates if a restore is in progress or not.</p>
+   */
+  RestoreInProgress: boolean | undefined;
 }
 
 export namespace RestoreSummary {
@@ -6199,21 +6203,26 @@ export namespace RestoreSummary {
 export interface RestoreTableFromBackupInput {
   __type?: "RestoreTableFromBackupInput";
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the backup.</p>
-   */
-  BackupArn: string | undefined;
-
-  /**
-   * <p>The billing mode of the restored table.</p>
-   */
-  BillingModeOverride?: BillingMode | string;
-
-  /**
    * <p>List of global secondary indexes for the restored table. The indexes
    *         provided should match existing secondary indexes. You can choose to exclude
    *         some or all of the indexes at the time of restore.</p>
    */
   GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[];
+
+  /**
+   * <p>The new server-side encryption settings for the restored table.</p>
+   */
+  SSESpecificationOverride?: SSESpecification;
+
+  /**
+   * <p>The name of the new table to which the backup must be restored.</p>
+   */
+  TargetTableName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the backup.</p>
+   */
+  BackupArn: string | undefined;
 
   /**
    * <p>List of local secondary indexes for the restored table. The indexes
@@ -6223,14 +6232,14 @@ export interface RestoreTableFromBackupInput {
   LocalSecondaryIndexOverride?: LocalSecondaryIndex[];
 
   /**
+   * <p>The billing mode of the restored table.</p>
+   */
+  BillingModeOverride?: BillingMode | string;
+
+  /**
    * <p>Provisioned throughput settings for the restored table.</p>
    */
   ProvisionedThroughputOverride?: ProvisionedThroughput;
-
-  /**
-   * <p>The name of the new table to which the backup must be restored.</p>
-   */
-  TargetTableName: string | undefined;
 }
 
 export namespace RestoreTableFromBackupInput {
@@ -6258,18 +6267,6 @@ export namespace RestoreTableFromBackupOutput {
 export interface RestoreTableToPointInTimeInput {
   __type?: "RestoreTableToPointInTimeInput";
   /**
-   * <p>The billing mode of the restored table.</p>
-   */
-  BillingModeOverride?: BillingMode | string;
-
-  /**
-   * <p>List of global secondary indexes for the restored table. The indexes
-   *         provided should match existing secondary indexes. You can choose to exclude
-   *         some or all of the indexes at the time of restore.</p>
-   */
-  GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[];
-
-  /**
    * <p>List of local secondary indexes for the restored table. The indexes
    *         provided should match existing secondary indexes. You can choose to exclude
    *         some or all of the indexes at the time of restore.</p>
@@ -6277,9 +6274,35 @@ export interface RestoreTableToPointInTimeInput {
   LocalSecondaryIndexOverride?: LocalSecondaryIndex[];
 
   /**
+   * <p>The DynamoDB table that will be restored. This value is an Amazon
+   *             Resource Name (ARN).</p>
+   */
+  SourceTableArn?: string;
+
+  /**
    * <p>Provisioned throughput settings for the restored table.</p>
    */
   ProvisionedThroughputOverride?: ProvisionedThroughput;
+
+  /**
+   * <p>The new server-side encryption settings for the restored table.</p>
+   */
+  SSESpecificationOverride?: SSESpecification;
+
+  /**
+   * <p>The name of the new table to which it must be restored to.</p>
+   */
+  TargetTableName: string | undefined;
+
+  /**
+   * <p>The billing mode of the restored table.</p>
+   */
+  BillingModeOverride?: BillingMode | string;
+
+  /**
+   * <p>Name of the source table that is being restored.</p>
+   */
+  SourceTableName?: string;
 
   /**
    * <p>Time in the past to restore the table to.</p>
@@ -6287,14 +6310,11 @@ export interface RestoreTableToPointInTimeInput {
   RestoreDateTime?: Date;
 
   /**
-   * <p>Name of the source table that is being restored.</p>
+   * <p>List of global secondary indexes for the restored table. The indexes
+   *         provided should match existing secondary indexes. You can choose to exclude
+   *         some or all of the indexes at the time of restore.</p>
    */
-  SourceTableName: string | undefined;
-
-  /**
-   * <p>The name of the new table to which it must be restored to.</p>
-   */
-  TargetTableName: string | undefined;
+  GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[];
 
   /**
    * <p>Restore the table to the latest possible time. <code>LatestRestorableDateTime</code>
@@ -6341,90 +6361,6 @@ export type ScalarAttributeType = "B" | "N" | "S";
 export interface ScanInput {
   __type?: "ScanInput";
   /**
-   * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  AttributesToGet?: string[];
-
-  /**
-   * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.   For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  ConditionalOperator?: ConditionalOperator | string;
-
-  /**
-   * <p>A Boolean value that determines the read consistency model during the scan:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If <code>ConsistentRead</code> is <code>false</code>, then the data returned from
-   *                         <code>Scan</code> might not contain the results from other recently
-   *                     completed write operations (<code>PutItem</code>, <code>UpdateItem</code>, or
-   *                         <code>DeleteItem</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>ConsistentRead</code> is <code>true</code>, then all of the write operations that completed before the <code>Scan</code> began are guaranteed to be contained in the <code>Scan</code> response.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The default setting for <code>ConsistentRead</code> is <code>false</code>.</p>
-   *          <p>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to true, you will receive a <code>ValidationException</code>.</p>
-   */
-  ConsistentRead?: boolean;
-
-  /**
-   * <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
-   *          <p>The data type for <code>ExclusiveStartKey</code> must be String, Number or Binary. No set data types are allowed.</p>
-   *          <p>In a parallel scan, a
-   *         <code>Scan</code> request that includes <code>ExclusiveStartKey</code> must specify the same segment
-   *       whose previous <code>Scan</code> returned the corresponding value of <code>LastEvaluatedKey</code>.</p>
-   */
-  ExclusiveStartKey?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p>
-   *             </li>
-   *             <li>
-   *                <p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Percentile</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>You could then use this substitution in an expression, as in this example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>#P = :val</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
-   *          </note>
-   *          <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  ExpressionAttributeNames?: { [key: string]: string };
-
-  /**
    * <p>One or more values that can be substituted in an expression.</p>
    *          <p>Use the <b>:</b> (colon) character in an expression to
    *             dereference an attribute value. For example, suppose that you wanted to check whether
@@ -6444,86 +6380,6 @@ export interface ScanInput {
    *                 Guide</i>.</p>
    */
   ExpressionAttributeValues?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>A string that contains conditions that DynamoDB applies after the <code>Scan</code> operation, but
-   *        before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code>
-   *        criteria are not returned.</p>
-   *          <note>
-   *             <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of
-   *          filtering does not consume any additional read capacity units.</p>
-   *          </note>
-   *          <p>For more information, see
-   *        <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  FilterExpression?: string;
-
-  /**
-   * <p>The name of a secondary index to scan. This index can be any local secondary index or global secondary index.  Note that if you use the <code>IndexName</code> parameter, you must also provide <code>TableName</code>.</p>
-   */
-  IndexName?: string;
-
-  /**
-   * <p>The maximum number of items to evaluate (not necessarily the number of matching items).
-   *             If DynamoDB processes the number of items up to the limit while processing the results,
-   *             it stops the operation and returns the matching values up to that point, and a key in
-   *                 <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can
-   *             pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
-   *             DynamoDB reaches this limit, it stops the operation and returns the matching values up
-   *             to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
-   *             operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working with Queries</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
-   *          <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  ProjectionExpression?: string;
-
-  /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
-   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
-   *             </li>
-   *          </ul>
-   */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
-
-  /**
-   * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.   For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  ScanFilter?: { [key: string]: Condition };
-
-  /**
-   * <p>For a parallel <code>Scan</code> request, <code>Segment</code> identifies an individual segment to be
-   *       scanned by an application worker.</p>
-   *          <p>Segment IDs are zero-based, so the first segment is always 0. For example, if you want to
-   *       use four application threads to scan a table or an index, then the first thread specifies a <code>Segment</code> value
-   *       of 0, the second thread specifies 1, and so on.</p>
-   *          <p>The value of <code>LastEvaluatedKey</code> returned from a parallel <code>Scan</code> request must be
-   *       used as <code>ExclusiveStartKey</code> with the same segment ID in a subsequent <code>Scan</code>
-   *       operation.</p>
-   *          <p>The value for <code>Segment</code> must be greater than or equal to 0, and less than the value
-   *       provided for <code>TotalSegments</code>.</p>
-   *          <p>If you provide <code>Segment</code>, you must also provide <code>TotalSegments</code>.</p>
-   */
-  Segment?: number;
 
   /**
    * <p>The attributes to be returned in the
@@ -6586,10 +6442,19 @@ export interface ScanInput {
   Select?: Select | string;
 
   /**
-   * <p>The name of the table containing the requested items; or, if you provide
-   *             <code>IndexName</code>, the name of the table to which that index belongs.</p>
+   * <p>For a parallel <code>Scan</code> request, <code>Segment</code> identifies an individual segment to be
+   *       scanned by an application worker.</p>
+   *          <p>Segment IDs are zero-based, so the first segment is always 0. For example, if you want to
+   *       use four application threads to scan a table or an index, then the first thread specifies a <code>Segment</code> value
+   *       of 0, the second thread specifies 1, and so on.</p>
+   *          <p>The value of <code>LastEvaluatedKey</code> returned from a parallel <code>Scan</code> request must be
+   *       used as <code>ExclusiveStartKey</code> with the same segment ID in a subsequent <code>Scan</code>
+   *       operation.</p>
+   *          <p>The value for <code>Segment</code> must be greater than or equal to 0, and less than the value
+   *       provided for <code>TotalSegments</code>.</p>
+   *          <p>If you provide <code>Segment</code>, you must also provide <code>TotalSegments</code>.</p>
    */
-  TableName: string | undefined;
+  Segment?: number;
 
   /**
    * <p>For a parallel <code>Scan</code> request, <code>TotalSegments</code> represents the total number of
@@ -6603,6 +6468,161 @@ export interface ScanInput {
    *          <p>If you specify <code>TotalSegments</code>, you must also specify <code>Segment</code>.</p>
    */
   TotalSegments?: number;
+
+  /**
+   * <p>A Boolean value that determines the read consistency model during the scan:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>ConsistentRead</code> is <code>false</code>, then the data returned from
+   *                         <code>Scan</code> might not contain the results from other recently
+   *                     completed write operations (<code>PutItem</code>, <code>UpdateItem</code>, or
+   *                         <code>DeleteItem</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>ConsistentRead</code> is <code>true</code>, then all of the write operations that completed before the <code>Scan</code> began are guaranteed to be contained in the <code>Scan</code> response.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default setting for <code>ConsistentRead</code> is <code>false</code>.</p>
+   *          <p>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to true, you will receive a <code>ValidationException</code>.</p>
+   */
+  ConsistentRead?: boolean;
+
+  /**
+   * <p>A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
+   *          <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ProjectionExpression?: string;
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.   For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  ScanFilter?: { [key: string]: Condition };
+
+  /**
+   * <p>The name of a secondary index to scan. This index can be any local secondary index or global secondary index.  Note that if you use the <code>IndexName</code> parameter, you must also provide <code>TableName</code>.</p>
+   */
+  IndexName?: string;
+
+  /**
+   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+
+  /**
+   * <p>The name of the table containing the requested items; or, if you provide
+   *             <code>IndexName</code>, the name of the table to which that index belongs.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  AttributesToGet?: string[];
+
+  /**
+   * <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p>
+   *             </li>
+   *             <li>
+   *                <p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Percentile</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>{"#P":"Percentile"}</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You could then use this substitution in an expression, as in this example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>#P = :val</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
+   *          </note>
+   *          <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ExpressionAttributeNames?: { [key: string]: string };
+
+  /**
+   * <p>A string that contains conditions that DynamoDB applies after the <code>Scan</code> operation, but
+   *        before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code>
+   *        criteria are not returned.</p>
+   *          <note>
+   *             <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of
+   *          filtering does not consume any additional read capacity units.</p>
+   *          </note>
+   *          <p>For more information, see
+   *        <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  FilterExpression?: string;
+
+  /**
+   * <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
+   *          <p>The data type for <code>ExclusiveStartKey</code> must be String, Number or Binary. No set data types are allowed.</p>
+   *          <p>In a parallel scan, a
+   *         <code>Scan</code> request that includes <code>ExclusiveStartKey</code> must specify the same segment
+   *       whose previous <code>Scan</code> returned the corresponding value of <code>LastEvaluatedKey</code>.</p>
+   */
+  ExclusiveStartKey?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.   For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  ConditionalOperator?: ConditionalOperator | string;
+
+  /**
+   * <p>The maximum number of items to evaluate (not necessarily the number of matching items).
+   *             If DynamoDB processes the number of items up to the limit while processing the results,
+   *             it stops the operation and returns the matching values up to that point, and a key in
+   *                 <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can
+   *             pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
+   *             DynamoDB reaches this limit, it stops the operation and returns the matching values up
+   *             to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
+   *             operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working with Queries</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ScanInput {
@@ -6618,13 +6638,9 @@ export namespace ScanInput {
 export interface ScanOutput {
   __type?: "ScanOutput";
   /**
-   * <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total
-   *             provisioned throughput consumed, along with statistics for the table and any indexes involved
-   *             in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified.
-   *             For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
-   *                 Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
    */
-  ConsumedCapacity?: ConsumedCapacity;
+  Items?: { [key: string]: AttributeValue }[];
 
   /**
    * <p>The number of items in the response.</p>
@@ -6637,9 +6653,14 @@ export interface ScanOutput {
   Count?: number;
 
   /**
-   * <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
+   * <p>The number of items evaluated, before any <code>ScanFilter</code> is applied. A high
+   *         <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient
+   *         <code>Scan</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and ScannedCount</a> in the
+   *         <i>Amazon DynamoDB Developer Guide</i>.</p>
+   *          <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as
+   *         <code>Count</code>.</p>
    */
-  Items?: { [key: string]: AttributeValue }[];
+  ScannedCount?: number;
 
   /**
    * <p>The primary key of the item where the operation stopped, inclusive of the previous
@@ -6655,14 +6676,13 @@ export interface ScanOutput {
   LastEvaluatedKey?: { [key: string]: AttributeValue };
 
   /**
-   * <p>The number of items evaluated, before any <code>ScanFilter</code> is applied. A high
-   *         <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient
-   *         <code>Scan</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and ScannedCount</a> in the
-   *         <i>Amazon DynamoDB Developer Guide</i>.</p>
-   *          <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as
-   *         <code>Count</code>.</p>
+   * <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total
+   *             provisioned throughput consumed, along with statistics for the table and any indexes involved
+   *             in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified.
+   *             For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
+   *                 Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  ScannedCount?: number;
+  ConsumedCapacity?: ConsumedCapacity;
 }
 
 export namespace ScanOutput {
@@ -6680,6 +6700,46 @@ export type Select = "ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "COUNT" | "
 export interface SourceTableDetails {
   __type?: "SourceTableDetails";
   /**
+   * <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
+   */
+  ProvisionedThroughput: ProvisionedThroughput | undefined;
+
+  /**
+   * <p>Unique identifier for the table for which the backup was created. </p>
+   */
+  TableId: string | undefined;
+
+  /**
+   * <p>The name of the table for which the backup was created. </p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>Number of items in the table. Note that this is an approximate value. </p>
+   */
+  ItemCount?: number;
+
+  /**
+   * <p>Size of the table in bytes. Note that this is an approximate value.</p>
+   */
+  TableSizeBytes?: number;
+
+  /**
+   * <p>Time when the source table was created. </p>
+   */
+  TableCreationDateTime: Date | undefined;
+
+  /**
+   * <p>ARN of the table for which backup was created. </p>
+   */
+  TableArn?: string;
+
+  /**
+   * <p>Schema of the table. </p>
+   */
+  KeySchema: KeySchemaElement[] | undefined;
+
+  /**
    * <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
    *          <ul>
    *             <li>
@@ -6694,46 +6754,6 @@ export interface SourceTableDetails {
    *          </ul>
    */
   BillingMode?: BillingMode | string;
-
-  /**
-   * <p>Number of items in the table. Note that this is an approximate value. </p>
-   */
-  ItemCount?: number;
-
-  /**
-   * <p>Schema of the table. </p>
-   */
-  KeySchema: KeySchemaElement[] | undefined;
-
-  /**
-   * <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-   */
-  ProvisionedThroughput: ProvisionedThroughput | undefined;
-
-  /**
-   * <p>ARN of the table for which backup was created. </p>
-   */
-  TableArn?: string;
-
-  /**
-   * <p>Time when the source table was created. </p>
-   */
-  TableCreationDateTime: Date | undefined;
-
-  /**
-   * <p>Unique identifier for the table for which the backup was created. </p>
-   */
-  TableId: string | undefined;
-
-  /**
-   * <p>The name of the table for which the backup was created. </p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>Size of the table in bytes. Note that this is an approximate value.</p>
-   */
-  TableSizeBytes?: number;
 }
 
 export namespace SourceTableDetails {
@@ -6749,16 +6769,14 @@ export namespace SourceTableDetails {
 export interface SourceTableFeatureDetails {
   __type?: "SourceTableFeatureDetails";
   /**
-   * <p>Represents the GSI properties for the table when the backup was created. It includes the
-   *          IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at
-   *          the time of backup. </p>
-   */
-  GlobalSecondaryIndexes?: GlobalSecondaryIndexInfo[];
-
-  /**
    * <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup. </p>
    */
   LocalSecondaryIndexes?: LocalSecondaryIndexInfo[];
+
+  /**
+   * <p>Time to Live settings on the table when the backup was created.</p>
+   */
+  TimeToLiveDescription?: TimeToLiveDescription;
 
   /**
    * <p>The description of the server-side encryption status on the table when the backup was created.</p>
@@ -6771,9 +6789,11 @@ export interface SourceTableFeatureDetails {
   StreamDescription?: StreamSpecification;
 
   /**
-   * <p>Time to Live settings on the table when the backup was created.</p>
+   * <p>Represents the GSI properties for the table when the backup was created. It includes the
+   *          IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at
+   *          the time of backup. </p>
    */
-  TimeToLiveDescription?: TimeToLiveDescription;
+  GlobalSecondaryIndexes?: GlobalSecondaryIndexInfo[];
 }
 
 export namespace SourceTableFeatureDetails {
@@ -6798,6 +6818,21 @@ export interface SSEDescription {
   InaccessibleEncryptionDateTime?: Date;
 
   /**
+   * <p>Represents the current state of server-side encryption. The only supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> - Server-side encryption is enabled.</p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>UPDATING</code> - Server-side encryption is being updated.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: SSEStatus | string;
+
+  /**
    * <p>The AWS KMS customer master key (CMK) ARN used for the AWS KMS encryption.</p>
    */
   KMSMasterKeyArn?: string;
@@ -6814,21 +6849,6 @@ export interface SSEDescription {
    *          </ul>
    */
   SSEType?: SSEType | string;
-
-  /**
-   * <p>Represents the current state of server-side encryption. The only supported values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> - Server-side encryption is enabled.</p>
-   *             </li>
-   *             <li>
-   *               <p>
-   *                   <code>UPDATING</code> - Server-side encryption is being updated.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: SSEStatus | string;
 }
 
 export namespace SSEDescription {
@@ -6843,13 +6863,6 @@ export namespace SSEDescription {
  */
 export interface SSESpecification {
   __type?: "SSESpecification";
-  /**
-   * <p>Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK. If enabled (true),
-   *       server-side encryption type is set to <code>KMS</code> and an AWS managed CMK is used (AWS KMS charges apply). If disabled (false) or not specified, server-side
-   * encryption is set to AWS owned CMK.</p>
-   */
-  Enabled?: boolean;
-
   /**
    * <p>The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption. To
    *          specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note
@@ -6870,6 +6883,13 @@ export interface SSESpecification {
    *          </ul>
    */
   SSEType?: SSEType | string;
+
+  /**
+   * <p>Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK. If enabled (true),
+   *       server-side encryption type is set to <code>KMS</code> and an AWS managed CMK is used (AWS KMS charges apply). If disabled (false) or not specified, server-side
+   * encryption is set to AWS owned CMK.</p>
+   */
+  Enabled?: boolean;
 }
 
 export namespace SSESpecification {
@@ -6888,11 +6908,6 @@ export type SSEType = "AES256" | "KMS";
  */
 export interface StreamSpecification {
   __type?: "StreamSpecification";
-  /**
-   * <p>Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.</p>
-   */
-  StreamEnabled: boolean | undefined;
-
   /**
    * <p>
    *               When an item in the table is modified, <code>StreamViewType</code>
@@ -6921,6 +6936,11 @@ export interface StreamSpecification {
    *          </ul>
    */
   StreamViewType?: StreamViewType | string;
+
+  /**
+   * <p>Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.</p>
+   */
+  StreamEnabled: boolean | undefined;
 }
 
 export namespace StreamSpecification {
@@ -6954,16 +6974,6 @@ export namespace TableAlreadyExistsException {
 export interface TableAutoScalingDescription {
   __type?: "TableAutoScalingDescription";
   /**
-   * <p>Represents replicas of the global table.</p>
-   */
-  Replicas?: ReplicaAutoScalingDescription[];
-
-  /**
-   * <p>The name of the table.</p>
-   */
-  TableName?: string;
-
-  /**
    * <p>The current state of the table:</p>
    *          <ul>
    *             <li>
@@ -6985,6 +6995,16 @@ export interface TableAutoScalingDescription {
    *          </ul>
    */
   TableStatus?: TableStatus | string;
+
+  /**
+   * <p>The name of the table.</p>
+   */
+  TableName?: string;
+
+  /**
+   * <p>Represents replicas of the global table.</p>
+   */
+  Replicas?: ReplicaAutoScalingDescription[];
 }
 
 export namespace TableAutoScalingDescription {
@@ -7000,26 +7020,14 @@ export namespace TableAutoScalingDescription {
 export interface TableDescription {
   __type?: "TableDescription";
   /**
+   * <p>The description of the server-side encryption status on the specified table.</p>
+   */
+  SSEDescription?: SSEDescription;
+
+  /**
    * <p>Contains information about the table archive.</p>
    */
   ArchivalSummary?: ArchivalSummary;
-
-  /**
-   * <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute
-   *       in the table and index key schema.</p>
-   *          <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AttributeName</code> - The name of the attribute.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AttributeType</code> - The data type for the attribute.</p>
-   *             </li>
-   *          </ul>
-   */
-  AttributeDefinitions?: AttributeDefinition[];
 
   /**
    * <p>Contains the details for the read/write capacity mode.</p>
@@ -7027,9 +7035,9 @@ export interface TableDescription {
   BillingModeSummary?: BillingModeSummary;
 
   /**
-   * <p>The date and time when the table was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.</p>
    */
-  CreationDateTime?: Date;
+  LatestStreamArn?: string;
 
   /**
    * <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p>
@@ -7143,14 +7151,100 @@ export interface TableDescription {
   GlobalSecondaryIndexes?: GlobalSecondaryIndexDescription[];
 
   /**
+   * <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute
+   *       in the table and index key schema.</p>
+   *          <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AttributeName</code> - The name of the attribute.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AttributeType</code> - The data type for the attribute.</p>
+   *             </li>
+   *          </ul>
+   */
+  AttributeDefinitions?: AttributeDefinition[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the table.</p>
+   */
+  TableArn?: string;
+
+  /**
    * <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a> in use, if the table is replicated across AWS Regions.</p>
    */
   GlobalTableVersion?: string;
 
   /**
-   * <p>The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
+   * <p>The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
    */
-  ItemCount?: number;
+  ProvisionedThroughput?: ProvisionedThroughputDescription;
+
+  /**
+   * <p>Represents replicas of the table.</p>
+   */
+  Replicas?: ReplicaDescription[];
+
+  /**
+   * <p>Unique identifier for the table for which the backup was created. </p>
+   */
+  TableId?: string;
+
+  /**
+   * <p>The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
+   */
+  TableSizeBytes?: number;
+
+  /**
+   * <p>The current state of the table:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The table is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code> - The table is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The table is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The table is ready for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The AWS KMS
+   *                key used to encrypt the table in inaccessible. Table operations
+   *                may fail due to failure to use the AWS KMS key. DynamoDB will
+   *                initiate the table archival process when a table's AWS KMS key
+   *                remains inaccessible for more than seven days.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVING</code> - The table is being archived. Operations
+   *                are not allowed until archival is complete.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code> - The table has been archived. See the
+   *                ArchivalReason for more information.
+   *             </p>
+   *             </li>
+   *          </ul>
+   */
+  TableStatus?: TableStatus | string;
+
+  /**
+   * <p>The current DynamoDB Streams configuration for the table.</p>
+   */
+  StreamSpecification?: StreamSpecification;
 
   /**
    * <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p>
@@ -7189,29 +7283,9 @@ export interface TableDescription {
   KeySchema?: KeySchemaElement[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.</p>
+   * <p>Contains details for the restore.</p>
    */
-  LatestStreamArn?: string;
-
-  /**
-   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
-   *
-   *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p>
-   *          <ul>
-   *             <li>
-   *                <p>AWS customer ID</p>
-   *             </li>
-   *             <li>
-   *                <p>Table name</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>StreamLabel</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  LatestStreamLabel?: string;
+  RestoreSummary?: RestoreSummary;
 
   /**
    * <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p>
@@ -7282,39 +7356,29 @@ export interface TableDescription {
   LocalSecondaryIndexes?: LocalSecondaryIndexDescription[];
 
   /**
-   * <p>The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
+   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
+   *
+   *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AWS customer ID</p>
+   *             </li>
+   *             <li>
+   *                <p>Table name</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StreamLabel</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  ProvisionedThroughput?: ProvisionedThroughputDescription;
+  LatestStreamLabel?: string;
 
   /**
-   * <p>Represents replicas of the table.</p>
+   * <p>The date and time when the table was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    */
-  Replicas?: ReplicaDescription[];
-
-  /**
-   * <p>Contains details for the restore.</p>
-   */
-  RestoreSummary?: RestoreSummary;
-
-  /**
-   * <p>The description of the server-side encryption status on the specified table.</p>
-   */
-  SSEDescription?: SSEDescription;
-
-  /**
-   * <p>The current DynamoDB Streams configuration for the table.</p>
-   */
-  StreamSpecification?: StreamSpecification;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the table.</p>
-   */
-  TableArn?: string;
-
-  /**
-   * <p>Unique identifier for the table for which the backup was created. </p>
-   */
-  TableId?: string;
+  CreationDateTime?: Date;
 
   /**
    * <p>The name of the table.</p>
@@ -7322,53 +7386,9 @@ export interface TableDescription {
   TableName?: string;
 
   /**
-   * <p>The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
+   * <p>The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
    */
-  TableSizeBytes?: number;
-
-  /**
-   * <p>The current state of the table:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code> - The table is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATING</code> - The table is being updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - The table is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> - The table is ready for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The AWS KMS
-   *                key used to encrypt the table in inaccessible. Table operations
-   *                may fail due to failure to use the AWS KMS key. DynamoDB will
-   *                initiate the table archival process when a table's AWS KMS key
-   *                remains inaccessible for more than seven days.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ARCHIVING</code> - The table is being archived. Operations
-   *                are not allowed until archival is complete.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ARCHIVED</code> - The table has been archived. See the
-   *                ArchivalReason for more information.
-   *             </p>
-   *             </li>
-   *          </ul>
-   */
-  TableStatus?: TableStatus | string;
+  ItemCount?: number;
 }
 
 export namespace TableDescription {
@@ -7455,14 +7475,14 @@ export namespace Tag {
 export interface TagResourceInput {
   __type?: "TagResourceInput";
   /**
-   * <p>Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceInput {
@@ -7478,14 +7498,14 @@ export namespace TagResourceInput {
 export interface TimeToLiveDescription {
   __type?: "TimeToLiveDescription";
   /**
-   * <p> The name of the TTL attribute for items in the table.</p>
-   */
-  AttributeName?: string;
-
-  /**
    * <p> The TTL status for the table.</p>
    */
   TimeToLiveStatus?: TimeToLiveStatus | string;
+
+  /**
+   * <p> The name of the TTL attribute for items in the table.</p>
+   */
+  AttributeName?: string;
 }
 
 export namespace TimeToLiveDescription {
@@ -7502,15 +7522,15 @@ export namespace TimeToLiveDescription {
 export interface TimeToLiveSpecification {
   __type?: "TimeToLiveSpecification";
   /**
+   * <p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
    * <p>The name of the TTL attribute used to store the expiration time for items in the
    *             table.</p>
    */
   AttributeName: string | undefined;
-
-  /**
-   * <p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>
-   */
-  Enabled: boolean | undefined;
 }
 
 export namespace TimeToLiveSpecification {
@@ -7545,17 +7565,17 @@ export namespace TransactGetItem {
 export interface TransactGetItemsInput {
   __type?: "TransactGetItemsInput";
   /**
+   * <p>An ordered array of up to 25 <code>TransactGetItem</code> objects,
+   *          each of which contains a <code>Get</code> structure.</p>
+   */
+  TransactItems: TransactGetItem[] | undefined;
+
+  /**
    * <p>A value of <code>TOTAL</code> causes consumed capacity information
    *          to be returned, and a value of <code>NONE</code> prevents that information
    *          from being returned. No other value is valid.</p>
    */
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
-
-  /**
-   * <p>An ordered array of up to 25 <code>TransactGetItem</code> objects,
-   *          each of which contains a <code>Get</code> structure.</p>
-   */
-  TransactItems: TransactGetItem[] | undefined;
 }
 
 export namespace TransactGetItemsInput {
@@ -7857,24 +7877,24 @@ export namespace TransactionInProgressException {
 export interface TransactWriteItem {
   __type?: "TransactWriteItem";
   /**
-   * <p>A request to perform a check item operation.</p>
-   */
-  ConditionCheck?: ConditionCheck;
-
-  /**
-   * <p>A request to perform a <code>DeleteItem</code> operation.</p>
-   */
-  Delete?: Delete;
-
-  /**
    * <p>A request to perform a <code>PutItem</code> operation.</p>
    */
   Put?: Put;
 
   /**
+   * <p>A request to perform a check item operation.</p>
+   */
+  ConditionCheck?: ConditionCheck;
+
+  /**
    * <p>A request to perform an <code>UpdateItem</code> operation.</p>
    */
   Update?: Update;
+
+  /**
+   * <p>A request to perform a <code>DeleteItem</code> operation.</p>
+   */
+  Delete?: Delete;
 }
 
 export namespace TransactWriteItem {
@@ -7886,6 +7906,15 @@ export namespace TransactWriteItem {
 
 export interface TransactWriteItemsInput {
   __type?: "TransactWriteItemsInput";
+  /**
+   * <p>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which
+   *             contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
+   *                 <code>Delete</code> object. These can operate on items in different tables, but the
+   *             tables must reside in the same AWS account and Region, and no two of them can operate on
+   *             the same item. </p>
+   */
+  TransactItems: TransactWriteItem[] | undefined;
+
   /**
    * <p>Providing a <code>ClientRequestToken</code> makes the call to <code>TransactWriteItems</code>
    *         idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
@@ -7934,15 +7963,6 @@ export interface TransactWriteItemsInput {
    *       </p>
    */
   ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
-
-  /**
-   * <p>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which
-   *             contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
-   *                 <code>Delete</code> object. These can operate on items in different tables, but the
-   *             tables must reside in the same AWS account and Region, and no two of them can operate on
-   *             the same item. </p>
-   */
-  TransactItems: TransactWriteItem[] | undefined;
 }
 
 export namespace TransactWriteItemsInput {
@@ -8006,20 +8026,26 @@ export namespace UntagResourceInput {
 export interface Update {
   __type?: "Update";
   /**
-   * <p>A condition that must be satisfied in order for a conditional update to
-   *         succeed.</p>
-   */
-  ConditionExpression?: string;
-
-  /**
    * <p>One or more substitution tokens for attribute names in an expression.</p>
    */
   ExpressionAttributeNames?: { [key: string]: string };
 
   /**
-   * <p>One or more values that can be substituted in an expression.</p>
+   * <p>An expression that defines one or more attributes to be updated,
+   *       the action to be performed on them, and new value(s) for them.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  UpdateExpression: string | undefined;
+
+  /**
+   * <p>Name of the table for the <code>UpdateItem</code> request.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A condition that must be satisfied in order for a conditional update to
+   *         succeed.</p>
+   */
+  ConditionExpression?: string;
 
   /**
    * <p>The primary key of the item to be updated. Each element consists of
@@ -8028,23 +8054,17 @@ export interface Update {
   Key: { [key: string]: AttributeValue } | undefined;
 
   /**
+   * <p>One or more values that can be substituted in an expression.</p>
+   */
+  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+
+  /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to
    *         get the item attributes if the <code>Update</code> condition fails.
    *         For <code>ReturnValuesOnConditionCheckFailure</code>, the valid
    *         values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</p>
    */
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
-
-  /**
-   * <p>Name of the table for the <code>UpdateItem</code> request.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>An expression that defines one or more attributes to be updated,
-   *       the action to be performed on them, and new value(s) for them.</p>
-   */
-  UpdateExpression: string | undefined;
 }
 
 export namespace Update {
@@ -8057,14 +8077,14 @@ export namespace Update {
 export interface UpdateContinuousBackupsInput {
   __type?: "UpdateContinuousBackupsInput";
   /**
-   * <p>Represents the settings used to enable point in time recovery.</p>
-   */
-  PointInTimeRecoverySpecification: PointInTimeRecoverySpecification | undefined;
-
-  /**
    * <p>The name of the table.</p>
    */
   TableName: string | undefined;
+
+  /**
+   * <p>Represents the settings used to enable point in time recovery.</p>
+   */
+  PointInTimeRecoverySpecification: PointInTimeRecoverySpecification | undefined;
 }
 
 export namespace UpdateContinuousBackupsInput {
@@ -8097,14 +8117,14 @@ export interface UpdateContributorInsightsInput {
   ContributorInsightsAction: ContributorInsightsAction | string | undefined;
 
   /**
-   * <p>The global secondary index name, if applicable.</p>
-   */
-  IndexName?: string;
-
-  /**
    * <p>The name of the table.</p>
    */
   TableName: string | undefined;
+
+  /**
+   * <p>The global secondary index name, if applicable.</p>
+   */
+  IndexName?: string;
 }
 
 export namespace UpdateContributorInsightsInput {
@@ -8122,14 +8142,14 @@ export interface UpdateContributorInsightsOutput {
   ContributorInsightsStatus?: ContributorInsightsStatus | string;
 
   /**
-   * <p>The name of the global secondary index, if applicable.</p>
-   */
-  IndexName?: string;
-
-  /**
    * <p>The name of the table.</p>
    */
   TableName?: string;
+
+  /**
+   * <p>The name of the global secondary index, if applicable.</p>
+   */
+  IndexName?: string;
 }
 
 export namespace UpdateContributorInsightsOutput {
@@ -8145,15 +8165,15 @@ export namespace UpdateContributorInsightsOutput {
 export interface UpdateGlobalSecondaryIndexAction {
   __type?: "UpdateGlobalSecondaryIndexAction";
   /**
-   * <p>The name of the global secondary index to be updated.</p>
-   */
-  IndexName: string | undefined;
-
-  /**
    * <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
    *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
   ProvisionedThroughput: ProvisionedThroughput | undefined;
+
+  /**
+   * <p>The name of the global secondary index to be updated.</p>
+   */
+  IndexName: string | undefined;
 }
 
 export namespace UpdateGlobalSecondaryIndexAction {
@@ -8201,6 +8221,22 @@ export namespace UpdateGlobalTableOutput {
 export interface UpdateGlobalTableSettingsInput {
   __type?: "UpdateGlobalTableSettingsInput";
   /**
+   * <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
+   */
+  GlobalTableGlobalSecondaryIndexSettingsUpdate?: GlobalTableGlobalSecondaryIndexSettingsUpdate[];
+
+  /**
+   * <p>Represents the settings for a global table in a Region that will be modified.</p>
+   */
+  ReplicaSettingsUpdate?: ReplicaSettingsUpdate[];
+
+  /**
+   * <p>Auto scaling settings for managing provisioned write capacity for the global
+   *             table.</p>
+   */
+  GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
+
+  /**
    * <p>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table defaults to <code>PROVISIONED</code> capacity billing mode.</p>
    *          <ul>
    *             <li>
@@ -8217,31 +8253,15 @@ export interface UpdateGlobalTableSettingsInput {
   GlobalTableBillingMode?: BillingMode | string;
 
   /**
-   * <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
-   */
-  GlobalTableGlobalSecondaryIndexSettingsUpdate?: GlobalTableGlobalSecondaryIndexSettingsUpdate[];
-
-  /**
    * <p>The name of the global table</p>
    */
   GlobalTableName: string | undefined;
-
-  /**
-   * <p>Auto scaling settings for managing provisioned write capacity for the global
-   *             table.</p>
-   */
-  GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code>
    *          </p>
    */
   GlobalTableProvisionedWriteCapacityUnits?: number;
-
-  /**
-   * <p>Represents the settings for a global table in a Region that will be modified.</p>
-   */
-  ReplicaSettingsUpdate?: ReplicaSettingsUpdate[];
 }
 
 export namespace UpdateGlobalTableSettingsInput {
@@ -8254,14 +8274,14 @@ export namespace UpdateGlobalTableSettingsInput {
 export interface UpdateGlobalTableSettingsOutput {
   __type?: "UpdateGlobalTableSettingsOutput";
   /**
-   * <p>The name of the global table.</p>
-   */
-  GlobalTableName?: string;
-
-  /**
    * <p>The Region-specific settings for the global table.</p>
    */
   ReplicaSettings?: ReplicaSettingsDescription[];
+
+  /**
+   * <p>The name of the global table.</p>
+   */
+  GlobalTableName?: string;
 }
 
 export namespace UpdateGlobalTableSettingsOutput {
@@ -8277,47 +8297,45 @@ export namespace UpdateGlobalTableSettingsOutput {
 export interface UpdateItemInput {
   __type?: "UpdateItemInput";
   /**
-   * <p>This is a legacy parameter.  Use <code>UpdateExpression</code> instead.   For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>Determines whether item collection metrics are returned.  If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during
+   *       the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
    */
-  AttributeUpdates?: { [key: string]: AttributeValueUpdate };
+  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
 
   /**
-   * <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
-   *          <p>An expression can contain any of the following:</p>
+   * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appear
+   *             before or after they are updated. For <code>UpdateItem</code>, the valid values
+   *             are:</p>
    *          <ul>
    *             <li>
-   *                <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code>
-   *                </p>
-   *                <p>These function names are case-sensitive.</p>
+   *                <p>
+   *                   <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is
+   *           <code>NONE</code>, then nothing is returned. (This setting is the default for
+   *           <code>ReturnValues</code>.)</p>
    *             </li>
    *             <li>
-   *                <p>Comparison operators: <code>= | <> |
-   *             < | > | <= | >= |
-   *             BETWEEN | IN </code>
-   *                </p>
+   *                <p>
+   *                   <code>ALL_OLD</code> - Returns all of the attributes of the item, as they appeared before the UpdateItem operation.</p>
    *             </li>
    *             <li>
-   *                <p> Logical operators: <code>AND | OR | NOT</code>
-   *                </p>
+   *                <p>
+   *                   <code>UPDATED_OLD</code> - Returns only the updated attributes, as they appeared before the UpdateItem operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_NEW</code> - Returns all of the attributes of the item, as they appear after the UpdateItem operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear after the UpdateItem operation.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *          <p>There is no additional cost associated with requesting a return value aside from the
+   *             small network and processing overhead of receiving a larger response. No read capacity
+   *             units are consumed.</p>
+   *          <p>The values returned are strongly consistent.</p>
    */
-  ConditionExpression?: string;
-
-  /**
-   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.   For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  ConditionalOperator?: ConditionalOperator | string;
-
-  /**
-   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.   For more information, see
-   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  Expected?: { [key: string]: ExpectedAttributeValue };
+  ReturnValues?: ReturnValue | string;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
@@ -8366,99 +8384,6 @@ export interface UpdateItemInput {
    *                 Guide</i>.</p>
    */
   ExpressionAttributeNames?: { [key: string]: string };
-
-  /**
-   * <p>One or more values that can be substituted in an expression.</p>
-   *          <p>Use the <b>:</b> (colon) character in an expression to
-   *             dereference an attribute value. For example, suppose that you wanted to check whether
-   *             the value of the <code>ProductStatus</code> attribute was one of the following: </p>
-   *          <p>
-   *             <code>Available | Backordered | Discontinued</code>
-   *          </p>
-   *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
-   *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code>
-   *          </p>
-   *          <p>You could then use these values in an expression, such as this:</p>
-   *          <p>
-   *             <code>ProductStatus IN (:avail, :back, :disc)</code>
-   *          </p>
-   *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
-   *          <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-   */
-  Key: { [key: string]: AttributeValue } | undefined;
-
-  /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
-   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
-   *             </li>
-   *          </ul>
-   */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
-
-  /**
-   * <p>Determines whether item collection metrics are returned.  If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during
-   *       the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-   */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
-
-  /**
-   * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appear
-   *             before or after they are updated. For <code>UpdateItem</code>, the valid values
-   *             are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is
-   *           <code>NONE</code>, then nothing is returned. (This setting is the default for
-   *           <code>ReturnValues</code>.)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_OLD</code> - Returns all of the attributes of the item, as they appeared before the UpdateItem operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATED_OLD</code> - Returns only the updated attributes, as they appeared before the UpdateItem operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_NEW</code> - Returns all of the attributes of the item, as they appear after the UpdateItem operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear after the UpdateItem operation.</p>
-   *             </li>
-   *          </ul>
-   *          <p>There is no additional cost associated with requesting a return value aside from the
-   *             small network and processing overhead of receiving a larger response. No read capacity
-   *             units are consumed.</p>
-   *          <p>The values returned are strongly consistent.</p>
-   */
-  ReturnValues?: ReturnValue | string;
-
-  /**
-   * <p>The name of the table containing the item to update.</p>
-   */
-  TableName: string | undefined;
 
   /**
    * <p>An expression that defines one or more attributes to be updated, the action to be
@@ -8552,6 +8477,101 @@ export interface UpdateItemInput {
    *          <p>For more information on update expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html">Modifying Items and Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
   UpdateExpression?: string;
+
+  /**
+   * <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
+   *          <p>An expression can contain any of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code>
+   *                </p>
+   *                <p>These function names are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Comparison operators: <code>= | <> |
+   *             < | > | <= | >= |
+   *             BETWEEN | IN </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p> Logical operators: <code>AND | OR | NOT</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ConditionExpression?: string;
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.   For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  ConditionalOperator?: ConditionalOperator | string;
+
+  /**
+   * <p>One or more values that can be substituted in an expression.</p>
+   *          <p>Use the <b>:</b> (colon) character in an expression to
+   *             dereference an attribute value. For example, suppose that you wanted to check whether
+   *             the value of the <code>ProductStatus</code> attribute was one of the following: </p>
+   *          <p>
+   *             <code>Available | Backordered | Discontinued</code>
+   *          </p>
+   *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
+   *          <p>
+   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code>
+   *          </p>
+   *          <p>You could then use these values in an expression, such as this:</p>
+   *          <p>
+   *             <code>ProductStatus IN (:avail, :back, :disc)</code>
+   *          </p>
+   *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+   *                <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all.  In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>UpdateExpression</code> instead.   For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  AttributeUpdates?: { [key: string]: AttributeValueUpdate };
+
+  /**
+   * <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
+   *          <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
+   */
+  Key: { [key: string]: AttributeValue } | undefined;
+
+  /**
+   * <p>This is a legacy parameter.  Use <code>ConditionExpression</code> instead.   For more information, see
+   *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  Expected?: { [key: string]: ExpectedAttributeValue };
+
+  /**
+   * <p>The name of the table containing the item to update.</p>
+   */
+  TableName: string | undefined;
 }
 
 export namespace UpdateItemInput {
@@ -8574,15 +8594,6 @@ export interface UpdateItemOutput {
    *             represents one attribute.</p>
    */
   Attributes?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data returned includes the total
-   *             provisioned throughput consumed, along with statistics for the table and any indexes involved
-   *             in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified.
-   *             For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
-   *                 Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   */
-  ConsumedCapacity?: ConsumedCapacity;
 
   /**
    * <p>Information about item collections, if any, that were affected by the
@@ -8612,6 +8623,15 @@ export interface UpdateItemOutput {
    *          </ul>
    */
   ItemCollectionMetrics?: ItemCollectionMetrics;
+
+  /**
+   * <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data returned includes the total
+   *             provisioned throughput consumed, along with statistics for the table and any indexes involved
+   *             in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified.
+   *             For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
+   *                 Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   */
+  ConsumedCapacity?: ConsumedCapacity;
 }
 
 export namespace UpdateItemOutput {
@@ -8627,6 +8647,17 @@ export namespace UpdateItemOutput {
 export interface UpdateReplicationGroupMemberAction {
   __type?: "UpdateReplicationGroupMemberAction";
   /**
+   * <p>The Region where the replica exists.</p>
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>Replica-specific provisioned throughput. If not specified, uses the source table's
+   *          provisioned throughput settings.</p>
+   */
+  ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+
+  /**
    * <p>Replica-specific global secondary index settings.</p>
    */
   GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
@@ -8638,17 +8669,6 @@ export interface UpdateReplicationGroupMemberAction {
    *          the default DynamoDB KMS master key alias/aws/dynamodb.</p>
    */
   KMSMasterKeyId?: string;
-
-  /**
-   * <p>Replica-specific provisioned throughput. If not specified, uses the source table's
-   *          provisioned throughput settings.</p>
-   */
-  ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
-
-  /**
-   * <p>The Region where the replica exists.</p>
-   */
-  RegionName: string | undefined;
 }
 
 export namespace UpdateReplicationGroupMemberAction {
@@ -8665,28 +8685,19 @@ export namespace UpdateReplicationGroupMemberAction {
 export interface UpdateTableInput {
   __type?: "UpdateTableInput";
   /**
+   * <p>The new server-side encryption settings for the specified table.</p>
+   */
+  SSESpecification?: SSESpecification;
+
+  /**
+   * <p>The name of the table to be updated.</p>
+   */
+  TableName: string | undefined;
+
+  /**
    * <p>An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, <code>AttributeDefinitions</code> must include the key element(s) of the new index.</p>
    */
   AttributeDefinitions?: AttributeDefinition[];
-
-  /**
-   * <p>Controls how you are charged for read and write throughput and how you manage capacity.
-   *       When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial
-   *       provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes
-   *       over the past 30 minutes.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>.
-   *             </p>
-   *             </li>
-   *          </ul>
-   */
-  BillingMode?: BillingMode | string;
 
   /**
    * <p>An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:</p>
@@ -8711,6 +8722,25 @@ export interface UpdateTableInput {
   GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexUpdate[];
 
   /**
+   * <p>Controls how you are charged for read and write throughput and how you manage capacity.
+   *       When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial
+   *       provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes
+   *       over the past 30 minutes.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>.
+   *             </p>
+   *             </li>
+   *          </ul>
+   */
+  BillingMode?: BillingMode | string;
+
+  /**
    * <p>The new provisioned throughput settings for the specified table or index.</p>
    */
   ProvisionedThroughput?: ProvisionedThroughput;
@@ -8724,11 +8754,6 @@ export interface UpdateTableInput {
   ReplicaUpdates?: ReplicationGroupUpdate[];
 
   /**
-   * <p>The new server-side encryption settings for the specified table.</p>
-   */
-  SSESpecification?: SSESpecification;
-
-  /**
    * <p>Represents the DynamoDB Streams configuration for the table.</p>
    *          <note>
    *             <p>You receive a <code>ResourceInUseException</code> if you try to enable a stream on a
@@ -8737,11 +8762,6 @@ export interface UpdateTableInput {
    *          </note>
    */
   StreamSpecification?: StreamSpecification;
-
-  /**
-   * <p>The name of the table to be updated.</p>
-   */
-  TableName: string | undefined;
 }
 
 export namespace UpdateTableInput {
@@ -8772,10 +8792,10 @@ export namespace UpdateTableOutput {
 export interface UpdateTableReplicaAutoScalingInput {
   __type?: "UpdateTableReplicaAutoScalingInput";
   /**
-   * <p>Represents the auto scaling settings of the global secondary indexes of the replica
-   *           to be updated.</p>
+   * <p>Represents the auto scaling settings of replicas of the table that will be
+   *            modified.</p>
    */
-  GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexAutoScalingUpdate[];
+  ReplicaUpdates?: ReplicaAutoScalingUpdate[];
 
   /**
    * <p>Represents the auto scaling settings to be modified for a global table or global
@@ -8784,15 +8804,15 @@ export interface UpdateTableReplicaAutoScalingInput {
   ProvisionedWriteCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
 
   /**
-   * <p>Represents the auto scaling settings of replicas of the table that will be
-   *            modified.</p>
-   */
-  ReplicaUpdates?: ReplicaAutoScalingUpdate[];
-
-  /**
    * <p>The name of the global table to be updated.</p>
    */
   TableName: string | undefined;
+
+  /**
+   * <p>Represents the auto scaling settings of the global secondary indexes of the replica
+   *           to be updated.</p>
+   */
+  GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexAutoScalingUpdate[];
 }
 
 export namespace UpdateTableReplicaAutoScalingInput {
@@ -8825,14 +8845,14 @@ export namespace UpdateTableReplicaAutoScalingOutput {
 export interface UpdateTimeToLiveInput {
   __type?: "UpdateTimeToLiveInput";
   /**
-   * <p>The name of the table to be configured.</p>
-   */
-  TableName: string | undefined;
-
-  /**
    * <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
    */
   TimeToLiveSpecification: TimeToLiveSpecification | undefined;
+
+  /**
+   * <p>The name of the table to be configured.</p>
+   */
+  TableName: string | undefined;
 }
 
 export namespace UpdateTimeToLiveInput {

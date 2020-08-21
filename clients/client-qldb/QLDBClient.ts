@@ -1,5 +1,13 @@
+import {
+  CancelJournalKinesisStreamCommandInput,
+  CancelJournalKinesisStreamCommandOutput,
+} from "./commands/CancelJournalKinesisStreamCommand";
 import { CreateLedgerCommandInput, CreateLedgerCommandOutput } from "./commands/CreateLedgerCommand";
 import { DeleteLedgerCommandInput, DeleteLedgerCommandOutput } from "./commands/DeleteLedgerCommand";
+import {
+  DescribeJournalKinesisStreamCommandInput,
+  DescribeJournalKinesisStreamCommandOutput,
+} from "./commands/DescribeJournalKinesisStreamCommand";
 import {
   DescribeJournalS3ExportCommandInput,
   DescribeJournalS3ExportCommandOutput,
@@ -9,6 +17,10 @@ import { ExportJournalToS3CommandInput, ExportJournalToS3CommandOutput } from ".
 import { GetBlockCommandInput, GetBlockCommandOutput } from "./commands/GetBlockCommand";
 import { GetDigestCommandInput, GetDigestCommandOutput } from "./commands/GetDigestCommand";
 import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
+import {
+  ListJournalKinesisStreamsForLedgerCommandInput,
+  ListJournalKinesisStreamsForLedgerCommandOutput,
+} from "./commands/ListJournalKinesisStreamsForLedgerCommand";
 import {
   ListJournalS3ExportsCommandInput,
   ListJournalS3ExportsCommandOutput,
@@ -22,6 +34,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StreamJournalToKinesisCommandInput,
+  StreamJournalToKinesisCommandOutput,
+} from "./commands/StreamJournalToKinesisCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateLedgerCommandInput, UpdateLedgerCommandOutput } from "./commands/UpdateLedgerCommand";
@@ -73,35 +89,43 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CancelJournalKinesisStreamCommandInput
   | CreateLedgerCommandInput
   | DeleteLedgerCommandInput
+  | DescribeJournalKinesisStreamCommandInput
   | DescribeJournalS3ExportCommandInput
   | DescribeLedgerCommandInput
   | ExportJournalToS3CommandInput
   | GetBlockCommandInput
   | GetDigestCommandInput
   | GetRevisionCommandInput
+  | ListJournalKinesisStreamsForLedgerCommandInput
   | ListJournalS3ExportsCommandInput
   | ListJournalS3ExportsForLedgerCommandInput
   | ListLedgersCommandInput
   | ListTagsForResourceCommandInput
+  | StreamJournalToKinesisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateLedgerCommandInput;
 
 export type ServiceOutputTypes =
+  | CancelJournalKinesisStreamCommandOutput
   | CreateLedgerCommandOutput
   | DeleteLedgerCommandOutput
+  | DescribeJournalKinesisStreamCommandOutput
   | DescribeJournalS3ExportCommandOutput
   | DescribeLedgerCommandOutput
   | ExportJournalToS3CommandOutput
   | GetBlockCommandOutput
   | GetDigestCommandOutput
   | GetRevisionCommandOutput
+  | ListJournalKinesisStreamsForLedgerCommandOutput
   | ListJournalS3ExportsCommandOutput
   | ListJournalS3ExportsForLedgerCommandOutput
   | ListLedgersCommandOutput
   | ListTagsForResourceCommandOutput
+  | StreamJournalToKinesisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateLedgerCommandOutput;

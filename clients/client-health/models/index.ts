@@ -12,11 +12,9 @@ export interface AffectedEntity {
   awsAccountId?: string;
 
   /**
-   * <p>The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i>
-   *             </code>. Example: <code>arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K</code>
-   *          </p>
+   * <p>A map of entity tags attached to the affected entity.</p>
    */
-  entityArn?: string;
+  tags?: { [key: string]: string };
 
   /**
    * <p>The URL of the affected entity.</p>
@@ -24,9 +22,11 @@ export interface AffectedEntity {
   entityUrl?: string;
 
   /**
-   * <p>The ID of the affected entity.</p>
+   * <p>The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i>
+   *             </code>. Example: <code>arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K</code>
+   *          </p>
    */
-  entityValue?: string;
+  entityArn?: string;
 
   /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
@@ -36,20 +36,20 @@ export interface AffectedEntity {
   eventArn?: string;
 
   /**
-   * <p>The most recent time that the entity was updated.</p>
-   */
-  lastUpdatedTime?: Date;
-
-  /**
    * <p>The most recent status of the entity affected by the event. The possible values are
    *             <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>.</p>
    */
   statusCode?: EntityStatusCode | string;
 
   /**
-   * <p>A map of entity tags attached to the affected entity.</p>
+   * <p>The most recent time that the entity was updated.</p>
    */
-  tags?: { [key: string]: string };
+  lastUpdatedTime?: Date;
+
+  /**
+   * <p>The ID of the affected entity.</p>
+   */
+  entityValue?: string;
 }
 
 export namespace AffectedEntity {
@@ -90,14 +90,14 @@ export namespace ConcurrentModificationException {
 export interface DateTimeRange {
   __type?: "DateTimeRange";
   /**
-   * <p>The starting date and time of a time range.</p>
-   */
-  from?: Date;
-
-  /**
    * <p>The ending date and time of a time range.</p>
    */
   to?: Date;
+
+  /**
+   * <p>The starting date and time of a time range.</p>
+   */
+  from?: Date;
 }
 
 export namespace DateTimeRange {
@@ -141,17 +141,18 @@ export namespace DescribeAffectedAccountsForOrganizationRequest {
 export interface DescribeAffectedAccountsForOrganizationResponse {
   __type?: "DescribeAffectedAccountsForOrganizationResponse";
   /**
-   * <p>A JSON set of elements of the affected accounts.</p>
-   */
-  affectedAccounts?: string[];
-
-  /**
    * <p>If the results of a search are large, only a portion of the
    * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
    * retrieve the next batch of results, reissue the search request and include the returned token.
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
+
+  eventScopeCode?: EventScopeCode | string;
+  /**
+   * <p>A JSON set of elements of the affected accounts.</p>
+   */
+  affectedAccounts?: string[];
 }
 
 export namespace DescribeAffectedAccountsForOrganizationResponse {
@@ -170,9 +171,10 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
   locale?: string;
 
   /**
-   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   * <p>A JSON set of elements including the <code>awsAccountId</code> and the
+   *             <code>eventArn</code>.</p>
    */
-  maxResults?: number;
+  organizationEntityFilters: EventAccountFilter[] | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -183,10 +185,9 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
   nextToken?: string;
 
   /**
-   * <p>A JSON set of elements including the <code>awsAccountId</code> and the
-   *             <code>eventArn</code>.</p>
+   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    */
-  organizationEntityFilters: EventAccountFilter[] | undefined;
+  maxResults?: number;
 }
 
 export namespace DescribeAffectedEntitiesForOrganizationRequest {
@@ -200,6 +201,14 @@ export namespace DescribeAffectedEntitiesForOrganizationRequest {
 export interface DescribeAffectedEntitiesForOrganizationResponse {
   __type?: "DescribeAffectedEntitiesForOrganizationResponse";
   /**
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>A JSON set of elements including the <code>awsAccountId</code> and its
    *             <code>entityArn</code>, <code>entityValue</code> and its <code>entityArn</code>,
    *             <code>lastUpdatedTime</code>, <code>statusCode</code>, and <code>tags</code>.</p>
@@ -211,14 +220,6 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
    *             <code>errorMessage</code>, <code>errorName</code>, and <code>eventArn</code>.</p>
    */
   failedSet?: OrganizationAffectedEntitiesErrorItem[];
-
-  /**
-   * <p>If the results of a search are large, only a portion of the
-   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
-   * retrieve the next batch of results, reissue the search request and include the returned token.
-   * When all results have been returned, the response does not contain a pagination token value.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace DescribeAffectedEntitiesForOrganizationResponse {
@@ -231,11 +232,6 @@ export namespace DescribeAffectedEntitiesForOrganizationResponse {
 
 export interface DescribeAffectedEntitiesRequest {
   __type?: "DescribeAffectedEntitiesRequest";
-  /**
-   * <p>Values to narrow the results returned. At least one event ARN is required.</p>
-   */
-  filter: EntityFilter | undefined;
-
   /**
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    */
@@ -253,6 +249,11 @@ export interface DescribeAffectedEntitiesRequest {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Values to narrow the results returned. At least one event ARN is required.</p>
+   */
+  filter: EntityFilter | undefined;
 }
 
 export namespace DescribeAffectedEntitiesRequest {
@@ -265,17 +266,17 @@ export namespace DescribeAffectedEntitiesRequest {
 export interface DescribeAffectedEntitiesResponse {
   __type?: "DescribeAffectedEntitiesResponse";
   /**
-   * <p>The entities that match the filter criteria.</p>
-   */
-  entities?: AffectedEntity[];
-
-  /**
    * <p>If the results of a search are large, only a portion of the
    * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
    * retrieve the next batch of results, reissue the search request and include the returned token.
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The entities that match the filter criteria.</p>
+   */
+  entities?: AffectedEntity[];
 }
 
 export namespace DescribeAffectedEntitiesResponse {
@@ -319,14 +320,17 @@ export namespace DescribeEntityAggregatesResponse {
 export interface DescribeEventAggregatesRequest {
   __type?: "DescribeEventAggregatesRequest";
   /**
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The only currently supported value is <code>eventTypeCategory</code>.</p>
    */
   aggregateField: EventAggregateField | string | undefined;
-
-  /**
-   * <p>Values to narrow the results returned.</p>
-   */
-  filter?: EventFilter;
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
@@ -334,12 +338,9 @@ export interface DescribeEventAggregatesRequest {
   maxResults?: number;
 
   /**
-   * <p>If the results of a search are large, only a portion of the
-   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
-   * retrieve the next batch of results, reissue the search request and include the returned token.
-   * When all results have been returned, the response does not contain a pagination token value.</p>
+   * <p>Values to narrow the results returned.</p>
    */
-  nextToken?: string;
+  filter?: EventFilter;
 }
 
 export namespace DescribeEventAggregatesRequest {
@@ -352,18 +353,18 @@ export namespace DescribeEventAggregatesRequest {
 export interface DescribeEventAggregatesResponse {
   __type?: "DescribeEventAggregatesResponse";
   /**
-   * <p>The number of events in each category that meet the optional filter
-   *          criteria.</p>
-   */
-  eventAggregates?: EventAggregate[];
-
-  /**
    * <p>If the results of a search are large, only a portion of the
    * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
    * retrieve the next batch of results, reissue the search request and include the returned token.
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The number of events in each category that meet the optional filter
+   *          criteria.</p>
+   */
+  eventAggregates?: EventAggregate[];
 }
 
 export namespace DescribeEventAggregatesResponse {
@@ -460,9 +461,12 @@ export namespace DescribeEventDetailsResponse {
 export interface DescribeEventsForOrganizationRequest {
   __type?: "DescribeEventsForOrganizationRequest";
   /**
-   * <p>Values to narrow the results returned.</p>
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
    */
-  filter?: OrganizationEventFilter;
+  nextToken?: string;
 
   /**
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
@@ -470,17 +474,14 @@ export interface DescribeEventsForOrganizationRequest {
   locale?: string;
 
   /**
+   * <p>Values to narrow the results returned.</p>
+   */
+  filter?: OrganizationEventFilter;
+
+  /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>If the results of a search are large, only a portion of the
-   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
-   * retrieve the next batch of results, reissue the search request and include the returned token.
-   * When all results have been returned, the response does not contain a pagination token value.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace DescribeEventsForOrganizationRequest {
@@ -494,17 +495,17 @@ export namespace DescribeEventsForOrganizationRequest {
 export interface DescribeEventsForOrganizationResponse {
   __type?: "DescribeEventsForOrganizationResponse";
   /**
-   * <p>The events that match the specified filter criteria.</p>
-   */
-  events?: OrganizationEvent[];
-
-  /**
    * <p>If the results of a search are large, only a portion of the
    * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
    * retrieve the next batch of results, reissue the search request and include the returned token.
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The events that match the specified filter criteria.</p>
+   */
+  events?: OrganizationEvent[];
 }
 
 export namespace DescribeEventsForOrganizationResponse {
@@ -518,14 +519,12 @@ export namespace DescribeEventsForOrganizationResponse {
 export interface DescribeEventsRequest {
   __type?: "DescribeEventsRequest";
   /**
-   * <p>Values to narrow the results returned.</p>
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
    */
-  filter?: EventFilter;
-
-  /**
-   * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
-   */
-  locale?: string;
+  nextToken?: string;
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
@@ -533,12 +532,14 @@ export interface DescribeEventsRequest {
   maxResults?: number;
 
   /**
-   * <p>If the results of a search are large, only a portion of the
-   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
-   * retrieve the next batch of results, reissue the search request and include the returned token.
-   * When all results have been returned, the response does not contain a pagination token value.</p>
+   * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    */
-  nextToken?: string;
+  locale?: string;
+
+  /**
+   * <p>Values to narrow the results returned.</p>
+   */
+  filter?: EventFilter;
 }
 
 export namespace DescribeEventsRequest {
@@ -551,17 +552,17 @@ export namespace DescribeEventsRequest {
 export interface DescribeEventsResponse {
   __type?: "DescribeEventsResponse";
   /**
-   * <p>The events that match the specified filter criteria.</p>
-   */
-  events?: Event[];
-
-  /**
    * <p>If the results of a search are large, only a portion of the
    * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
    * retrieve the next batch of results, reissue the search request and include the returned token.
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The events that match the specified filter criteria.</p>
+   */
+  events?: Event[];
 }
 
 export namespace DescribeEventsResponse {
@@ -584,17 +585,17 @@ export interface DescribeEventTypesRequest {
   locale?: string;
 
   /**
-   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>If the results of a search are large, only a portion of the
    * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
    * retrieve the next batch of results, reissue the search request and include the returned token.
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace DescribeEventTypesRequest {
@@ -607,6 +608,14 @@ export namespace DescribeEventTypesRequest {
 export interface DescribeEventTypesResponse {
   __type?: "DescribeEventTypesResponse";
   /**
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>A list of event types that match the filter criteria. Event types have a category
    *             (<code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>),
    *          a service (for example, <code>EC2</code>, <code>RDS</code>, <code>DATAPIPELINE</code>,
@@ -616,14 +625,6 @@ export interface DescribeEventTypesResponse {
    *          example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>
    */
   eventTypes?: EventType[];
-
-  /**
-   * <p>If the results of a search are large, only a portion of the
-   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
-   * retrieve the next batch of results, reissue the search request and include the returned token.
-   * When all results have been returned, the response does not contain a pagination token value.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace DescribeEventTypesResponse {
@@ -682,9 +683,25 @@ export namespace EntityAggregate {
 export interface EntityFilter {
   __type?: "EntityFilter";
   /**
+   * <p>A map of entity tags attached to the affected entity.</p>
+   */
+  tags?: { [key: string]: string }[];
+
+  /**
+   * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
+   *             <code>UNKNOWN</code>).</p>
+   */
+  statusCodes?: (EntityStatusCode | string)[];
+
+  /**
    * <p>A list of entity ARNs (unique identifiers).</p>
    */
   entityArns?: string[];
+
+  /**
+   * <p>A list of the most recent dates and times that the entity was updated.</p>
+   */
+  lastUpdatedTimes?: DateTimeRange[];
 
   /**
    * <p>A list of IDs for affected entities.</p>
@@ -696,22 +713,6 @@ export interface EntityFilter {
    *          </p>
    */
   eventArns: string[] | undefined;
-
-  /**
-   * <p>A list of the most recent dates and times that the entity was updated.</p>
-   */
-  lastUpdatedTimes?: DateTimeRange[];
-
-  /**
-   * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
-   *             <code>UNKNOWN</code>).</p>
-   */
-  statusCodes?: (EntityStatusCode | string)[];
-
-  /**
-   * <p>A map of entity tags attached to the affected entity.</p>
-   */
-  tags?: { [key: string]: string }[];
 }
 
 export namespace EntityFilter {
@@ -733,33 +734,20 @@ export enum EntityStatusCode {
 export interface Event {
   __type?: "Event";
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
-   *          </p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The AWS Availability Zone of the event. For example, us-east-1a.</p>
-   */
-  availabilityZone?: string;
-
-  /**
    * <p>The date and time that the event ended.</p>
    */
   endTime?: Date;
 
   /**
+   * <p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   */
+  service?: string;
+
+  /**
    * <p>The category of the event. Possible values are <code>issue</code>,
    *             <code>scheduledChange</code>, and <code>accountNotification</code>.</p>
    */
-  eventTypeCategory?: EventTypeStringCategory | string;
-
-  /**
-   * <p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>
-   *             </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
-   */
-  eventTypeCode?: string;
+  eventTypeCategory?: EventTypeCategory | string;
 
   /**
    * <p>The most recent date and time that the event was updated.</p>
@@ -772,20 +760,35 @@ export interface Event {
   region?: string;
 
   /**
-   * <p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The AWS Availability Zone of the event. For example, us-east-1a.</p>
    */
-  service?: string;
+  availabilityZone?: string;
 
   /**
-   * <p>The date and time that the event began.</p>
+   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   *          </p>
    */
-  startTime?: Date;
+  arn?: string;
 
   /**
    * <p>The most recent status of the event. Possible values are <code>open</code>,
    *             <code>closed</code>, and <code>upcoming</code>.</p>
    */
   statusCode?: EventStatusCode | string;
+
+  /**
+   * <p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>
+   *             </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
+   */
+  eventTypeCode?: string;
+
+  /**
+   * <p>The date and time that the event began.</p>
+   */
+  startTime?: Date;
+
+  eventScopeCode?: EventScopeCode | string;
 }
 
 export namespace Event {
@@ -801,16 +804,16 @@ export namespace Event {
 export interface EventAccountFilter {
   __type?: "EventAccountFilter";
   /**
-   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
-   */
-  awsAccountId: string | undefined;
-
-  /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
    *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn: string | undefined;
+
+  /**
+   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
+   */
+  awsAccountId?: string;
 }
 
 export namespace EventAccountFilter {
@@ -874,14 +877,14 @@ export namespace EventDescription {
 export interface EventDetails {
   __type?: "EventDetails";
   /**
-   * <p>Summary information about the event.</p>
-   */
-  event?: Event;
-
-  /**
    * <p>The most recent description of the event.</p>
    */
   eventDescription?: EventDescription;
+
+  /**
+   * <p>Summary information about the event.</p>
+   */
+  event?: Event;
 
   /**
    * <p>Additional metadata about the event.</p>
@@ -908,16 +911,16 @@ export interface EventDetailsErrorItem {
   errorMessage?: string;
 
   /**
-   * <p>The name of the error.</p>
-   */
-  errorName?: string;
-
-  /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
    *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn?: string;
+
+  /**
+   * <p>The name of the error.</p>
+   */
+  errorName?: string;
 }
 
 export namespace EventDetailsErrorItem {
@@ -934,19 +937,15 @@ export namespace EventDetailsErrorItem {
 export interface EventFilter {
   __type?: "EventFilter";
   /**
-   * <p>A list of AWS availability zones.</p>
+   * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>
+   *          </p>
    */
-  availabilityZones?: string[];
+  eventTypeCodes?: string[];
 
   /**
    * <p>A list of dates and times that the event ended.</p>
    */
   endTimes?: DateTimeRange[];
-
-  /**
-   * <p>A list of entity ARNs (unique identifiers).</p>
-   */
-  entityArns?: string[];
 
   /**
    * <p>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or
@@ -955,37 +954,9 @@ export interface EventFilter {
   entityValues?: string[];
 
   /**
-   * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
-   *          </p>
+   * <p>A list of dates and times that the event began.</p>
    */
-  eventArns?: string[];
-
-  /**
-   * <p>A list of event status codes.</p>
-   */
-  eventStatusCodes?: (EventStatusCode | string)[];
-
-  /**
-   * <p>A list of event type category codes (<code>issue</code>,
-   *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
-   */
-  eventTypeCategories?: (EventTypeStringCategory | string)[];
-
-  /**
-   * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>
-   *          </p>
-   */
-  eventTypeCodes?: string[];
-
-  /**
-   * <p>A list of dates and times that the event was last updated.</p>
-   */
-  lastUpdatedTimes?: DateTimeRange[];
-
-  /**
-   * <p>A list of AWS regions.</p>
-   */
-  regions?: string[];
+  startTimes?: DateTimeRange[];
 
   /**
    * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
@@ -993,14 +964,46 @@ export interface EventFilter {
   services?: string[];
 
   /**
-   * <p>A list of dates and times that the event began.</p>
+   * <p>A list of event status codes.</p>
    */
-  startTimes?: DateTimeRange[];
+  eventStatusCodes?: (EventStatusCode | string)[];
+
+  /**
+   * <p>A list of AWS regions.</p>
+   */
+  regions?: string[];
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
    */
   tags?: { [key: string]: string }[];
+
+  /**
+   * <p>A list of AWS availability zones.</p>
+   */
+  availabilityZones?: string[];
+
+  /**
+   * <p>A list of dates and times that the event was last updated.</p>
+   */
+  lastUpdatedTimes?: DateTimeRange[];
+
+  /**
+   * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
+   *          </p>
+   */
+  eventArns?: string[];
+
+  /**
+   * <p>A list of entity ARNs (unique identifiers).</p>
+   */
+  entityArns?: string[];
+
+  /**
+   * <p>A list of event type category codes (<code>issue</code>,
+   *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
+   */
+  eventTypeCategories?: (EventTypeCategory | string)[];
 }
 
 export namespace EventFilter {
@@ -1008,6 +1011,12 @@ export namespace EventFilter {
     ...obj,
   });
   export const isa = (o: any): o is EventFilter => __isa(o, "EventFilter");
+}
+
+export enum EventScopeCode {
+  ACCOUNT_SPECIFIC = "ACCOUNT_SPECIFIC",
+  NONE = "NONE",
+  PUBLIC = "PUBLIC",
 }
 
 export enum EventStatusCode {
@@ -1025,16 +1034,16 @@ export enum EventStatusCode {
 export interface EventType {
   __type?: "EventType";
   /**
-   * <p>A list of event type category codes (<code>issue</code>,
-   *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
-   */
-  category?: EventTypeStringCategory | string;
-
-  /**
    * <p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>
    *             </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
    */
   code?: string;
+
+  /**
+   * <p>A list of event type category codes (<code>issue</code>,
+   *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
+   */
+  category?: EventTypeCategory | string;
 
   /**
    * <p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
@@ -1049,6 +1058,13 @@ export namespace EventType {
   export const isa = (o: any): o is EventType => __isa(o, "EventType");
 }
 
+export enum EventTypeCategory {
+  ACCOUNT_NOTIFICATION = "accountNotification",
+  INVESTIGATION = "investigation",
+  ISSUE = "issue",
+  SCHEDULED_CHANGE = "scheduledChange",
+}
+
 /**
  * <p>The values to use to filter results from the <a>DescribeEventTypes</a>
  *          operation.</p>
@@ -1059,7 +1075,7 @@ export interface EventTypeFilter {
    * <p>A list of event type category codes (<code>issue</code>,
    *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
    */
-  eventTypeCategories?: (EventTypeStringCategory | string)[];
+  eventTypeCategories?: (EventTypeCategory | string)[];
 
   /**
    * <p>A list of event type codes.</p>
@@ -1077,13 +1093,6 @@ export namespace EventTypeFilter {
     ...obj,
   });
   export const isa = (o: any): o is EventTypeFilter => __isa(o, "EventTypeFilter");
-}
-
-export enum EventTypeStringCategory {
-  ACCOUNT_NOTIFICATION = "accountNotification",
-  INVESTIGATION = "investigation",
-  ISSUE = "issue",
-  SCHEDULED_CHANGE = "scheduledChange",
 }
 
 /**
@@ -1109,11 +1118,6 @@ export namespace InvalidPaginationToken {
 export interface OrganizationAffectedEntitiesErrorItem {
   __type?: "OrganizationAffectedEntitiesErrorItem";
   /**
-   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
-   */
-  awsAccountId?: string;
-
-  /**
    * <p>The unique identifier for the event type. The format is
    *             <code>AWS_SERVICE_DESCRIPTION</code>. For example,
    *             <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
@@ -1121,16 +1125,21 @@ export interface OrganizationAffectedEntitiesErrorItem {
   errorMessage?: string;
 
   /**
-   * <p>The name of the error.</p>
-   */
-  errorName?: string;
-
-  /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
    *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn?: string;
+
+  /**
+   * <p>The name of the error.</p>
+   */
+  errorName?: string;
+
+  /**
+   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
+   */
+  awsAccountId?: string;
 }
 
 export namespace OrganizationAffectedEntitiesErrorItem {
@@ -1147,21 +1156,20 @@ export namespace OrganizationAffectedEntitiesErrorItem {
 export interface OrganizationEvent {
   __type?: "OrganizationEvent";
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
-   *          </p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The date and time that the event ended.</p>
-   */
-  endTime?: Date;
-
-  /**
    * <p>The category of the event type.</p>
    */
-  eventTypeCategory?: EventTypeStringCategory | string;
+  eventTypeCategory?: EventTypeCategory | string;
+
+  /**
+   * <p>The AWS service that is affected by the event. For example, EC2, RDS.</p>
+   */
+  service?: string;
+
+  eventScopeCode?: EventScopeCode | string;
+  /**
+   * <p>The date and time that the event began.</p>
+   */
+  startTime?: Date;
 
   /**
    * <p>The unique identifier for the event type. The format is
@@ -1171,9 +1179,11 @@ export interface OrganizationEvent {
   eventTypeCode?: string;
 
   /**
-   * <p>The most recent date and time that the event was updated.</p>
+   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   *          </p>
    */
-  lastUpdatedTime?: Date;
+  arn?: string;
 
   /**
    * <p>The AWS Region name of the event.</p>
@@ -1181,20 +1191,20 @@ export interface OrganizationEvent {
   region?: string;
 
   /**
-   * <p>The AWS service that is affected by the event. For example, EC2, RDS.</p>
-   */
-  service?: string;
-
-  /**
-   * <p>The date and time that the event began.</p>
-   */
-  startTime?: Date;
-
-  /**
    * <p>The most recent status of the event. Possible values are <code>open</code>,
    *             <code>closed</code>, and <code>upcoming</code>.</p>
    */
   statusCode?: EventStatusCode | string;
+
+  /**
+   * <p>The most recent date and time that the event was updated.</p>
+   */
+  lastUpdatedTime?: Date;
+
+  /**
+   * <p>The date and time that the event ended.</p>
+   */
+  endTime?: Date;
 }
 
 export namespace OrganizationEvent {
@@ -1217,6 +1227,11 @@ export interface OrganizationEventDetails {
   awsAccountId?: string;
 
   /**
+   * <p>Additional metadata about the event.</p>
+   */
+  eventMetadata?: { [key: string]: string };
+
+  /**
    * <p>Summary information about an AWS Health event.</p>
    */
   event?: Event;
@@ -1226,11 +1241,6 @@ export interface OrganizationEventDetails {
    *             <a>DescribeEventDetails</a> operation.</p>
    */
   eventDescription?: EventDescription;
-
-  /**
-   * <p>Additional metadata about the event.</p>
-   */
-  eventMetadata?: { [key: string]: string };
 }
 
 export namespace OrganizationEventDetails {
@@ -1247,20 +1257,9 @@ export namespace OrganizationEventDetails {
 export interface OrganizationEventDetailsErrorItem {
   __type?: "OrganizationEventDetailsErrorItem";
   /**
-   * <p>Error information returned when a <a>DescribeEventDetailsForOrganization</a>
-   *          operation cannot find a specified event.</p>
-   */
-  awsAccountId?: string;
-
-  /**
    * <p>A message that describes the error.</p>
    */
   errorMessage?: string;
-
-  /**
-   * <p>The name of the error.</p>
-   */
-  errorName?: string;
 
   /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
@@ -1268,6 +1267,17 @@ export interface OrganizationEventDetailsErrorItem {
    *          </p>
    */
   eventArn?: string;
+
+  /**
+   * <p>Error information returned when a <a>DescribeEventDetailsForOrganization</a>
+   *          operation cannot find a specified event.</p>
+   */
+  awsAccountId?: string;
+
+  /**
+   * <p>The name of the error.</p>
+   */
+  errorName?: string;
 }
 
 export namespace OrganizationEventDetailsErrorItem {
@@ -1284,11 +1294,6 @@ export namespace OrganizationEventDetailsErrorItem {
 export interface OrganizationEventFilter {
   __type?: "OrganizationEventFilter";
   /**
-   * <p>A list of 12-digit AWS account numbers that contains the affected entities.</p>
-   */
-  awsAccountIds?: string[];
-
-  /**
    * <p>A range of dates and times that is used by the <a>EventFilter</a> and
    *             <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code>
    *          is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
@@ -1301,14 +1306,9 @@ export interface OrganizationEventFilter {
   endTime?: DateTimeRange;
 
   /**
-   * <p>REPLACEME</p>
+   * <p>A list of 12-digit AWS account numbers that contains the affected entities.</p>
    */
-  entityArns?: string[];
-
-  /**
-   * <p>A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).</p>
-   */
-  entityValues?: string[];
+  awsAccountIds?: string[];
 
   /**
    * <p>A list of event status codes.</p>
@@ -1316,9 +1316,9 @@ export interface OrganizationEventFilter {
   eventStatusCodes?: (EventStatusCode | string)[];
 
   /**
-   * <p>REPLACEME</p>
+   * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
-  eventTypeCategories?: (EventTypeStringCategory | string)[];
+  services?: string[];
 
   /**
    * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>
@@ -1336,7 +1336,17 @@ export interface OrganizationEventFilter {
    *          and <code>to</code> is set: match items where the timestamp value is equal to or before
    *             <code>to</code>.</p>
    */
-  lastUpdatedTime?: DateTimeRange;
+  startTime?: DateTimeRange;
+
+  /**
+   * <p>A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).</p>
+   */
+  entityValues?: string[];
+
+  /**
+   * <p>REPLACEME</p>
+   */
+  eventTypeCategories?: (EventTypeCategory | string)[];
 
   /**
    * <p>A list of AWS Regions.</p>
@@ -1344,9 +1354,9 @@ export interface OrganizationEventFilter {
   regions?: string[];
 
   /**
-   * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>REPLACEME</p>
    */
-  services?: string[];
+  entityArns?: string[];
 
   /**
    * <p>A range of dates and times that is used by the <a>EventFilter</a> and
@@ -1358,7 +1368,7 @@ export interface OrganizationEventFilter {
    *          and <code>to</code> is set: match items where the timestamp value is equal to or before
    *             <code>to</code>.</p>
    */
-  startTime?: DateTimeRange;
+  lastUpdatedTime?: DateTimeRange;
 }
 
 export namespace OrganizationEventFilter {

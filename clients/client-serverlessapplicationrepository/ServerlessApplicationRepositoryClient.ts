@@ -34,6 +34,7 @@ import {
   PutApplicationPolicyCommandInput,
   PutApplicationPolicyCommandOutput,
 } from "./commands/PutApplicationPolicyCommand";
+import { UnshareApplicationCommandInput, UnshareApplicationCommandOutput } from "./commands/UnshareApplicationCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -95,6 +96,7 @@ export type ServiceInputTypes =
   | ListApplicationVersionsCommandInput
   | ListApplicationsCommandInput
   | PutApplicationPolicyCommandInput
+  | UnshareApplicationCommandInput
   | UpdateApplicationCommandInput;
 
 export type ServiceOutputTypes =
@@ -110,6 +112,7 @@ export type ServiceOutputTypes =
   | ListApplicationVersionsCommandOutput
   | ListApplicationsCommandOutput
   | PutApplicationPolicyCommandOutput
+  | UnshareApplicationCommandOutput
   | UpdateApplicationCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -54,6 +54,7 @@ import {
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
 } from "../commands/ListResourceSharePermissionsCommand";
+import { ListResourceTypesCommandInput, ListResourceTypesCommandOutput } from "../commands/ListResourceTypesCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
 import {
   PromoteResourceShareCreatedFromPolicyCommandInput,
@@ -94,6 +95,7 @@ import {
   ResourceSharePermissionDetail,
   ResourceSharePermissionSummary,
   ServerInternalException,
+  ServiceNameAndResourceType,
   ServiceUnavailableException,
   Tag,
   TagFilter,
@@ -626,6 +628,31 @@ export const serializeAws_restJson1ListResourceSharePermissionsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.resourceShareArn !== undefined && { resourceShareArn: input.resourceShareArn }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListResourceTypesCommand = async (
+  input: ListResourceTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/listresourcetypes";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1886,6 +1913,14 @@ const deserializeAws_restJson1GetResourcePoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceArnNotFoundException":
+    case "com.amazonaws.ram#ResourceArnNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceArnNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
       response = {
@@ -2120,6 +2155,14 @@ const deserializeAws_restJson1GetResourceShareInvitationsCommandError = async (
     case "com.amazonaws.ram#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      response = {
+        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2776,6 +2819,90 @@ const deserializeAws_restJson1ListResourceSharePermissionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListResourceTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceTypesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListResourceTypesCommandError(output, context);
+  }
+  const contents: ListResourceTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListResourceTypesResponse",
+    nextToken: undefined,
+    resourceTypes: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.resourceTypes !== undefined && data.resourceTypes !== null) {
+    contents.resourceTypes = deserializeAws_restJson1ServiceNameAndResourceTypeList(data.resourceTypes, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListResourceTypesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.ram#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      response = {
+        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2851,6 +2978,14 @@ const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError 
     case "com.amazonaws.ram#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      response = {
+        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3932,6 +4067,24 @@ const deserializeAws_restJson1ResourceSharePermissionSummary = (
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ServiceNameAndResourceType = (
+  output: any,
+  context: __SerdeContext
+): ServiceNameAndResourceType => {
+  return {
+    __type: "ServiceNameAndResourceType",
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    serviceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ServiceNameAndResourceTypeList = (
+  output: any,
+  context: __SerdeContext
+): ServiceNameAndResourceType[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ServiceNameAndResourceType(entry, context));
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {

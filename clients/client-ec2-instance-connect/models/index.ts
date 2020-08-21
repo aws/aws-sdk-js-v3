@@ -62,14 +62,14 @@ export interface SendSSHPublicKeyRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>
-   */
-  InstanceOSUser: string | undefined;
-
-  /**
    * <p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>
    */
   SSHPublicKey: string | undefined;
+
+  /**
+   * <p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>
+   */
+  InstanceOSUser: string | undefined;
 }
 
 export namespace SendSSHPublicKeyRequest {
@@ -82,14 +82,14 @@ export namespace SendSSHPublicKeyRequest {
 export interface SendSSHPublicKeyResponse {
   __type?: "SendSSHPublicKeyResponse";
   /**
-   * <p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>
-   */
-  RequestId?: string;
-
-  /**
    * <p>Indicates request success.</p>
    */
   Success?: boolean;
+
+  /**
+   * <p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>
+   */
+  RequestId?: string;
 }
 
 export namespace SendSSHPublicKeyResponse {

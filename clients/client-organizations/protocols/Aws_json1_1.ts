@@ -19,6 +19,10 @@ import {
   DeleteOrganizationalUnitCommandOutput,
 } from "../commands/DeleteOrganizationalUnitCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "../commands/DeletePolicyCommand";
+import {
+  DeregisterDelegatedAdministratorCommandInput,
+  DeregisterDelegatedAdministratorCommandOutput,
+} from "../commands/DeregisterDelegatedAdministratorCommand";
 import { DescribeAccountCommandInput, DescribeAccountCommandOutput } from "../commands/DescribeAccountCommand";
 import {
   DescribeCreateAccountStatusCommandInput,
@@ -70,6 +74,14 @@ import {
   ListCreateAccountStatusCommandOutput,
 } from "../commands/ListCreateAccountStatusCommand";
 import {
+  ListDelegatedAdministratorsCommandInput,
+  ListDelegatedAdministratorsCommandOutput,
+} from "../commands/ListDelegatedAdministratorsCommand";
+import {
+  ListDelegatedServicesForAccountCommandInput,
+  ListDelegatedServicesForAccountCommandOutput,
+} from "../commands/ListDelegatedServicesForAccountCommand";
+import {
   ListHandshakesForAccountCommandInput,
   ListHandshakesForAccountCommandOutput,
 } from "../commands/ListHandshakesForAccountCommand";
@@ -98,6 +110,10 @@ import {
 } from "../commands/ListTargetsForPolicyCommand";
 import { MoveAccountCommandInput, MoveAccountCommandOutput } from "../commands/MoveAccountCommand";
 import {
+  RegisterDelegatedAdministratorCommandInput,
+  RegisterDelegatedAdministratorCommandOutput,
+} from "../commands/RegisterDelegatedAdministratorCommand";
+import {
   RemoveAccountFromOrganizationCommandInput,
   RemoveAccountFromOrganizationCommandOutput,
 } from "../commands/RemoveAccountFromOrganizationCommand";
@@ -115,7 +131,9 @@ import {
   AccessDeniedException,
   AccessDeniedForDependencyException,
   Account,
+  AccountAlreadyRegisteredException,
   AccountNotFoundException,
+  AccountNotRegisteredException,
   AccountOwnerNotVerifiedException,
   AlreadyInOrganizationException,
   AttachPolicyRequest,
@@ -140,8 +158,11 @@ import {
   CreatePolicyResponse,
   DeclineHandshakeRequest,
   DeclineHandshakeResponse,
+  DelegatedAdministrator,
+  DelegatedService,
   DeleteOrganizationalUnitRequest,
   DeletePolicyRequest,
+  DeregisterDelegatedAdministratorRequest,
   DescribeAccountRequest,
   DescribeAccountResponse,
   DescribeCreateAccountStatusRequest,
@@ -195,6 +216,10 @@ import {
   ListChildrenResponse,
   ListCreateAccountStatusRequest,
   ListCreateAccountStatusResponse,
+  ListDelegatedAdministratorsRequest,
+  ListDelegatedAdministratorsResponse,
+  ListDelegatedServicesForAccountRequest,
+  ListDelegatedServicesForAccountResponse,
   ListHandshakesForAccountRequest,
   ListHandshakesForAccountResponse,
   ListHandshakesForOrganizationRequest,
@@ -234,6 +259,7 @@ import {
   PolicyTypeNotAvailableForOrganizationException,
   PolicyTypeNotEnabledException,
   PolicyTypeSummary,
+  RegisterDelegatedAdministratorRequest,
   RemoveAccountFromOrganizationRequest,
   Root,
   RootNotFoundException,
@@ -411,6 +437,19 @@ export const serializeAws_json1_1DeletePolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeregisterDelegatedAdministratorCommand = async (
+  input: DeregisterDelegatedAdministratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeregisterDelegatedAdministratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -670,6 +709,32 @@ export const serializeAws_json1_1ListCreateAccountStatusCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListDelegatedAdministratorsCommand = async (
+  input: ListDelegatedAdministratorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListDelegatedAdministrators",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListDelegatedAdministratorsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListDelegatedServicesForAccountCommand = async (
+  input: ListDelegatedServicesForAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListDelegatedServicesForAccount",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListDelegatedServicesForAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListHandshakesForAccountCommand = async (
   input: ListHandshakesForAccountCommandInput,
   context: __SerdeContext
@@ -797,6 +862,19 @@ export const serializeAws_json1_1MoveAccountCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1MoveAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RegisterDelegatedAdministratorCommand = async (
+  input: RegisterDelegatedAdministratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.RegisterDelegatedAdministrator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RegisterDelegatedAdministratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2305,6 +2383,130 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeregisterDelegatedAdministratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterDelegatedAdministratorCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeregisterDelegatedAdministratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterDelegatedAdministratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccountNotFoundException":
+    case "com.amazonaws.organizations#AccountNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccountNotRegisteredException":
+    case "com.amazonaws.organizations#AccountNotRegisteredException":
+      response = {
+        ...(await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.organizations#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      response = {
+        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.organizations#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.organizations#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.organizations#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3232,6 +3434,14 @@ const deserializeAws_json1_1DisableAWSServiceAccessCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -3568,6 +3778,14 @@ const deserializeAws_json1_1EnableAWSServiceAccessCommandError = async (
     case "com.amazonaws.organizations#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4240,6 +4458,14 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4396,6 +4622,230 @@ const deserializeAws_json1_1ListCreateAccountStatusCommandError = async (
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.organizations#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.organizations#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.organizations#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListDelegatedAdministratorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDelegatedAdministratorsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListDelegatedAdministratorsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDelegatedAdministratorsResponse(data, context);
+  const response: ListDelegatedAdministratorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListDelegatedAdministratorsResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListDelegatedAdministratorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDelegatedAdministratorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      response = {
+        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.organizations#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.organizations#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.organizations#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListDelegatedServicesForAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDelegatedServicesForAccountCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListDelegatedServicesForAccountCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDelegatedServicesForAccountResponse(data, context);
+  const response: ListDelegatedServicesForAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListDelegatedServicesForAccountResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDelegatedServicesForAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccountNotFoundException":
+    case "com.amazonaws.organizations#AccountNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccountNotRegisteredException":
+    case "com.amazonaws.organizations#AccountNotRegisteredException":
+      response = {
+        ...(await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      response = {
+        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5437,6 +5887,130 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RegisterDelegatedAdministratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterDelegatedAdministratorCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1RegisterDelegatedAdministratorCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RegisterDelegatedAdministratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterDelegatedAdministratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccountAlreadyRegisteredException":
+    case "com.amazonaws.organizations#AccountAlreadyRegisteredException":
+      response = {
+        ...(await deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccountNotFoundException":
+    case "com.amazonaws.organizations#AccountNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.organizations#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      response = {
+        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.organizations#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.organizations#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.organizations#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RemoveAccountFromOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6055,6 +6629,21 @@ const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountAlreadyRegisteredException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountAlreadyRegisteredException(body, context);
+  const contents: AccountAlreadyRegisteredException = {
+    name: "AccountAlreadyRegisteredException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6063,6 +6652,21 @@ const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1AccountNotFoundException(body, context);
   const contents: AccountNotFoundException = {
     name: "AccountNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1AccountNotRegisteredExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountNotRegisteredException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountNotRegisteredException(body, context);
+  const contents: AccountNotRegisteredException = {
+    name: "AccountNotRegisteredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6751,6 +7355,16 @@ const serializeAws_json1_1DeletePolicyRequest = (input: DeletePolicyRequest, con
   };
 };
 
+const serializeAws_json1_1DeregisterDelegatedAdministratorRequest = (
+  input: DeregisterDelegatedAdministratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
+  };
+};
+
 const serializeAws_json1_1DescribeAccountRequest = (input: DescribeAccountRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
@@ -6921,6 +7535,28 @@ const serializeAws_json1_1ListCreateAccountStatusRequest = (
   };
 };
 
+const serializeAws_json1_1ListDelegatedAdministratorsRequest = (
+  input: ListDelegatedAdministratorsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
+  };
+};
+
+const serializeAws_json1_1ListDelegatedServicesForAccountRequest = (
+  input: ListDelegatedServicesForAccountRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListHandshakesForAccountRequest = (
   input: ListHandshakesForAccountRequest,
   context: __SerdeContext
@@ -7015,6 +7651,16 @@ const serializeAws_json1_1MoveAccountRequest = (input: MoveAccountRequest, conte
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
     ...(input.DestinationParentId !== undefined && { DestinationParentId: input.DestinationParentId }),
     ...(input.SourceParentId !== undefined && { SourceParentId: input.SourceParentId }),
+  };
+};
+
+const serializeAws_json1_1RegisterDelegatedAdministratorRequest = (
+  input: RegisterDelegatedAdministratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
@@ -7122,12 +7768,32 @@ const deserializeAws_json1_1Account = (output: any, context: __SerdeContext): Ac
   } as any;
 };
 
+const deserializeAws_json1_1AccountAlreadyRegisteredException = (
+  output: any,
+  context: __SerdeContext
+): AccountAlreadyRegisteredException => {
+  return {
+    __type: "AccountAlreadyRegisteredException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1AccountNotFoundException = (
   output: any,
   context: __SerdeContext
 ): AccountNotFoundException => {
   return {
     __type: "AccountNotFoundException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AccountNotRegisteredException = (
+  output: any,
+  context: __SerdeContext
+): AccountNotRegisteredException => {
+  return {
+    __type: "AccountNotRegisteredException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7327,6 +7993,49 @@ const deserializeAws_json1_1DeclineHandshakeResponse = (
         ? deserializeAws_json1_1Handshake(output.Handshake, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1DelegatedAdministrator = (output: any, context: __SerdeContext): DelegatedAdministrator => {
+  return {
+    __type: "DelegatedAdministrator",
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    DelegationEnabledDate:
+      output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
+        ? new Date(Math.round(output.DelegationEnabledDate * 1000))
+        : undefined,
+    Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    JoinedMethod: output.JoinedMethod !== undefined && output.JoinedMethod !== null ? output.JoinedMethod : undefined,
+    JoinedTimestamp:
+      output.JoinedTimestamp !== undefined && output.JoinedTimestamp !== null
+        ? new Date(Math.round(output.JoinedTimestamp * 1000))
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DelegatedAdministrators = (
+  output: any,
+  context: __SerdeContext
+): DelegatedAdministrator[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DelegatedAdministrator(entry, context));
+};
+
+const deserializeAws_json1_1DelegatedService = (output: any, context: __SerdeContext): DelegatedService => {
+  return {
+    __type: "DelegatedService",
+    DelegationEnabledDate:
+      output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
+        ? new Date(Math.round(output.DelegationEnabledDate * 1000))
+        : undefined,
+    ServicePrincipal:
+      output.ServicePrincipal !== undefined && output.ServicePrincipal !== null ? output.ServicePrincipal : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DelegatedServices = (output: any, context: __SerdeContext): DelegatedService[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DelegatedService(entry, context));
 };
 
 const deserializeAws_json1_1DescribeAccountResponse = (
@@ -7747,6 +8456,34 @@ const deserializeAws_json1_1ListCreateAccountStatusResponse = (
     CreateAccountStatuses:
       output.CreateAccountStatuses !== undefined && output.CreateAccountStatuses !== null
         ? deserializeAws_json1_1CreateAccountStatuses(output.CreateAccountStatuses, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListDelegatedAdministratorsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDelegatedAdministratorsResponse => {
+  return {
+    __type: "ListDelegatedAdministratorsResponse",
+    DelegatedAdministrators:
+      output.DelegatedAdministrators !== undefined && output.DelegatedAdministrators !== null
+        ? deserializeAws_json1_1DelegatedAdministrators(output.DelegatedAdministrators, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListDelegatedServicesForAccountResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDelegatedServicesForAccountResponse => {
+  return {
+    __type: "ListDelegatedServicesForAccountResponse",
+    DelegatedServices:
+      output.DelegatedServices !== undefined && output.DelegatedServices !== null
+        ? deserializeAws_json1_1DelegatedServices(output.DelegatedServices, context)
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;

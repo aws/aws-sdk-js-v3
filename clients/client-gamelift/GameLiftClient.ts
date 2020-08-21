@@ -1,7 +1,12 @@
 import { AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand";
+import { ClaimGameServerCommandInput, ClaimGameServerCommandOutput } from "./commands/ClaimGameServerCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import { CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import {
+  CreateGameServerGroupCommandInput,
+  CreateGameServerGroupCommandOutput,
+} from "./commands/CreateGameServerGroupCommand";
 import { CreateGameSessionCommandInput, CreateGameSessionCommandOutput } from "./commands/CreateGameSessionCommand";
 import {
   CreateGameSessionQueueCommandInput,
@@ -36,6 +41,10 @@ import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/De
 import { DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
+  DeleteGameServerGroupCommandInput,
+  DeleteGameServerGroupCommandOutput,
+} from "./commands/DeleteGameServerGroupCommand";
+import {
   DeleteGameSessionQueueCommandInput,
   DeleteGameSessionQueueCommandOutput,
 } from "./commands/DeleteGameSessionQueueCommand";
@@ -60,6 +69,10 @@ import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand";
+import {
+  DeregisterGameServerCommandInput,
+  DeregisterGameServerCommandOutput,
+} from "./commands/DeregisterGameServerCommand";
 import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "./commands/DescribeAliasCommand";
 import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "./commands/DescribeBuildCommand";
 import {
@@ -86,6 +99,11 @@ import {
   DescribeFleetUtilizationCommandInput,
   DescribeFleetUtilizationCommandOutput,
 } from "./commands/DescribeFleetUtilizationCommand";
+import { DescribeGameServerCommandInput, DescribeGameServerCommandOutput } from "./commands/DescribeGameServerCommand";
+import {
+  DescribeGameServerGroupCommandInput,
+  DescribeGameServerGroupCommandOutput,
+} from "./commands/DescribeGameServerGroupCommand";
 import {
   DescribeGameSessionDetailsCommandInput,
   DescribeGameSessionDetailsCommandOutput,
@@ -144,17 +162,27 @@ import { GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput } from ".
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
+import {
+  ListGameServerGroupsCommandInput,
+  ListGameServerGroupsCommandOutput,
+} from "./commands/ListGameServerGroupsCommand";
+import { ListGameServersCommandInput, ListGameServersCommandOutput } from "./commands/ListGameServersCommand";
 import { ListScriptsCommandInput, ListScriptsCommandOutput } from "./commands/ListScriptsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand";
+import { RegisterGameServerCommandInput, RegisterGameServerCommandOutput } from "./commands/RegisterGameServerCommand";
 import {
   RequestUploadCredentialsCommandInput,
   RequestUploadCredentialsCommandOutput,
 } from "./commands/RequestUploadCredentialsCommand";
 import { ResolveAliasCommandInput, ResolveAliasCommandOutput } from "./commands/ResolveAliasCommand";
+import {
+  ResumeGameServerGroupCommandInput,
+  ResumeGameServerGroupCommandOutput,
+} from "./commands/ResumeGameServerGroupCommand";
 import { SearchGameSessionsCommandInput, SearchGameSessionsCommandOutput } from "./commands/SearchGameSessionsCommand";
 import { StartFleetActionsCommandInput, StartFleetActionsCommandOutput } from "./commands/StartFleetActionsCommand";
 import {
@@ -169,6 +197,10 @@ import {
   StopGameSessionPlacementCommandOutput,
 } from "./commands/StopGameSessionPlacementCommand";
 import { StopMatchmakingCommandInput, StopMatchmakingCommandOutput } from "./commands/StopMatchmakingCommand";
+import {
+  SuspendGameServerGroupCommandInput,
+  SuspendGameServerGroupCommandOutput,
+} from "./commands/SuspendGameServerGroupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
@@ -185,6 +217,11 @@ import {
   UpdateFleetPortSettingsCommandInput,
   UpdateFleetPortSettingsCommandOutput,
 } from "./commands/UpdateFleetPortSettingsCommand";
+import { UpdateGameServerCommandInput, UpdateGameServerCommandOutput } from "./commands/UpdateGameServerCommand";
+import {
+  UpdateGameServerGroupCommandInput,
+  UpdateGameServerGroupCommandOutput,
+} from "./commands/UpdateGameServerGroupCommand";
 import { UpdateGameSessionCommandInput, UpdateGameSessionCommandOutput } from "./commands/UpdateGameSessionCommand";
 import {
   UpdateGameSessionQueueCommandInput,
@@ -252,9 +289,11 @@ import {
 
 export type ServiceInputTypes =
   | AcceptMatchCommandInput
+  | ClaimGameServerCommandInput
   | CreateAliasCommandInput
   | CreateBuildCommandInput
   | CreateFleetCommandInput
+  | CreateGameServerGroupCommandInput
   | CreateGameSessionCommandInput
   | CreateGameSessionQueueCommandInput
   | CreateMatchmakingConfigurationCommandInput
@@ -267,6 +306,7 @@ export type ServiceInputTypes =
   | DeleteAliasCommandInput
   | DeleteBuildCommandInput
   | DeleteFleetCommandInput
+  | DeleteGameServerGroupCommandInput
   | DeleteGameSessionQueueCommandInput
   | DeleteMatchmakingConfigurationCommandInput
   | DeleteMatchmakingRuleSetCommandInput
@@ -274,6 +314,7 @@ export type ServiceInputTypes =
   | DeleteScriptCommandInput
   | DeleteVpcPeeringAuthorizationCommandInput
   | DeleteVpcPeeringConnectionCommandInput
+  | DeregisterGameServerCommandInput
   | DescribeAliasCommandInput
   | DescribeBuildCommandInput
   | DescribeEC2InstanceLimitsCommandInput
@@ -282,6 +323,8 @@ export type ServiceInputTypes =
   | DescribeFleetEventsCommandInput
   | DescribeFleetPortSettingsCommandInput
   | DescribeFleetUtilizationCommandInput
+  | DescribeGameServerCommandInput
+  | DescribeGameServerGroupCommandInput
   | DescribeGameSessionDetailsCommandInput
   | DescribeGameSessionPlacementCommandInput
   | DescribeGameSessionQueuesCommandInput
@@ -301,11 +344,15 @@ export type ServiceInputTypes =
   | ListAliasesCommandInput
   | ListBuildsCommandInput
   | ListFleetsCommandInput
+  | ListGameServerGroupsCommandInput
+  | ListGameServersCommandInput
   | ListScriptsCommandInput
   | ListTagsForResourceCommandInput
   | PutScalingPolicyCommandInput
+  | RegisterGameServerCommandInput
   | RequestUploadCredentialsCommandInput
   | ResolveAliasCommandInput
+  | ResumeGameServerGroupCommandInput
   | SearchGameSessionsCommandInput
   | StartFleetActionsCommandInput
   | StartGameSessionPlacementCommandInput
@@ -314,6 +361,7 @@ export type ServiceInputTypes =
   | StopFleetActionsCommandInput
   | StopGameSessionPlacementCommandInput
   | StopMatchmakingCommandInput
+  | SuspendGameServerGroupCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAliasCommandInput
@@ -321,6 +369,8 @@ export type ServiceInputTypes =
   | UpdateFleetAttributesCommandInput
   | UpdateFleetCapacityCommandInput
   | UpdateFleetPortSettingsCommandInput
+  | UpdateGameServerCommandInput
+  | UpdateGameServerGroupCommandInput
   | UpdateGameSessionCommandInput
   | UpdateGameSessionQueueCommandInput
   | UpdateMatchmakingConfigurationCommandInput
@@ -330,9 +380,11 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AcceptMatchCommandOutput
+  | ClaimGameServerCommandOutput
   | CreateAliasCommandOutput
   | CreateBuildCommandOutput
   | CreateFleetCommandOutput
+  | CreateGameServerGroupCommandOutput
   | CreateGameSessionCommandOutput
   | CreateGameSessionQueueCommandOutput
   | CreateMatchmakingConfigurationCommandOutput
@@ -345,6 +397,7 @@ export type ServiceOutputTypes =
   | DeleteAliasCommandOutput
   | DeleteBuildCommandOutput
   | DeleteFleetCommandOutput
+  | DeleteGameServerGroupCommandOutput
   | DeleteGameSessionQueueCommandOutput
   | DeleteMatchmakingConfigurationCommandOutput
   | DeleteMatchmakingRuleSetCommandOutput
@@ -352,6 +405,7 @@ export type ServiceOutputTypes =
   | DeleteScriptCommandOutput
   | DeleteVpcPeeringAuthorizationCommandOutput
   | DeleteVpcPeeringConnectionCommandOutput
+  | DeregisterGameServerCommandOutput
   | DescribeAliasCommandOutput
   | DescribeBuildCommandOutput
   | DescribeEC2InstanceLimitsCommandOutput
@@ -360,6 +414,8 @@ export type ServiceOutputTypes =
   | DescribeFleetEventsCommandOutput
   | DescribeFleetPortSettingsCommandOutput
   | DescribeFleetUtilizationCommandOutput
+  | DescribeGameServerCommandOutput
+  | DescribeGameServerGroupCommandOutput
   | DescribeGameSessionDetailsCommandOutput
   | DescribeGameSessionPlacementCommandOutput
   | DescribeGameSessionQueuesCommandOutput
@@ -379,11 +435,15 @@ export type ServiceOutputTypes =
   | ListAliasesCommandOutput
   | ListBuildsCommandOutput
   | ListFleetsCommandOutput
+  | ListGameServerGroupsCommandOutput
+  | ListGameServersCommandOutput
   | ListScriptsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutScalingPolicyCommandOutput
+  | RegisterGameServerCommandOutput
   | RequestUploadCredentialsCommandOutput
   | ResolveAliasCommandOutput
+  | ResumeGameServerGroupCommandOutput
   | SearchGameSessionsCommandOutput
   | StartFleetActionsCommandOutput
   | StartGameSessionPlacementCommandOutput
@@ -392,6 +452,7 @@ export type ServiceOutputTypes =
   | StopFleetActionsCommandOutput
   | StopGameSessionPlacementCommandOutput
   | StopMatchmakingCommandOutput
+  | SuspendGameServerGroupCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAliasCommandOutput
@@ -399,6 +460,8 @@ export type ServiceOutputTypes =
   | UpdateFleetAttributesCommandOutput
   | UpdateFleetCapacityCommandOutput
   | UpdateFleetPortSettingsCommandOutput
+  | UpdateGameServerCommandOutput
+  | UpdateGameServerGroupCommandOutput
   | UpdateGameSessionCommandOutput
   | UpdateGameSessionQueueCommandOutput
   | UpdateMatchmakingConfigurationCommandOutput
@@ -515,15 +578,36 @@ export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
 
 /**
  * <fullname>Amazon GameLift Service</fullname>
- *         <p> Amazon GameLift is a managed service for developers who need a scalable, dedicated server
- *             solution for their multiplayer games. Use Amazon GameLift for these tasks: (1) set up computing
- *             resources and deploy your game servers, (2) run game sessions and get players into
- *             games, (3) automatically scale your resources to meet player demand and manage costs,
- *             and (4) track in-depth metrics on game server performance and player usage.</p>
+ *         <p> Amazon GameLift provides a range of multiplayer game hosting solutions. As a fully managed
+ *             service, GameLift helps you:</p>
+ *         <ul>
+ *             <li>
+ *                <p>Set up EC2-based computing resources and use GameLift FleetIQ to and deploy your game
+ *                 servers on low-cost, reliable Spot instances.</p>
+ *             </li>
+ *             <li>
+ *                <p>Track game server availability and route players into game sessions to minimize latency.</p>
+ *             </li>
+ *             <li>
+ *                <p>Automatically scale your resources to meet player demand and manage costs</p>
+ *             </li>
+ *             <li>
+ *                <p>Optionally add FlexMatch matchmaking.</p>
+ *             </li>
+ *          </ul>
  *
- *         <p>When setting up hosting resources, you can deploy your custom game server or use the
- *             Amazon GameLift Realtime Servers. Realtime Servers gives you the ability to quickly stand up lightweight, efficient
- *             game servers with the core Amazon GameLift infrastructure already built in.</p>
+ *         <p>With GameLift as a managed service, you have the option to deploy your custom game
+ *             server or use Amazon GameLift Realtime Servers to quickly stand up lightweight game servers for your game.
+ *             Realtime Servers provides an efficient game server framework with core Amazon GameLift infrastructure
+ *             already built in.</p>
+ *
+ *         <p>
+ *             <b>Now in Public Preview:</b>
+ *          </p>
+ *         <p>Use GameLift FleetIQ as a standalone feature with EC2 instances and Auto Scaling groups. GameLift FleetIQ
+ *             provides optimizations that make low-cost Spot instances viable for game hosting. This
+ *             extension of GameLift FleetIQ gives you access to these optimizations while managing your EC2
+ *             instances and Auto Scaling groups within your own AWS account.</p>
  *
  *         <p>
  *             <b>Get Amazon GameLift Tools and Resources</b>

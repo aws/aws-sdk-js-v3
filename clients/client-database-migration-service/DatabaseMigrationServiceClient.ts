@@ -3,6 +3,10 @@ import {
   ApplyPendingMaintenanceActionCommandInput,
   ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
+import {
+  CancelReplicationTaskAssessmentRunCommandInput,
+  CancelReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/CancelReplicationTaskAssessmentRunCommand";
 import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import {
   CreateEventSubscriptionCommandInput,
@@ -36,6 +40,10 @@ import {
   DeleteReplicationSubnetGroupCommandOutput,
 } from "./commands/DeleteReplicationSubnetGroupCommand";
 import {
+  DeleteReplicationTaskAssessmentRunCommandInput,
+  DeleteReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/DeleteReplicationTaskAssessmentRunCommand";
+import {
   DeleteReplicationTaskCommandInput,
   DeleteReplicationTaskCommandOutput,
 } from "./commands/DeleteReplicationTaskCommand";
@@ -43,6 +51,10 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeApplicableIndividualAssessmentsCommandInput,
+  DescribeApplicableIndividualAssessmentsCommandOutput,
+} from "./commands/DescribeApplicableIndividualAssessmentsCommand";
 import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -94,6 +106,14 @@ import {
   DescribeReplicationTaskAssessmentResultsCommandOutput,
 } from "./commands/DescribeReplicationTaskAssessmentResultsCommand";
 import {
+  DescribeReplicationTaskAssessmentRunsCommandInput,
+  DescribeReplicationTaskAssessmentRunsCommandOutput,
+} from "./commands/DescribeReplicationTaskAssessmentRunsCommand";
+import {
+  DescribeReplicationTaskIndividualAssessmentsCommandInput,
+  DescribeReplicationTaskIndividualAssessmentsCommandOutput,
+} from "./commands/DescribeReplicationTaskIndividualAssessmentsCommand";
+import {
   DescribeReplicationTasksCommandInput,
   DescribeReplicationTasksCommandOutput,
 } from "./commands/DescribeReplicationTasksCommand";
@@ -138,6 +158,10 @@ import {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentCommand";
+import {
+  StartReplicationTaskAssessmentRunCommandInput,
+  StartReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/StartReplicationTaskAssessmentRunCommand";
 import {
   StartReplicationTaskCommandInput,
   StartReplicationTaskCommandOutput,
@@ -197,6 +221,7 @@ import {
 export type ServiceInputTypes =
   | AddTagsToResourceCommandInput
   | ApplyPendingMaintenanceActionCommandInput
+  | CancelReplicationTaskAssessmentRunCommandInput
   | CreateEndpointCommandInput
   | CreateEventSubscriptionCommandInput
   | CreateReplicationInstanceCommandInput
@@ -208,8 +233,10 @@ export type ServiceInputTypes =
   | DeleteEventSubscriptionCommandInput
   | DeleteReplicationInstanceCommandInput
   | DeleteReplicationSubnetGroupCommandInput
+  | DeleteReplicationTaskAssessmentRunCommandInput
   | DeleteReplicationTaskCommandInput
   | DescribeAccountAttributesCommandInput
+  | DescribeApplicableIndividualAssessmentsCommandInput
   | DescribeCertificatesCommandInput
   | DescribeConnectionsCommandInput
   | DescribeEndpointTypesCommandInput
@@ -224,6 +251,8 @@ export type ServiceInputTypes =
   | DescribeReplicationInstancesCommandInput
   | DescribeReplicationSubnetGroupsCommandInput
   | DescribeReplicationTaskAssessmentResultsCommandInput
+  | DescribeReplicationTaskAssessmentRunsCommandInput
+  | DescribeReplicationTaskIndividualAssessmentsCommandInput
   | DescribeReplicationTasksCommandInput
   | DescribeSchemasCommandInput
   | DescribeTableStatisticsCommandInput
@@ -239,6 +268,7 @@ export type ServiceInputTypes =
   | ReloadTablesCommandInput
   | RemoveTagsFromResourceCommandInput
   | StartReplicationTaskAssessmentCommandInput
+  | StartReplicationTaskAssessmentRunCommandInput
   | StartReplicationTaskCommandInput
   | StopReplicationTaskCommandInput
   | TestConnectionCommandInput;
@@ -246,6 +276,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AddTagsToResourceCommandOutput
   | ApplyPendingMaintenanceActionCommandOutput
+  | CancelReplicationTaskAssessmentRunCommandOutput
   | CreateEndpointCommandOutput
   | CreateEventSubscriptionCommandOutput
   | CreateReplicationInstanceCommandOutput
@@ -257,8 +288,10 @@ export type ServiceOutputTypes =
   | DeleteEventSubscriptionCommandOutput
   | DeleteReplicationInstanceCommandOutput
   | DeleteReplicationSubnetGroupCommandOutput
+  | DeleteReplicationTaskAssessmentRunCommandOutput
   | DeleteReplicationTaskCommandOutput
   | DescribeAccountAttributesCommandOutput
+  | DescribeApplicableIndividualAssessmentsCommandOutput
   | DescribeCertificatesCommandOutput
   | DescribeConnectionsCommandOutput
   | DescribeEndpointTypesCommandOutput
@@ -273,6 +306,8 @@ export type ServiceOutputTypes =
   | DescribeReplicationInstancesCommandOutput
   | DescribeReplicationSubnetGroupsCommandOutput
   | DescribeReplicationTaskAssessmentResultsCommandOutput
+  | DescribeReplicationTaskAssessmentRunsCommandOutput
+  | DescribeReplicationTaskIndividualAssessmentsCommandOutput
   | DescribeReplicationTasksCommandOutput
   | DescribeSchemasCommandOutput
   | DescribeTableStatisticsCommandOutput
@@ -288,6 +323,7 @@ export type ServiceOutputTypes =
   | ReloadTablesCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | StartReplicationTaskAssessmentCommandOutput
+  | StartReplicationTaskAssessmentRunCommandOutput
   | StartReplicationTaskCommandOutput
   | StopReplicationTaskCommandOutput
   | TestConnectionCommandOutput;

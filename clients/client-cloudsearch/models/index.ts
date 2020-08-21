@@ -32,9 +32,19 @@ export type AlgorithmicStemming = "full" | "light" | "minimal" | "none";
 export interface AnalysisOptions {
   __type?: "AnalysisOptions";
   /**
+   * <p>A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, <code>{"term1": "stem1", "term2": "stem2", "term3": "stem3"}</code>. The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.</p>
+   */
+  StemmingDictionary?: string;
+
+  /**
    * <p>The level of algorithmic stemming to perform: <code>none</code>, <code>minimal</code>, <code>light</code>, or <code>full</code>. The available levels vary depending on the language. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings" target="_blank">Language Specific Text Processing Settings</a> in the <i>Amazon CloudSearch Developer Guide</i> </p>
    */
   AlgorithmicStemming?: AlgorithmicStemming | string;
+
+  /**
+   * <p>A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms">Synonyms</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+   */
+  Synonyms?: string;
 
   /**
    * <p>A JSON array that contains a collection of terms, tokens, readings and part of speech for Japanese Tokenizaiton. The Japanese tokenization dictionary enables you to override the default tokenization for selected terms. This is only valid for Japanese language fields.</p>
@@ -42,19 +52,9 @@ export interface AnalysisOptions {
   JapaneseTokenizationDictionary?: string;
 
   /**
-   * <p>A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, <code>{"term1": "stem1", "term2": "stem2", "term3": "stem3"}</code>. The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.</p>
-   */
-  StemmingDictionary?: string;
-
-  /**
    * <p>A  JSON array of terms to ignore during indexing and searching. For example, <code>["a", "an", "the", "of"]</code>. The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. </p>
    */
   Stopwords?: string;
-
-  /**
-   * <p>A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms">Synonyms</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
-   */
-  Synonyms?: string;
 }
 
 export namespace AnalysisOptions {
@@ -70,11 +70,6 @@ export namespace AnalysisOptions {
 export interface AnalysisScheme {
   __type?: "AnalysisScheme";
   /**
-   * <p>Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.</p>
-   */
-  AnalysisOptions?: AnalysisOptions;
-
-  /**
    * <p>An <a href="http://tools.ietf.org/html/rfc4646" target="_blank">IETF RFC 4646</a> language code or <code>mul</code>  for multiple languages.</p>
    */
   AnalysisSchemeLanguage: AnalysisSchemeLanguage | string | undefined;
@@ -84,6 +79,11 @@ export interface AnalysisScheme {
    *       a-z (lowercase), 0-9, and _ (underscore).</p>
    */
   AnalysisSchemeName: string | undefined;
+
+  /**
+   * <p>Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.</p>
+   */
+  AnalysisOptions?: AnalysisOptions;
 }
 
 export namespace AnalysisScheme {
@@ -136,14 +136,14 @@ export type AnalysisSchemeLanguage =
 export interface AnalysisSchemeStatus {
   __type?: "AnalysisSchemeStatus";
   /**
-   * <p>Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: <code>Synonyms</code>, <code>Stopwords</code>, <code>StemmingDictionary</code>, <code>JapaneseTokenizationDictionary</code> and <code>AlgorithmicStemming</code>.</p>
-   */
-  Options: AnalysisScheme | undefined;
-
-  /**
    * <p>The status of domain configuration option.</p>
    */
   Status: OptionStatus | undefined;
+
+  /**
+   * <p>Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: <code>Synonyms</code>, <code>Stopwords</code>, <code>StemmingDictionary</code>, <code>JapaneseTokenizationDictionary</code> and <code>AlgorithmicStemming</code>.</p>
+   */
+  Options: AnalysisScheme | undefined;
 }
 
 export namespace AnalysisSchemeStatus {
@@ -283,14 +283,14 @@ export interface DateArrayOptions {
   DefaultValue?: string;
 
   /**
-   * <p>Whether facet information can be returned for the field.</p>
-   */
-  FacetEnabled?: boolean;
-
-  /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    */
   ReturnEnabled?: boolean;
+
+  /**
+   * <p>A list of source fields to map to the field. </p>
+   */
+  SourceFields?: string;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
@@ -298,9 +298,9 @@ export interface DateArrayOptions {
   SearchEnabled?: boolean;
 
   /**
-   * <p>A list of source fields to map to the field. </p>
+   * <p>Whether facet information can be returned for the field.</p>
    */
-  SourceFields?: string;
+  FacetEnabled?: boolean;
 }
 
 export namespace DateArrayOptions {
@@ -316,19 +316,9 @@ export namespace DateArrayOptions {
 export interface DateOptions {
   __type?: "DateOptions";
   /**
-   * A value to use for the field if the field isn't specified for a document.
-   */
-  DefaultValue?: string;
-
-  /**
    * <p>Whether facet information can be returned for the field.</p>
    */
   FacetEnabled?: boolean;
-
-  /**
-   * <p>Whether the contents of the field can be returned in the search results.</p>
-   */
-  ReturnEnabled?: boolean;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
@@ -336,9 +326,19 @@ export interface DateOptions {
   SearchEnabled?: boolean;
 
   /**
+   * A value to use for the field if the field isn't specified for a document.
+   */
+  DefaultValue?: string;
+
+  /**
    * <p>Whether the field can be used to sort the search results.</p>
    */
   SortEnabled?: boolean;
+
+  /**
+   * <p>Whether the contents of the field can be returned in the search results.</p>
+   */
+  ReturnEnabled?: boolean;
 
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
@@ -454,14 +454,14 @@ export namespace DefineExpressionResponse {
 export interface DefineIndexFieldRequest {
   __type?: "DefineIndexFieldRequest";
   /**
-   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>The index field and field options you want to configure. </p>
    */
   IndexField: IndexField | undefined;
+
+  /**
+   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace DefineIndexFieldRequest {
@@ -536,14 +536,14 @@ export namespace DefineSuggesterResponse {
 export interface DeleteAnalysisSchemeRequest {
   __type?: "DeleteAnalysisSchemeRequest";
   /**
-   * <p>The name of the analysis scheme you want to delete.</p>
-   */
-  AnalysisSchemeName: string | undefined;
-
-  /**
    * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>The name of the analysis scheme you want to delete.</p>
+   */
+  AnalysisSchemeName: string | undefined;
 }
 
 export namespace DeleteAnalysisSchemeRequest {
@@ -613,14 +613,14 @@ export namespace DeleteDomainResponse {
 export interface DeleteExpressionRequest {
   __type?: "DeleteExpressionRequest";
   /**
-   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>The name of the <code><a>Expression</a></code> to delete.</p>
    */
   ExpressionName: string | undefined;
+
+  /**
+   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace DeleteExpressionRequest {
@@ -654,14 +654,14 @@ export namespace DeleteExpressionResponse {
 export interface DeleteIndexFieldRequest {
   __type?: "DeleteIndexFieldRequest";
   /**
-   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>The name of the index field your want to remove from the domain's indexing options.</p>
    */
   IndexFieldName: string | undefined;
+
+  /**
+   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace DeleteIndexFieldRequest {
@@ -695,14 +695,14 @@ export namespace DeleteIndexFieldResponse {
 export interface DeleteSuggesterRequest {
   __type?: "DeleteSuggesterRequest";
   /**
-   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>Specifies the name of the suggester you want to delete.</p>
    */
   SuggesterName: string | undefined;
+
+  /**
+   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace DeleteSuggesterRequest {
@@ -736,6 +736,11 @@ export namespace DeleteSuggesterResponse {
 export interface DescribeAnalysisSchemesRequest {
   __type?: "DescribeAnalysisSchemesRequest";
   /**
+   * <p>The name of the domain you want to describe.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
    * <p>The analysis schemes you want to describe.</p>
    */
   AnalysisSchemeNames?: string[];
@@ -744,11 +749,6 @@ export interface DescribeAnalysisSchemesRequest {
    * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
    */
   Deployed?: boolean;
-
-  /**
-   * <p>The name of the domain you want to describe.</p>
-   */
-  DomainName: string | undefined;
 }
 
 export namespace DescribeAnalysisSchemesRequest {
@@ -825,14 +825,14 @@ export namespace DescribeAvailabilityOptionsResponse {
 export interface DescribeDomainEndpointOptionsRequest {
   __type?: "DescribeDomainEndpointOptionsRequest";
   /**
-   * <p>Whether to retrieve the latest configuration (which might be in a Processing state) or the current, active configuration. Defaults to <code>false</code>.</p>
-   */
-  Deployed?: boolean;
-
-  /**
    * <p>A string that represents the name of a domain.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>Whether to retrieve the latest configuration (which might be in a Processing state) or the current, active configuration. Defaults to <code>false</code>.</p>
+   */
+  Deployed?: boolean;
 }
 
 export namespace DescribeDomainEndpointOptionsRequest {
@@ -905,6 +905,11 @@ export namespace DescribeDomainsResponse {
 export interface DescribeExpressionsRequest {
   __type?: "DescribeExpressionsRequest";
   /**
+   * <p>Limits the <code><a>DescribeExpressions</a></code> response to the specified expressions. If not specified, all expressions are shown.</p>
+   */
+  ExpressionNames?: string[];
+
+  /**
    * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
    */
   Deployed?: boolean;
@@ -913,11 +918,6 @@ export interface DescribeExpressionsRequest {
    * <p>The name of the domain you want to describe.</p>
    */
   DomainName: string | undefined;
-
-  /**
-   * <p>Limits the <code><a>DescribeExpressions</a></code> response to the specified expressions. If not specified, all expressions are shown.</p>
-   */
-  ExpressionNames?: string[];
 }
 
 export namespace DescribeExpressionsRequest {
@@ -951,9 +951,9 @@ export namespace DescribeExpressionsResponse {
 export interface DescribeIndexFieldsRequest {
   __type?: "DescribeIndexFieldsRequest";
   /**
-   * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+   * <p>A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.</p>
    */
-  Deployed?: boolean;
+  FieldNames?: string[];
 
   /**
    * <p>The name of the domain you want to describe.</p>
@@ -961,9 +961,9 @@ export interface DescribeIndexFieldsRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.</p>
+   * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
    */
-  FieldNames?: string[];
+  Deployed?: boolean;
 }
 
 export namespace DescribeIndexFieldsRequest {
@@ -1033,14 +1033,14 @@ export namespace DescribeScalingParametersResponse {
 export interface DescribeServiceAccessPoliciesRequest {
   __type?: "DescribeServiceAccessPoliciesRequest";
   /**
-   * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
-   */
-  Deployed?: boolean;
-
-  /**
    * <p>The name of the domain you want to describe.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+   */
+  Deployed?: boolean;
 }
 
 export namespace DescribeServiceAccessPoliciesRequest {
@@ -1076,14 +1076,14 @@ export namespace DescribeServiceAccessPoliciesResponse {
 export interface DescribeSuggestersRequest {
   __type?: "DescribeSuggestersRequest";
   /**
-   * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
-   */
-  Deployed?: boolean;
-
-  /**
    * <p>The name of the domain you want to describe.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+   */
+  Deployed?: boolean;
 
   /**
    * <p>The suggesters you want to describe.</p>
@@ -1123,14 +1123,14 @@ export interface DisabledOperationException extends __SmithyException, $Metadata
   name: "DisabledOperationException";
   $fault: "client";
   /**
-   * <p>A machine-parsable string error or warning code.</p>
-   */
-  Code?: string;
-
-  /**
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>A machine-parsable string error or warning code.</p>
+   */
+  Code?: string;
 }
 
 export namespace DisabledOperationException {
@@ -1146,6 +1146,12 @@ export namespace DisabledOperationException {
 export interface DocumentSuggesterOptions {
   __type?: "DocumentSuggesterOptions";
   /**
+   * <p>The name of the index field you want to use for suggestions.
+   *       </p>
+   */
+  SourceField: string | undefined;
+
+  /**
    * <p>The level of fuzziness allowed when suggesting matches for a string: <code>none</code>, <code>low</code>, or <code>high</code>. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none. </p>
    */
   FuzzyMatching?: SuggesterFuzzyMatching | string;
@@ -1159,12 +1165,6 @@ export interface DocumentSuggesterOptions {
    *         suggestions are sorted with the closest matches listed first.</p>
    */
   SortExpression?: string;
-
-  /**
-   * <p>The name of the index field you want to use for suggestions.
-   *       </p>
-   */
-  SourceField: string | undefined;
 }
 
 export namespace DocumentSuggesterOptions {
@@ -1180,14 +1180,14 @@ export namespace DocumentSuggesterOptions {
 export interface DomainEndpointOptions {
   __type?: "DomainEndpointOptions";
   /**
-   * <p>Whether the domain is HTTPS only enabled.</p>
-   */
-  EnforceHTTPS?: boolean;
-
-  /**
    * <p>The minimum required TLS version</p>
    */
   TLSSecurityPolicy?: TLSSecurityPolicy | string;
+
+  /**
+   * <p>Whether the domain is HTTPS only enabled.</p>
+   */
+  EnforceHTTPS?: boolean;
 }
 
 export namespace DomainEndpointOptions {
@@ -1226,50 +1226,9 @@ export namespace DomainEndpointOptionsStatus {
 export interface DomainStatus {
   __type?: "DomainStatus";
   /**
-   * <p>The Amazon Resource Name (ARN) of the search domain.  See <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html" target="_blank">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>
-   */
-  ARN?: string;
-
-  /**
-   * <p>True if the search domain is created. It can take several minutes to initialize a domain when <a>CreateDomain</a> is called. Newly created search domains are returned from <a>DescribeDomains</a> with a false value for Created until domain creation is complete.</p>
-   */
-  Created?: boolean;
-
-  /**
-   * <p>True if the search domain has been deleted.  The system must clean up resources dedicated to the search domain when <a>DeleteDomain</a> is called.  Newly deleted search domains are returned from <a>DescribeDomains</a> with a true value for IsDeleted for several minutes until resource cleanup is complete.</p>
-   */
-  Deleted?: boolean;
-
-  /**
-   * <p>The service endpoint for updating documents in a search domain.</p>
-   */
-  DocService?: ServiceEndpoint;
-
-  /**
-   * <p>An internally generated unique identifier for a domain.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   */
-  DomainName: string | undefined;
-
-  Limits?: Limits;
-  /**
-   * <p>True if processing is being done to activate the current domain configuration.</p>
-   */
-  Processing?: boolean;
-
-  /**
    * <p>True if <a>IndexDocuments</a> needs to be called to activate the current domain configuration.</p>
    */
   RequiresIndexDocuments: boolean | undefined;
-
-  /**
-   * <p>The number of search instances that are available to process search requests.</p>
-   */
-  SearchInstanceCount?: number;
 
   /**
    * <p>The instance type that is being used to process search requests.</p>
@@ -1277,14 +1236,55 @@ export interface DomainStatus {
   SearchInstanceType?: string;
 
   /**
-   * <p>The number of partitions across which the search index is spread.</p>
+   * <p>True if processing is being done to activate the current domain configuration.</p>
    */
-  SearchPartitionCount?: number;
+  Processing?: boolean;
+
+  /**
+   * <p>True if the search domain has been deleted.  The system must clean up resources dedicated to the search domain when <a>DeleteDomain</a> is called.  Newly deleted search domains are returned from <a>DescribeDomains</a> with a true value for IsDeleted for several minutes until resource cleanup is complete.</p>
+   */
+  Deleted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the search domain.  See <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html" target="_blank">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>The number of search instances that are available to process search requests.</p>
+   */
+  SearchInstanceCount?: number;
+
+  /**
+   * <p>True if the search domain is created. It can take several minutes to initialize a domain when <a>CreateDomain</a> is called. Newly created search domains are returned from <a>DescribeDomains</a> with a false value for Created until domain creation is complete.</p>
+   */
+  Created?: boolean;
+
+  /**
+   * <p>An internally generated unique identifier for a domain.</p>
+   */
+  DomainId: string | undefined;
 
   /**
    * <p>The service endpoint for requesting search results from a search domain.</p>
    */
   SearchService?: ServiceEndpoint;
+
+  Limits?: Limits;
+  /**
+   * <p>The number of partitions across which the search index is spread.</p>
+   */
+  SearchPartitionCount?: number;
+
+  /**
+   * <p>The service endpoint for updating documents in a search domain.</p>
+   */
+  DocService?: ServiceEndpoint;
+
+  /**
+   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace DomainStatus {
@@ -1300,19 +1300,14 @@ export namespace DomainStatus {
 export interface DoubleArrayOptions {
   __type?: "DoubleArrayOptions";
   /**
-   * A value to use for the field if the field isn't specified for a document.
-   */
-  DefaultValue?: number;
-
-  /**
    * <p>Whether facet information can be returned for the field.</p>
    */
   FacetEnabled?: boolean;
 
   /**
-   * <p>Whether the contents of the field can be returned in the search results.</p>
+   * <p>A list of source fields to map to the field. </p>
    */
-  ReturnEnabled?: boolean;
+  SourceFields?: string;
 
   /**
    * <p>Whether the contents of the field are searchable.</p>
@@ -1320,9 +1315,14 @@ export interface DoubleArrayOptions {
   SearchEnabled?: boolean;
 
   /**
-   * <p>A list of source fields to map to the field. </p>
+   * A value to use for the field if the field isn't specified for a document.
    */
-  SourceFields?: string;
+  DefaultValue?: number;
+
+  /**
+   * <p>Whether the contents of the field can be returned in the search results.</p>
+   */
+  ReturnEnabled?: boolean;
 }
 
 export namespace DoubleArrayOptions {
@@ -1338,9 +1338,19 @@ export namespace DoubleArrayOptions {
 export interface DoubleOptions {
   __type?: "DoubleOptions";
   /**
-   * <p>A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.</p>
+   * <p>Whether the contents of the field are searchable.</p>
    */
-  DefaultValue?: number;
+  SearchEnabled?: boolean;
+
+  /**
+   * <p>The name of the source field to map to the field. </p>
+   */
+  SourceField?: string;
+
+  /**
+   * <p>Whether the field can be used to sort the search results.</p>
+   */
+  SortEnabled?: boolean;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
@@ -1353,19 +1363,9 @@ export interface DoubleOptions {
   ReturnEnabled?: boolean;
 
   /**
-   * <p>Whether the contents of the field are searchable.</p>
+   * <p>A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.</p>
    */
-  SearchEnabled?: boolean;
-
-  /**
-   * <p>Whether the field can be used to sort the search results.</p>
-   */
-  SortEnabled?: boolean;
-
-  /**
-   * <p>The name of the source field to map to the field. </p>
-   */
-  SourceField?: string;
+  DefaultValue?: number;
 }
 
 export namespace DoubleOptions {
@@ -1381,15 +1381,15 @@ export namespace DoubleOptions {
 export interface Expression {
   __type?: "Expression";
   /**
+   * <p>The expression to evaluate for sorting while processing a search request.  The <code>Expression</code> syntax is based on JavaScript expressions. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+   */
+  ExpressionValue: string | undefined;
+
+  /**
    * <p>Names must begin with a letter and can contain the following characters:
    *       a-z (lowercase), 0-9, and _ (underscore).</p>
    */
   ExpressionName: string | undefined;
-
-  /**
-   * <p>The expression to evaluate for sorting while processing a search request.  The <code>Expression</code> syntax is based on JavaScript expressions. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
-   */
-  ExpressionValue: string | undefined;
 }
 
 export namespace Expression {
@@ -1405,14 +1405,14 @@ export namespace Expression {
 export interface ExpressionStatus {
   __type?: "ExpressionStatus";
   /**
-   * <p>The expression that is evaluated for sorting while processing a search request.</p>
-   */
-  Options: Expression | undefined;
-
-  /**
    * <p>The status of domain configuration option.</p>
    */
   Status: OptionStatus | undefined;
+
+  /**
+   * <p>The expression that is evaluated for sorting while processing a search request.</p>
+   */
+  Options: Expression | undefined;
 }
 
 export namespace ExpressionStatus {
@@ -1464,14 +1464,9 @@ export namespace IndexDocumentsResponse {
 export interface IndexField {
   __type?: "IndexField";
   /**
-   * <p>Options for a field that contains an array of dates.  Present if <code>IndexFieldType</code> specifies the field is of type <code>date-array</code>. All options are enabled by default.</p>
+   * <p>Options for a double-precision 64-bit floating point field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>double</code>. All options are enabled by default.</p>
    */
-  DateArrayOptions?: DateArrayOptions;
-
-  /**
-   * <p>Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z.  Present if <code>IndexFieldType</code> specifies the field is of type <code>date</code>. All options are enabled by default.</p>
-   */
-  DateOptions?: DateOptions;
+  DoubleOptions?: DoubleOptions;
 
   /**
    * <p>Options for a field that contains an array of double-precision 64-bit floating point values.  Present if <code>IndexFieldType</code> specifies the field is of type <code>double-array</code>.  All options are enabled by default.</p>
@@ -1479,9 +1474,19 @@ export interface IndexField {
   DoubleArrayOptions?: DoubleArrayOptions;
 
   /**
-   * <p>Options for a double-precision 64-bit floating point field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>double</code>. All options are enabled by default.</p>
+   * <p>Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if <code>IndexFieldType</code> specifies the field is of type <code>latlon</code>. All options are enabled by default.</p>
    */
-  DoubleOptions?: DoubleOptions;
+  LatLonOptions?: LatLonOptions;
+
+  /**
+   * <p>Options for literal field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>literal</code>. All options are enabled by default.</p>
+   */
+  LiteralOptions?: LiteralOptions;
+
+  /**
+   * <p>Options for a field that contains an array of dates.  Present if <code>IndexFieldType</code> specifies the field is of type <code>date-array</code>. All options are enabled by default.</p>
+   */
+  DateArrayOptions?: DateArrayOptions;
 
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
@@ -1502,14 +1507,9 @@ export interface IndexField {
   IndexFieldName: string | undefined;
 
   /**
-   * <p>The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+   * <p>Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z.  Present if <code>IndexFieldType</code> specifies the field is of type <code>date</code>. All options are enabled by default.</p>
    */
-  IndexFieldType: IndexFieldType | string | undefined;
-
-  /**
-   * <p>Options for a field that contains an array of 64-bit signed integers.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int-array</code>. All options are enabled by default.</p>
-   */
-  IntArrayOptions?: IntArrayOptions;
+  DateOptions?: DateOptions;
 
   /**
    * <p>Options for a 64-bit signed integer field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int</code>. All options are enabled by default.</p>
@@ -1517,19 +1517,14 @@ export interface IndexField {
   IntOptions?: IntOptions;
 
   /**
-   * <p>Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if <code>IndexFieldType</code> specifies the field is of type <code>latlon</code>. All options are enabled by default.</p>
+   * <p>Options for text field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>text</code>. A <code>text</code> field is always searchable. All options are enabled by default.</p>
    */
-  LatLonOptions?: LatLonOptions;
+  TextOptions?: TextOptions;
 
   /**
-   * <p>Options for a field that contains an array of literal strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>literal-array</code>. All options are enabled by default.</p>
+   * <p>Options for a field that contains an array of 64-bit signed integers.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int-array</code>. All options are enabled by default.</p>
    */
-  LiteralArrayOptions?: LiteralArrayOptions;
-
-  /**
-   * <p>Options for literal field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>literal</code>. All options are enabled by default.</p>
-   */
-  LiteralOptions?: LiteralOptions;
+  IntArrayOptions?: IntArrayOptions;
 
   /**
    * <p>Options for a field that contains an array of text strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>text-array</code>. A <code>text-array</code> field is always searchable. All options are enabled by default.</p>
@@ -1537,9 +1532,14 @@ export interface IndexField {
   TextArrayOptions?: TextArrayOptions;
 
   /**
-   * <p>Options for text field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>text</code>. A <code>text</code> field is always searchable. All options are enabled by default.</p>
+   * <p>The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
-  TextOptions?: TextOptions;
+  IndexFieldType: IndexFieldType | string | undefined;
+
+  /**
+   * <p>Options for a field that contains an array of literal strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>literal-array</code>. All options are enabled by default.</p>
+   */
+  LiteralArrayOptions?: LiteralArrayOptions;
 }
 
 export namespace IndexField {
@@ -1591,9 +1591,9 @@ export type IndexFieldType =
 export interface IntArrayOptions {
   __type?: "IntArrayOptions";
   /**
-   * A value to use for the field if the field isn't specified for a document.
+   * <p>Whether the contents of the field are searchable.</p>
    */
-  DefaultValue?: number;
+  SearchEnabled?: boolean;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
@@ -1601,19 +1601,19 @@ export interface IntArrayOptions {
   FacetEnabled?: boolean;
 
   /**
-   * <p>Whether the contents of the field can be returned in the search results.</p>
+   * A value to use for the field if the field isn't specified for a document.
    */
-  ReturnEnabled?: boolean;
-
-  /**
-   * <p>Whether the contents of the field are searchable.</p>
-   */
-  SearchEnabled?: boolean;
+  DefaultValue?: number;
 
   /**
    * <p>A list of source fields to map to the field. </p>
    */
   SourceFields?: string;
+
+  /**
+   * <p>Whether the contents of the field can be returned in the search results.</p>
+   */
+  ReturnEnabled?: boolean;
 }
 
 export namespace IntArrayOptions {
@@ -1631,14 +1631,14 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   name: "InternalException";
   $fault: "server";
   /**
-   * <p>A machine-parsable string error or warning code.</p>
-   */
-  Code?: string;
-
-  /**
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>A machine-parsable string error or warning code.</p>
+   */
+  Code?: string;
 }
 
 export namespace InternalException {
@@ -1654,9 +1654,9 @@ export namespace InternalException {
 export interface IntOptions {
   __type?: "IntOptions";
   /**
-   * A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+   * <p>Whether the field can be used to sort the search results.</p>
    */
-  DefaultValue?: number;
+  SortEnabled?: boolean;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
@@ -1664,19 +1664,19 @@ export interface IntOptions {
   FacetEnabled?: boolean;
 
   /**
-   * <p>Whether the contents of the field can be returned in the search results.</p>
-   */
-  ReturnEnabled?: boolean;
-
-  /**
    * <p>Whether the contents of the field are searchable.</p>
    */
   SearchEnabled?: boolean;
 
   /**
-   * <p>Whether the field can be used to sort the search results.</p>
+   * A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
    */
-  SortEnabled?: boolean;
+  DefaultValue?: number;
+
+  /**
+   * <p>Whether the contents of the field can be returned in the search results.</p>
+   */
+  ReturnEnabled?: boolean;
 
   /**
    * <p>The name of the source field to map to the field. </p>
@@ -1721,14 +1721,14 @@ export namespace InvalidTypeException {
 export interface LatLonOptions {
   __type?: "LatLonOptions";
   /**
+   * <p>Whether the field can be used to sort the search results.</p>
+   */
+  SortEnabled?: boolean;
+
+  /**
    * A value to use for the field if the field isn't specified for a document.
    */
   DefaultValue?: string;
-
-  /**
-   * <p>Whether facet information can be returned for the field.</p>
-   */
-  FacetEnabled?: boolean;
 
   /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
@@ -1739,11 +1739,6 @@ export interface LatLonOptions {
    * <p>Whether the contents of the field are searchable.</p>
    */
   SearchEnabled?: boolean;
-
-  /**
-   * <p>Whether the field can be used to sort the search results.</p>
-   */
-  SortEnabled?: boolean;
 
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
@@ -1762,6 +1757,11 @@ export interface LatLonOptions {
    *     </p>
    */
   SourceField?: string;
+
+  /**
+   * <p>Whether facet information can be returned for the field.</p>
+   */
+  FacetEnabled?: boolean;
 }
 
 export namespace LatLonOptions {
@@ -1778,14 +1778,14 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   /**
-   * <p>A machine-parsable string error or warning code.</p>
-   */
-  Code?: string;
-
-  /**
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>A machine-parsable string error or warning code.</p>
+   */
+  Code?: string;
 }
 
 export namespace LimitExceededException {
@@ -1797,8 +1797,8 @@ export namespace LimitExceededException {
 
 export interface Limits {
   __type?: "Limits";
-  MaximumPartitionCount: number | undefined;
   MaximumReplicationCount: number | undefined;
+  MaximumPartitionCount: number | undefined;
 }
 
 export namespace Limits {
@@ -1832,9 +1832,9 @@ export namespace ListDomainNamesResponse {
 export interface LiteralArrayOptions {
   __type?: "LiteralArrayOptions";
   /**
-   * A value to use for the field if the field isn't specified for a document.
+   * <p>Whether the contents of the field are searchable.</p>
    */
-  DefaultValue?: string;
+  SearchEnabled?: boolean;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
@@ -1842,14 +1842,14 @@ export interface LiteralArrayOptions {
   FacetEnabled?: boolean;
 
   /**
+   * A value to use for the field if the field isn't specified for a document.
+   */
+  DefaultValue?: string;
+
+  /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    */
   ReturnEnabled?: boolean;
-
-  /**
-   * <p>Whether the contents of the field are searchable.</p>
-   */
-  SearchEnabled?: boolean;
 
   /**
    * <p>A list of source fields to map to the field. </p>
@@ -1870,9 +1870,9 @@ export namespace LiteralArrayOptions {
 export interface LiteralOptions {
   __type?: "LiteralOptions";
   /**
-   * A value to use for the field if the field isn't specified for a document.
+   * <p>Whether the field can be used to sort the search results.</p>
    */
-  DefaultValue?: string;
+  SortEnabled?: boolean;
 
   /**
    * <p>Whether facet information can be returned for the field.</p>
@@ -1880,19 +1880,9 @@ export interface LiteralOptions {
   FacetEnabled?: boolean;
 
   /**
-   * <p>Whether the contents of the field can be returned in the search results.</p>
-   */
-  ReturnEnabled?: boolean;
-
-  /**
    * <p>Whether the contents of the field are searchable.</p>
    */
   SearchEnabled?: boolean;
-
-  /**
-   * <p>Whether the field can be used to sort the search results.</p>
-   */
-  SortEnabled?: boolean;
 
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
@@ -1911,6 +1901,16 @@ export interface LiteralOptions {
    *     </p>
    */
   SourceField?: string;
+
+  /**
+   * A value to use for the field if the field isn't specified for a document.
+   */
+  DefaultValue?: string;
+
+  /**
+   * <p>Whether the contents of the field can be returned in the search results.</p>
+   */
+  ReturnEnabled?: boolean;
 }
 
 export namespace LiteralOptions {
@@ -1933,6 +1933,11 @@ export interface OptionStatus {
   CreationDate: Date | undefined;
 
   /**
+   * <p>A unique integer that indicates when this option was last updated.</p>
+   */
+  UpdateVersion?: number;
+
+  /**
    * <p>Indicates that the option will be deleted once processing is complete.</p>
    */
   PendingDeletion?: boolean;
@@ -1951,11 +1956,6 @@ export interface OptionStatus {
    * <p>A timestamp for when this option was last updated.</p>
    */
   UpdateDate: Date | undefined;
-
-  /**
-   * <p>A unique integer that indicates when this option was last updated.</p>
-   */
-  UpdateVersion?: number;
 }
 
 export namespace OptionStatus {
@@ -2005,9 +2005,9 @@ export namespace ResourceNotFoundException {
 export interface ScalingParameters {
   __type?: "ScalingParameters";
   /**
-   * <p>The instance type that you want to preconfigure for your domain. For example, <code>search.m1.small</code>.</p>
+   * <p>The number of replicas you want to preconfigure for each index partition.</p>
    */
-  DesiredInstanceType?: PartitionInstanceType | string;
+  DesiredReplicationCount?: number;
 
   /**
    * <p>The number of partitions you want to preconfigure for your domain. Only valid when
@@ -2016,9 +2016,9 @@ export interface ScalingParameters {
   DesiredPartitionCount?: number;
 
   /**
-   * <p>The number of replicas you want to preconfigure for each index partition.</p>
+   * <p>The instance type that you want to preconfigure for your domain. For example, <code>search.m1.small</code>.</p>
    */
-  DesiredReplicationCount?: number;
+  DesiredInstanceType?: PartitionInstanceType | string;
 }
 
 export namespace ScalingParameters {
@@ -2075,15 +2075,15 @@ export namespace ServiceEndpoint {
 export interface Suggester {
   __type?: "Suggester";
   /**
-   * <p>Options for a search suggester.</p>
-   */
-  DocumentSuggesterOptions: DocumentSuggesterOptions | undefined;
-
-  /**
    * <p>Names must begin with a letter and can contain the following characters:
    *       a-z (lowercase), 0-9, and _ (underscore).</p>
    */
   SuggesterName: string | undefined;
+
+  /**
+   * <p>Options for a search suggester.</p>
+   */
+  DocumentSuggesterOptions: DocumentSuggesterOptions | undefined;
 }
 
 export namespace Suggester {
@@ -2124,9 +2124,9 @@ export namespace SuggesterStatus {
 export interface TextArrayOptions {
   __type?: "TextArrayOptions";
   /**
-   * <p>The name of an analysis scheme for a  <code>text-array</code> field.</p>
+   * <p>Whether the contents of the field can be returned in the search results.</p>
    */
-  AnalysisScheme?: string;
+  ReturnEnabled?: boolean;
 
   /**
    * A value to use for the field if the field isn't specified for a document.
@@ -2134,19 +2134,19 @@ export interface TextArrayOptions {
   DefaultValue?: string;
 
   /**
+   * <p>A list of source fields to map to the field. </p>
+   */
+  SourceFields?: string;
+
+  /**
    * <p>Whether highlights can be returned for the field.</p>
    */
   HighlightEnabled?: boolean;
 
   /**
-   * <p>Whether the contents of the field can be returned in the search results.</p>
+   * <p>The name of an analysis scheme for a  <code>text-array</code> field.</p>
    */
-  ReturnEnabled?: boolean;
-
-  /**
-   * <p>A list of source fields to map to the field. </p>
-   */
-  SourceFields?: string;
+  AnalysisScheme?: string;
 }
 
 export namespace TextArrayOptions {
@@ -2162,21 +2162,6 @@ export namespace TextArrayOptions {
 export interface TextOptions {
   __type?: "TextOptions";
   /**
-   * <p>The name of an analysis scheme for a  <code>text</code> field.</p>
-   */
-  AnalysisScheme?: string;
-
-  /**
-   * A value to use for the field if the field isn't specified for a document.
-   */
-  DefaultValue?: string;
-
-  /**
-   * <p>Whether highlights can be returned for the field.</p>
-   */
-  HighlightEnabled?: boolean;
-
-  /**
    * <p>Whether the contents of the field can be returned in the search results.</p>
    */
   ReturnEnabled?: boolean;
@@ -2185,6 +2170,16 @@ export interface TextOptions {
    * <p>Whether the field can be used to sort the search results.</p>
    */
   SortEnabled?: boolean;
+
+  /**
+   * A value to use for the field if the field isn't specified for a document.
+   */
+  DefaultValue?: string;
+
+  /**
+   * <p>The name of an analysis scheme for a  <code>text</code> field.</p>
+   */
+  AnalysisScheme?: string;
 
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
@@ -2203,6 +2198,11 @@ export interface TextOptions {
    *     </p>
    */
   SourceField?: string;
+
+  /**
+   * <p>Whether highlights can be returned for the field.</p>
+   */
+  HighlightEnabled?: boolean;
 }
 
 export namespace TextOptions {
@@ -2223,14 +2223,14 @@ export enum TLSSecurityPolicy {
 export interface UpdateAvailabilityOptionsRequest {
   __type?: "UpdateAvailabilityOptionsRequest";
   /**
-   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to <code>false</code>. </p>
    */
   MultiAZ: boolean | undefined;
+
+  /**
+   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace UpdateAvailabilityOptionsRequest {
@@ -2307,14 +2307,14 @@ export namespace UpdateDomainEndpointOptionsResponse {
 export interface UpdateScalingParametersRequest {
   __type?: "UpdateScalingParametersRequest";
   /**
-   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>The desired instance type and desired number of replicas of each index partition.</p>
    */
   ScalingParameters: ScalingParameters | undefined;
+
+  /**
+   * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace UpdateScalingParametersRequest {
@@ -2348,14 +2348,14 @@ export namespace UpdateScalingParametersResponse {
 export interface UpdateServiceAccessPoliciesRequest {
   __type?: "UpdateServiceAccessPoliciesRequest";
   /**
-   * <p>The access rules you want to configure. These rules replace any existing rules. </p>
-   */
-  AccessPolicies: string | undefined;
-
-  /**
    * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>The access rules you want to configure. These rules replace any existing rules. </p>
+   */
+  AccessPolicies: string | undefined;
 }
 
 export namespace UpdateServiceAccessPoliciesRequest {
@@ -2392,14 +2392,14 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   /**
-   * <p>A machine-parsable string error or warning code.</p>
-   */
-  Code?: string;
-
-  /**
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>A machine-parsable string error or warning code.</p>
+   */
+  Code?: string;
 }
 
 export namespace ValidationException {

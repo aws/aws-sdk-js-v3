@@ -54,6 +54,7 @@ import {
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
 } from "./commands/ListResourceSharePermissionsCommand";
+import { ListResourceTypesCommandInput, ListResourceTypesCommandOutput } from "./commands/ListResourceTypesCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import {
   PromoteResourceShareCreatedFromPolicyCommandInput,
@@ -134,6 +135,7 @@ export type ServiceInputTypes =
   | ListPermissionsCommandInput
   | ListPrincipalsCommandInput
   | ListResourceSharePermissionsCommandInput
+  | ListResourceTypesCommandInput
   | ListResourcesCommandInput
   | PromoteResourceShareCreatedFromPolicyCommandInput
   | RejectResourceShareInvitationCommandInput
@@ -159,6 +161,7 @@ export type ServiceOutputTypes =
   | ListPermissionsCommandOutput
   | ListPrincipalsCommandOutput
   | ListResourceSharePermissionsCommandOutput
+  | ListResourceTypesCommandOutput
   | ListResourcesCommandOutput
   | PromoteResourceShareCreatedFromPolicyCommandOutput
   | RejectResourceShareInvitationCommandOutput

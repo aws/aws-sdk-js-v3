@@ -31,6 +31,14 @@ import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/Del
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "../commands/DescribeChannelCommand";
 import { DescribeInputCommandInput, DescribeInputCommandOutput } from "../commands/DescribeInputCommand";
 import {
+  DescribeInputDeviceCommandInput,
+  DescribeInputDeviceCommandOutput,
+} from "../commands/DescribeInputDeviceCommand";
+import {
+  DescribeInputDeviceThumbnailCommandInput,
+  DescribeInputDeviceThumbnailCommandOutput,
+} from "../commands/DescribeInputDeviceThumbnailCommand";
+import {
   DescribeInputSecurityGroupCommandInput,
   DescribeInputSecurityGroupCommandOutput,
 } from "../commands/DescribeInputSecurityGroupCommand";
@@ -46,6 +54,7 @@ import {
 } from "../commands/DescribeReservationCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "../commands/DescribeScheduleCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
+import { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "../commands/ListInputDevicesCommand";
 import {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput,
@@ -70,6 +79,7 @@ import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "../comman
 import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "../commands/UpdateChannelClassCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
 import { UpdateInputCommandInput, UpdateInputCommandOutput } from "../commands/UpdateInputCommand";
+import { UpdateInputDeviceCommandInput, UpdateInputDeviceCommandOutput } from "../commands/UpdateInputDeviceCommand";
 import {
   UpdateInputSecurityGroupCommandInput,
   UpdateInputSecurityGroupCommandOutput,
@@ -97,6 +107,9 @@ import {
   AudioPidSelection,
   AudioSelector,
   AudioSelectorSettings,
+  AudioTrack,
+  AudioTrackSelection,
+  AutomaticInputFailoverSettings,
   AvailBlanking,
   AvailConfiguration,
   AvailSettings,
@@ -124,10 +137,12 @@ import {
   DvbSubSourceSettings,
   DvbTdtSettings,
   Eac3Settings,
+  EbuTtDDestinationSettings,
   EmbeddedDestinationSettings,
   EmbeddedPlusScte20DestinationSettings,
   EmbeddedSourceSettings,
   EncoderSettings,
+  FeatureActivations,
   FecOutputSettings,
   FixedModeScheduleActionStartSettings,
   Fmp4HlsSettings,
@@ -139,8 +154,10 @@ import {
   GatewayTimeoutException,
   GlobalConfiguration,
   H264ColorSpaceSettings,
+  H264FilterSettings,
   H264Settings,
   H265ColorSpaceSettings,
+  H265FilterSettings,
   H265Settings,
   Hdr10Settings,
   HlsAdMarkers,
@@ -163,8 +180,15 @@ import {
   InputDestination,
   InputDestinationRequest,
   InputDestinationVpc,
+  InputDeviceConfigurableSettings,
+  InputDeviceHdSettings,
+  InputDeviceNetworkSettings,
+  InputDeviceRequest,
+  InputDeviceSettings,
+  InputDeviceSummary,
   InputLocation,
   InputLossBehavior,
+  InputPrepareScheduleActionSettings,
   InputSecurityGroup,
   InputSettings,
   InputSource,
@@ -250,6 +274,7 @@ import {
   StopTimecode,
   TeletextDestinationSettings,
   TeletextSourceSettings,
+  TemporalFilterSettings,
   TimecodeConfig,
   TooManyRequestsException,
   TtmlDestinationSettings,
@@ -371,6 +396,9 @@ export const serializeAws_restJson1CreateInputCommand = async (
   body = JSON.stringify({
     ...(input.Destinations !== undefined && {
       destinations: serializeAws_restJson1__listOfInputDestinationRequest(input.Destinations, context),
+    }),
+    ...(input.InputDevices !== undefined && {
+      inputDevices: serializeAws_restJson1__listOfInputDeviceSettings(input.InputDevices, context),
     }),
     ...(input.InputSecurityGroups !== undefined && {
       inputSecurityGroups: serializeAws_restJson1__listOf__string(input.InputSecurityGroups, context),
@@ -657,15 +685,6 @@ export const serializeAws_restJson1DeleteMultiplexProgramCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
-  if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
-    }
-    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MultiplexId.");
-  }
   if (input.ProgramName !== undefined) {
     const labelValue: string = input.ProgramName;
     if (labelValue.length <= 0) {
@@ -674,6 +693,15 @@ export const serializeAws_restJson1DeleteMultiplexProgramCommand = async (
     resolvedPath = resolvedPath.replace("{ProgramName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ProgramName.");
+  }
+  if (input.MultiplexId !== undefined) {
+    const labelValue: string = input.MultiplexId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
+    }
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -828,6 +856,67 @@ export const serializeAws_restJson1DescribeInputCommand = async (
     resolvedPath = resolvedPath.replace("{InputId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InputId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeInputDeviceCommand = async (
+  input: DescribeInputDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/prod/inputDevices/{InputDeviceId}";
+  if (input.InputDeviceId !== undefined) {
+    const labelValue: string = input.InputDeviceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InputDeviceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InputDeviceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InputDeviceId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeInputDeviceThumbnailCommand = async (
+  input: DescribeInputDeviceThumbnailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.Accept) && { accept: input.Accept! }),
+  };
+  let resolvedPath = "/prod/inputDevices/{InputDeviceId}/thumbnailData";
+  if (input.InputDeviceId !== undefined) {
+    const labelValue: string = input.InputDeviceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InputDeviceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InputDeviceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InputDeviceId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1019,8 +1108,8 @@ export const serializeAws_restJson1DescribeScheduleCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1062,6 +1151,32 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListInputDevicesCommand = async (
+  input: ListInputDevicesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/prod/inputDevices";
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListInputsCommand = async (
   input: ListInputsCommandInput,
   context: __SerdeContext
@@ -1071,8 +1186,8 @@ export const serializeAws_restJson1ListInputsCommand = async (
   };
   let resolvedPath = "/prod/inputs";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1158,8 +1273,8 @@ export const serializeAws_restJson1ListMultiplexProgramsCommand = async (
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1184,18 +1299,18 @@ export const serializeAws_restJson1ListOfferingsCommand = async (
   };
   let resolvedPath = "/prod/offerings";
   const query: any = {
-    ...(input.ChannelClass !== undefined && { channelClass: input.ChannelClass }),
-    ...(input.ChannelConfiguration !== undefined && { channelConfiguration: input.ChannelConfiguration }),
     ...(input.Codec !== undefined && { codec: input.Codec }),
+    ...(input.ChannelClass !== undefined && { channelClass: input.ChannelClass }),
     ...(input.Duration !== undefined && { duration: input.Duration }),
+    ...(input.Resolution !== undefined && { resolution: input.Resolution }),
+    ...(input.MaximumFramerate !== undefined && { maximumFramerate: input.MaximumFramerate }),
+    ...(input.ChannelConfiguration !== undefined && { channelConfiguration: input.ChannelConfiguration }),
+    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+    ...(input.VideoQuality !== undefined && { videoQuality: input.VideoQuality }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.MaximumBitrate !== undefined && { maximumBitrate: input.MaximumBitrate }),
-    ...(input.MaximumFramerate !== undefined && { maximumFramerate: input.MaximumFramerate }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.Resolution !== undefined && { resolution: input.Resolution }),
-    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
     ...(input.SpecialFeature !== undefined && { specialFeature: input.SpecialFeature }),
-    ...(input.VideoQuality !== undefined && { videoQuality: input.VideoQuality }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1220,16 +1335,16 @@ export const serializeAws_restJson1ListReservationsCommand = async (
   };
   let resolvedPath = "/prod/reservations";
   const query: any = {
-    ...(input.ChannelClass !== undefined && { channelClass: input.ChannelClass }),
-    ...(input.Codec !== undefined && { codec: input.Codec }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.MaximumBitrate !== undefined && { maximumBitrate: input.MaximumBitrate }),
-    ...(input.MaximumFramerate !== undefined && { maximumFramerate: input.MaximumFramerate }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Resolution !== undefined && { resolution: input.Resolution }),
     ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+    ...(input.MaximumFramerate !== undefined && { maximumFramerate: input.MaximumFramerate }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaximumBitrate !== undefined && { maximumBitrate: input.MaximumBitrate }),
     ...(input.SpecialFeature !== undefined && { specialFeature: input.SpecialFeature }),
+    ...(input.Codec !== undefined && { codec: input.Codec }),
     ...(input.VideoQuality !== undefined && { videoQuality: input.VideoQuality }),
+    ...(input.ChannelClass !== undefined && { channelClass: input.ChannelClass }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1537,6 +1652,9 @@ export const serializeAws_restJson1UpdateInputCommand = async (
     ...(input.Destinations !== undefined && {
       destinations: serializeAws_restJson1__listOfInputDestinationRequest(input.Destinations, context),
     }),
+    ...(input.InputDevices !== undefined && {
+      inputDevices: serializeAws_restJson1__listOfInputDeviceRequest(input.InputDevices, context),
+    }),
     ...(input.InputSecurityGroups !== undefined && {
       inputSecurityGroups: serializeAws_restJson1__listOf__string(input.InputSecurityGroups, context),
     }),
@@ -1548,6 +1666,42 @@ export const serializeAws_restJson1UpdateInputCommand = async (
     ...(input.Sources !== undefined && {
       sources: serializeAws_restJson1__listOfInputSourceRequest(input.Sources, context),
     }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateInputDeviceCommand = async (
+  input: UpdateInputDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/prod/inputDevices/{InputDeviceId}";
+  if (input.InputDeviceId !== undefined) {
+    const labelValue: string = input.InputDeviceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InputDeviceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InputDeviceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InputDeviceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.HdDeviceSettings !== undefined && {
+      hdDeviceSettings: serializeAws_restJson1InputDeviceConfigurableSettings(input.HdDeviceSettings, context),
+    }),
+    ...(input.Name !== undefined && { name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1641,15 +1795,6 @@ export const serializeAws_restJson1UpdateMultiplexProgramCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
-  if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
-    }
-    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MultiplexId.");
-  }
   if (input.ProgramName !== undefined) {
     const labelValue: string = input.ProgramName;
     if (labelValue.length <= 0) {
@@ -1658,6 +1803,15 @@ export const serializeAws_restJson1UpdateMultiplexProgramCommand = async (
     resolvedPath = resolvedPath.replace("{ProgramName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ProgramName.");
+  }
+  if (input.MultiplexId !== undefined) {
+    const labelValue: string = input.MultiplexId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
+    }
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -3616,6 +3770,7 @@ export const deserializeAws_restJson1DescribeInputCommand = async (
     Destinations: undefined,
     Id: undefined,
     InputClass: undefined,
+    InputDevices: undefined,
     InputSourceType: undefined,
     MediaConnectFlows: undefined,
     Name: undefined,
@@ -3641,6 +3796,9 @@ export const deserializeAws_restJson1DescribeInputCommand = async (
   }
   if (data.inputClass !== undefined && data.inputClass !== null) {
     contents.InputClass = data.inputClass;
+  }
+  if (data.inputDevices !== undefined && data.inputDevices !== null) {
+    contents.InputDevices = deserializeAws_restJson1__listOfInputDeviceSettings(data.inputDevices, context);
   }
   if (data.inputSourceType !== undefined && data.inputSourceType !== null) {
     contents.InputSourceType = data.inputSourceType;
@@ -3676,6 +3834,264 @@ const deserializeAws_restJson1DescribeInputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      response = {
+        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      response = {
+        ...(await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeInputDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInputDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeInputDeviceCommandError(output, context);
+  }
+  const contents: DescribeInputDeviceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeInputDeviceResponse",
+    Arn: undefined,
+    ConnectionState: undefined,
+    DeviceSettingsSyncState: undefined,
+    HdDeviceSettings: undefined,
+    Id: undefined,
+    MacAddress: undefined,
+    Name: undefined,
+    NetworkSettings: undefined,
+    SerialNumber: undefined,
+    Type: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.Arn = data.arn;
+  }
+  if (data.connectionState !== undefined && data.connectionState !== null) {
+    contents.ConnectionState = data.connectionState;
+  }
+  if (data.deviceSettingsSyncState !== undefined && data.deviceSettingsSyncState !== null) {
+    contents.DeviceSettingsSyncState = data.deviceSettingsSyncState;
+  }
+  if (data.hdDeviceSettings !== undefined && data.hdDeviceSettings !== null) {
+    contents.HdDeviceSettings = deserializeAws_restJson1InputDeviceHdSettings(data.hdDeviceSettings, context);
+  }
+  if (data.id !== undefined && data.id !== null) {
+    contents.Id = data.id;
+  }
+  if (data.macAddress !== undefined && data.macAddress !== null) {
+    contents.MacAddress = data.macAddress;
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.Name = data.name;
+  }
+  if (data.networkSettings !== undefined && data.networkSettings !== null) {
+    contents.NetworkSettings = deserializeAws_restJson1InputDeviceNetworkSettings(data.networkSettings, context);
+  }
+  if (data.serialNumber !== undefined && data.serialNumber !== null) {
+    contents.SerialNumber = data.serialNumber;
+  }
+  if (data.type !== undefined && data.type !== null) {
+    contents.Type = data.type;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeInputDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInputDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      response = {
+        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      response = {
+        ...(await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeInputDeviceThumbnailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInputDeviceThumbnailCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeInputDeviceThumbnailCommandError(output, context);
+  }
+  const contents: DescribeInputDeviceThumbnailCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeInputDeviceThumbnailResponse",
+    Body: undefined,
+    ContentLength: undefined,
+    ContentType: undefined,
+    ETag: undefined,
+    LastModified: undefined,
+  };
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
+  }
+  if (output.headers["content-length"] !== undefined) {
+    contents.ContentLength = parseInt(output.headers["content-length"], 10);
+  }
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
+  }
+  if (output.headers["last-modified"] !== undefined) {
+    contents.LastModified = new Date(output.headers["last-modified"]);
+  }
+  const data: any = output.body;
+  contents.Body = data;
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeInputDeviceThumbnailCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInputDeviceThumbnailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4600,6 +5016,106 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      response = {
+        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      response = {
+        ...(await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListInputDevicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInputDevicesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListInputDevicesCommandError(output, context);
+  }
+  const contents: ListInputDevicesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListInputDevicesResponse",
+    InputDevices: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.inputDevices !== undefined && data.inputDevices !== null) {
+    contents.InputDevices = deserializeAws_restJson1__listOfInputDeviceSummary(data.inputDevices, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.NextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListInputDevicesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInputDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6439,6 +6955,154 @@ const deserializeAws_restJson1UpdateInputCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateInputDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInputDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateInputDeviceCommandError(output, context);
+  }
+  const contents: UpdateInputDeviceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateInputDeviceResponse",
+    Arn: undefined,
+    ConnectionState: undefined,
+    DeviceSettingsSyncState: undefined,
+    HdDeviceSettings: undefined,
+    Id: undefined,
+    MacAddress: undefined,
+    Name: undefined,
+    NetworkSettings: undefined,
+    SerialNumber: undefined,
+    Type: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.Arn = data.arn;
+  }
+  if (data.connectionState !== undefined && data.connectionState !== null) {
+    contents.ConnectionState = data.connectionState;
+  }
+  if (data.deviceSettingsSyncState !== undefined && data.deviceSettingsSyncState !== null) {
+    contents.DeviceSettingsSyncState = data.deviceSettingsSyncState;
+  }
+  if (data.hdDeviceSettings !== undefined && data.hdDeviceSettings !== null) {
+    contents.HdDeviceSettings = deserializeAws_restJson1InputDeviceHdSettings(data.hdDeviceSettings, context);
+  }
+  if (data.id !== undefined && data.id !== null) {
+    contents.Id = data.id;
+  }
+  if (data.macAddress !== undefined && data.macAddress !== null) {
+    contents.MacAddress = data.macAddress;
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.Name = data.name;
+  }
+  if (data.networkSettings !== undefined && data.networkSettings !== null) {
+    contents.NetworkSettings = deserializeAws_restJson1InputDeviceNetworkSettings(data.networkSettings, context);
+  }
+  if (data.serialNumber !== undefined && data.serialNumber !== null) {
+    contents.SerialNumber = data.serialNumber;
+  }
+  if (data.type !== undefined && data.type !== null) {
+    contents.Type = data.type;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateInputDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInputDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      response = {
+        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      response = {
+        ...(await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      response = {
+        ...(await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateInputSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7055,6 +7719,10 @@ const serializeAws_restJson1__listOfAudioSelector = (input: AudioSelector[], con
   return input.map((entry) => serializeAws_restJson1AudioSelector(entry, context));
 };
 
+const serializeAws_restJson1__listOfAudioTrack = (input: AudioTrack[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1AudioTrack(entry, context));
+};
+
 const serializeAws_restJson1__listOfCaptionDescription = (
   input: CaptionDescription[],
   context: __SerdeContext
@@ -7090,6 +7758,20 @@ const serializeAws_restJson1__listOfInputDestinationRequest = (
   context: __SerdeContext
 ): any => {
   return input.map((entry) => serializeAws_restJson1InputDestinationRequest(entry, context));
+};
+
+const serializeAws_restJson1__listOfInputDeviceRequest = (
+  input: InputDeviceRequest[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1InputDeviceRequest(entry, context));
+};
+
+const serializeAws_restJson1__listOfInputDeviceSettings = (
+  input: InputDeviceSettings[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1InputDeviceSettings(entry, context));
 };
 
 const serializeAws_restJson1__listOfInputSourceRequest = (
@@ -7330,6 +8012,31 @@ const serializeAws_restJson1AudioSelectorSettings = (input: AudioSelectorSetting
     ...(input.AudioPidSelection !== undefined && {
       audioPidSelection: serializeAws_restJson1AudioPidSelection(input.AudioPidSelection, context),
     }),
+    ...(input.AudioTrackSelection !== undefined && {
+      audioTrackSelection: serializeAws_restJson1AudioTrackSelection(input.AudioTrackSelection, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AudioTrack = (input: AudioTrack, context: __SerdeContext): any => {
+  return {
+    ...(input.Track !== undefined && { track: input.Track }),
+  };
+};
+
+const serializeAws_restJson1AudioTrackSelection = (input: AudioTrackSelection, context: __SerdeContext): any => {
+  return {
+    ...(input.Tracks !== undefined && { tracks: serializeAws_restJson1__listOfAudioTrack(input.Tracks, context) }),
+  };
+};
+
+const serializeAws_restJson1AutomaticInputFailoverSettings = (
+  input: AutomaticInputFailoverSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InputPreference !== undefined && { inputPreference: input.InputPreference }),
+    ...(input.SecondaryInputId !== undefined && { secondaryInputId: input.SecondaryInputId }),
   };
 };
 
@@ -7451,6 +8158,12 @@ const serializeAws_restJson1CaptionDestinationSettings = (
     ...(input.DvbSubDestinationSettings !== undefined && {
       dvbSubDestinationSettings: serializeAws_restJson1DvbSubDestinationSettings(
         input.DvbSubDestinationSettings,
+        context
+      ),
+    }),
+    ...(input.EbuTtDDestinationSettings !== undefined && {
+      ebuTtDDestinationSettings: serializeAws_restJson1EbuTtDDestinationSettings(
+        input.EbuTtDDestinationSettings,
         context
       ),
     }),
@@ -7638,6 +8351,17 @@ const serializeAws_restJson1Eac3Settings = (input: Eac3Settings, context: __Serd
   };
 };
 
+const serializeAws_restJson1EbuTtDDestinationSettings = (
+  input: EbuTtDDestinationSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FillLineGap !== undefined && { fillLineGap: input.FillLineGap }),
+    ...(input.FontFamily !== undefined && { fontFamily: input.FontFamily }),
+    ...(input.StyleControl !== undefined && { styleControl: input.StyleControl }),
+  };
+};
+
 const serializeAws_restJson1EmbeddedDestinationSettings = (
   input: EmbeddedDestinationSettings,
   context: __SerdeContext
@@ -7678,6 +8402,9 @@ const serializeAws_restJson1EncoderSettings = (input: EncoderSettings, context: 
     ...(input.CaptionDescriptions !== undefined && {
       captionDescriptions: serializeAws_restJson1__listOfCaptionDescription(input.CaptionDescriptions, context),
     }),
+    ...(input.FeatureActivations !== undefined && {
+      featureActivations: serializeAws_restJson1FeatureActivations(input.FeatureActivations, context),
+    }),
     ...(input.GlobalConfiguration !== undefined && {
       globalConfiguration: serializeAws_restJson1GlobalConfiguration(input.GlobalConfiguration, context),
     }),
@@ -7692,6 +8419,14 @@ const serializeAws_restJson1EncoderSettings = (input: EncoderSettings, context: 
     }),
     ...(input.VideoDescriptions !== undefined && {
       videoDescriptions: serializeAws_restJson1__listOfVideoDescription(input.VideoDescriptions, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FeatureActivations = (input: FeatureActivations, context: __SerdeContext): any => {
+  return {
+    ...(input.InputPrepareScheduleActions !== undefined && {
+      inputPrepareScheduleActions: input.InputPrepareScheduleActions,
     }),
   };
 };
@@ -7716,6 +8451,8 @@ const serializeAws_restJson1FixedModeScheduleActionStartSettings = (
 const serializeAws_restJson1Fmp4HlsSettings = (input: Fmp4HlsSettings, context: __SerdeContext): any => {
   return {
     ...(input.AudioRenditionSets !== undefined && { audioRenditionSets: input.AudioRenditionSets }),
+    ...(input.NielsenId3Behavior !== undefined && { nielsenId3Behavior: input.NielsenId3Behavior }),
+    ...(input.TimedMetadataBehavior !== undefined && { timedMetadataBehavior: input.TimedMetadataBehavior }),
   };
 };
 
@@ -7788,6 +8525,14 @@ const serializeAws_restJson1H264ColorSpaceSettings = (input: H264ColorSpaceSetti
   };
 };
 
+const serializeAws_restJson1H264FilterSettings = (input: H264FilterSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.TemporalFilterSettings !== undefined && {
+      temporalFilterSettings: serializeAws_restJson1TemporalFilterSettings(input.TemporalFilterSettings, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1H264Settings = (input: H264Settings, context: __SerdeContext): any => {
   return {
     ...(input.AdaptiveQuantization !== undefined && { adaptiveQuantization: input.AdaptiveQuantization }),
@@ -7800,8 +8545,12 @@ const serializeAws_restJson1H264Settings = (input: H264Settings, context: __Serd
       colorSpaceSettings: serializeAws_restJson1H264ColorSpaceSettings(input.ColorSpaceSettings, context),
     }),
     ...(input.EntropyEncoding !== undefined && { entropyEncoding: input.EntropyEncoding }),
+    ...(input.FilterSettings !== undefined && {
+      filterSettings: serializeAws_restJson1H264FilterSettings(input.FilterSettings, context),
+    }),
     ...(input.FixedAfd !== undefined && { fixedAfd: input.FixedAfd }),
     ...(input.FlickerAq !== undefined && { flickerAq: input.FlickerAq }),
+    ...(input.ForceFieldPictures !== undefined && { forceFieldPictures: input.ForceFieldPictures }),
     ...(input.FramerateControl !== undefined && { framerateControl: input.FramerateControl }),
     ...(input.FramerateDenominator !== undefined && { framerateDenominator: input.FramerateDenominator }),
     ...(input.FramerateNumerator !== undefined && { framerateNumerator: input.FramerateNumerator }),
@@ -7819,6 +8568,7 @@ const serializeAws_restJson1H264Settings = (input: H264Settings, context: __Serd
     ...(input.ParDenominator !== undefined && { parDenominator: input.ParDenominator }),
     ...(input.ParNumerator !== undefined && { parNumerator: input.ParNumerator }),
     ...(input.Profile !== undefined && { profile: input.Profile }),
+    ...(input.QualityLevel !== undefined && { qualityLevel: input.QualityLevel }),
     ...(input.QvbrQualityLevel !== undefined && { qvbrQualityLevel: input.QvbrQualityLevel }),
     ...(input.RateControlMode !== undefined && { rateControlMode: input.RateControlMode }),
     ...(input.ScanType !== undefined && { scanType: input.ScanType }),
@@ -7853,6 +8603,14 @@ const serializeAws_restJson1H265ColorSpaceSettings = (input: H265ColorSpaceSetti
   };
 };
 
+const serializeAws_restJson1H265FilterSettings = (input: H265FilterSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.TemporalFilterSettings !== undefined && {
+      temporalFilterSettings: serializeAws_restJson1TemporalFilterSettings(input.TemporalFilterSettings, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1H265Settings = (input: H265Settings, context: __SerdeContext): any => {
   return {
     ...(input.AdaptiveQuantization !== undefined && { adaptiveQuantization: input.AdaptiveQuantization }),
@@ -7865,6 +8623,9 @@ const serializeAws_restJson1H265Settings = (input: H265Settings, context: __Serd
     ...(input.ColorMetadata !== undefined && { colorMetadata: input.ColorMetadata }),
     ...(input.ColorSpaceSettings !== undefined && {
       colorSpaceSettings: serializeAws_restJson1H265ColorSpaceSettings(input.ColorSpaceSettings, context),
+    }),
+    ...(input.FilterSettings !== undefined && {
+      filterSettings: serializeAws_restJson1H265FilterSettings(input.FilterSettings, context),
     }),
     ...(input.FixedAfd !== undefined && { fixedAfd: input.FixedAfd }),
     ...(input.FlickerAq !== undefined && { flickerAq: input.FlickerAq }),
@@ -8076,6 +8837,12 @@ const serializeAws_restJson1ImmediateModeScheduleActionStartSettings = (
 
 const serializeAws_restJson1InputAttachment = (input: InputAttachment, context: __SerdeContext): any => {
   return {
+    ...(input.AutomaticInputFailoverSettings !== undefined && {
+      automaticInputFailoverSettings: serializeAws_restJson1AutomaticInputFailoverSettings(
+        input.AutomaticInputFailoverSettings,
+        context
+      ),
+    }),
     ...(input.InputAttachmentName !== undefined && { inputAttachmentName: input.InputAttachmentName }),
     ...(input.InputId !== undefined && { inputId: input.InputId }),
     ...(input.InputSettings !== undefined && {
@@ -8112,6 +8879,28 @@ const serializeAws_restJson1InputDestinationRequest = (
   };
 };
 
+const serializeAws_restJson1InputDeviceConfigurableSettings = (
+  input: InputDeviceConfigurableSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConfiguredInput !== undefined && { configuredInput: input.ConfiguredInput }),
+    ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
+  };
+};
+
+const serializeAws_restJson1InputDeviceRequest = (input: InputDeviceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && { id: input.Id }),
+  };
+};
+
+const serializeAws_restJson1InputDeviceSettings = (input: InputDeviceSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && { id: input.Id }),
+  };
+};
+
 const serializeAws_restJson1InputLocation = (input: InputLocation, context: __SerdeContext): any => {
   return {
     ...(input.PasswordParam !== undefined && { passwordParam: input.PasswordParam }),
@@ -8132,6 +8921,21 @@ const serializeAws_restJson1InputLossBehavior = (input: InputLossBehavior, conte
   };
 };
 
+const serializeAws_restJson1InputPrepareScheduleActionSettings = (
+  input: InputPrepareScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InputAttachmentNameReference !== undefined && {
+      inputAttachmentNameReference: input.InputAttachmentNameReference,
+    }),
+    ...(input.InputClippingSettings !== undefined && {
+      inputClippingSettings: serializeAws_restJson1InputClippingSettings(input.InputClippingSettings, context),
+    }),
+    ...(input.UrlPath !== undefined && { urlPath: serializeAws_restJson1__listOf__string(input.UrlPath, context) }),
+  };
+};
+
 const serializeAws_restJson1InputSettings = (input: InputSettings, context: __SerdeContext): any => {
   return {
     ...(input.AudioSelectors !== undefined && {
@@ -8147,6 +8951,7 @@ const serializeAws_restJson1InputSettings = (input: InputSettings, context: __Se
     ...(input.NetworkInputSettings !== undefined && {
       networkInputSettings: serializeAws_restJson1NetworkInputSettings(input.NetworkInputSettings, context),
     }),
+    ...(input.Smpte2038DataPreference !== undefined && { smpte2038DataPreference: input.Smpte2038DataPreference }),
     ...(input.SourceEndBehavior !== undefined && { sourceEndBehavior: input.SourceEndBehavior }),
     ...(input.VideoSelector !== undefined && {
       videoSelector: serializeAws_restJson1VideoSelector(input.VideoSelector, context),
@@ -8407,6 +9212,7 @@ const serializeAws_restJson1MultiplexProgramSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.PreferredChannelPipeline !== undefined && { preferredChannelPipeline: input.PreferredChannelPipeline }),
     ...(input.ProgramNumber !== undefined && { programNumber: input.ProgramNumber }),
     ...(input.ServiceDescriptor !== undefined && {
       serviceDescriptor: serializeAws_restJson1MultiplexProgramServiceDescriptor(input.ServiceDescriptor, context),
@@ -8700,6 +9506,12 @@ const serializeAws_restJson1ScheduleActionSettings = (input: ScheduleActionSetti
         context
       ),
     }),
+    ...(input.InputPrepareSettings !== undefined && {
+      inputPrepareSettings: serializeAws_restJson1InputPrepareScheduleActionSettings(
+        input.InputPrepareSettings,
+        context
+      ),
+    }),
     ...(input.InputSwitchSettings !== undefined && {
       inputSwitchSettings: serializeAws_restJson1InputSwitchScheduleActionSettings(input.InputSwitchSettings, context),
     }),
@@ -8986,6 +9798,13 @@ const serializeAws_restJson1TeletextSourceSettings = (input: TeletextSourceSetti
   };
 };
 
+const serializeAws_restJson1TemporalFilterSettings = (input: TemporalFilterSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.PostFilterSharpening !== undefined && { postFilterSharpening: input.PostFilterSharpening }),
+    ...(input.Strength !== undefined && { strength: input.Strength }),
+  };
+};
+
 const serializeAws_restJson1TimecodeConfig = (input: TimecodeConfig, context: __SerdeContext): any => {
   return {
     ...(input.Source !== undefined && { source: input.Source }),
@@ -9124,6 +9943,10 @@ const deserializeAws_restJson1__listOfAudioSelector = (output: any, context: __S
   return (output || []).map((entry: any) => deserializeAws_restJson1AudioSelector(entry, context));
 };
 
+const deserializeAws_restJson1__listOfAudioTrack = (output: any, context: __SerdeContext): AudioTrack[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AudioTrack(entry, context));
+};
+
 const deserializeAws_restJson1__listOfCaptionDescription = (
   output: any,
   context: __SerdeContext
@@ -9177,6 +10000,20 @@ const deserializeAws_restJson1__listOfInputChannelLevel = (
 
 const deserializeAws_restJson1__listOfInputDestination = (output: any, context: __SerdeContext): InputDestination[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1InputDestination(entry, context));
+};
+
+const deserializeAws_restJson1__listOfInputDeviceSettings = (
+  output: any,
+  context: __SerdeContext
+): InputDeviceSettings[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1InputDeviceSettings(entry, context));
+};
+
+const deserializeAws_restJson1__listOfInputDeviceSummary = (
+  output: any,
+  context: __SerdeContext
+): InputDeviceSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1InputDeviceSummary(entry, context));
 };
 
 const deserializeAws_restJson1__listOfInputSecurityGroup = (
@@ -9508,6 +10345,40 @@ const deserializeAws_restJson1AudioSelectorSettings = (output: any, context: __S
       output.audioPidSelection !== undefined && output.audioPidSelection !== null
         ? deserializeAws_restJson1AudioPidSelection(output.audioPidSelection, context)
         : undefined,
+    AudioTrackSelection:
+      output.audioTrackSelection !== undefined && output.audioTrackSelection !== null
+        ? deserializeAws_restJson1AudioTrackSelection(output.audioTrackSelection, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AudioTrack = (output: any, context: __SerdeContext): AudioTrack => {
+  return {
+    __type: "AudioTrack",
+    Track: output.track !== undefined && output.track !== null ? output.track : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AudioTrackSelection = (output: any, context: __SerdeContext): AudioTrackSelection => {
+  return {
+    __type: "AudioTrackSelection",
+    Tracks:
+      output.tracks !== undefined && output.tracks !== null
+        ? deserializeAws_restJson1__listOfAudioTrack(output.tracks, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AutomaticInputFailoverSettings = (
+  output: any,
+  context: __SerdeContext
+): AutomaticInputFailoverSettings => {
+  return {
+    __type: "AutomaticInputFailoverSettings",
+    InputPreference:
+      output.inputPreference !== undefined && output.inputPreference !== null ? output.inputPreference : undefined,
+    SecondaryInputId:
+      output.secondaryInputId !== undefined && output.secondaryInputId !== null ? output.secondaryInputId : undefined,
   } as any;
 };
 
@@ -9669,6 +10540,10 @@ const deserializeAws_restJson1CaptionDestinationSettings = (
     DvbSubDestinationSettings:
       output.dvbSubDestinationSettings !== undefined && output.dvbSubDestinationSettings !== null
         ? deserializeAws_restJson1DvbSubDestinationSettings(output.dvbSubDestinationSettings, context)
+        : undefined,
+    EbuTtDDestinationSettings:
+      output.ebuTtDDestinationSettings !== undefined && output.ebuTtDDestinationSettings !== null
+        ? deserializeAws_restJson1EbuTtDDestinationSettings(output.ebuTtDDestinationSettings, context)
         : undefined,
     EmbeddedDestinationSettings:
       output.embeddedDestinationSettings !== undefined && output.embeddedDestinationSettings !== null
@@ -10000,6 +10875,18 @@ const deserializeAws_restJson1Eac3Settings = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1EbuTtDDestinationSettings = (
+  output: any,
+  context: __SerdeContext
+): EbuTtDDestinationSettings => {
+  return {
+    __type: "EbuTtDDestinationSettings",
+    FillLineGap: output.fillLineGap !== undefined && output.fillLineGap !== null ? output.fillLineGap : undefined,
+    FontFamily: output.fontFamily !== undefined && output.fontFamily !== null ? output.fontFamily : undefined,
+    StyleControl: output.styleControl !== undefined && output.styleControl !== null ? output.styleControl : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1EmbeddedDestinationSettings = (
   output: any,
   context: __SerdeContext
@@ -10062,6 +10949,10 @@ const deserializeAws_restJson1EncoderSettings = (output: any, context: __SerdeCo
       output.captionDescriptions !== undefined && output.captionDescriptions !== null
         ? deserializeAws_restJson1__listOfCaptionDescription(output.captionDescriptions, context)
         : undefined,
+    FeatureActivations:
+      output.featureActivations !== undefined && output.featureActivations !== null
+        ? deserializeAws_restJson1FeatureActivations(output.featureActivations, context)
+        : undefined,
     GlobalConfiguration:
       output.globalConfiguration !== undefined && output.globalConfiguration !== null
         ? deserializeAws_restJson1GlobalConfiguration(output.globalConfiguration, context)
@@ -10081,6 +10972,16 @@ const deserializeAws_restJson1EncoderSettings = (output: any, context: __SerdeCo
     VideoDescriptions:
       output.videoDescriptions !== undefined && output.videoDescriptions !== null
         ? deserializeAws_restJson1__listOfVideoDescription(output.videoDescriptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FeatureActivations = (output: any, context: __SerdeContext): FeatureActivations => {
+  return {
+    __type: "FeatureActivations",
+    InputPrepareScheduleActions:
+      output.inputPrepareScheduleActions !== undefined && output.inputPrepareScheduleActions !== null
+        ? output.inputPrepareScheduleActions
         : undefined,
   } as any;
 };
@@ -10110,6 +11011,14 @@ const deserializeAws_restJson1Fmp4HlsSettings = (output: any, context: __SerdeCo
     AudioRenditionSets:
       output.audioRenditionSets !== undefined && output.audioRenditionSets !== null
         ? output.audioRenditionSets
+        : undefined,
+    NielsenId3Behavior:
+      output.nielsenId3Behavior !== undefined && output.nielsenId3Behavior !== null
+        ? output.nielsenId3Behavior
+        : undefined,
+    TimedMetadataBehavior:
+      output.timedMetadataBehavior !== undefined && output.timedMetadataBehavior !== null
+        ? output.timedMetadataBehavior
         : undefined,
   } as any;
 };
@@ -10210,6 +11119,16 @@ const deserializeAws_restJson1H264ColorSpaceSettings = (
   } as any;
 };
 
+const deserializeAws_restJson1H264FilterSettings = (output: any, context: __SerdeContext): H264FilterSettings => {
+  return {
+    __type: "H264FilterSettings",
+    TemporalFilterSettings:
+      output.temporalFilterSettings !== undefined && output.temporalFilterSettings !== null
+        ? deserializeAws_restJson1TemporalFilterSettings(output.temporalFilterSettings, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1H264Settings = (output: any, context: __SerdeContext): H264Settings => {
   return {
     __type: "H264Settings",
@@ -10229,8 +11148,16 @@ const deserializeAws_restJson1H264Settings = (output: any, context: __SerdeConte
         : undefined,
     EntropyEncoding:
       output.entropyEncoding !== undefined && output.entropyEncoding !== null ? output.entropyEncoding : undefined,
+    FilterSettings:
+      output.filterSettings !== undefined && output.filterSettings !== null
+        ? deserializeAws_restJson1H264FilterSettings(output.filterSettings, context)
+        : undefined,
     FixedAfd: output.fixedAfd !== undefined && output.fixedAfd !== null ? output.fixedAfd : undefined,
     FlickerAq: output.flickerAq !== undefined && output.flickerAq !== null ? output.flickerAq : undefined,
+    ForceFieldPictures:
+      output.forceFieldPictures !== undefined && output.forceFieldPictures !== null
+        ? output.forceFieldPictures
+        : undefined,
     FramerateControl:
       output.framerateControl !== undefined && output.framerateControl !== null ? output.framerateControl : undefined,
     FramerateDenominator:
@@ -10262,6 +11189,7 @@ const deserializeAws_restJson1H264Settings = (output: any, context: __SerdeConte
       output.parDenominator !== undefined && output.parDenominator !== null ? output.parDenominator : undefined,
     ParNumerator: output.parNumerator !== undefined && output.parNumerator !== null ? output.parNumerator : undefined,
     Profile: output.profile !== undefined && output.profile !== null ? output.profile : undefined,
+    QualityLevel: output.qualityLevel !== undefined && output.qualityLevel !== null ? output.qualityLevel : undefined,
     QvbrQualityLevel:
       output.qvbrQualityLevel !== undefined && output.qvbrQualityLevel !== null ? output.qvbrQualityLevel : undefined,
     RateControlMode:
@@ -10309,6 +11237,16 @@ const deserializeAws_restJson1H265ColorSpaceSettings = (
   } as any;
 };
 
+const deserializeAws_restJson1H265FilterSettings = (output: any, context: __SerdeContext): H265FilterSettings => {
+  return {
+    __type: "H265FilterSettings",
+    TemporalFilterSettings:
+      output.temporalFilterSettings !== undefined && output.temporalFilterSettings !== null
+        ? deserializeAws_restJson1TemporalFilterSettings(output.temporalFilterSettings, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1H265Settings = (output: any, context: __SerdeContext): H265Settings => {
   return {
     __type: "H265Settings",
@@ -10328,6 +11266,10 @@ const deserializeAws_restJson1H265Settings = (output: any, context: __SerdeConte
     ColorSpaceSettings:
       output.colorSpaceSettings !== undefined && output.colorSpaceSettings !== null
         ? deserializeAws_restJson1H265ColorSpaceSettings(output.colorSpaceSettings, context)
+        : undefined,
+    FilterSettings:
+      output.filterSettings !== undefined && output.filterSettings !== null
+        ? deserializeAws_restJson1H265FilterSettings(output.filterSettings, context)
         : undefined,
     FixedAfd: output.fixedAfd !== undefined && output.fixedAfd !== null ? output.fixedAfd : undefined,
     FlickerAq: output.flickerAq !== undefined && output.flickerAq !== null ? output.flickerAq : undefined,
@@ -10684,6 +11626,10 @@ const deserializeAws_restJson1Input = (output: any, context: __SerdeContext): In
         : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     InputClass: output.inputClass !== undefined && output.inputClass !== null ? output.inputClass : undefined,
+    InputDevices:
+      output.inputDevices !== undefined && output.inputDevices !== null
+        ? deserializeAws_restJson1__listOfInputDeviceSettings(output.inputDevices, context)
+        : undefined,
     InputSourceType:
       output.inputSourceType !== undefined && output.inputSourceType !== null ? output.inputSourceType : undefined,
     MediaConnectFlows:
@@ -10712,6 +11658,10 @@ const deserializeAws_restJson1Input = (output: any, context: __SerdeContext): In
 const deserializeAws_restJson1InputAttachment = (output: any, context: __SerdeContext): InputAttachment => {
   return {
     __type: "InputAttachment",
+    AutomaticInputFailoverSettings:
+      output.automaticInputFailoverSettings !== undefined && output.automaticInputFailoverSettings !== null
+        ? deserializeAws_restJson1AutomaticInputFailoverSettings(output.automaticInputFailoverSettings, context)
+        : undefined,
     InputAttachmentName:
       output.inputAttachmentName !== undefined && output.inputAttachmentName !== null
         ? output.inputAttachmentName
@@ -10775,6 +11725,71 @@ const deserializeAws_restJson1InputDestinationVpc = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_restJson1InputDeviceHdSettings = (output: any, context: __SerdeContext): InputDeviceHdSettings => {
+  return {
+    __type: "InputDeviceHdSettings",
+    ActiveInput: output.activeInput !== undefined && output.activeInput !== null ? output.activeInput : undefined,
+    ConfiguredInput:
+      output.configuredInput !== undefined && output.configuredInput !== null ? output.configuredInput : undefined,
+    DeviceState: output.deviceState !== undefined && output.deviceState !== null ? output.deviceState : undefined,
+    Framerate: output.framerate !== undefined && output.framerate !== null ? output.framerate : undefined,
+    Height: output.height !== undefined && output.height !== null ? output.height : undefined,
+    MaxBitrate: output.maxBitrate !== undefined && output.maxBitrate !== null ? output.maxBitrate : undefined,
+    ScanType: output.scanType !== undefined && output.scanType !== null ? output.scanType : undefined,
+    Width: output.width !== undefined && output.width !== null ? output.width : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InputDeviceNetworkSettings = (
+  output: any,
+  context: __SerdeContext
+): InputDeviceNetworkSettings => {
+  return {
+    __type: "InputDeviceNetworkSettings",
+    DnsAddresses:
+      output.dnsAddresses !== undefined && output.dnsAddresses !== null
+        ? deserializeAws_restJson1__listOf__string(output.dnsAddresses, context)
+        : undefined,
+    Gateway: output.gateway !== undefined && output.gateway !== null ? output.gateway : undefined,
+    IpAddress: output.ipAddress !== undefined && output.ipAddress !== null ? output.ipAddress : undefined,
+    IpScheme: output.ipScheme !== undefined && output.ipScheme !== null ? output.ipScheme : undefined,
+    SubnetMask: output.subnetMask !== undefined && output.subnetMask !== null ? output.subnetMask : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InputDeviceSettings = (output: any, context: __SerdeContext): InputDeviceSettings => {
+  return {
+    __type: "InputDeviceSettings",
+    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InputDeviceSummary = (output: any, context: __SerdeContext): InputDeviceSummary => {
+  return {
+    __type: "InputDeviceSummary",
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    ConnectionState:
+      output.connectionState !== undefined && output.connectionState !== null ? output.connectionState : undefined,
+    DeviceSettingsSyncState:
+      output.deviceSettingsSyncState !== undefined && output.deviceSettingsSyncState !== null
+        ? output.deviceSettingsSyncState
+        : undefined,
+    HdDeviceSettings:
+      output.hdDeviceSettings !== undefined && output.hdDeviceSettings !== null
+        ? deserializeAws_restJson1InputDeviceHdSettings(output.hdDeviceSettings, context)
+        : undefined,
+    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    MacAddress: output.macAddress !== undefined && output.macAddress !== null ? output.macAddress : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    NetworkSettings:
+      output.networkSettings !== undefined && output.networkSettings !== null
+        ? deserializeAws_restJson1InputDeviceNetworkSettings(output.networkSettings, context)
+        : undefined,
+    SerialNumber: output.serialNumber !== undefined && output.serialNumber !== null ? output.serialNumber : undefined,
+    Type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1InputLocation = (output: any, context: __SerdeContext): InputLocation => {
   return {
     __type: "InputLocation",
@@ -10804,6 +11819,27 @@ const deserializeAws_restJson1InputLossBehavior = (output: any, context: __Serde
         : undefined,
     RepeatFrameMsec:
       output.repeatFrameMsec !== undefined && output.repeatFrameMsec !== null ? output.repeatFrameMsec : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InputPrepareScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): InputPrepareScheduleActionSettings => {
+  return {
+    __type: "InputPrepareScheduleActionSettings",
+    InputAttachmentNameReference:
+      output.inputAttachmentNameReference !== undefined && output.inputAttachmentNameReference !== null
+        ? output.inputAttachmentNameReference
+        : undefined,
+    InputClippingSettings:
+      output.inputClippingSettings !== undefined && output.inputClippingSettings !== null
+        ? deserializeAws_restJson1InputClippingSettings(output.inputClippingSettings, context)
+        : undefined,
+    UrlPath:
+      output.urlPath !== undefined && output.urlPath !== null
+        ? deserializeAws_restJson1__listOf__string(output.urlPath, context)
+        : undefined,
   } as any;
 };
 
@@ -10849,6 +11885,10 @@ const deserializeAws_restJson1InputSettings = (output: any, context: __SerdeCont
     NetworkInputSettings:
       output.networkInputSettings !== undefined && output.networkInputSettings !== null
         ? deserializeAws_restJson1NetworkInputSettings(output.networkInputSettings, context)
+        : undefined,
+    Smpte2038DataPreference:
+      output.smpte2038DataPreference !== undefined && output.smpte2038DataPreference !== null
+        ? output.smpte2038DataPreference
         : undefined,
     SourceEndBehavior:
       output.sourceEndBehavior !== undefined && output.sourceEndBehavior !== null
@@ -11333,6 +12373,10 @@ const deserializeAws_restJson1MultiplexProgramSettings = (
 ): MultiplexProgramSettings => {
   return {
     __type: "MultiplexProgramSettings",
+    PreferredChannelPipeline:
+      output.preferredChannelPipeline !== undefined && output.preferredChannelPipeline !== null
+        ? output.preferredChannelPipeline
+        : undefined,
     ProgramNumber:
       output.programNumber !== undefined && output.programNumber !== null ? output.programNumber : undefined,
     ServiceDescriptor:
@@ -11850,6 +12894,10 @@ const deserializeAws_restJson1ScheduleActionSettings = (
       output.hlsTimedMetadataSettings !== undefined && output.hlsTimedMetadataSettings !== null
         ? deserializeAws_restJson1HlsTimedMetadataScheduleActionSettings(output.hlsTimedMetadataSettings, context)
         : undefined,
+    InputPrepareSettings:
+      output.inputPrepareSettings !== undefined && output.inputPrepareSettings !== null
+        ? deserializeAws_restJson1InputPrepareScheduleActionSettings(output.inputPrepareSettings, context)
+        : undefined,
     InputSwitchSettings:
       output.inputSwitchSettings !== undefined && output.inputSwitchSettings !== null
         ? deserializeAws_restJson1InputSwitchScheduleActionSettings(output.inputSwitchSettings, context)
@@ -12232,6 +13280,20 @@ const deserializeAws_restJson1TeletextSourceSettings = (
   return {
     __type: "TeletextSourceSettings",
     PageNumber: output.pageNumber !== undefined && output.pageNumber !== null ? output.pageNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TemporalFilterSettings = (
+  output: any,
+  context: __SerdeContext
+): TemporalFilterSettings => {
+  return {
+    __type: "TemporalFilterSettings",
+    PostFilterSharpening:
+      output.postFilterSharpening !== undefined && output.postFilterSharpening !== null
+        ? output.postFilterSharpening
+        : undefined,
+    Strength: output.strength !== undefined && output.strength !== null ? output.strength : undefined,
   } as any;
 };
 

@@ -7,6 +7,10 @@ import {
   CancelDeploymentJobCommandOutput,
 } from "./commands/CancelDeploymentJobCommand";
 import {
+  CancelSimulationJobBatchCommandInput,
+  CancelSimulationJobBatchCommandOutput,
+} from "./commands/CancelSimulationJobBatchCommand";
+import {
   CancelSimulationJobCommandInput,
   CancelSimulationJobCommandOutput,
 } from "./commands/CancelSimulationJobCommand";
@@ -62,6 +66,10 @@ import {
   DescribeSimulationApplicationCommandOutput,
 } from "./commands/DescribeSimulationApplicationCommand";
 import {
+  DescribeSimulationJobBatchCommandInput,
+  DescribeSimulationJobBatchCommandOutput,
+} from "./commands/DescribeSimulationJobBatchCommand";
+import {
   DescribeSimulationJobCommandInput,
   DescribeSimulationJobCommandOutput,
 } from "./commands/DescribeSimulationJobCommand";
@@ -76,6 +84,10 @@ import {
   ListSimulationApplicationsCommandInput,
   ListSimulationApplicationsCommandOutput,
 } from "./commands/ListSimulationApplicationsCommand";
+import {
+  ListSimulationJobBatchesCommandInput,
+  ListSimulationJobBatchesCommandOutput,
+} from "./commands/ListSimulationJobBatchesCommand";
 import { ListSimulationJobsCommandInput, ListSimulationJobsCommandOutput } from "./commands/ListSimulationJobsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -86,6 +98,10 @@ import {
   RestartSimulationJobCommandInput,
   RestartSimulationJobCommandOutput,
 } from "./commands/RestartSimulationJobCommand";
+import {
+  StartSimulationJobBatchCommandInput,
+  StartSimulationJobBatchCommandOutput,
+} from "./commands/StartSimulationJobBatchCommand";
 import { SyncDeploymentJobCommandInput, SyncDeploymentJobCommandOutput } from "./commands/SyncDeploymentJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -147,6 +163,7 @@ import {
 export type ServiceInputTypes =
   | BatchDescribeSimulationJobCommandInput
   | CancelDeploymentJobCommandInput
+  | CancelSimulationJobBatchCommandInput
   | CancelSimulationJobCommandInput
   | CreateDeploymentJobCommandInput
   | CreateFleetCommandInput
@@ -166,16 +183,19 @@ export type ServiceInputTypes =
   | DescribeRobotApplicationCommandInput
   | DescribeRobotCommandInput
   | DescribeSimulationApplicationCommandInput
+  | DescribeSimulationJobBatchCommandInput
   | DescribeSimulationJobCommandInput
   | ListDeploymentJobsCommandInput
   | ListFleetsCommandInput
   | ListRobotApplicationsCommandInput
   | ListRobotsCommandInput
   | ListSimulationApplicationsCommandInput
+  | ListSimulationJobBatchesCommandInput
   | ListSimulationJobsCommandInput
   | ListTagsForResourceCommandInput
   | RegisterRobotCommandInput
   | RestartSimulationJobCommandInput
+  | StartSimulationJobBatchCommandInput
   | SyncDeploymentJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -185,6 +205,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | BatchDescribeSimulationJobCommandOutput
   | CancelDeploymentJobCommandOutput
+  | CancelSimulationJobBatchCommandOutput
   | CancelSimulationJobCommandOutput
   | CreateDeploymentJobCommandOutput
   | CreateFleetCommandOutput
@@ -204,16 +225,19 @@ export type ServiceOutputTypes =
   | DescribeRobotApplicationCommandOutput
   | DescribeRobotCommandOutput
   | DescribeSimulationApplicationCommandOutput
+  | DescribeSimulationJobBatchCommandOutput
   | DescribeSimulationJobCommandOutput
   | ListDeploymentJobsCommandOutput
   | ListFleetsCommandOutput
   | ListRobotApplicationsCommandOutput
   | ListRobotsCommandOutput
   | ListSimulationApplicationsCommandOutput
+  | ListSimulationJobBatchesCommandOutput
   | ListSimulationJobsCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterRobotCommandOutput
   | RestartSimulationJobCommandOutput
+  | StartSimulationJobBatchCommandOutput
   | SyncDeploymentJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

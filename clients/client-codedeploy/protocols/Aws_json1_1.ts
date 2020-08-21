@@ -55,6 +55,10 @@ import {
   DeleteGitHubAccountTokenCommandOutput,
 } from "../commands/DeleteGitHubAccountTokenCommand";
 import {
+  DeleteResourcesByExternalIdCommandInput,
+  DeleteResourcesByExternalIdCommandOutput,
+} from "../commands/DeleteResourcesByExternalIdCommand";
+import {
   DeregisterOnPremisesInstanceCommandInput,
   DeregisterOnPremisesInstanceCommandOutput,
 } from "../commands/DeregisterOnPremisesInstanceCommand";
@@ -176,6 +180,7 @@ import {
   BlueGreenDeploymentConfiguration,
   BlueInstanceTerminationOption,
   BucketNameFilterRequiredException,
+  CloudFormationTarget,
   ContinueDeploymentInput,
   CreateApplicationInput,
   CreateApplicationOutput,
@@ -191,6 +196,8 @@ import {
   DeleteDeploymentGroupOutput,
   DeleteGitHubAccountTokenInput,
   DeleteGitHubAccountTokenOutput,
+  DeleteResourcesByExternalIdInput,
+  DeleteResourcesByExternalIdOutput,
   DeploymentAlreadyCompletedException,
   DeploymentConfigAlreadyExistsException,
   DeploymentConfigDoesNotExistException,
@@ -283,6 +290,7 @@ import {
   InvalidEC2TagCombinationException,
   InvalidEC2TagException,
   InvalidECSServiceException,
+  InvalidExternalIdException,
   InvalidFileExistsBehaviorException,
   InvalidGitHubAccountTokenException,
   InvalidGitHubAccountTokenNameException,
@@ -621,6 +629,19 @@ export const serializeAws_json1_1DeleteGitHubAccountTokenCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGitHubAccountTokenInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteResourcesByExternalIdCommand = async (
+  input: DeleteResourcesByExternalIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.DeleteResourcesByExternalId",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteResourcesByExternalIdInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1636,6 +1657,14 @@ const deserializeAws_json1_1BatchGetDeploymentTargetsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InstanceDoesNotExistException":
+    case "com.amazonaws.codedeploy#InstanceDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1InstanceDoesNotExistExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
       response = {
@@ -2131,6 +2160,14 @@ const deserializeAws_json1_1CreateDeploymentCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidTrafficRoutingConfigurationException":
+    case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidUpdateOutdatedInstancesOnlyValueException":
     case "com.amazonaws.codedeploy#InvalidUpdateOutdatedInstancesOnlyValueException":
       response = {
@@ -2529,6 +2566,14 @@ const deserializeAws_json1_1CreateDeploymentGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidTrafficRoutingConfigurationException":
+    case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidTriggerConfigException":
     case "com.amazonaws.codedeploy#InvalidTriggerConfigException":
       response = {
@@ -2897,6 +2942,54 @@ const deserializeAws_json1_1DeleteGitHubAccountTokenCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteResourcesByExternalIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcesByExternalIdCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteResourcesByExternalIdCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteResourcesByExternalIdOutput(data, context);
+  const response: DeleteResourcesByExternalIdCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteResourcesByExternalIdOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteResourcesByExternalIdCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcesByExternalIdCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4221,6 +4314,22 @@ const deserializeAws_json1_1ListDeploymentsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidExternalIdException":
+    case "com.amazonaws.codedeploy#InvalidExternalIdException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidExternalIdExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.codedeploy#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
       response = {
@@ -5168,6 +5277,14 @@ const deserializeAws_json1_1StopDeploymentCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedActionForDeploymentTypeException":
+    case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -5715,6 +5832,14 @@ const deserializeAws_json1_1UpdateDeploymentGroupCommandError = async (
     case "com.amazonaws.codedeploy#InvalidTargetGroupPairException":
       response = {
         ...(await deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidTrafficRoutingConfigurationException":
+    case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6669,6 +6794,21 @@ const deserializeAws_json1_1InvalidECSServiceExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidECSServiceException(body, context);
   const contents: InvalidECSServiceException = {
     name: "InvalidECSServiceException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidExternalIdExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidExternalIdException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidExternalIdException(body, context);
+  const contents: InvalidExternalIdException = {
+    name: "InvalidExternalIdException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -7716,6 +7856,15 @@ const serializeAws_json1_1DeleteGitHubAccountTokenInput = (
   };
 };
 
+const serializeAws_json1_1DeleteResourcesByExternalIdInput = (
+  input: DeleteResourcesByExternalIdInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.externalId !== undefined && { externalId: input.externalId }),
+  };
+};
+
 const serializeAws_json1_1DeploymentGroupsList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -7965,6 +8114,7 @@ const serializeAws_json1_1ListDeploymentsInput = (input: ListDeploymentsInput, c
       createTimeRange: serializeAws_json1_1TimeRange(input.createTimeRange, context),
     }),
     ...(input.deploymentGroupName !== undefined && { deploymentGroupName: input.deploymentGroupName }),
+    ...(input.externalId !== undefined && { externalId: input.externalId }),
     ...(input.includeOnlyStatuses !== undefined && {
       includeOnlyStatuses: serializeAws_json1_1DeploymentStatusList(input.includeOnlyStatuses, context),
     }),
@@ -8682,6 +8832,28 @@ const deserializeAws_json1_1BucketNameFilterRequiredException = (
   } as any;
 };
 
+const deserializeAws_json1_1CloudFormationTarget = (output: any, context: __SerdeContext): CloudFormationTarget => {
+  return {
+    __type: "CloudFormationTarget",
+    deploymentId: output.deploymentId !== undefined && output.deploymentId !== null ? output.deploymentId : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    lifecycleEvents:
+      output.lifecycleEvents !== undefined && output.lifecycleEvents !== null
+        ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
+        : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    targetId: output.targetId !== undefined && output.targetId !== null ? output.targetId : undefined,
+    targetVersionWeight:
+      output.targetVersionWeight !== undefined && output.targetVersionWeight !== null
+        ? output.targetVersionWeight
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateApplicationOutput = (
   output: any,
   context: __SerdeContext
@@ -8746,6 +8918,15 @@ const deserializeAws_json1_1DeleteGitHubAccountTokenOutput = (
   return {
     __type: "DeleteGitHubAccountTokenOutput",
     tokenName: output.tokenName !== undefined && output.tokenName !== null ? output.tokenName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteResourcesByExternalIdOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteResourcesByExternalIdOutput => {
+  return {
+    __type: "DeleteResourcesByExternalIdOutput",
   } as any;
 };
 
@@ -9047,6 +9228,7 @@ const deserializeAws_json1_1DeploymentInfo = (output: any, context: __SerdeConte
       output.errorInformation !== undefined && output.errorInformation !== null
         ? deserializeAws_json1_1ErrorInformation(output.errorInformation, context)
         : undefined,
+    externalId: output.externalId !== undefined && output.externalId !== null ? output.externalId : undefined,
     fileExistsBehavior:
       output.fileExistsBehavior !== undefined && output.fileExistsBehavior !== null
         ? output.fileExistsBehavior
@@ -9170,6 +9352,10 @@ const deserializeAws_json1_1DeploymentStyle = (output: any, context: __SerdeCont
 const deserializeAws_json1_1DeploymentTarget = (output: any, context: __SerdeContext): DeploymentTarget => {
   return {
     __type: "DeploymentTarget",
+    cloudFormationTarget:
+      output.cloudFormationTarget !== undefined && output.cloudFormationTarget !== null
+        ? deserializeAws_json1_1CloudFormationTarget(output.cloudFormationTarget, context)
+        : undefined,
     deploymentTargetType:
       output.deploymentTargetType !== undefined && output.deploymentTargetType !== null
         ? output.deploymentTargetType
@@ -9891,6 +10077,16 @@ const deserializeAws_json1_1InvalidECSServiceException = (
 ): InvalidECSServiceException => {
   return {
     __type: "InvalidECSServiceException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidExternalIdException = (
+  output: any,
+  context: __SerdeContext
+): InvalidExternalIdException => {
+  return {
+    __type: "InvalidExternalIdException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

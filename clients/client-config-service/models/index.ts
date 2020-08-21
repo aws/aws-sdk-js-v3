@@ -7,12 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccountAggregationSource {
   __type?: "AccountAggregationSource";
   /**
-   * <p>The 12-digit account ID of the account being aggregated.
-   * 		</p>
-   */
-  AccountIds: string[] | undefined;
-
-  /**
    * <p>If true, aggregate existing AWS Config regions and future
    * 			regions.</p>
    */
@@ -22,6 +16,12 @@ export interface AccountAggregationSource {
    * <p>The source regions being aggregated.</p>
    */
   AwsRegions?: string[];
+
+  /**
+   * <p>The 12-digit account ID of the account being aggregated.
+   * 		</p>
+   */
+  AccountIds: string[] | undefined;
 }
 
 export namespace AccountAggregationSource {
@@ -41,9 +41,11 @@ export namespace AccountAggregationSource {
 export interface AggregateComplianceByConfigRule {
   __type?: "AggregateComplianceByConfigRule";
   /**
-   * <p>The 12-digit account ID of the source account.</p>
+   * <p>Indicates whether an AWS resource or AWS Config rule is
+   * 			compliant and provides the number of contributors that affect the
+   * 			compliance.</p>
    */
-  AccountId?: string;
+  Compliance?: Compliance;
 
   /**
    * <p>The source region from where the data is aggregated.</p>
@@ -51,11 +53,9 @@ export interface AggregateComplianceByConfigRule {
   AwsRegion?: string;
 
   /**
-   * <p>Indicates whether an AWS resource or AWS Config rule is
-   * 			compliant and provides the number of contributors that affect the
-   * 			compliance.</p>
+   * <p>The 12-digit account ID of the source account.</p>
    */
-  Compliance?: Compliance;
+  AccountId?: string;
 
   /**
    * <p>The name of the AWS Config rule.</p>
@@ -77,16 +77,16 @@ export namespace AggregateComplianceByConfigRule {
 export interface AggregateComplianceCount {
   __type?: "AggregateComplianceCount";
   /**
-   * <p>The number of compliant and noncompliant AWS Config
-   * 			rules.</p>
-   */
-  ComplianceSummary?: ComplianceSummary;
-
-  /**
    * <p>The 12-digit account ID or region based on the GroupByKey
    * 			value.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The number of compliant and noncompliant AWS Config
+   * 			rules.</p>
+   */
+  ComplianceSummary?: ComplianceSummary;
 }
 
 export namespace AggregateComplianceCount {
@@ -103,21 +103,14 @@ export namespace AggregateComplianceCount {
 export interface AggregatedSourceStatus {
   __type?: "AggregatedSourceStatus";
   /**
-   * <p>The region authorized to collect aggregated data.</p>
+   * <p>The source account ID or an organization.</p>
    */
-  AwsRegion?: string;
+  SourceId?: string;
 
   /**
-   * <p>The error code that AWS Config returned when the source account
-   * 			aggregation last failed.</p>
+   * <p>The time of the last update.</p>
    */
-  LastErrorCode?: string;
-
-  /**
-   * <p>The message indicating that the source account aggregation
-   * 			failed due to an error.</p>
-   */
-  LastErrorMessage?: string;
+  LastUpdateTime?: Date;
 
   /**
    * <p>Filters the last updated status type.</p>
@@ -139,19 +132,26 @@ export interface AggregatedSourceStatus {
   LastUpdateStatus?: AggregatedSourceStatusType | string;
 
   /**
-   * <p>The time of the last update.</p>
+   * <p>The message indicating that the source account aggregation
+   * 			failed due to an error.</p>
    */
-  LastUpdateTime?: Date;
+  LastErrorMessage?: string;
 
   /**
-   * <p>The source account ID or an organization.</p>
+   * <p>The error code that AWS Config returned when the source account
+   * 			aggregation last failed.</p>
    */
-  SourceId?: string;
+  LastErrorCode?: string;
 
   /**
    * <p>The source account or an organization.</p>
    */
   SourceType?: AggregatedSourceType | string;
+
+  /**
+   * <p>The region authorized to collect aggregated data.</p>
+   */
+  AwsRegion?: string;
 }
 
 export namespace AggregatedSourceStatus {
@@ -181,9 +181,14 @@ export enum AggregatedSourceType {
 export interface AggregateEvaluationResult {
   __type?: "AggregateEvaluationResult";
   /**
-   * <p>The 12-digit account ID of the source account.</p>
+   * <p>The resource compliance status.</p>
+   * 		       <p>For the <code>AggregationEvaluationResult</code> data type, AWS
+   * 			Config supports only the <code>COMPLIANT</code> and
+   * 				<code>NON_COMPLIANT</code>. AWS Config does not support the
+   * 				<code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code>
+   * 			value.</p>
    */
-  AccountId?: string;
+  ComplianceType?: ComplianceType | string;
 
   /**
    * <p>Supplementary information about how the agrregate evaluation
@@ -197,25 +202,20 @@ export interface AggregateEvaluationResult {
   AwsRegion?: string;
 
   /**
-   * <p>The resource compliance status.</p>
-   * 		       <p>For the <code>AggregationEvaluationResult</code> data type, AWS
-   * 			Config supports only the <code>COMPLIANT</code> and
-   * 				<code>NON_COMPLIANT</code>. AWS Config does not support the
-   * 				<code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code>
-   * 			value.</p>
+   * <p>The 12-digit account ID of the source account.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  AccountId?: string;
+
+  /**
+   * <p>Uniquely identifies the evaluation result.</p>
+   */
+  EvaluationResultIdentifier?: EvaluationResultIdentifier;
 
   /**
    * <p>The time when the AWS Config rule evaluated the AWS
    * 			resource.</p>
    */
   ConfigRuleInvokedTime?: Date;
-
-  /**
-   * <p>Uniquely identifies the evaluation result.</p>
-   */
-  EvaluationResultIdentifier?: EvaluationResultIdentifier;
 
   /**
    * <p>The time when AWS Config recorded the aggregate evaluation
@@ -237,19 +237,9 @@ export namespace AggregateEvaluationResult {
 export interface AggregateResourceIdentifier {
   __type?: "AggregateResourceIdentifier";
   /**
-   * <p>The ID of the AWS resource.</p>
+   * <p>The source region where data is aggregated.</p>
    */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The name of the AWS resource.</p>
-   */
-  ResourceName?: string;
-
-  /**
-   * <p>The type of the AWS resource.</p>
-   */
-  ResourceType: ResourceType | string | undefined;
+  SourceRegion: string | undefined;
 
   /**
    * <p>The 12-digit account ID of the source account.</p>
@@ -257,9 +247,19 @@ export interface AggregateResourceIdentifier {
   SourceAccountId: string | undefined;
 
   /**
-   * <p>The source region where data is aggregated.</p>
+   * <p>The name of the AWS resource.</p>
    */
-  SourceRegion: string | undefined;
+  ResourceName?: string;
+
+  /**
+   * <p>The ID of the AWS resource.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The type of the AWS resource.</p>
+   */
+  ResourceType: ResourceType | string | undefined;
 }
 
 export namespace AggregateResourceIdentifier {
@@ -276,10 +276,10 @@ export namespace AggregateResourceIdentifier {
 export interface AggregationAuthorization {
   __type?: "AggregationAuthorization";
   /**
-   * <p>The Amazon Resource Name (ARN) of the aggregation
-   * 			object.</p>
+   * <p>The time stamp when the aggregation authorization was
+   * 			created.</p>
    */
-  AggregationAuthorizationArn?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The 12-digit account ID of the account authorized to aggregate
@@ -288,15 +288,15 @@ export interface AggregationAuthorization {
   AuthorizedAccountId?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the aggregation
+   * 			object.</p>
+   */
+  AggregationAuthorizationArn?: string;
+
+  /**
    * <p>The region authorized to collect aggregated data.</p>
    */
   AuthorizedAwsRegion?: string;
-
-  /**
-   * <p>The time stamp when the aggregation authorization was
-   * 			created.</p>
-   */
-  CreationTime?: Date;
 }
 
 export namespace AggregationAuthorization {
@@ -312,60 +312,15 @@ export namespace AggregationAuthorization {
 export interface BaseConfigurationItem {
   __type?: "BaseConfigurationItem";
   /**
-   * <p>The 12-digit AWS account ID associated with the resource.</p>
-   */
-  accountId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The Availability Zone associated with the resource.</p>
-   */
-  availabilityZone?: string;
-
-  /**
-   * <p>The region where the resource resides.</p>
-   */
-  awsRegion?: string;
-
-  /**
-   * <p>The description of the resource configuration.</p>
-   */
-  configuration?: string;
-
-  /**
-   * <p>The time when the configuration recording was initiated.</p>
-   */
-  configurationItemCaptureTime?: Date;
-
-  /**
-   * <p>The configuration item status.</p>
-   */
-  configurationItemStatus?: ConfigurationItemStatus | string;
-
-  /**
    * <p>An identifier that indicates the ordering of the configuration
    * 			items of a resource.</p>
    */
   configurationStateId?: string;
 
   /**
-   * <p>The time stamp when the resource was created.</p>
+   * <p>The 12-digit AWS account ID associated with the resource.</p>
    */
-  resourceCreationTime?: Date;
-
-  /**
-   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The custom name of the resource, if available.</p>
-   */
-  resourceName?: string;
+  accountId?: string;
 
   /**
    * <p>The type of AWS resource.</p>
@@ -380,9 +335,75 @@ export interface BaseConfigurationItem {
   supplementaryConfiguration?: { [key: string]: string };
 
   /**
+   * <p>The custom name of the resource, if available.</p>
+   */
+  resourceName?: string;
+
+  /**
    * <p>The version number of the resource configuration.</p>
    */
   version?: string;
+
+  /**
+   * <p>The description of the resource configuration.</p>
+   */
+  configuration?: string;
+
+  /**
+   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The region where the resource resides.</p>
+   */
+  awsRegion?: string;
+
+  /**
+   * <p>The Availability Zone associated with the resource.</p>
+   */
+  availabilityZone?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The time when the configuration recording was initiated.</p>
+   */
+  configurationItemCaptureTime?: Date;
+
+  /**
+   * <p>The configuration item status. The valid values are:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>OK – The resource configuration has been updated</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDiscovered – The resource was newly discovered</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDeleted – The resource was deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *             </li>
+   *          </ul>
+   * 		       <note>
+   *             <p>The CIs do not incur any cost.</p>
+   *          </note>
+   */
+  configurationItemStatus?: ConfigurationItemStatus | string;
+
+  /**
+   * <p>The time stamp when the resource was created.</p>
+   */
+  resourceCreationTime?: Date;
 }
 
 export namespace BaseConfigurationItem {
@@ -395,14 +416,14 @@ export namespace BaseConfigurationItem {
 export interface BatchGetAggregateResourceConfigRequest {
   __type?: "BatchGetAggregateResourceConfigRequest";
   /**
-   * <p>The name of the configuration aggregator.</p>
-   */
-  ConfigurationAggregatorName: string | undefined;
-
-  /**
    * <p>A list of aggregate ResourceIdentifiers objects. </p>
    */
   ResourceIdentifiers: AggregateResourceIdentifier[] | undefined;
+
+  /**
+   * <p>The name of the configuration aggregator.</p>
+   */
+  ConfigurationAggregatorName: string | undefined;
 }
 
 export namespace BatchGetAggregateResourceConfigRequest {
@@ -416,14 +437,14 @@ export namespace BatchGetAggregateResourceConfigRequest {
 export interface BatchGetAggregateResourceConfigResponse {
   __type?: "BatchGetAggregateResourceConfigResponse";
   /**
-   * <p>A list that contains the current configuration of one or more resources.</p>
-   */
-  BaseConfigurationItems?: BaseConfigurationItem[];
-
-  /**
    * <p>A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.</p>
    */
   UnprocessedResourceIdentifiers?: AggregateResourceIdentifier[];
+
+  /**
+   * <p>A list that contains the current configuration of one or more resources.</p>
+   */
+  BaseConfigurationItems?: BaseConfigurationItem[];
 }
 
 export namespace BatchGetAggregateResourceConfigResponse {
@@ -561,12 +582,6 @@ export namespace ComplianceByConfigRule {
 export interface ComplianceByResource {
   __type?: "ComplianceByResource";
   /**
-   * <p>Indicates whether the AWS resource complies with all of the AWS
-   * 			Config rules that evaluated it.</p>
-   */
-  Compliance?: Compliance;
-
-  /**
    * <p>The ID of the AWS resource that was evaluated.</p>
    */
   ResourceId?: string;
@@ -575,6 +590,12 @@ export interface ComplianceByResource {
    * <p>The type of the AWS resource that was evaluated.</p>
    */
   ResourceType?: string;
+
+  /**
+   * <p>Indicates whether the AWS resource complies with all of the AWS
+   * 			Config rules that evaluated it.</p>
+   */
+  Compliance?: Compliance;
 }
 
 export namespace ComplianceByResource {
@@ -617,6 +638,13 @@ export namespace ComplianceContributorCount {
 export interface ComplianceSummary {
   __type?: "ComplianceSummary";
   /**
+   * <p>The number of AWS Config rules or AWS resources that are
+   * 			noncompliant, up to a maximum of 25 for rules and 100 for
+   * 			resources.</p>
+   */
+  NonCompliantResourceCount?: ComplianceContributorCount;
+
+  /**
    * <p>The time that AWS Config created the compliance
    * 			summary.</p>
    */
@@ -628,13 +656,6 @@ export interface ComplianceSummary {
    * 			resources.</p>
    */
   CompliantResourceCount?: ComplianceContributorCount;
-
-  /**
-   * <p>The number of AWS Config rules or AWS resources that are
-   * 			noncompliant, up to a maximum of 25 for rules and 100 for
-   * 			resources.</p>
-   */
-  NonCompliantResourceCount?: ComplianceContributorCount;
 }
 
 export namespace ComplianceSummary {
@@ -686,24 +707,14 @@ export enum ComplianceType {
 export interface ConfigExportDeliveryInfo {
   __type?: "ConfigExportDeliveryInfo";
   /**
-   * <p>The time of the last attempted delivery.</p>
-   */
-  lastAttemptTime?: Date;
-
-  /**
-   * <p>The error code from the last attempted delivery.</p>
-   */
-  lastErrorCode?: string;
-
-  /**
-   * <p>The error message from the last attempted delivery.</p>
-   */
-  lastErrorMessage?: string;
-
-  /**
    * <p>Status of the last attempted delivery.</p>
    */
   lastStatus?: DeliveryStatus | string;
+
+  /**
+   * <p>The time of the last attempted delivery.</p>
+   */
+  lastAttemptTime?: Date;
 
   /**
    * <p>The time of the last successful delivery.</p>
@@ -714,6 +725,16 @@ export interface ConfigExportDeliveryInfo {
    * <p>The time that the next delivery occurs.</p>
    */
   nextDeliveryTime?: Date;
+
+  /**
+   * <p>The error code from the last attempted delivery.</p>
+   */
+  lastErrorCode?: string;
+
+  /**
+   * <p>The error message from the last attempted delivery.</p>
+   */
+  lastErrorMessage?: string;
 }
 
 export namespace ConfigExportDeliveryInfo {
@@ -745,23 +766,6 @@ export namespace ConfigExportDeliveryInfo {
 export interface ConfigRule {
   __type?: "ConfigRule";
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Config
-   * 			rule.</p>
-   */
-  ConfigRuleArn?: string;
-
-  /**
-   * <p>The ID of the AWS Config rule.</p>
-   */
-  ConfigRuleId?: string;
-
-  /**
-   * <p>The name that you assign to the AWS Config rule. The name is
-   * 			required if you are adding a new rule.</p>
-   */
-  ConfigRuleName?: string;
-
-  /**
    * <p>Indicates whether the AWS Config rule is active or is currently
    * 			being deleted by AWS Config. It can also indicate the evaluation
    * 			status for the AWS Config rule.</p>
@@ -785,6 +789,33 @@ export interface ConfigRule {
   ConfigRuleState?: ConfigRuleState | string;
 
   /**
+   * <p>Provides the rule owner (AWS or customer), the rule identifier,
+   * 			and the notifications that cause the function to evaluate your AWS
+   * 			resources.</p>
+   */
+  Source: Source | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Config
+   * 			rule.</p>
+   */
+  ConfigRuleArn?: string;
+
+  /**
+   * <p>Defines which resources can trigger an evaluation for the rule.
+   * 			The scope can include one or more resource types, a combination of
+   * 			one resource type and one resource ID, or a combination of a tag key
+   * 			and value. Specify a scope to constrain the resources that can
+   * 			trigger an evaluation for the rule. If you do not specify a scope,
+   * 			evaluations are triggered when any resource in the recording group
+   * 			changes.</p>
+   * 		       <note>
+   *             <p>The scope can be empty. </p>
+   *          </note>
+   */
+  Scope?: Scope;
+
+  /**
    * <p>Service principal name of the service that created the
    * 			rule.</p>
    * 		       <note>
@@ -794,18 +825,6 @@ export interface ConfigRule {
    * 		       </note>
    */
   CreatedBy?: string;
-
-  /**
-   * <p>The description that you provide for the AWS Config
-   * 			rule.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A string, in JSON format, that is passed to the AWS Config rule
-   * 			Lambda function.</p>
-   */
-  InputParameters?: string;
 
   /**
    * <p>The maximum frequency with which AWS Config runs evaluations
@@ -834,22 +853,27 @@ export interface ConfigRule {
   MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
 
   /**
-   * <p>Defines which resources can trigger an evaluation for the rule.
-   * 			The scope can include one or more resource types, a combination of
-   * 			one resource type and one resource ID, or a combination of a tag key
-   * 			and value. Specify a scope to constrain the resources that can
-   * 			trigger an evaluation for the rule. If you do not specify a scope,
-   * 			evaluations are triggered when any resource in the recording group
-   * 			changes.</p>
+   * <p>The ID of the AWS Config rule.</p>
    */
-  Scope?: Scope;
+  ConfigRuleId?: string;
 
   /**
-   * <p>Provides the rule owner (AWS or customer), the rule identifier,
-   * 			and the notifications that cause the function to evaluate your AWS
-   * 			resources.</p>
+   * <p>A string, in JSON format, that is passed to the AWS Config rule
+   * 			Lambda function.</p>
    */
-  Source: Source | undefined;
+  InputParameters?: string;
+
+  /**
+   * <p>The description that you provide for the AWS Config
+   * 			rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name that you assign to the AWS Config rule. The name is
+   * 			required if you are adding a new rule.</p>
+   */
+  ConfigRuleName?: string;
 }
 
 export namespace ConfigRule {
@@ -866,16 +890,21 @@ export namespace ConfigRule {
 export interface ConfigRuleComplianceFilters {
   __type?: "ConfigRuleComplianceFilters";
   /**
-   * <p>The 12-digit account ID of the source account.
-   * 			</p>
+   * <p>The name of the AWS Config rule.</p>
    */
-  AccountId?: string;
+  ConfigRuleName?: string;
 
   /**
    * <p>The source region where the data is aggregated.
    * 			</p>
    */
   AwsRegion?: string;
+
+  /**
+   * <p>The 12-digit account ID of the source account.
+   * 			</p>
+   */
+  AccountId?: string;
 
   /**
    * <p>The rule compliance status.</p>
@@ -886,11 +915,6 @@ export interface ConfigRuleComplianceFilters {
    * 				<code>INSUFFICIENT_DATA</code> values.</p>
    */
   ComplianceType?: ComplianceType | string;
-
-  /**
-   * <p>The name of the AWS Config rule.</p>
-   */
-  ConfigRuleName?: string;
 }
 
 export namespace ConfigRuleComplianceFilters {
@@ -907,14 +931,14 @@ export namespace ConfigRuleComplianceFilters {
 export interface ConfigRuleComplianceSummaryFilters {
   __type?: "ConfigRuleComplianceSummaryFilters";
   /**
-   * <p>The 12-digit account ID of the source account.</p>
-   */
-  AccountId?: string;
-
-  /**
    * <p>The source region where the data is aggregated.</p>
    */
   AwsRegion?: string;
+
+  /**
+   * <p>The 12-digit account ID of the source account.</p>
+   */
+  AccountId?: string;
 }
 
 export namespace ConfigRuleComplianceSummaryFilters {
@@ -941,26 +965,22 @@ export enum ConfigRuleComplianceSummaryGroupKey {
 export interface ConfigRuleEvaluationStatus {
   __type?: "ConfigRuleEvaluationStatus";
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Config
-   * 			rule.</p>
+   * <p>The error code that AWS Config returned when the rule last
+   * 			failed.</p>
    */
-  ConfigRuleArn?: string;
+  LastErrorCode?: string;
 
   /**
-   * <p>The ID of the AWS Config rule.</p>
+   * <p>The time that AWS Config last failed to invoke the AWS Config
+   * 			rule to evaluate your AWS resources.</p>
    */
-  ConfigRuleId?: string;
+  LastFailedInvocationTime?: Date;
 
   /**
-   * <p>The name of the AWS Config rule.</p>
+   * <p>The time that AWS Config last failed to evaluate your AWS
+   * 			resources against the rule.</p>
    */
-  ConfigRuleName?: string;
-
-  /**
-   * <p>The time that you first activated the AWS Config
-   * 			rule.</p>
-   */
-  FirstActivatedTime?: Date;
+  LastFailedEvaluationTime?: Date;
 
   /**
    * <p>Indicates whether AWS Config has evaluated your resources
@@ -981,40 +1001,49 @@ export interface ConfigRuleEvaluationStatus {
   FirstEvaluationStarted?: boolean;
 
   /**
-   * <p>The error code that AWS Config returned when the rule last
-   * 			failed.</p>
-   */
-  LastErrorCode?: string;
-
-  /**
-   * <p>The error message that AWS Config returned when the rule last
-   * 			failed.</p>
-   */
-  LastErrorMessage?: string;
-
-  /**
-   * <p>The time that AWS Config last failed to evaluate your AWS
-   * 			resources against the rule.</p>
-   */
-  LastFailedEvaluationTime?: Date;
-
-  /**
-   * <p>The time that AWS Config last failed to invoke the AWS Config
-   * 			rule to evaluate your AWS resources.</p>
-   */
-  LastFailedInvocationTime?: Date;
-
-  /**
    * <p>The time that AWS Config last successfully evaluated your AWS
    * 			resources against the rule.</p>
    */
   LastSuccessfulEvaluationTime?: Date;
 
   /**
+   * <p>The ID of the AWS Config rule.</p>
+   */
+  ConfigRuleId?: string;
+
+  /**
+   * <p>The time that you last turned off the AWS Config rule.</p>
+   */
+  LastDeactivatedTime?: Date;
+
+  /**
+   * <p>The time that you first activated the AWS Config
+   * 			rule.</p>
+   */
+  FirstActivatedTime?: Date;
+
+  /**
    * <p>The time that AWS Config last successfully invoked the AWS
    * 			Config rule to evaluate your AWS resources.</p>
    */
   LastSuccessfulInvocationTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Config
+   * 			rule.</p>
+   */
+  ConfigRuleArn?: string;
+
+  /**
+   * <p>The name of the AWS Config rule.</p>
+   */
+  ConfigRuleName?: string;
+
+  /**
+   * <p>The error message that AWS Config returned when the rule last
+   * 			failed.</p>
+   */
+  LastErrorMessage?: string;
 }
 
 export namespace ConfigRuleEvaluationStatus {
@@ -1119,16 +1148,6 @@ export namespace ConfigSnapshotDeliveryProperties {
 export interface ConfigStreamDeliveryInfo {
   __type?: "ConfigStreamDeliveryInfo";
   /**
-   * <p>The error code from the last attempted delivery.</p>
-   */
-  lastErrorCode?: string;
-
-  /**
-   * <p>The error message from the last attempted delivery.</p>
-   */
-  lastErrorMessage?: string;
-
-  /**
    * <p>Status of the last attempted delivery.</p>
    * 		       <p>
    * 			         <b>Note</b> Providing an SNS topic on a
@@ -1141,6 +1160,16 @@ export interface ConfigStreamDeliveryInfo {
    * <p>The time from the last status change.</p>
    */
   lastStatusChangeTime?: Date;
+
+  /**
+   * <p>The error code from the last attempted delivery.</p>
+   */
+  lastErrorCode?: string;
+
+  /**
+   * <p>The error message from the last attempted delivery.</p>
+   */
+  lastErrorMessage?: string;
 }
 
 export namespace ConfigStreamDeliveryInfo {
@@ -1158,15 +1187,26 @@ export namespace ConfigStreamDeliveryInfo {
 export interface ConfigurationAggregator {
   __type?: "ConfigurationAggregator";
   /**
+   * <p>AWS service that created the configuration aggregator.</p>
+   */
+  CreatedBy?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the aggregator.</p>
+   */
+  ConfigurationAggregatorArn?: string;
+
+  /**
    * <p>Provides a list of source accounts and regions to be
    * 			aggregated.</p>
    */
   AccountAggregationSources?: AccountAggregationSource[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the aggregator.</p>
+   * <p>Provides an organization and list of regions to be
+   * 			aggregated.</p>
    */
-  ConfigurationAggregatorArn?: string;
+  OrganizationAggregationSource?: OrganizationAggregationSource;
 
   /**
    * <p>The name of the aggregator.</p>
@@ -1183,12 +1223,6 @@ export interface ConfigurationAggregator {
    * <p>The time of the last update.</p>
    */
   LastUpdatedTime?: Date;
-
-  /**
-   * <p>Provides an organization and list of regions to be
-   * 			aggregated.</p>
-   */
-  OrganizationAggregationSource?: OrganizationAggregationSource;
 }
 
 export namespace ConfigurationAggregator {
@@ -1205,36 +1239,9 @@ export namespace ConfigurationAggregator {
 export interface ConfigurationItem {
   __type?: "ConfigurationItem";
   /**
-   * <p>The 12-digit AWS account ID associated with the
-   * 			resource.</p>
-   */
-  accountId?: string;
-
-  /**
-   * <p>accoun</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The Availability Zone associated with the resource.</p>
-   */
-  availabilityZone?: string;
-
-  /**
    * <p>The region where the resource resides.</p>
    */
   awsRegion?: string;
-
-  /**
-   * <p>The description of the resource configuration.</p>
-   */
-  configuration?: string;
-
-  /**
-   * <p>The time when the configuration recording was
-   * 			initiated.</p>
-   */
-  configurationItemCaptureTime?: Date;
 
   /**
    * <p>Unique MD5 hash that represents the configuration item's
@@ -1246,15 +1253,15 @@ export interface ConfigurationItem {
   configurationItemMD5Hash?: string;
 
   /**
-   * <p>The configuration item status.</p>
+   * <p>The ID of the resource (for example,
+   * 			<code>sg-xxxxxx</code>).</p>
    */
-  configurationItemStatus?: ConfigurationItemStatus | string;
+  resourceId?: string;
 
   /**
-   * <p>An identifier that indicates the ordering of the configuration
-   * 			items of a resource.</p>
+   * <p>The type of AWS resource.</p>
    */
-  configurationStateId?: string;
+  resourceType?: ResourceType | string;
 
   /**
    * <p>A list of CloudTrail event IDs.</p>
@@ -1273,25 +1280,26 @@ export interface ConfigurationItem {
   relationships?: Relationship[];
 
   /**
+   * <p>The 12-digit AWS account ID associated with the
+   * 			resource.</p>
+   */
+  accountId?: string;
+
+  /**
+   * <p>An identifier that indicates the ordering of the configuration
+   * 			items of a resource.</p>
+   */
+  configurationStateId?: string;
+
+  /**
+   * <p>accoun</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The time stamp when the resource was created.</p>
    */
   resourceCreationTime?: Date;
-
-  /**
-   * <p>The ID of the resource (for example,
-   * 			<code>sg-xxxxxx</code>).</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The custom name of the resource, if available.</p>
-   */
-  resourceName?: string;
-
-  /**
-   * <p>The type of AWS resource.</p>
-   */
-  resourceType?: ResourceType | string;
 
   /**
    * <p>Configuration attributes that AWS Config returns for certain
@@ -1299,6 +1307,53 @@ export interface ConfigurationItem {
    * 				<code>configuration</code> parameter.</p>
    */
   supplementaryConfiguration?: { [key: string]: string };
+
+  /**
+   * <p>The configuration item status. The valid values are:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>OK – The resource configuration has been updated</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDiscovered – The resource was newly discovered</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDeleted – The resource was deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *             </li>
+   *          </ul>
+   * 		       <note>
+   *             <p>The CIs do not incur any cost.</p>
+   *          </note>
+   */
+  configurationItemStatus?: ConfigurationItemStatus | string;
+
+  /**
+   * <p>The time when the configuration recording was
+   * 			initiated.</p>
+   */
+  configurationItemCaptureTime?: Date;
+
+  /**
+   * <p>The description of the resource configuration.</p>
+   */
+  configuration?: string;
+
+  /**
+   * <p>The custom name of the resource, if available.</p>
+   */
+  resourceName?: string;
+
+  /**
+   * <p>The Availability Zone associated with the resource.</p>
+   */
+  availabilityZone?: string;
 
   /**
    * <p>A mapping of key value tags associated with the
@@ -1334,13 +1389,6 @@ export enum ConfigurationItemStatus {
 export interface ConfigurationRecorder {
   __type?: "ConfigurationRecorder";
   /**
-   * <p>The name of the recorder. By default, AWS Config automatically
-   * 			assigns the name "default" when creating the configuration recorder.
-   * 			You cannot change the assigned name.</p>
-   */
-  name?: string;
-
-  /**
    * <p>Specifies the types of AWS resources for which AWS Config
    * 			records configuration changes.</p>
    */
@@ -1351,6 +1399,13 @@ export interface ConfigurationRecorder {
    * 			AWS resources associated with the account.</p>
    */
   roleARN?: string;
+
+  /**
+   * <p>The name of the recorder. By default, AWS Config automatically
+   * 			assigns the name "default" when creating the configuration recorder.
+   * 			You cannot change the assigned name.</p>
+   */
+  name?: string;
 }
 
 export namespace ConfigurationRecorder {
@@ -1366,9 +1421,20 @@ export namespace ConfigurationRecorder {
 export interface ConfigurationRecorderStatus {
   __type?: "ConfigurationRecorderStatus";
   /**
+   * <p>Specifies whether or not the recorder is currently
+   * 			recording.</p>
+   */
+  recording?: boolean;
+
+  /**
    * <p>The error code indicating that the recording failed.</p>
    */
   lastErrorCode?: string;
+
+  /**
+   * <p>The time when the status was last changed.</p>
+   */
+  lastStatusChangeTime?: Date;
 
   /**
    * <p>The message indicating that the recording failed due to an
@@ -1387,25 +1453,14 @@ export interface ConfigurationRecorderStatus {
   lastStatus?: RecorderStatus | string;
 
   /**
-   * <p>The time when the status was last changed.</p>
-   */
-  lastStatusChangeTime?: Date;
-
-  /**
-   * <p>The time the recorder was last stopped.</p>
-   */
-  lastStopTime?: Date;
-
-  /**
    * <p>The name of the configuration recorder.</p>
    */
   name?: string;
 
   /**
-   * <p>Specifies whether or not the recorder is currently
-   * 			recording.</p>
+   * <p>The time the recorder was last stopped.</p>
    */
-  recording?: boolean;
+  lastStopTime?: Date;
 }
 
 export namespace ConfigurationRecorderStatus {
@@ -1473,24 +1528,14 @@ export enum ConformancePackComplianceType {
 export interface ConformancePackDetail {
   __type?: "ConformancePackDetail";
   /**
+   * <p>Conformance pack template that is used to create a pack. The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*".</p>
+   */
+  DeliveryS3Bucket: string | undefined;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the conformance pack.</p>
    */
   ConformancePackArn: string | undefined;
-
-  /**
-   * <p>ID of the conformance pack.</p>
-   */
-  ConformancePackId: string | undefined;
-
-  /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-
-  /**
-   * <p>Name of the conformance pack.</p>
-   */
-  ConformancePackName: string | undefined;
 
   /**
    * <p>AWS service that created the conformance pack.</p>
@@ -1498,19 +1543,29 @@ export interface ConformancePackDetail {
   CreatedBy?: string;
 
   /**
-   * <p>Conformance pack template that is used to create a pack. The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*".</p>
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
    */
-  DeliveryS3Bucket: string | undefined;
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
 
   /**
-   * <p>The prefix for the Amazon S3 bucket.</p>
+   * <p>ID of the conformance pack.</p>
    */
-  DeliveryS3KeyPrefix?: string;
+  ConformancePackId: string | undefined;
 
   /**
    * <p>Last time when conformation pack update was requested. </p>
    */
   LastUpdateRequestedTime?: Date;
+
+  /**
+   * <p>Name of the conformance pack.</p>
+   */
+  ConformancePackName: string | undefined;
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket.</p>
+   */
+  DeliveryS3KeyPrefix?: string;
 }
 
 export namespace ConformancePackDetail {
@@ -1526,10 +1581,9 @@ export namespace ConformancePackDetail {
 export interface ConformancePackEvaluationFilters {
   __type?: "ConformancePackEvaluationFilters";
   /**
-   * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.</p>
+   * <p>Filters the results by the resource type (for example, <code>"AWS::EC2::Instance"</code>). </p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ResourceType?: string;
 
   /**
    * <p>Filters the results by AWS Config rule names.</p>
@@ -1545,9 +1599,10 @@ export interface ConformancePackEvaluationFilters {
   ResourceIds?: string[];
 
   /**
-   * <p>Filters the results by the resource type (for example, <code>"AWS::EC2::Instance"</code>). </p>
+   * <p>Filters the results by compliance.</p>
+   * 		       <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.</p>
    */
-  ResourceType?: string;
+  ComplianceType?: ConformancePackComplianceType | string;
 }
 
 export namespace ConformancePackEvaluationFilters {
@@ -1563,19 +1618,9 @@ export namespace ConformancePackEvaluationFilters {
 export interface ConformancePackEvaluationResult {
   __type?: "ConformancePackEvaluationResult";
   /**
-   * <p>Supplementary information about how the evaluation determined the compliance. </p>
-   */
-  Annotation?: string;
-
-  /**
    * <p>The compliance type. The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. </p>
    */
   ComplianceType: ConformancePackComplianceType | string | undefined;
-
-  /**
-   * <p>The time when AWS Config rule evaluated AWS resource.</p>
-   */
-  ConfigRuleInvokedTime: Date | undefined;
 
   /**
    * <p>Uniquely identifies an evaluation result.</p>
@@ -1583,9 +1628,19 @@ export interface ConformancePackEvaluationResult {
   EvaluationResultIdentifier: EvaluationResultIdentifier | undefined;
 
   /**
+   * <p>The time when AWS Config rule evaluated AWS resource.</p>
+   */
+  ConfigRuleInvokedTime: Date | undefined;
+
+  /**
    * <p>The time when AWS Config recorded the evaluation result. </p>
    */
   ResultRecordedTime: Date | undefined;
+
+  /**
+   * <p>Supplementary information about how the evaluation determined the compliance. </p>
+   */
+  Annotation?: string;
 }
 
 export namespace ConformancePackEvaluationResult {
@@ -1597,19 +1652,19 @@ export namespace ConformancePackEvaluationResult {
 
 /**
  * <p>Input parameters in the form of key-value pairs for the conformance pack, both of which you define.
- * 			Keys can have a maximum character length of 128 characters, and values can have a maximum length of 256 characters.</p>
+ * 			Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.</p>
  */
 export interface ConformancePackInputParameter {
   __type?: "ConformancePackInputParameter";
   /**
-   * <p>One part of a key-value pair.</p>
-   */
-  ParameterName: string | undefined;
-
-  /**
    * <p>Another part of the key-value pair. </p>
    */
   ParameterValue: string | undefined;
+
+  /**
+   * <p>One part of a key-value pair.</p>
+   */
+  ParameterName: string | undefined;
 }
 
 export namespace ConformancePackInputParameter {
@@ -1657,14 +1712,14 @@ export enum ConformancePackState {
 export interface ConformancePackStatusDetail {
   __type?: "ConformancePackStatusDetail";
   /**
-   * <p>Amazon Resource Name (ARN) of comformance pack.</p>
-   */
-  ConformancePackArn: string | undefined;
-
-  /**
    * <p>ID of the conformance pack.</p>
    */
   ConformancePackId: string | undefined;
+
+  /**
+   * <p>Last time when conformation pack creation and update was requested.</p>
+   */
+  LastUpdateRequestedTime: Date | undefined;
 
   /**
    * <p>Name of the conformance pack.</p>
@@ -1705,14 +1760,14 @@ export interface ConformancePackStatusDetail {
   LastUpdateCompletedTime?: Date;
 
   /**
-   * <p>Last time when conformation pack creation and update was requested.</p>
-   */
-  LastUpdateRequestedTime: Date | undefined;
-
-  /**
    * <p>Amazon Resource Name (ARN) of AWS CloudFormation stack. </p>
    */
   StackArn: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of comformance pack.</p>
+   */
+  ConformancePackArn: string | undefined;
 }
 
 export namespace ConformancePackStatusDetail {
@@ -1745,15 +1800,15 @@ export namespace ConformancePackTemplateValidationException {
 export interface DeleteAggregationAuthorizationRequest {
   __type?: "DeleteAggregationAuthorizationRequest";
   /**
+   * <p>The region authorized to collect aggregated data.</p>
+   */
+  AuthorizedAwsRegion: string | undefined;
+
+  /**
    * <p>The 12-digit account ID of the account authorized to aggregate
    * 			data.</p>
    */
   AuthorizedAccountId: string | undefined;
-
-  /**
-   * <p>The region authorized to collect aggregated data.</p>
-   */
-  AuthorizedAwsRegion: string | undefined;
 }
 
 export namespace DeleteAggregationAuthorizationRequest {
@@ -1947,14 +2002,14 @@ export namespace DeletePendingAggregationRequestRequest {
 export interface DeleteRemediationConfigurationRequest {
   __type?: "DeleteRemediationConfigurationRequest";
   /**
-   * <p>The name of the AWS Config rule for which you want to delete remediation configuration.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>The type of a resource.</p>
    */
   ResourceType?: string;
+
+  /**
+   * <p>The name of the AWS Config rule for which you want to delete remediation configuration.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace DeleteRemediationConfigurationRequest {
@@ -1980,14 +2035,14 @@ export namespace DeleteRemediationConfigurationResponse {
 export interface DeleteRemediationExceptionsRequest {
   __type?: "DeleteRemediationExceptionsRequest";
   /**
-   * <p>The name of the AWS Config rule for which you want to delete remediation exception configuration.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
    */
   ResourceKeys: RemediationExceptionResourceKey[] | undefined;
+
+  /**
+   * <p>The name of the AWS Config rule for which you want to delete remediation exception configuration.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace DeleteRemediationExceptionsRequest {
@@ -2017,14 +2072,14 @@ export namespace DeleteRemediationExceptionsResponse {
 export interface DeleteResourceConfigRequest {
   __type?: "DeleteResourceConfigRequest";
   /**
-   * <p>Unique identifier of the resource.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
    * <p>The type of the resource.</p>
    */
   ResourceType: string | undefined;
+
+  /**
+   * <p>Unique identifier of the resource.</p>
+   */
+  ResourceId: string | undefined;
 }
 
 export namespace DeleteResourceConfigRequest {
@@ -2096,22 +2151,6 @@ export namespace DeliverConfigSnapshotResponse {
 export interface DeliveryChannel {
   __type?: "DeliveryChannel";
   /**
-   * <p>The options for how often AWS Config delivers configuration
-   * 			snapshots to the Amazon S3 bucket.</p>
-   */
-  configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties;
-
-  /**
-   * <p>The name of the delivery channel. By default, AWS Config
-   * 			assigns the name "default" when creating the delivery channel. To
-   * 			change the delivery channel name, you must use the
-   * 			DeleteDeliveryChannel action to delete your current delivery
-   * 			channel, and then you must use the PutDeliveryChannel command to
-   * 			create a delivery channel that has the desired name.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The name of the Amazon S3 bucket to which AWS Config delivers
    * 			configuration snapshots and configuration history files.</p>
    * 		       <p>If you specify a bucket that belongs to another AWS account,
@@ -2125,6 +2164,22 @@ export interface DeliveryChannel {
    * <p>The prefix for the specified Amazon S3 bucket.</p>
    */
   s3KeyPrefix?: string;
+
+  /**
+   * <p>The name of the delivery channel. By default, AWS Config
+   * 			assigns the name "default" when creating the delivery channel. To
+   * 			change the delivery channel name, you must use the
+   * 			DeleteDeliveryChannel action to delete your current delivery
+   * 			channel, and then you must use the PutDeliveryChannel command to
+   * 			create a delivery channel that has the desired name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The options for how often AWS Config delivers configuration
+   * 			snapshots to the Amazon S3 bucket.</p>
+   */
+  configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which
@@ -2159,12 +2214,6 @@ export interface DeliveryChannelStatus {
   configHistoryDeliveryInfo?: ConfigExportDeliveryInfo;
 
   /**
-   * <p>A list containing the status of the delivery of the snapshot to
-   * 			the specified Amazon S3 bucket.</p>
-   */
-  configSnapshotDeliveryInfo?: ConfigExportDeliveryInfo;
-
-  /**
    * <p>A list containing the status of the delivery of the
    * 			configuration stream notification to the specified Amazon SNS
    * 			topic.</p>
@@ -2175,6 +2224,12 @@ export interface DeliveryChannelStatus {
    * <p>The name of the delivery channel.</p>
    */
   name?: string;
+
+  /**
+   * <p>A list containing the status of the delivery of the snapshot to
+   * 			the specified Amazon S3 bucket.</p>
+   */
+  configSnapshotDeliveryInfo?: ConfigExportDeliveryInfo;
 }
 
 export namespace DeliveryChannelStatus {
@@ -2193,15 +2248,15 @@ export enum DeliveryStatus {
 export interface DescribeAggregateComplianceByConfigRulesRequest {
   __type?: "DescribeAggregateComplianceByConfigRulesRequest";
   /**
-   * <p>The name of the configuration aggregator.</p>
-   */
-  ConfigurationAggregatorName: string | undefined;
-
-  /**
    * <p>Filters the results by ConfigRuleComplianceFilters object.
    * 		</p>
    */
   Filters?: ConfigRuleComplianceFilters;
+
+  /**
+   * <p>The name of the configuration aggregator.</p>
+   */
+  ConfigurationAggregatorName: string | undefined;
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -2229,16 +2284,16 @@ export namespace DescribeAggregateComplianceByConfigRulesRequest {
 export interface DescribeAggregateComplianceByConfigRulesResponse {
   __type?: "DescribeAggregateComplianceByConfigRulesResponse";
   /**
-   * <p>Returns a list of AggregateComplianceByConfigRule
-   * 			object.</p>
-   */
-  AggregateComplianceByConfigRules?: AggregateComplianceByConfigRule[];
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Returns a list of AggregateComplianceByConfigRule
+   * 			object.</p>
+   */
+  AggregateComplianceByConfigRules?: AggregateComplianceByConfigRule[];
 }
 
 export namespace DescribeAggregateComplianceByConfigRulesResponse {
@@ -2367,6 +2422,14 @@ export interface DescribeComplianceByResourceRequest {
   ComplianceTypes?: (ComplianceType | string)[];
 
   /**
+   * <p>The ID of the AWS resource for which you want compliance
+   * 			information. You can specify only one resource ID. If you specify a
+   * 			resource ID, you must also specify a type for
+   * 				<code>ResourceType</code>.</p>
+   */
+  ResourceId?: string;
+
+  /**
    * <p>The maximum number of evaluation results returned on each page.
    * 			The default is 10. You cannot specify a number greater than 100. If
    * 			you specify 0, AWS Config uses the default.</p>
@@ -2379,14 +2442,6 @@ export interface DescribeComplianceByResourceRequest {
    * 			response.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The ID of the AWS resource for which you want compliance
-   * 			information. You can specify only one resource ID. If you specify a
-   * 			resource ID, you must also specify a type for
-   * 				<code>ResourceType</code>.</p>
-   */
-  ResourceId?: string;
 
   /**
    * <p>The types of AWS resources for which you want compliance
@@ -2411,16 +2466,16 @@ export namespace DescribeComplianceByResourceRequest {
 export interface DescribeComplianceByResourceResponse {
   __type?: "DescribeComplianceByResourceResponse";
   /**
-   * <p>Indicates whether the specified AWS resource complies with all
-   * 			of the AWS Config rules that evaluate it.</p>
-   */
-  ComplianceByResources?: ComplianceByResource[];
-
-  /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Indicates whether the specified AWS resource complies with all
+   * 			of the AWS Config rules that evaluate it.</p>
+   */
+  ComplianceByResources?: ComplianceByResource[];
 }
 
 export namespace DescribeComplianceByResourceResponse {
@@ -2436,14 +2491,6 @@ export namespace DescribeComplianceByResourceResponse {
  */
 export interface DescribeConfigRuleEvaluationStatusRequest {
   __type?: "DescribeConfigRuleEvaluationStatusRequest";
-  /**
-   * <p>The name of the AWS managed Config rules for which you want
-   * 			status information. If you do not specify any names, AWS Config
-   * 			returns status information for all AWS managed Config rules that you
-   * 			use.</p>
-   */
-  ConfigRuleNames?: string[];
-
   /**
    * <p>The number of rule evaluation results that you want
    * 			returned.</p>
@@ -2462,6 +2509,14 @@ export interface DescribeConfigRuleEvaluationStatusRequest {
    * 			response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The name of the AWS managed Config rules for which you want
+   * 			status information. If you do not specify any names, AWS Config
+   * 			returns status information for all AWS managed Config rules that you
+   * 			use.</p>
+   */
+  ConfigRuleNames?: string[];
 }
 
 export namespace DescribeConfigRuleEvaluationStatusRequest {
@@ -2504,18 +2559,18 @@ export namespace DescribeConfigRuleEvaluationStatusResponse {
 export interface DescribeConfigRulesRequest {
   __type?: "DescribeConfigRulesRequest";
   /**
-   * <p>The names of the AWS Config rules for which you want details.
-   * 			If you do not specify any names, AWS Config returns details for all
-   * 			your rules.</p>
-   */
-  ConfigRuleNames?: string[];
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page
    * 			that you use to get the next page of results in a paginated
    * 			response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The names of the AWS Config rules for which you want details.
+   * 			If you do not specify any names, AWS Config returns details for all
+   * 			your rules.</p>
+   */
+  ConfigRuleNames?: string[];
 }
 
 export namespace DescribeConfigRulesRequest {
@@ -2552,24 +2607,6 @@ export namespace DescribeConfigRulesResponse {
 export interface DescribeConfigurationAggregatorSourcesStatusRequest {
   __type?: "DescribeConfigurationAggregatorSourcesStatusRequest";
   /**
-   * <p>The name of the configuration aggregator.</p>
-   */
-  ConfigurationAggregatorName: string | undefined;
-
-  /**
-   * <p>The maximum number of AggregatorSourceStatus returned on each
-   * 			page. The default is maximum. If you specify 0, AWS Config uses the
-   * 			default.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Filters the status type.</p>
    * 		       <ul>
    *             <li>
@@ -2587,6 +2624,24 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
    *          </ul>
    */
   UpdateStatus?: (AggregatedSourceStatusType | string)[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The name of the configuration aggregator.</p>
+   */
+  ConfigurationAggregatorName: string | undefined;
+
+  /**
+   * <p>The maximum number of AggregatorSourceStatus returned on each
+   * 			page. The default is maximum. If you specify 0, AWS Config uses the
+   * 			default.</p>
+   */
+  Limit?: number;
 }
 
 export namespace DescribeConfigurationAggregatorSourcesStatusRequest {
@@ -2628,17 +2683,17 @@ export interface DescribeConfigurationAggregatorsRequest {
   ConfigurationAggregatorNames?: string[];
 
   /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of configuration aggregators returned on
    * 			each page. The default is maximum. If you specify 0, AWS Config uses
    * 			the default.</p>
    */
   Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeConfigurationAggregatorsRequest {
@@ -2756,14 +2811,14 @@ export namespace DescribeConfigurationRecorderStatusResponse {
 export interface DescribeConformancePackComplianceRequest {
   __type?: "DescribeConformancePackComplianceRequest";
   /**
-   * <p>Name of the conformance pack.</p>
-   */
-  ConformancePackName: string | undefined;
-
-  /**
    * <p>A <code>ConformancePackComplianceFilters</code> object.</p>
    */
   Filters?: ConformancePackComplianceFilters;
+
+  /**
+   * <p>Name of the conformance pack.</p>
+   */
+  ConformancePackName: string | undefined;
 
   /**
    * <p>The maximum number of AWS Config rules within a conformance pack are returned on each page.</p>
@@ -2787,11 +2842,6 @@ export namespace DescribeConformancePackComplianceRequest {
 export interface DescribeConformancePackComplianceResponse {
   __type?: "DescribeConformancePackComplianceResponse";
   /**
-   * <p>Name of the conformance pack.</p>
-   */
-  ConformancePackName: string | undefined;
-
-  /**
    * <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
    */
   ConformancePackRuleComplianceList: ConformancePackRuleCompliance[] | undefined;
@@ -2800,6 +2850,11 @@ export interface DescribeConformancePackComplianceResponse {
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Name of the conformance pack.</p>
+   */
+  ConformancePackName: string | undefined;
 }
 
 export namespace DescribeConformancePackComplianceResponse {
@@ -2838,14 +2893,14 @@ export namespace DescribeConformancePacksRequest {
 export interface DescribeConformancePacksResponse {
   __type?: "DescribeConformancePacksResponse";
   /**
-   * <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
-   */
-  ConformancePackDetails?: ConformancePackDetail[];
-
-  /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
+   */
+  ConformancePackDetails?: ConformancePackDetail[];
 }
 
 export namespace DescribeConformancePacksResponse {
@@ -2858,14 +2913,14 @@ export namespace DescribeConformancePacksResponse {
 export interface DescribeConformancePackStatusRequest {
   __type?: "DescribeConformancePackStatusRequest";
   /**
-   * <p>Comma-separated list of conformance pack names.</p>
-   */
-  ConformancePackNames?: string[];
-
-  /**
    * <p>The maximum number of conformance packs status returned on each page.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>Comma-separated list of conformance pack names.</p>
+   */
+  ConformancePackNames?: string[];
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -2984,6 +3039,11 @@ export namespace DescribeDeliveryChannelStatusResponse {
 export interface DescribeOrganizationConfigRulesRequest {
   __type?: "DescribeOrganizationConfigRulesRequest";
   /**
+   * <p>The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.</p>
+   */
+  OrganizationConfigRuleNames?: string[];
+
+  /**
    * <p>The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
    */
   Limit?: number;
@@ -2992,11 +3052,6 @@ export interface DescribeOrganizationConfigRulesRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.</p>
-   */
-  OrganizationConfigRuleNames?: string[];
 }
 
 export namespace DescribeOrganizationConfigRulesRequest {
@@ -3010,14 +3065,14 @@ export namespace DescribeOrganizationConfigRulesRequest {
 export interface DescribeOrganizationConfigRulesResponse {
   __type?: "DescribeOrganizationConfigRulesResponse";
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
    */
   OrganizationConfigRules?: OrganizationConfigRule[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeOrganizationConfigRulesResponse {
@@ -3031,9 +3086,9 @@ export namespace DescribeOrganizationConfigRulesResponse {
 export interface DescribeOrganizationConfigRuleStatusesRequest {
   __type?: "DescribeOrganizationConfigRuleStatusesRequest";
   /**
-   * <p>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
+   * <p>The names of organization config rules for which you want status details. If you do not specify any names, AWS Config returns details for all your organization AWS Confg rules.</p>
    */
-  Limit?: number;
+  OrganizationConfigRuleNames?: string[];
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -3041,9 +3096,9 @@ export interface DescribeOrganizationConfigRuleStatusesRequest {
   NextToken?: string;
 
   /**
-   * <p>The names of organization config rules for which you want status details. If you do not specify any names, AWS Config returns details for all your organization AWS Confg rules.</p>
+   * <p>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
    */
-  OrganizationConfigRuleNames?: string[];
+  Limit?: number;
 }
 
 export namespace DescribeOrganizationConfigRuleStatusesRequest {
@@ -3078,10 +3133,9 @@ export namespace DescribeOrganizationConfigRuleStatusesResponse {
 export interface DescribeOrganizationConformancePacksRequest {
   __type?: "DescribeOrganizationConformancePacksRequest";
   /**
-   * <p>The maximum number of organization config packs returned on each page. If you do no specify a
-   * 			number, AWS Config uses the default. The default is 100.</p>
+   * <p>The name that you assign to an organization conformance pack.</p>
    */
-  Limit?: number;
+  OrganizationConformancePackNames?: string[];
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a
@@ -3090,9 +3144,10 @@ export interface DescribeOrganizationConformancePacksRequest {
   NextToken?: string;
 
   /**
-   * <p>The name that you assign to an organization conformance pack.</p>
+   * <p>The maximum number of organization config packs returned on each page. If you do no specify a
+   * 			number, AWS Config uses the default. The default is 100.</p>
    */
-  OrganizationConformancePackNames?: string[];
+  Limit?: number;
 }
 
 export namespace DescribeOrganizationConformancePacksRequest {
@@ -3106,15 +3161,15 @@ export namespace DescribeOrganizationConformancePacksRequest {
 export interface DescribeOrganizationConformancePacksResponse {
   __type?: "DescribeOrganizationConformancePacksResponse";
   /**
+   * <p>Returns a list of OrganizationConformancePacks objects.</p>
+   */
+  OrganizationConformancePacks?: OrganizationConformancePack[];
+
+  /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a
    * 			paginated response.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Returns a list of OrganizationConformancePacks objects.</p>
-   */
-  OrganizationConformancePacks?: OrganizationConformancePack[];
 }
 
 export namespace DescribeOrganizationConformancePacksResponse {
@@ -3134,15 +3189,15 @@ export interface DescribeOrganizationConformancePackStatusesRequest {
   Limit?: number;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The names of organization conformance packs for which you want status details.
    * 			If you do not specify any names, AWS Config returns details for all your organization conformance packs. </p>
    */
   OrganizationConformancePackNames?: string[];
+
+  /**
+   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeOrganizationConformancePackStatusesRequest {
@@ -3156,14 +3211,14 @@ export namespace DescribeOrganizationConformancePackStatusesRequest {
 export interface DescribeOrganizationConformancePackStatusesResponse {
   __type?: "DescribeOrganizationConformancePackStatusesResponse";
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of <code>OrganizationConformancePackStatus</code> objects. </p>
    */
   OrganizationConformancePackStatuses?: OrganizationConformancePackStatus[];
+
+  /**
+   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeOrganizationConformancePackStatusesResponse {
@@ -3255,11 +3310,6 @@ export namespace DescribeRemediationConfigurationsResponse {
 export interface DescribeRemediationExceptionsRequest {
   __type?: "DescribeRemediationExceptionsRequest";
   /**
-   * <p>The name of the AWS Config rule.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, AWS Config uses the default.</p>
    */
   Limit?: number;
@@ -3273,6 +3323,11 @@ export interface DescribeRemediationExceptionsRequest {
    * <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
    */
   ResourceKeys?: RemediationExceptionResourceKey[];
+
+  /**
+   * <p>The name of the AWS Config rule.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace DescribeRemediationExceptionsRequest {
@@ -3286,14 +3341,14 @@ export namespace DescribeRemediationExceptionsRequest {
 export interface DescribeRemediationExceptionsResponse {
   __type?: "DescribeRemediationExceptionsResponse";
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Returns a list of remediation exception objects.</p>
    */
   RemediationExceptions?: RemediationException[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeRemediationExceptionsResponse {
@@ -3307,14 +3362,9 @@ export namespace DescribeRemediationExceptionsResponse {
 export interface DescribeRemediationExecutionStatusRequest {
   __type?: "DescribeRemediationExecutionStatusRequest";
   /**
-   * <p>A list of AWS Config rule names.</p>
+   * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
    */
-  ConfigRuleName: string | undefined;
-
-  /**
-   * <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, AWS Config uses the default. </p>
-   */
-  Limit?: number;
+  ResourceKeys?: ResourceKey[];
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -3322,9 +3372,14 @@ export interface DescribeRemediationExecutionStatusRequest {
   NextToken?: string;
 
   /**
-   * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
+   * <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, AWS Config uses the default. </p>
    */
-  ResourceKeys?: ResourceKey[];
+  Limit?: number;
+
+  /**
+   * <p>A list of AWS Config rule names.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace DescribeRemediationExecutionStatusRequest {
@@ -3338,14 +3393,14 @@ export namespace DescribeRemediationExecutionStatusRequest {
 export interface DescribeRemediationExecutionStatusResponse {
   __type?: "DescribeRemediationExecutionStatusResponse";
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Returns a list of remediation execution statuses objects.</p>
    */
   RemediationExecutionStatuses?: RemediationExecutionStatus[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeRemediationExecutionStatusResponse {
@@ -3415,20 +3470,14 @@ export namespace DescribeRetentionConfigurationsResponse {
 export interface Evaluation {
   __type?: "Evaluation";
   /**
-   * <p>Supplementary information about how the evaluation determined
-   * 			the compliance.</p>
+   * <p>The type of AWS resource that was evaluated.</p>
    */
-  Annotation?: string;
+  ComplianceResourceType: string | undefined;
 
   /**
    * <p>The ID of the AWS resource that was evaluated.</p>
    */
   ComplianceResourceId: string | undefined;
-
-  /**
-   * <p>The type of AWS resource that was evaluated.</p>
-   */
-  ComplianceResourceType: string | undefined;
 
   /**
    * <p>Indicates whether the AWS resource complies with the AWS Config
@@ -3446,6 +3495,12 @@ export interface Evaluation {
    * 			Config.</p>
    */
   ComplianceType: ComplianceType | string | undefined;
+
+  /**
+   * <p>Supplementary information about how the evaluation determined
+   * 			the compliance.</p>
+   */
+  Annotation?: string;
 
   /**
    * <p>The time of the event in AWS Config that triggered the
@@ -3479,6 +3534,23 @@ export interface EvaluationResult {
   Annotation?: string;
 
   /**
+   * <p>The time when the AWS Config rule evaluated the AWS
+   * 			resource.</p>
+   */
+  ConfigRuleInvokedTime?: Date;
+
+  /**
+   * <p>The time when AWS Config recorded the evaluation
+   * 			result.</p>
+   */
+  ResultRecordedTime?: Date;
+
+  /**
+   * <p>Uniquely identifies the evaluation result.</p>
+   */
+  EvaluationResultIdentifier?: EvaluationResultIdentifier;
+
+  /**
    * <p>Indicates whether the AWS resource complies with the AWS Config
    * 			rule that evaluated it.</p>
    * 		       <p>For the <code>EvaluationResult</code> data type, AWS Config
@@ -3488,23 +3560,6 @@ export interface EvaluationResult {
    * 			for the <code>EvaluationResult</code> data type.</p>
    */
   ComplianceType?: ComplianceType | string;
-
-  /**
-   * <p>The time when the AWS Config rule evaluated the AWS
-   * 			resource.</p>
-   */
-  ConfigRuleInvokedTime?: Date;
-
-  /**
-   * <p>Uniquely identifies the evaluation result.</p>
-   */
-  EvaluationResultIdentifier?: EvaluationResultIdentifier;
-
-  /**
-   * <p>The time when AWS Config recorded the evaluation
-   * 			result.</p>
-   */
-  ResultRecordedTime?: Date;
 
   /**
    * <p>An encrypted token that associates an evaluation with an AWS
@@ -3527,12 +3582,6 @@ export namespace EvaluationResult {
 export interface EvaluationResultIdentifier {
   __type?: "EvaluationResultIdentifier";
   /**
-   * <p>Identifies an AWS Config rule used to evaluate an AWS resource,
-   * 			and provides the type and ID of the evaluated resource.</p>
-   */
-  EvaluationResultQualifier?: EvaluationResultQualifier;
-
-  /**
    * <p>The time of the event that triggered the evaluation of your AWS
    * 			resources. The time can indicate when AWS Config delivered a
    * 			configuration item change notification, or it can indicate when AWS
@@ -3540,6 +3589,12 @@ export interface EvaluationResultIdentifier {
    * 			event triggered the evaluation.</p>
    */
   OrderingTimestamp?: Date;
+
+  /**
+   * <p>Identifies an AWS Config rule used to evaluate an AWS resource,
+   * 			and provides the type and ID of the evaluated resource.</p>
+   */
+  EvaluationResultQualifier?: EvaluationResultQualifier;
 }
 
 export namespace EvaluationResultIdentifier {
@@ -3632,14 +3687,14 @@ export namespace FailedDeleteRemediationExceptionsBatch {
 export interface FailedRemediationBatch {
   __type?: "FailedRemediationBatch";
   /**
-   * <p>Returns remediation configurations of the failed items.</p>
-   */
-  FailedItems?: RemediationConfiguration[];
-
-  /**
    * <p>Returns a failure message. For example, the resource is already compliant.</p>
    */
   FailureMessage?: string;
+
+  /**
+   * <p>Returns remediation configurations of the failed items.</p>
+   */
+  FailedItems?: RemediationConfiguration[];
 }
 
 export namespace FailedRemediationBatch {
@@ -3655,14 +3710,14 @@ export namespace FailedRemediationBatch {
 export interface FailedRemediationExceptionBatch {
   __type?: "FailedRemediationExceptionBatch";
   /**
-   * <p>Returns remediation exception resource key object of the failed items.</p>
-   */
-  FailedItems?: RemediationException[];
-
-  /**
    * <p>Returns a failure message. For example, the auto-remediation has failed.</p>
    */
   FailureMessage?: string;
+
+  /**
+   * <p>Returns remediation exception resource key object of the failed items.</p>
+   */
+  FailedItems?: RemediationException[];
 }
 
 export namespace FailedRemediationExceptionBatch {
@@ -3693,14 +3748,28 @@ export namespace FieldInfo {
 export interface GetAggregateComplianceDetailsByConfigRuleRequest {
   __type?: "GetAggregateComplianceDetailsByConfigRuleRequest";
   /**
-   * <p>The 12-digit account ID of the source account.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
    * <p>The source region from where the data is aggregated.</p>
    */
   AwsRegion: string | undefined;
+
+  /**
+   * <p>The maximum number of evaluation results returned on each page.
+   * 			The default is 50. You cannot specify a number greater than 100. If
+   * 			you specify 0, AWS Config uses the default.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The name of the AWS Config rule for which you want compliance
+   * 			information.</p>
+   */
+  ConfigRuleName: string | undefined;
 
   /**
    * <p>The resource compliance status.</p>
@@ -3716,28 +3785,14 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
   ComplianceType?: ComplianceType | string;
 
   /**
-   * <p>The name of the AWS Config rule for which you want compliance
-   * 			information.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>The name of the configuration aggregator.</p>
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>The maximum number of evaluation results returned on each page.
-   * 			The default is 50. You cannot specify a number greater than 100. If
-   * 			you specify 0, AWS Config uses the default.</p>
+   * <p>The 12-digit account ID of the source account.</p>
    */
-  Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
+  AccountId: string | undefined;
 }
 
 export namespace GetAggregateComplianceDetailsByConfigRuleRequest {
@@ -3751,15 +3806,15 @@ export namespace GetAggregateComplianceDetailsByConfigRuleRequest {
 export interface GetAggregateComplianceDetailsByConfigRuleResponse {
   __type?: "GetAggregateComplianceDetailsByConfigRuleResponse";
   /**
-   * <p>Returns an AggregateEvaluationResults object.</p>
-   */
-  AggregateEvaluationResults?: AggregateEvaluationResult[];
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Returns an AggregateEvaluationResults object.</p>
+   */
+  AggregateEvaluationResults?: AggregateEvaluationResult[];
 }
 
 export namespace GetAggregateComplianceDetailsByConfigRuleResponse {
@@ -3778,15 +3833,21 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
   ConfigurationAggregatorName: string | undefined;
 
   /**
+   * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
+   */
+  GroupByKey?: ConfigRuleComplianceSummaryGroupKey | string;
+
+  /**
    * <p>Filters the results based on the
    * 			ConfigRuleComplianceSummaryFilters object.</p>
    */
   Filters?: ConfigRuleComplianceSummaryFilters;
 
   /**
-   * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
    */
-  GroupByKey?: ConfigRuleComplianceSummaryGroupKey | string;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -3794,12 +3855,6 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
    * 			If you specify 0, AWS Config uses the default.</p>
    */
   Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetAggregateConfigRuleComplianceSummaryRequest {
@@ -3813,6 +3868,12 @@ export namespace GetAggregateConfigRuleComplianceSummaryRequest {
 export interface GetAggregateConfigRuleComplianceSummaryResponse {
   __type?: "GetAggregateConfigRuleComplianceSummaryResponse";
   /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Returns a list of AggregateComplianceCounts object.</p>
    */
   AggregateComplianceCounts?: AggregateComplianceCount[];
@@ -3821,12 +3882,6 @@ export interface GetAggregateConfigRuleComplianceSummaryResponse {
    * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
    */
   GroupByKey?: string;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetAggregateConfigRuleComplianceSummaryResponse {
@@ -3840,9 +3895,19 @@ export namespace GetAggregateConfigRuleComplianceSummaryResponse {
 export interface GetAggregateDiscoveredResourceCountsRequest {
   __type?: "GetAggregateDiscoveredResourceCountsRequest";
   /**
+   * <p>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>The name of the configuration aggregator.</p>
    */
   ConfigurationAggregatorName: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 
   /**
    * <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
@@ -3853,16 +3918,6 @@ export interface GetAggregateDiscoveredResourceCountsRequest {
    * <p>The key to group the resource counts.</p>
    */
   GroupByKey?: ResourceCountGroupKey | string;
-
-  /**
-   * <p>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetAggregateDiscoveredResourceCountsRequest {
@@ -3876,24 +3931,24 @@ export namespace GetAggregateDiscoveredResourceCountsRequest {
 export interface GetAggregateDiscoveredResourceCountsResponse {
   __type?: "GetAggregateDiscoveredResourceCountsResponse";
   /**
-   * <p>The key passed into the request object. If <code>GroupByKey</code> is not provided, the result will be empty.</p>
-   */
-  GroupByKey?: string;
-
-  /**
-   * <p>Returns a list of GroupedResourceCount objects.</p>
-   */
-  GroupedResourceCounts?: GroupedResourceCount[];
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
 
   /**
+   * <p>The key passed into the request object. If <code>GroupByKey</code> is not provided, the result will be empty.</p>
+   */
+  GroupByKey?: string;
+
+  /**
    * <p>The total number of resources that are present in an aggregator with the filters that you provide.</p>
    */
   TotalDiscoveredResources: number | undefined;
+
+  /**
+   * <p>Returns a list of GroupedResourceCount objects.</p>
+   */
+  GroupedResourceCounts?: GroupedResourceCount[];
 }
 
 export namespace GetAggregateDiscoveredResourceCountsResponse {
@@ -3946,20 +4001,6 @@ export namespace GetAggregateResourceConfigResponse {
 export interface GetComplianceDetailsByConfigRuleRequest {
   __type?: "GetComplianceDetailsByConfigRuleRequest";
   /**
-   * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code>,
-   * 				<code>NON_COMPLIANT</code>, and
-   * 			<code>NOT_APPLICABLE</code>.</p>
-   */
-  ComplianceTypes?: (ComplianceType | string)[];
-
-  /**
-   * <p>The name of the AWS Config rule for which you want compliance
-   * 			information.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>The maximum number of evaluation results returned on each page.
    * 			The default is 10. You cannot specify a number greater than 100. If
    * 			you specify 0, AWS Config uses the default.</p>
@@ -3972,6 +4013,20 @@ export interface GetComplianceDetailsByConfigRuleRequest {
    * 			response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The name of the AWS Config rule for which you want compliance
+   * 			information.</p>
+   */
+  ConfigRuleName: string | undefined;
+
+  /**
+   * <p>Filters the results by compliance.</p>
+   * 		       <p>The allowed values are <code>COMPLIANT</code>,
+   * 				<code>NON_COMPLIANT</code>, and
+   * 			<code>NOT_APPLICABLE</code>.</p>
+   */
+  ComplianceTypes?: (ComplianceType | string)[];
 }
 
 export namespace GetComplianceDetailsByConfigRuleRequest {
@@ -4014,12 +4069,10 @@ export namespace GetComplianceDetailsByConfigRuleResponse {
 export interface GetComplianceDetailsByResourceRequest {
   __type?: "GetComplianceDetailsByResourceRequest";
   /**
-   * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code>,
-   * 				<code>NON_COMPLIANT</code>, and
-   * 			<code>NOT_APPLICABLE</code>.</p>
+   * <p>The ID of the AWS resource for which you want compliance
+   * 			information.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ResourceId: string | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -4029,10 +4082,12 @@ export interface GetComplianceDetailsByResourceRequest {
   NextToken?: string;
 
   /**
-   * <p>The ID of the AWS resource for which you want compliance
-   * 			information.</p>
+   * <p>Filters the results by compliance.</p>
+   * 		       <p>The allowed values are <code>COMPLIANT</code>,
+   * 				<code>NON_COMPLIANT</code>, and
+   * 			<code>NOT_APPLICABLE</code>.</p>
    */
-  ResourceId: string | undefined;
+  ComplianceTypes?: (ComplianceType | string)[];
 
   /**
    * <p>The type of the AWS resource for which you want compliance
@@ -4146,24 +4201,24 @@ export namespace GetComplianceSummaryByResourceTypeResponse {
 export interface GetConformancePackComplianceDetailsRequest {
   __type?: "GetConformancePackComplianceDetailsRequest";
   /**
-   * <p>Name of the conformance pack.</p>
-   */
-  ConformancePackName: string | undefined;
-
-  /**
-   * <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
-   */
-  Filters?: ConformancePackEvaluationFilters;
-
-  /**
    * <p>The maximum number of evaluation results returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
    */
   Limit?: number;
 
   /**
+   * <p>Name of the conformance pack.</p>
+   */
+  ConformancePackName: string | undefined;
+
+  /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
+   */
+  Filters?: ConformancePackEvaluationFilters;
 }
 
 export namespace GetConformancePackComplianceDetailsRequest {
@@ -4177,6 +4232,11 @@ export namespace GetConformancePackComplianceDetailsRequest {
 export interface GetConformancePackComplianceDetailsResponse {
   __type?: "GetConformancePackComplianceDetailsResponse";
   /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Name of the conformance pack.</p>
    */
   ConformancePackName: string | undefined;
@@ -4185,11 +4245,6 @@ export interface GetConformancePackComplianceDetailsResponse {
    * <p>Returns a list of <code>ConformancePackEvaluationResult</code> objects.</p>
    */
   ConformancePackRuleEvaluationResults?: ConformancePackEvaluationResult[];
-
-  /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetConformancePackComplianceDetailsResponse {
@@ -4203,9 +4258,9 @@ export namespace GetConformancePackComplianceDetailsResponse {
 export interface GetConformancePackComplianceSummaryRequest {
   __type?: "GetConformancePackComplianceSummaryRequest";
   /**
-   * <p>Names of conformance packs.</p>
+   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
-  ConformancePackNames: string[] | undefined;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of conformance packs returned on each page.</p>
@@ -4213,9 +4268,9 @@ export interface GetConformancePackComplianceSummaryRequest {
   Limit?: number;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * <p>Names of conformance packs.</p>
    */
-  NextToken?: string;
+  ConformancePackNames: string[] | undefined;
 }
 
 export namespace GetConformancePackComplianceSummaryRequest {
@@ -4229,14 +4284,14 @@ export namespace GetConformancePackComplianceSummaryRequest {
 export interface GetConformancePackComplianceSummaryResponse {
   __type?: "GetConformancePackComplianceSummaryResponse";
   /**
-   * <p>A list of <code>ConformancePackComplianceSummary</code> objects. </p>
-   */
-  ConformancePackComplianceSummaryList?: ConformancePackComplianceSummary[];
-
-  /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of <code>ConformancePackComplianceSummary</code> objects. </p>
+   */
+  ConformancePackComplianceSummaryList?: ConformancePackComplianceSummary[];
 }
 
 export namespace GetConformancePackComplianceSummaryResponse {
@@ -4249,21 +4304,6 @@ export namespace GetConformancePackComplianceSummaryResponse {
 
 export interface GetDiscoveredResourceCountsRequest {
   __type?: "GetDiscoveredResourceCountsRequest";
-  /**
-   * <p>The maximum number of <a>ResourceCount</a> objects
-   * 			returned on each page. The default is 100. You cannot specify a
-   * 			number greater than 100. If you specify 0, AWS Config uses the
-   * 			default.</p>
-   */
-  limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
-   */
-  nextToken?: string;
-
   /**
    * <p>The comma-separated list that specifies the resource types that
    * 			you want AWS Config to return (for example,
@@ -4282,6 +4322,21 @@ export interface GetDiscoveredResourceCountsRequest {
    * 		       </note>
    */
   resourceTypes?: string[];
+
+  /**
+   * <p>The maximum number of <a>ResourceCount</a> objects
+   * 			returned on each page. The default is 100. You cannot specify a
+   * 			number greater than 100. If you specify 0, AWS Config uses the
+   * 			default.</p>
+   */
+  limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page
+   * 			that you use to get the next page of results in a paginated
+   * 			response.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetDiscoveredResourceCountsRequest {
@@ -4294,12 +4349,6 @@ export namespace GetDiscoveredResourceCountsRequest {
 
 export interface GetDiscoveredResourceCountsResponse {
   __type?: "GetDiscoveredResourceCountsResponse";
-  /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
-   */
-  nextToken?: string;
-
   /**
    * <p>The list of <code>ResourceCount</code> objects. Each object is
    * 			listed in descending order by the number of resources.</p>
@@ -4337,6 +4386,12 @@ export interface GetDiscoveredResourceCountsResponse {
    *          </ol>
    */
   totalDiscoveredResources?: number;
+
+  /**
+   * <p>The string that you use in a subsequent request to get the next
+   * 			page of results in a paginated response.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetDiscoveredResourceCountsResponse {
@@ -4355,6 +4410,11 @@ export interface GetOrganizationConfigRuleDetailedStatusRequest {
   Filters?: StatusDetailFilters;
 
   /**
+   * <p>The name of organization config rule for which you want status details for member accounts.</p>
+   */
+  OrganizationConfigRuleName: string | undefined;
+
+  /**
    * <p>The maximum number of <code>OrganizationConfigRuleDetailedStatus</code> returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.</p>
    */
   Limit?: number;
@@ -4363,11 +4423,6 @@ export interface GetOrganizationConfigRuleDetailedStatusRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The name of organization config rule for which you want status details for member accounts.</p>
-   */
-  OrganizationConfigRuleName: string | undefined;
 }
 
 export namespace GetOrganizationConfigRuleDetailedStatusRequest {
@@ -4407,10 +4462,9 @@ export interface GetOrganizationConformancePackDetailedStatusRequest {
   Filters?: OrganizationResourceDetailedStatusFilters;
 
   /**
-   * <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page.
-   * 			If you do not specify a number, AWS Config uses the default. The default is 100. </p>
+   * <p>The name of organization conformance pack for which you want status details for member accounts.</p>
    */
-  Limit?: number;
+  OrganizationConformancePackName: string | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -4418,9 +4472,10 @@ export interface GetOrganizationConformancePackDetailedStatusRequest {
   NextToken?: string;
 
   /**
-   * <p>The name of organization conformance pack for which you want status details for member accounts.</p>
+   * <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page.
+   * 			If you do not specify a number, AWS Config uses the default. The default is 100. </p>
    */
-  OrganizationConformancePackName: string | undefined;
+  Limit?: number;
 }
 
 export namespace GetOrganizationConformancePackDetailedStatusRequest {
@@ -4459,11 +4514,23 @@ export namespace GetOrganizationConformancePackDetailedStatusResponse {
 export interface GetResourceConfigHistoryRequest {
   __type?: "GetResourceConfigHistoryRequest";
   /**
-   * <p>The chronological order for configuration items listed. By
-   * 			default, the results are listed in reverse chronological
-   * 			order.</p>
+   * <p>The time stamp that indicates a later time. If not specified,
+   * 			current time is taken.</p>
    */
-  chronologicalOrder?: ChronologicalOrder | string;
+  laterTime?: Date;
+
+  /**
+   * <p>The ID of the resource (for example.,
+   * 			<code>sg-xxxxxx</code>).</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page
+   * 			that you use to get the next page of results in a paginated
+   * 			response.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The time stamp that indicates an earlier time. If not
@@ -4474,10 +4541,16 @@ export interface GetResourceConfigHistoryRequest {
   earlierTime?: Date;
 
   /**
-   * <p>The time stamp that indicates a later time. If not specified,
-   * 			current time is taken.</p>
+   * <p>The resource type.</p>
    */
-  laterTime?: Date;
+  resourceType: ResourceType | string | undefined;
+
+  /**
+   * <p>The chronological order for configuration items listed. By
+   * 			default, the results are listed in reverse chronological
+   * 			order.</p>
+   */
+  chronologicalOrder?: ChronologicalOrder | string;
 
   /**
    * <p>The maximum number of configuration items returned on each
@@ -4485,24 +4558,6 @@ export interface GetResourceConfigHistoryRequest {
    * 			100. If you specify 0, AWS Config uses the default.</p>
    */
   limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The ID of the resource (for example.,
-   * 			<code>sg-xxxxxx</code>).</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   */
-  resourceType: ResourceType | string | undefined;
 }
 
 export namespace GetResourceConfigHistoryRequest {
@@ -4519,16 +4574,16 @@ export namespace GetResourceConfigHistoryRequest {
 export interface GetResourceConfigHistoryResponse {
   __type?: "GetResourceConfigHistoryResponse";
   /**
-   * <p>A list that contains the configuration history of one or more
-   * 			resources.</p>
-   */
-  configurationItems?: ConfigurationItem[];
-
-  /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list that contains the configuration history of one or more
+   * 			resources.</p>
+   */
+  configurationItems?: ConfigurationItem[];
 }
 
 export namespace GetResourceConfigHistoryResponse {
@@ -4544,14 +4599,14 @@ export namespace GetResourceConfigHistoryResponse {
 export interface GroupedResourceCount {
   __type?: "GroupedResourceCount";
   /**
-   * <p>The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as <code>GroupByKey</code>.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
    * <p>The number of resources in the group.</p>
    */
   ResourceCount: number | undefined;
+
+  /**
+   * <p>The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as <code>GroupByKey</code>.</p>
+   */
+  GroupName: string | undefined;
 }
 
 export namespace GroupedResourceCount {
@@ -4906,19 +4961,14 @@ export namespace LimitExceededException {
 export interface ListAggregateDiscoveredResourcesRequest {
   __type?: "ListAggregateDiscoveredResourcesRequest";
   /**
-   * <p>The name of the configuration aggregator. </p>
-   */
-  ConfigurationAggregatorName: string | undefined;
-
-  /**
    * <p>Filters the results based on the <code>ResourceFilters</code> object.</p>
    */
   Filters?: ResourceFilters;
 
   /**
-   * <p>The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.</p>
+   * <p>The type of resources that you want AWS Config to list in the response.</p>
    */
-  Limit?: number;
+  ResourceType: ResourceType | string | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -4926,9 +4976,14 @@ export interface ListAggregateDiscoveredResourcesRequest {
   NextToken?: string;
 
   /**
-   * <p>The type of resources that you want AWS Config to list in the response.</p>
+   * <p>The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  Limit?: number;
+
+  /**
+   * <p>The name of the configuration aggregator. </p>
+   */
+  ConfigurationAggregatorName: string | undefined;
 }
 
 export namespace ListAggregateDiscoveredResourcesRequest {
@@ -4966,12 +5021,6 @@ export namespace ListAggregateDiscoveredResourcesResponse {
 export interface ListDiscoveredResourcesRequest {
   __type?: "ListDiscoveredResourcesRequest";
   /**
-   * <p>Specifies whether AWS Config includes deleted resources in the
-   * 			results. By default, deleted resources are not included.</p>
-   */
-  includeDeletedResources?: boolean;
-
-  /**
    * <p>The maximum number of resource identifiers returned on each
    * 			page. The default is 100. You cannot specify a number greater than
    * 			100. If you specify 0, AWS Config uses the default.</p>
@@ -4979,11 +5028,23 @@ export interface ListDiscoveredResourcesRequest {
   limit?: number;
 
   /**
+   * <p>Specifies whether AWS Config includes deleted resources in the
+   * 			results. By default, deleted resources are not included.</p>
+   */
+  includeDeletedResources?: boolean;
+
+  /**
    * <p>The <code>nextToken</code> string returned on a previous page
    * 			that you use to get the next page of results in a paginated
    * 			response.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The type of resources that you want AWS Config to list in the
+   * 			response.</p>
+   */
+  resourceType: ResourceType | string | undefined;
 
   /**
    * <p>The IDs of only those resources that you want AWS Config to
@@ -5000,12 +5061,6 @@ export interface ListDiscoveredResourcesRequest {
    * 			it has discovered.</p>
    */
   resourceName?: string;
-
-  /**
-   * <p>The type of resources that you want AWS Config to list in the
-   * 			response.</p>
-   */
-  resourceType: ResourceType | string | undefined;
 }
 
 export namespace ListDiscoveredResourcesRequest {
@@ -5044,14 +5099,14 @@ export namespace ListDiscoveredResourcesResponse {
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   * <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default. </p>
-   */
-  Limit?: number;
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default. </p>
+   */
+  Limit?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
@@ -5069,14 +5124,14 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The tags for the resource.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -5277,24 +5332,14 @@ export enum MemberAccountRuleStatus {
 export interface MemberAccountStatus {
   __type?: "MemberAccountStatus";
   /**
-   * <p>The 12-digit account ID of a member account.</p>
+   * <p>An error message indicating that config rule account creation or deletion has failed due to an error in the member account.</p>
    */
-  AccountId: string | undefined;
+  ErrorMessage?: string;
 
   /**
    * <p>The name of config rule deployed in the member account.</p>
    */
   ConfigRuleName: string | undefined;
-
-  /**
-   * <p>An error code that is returned when config rule creation or deletion failed in the member account.</p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>An error message indicating that config rule account creation or deletion has failed due to an error in the member account.</p>
-   */
-  ErrorMessage?: string;
 
   /**
    * <p>The timestamp of the last status update.</p>
@@ -5348,6 +5393,16 @@ export interface MemberAccountStatus {
    *          </ul>
    */
   MemberAccountRuleStatus: MemberAccountRuleStatus | string | undefined;
+
+  /**
+   * <p>The 12-digit account ID of a member account.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>An error code that is returned when config rule creation or deletion failed in the member account.</p>
+   */
+  ErrorCode?: string;
 }
 
 export namespace MemberAccountStatus {
@@ -5713,15 +5768,15 @@ export namespace OrganizationAccessDeniedException {
 export interface OrganizationAggregationSource {
   __type?: "OrganizationAggregationSource";
   /**
+   * <p>The source regions being aggregated.</p>
+   */
+  AwsRegions?: string[];
+
+  /**
    * <p>If true, aggregate existing AWS Config regions and future
    * 			regions.</p>
    */
   AllAwsRegions?: boolean;
-
-  /**
-   * <p>The source regions being aggregated.</p>
-   */
-  AwsRegions?: string[];
 
   /**
    * <p>ARN of the IAM role used to retrieve AWS Organization details
@@ -5763,9 +5818,14 @@ export namespace OrganizationAllFeaturesNotEnabledException {
 export interface OrganizationConfigRule {
   __type?: "OrganizationConfigRule";
   /**
-   * <p>A comma-separated list of accounts excluded from organization config rule.</p>
+   * <p>Amazon Resource Name (ARN) of organization config rule.</p>
    */
-  ExcludedAccounts?: string[];
+  OrganizationConfigRuleArn: string | undefined;
+
+  /**
+   * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
+   */
+  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
 
   /**
    * <p>The timestamp of the last update.</p>
@@ -5773,19 +5833,14 @@ export interface OrganizationConfigRule {
   LastUpdateTime?: Date;
 
   /**
-   * <p>Amazon Resource Name (ARN) of organization config rule.</p>
+   * <p>A comma-separated list of accounts excluded from organization config rule.</p>
    */
-  OrganizationConfigRuleArn: string | undefined;
+  ExcludedAccounts?: string[];
 
   /**
    * <p>The name that you assign to organization config rule.</p>
    */
   OrganizationConfigRuleName: string | undefined;
-
-  /**
-   * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
-   */
-  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
 
   /**
    * <p>An <code>OrganizationManagedRuleMetadata</code> object.</p>
@@ -5806,24 +5861,14 @@ export namespace OrganizationConfigRule {
 export interface OrganizationConfigRuleStatus {
   __type?: "OrganizationConfigRuleStatus";
   /**
-   * <p>An error code that is returned when organization config rule creation or deletion has failed.</p>
+   * <p>The name that you assign to organization config rule.</p>
    */
-  ErrorCode?: string;
+  OrganizationConfigRuleName: string | undefined;
 
   /**
    * <p>An error message indicating that organization config rule creation or deletion failed due to an error.</p>
    */
   ErrorMessage?: string;
-
-  /**
-   * <p>The timestamp of the last update.</p>
-   */
-  LastUpdateTime?: Date;
-
-  /**
-   * <p>The name that you assign to organization config rule.</p>
-   */
-  OrganizationConfigRuleName: string | undefined;
 
   /**
    * <p>Indicates deployment status of an organization config rule.
@@ -5871,6 +5916,16 @@ export interface OrganizationConfigRuleStatus {
    *          </ul>
    */
   OrganizationRuleStatus: OrganizationRuleStatus | string | undefined;
+
+  /**
+   * <p>An error code that is returned when organization config rule creation or deletion has failed.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The timestamp of the last update.</p>
+   */
+  LastUpdateTime?: Date;
 }
 
 export namespace OrganizationConfigRuleStatus {
@@ -5892,11 +5947,6 @@ export enum OrganizationConfigRuleTriggerType {
 export interface OrganizationConformancePack {
   __type?: "OrganizationConformancePack";
   /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-
-  /**
    * <p>Location of an Amazon S3 bucket where AWS Config can
    * 			deliver evaluation results and conformance pack template that is used to create a pack. </p>
    */
@@ -5908,9 +5958,14 @@ export interface OrganizationConformancePack {
   DeliveryS3KeyPrefix?: string;
 
   /**
-   * <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
+   * <p>The name you assign to an organization conformance pack.</p>
    */
-  ExcludedAccounts?: string[];
+  OrganizationConformancePackName: string | undefined;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
 
   /**
    * <p>Last time when organization conformation pack was updated.</p>
@@ -5923,9 +5978,9 @@ export interface OrganizationConformancePack {
   OrganizationConformancePackArn: string | undefined;
 
   /**
-   * <p>The name you assign to an organization conformance pack.</p>
+   * <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
    */
-  OrganizationConformancePackName: string | undefined;
+  ExcludedAccounts?: string[];
 }
 
 export namespace OrganizationConformancePack {
@@ -5943,9 +5998,10 @@ export namespace OrganizationConformancePack {
 export interface OrganizationConformancePackDetailedStatus {
   __type?: "OrganizationConformancePackDetailedStatus";
   /**
-   * <p>The 12-digit account ID of a member account.</p>
+   * <p>An error message indicating that conformance pack account creation or deletion
+   * 			has failed due to an error in the member account. </p>
    */
-  AccountId: string | undefined;
+  ErrorMessage?: string;
 
   /**
    * <p>The name of conformance pack deployed in the member account.</p>
@@ -5959,15 +6015,9 @@ export interface OrganizationConformancePackDetailedStatus {
   ErrorCode?: string;
 
   /**
-   * <p>An error message indicating that conformance pack account creation or deletion
-   * 			has failed due to an error in the member account. </p>
+   * <p>The 12-digit account ID of a member account.</p>
    */
-  ErrorMessage?: string;
-
-  /**
-   * <p>The timestamp of the last status update.</p>
-   */
-  LastUpdateTime?: Date;
+  AccountId: string | undefined;
 
   /**
    * <p>Indicates deployment status for conformance pack in a member account.
@@ -6016,6 +6066,11 @@ export interface OrganizationConformancePackDetailedStatus {
    *          </ul>
    */
   Status: OrganizationResourceDetailedStatus | string | undefined;
+
+  /**
+   * <p>The timestamp of the last status update.</p>
+   */
+  LastUpdateTime?: Date;
 }
 
 export namespace OrganizationConformancePackDetailedStatus {
@@ -6032,24 +6087,9 @@ export namespace OrganizationConformancePackDetailedStatus {
 export interface OrganizationConformancePackStatus {
   __type?: "OrganizationConformancePackStatus";
   /**
-   * <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account. </p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>An error message indicating that organization conformance pack creation or deletion failed due to an error. </p>
-   */
-  ErrorMessage?: string;
-
-  /**
    * <p>The timestamp of the last update.</p>
    */
   LastUpdateTime?: Date;
-
-  /**
-   * <p>The name that you assign to organization conformance pack.</p>
-   */
-  OrganizationConformancePackName: string | undefined;
 
   /**
    * <p>Indicates deployment status of an organization conformance pack.
@@ -6103,6 +6143,21 @@ export interface OrganizationConformancePackStatus {
    *          </ul>
    */
   Status: OrganizationResourceStatus | string | undefined;
+
+  /**
+   * <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account. </p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>An error message indicating that organization conformance pack creation or deletion failed due to an error. </p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The name that you assign to organization conformance pack.</p>
+   */
+  OrganizationConformancePackName: string | undefined;
 }
 
 export namespace OrganizationConformancePackStatus {
@@ -6140,29 +6195,20 @@ export namespace OrganizationConformancePackTemplateValidationException {
 export interface OrganizationCustomRuleMetadata {
   __type?: "OrganizationCustomRuleMetadata";
   /**
-   * <p>The description that you provide for organization config rule.</p>
+   * <p>One part of a key-value pair that make up a tag.
+   * 			A key is a general label that acts like a category for more specific tag values. </p>
    */
-  Description?: string;
+  TagKeyScope?: string;
+
+  /**
+   * <p>The type of the AWS resource that was evaluated.</p>
+   */
+  ResourceTypesScope?: string[];
 
   /**
    * <p>A string, in JSON format, that is passed to organization config rule Lambda function.</p>
    */
   InputParameters?: string;
-
-  /**
-   * <p>The lambda function ARN.</p>
-   */
-  LambdaFunctionArn: string | undefined;
-
-  /**
-   * <p>The maximum frequency with which AWS Config runs evaluations for a rule.
-   * 			Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
-   * 		       <note>
-   *             <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid
-   * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
-   *          </note>
-   */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
 
   /**
    * <p>The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:</p>
@@ -6186,26 +6232,35 @@ export interface OrganizationCustomRuleMetadata {
   OrganizationConfigRuleTriggerTypes: (OrganizationConfigRuleTriggerType | string)[] | undefined;
 
   /**
-   * <p>The ID of the AWS resource that was evaluated.</p>
+   * <p>The maximum frequency with which AWS Config runs evaluations for a rule.
+   * 			Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
+   * 		       <note>
+   *             <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid
+   * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
+   *          </note>
    */
-  ResourceIdScope?: string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
 
   /**
-   * <p>The type of the AWS resource that was evaluated.</p>
+   * <p>The lambda function ARN.</p>
    */
-  ResourceTypesScope?: string[];
+  LambdaFunctionArn: string | undefined;
 
   /**
-   * <p>One part of a key-value pair that make up a tag.
-   * 			A key is a general label that acts like a category for more specific tag values. </p>
+   * <p>The description that you provide for organization config rule.</p>
    */
-  TagKeyScope?: string;
+  Description?: string;
 
   /**
    * <p>The optional part of a key-value pair that make up a tag.
    * 			A value acts as a descriptor within a tag category (key). </p>
    */
   TagValueScope?: string;
+
+  /**
+   * <p>The ID of the AWS resource that was evaluated.</p>
+   */
+  ResourceIdScope?: string;
 }
 
 export namespace OrganizationCustomRuleMetadata {
@@ -6222,9 +6277,15 @@ export namespace OrganizationCustomRuleMetadata {
 export interface OrganizationManagedRuleMetadata {
   __type?: "OrganizationManagedRuleMetadata";
   /**
-   * <p>The description that you provide for organization config rule.</p>
+   * <p>The type of the AWS resource that was evaluated.</p>
    */
-  Description?: string;
+  ResourceTypesScope?: string[];
+
+  /**
+   * <p>One part of a key-value pair that make up a tag.
+   * 			A key is a general label that acts like a category for more specific tag values. </p>
+   */
+  TagKeyScope?: string;
 
   /**
    * <p>A string, in JSON format, that is passed to organization config rule Lambda function.</p>
@@ -6246,9 +6307,15 @@ export interface OrganizationManagedRuleMetadata {
   ResourceIdScope?: string;
 
   /**
-   * <p>The type of the AWS resource that was evaluated.</p>
+   * <p>The description that you provide for organization config rule.</p>
    */
-  ResourceTypesScope?: string[];
+  Description?: string;
+
+  /**
+   * <p>The optional part of a key-value pair that make up a tag.
+   * 			A value acts as a descriptor within a tag category (key).</p>
+   */
+  TagValueScope?: string;
 
   /**
    * <p>For organization config managed rules, a predefined identifier from a
@@ -6256,18 +6323,6 @@ export interface OrganizationManagedRuleMetadata {
    * 			rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using AWS Managed Config Rules</a>.</p>
    */
   RuleIdentifier: string | undefined;
-
-  /**
-   * <p>One part of a key-value pair that make up a tag.
-   * 			A key is a general label that acts like a category for more specific tag values. </p>
-   */
-  TagKeyScope?: string;
-
-  /**
-   * <p>The optional part of a key-value pair that make up a tag.
-   * 			A value acts as a descriptor within a tag category (key).</p>
-   */
-  TagValueScope?: string;
 }
 
 export namespace OrganizationManagedRuleMetadata {
@@ -6294,11 +6349,6 @@ export enum OrganizationResourceDetailedStatus {
  */
 export interface OrganizationResourceDetailedStatusFilters {
   __type?: "OrganizationResourceDetailedStatusFilters";
-  /**
-   * <p>The 12-digit account ID of the member account within an organization.</p>
-   */
-  AccountId?: string;
-
   /**
    * <p>Indicates deployment status for conformance pack in a member account.
    * 			When master account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account.
@@ -6346,6 +6396,11 @@ export interface OrganizationResourceDetailedStatusFilters {
    *          </ul>
    */
   Status?: OrganizationResourceDetailedStatus | string;
+
+  /**
+   * <p>The 12-digit account ID of the member account within an organization.</p>
+   */
+  AccountId?: string;
 }
 
 export namespace OrganizationResourceDetailedStatusFilters {
@@ -6413,15 +6468,15 @@ export enum Owner {
 export interface PendingAggregationRequest {
   __type?: "PendingAggregationRequest";
   /**
+   * <p>The region requesting to aggregate data. </p>
+   */
+  RequesterAwsRegion?: string;
+
+  /**
    * <p>The 12-digit account ID of the account requesting to aggregate
    * 			data.</p>
    */
   RequesterAccountId?: string;
-
-  /**
-   * <p>The region requesting to aggregate data. </p>
-   */
-  RequesterAwsRegion?: string;
 }
 
 export namespace PendingAggregationRequest {
@@ -6478,14 +6533,14 @@ export namespace PutAggregationAuthorizationResponse {
 export interface PutConfigRuleRequest {
   __type?: "PutConfigRuleRequest";
   /**
-   * <p>The rule that you want to add to your account.</p>
-   */
-  ConfigRule: ConfigRule | undefined;
-
-  /**
    * <p>An array of tag object.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The rule that you want to add to your account.</p>
+   */
+  ConfigRule: ConfigRule | undefined;
 }
 
 export namespace PutConfigRuleRequest {
@@ -6505,9 +6560,9 @@ export interface PutConfigurationAggregatorRequest {
   AccountAggregationSources?: AccountAggregationSource[];
 
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * <p>An array of tag object.</p>
    */
-  ConfigurationAggregatorName: string | undefined;
+  Tags?: Tag[];
 
   /**
    * <p>An OrganizationAggregationSource object.</p>
@@ -6515,9 +6570,9 @@ export interface PutConfigurationAggregatorRequest {
   OrganizationAggregationSource?: OrganizationAggregationSource;
 
   /**
-   * <p>An array of tag object.</p>
+   * <p>The name of the configuration aggregator.</p>
    */
-  Tags?: Tag[];
+  ConfigurationAggregatorName: string | undefined;
 }
 
 export namespace PutConfigurationAggregatorRequest {
@@ -6566,32 +6621,14 @@ export namespace PutConfigurationRecorderRequest {
 export interface PutConformancePackRequest {
   __type?: "PutConformancePackRequest";
   /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-
-  /**
-   * <p>Name of the conformance pack you want to create.</p>
-   */
-  ConformancePackName: string | undefined;
-
-  /**
    * <p>AWS Config stores intermediate files while processing conformance pack template.</p>
    */
   DeliveryS3Bucket: string | undefined;
 
   /**
-   * <p>The prefix for the Amazon S3 bucket. </p>
+   * <p>Name of the conformance pack you want to create.</p>
    */
-  DeliveryS3KeyPrefix?: string;
-
-  /**
-   * <p>A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
-   * 		       <note>
-   *             <p>You can only use a YAML template with one resource type, that is, config rule and a remediation action. </p>
-   *          </note>
-   */
-  TemplateBody?: string;
+  ConformancePackName: string | undefined;
 
   /**
    * <p>Location of file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack. </p>
@@ -6600,6 +6637,24 @@ export interface PutConformancePackRequest {
    *          </note>
    */
   TemplateS3Uri?: string;
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket. </p>
+   */
+  DeliveryS3KeyPrefix?: string;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
+
+  /**
+   * <p>A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
+   * 		       <note>
+   *             <p>You can only use a YAML template with one resource type, that is, config rule and a remediation action. </p>
+   *          </note>
+   */
+  TemplateBody?: string;
 }
 
 export namespace PutConformancePackRequest {
@@ -6711,24 +6766,24 @@ export namespace PutEvaluationsResponse {
 export interface PutOrganizationConfigRuleRequest {
   __type?: "PutOrganizationConfigRuleRequest";
   /**
-   * <p>A comma-separated list of accounts that you want to exclude from an organization config rule.</p>
-   */
-  ExcludedAccounts?: string[];
-
-  /**
-   * <p>The name that you assign to an organization config rule.</p>
-   */
-  OrganizationConfigRuleName: string | undefined;
-
-  /**
    * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
    */
   OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
 
   /**
+   * <p>A comma-separated list of accounts that you want to exclude from an organization config rule.</p>
+   */
+  ExcludedAccounts?: string[];
+
+  /**
    * <p>An <code>OrganizationManagedRuleMetadata</code> object. </p>
    */
   OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata;
+
+  /**
+   * <p>The name that you assign to an organization config rule.</p>
+   */
+  OrganizationConfigRuleName: string | undefined;
 }
 
 export namespace PutOrganizationConfigRuleRequest {
@@ -6756,32 +6811,12 @@ export namespace PutOrganizationConfigRuleResponse {
 export interface PutOrganizationConformancePackRequest {
   __type?: "PutOrganizationConformancePackRequest";
   /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-
-  /**
    * <p>Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS Config
    * 			stores intermediate files while processing conformance pack template. </p>
    * 		       <p>The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*".
    * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html">Permissions for cross account bucket access</a>.</p>
    */
   DeliveryS3Bucket: string | undefined;
-
-  /**
-   * <p>The prefix for the Amazon S3 bucket.</p>
-   */
-  DeliveryS3KeyPrefix?: string;
-
-  /**
-   * <p>A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
-   */
-  ExcludedAccounts?: string[];
-
-  /**
-   * <p>Name of the organization conformance pack you want to create.</p>
-   */
-  OrganizationConformancePackName: string | undefined;
 
   /**
    * <p>A string containing full conformance pack template body. Structure containing the template body
@@ -6797,6 +6832,26 @@ export interface PutOrganizationConformancePackRequest {
    *          </note>
    */
   TemplateS3Uri?: string;
+
+  /**
+   * <p>Name of the organization conformance pack you want to create.</p>
+   */
+  OrganizationConformancePackName: string | undefined;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket.</p>
+   */
+  DeliveryS3KeyPrefix?: string;
+
+  /**
+   * <p>A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
+   */
+  ExcludedAccounts?: string[];
 }
 
 export namespace PutOrganizationConformancePackRequest {
@@ -6863,6 +6918,11 @@ export interface PutRemediationExceptionsRequest {
   ConfigRuleName: string | undefined;
 
   /**
+   * <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
+   */
+  ResourceKeys: RemediationExceptionResourceKey[] | undefined;
+
+  /**
    * <p>The exception is automatically deleted after the expiration date.</p>
    */
   ExpirationTime?: Date;
@@ -6871,11 +6931,6 @@ export interface PutRemediationExceptionsRequest {
    * <p>The message contains an explanation of the exception.</p>
    */
   Message?: string;
-
-  /**
-   * <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
-   */
-  ResourceKeys: RemediationExceptionResourceKey[] | undefined;
 }
 
 export namespace PutRemediationExceptionsRequest {
@@ -6903,17 +6958,27 @@ export namespace PutRemediationExceptionsResponse {
 export interface PutResourceConfigRequest {
   __type?: "PutResourceConfigRequest";
   /**
+   * <p>Unique identifier of the resource.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>Version of the schema registered for the ResourceType in AWS CloudFormation.</p>
+   */
+  SchemaVersionId: string | undefined;
+
+  /**
+   * <p>Tags associated with the resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with AWS CloudFormation.</p>
    * 		       <note>
    *             <p>The configuration JSON must not exceed 64 KB.</p>
    *          </note>
    */
   Configuration: string | undefined;
-
-  /**
-   * <p>Unique identifier of the resource.</p>
-   */
-  ResourceId: string | undefined;
 
   /**
    * <p>Name of the resource.</p>
@@ -6927,16 +6992,6 @@ export interface PutResourceConfigRequest {
    *          </note>
    */
   ResourceType: string | undefined;
-
-  /**
-   * <p>Version of the schema registered for the ResourceType in AWS CloudFormation.</p>
-   */
-  SchemaVersionId: string | undefined;
-
-  /**
-   * <p>Tags associated with the resource.</p>
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace PutResourceConfigRequest {
@@ -7040,6 +7095,24 @@ export enum RecorderStatus {
 export interface RecordingGroup {
   __type?: "RecordingGroup";
   /**
+   * <p>A comma-separated list that specifies the types of AWS
+   * 			resources for which AWS Config records configuration changes (for
+   * 			example, <code>AWS::EC2::Instance</code> or
+   * 				<code>AWS::CloudTrail::Trail</code>).</p>
+   * 		       <p>Before you can set this option to <code>true</code>, you must
+   * 			set the <code>allSupported</code> option to
+   * 			<code>false</code>.</p>
+   * 		       <p>If you set this option to <code>true</code>, when AWS Config
+   * 			adds support for a new type of resource, it will not record
+   * 			resources of that type unless you manually add that type to your
+   * 			recording group.</p>
+   * 		       <p>For a list of valid <code>resourceTypes</code> values, see the
+   * 				<b>resourceType Value</b> column in
+   * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported AWS Resource Types</a>.</p>
+   */
+  resourceTypes?: (ResourceType | string)[];
+
+  /**
    * <p>Specifies whether AWS Config records configuration changes for
    * 			every supported type of regional resource.</p>
    * 		       <p>If you set this option to <code>true</code>, when AWS Config
@@ -7066,24 +7139,6 @@ export interface RecordingGroup {
    * 			resources.</p>
    */
   includeGlobalResourceTypes?: boolean;
-
-  /**
-   * <p>A comma-separated list that specifies the types of AWS
-   * 			resources for which AWS Config records configuration changes (for
-   * 			example, <code>AWS::EC2::Instance</code> or
-   * 				<code>AWS::CloudTrail::Trail</code>).</p>
-   * 		       <p>Before you can set this option to <code>true</code>, you must
-   * 			set the <code>allSupported</code> option to
-   * 			<code>false</code>.</p>
-   * 		       <p>If you set this option to <code>true</code>, when AWS Config
-   * 			adds support for a new type of resource, it will not record
-   * 			resources of that type unless you manually add that type to your
-   * 			recording group.</p>
-   * 		       <p>For a list of valid <code>resourceTypes</code> values, see the
-   * 				<b>resourceType Value</b> column in
-   * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported AWS Resource Types</a>.</p>
-   */
-  resourceTypes?: (ResourceType | string)[];
 }
 
 export namespace RecordingGroup {
@@ -7100,6 +7155,12 @@ export namespace RecordingGroup {
 export interface Relationship {
   __type?: "Relationship";
   /**
+   * <p>The custom name of the related resource, if
+   * 			available.</p>
+   */
+  resourceName?: string;
+
+  /**
    * <p>The type of relationship with the related resource.</p>
    */
   relationshipName?: string;
@@ -7109,12 +7170,6 @@ export interface Relationship {
    * 				<code>sg-xxxxxx</code>).</p>
    */
   resourceId?: string;
-
-  /**
-   * <p>The custom name of the related resource, if
-   * 			available.</p>
-   */
-  resourceName?: string;
 
   /**
    * <p>The resource type of the related resource.</p>
@@ -7140,9 +7195,38 @@ export interface RemediationConfiguration {
   Arn?: string;
 
   /**
+   * <p>Version of the target. For example, version of the SSM document.</p>
+   * 		       <note>
+   *             <p>If you make backward incompatible changes to the SSM document,
+   * 			you must call PutRemediationConfiguration API again to ensure the remediations can run.</p>
+   *          </note>
+   */
+  TargetVersion?: string;
+
+  /**
+   * <p>Target ID is the name of the public document.</p>
+   */
+  TargetId: string | undefined;
+
+  /**
+   * <p>An object of the RemediationParameterValue.</p>
+   */
+  Parameters?: { [key: string]: RemediationParameterValue };
+
+  /**
+   * <p>Name of the service that owns the service linked rule, if applicable.</p>
+   */
+  CreatedByService?: string;
+
+  /**
    * <p>The remediation is triggered automatically.</p>
    */
   Automatic?: boolean;
+
+  /**
+   * <p>The type of the target. Target executes remediation. For example, SSM document.</p>
+   */
+  TargetType: RemediationTargetType | string | undefined;
 
   /**
    * <p>The name of the AWS Config rule.</p>
@@ -7150,9 +7234,9 @@ export interface RemediationConfiguration {
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>Name of the service that owns the service linked rule, if applicable.</p>
+   * <p>The type of a resource. </p>
    */
-  CreatedByService?: string;
+  ResourceType?: string;
 
   /**
    * <p>An ExecutionControls object.</p>
@@ -7161,40 +7245,18 @@ export interface RemediationConfiguration {
 
   /**
    * <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
-   * 		       <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds, AWS Config throws an exception after the 5th failed attempt within 50 seconds.</p>
+   * 		       <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds,
+   *
+   * 			AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.</p>
    */
   MaximumAutomaticAttempts?: number;
 
   /**
-   * <p>An object of the RemediationParameterValue.</p>
-   */
-  Parameters?: { [key: string]: RemediationParameterValue };
-
-  /**
-   * <p>The type of a resource. </p>
-   */
-  ResourceType?: string;
-
-  /**
    * <p>Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds. </p>
-   * 		       <p>For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception. </p>
+   * 		       <p>For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5,
+   * 		AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.</p>
    */
   RetryAttemptSeconds?: number;
-
-  /**
-   * <p>Target ID is the name of the public document.</p>
-   */
-  TargetId: string | undefined;
-
-  /**
-   * <p>The type of the target. Target executes remediation. For example, SSM document.</p>
-   */
-  TargetType: RemediationTargetType | string | undefined;
-
-  /**
-   * <p>Version of the target. For example, version of the SSM document.</p>
-   */
-  TargetVersion?: string;
 }
 
 export namespace RemediationConfiguration {
@@ -7210,9 +7272,9 @@ export namespace RemediationConfiguration {
 export interface RemediationException {
   __type?: "RemediationException";
   /**
-   * <p>The name of the AWS Config rule.</p>
+   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
    */
-  ConfigRuleName: string | undefined;
+  ResourceId: string | undefined;
 
   /**
    * <p>The time when the remediation exception will be deleted.</p>
@@ -7225,9 +7287,9 @@ export interface RemediationException {
   Message?: string;
 
   /**
-   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
+   * <p>The name of the AWS Config rule.</p>
    */
-  ResourceId: string | undefined;
+  ConfigRuleName: string | undefined;
 
   /**
    * <p>The type of a resource.</p>
@@ -7278,11 +7340,6 @@ export enum RemediationExecutionState {
 export interface RemediationExecutionStatus {
   __type?: "RemediationExecutionStatus";
   /**
-   * <p>Start time when the remediation was executed.</p>
-   */
-  InvocationTime?: Date;
-
-  /**
    * <p>The time when the remediation execution was last updated.</p>
    */
   LastUpdatedTime?: Date;
@@ -7294,14 +7351,19 @@ export interface RemediationExecutionStatus {
   ResourceKey?: ResourceKey;
 
   /**
-   * <p>ENUM of the values.</p>
+   * <p>Start time when the remediation was executed.</p>
    */
-  State?: RemediationExecutionState | string;
+  InvocationTime?: Date;
 
   /**
    * <p>Details of every step.</p>
    */
   StepDetails?: RemediationExecutionStep[];
+
+  /**
+   * <p>ENUM of the values.</p>
+   */
+  State?: RemediationExecutionState | string;
 }
 
 export namespace RemediationExecutionStatus {
@@ -7322,9 +7384,9 @@ export interface RemediationExecutionStep {
   ErrorMessage?: string;
 
   /**
-   * <p>The details of the step.</p>
+   * <p>The valid status of the step.</p>
    */
-  Name?: string;
+  State?: RemediationExecutionStepState | string;
 
   /**
    * <p>The time when the step started.</p>
@@ -7332,9 +7394,9 @@ export interface RemediationExecutionStep {
   StartTime?: Date;
 
   /**
-   * <p>The valid status of the step.</p>
+   * <p>The details of the step.</p>
    */
-  State?: RemediationExecutionStepState | string;
+  Name?: string;
 
   /**
    * <p>The time when the step stopped.</p>
@@ -7432,9 +7494,9 @@ export namespace ResourceCount {
 export interface ResourceCountFilters {
   __type?: "ResourceCountFilters";
   /**
-   * <p>The 12-digit ID of the account.</p>
+   * <p>The type of the AWS resource.</p>
    */
-  AccountId?: string;
+  ResourceType?: ResourceType | string;
 
   /**
    * <p>The region where the account is located.</p>
@@ -7442,9 +7504,9 @@ export interface ResourceCountFilters {
   Region?: string;
 
   /**
-   * <p>The type of the AWS resource.</p>
+   * <p>The 12-digit ID of the account.</p>
    */
-  ResourceType?: ResourceType | string;
+  AccountId?: string;
 }
 
 export namespace ResourceCountFilters {
@@ -7466,11 +7528,6 @@ export enum ResourceCountGroupKey {
 export interface ResourceFilters {
   __type?: "ResourceFilters";
   /**
-   * <p>The 12-digit source account ID.</p>
-   */
-  AccountId?: string;
-
-  /**
    * <p>The source region.</p>
    */
   Region?: string;
@@ -7479,6 +7536,11 @@ export interface ResourceFilters {
    * <p>The ID of the resource.</p>
    */
   ResourceId?: string;
+
+  /**
+   * <p>The 12-digit source account ID.</p>
+   */
+  AccountId?: string;
 
   /**
    * <p>The name of the resource.</p>
@@ -7501,6 +7563,11 @@ export namespace ResourceFilters {
 export interface ResourceIdentifier {
   __type?: "ResourceIdentifier";
   /**
+   * <p>The type of resource.</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
    * <p>The time that the resource was deleted.</p>
    */
   resourceDeletionTime?: Date;
@@ -7515,11 +7582,6 @@ export interface ResourceIdentifier {
    * <p>The custom name of the resource (if available).</p>
    */
   resourceName?: string;
-
-  /**
-   * <p>The type of resource.</p>
-   */
-  resourceType?: ResourceType | string;
 }
 
 export namespace ResourceIdentifier {
@@ -7637,7 +7699,6 @@ export namespace ResourceNotFoundException {
 export enum ResourceType {
   AccountPublicAccessBlock = "AWS::S3::AccountPublicAccessBlock",
   Alarm = "AWS::CloudWatch::Alarm",
-  Alias = "AWS::Lambda::Alias",
   Api = "AWS::ApiGatewayV2::Api",
   Application = "AWS::ElasticBeanstalk::Application",
   ApplicationVersion = "AWS::ElasticBeanstalk::ApplicationVersion",
@@ -7654,35 +7715,32 @@ export enum ResourceType {
   ClusterSubnetGroup = "AWS::Redshift::ClusterSubnetGroup",
   CustomerGateway = "AWS::EC2::CustomerGateway",
   DBCluster = "AWS::RDS::DBCluster",
-  DBClusterParameterGroup = "AWS::RDS::DBClusterParameterGroup",
   DBClusterSnapshot = "AWS::RDS::DBClusterSnapshot",
   DBInstance = "AWS::RDS::DBInstance",
-  DBOptionGroup = "AWS::RDS::DBOptionGroup",
-  DBParameterGroup = "AWS::RDS::DBParameterGroup",
   DBSecurityGroup = "AWS::RDS::DBSecurityGroup",
   DBSnapshot = "AWS::RDS::DBSnapshot",
   DBSubnetGroup = "AWS::RDS::DBSubnetGroup",
   Distribution = "AWS::CloudFront::Distribution",
-  DomainName = "AWS::ApiGateway::DomainName",
-  DomainNameV2 = "AWS::ApiGatewayV2::DomainName",
+  Domain = "AWS::Elasticsearch::Domain",
   EIP = "AWS::EC2::EIP",
   EgressOnlyInternetGateway = "AWS::EC2::EgressOnlyInternetGateway",
   EncryptionConfig = "AWS::XRay::EncryptionConfig",
   Environment = "AWS::ElasticBeanstalk::Environment",
   EventSubscription = "AWS::RDS::EventSubscription",
+  FileData = "AWS::SSM::FileData",
   FlowLog = "AWS::EC2::FlowLog",
   Function = "AWS::Lambda::Function",
   Group = "AWS::IAM::Group",
   Host = "AWS::EC2::Host",
+  IPSetV2 = "AWS::WAFv2::IPSet",
   Instance = "AWS::EC2::Instance",
   InternetGateway = "AWS::EC2::InternetGateway",
+  Key = "AWS::KMS::Key",
   LaunchConfiguration = "AWS::AutoScaling::LaunchConfiguration",
-  LicenseConfiguration = "AWS::LicenseManager::LicenseConfiguration",
   LoadBalancer = "AWS::ElasticLoadBalancing::LoadBalancer",
   LoadBalancerV2 = "AWS::ElasticLoadBalancingV2::LoadBalancer",
   ManagedInstanceInventory = "AWS::SSM::ManagedInstanceInventory",
-  Method = "AWS::ApiGateway::Method",
-  MobileHubProject = "AWS::MobileHub::Project",
+  ManagedRuleSetV2 = "AWS::WAFv2::ManagedRuleSet",
   NatGateway = "AWS::EC2::NatGateway",
   NetworkAcl = "AWS::EC2::NetworkAcl",
   NetworkInterface = "AWS::EC2::NetworkInterface",
@@ -7692,8 +7750,11 @@ export enum ResourceType {
   Portfolio = "AWS::ServiceCatalog::Portfolio",
   Project = "AWS::CodeBuild::Project",
   Protection = "AWS::Shield::Protection",
+  QLDBLedger = "AWS::QLDB::Ledger",
+  Queue = "AWS::SQS::Queue",
   RateBasedRule = "AWS::WAF::RateBasedRule",
   RedshiftEventSubscription = "AWS::Redshift::EventSubscription",
+  RegexPatternSetV2 = "AWS::WAFv2::RegexPatternSet",
   RegionalProtection = "AWS::ShieldRegional::Protection",
   RegionalRateBasedRule = "AWS::WAFRegional::RateBasedRule",
   RegionalRule = "AWS::WAFRegional::Rule",
@@ -7706,8 +7767,10 @@ export enum ResourceType {
   RouteTable = "AWS::EC2::RouteTable",
   Rule = "AWS::WAF::Rule",
   RuleGroup = "AWS::WAF::RuleGroup",
+  RuleGroupV2 = "AWS::WAFv2::RuleGroup",
   ScalingPolicy = "AWS::AutoScaling::ScalingPolicy",
   ScheduledAction = "AWS::AutoScaling::ScheduledAction",
+  Secret = "AWS::SecretsManager::Secret",
   SecurityGroup = "AWS::EC2::SecurityGroup",
   Stack = "AWS::CloudFormation::Stack",
   Stage = "AWS::ApiGateway::Stage",
@@ -7715,6 +7778,7 @@ export enum ResourceType {
   StreamingDistribution = "AWS::CloudFront::StreamingDistribution",
   Subnet = "AWS::EC2::Subnet",
   Table = "AWS::DynamoDB::Table",
+  Topic = "AWS::SNS::Topic",
   Trail = "AWS::CloudTrail::Trail",
   User = "AWS::IAM::User",
   VPC = "AWS::EC2::VPC",
@@ -7725,6 +7789,7 @@ export enum ResourceType {
   VPNGateway = "AWS::EC2::VPNGateway",
   Volume = "AWS::EC2::Volume",
   WebACL = "AWS::WAF::WebACL",
+  WebACLV2 = "AWS::WAFv2::WebACL",
 }
 
 /**
@@ -7755,17 +7820,17 @@ export enum ResourceValueType {
 export interface RetentionConfiguration {
   __type?: "RetentionConfiguration";
   /**
-   * <p>The name of the retention configuration object.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Number of days AWS Config stores your historical information.</p>
    * 		       <note>
    *             <p>Currently, only applicable to the configuration item history.</p>
    *          </note>
    */
   RetentionPeriodInDays: number | undefined;
+
+  /**
+   * <p>The name of the retention configuration object.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace RetentionConfiguration {
@@ -7787,14 +7852,6 @@ export namespace RetentionConfiguration {
 export interface Scope {
   __type?: "Scope";
   /**
-   * <p>The ID of the only AWS resource that you want to trigger an
-   * 			evaluation for the rule. If you specify a resource ID, you must
-   * 			specify one resource type for
-   * 			<code>ComplianceResourceTypes</code>.</p>
-   */
-  ComplianceResourceId?: string;
-
-  /**
    * <p>The resource types of only those AWS resources that you want to
    * 			trigger an evaluation for the rule. You can only specify one type if
    * 			you also specify a resource ID for
@@ -7807,6 +7864,14 @@ export interface Scope {
    * 			you want to trigger an evaluation for the rule.</p>
    */
   TagKey?: string;
+
+  /**
+   * <p>The ID of the only AWS resource that you want to trigger an
+   * 			evaluation for the rule. If you specify a resource ID, you must
+   * 			specify one resource type for
+   * 			<code>ComplianceResourceTypes</code>.</p>
+   */
+  ComplianceResourceId?: string;
 
   /**
    * <p>The tag value applied to only those AWS resources that you want
@@ -7824,12 +7889,12 @@ export namespace Scope {
   export const isa = (o: any): o is Scope => __isa(o, "Scope");
 }
 
-export interface SelectResourceConfigRequest {
-  __type?: "SelectResourceConfigRequest";
+export interface SelectAggregateResourceConfigRequest {
+  __type?: "SelectAggregateResourceConfigRequest";
   /**
-   * <p>The SQL query <code>SELECT</code> command.</p>
+   * <p>The maximum number of query results returned on each page. AWS Config also allows the Limit request parameter.</p>
    */
-  Expression: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The maximum number of query results returned on each page. </p>
@@ -7837,9 +7902,71 @@ export interface SelectResourceConfigRequest {
   Limit?: number;
 
   /**
+   * <p>The name of the configuration aggregator.</p>
+   */
+  ConfigurationAggregatorName: string | undefined;
+
+  /**
+   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The SQL query SELECT command. </p>
+   */
+  Expression: string | undefined;
+}
+
+export namespace SelectAggregateResourceConfigRequest {
+  export const filterSensitiveLog = (obj: SelectAggregateResourceConfigRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SelectAggregateResourceConfigRequest =>
+    __isa(o, "SelectAggregateResourceConfigRequest");
+}
+
+export interface SelectAggregateResourceConfigResponse {
+  __type?: "SelectAggregateResourceConfigResponse";
+  /**
+   * <p>Returns the results for the SQL query.</p>
+   */
+  Results?: string[];
+
+  /**
+   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Details about the query.</p>
+   */
+  QueryInfo?: QueryInfo;
+}
+
+export namespace SelectAggregateResourceConfigResponse {
+  export const filterSensitiveLog = (obj: SelectAggregateResourceConfigResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SelectAggregateResourceConfigResponse =>
+    __isa(o, "SelectAggregateResourceConfigResponse");
+}
+
+export interface SelectResourceConfigRequest {
+  __type?: "SelectResourceConfigRequest";
+  /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of query results returned on each page. </p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The SQL query <code>SELECT</code> command.</p>
+   */
+  Expression: string | undefined;
 }
 
 export namespace SelectResourceConfigRequest {
@@ -7852,14 +7979,14 @@ export namespace SelectResourceConfigRequest {
 export interface SelectResourceConfigResponse {
   __type?: "SelectResourceConfigResponse";
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Returns the <code>QueryInfo</code> object.</p>
    */
   QueryInfo?: QueryInfo;
+
+  /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 
   /**
    * <p>Returns the results for the SQL query.</p>
@@ -7922,12 +8049,6 @@ export namespace Source {
 export interface SourceDetail {
   __type?: "SourceDetail";
   /**
-   * <p>The source of the event, such as an AWS service, that triggers
-   * 			AWS Config to evaluate your AWS resources.</p>
-   */
-  EventSource?: EventSource | string;
-
-  /**
    * <p>The frequency at which you want AWS Config to run evaluations
    * 			for a custom rule with a periodic trigger. If you specify a value
    * 			for <code>MaximumExecutionFrequency</code>, then
@@ -7951,6 +8072,12 @@ export interface SourceDetail {
    * 		       </note>
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+
+  /**
+   * <p>The source of the event, such as an AWS service, that triggers
+   * 			AWS Config to evaluate your AWS resources.</p>
+   */
+  EventSource?: EventSource | string;
 
   /**
    * <p>The type of notification that triggers AWS Config to run an
@@ -8009,16 +8136,16 @@ export namespace SourceDetail {
 export interface SsmControls {
   __type?: "SsmControls";
   /**
-   * <p>The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10. </p>
-   */
-  ConcurrentExecutionRatePercentage?: number;
-
-  /**
    * <p>The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule.
    * 			You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%.
    * 			For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received. </p>
    */
   ErrorPercentage?: number;
+
+  /**
+   * <p>The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10. </p>
+   */
+  ConcurrentExecutionRatePercentage?: number;
 }
 
 export namespace SsmControls {
@@ -8086,14 +8213,14 @@ export namespace StartConfigurationRecorderRequest {
 export interface StartRemediationExecutionRequest {
   __type?: "StartRemediationExecutionRequest";
   /**
-   * <p>The list of names of AWS Config rules that you want to run remediation execution for.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
    */
   ResourceKeys: ResourceKey[] | undefined;
+
+  /**
+   * <p>The list of names of AWS Config rules that you want to run remediation execution for.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace StartRemediationExecutionRequest {
@@ -8106,14 +8233,14 @@ export namespace StartRemediationExecutionRequest {
 export interface StartRemediationExecutionResponse {
   __type?: "StartRemediationExecutionResponse";
   /**
-   * <p>For resources that have failed to start execution, the API returns a resource key object.</p>
-   */
-  FailedItems?: ResourceKey[];
-
-  /**
    * <p>Returns a failure message. For example, the resource is already compliant.</p>
    */
   FailureMessage?: string;
+
+  /**
+   * <p>For resources that have failed to start execution, the API returns a resource key object.</p>
+   */
+  FailedItems?: ResourceKey[];
 }
 
 export namespace StartRemediationExecutionResponse {
@@ -8292,14 +8419,14 @@ export namespace TooManyTagsException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The keys of the tags to be removed.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {

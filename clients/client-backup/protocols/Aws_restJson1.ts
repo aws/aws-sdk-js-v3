@@ -36,6 +36,10 @@ import {
   DescribeRecoveryPointCommandInput,
   DescribeRecoveryPointCommandOutput,
 } from "../commands/DescribeRecoveryPointCommand";
+import {
+  DescribeRegionSettingsCommandInput,
+  DescribeRegionSettingsCommandOutput,
+} from "../commands/DescribeRegionSettingsCommand";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "../commands/DescribeRestoreJobCommand";
 import {
   ExportBackupPlanTemplateCommandInput,
@@ -116,6 +120,10 @@ import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
 } from "../commands/UpdateRecoveryPointLifecycleCommand";
+import {
+  UpdateRegionSettingsCommandInput,
+  UpdateRegionSettingsCommandOutput,
+} from "../commands/UpdateRegionSettingsCommand";
 import {
   AlreadyExistsException,
   BackupJob,
@@ -619,6 +627,28 @@ export const serializeAws_restJson1DescribeRecoveryPointCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeRegionSettingsCommand = async (
+  input: DescribeRegionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/account-settings";
+  let body: any;
+  body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeRestoreJobCommand = async (
   input: DescribeRestoreJobCommandInput,
   context: __SerdeContext
@@ -775,15 +805,6 @@ export const serializeAws_restJson1GetBackupSelectionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
   if (input.SelectionId !== undefined) {
     const labelValue: string = input.SelectionId;
     if (labelValue.length <= 0) {
@@ -792,6 +813,15 @@ export const serializeAws_restJson1GetBackupSelectionCommand = async (
     resolvedPath = resolvedPath.replace("{SelectionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
+  }
+  if (input.BackupPlanId !== undefined) {
+    const labelValue: string = input.BackupPlanId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
+    }
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -936,18 +966,19 @@ export const serializeAws_restJson1ListBackupJobsCommand = async (
   };
   let resolvedPath = "/backup-jobs";
   const query: any = {
-    ...(input.ByBackupVaultName !== undefined && { backupVaultName: input.ByBackupVaultName }),
+    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.ByCreatedAfter !== undefined && {
       createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
+    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
+    ...(input.ByState !== undefined && { state: input.ByState }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
     ...(input.ByCreatedBefore !== undefined && {
       createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
-    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
-    ...(input.ByState !== undefined && { state: input.ByState }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ByBackupVaultName !== undefined && { backupVaultName: input.ByBackupVaultName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -972,9 +1003,9 @@ export const serializeAws_restJson1ListBackupPlansCommand = async (
   };
   let resolvedPath = "/backup/plans";
   const query: any = {
-    ...(input.IncludeDeleted !== undefined && { includeDeleted: input.IncludeDeleted.toString() }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.IncludeDeleted !== undefined && { includeDeleted: input.IncludeDeleted.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1069,8 +1100,8 @@ export const serializeAws_restJson1ListBackupSelectionsCommand = async (
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1121,18 +1152,19 @@ export const serializeAws_restJson1ListCopyJobsCommand = async (
   };
   let resolvedPath = "/copy-jobs";
   const query: any = {
+    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
+    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.ByState !== undefined && { state: input.ByState }),
     ...(input.ByCreatedAfter !== undefined && {
       createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
+    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.ByCreatedBefore !== undefined && {
       createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.ByDestinationVaultArn !== undefined && { destinationVaultArn: input.ByDestinationVaultArn }),
-    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
-    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
-    ...(input.ByState !== undefined && { state: input.ByState }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1157,8 +1189,8 @@ export const serializeAws_restJson1ListProtectedResourcesCommand = async (
   };
   let resolvedPath = "/resources";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1192,17 +1224,17 @@ export const serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = asyn
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
     ...(input.ByBackupPlanId !== undefined && { backupPlanId: input.ByBackupPlanId }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ByCreatedAfter !== undefined && {
       createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.ByCreatedBefore !== undefined && {
       createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
     ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1262,8 +1294,16 @@ export const serializeAws_restJson1ListRestoreJobsCommand = async (
   };
   let resolvedPath = "/restore-jobs";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
+    ...(input.ByCreatedAfter !== undefined && {
+      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
+    }),
+    ...(input.ByStatus !== undefined && { status: input.ByStatus }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.ByCreatedBefore !== undefined && {
+      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
+    }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1297,8 +1337,8 @@ export const serializeAws_restJson1ListTagsCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1614,15 +1654,6 @@ export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
   if (input.RecoveryPointArn !== undefined) {
     const labelValue: string = input.RecoveryPointArn;
     if (labelValue.length <= 0) {
@@ -1631,6 +1662,15 @@ export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
     resolvedPath = resolvedPath.replace("{RecoveryPointArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
+  }
+  if (input.BackupVaultName !== undefined) {
+    const labelValue: string = input.BackupVaultName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
+    }
+    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1642,6 +1682,35 @@ export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateRegionSettingsCommand = async (
+  input: UpdateRegionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/account-settings";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceTypeOptInPreference !== undefined && {
+      ResourceTypeOptInPreference: serializeAws_restJson1ResourceTypeOptInPreference(
+        input.ResourceTypeOptInPreference,
+        context
+      ),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -2441,6 +2510,7 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
   const contents: DescribeBackupJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBackupJobOutput",
+    AccountId: undefined,
     BackupJobId: undefined,
     BackupSizeInBytes: undefined,
     BackupVaultArn: undefined,
@@ -2460,6 +2530,9 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
     StatusMessage: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.AccountId !== undefined && data.AccountId !== null) {
+    contents.AccountId = data.AccountId;
+  }
   if (data.BackupJobId !== undefined && data.BackupJobId !== null) {
     contents.BackupJobId = data.BackupJobId;
   }
@@ -2995,6 +3068,65 @@ const deserializeAws_restJson1DescribeRecoveryPointCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeRegionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeRegionSettingsCommandError(output, context);
+  }
+  const contents: DescribeRegionSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeRegionSettingsOutput",
+    ResourceTypeOptInPreference: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ResourceTypeOptInPreference !== undefined && data.ResourceTypeOptInPreference !== null) {
+    contents.ResourceTypeOptInPreference = deserializeAws_restJson1ResourceTypeOptInPreference(
+      data.ResourceTypeOptInPreference,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeRegionSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegionSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3005,6 +3137,7 @@ export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
   const contents: DescribeRestoreJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeRestoreJobOutput",
+    AccountId: undefined,
     BackupSizeInBytes: undefined,
     CompletionDate: undefined,
     CreatedResourceArn: undefined,
@@ -3013,11 +3146,15 @@ export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
     IamRoleArn: undefined,
     PercentDone: undefined,
     RecoveryPointArn: undefined,
+    ResourceType: undefined,
     RestoreJobId: undefined,
     Status: undefined,
     StatusMessage: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.AccountId !== undefined && data.AccountId !== null) {
+    contents.AccountId = data.AccountId;
+  }
   if (data.BackupSizeInBytes !== undefined && data.BackupSizeInBytes !== null) {
     contents.BackupSizeInBytes = data.BackupSizeInBytes;
   }
@@ -3041,6 +3178,9 @@ export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
   }
   if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
     contents.RecoveryPointArn = data.RecoveryPointArn;
+  }
+  if (data.ResourceType !== undefined && data.ResourceType !== null) {
+    contents.ResourceType = data.ResourceType;
   }
   if (data.RestoreJobId !== undefined && data.RestoreJobId !== null) {
     contents.RestoreJobId = data.RestoreJobId;
@@ -3938,14 +4078,6 @@ const deserializeAws_restJson1ListBackupJobsCommandError = async (
     case "com.amazonaws.backup#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5716,6 +5848,73 @@ const deserializeAws_restJson1UpdateRecoveryPointLifecycleCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateRegionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRegionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateRegionSettingsCommandError(output, context);
+  }
+  const contents: UpdateRegionSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateRegionSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRegionSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6048,6 +6247,19 @@ const serializeAws_restJson1ResourceArns = (input: string[], context: __SerdeCon
   return input.map((entry) => entry);
 };
 
+const serializeAws_restJson1ResourceTypeOptInPreference = (
+  input: { [key: string]: boolean },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: boolean }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -6065,6 +6277,7 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
 const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext): BackupJob => {
   return {
     __type: "BackupJob",
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     BackupJobId: output.BackupJobId !== undefined && output.BackupJobId !== null ? output.BackupJobId : undefined,
     BackupSizeInBytes:
       output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
@@ -6346,6 +6559,7 @@ const deserializeAws_restJson1CopyActions = (output: any, context: __SerdeContex
 const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): CopyJob => {
   return {
     __type: "CopyJob",
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     BackupSizeInBytes:
       output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
         ? output.BackupSizeInBytes
@@ -6538,6 +6752,19 @@ const deserializeAws_restJson1ResourceArns = (output: any, context: __SerdeConte
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_restJson1ResourceTypeOptInPreference = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: boolean } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: boolean }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const deserializeAws_restJson1ResourceTypes = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -6549,6 +6776,7 @@ const deserializeAws_restJson1RestoreJobsList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1RestoreJobsListMember = (output: any, context: __SerdeContext): RestoreJobsListMember => {
   return {
     __type: "RestoreJobsListMember",
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     BackupSizeInBytes:
       output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
         ? output.BackupSizeInBytes
@@ -6573,6 +6801,7 @@ const deserializeAws_restJson1RestoreJobsListMember = (output: any, context: __S
     PercentDone: output.PercentDone !== undefined && output.PercentDone !== null ? output.PercentDone : undefined,
     RecoveryPointArn:
       output.RecoveryPointArn !== undefined && output.RecoveryPointArn !== null ? output.RecoveryPointArn : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
     RestoreJobId: output.RestoreJobId !== undefined && output.RestoreJobId !== null ? output.RestoreJobId : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     StatusMessage:

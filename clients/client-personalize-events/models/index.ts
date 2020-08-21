@@ -13,14 +13,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface Event {
   __type?: "Event";
   /**
-   * <p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates
-   *       a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses
-   *       the event ID to distinquish unique events. Any subsequent events after the first with the
-   *       same event ID are not used in model training.</p>
-   */
-  eventId?: string;
-
-  /**
    * <p>The type of event. This property corresponds to the <code>EVENT_TYPE</code>
    *       field of the Interactions schema.</p>
    */
@@ -53,6 +45,14 @@ export interface Event {
    * <p>The timestamp on the client side when the event occurred.</p>
    */
   sentAt: Date | undefined;
+
+  /**
+   * <p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates
+   *       a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses
+   *       the event ID to distinquish unique events. Any subsequent events after the first with the
+   *       same event ID are not used in model training.</p>
+   */
+  eventId?: string;
 }
 
 export namespace Event {
@@ -86,9 +86,9 @@ export interface PutEventsRequest {
   eventList: Event[] | undefined;
 
   /**
-   * <p>The session ID associated with the user's visit.</p>
+   * <p>The user associated with the event.</p>
    */
-  sessionId: string | undefined;
+  userId?: string;
 
   /**
    * <p>The tracking ID for the event.
@@ -98,9 +98,9 @@ export interface PutEventsRequest {
   trackingId: string | undefined;
 
   /**
-   * <p>The user associated with the event.</p>
+   * <p>The session ID associated with the user's visit.</p>
    */
-  userId?: string;
+  sessionId: string | undefined;
 }
 
 export namespace PutEventsRequest {

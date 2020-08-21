@@ -192,9 +192,9 @@ export const serializeAws_restJson1ListSigningJobsCommand = async (
   };
   let resolvedPath = "/signing-jobs";
   const query: any = {
+    ...(input.platformId !== undefined && { platformId: input.platformId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.platformId !== undefined && { platformId: input.platformId }),
     ...(input.requestedBy !== undefined && { requestedBy: input.requestedBy }),
     ...(input.status !== undefined && { status: input.status }),
   };
@@ -221,11 +221,11 @@ export const serializeAws_restJson1ListSigningPlatformsCommand = async (
   };
   let resolvedPath = "/signing-platforms";
   const query: any = {
-    ...(input.category !== undefined && { category: input.category }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.partner !== undefined && { partner: input.partner }),
     ...(input.target !== undefined && { target: input.target }),
+    ...(input.category !== undefined && { category: input.category }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -251,8 +251,8 @@ export const serializeAws_restJson1ListSigningProfilesCommand = async (
   let resolvedPath = "/signing-profiles";
   const query: any = {
     ...(input.includeCanceled !== undefined && { includeCanceled: input.includeCanceled.toString() }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1642,6 +1642,7 @@ const serializeAws_restJson1SigningPlatformOverrides = (
     ...(input.signingConfiguration !== undefined && {
       signingConfiguration: serializeAws_restJson1SigningConfigurationOverrides(input.signingConfiguration, context),
     }),
+    ...(input.signingImageFormat !== undefined && { signingImageFormat: input.signingImageFormat }),
   };
 };
 
@@ -1844,6 +1845,10 @@ const deserializeAws_restJson1SigningPlatformOverrides = (
     signingConfiguration:
       output.signingConfiguration !== undefined && output.signingConfiguration !== null
         ? deserializeAws_restJson1SigningConfigurationOverrides(output.signingConfiguration, context)
+        : undefined,
+    signingImageFormat:
+      output.signingImageFormat !== undefined && output.signingImageFormat !== null
+        ? output.signingImageFormat
         : undefined,
   } as any;
 };

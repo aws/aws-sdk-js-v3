@@ -1,19 +1,29 @@
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
+import {
+  GetGroupConfigurationCommandInput,
+  GetGroupConfigurationCommandOutput,
+} from "../commands/GetGroupConfigurationCommand";
 import { GetGroupQueryCommandInput, GetGroupQueryCommandOutput } from "../commands/GetGroupQueryCommand";
 import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCommand";
+import { GroupResourcesCommandInput, GroupResourcesCommandOutput } from "../commands/GroupResourcesCommand";
 import { ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput } from "../commands/ListGroupResourcesCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "../commands/SearchResourcesCommand";
 import { TagCommandInput, TagCommandOutput } from "../commands/TagCommand";
+import { UngroupResourcesCommandInput, UngroupResourcesCommandOutput } from "../commands/UngroupResourcesCommand";
 import { UntagCommandInput, UntagCommandOutput } from "../commands/UntagCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
 import { UpdateGroupQueryCommandInput, UpdateGroupQueryCommandOutput } from "../commands/UpdateGroupQueryCommand";
 import {
   BadRequestException,
+  FailedResource,
   ForbiddenException,
   Group,
+  GroupConfiguration,
+  GroupConfigurationItem,
+  GroupConfigurationParameter,
   GroupFilter,
   GroupIdentifier,
   GroupQuery,
@@ -49,6 +59,9 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   let resolvedPath = "/groups";
   let body: any;
   body = JSON.stringify({
+    ...(input.Configuration !== undefined && {
+      Configuration: serializeAws_restJson1GroupConfigurationList(input.Configuration, context),
+    }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.ResourceQuery !== undefined && {
@@ -73,25 +86,20 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
+    "Content-Type": "application/json",
   };
-  let resolvedPath = "/groups/{GroupName}";
-  if (input.GroupName !== undefined) {
-    const labelValue: string = input.GroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: GroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: GroupName.");
-  }
+  let resolvedPath = "/delete-group";
   let body: any;
+  body = JSON.stringify({
+    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
     port,
-    method: "DELETE",
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -103,25 +111,44 @@ export const serializeAws_restJson1GetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
+    "Content-Type": "application/json",
   };
-  let resolvedPath = "/groups/{GroupName}";
-  if (input.GroupName !== undefined) {
-    const labelValue: string = input.GroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: GroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: GroupName.");
-  }
+  let resolvedPath = "/get-group";
   let body: any;
+  body = JSON.stringify({
+    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
     port,
-    method: "GET",
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetGroupConfigurationCommand = async (
+  input: GetGroupConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/get-group-configuration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Group !== undefined && { Group: input.Group }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -133,25 +160,20 @@ export const serializeAws_restJson1GetGroupQueryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
+    "Content-Type": "application/json",
   };
-  let resolvedPath = "/groups/{GroupName}/query";
-  if (input.GroupName !== undefined) {
-    const labelValue: string = input.GroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: GroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: GroupName.");
-  }
+  let resolvedPath = "/get-group-query";
   let body: any;
+  body = JSON.stringify({
+    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
     port,
-    method: "GET",
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -188,30 +210,20 @@ export const serializeAws_restJson1GetTagsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListGroupResourcesCommand = async (
-  input: ListGroupResourcesCommandInput,
+export const serializeAws_restJson1GroupResourcesCommand = async (
+  input: GroupResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
   };
-  let resolvedPath = "/groups/{GroupName}/resource-identifiers-list";
-  if (input.GroupName !== undefined) {
-    const labelValue: string = input.GroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: GroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: GroupName.");
-  }
-  const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-  };
+  let resolvedPath = "/group-resources";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1ResourceFilterList(input.Filters, context) }),
+    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.ResourceArns !== undefined && {
+      ResourceArns: serializeAws_restJson1ResourceArnList(input.ResourceArns, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -221,7 +233,34 @@ export const serializeAws_restJson1ListGroupResourcesCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListGroupResourcesCommand = async (
+  input: ListGroupResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/list-group-resources";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1ResourceFilterList(input.Filters, context) }),
+    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -235,8 +274,8 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   };
   let resolvedPath = "/groups-list";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   body = JSON.stringify({
@@ -316,6 +355,33 @@ export const serializeAws_restJson1TagCommand = async (
   });
 };
 
+export const serializeAws_restJson1UngroupResourcesCommand = async (
+  input: UngroupResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/ungroup-resources";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.ResourceArns !== undefined && {
+      ResourceArns: serializeAws_restJson1ResourceArnList(input.ResourceArns, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UntagCommand = async (
   input: UntagCommandInput,
   context: __SerdeContext
@@ -356,26 +422,19 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
   const headers: any = {
     "Content-Type": "application/json",
   };
-  let resolvedPath = "/groups/{GroupName}";
-  if (input.GroupName !== undefined) {
-    const labelValue: string = input.GroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: GroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: GroupName.");
-  }
+  let resolvedPath = "/update-group";
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
     port,
-    method: "PUT",
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -389,18 +448,11 @@ export const serializeAws_restJson1UpdateGroupQueryCommand = async (
   const headers: any = {
     "Content-Type": "application/json",
   };
-  let resolvedPath = "/groups/{GroupName}/query";
-  if (input.GroupName !== undefined) {
-    const labelValue: string = input.GroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: GroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: GroupName.");
-  }
+  let resolvedPath = "/update-group-query";
   let body: any;
   body = JSON.stringify({
+    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
     ...(input.ResourceQuery !== undefined && {
       ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
     }),
@@ -410,7 +462,7 @@ export const serializeAws_restJson1UpdateGroupQueryCommand = async (
     protocol,
     hostname,
     port,
-    method: "PUT",
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -428,12 +480,16 @@ export const deserializeAws_restJson1CreateGroupCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "CreateGroupOutput",
     Group: undefined,
+    GroupConfiguration: undefined,
     ResourceQuery: undefined,
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1Group(data.Group, context);
+  }
+  if (data.GroupConfiguration !== undefined && data.GroupConfiguration !== null) {
+    contents.GroupConfiguration = deserializeAws_restJson1GroupConfiguration(data.GroupConfiguration, context);
   }
   if (data.ResourceQuery !== undefined && data.ResourceQuery !== null) {
     contents.ResourceQuery = deserializeAws_restJson1ResourceQuery(data.ResourceQuery, context);
@@ -705,6 +761,102 @@ const deserializeAws_restJson1GetGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetGroupConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGroupConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetGroupConfigurationCommandError(output, context);
+  }
+  const contents: GetGroupConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetGroupConfigurationOutput",
+    GroupConfiguration: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.GroupConfiguration !== undefined && data.GroupConfiguration !== null) {
+    contents.GroupConfiguration = deserializeAws_restJson1GroupConfiguration(data.GroupConfiguration, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetGroupConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGroupConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.resourcegroups#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.resourcegroups#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.resourcegroups#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.resourcegroups#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.resourcegroups#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetGroupQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -828,6 +980,106 @@ const deserializeAws_restJson1GetTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.resourcegroups#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.resourcegroups#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.resourcegroups#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.resourcegroups#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.resourcegroups#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GroupResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GroupResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GroupResourcesCommandError(output, context);
+  }
+  const contents: GroupResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GroupResourcesOutput",
+    Failed: undefined,
+    Succeeded: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Failed !== undefined && data.Failed !== null) {
+    contents.Failed = deserializeAws_restJson1FailedResourceList(data.Failed, context);
+  }
+  if (data.Succeeded !== undefined && data.Succeeded !== null) {
+    contents.Succeeded = deserializeAws_restJson1ResourceArnList(data.Succeeded, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GroupResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GroupResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1313,6 +1565,106 @@ const deserializeAws_restJson1TagCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UngroupResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UngroupResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UngroupResourcesCommandError(output, context);
+  }
+  const contents: UngroupResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UngroupResourcesOutput",
+    Failed: undefined,
+    Succeeded: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Failed !== undefined && data.Failed !== null) {
+    contents.Failed = deserializeAws_restJson1FailedResourceList(data.Failed, context);
+  }
+  if (data.Succeeded !== undefined && data.Succeeded !== null) {
+    contents.Succeeded = deserializeAws_restJson1ResourceArnList(data.Succeeded, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UngroupResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UngroupResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.resourcegroups#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.resourcegroups#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.resourcegroups#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.resourcegroups#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.resourcegroups#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UntagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1724,6 +2076,38 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1GroupConfigurationItem = (input: GroupConfigurationItem, context: __SerdeContext): any => {
+  return {
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_restJson1GroupParameterList(input.Parameters, context),
+    }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1GroupConfigurationList = (
+  input: GroupConfigurationItem[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1GroupConfigurationItem(entry, context));
+};
+
+const serializeAws_restJson1GroupConfigurationParameter = (
+  input: GroupConfigurationParameter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_restJson1GroupConfigurationParameterValueList(input.Values, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GroupConfigurationParameterValueList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1GroupFilter = (input: GroupFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
@@ -1736,6 +2120,17 @@ const serializeAws_restJson1GroupFilterList = (input: GroupFilter[], context: __
 };
 
 const serializeAws_restJson1GroupFilterValues = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1GroupParameterList = (
+  input: GroupConfigurationParameter[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1GroupConfigurationParameter(entry, context));
+};
+
+const serializeAws_restJson1ResourceArnList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
 
@@ -1775,6 +2170,19 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
   );
 };
 
+const deserializeAws_restJson1FailedResource = (output: any, context: __SerdeContext): FailedResource => {
+  return {
+    __type: "FailedResource",
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FailedResourceList = (output: any, context: __SerdeContext): FailedResource[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1FailedResource(entry, context));
+};
+
 const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Group => {
   return {
     __type: "Group",
@@ -1782,6 +2190,65 @@ const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Gr
     GroupArn: output.GroupArn !== undefined && output.GroupArn !== null ? output.GroupArn : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1GroupConfiguration = (output: any, context: __SerdeContext): GroupConfiguration => {
+  return {
+    __type: "GroupConfiguration",
+    Configuration:
+      output.Configuration !== undefined && output.Configuration !== null
+        ? deserializeAws_restJson1GroupConfigurationList(output.Configuration, context)
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    ProposedConfiguration:
+      output.ProposedConfiguration !== undefined && output.ProposedConfiguration !== null
+        ? deserializeAws_restJson1GroupConfigurationList(output.ProposedConfiguration, context)
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GroupConfigurationItem = (
+  output: any,
+  context: __SerdeContext
+): GroupConfigurationItem => {
+  return {
+    __type: "GroupConfigurationItem",
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_restJson1GroupParameterList(output.Parameters, context)
+        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GroupConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): GroupConfigurationItem[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1GroupConfigurationItem(entry, context));
+};
+
+const deserializeAws_restJson1GroupConfigurationParameter = (
+  output: any,
+  context: __SerdeContext
+): GroupConfigurationParameter => {
+  return {
+    __type: "GroupConfigurationParameter",
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Values:
+      output.Values !== undefined && output.Values !== null
+        ? deserializeAws_restJson1GroupConfigurationParameterValueList(output.Values, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GroupConfigurationParameterValueList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1GroupIdentifier = (output: any, context: __SerdeContext): GroupIdentifier => {
@@ -1798,6 +2265,13 @@ const deserializeAws_restJson1GroupIdentifierList = (output: any, context: __Ser
 
 const deserializeAws_restJson1GroupList = (output: any, context: __SerdeContext): Group[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Group(entry, context));
+};
+
+const deserializeAws_restJson1GroupParameterList = (
+  output: any,
+  context: __SerdeContext
+): GroupConfigurationParameter[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1GroupConfigurationParameter(entry, context));
 };
 
 const deserializeAws_restJson1GroupQuery = (output: any, context: __SerdeContext): GroupQuery => {
@@ -1821,6 +2295,10 @@ const deserializeAws_restJson1QueryError = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1QueryErrorList = (output: any, context: __SerdeContext): QueryError[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1QueryError(entry, context));
+};
+
+const deserializeAws_restJson1ResourceArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1ResourceIdentifier = (output: any, context: __SerdeContext): ResourceIdentifier => {

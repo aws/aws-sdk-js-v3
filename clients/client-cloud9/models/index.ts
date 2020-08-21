@@ -7,9 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
+  message?: string;
   className?: string;
   code?: number;
-  message?: string;
 }
 
 export namespace BadRequestException {
@@ -25,9 +25,9 @@ export namespace BadRequestException {
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
-  className?: string;
-  code?: number;
   message?: string;
+  code?: number;
+  className?: string;
 }
 
 export namespace ConflictException {
@@ -40,15 +40,15 @@ export namespace ConflictException {
 export interface CreateEnvironmentEC2Request {
   __type?: "CreateEnvironmentEC2Request";
   /**
-   * <p>The number of minutes until the running instance is shut down after the environment has last been used.</p>
-   */
-  automaticStopTimeMinutes?: number;
-
-  /**
    * <p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p>
    *          <p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientRequestToken?: string;
+
+  /**
+   * <p>An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The description of the environment to create.</p>
@@ -56,9 +56,9 @@ export interface CreateEnvironmentEC2Request {
   description?: string;
 
   /**
-   * <p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>
+   * <p>The number of minutes until the running instance is shut down after the environment has last been used.</p>
    */
-  instanceType: string | undefined;
+  automaticStopTimeMinutes?: number;
 
   /**
    * <p>The name of the environment to create.</p>
@@ -75,6 +75,11 @@ export interface CreateEnvironmentEC2Request {
    * <p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>
    */
   subnetId?: string;
+
+  /**
+   * <p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>
+   */
+  instanceType: string | undefined;
 }
 
 export namespace CreateEnvironmentEC2Request {
@@ -103,6 +108,11 @@ export namespace CreateEnvironmentEC2Result {
 export interface CreateEnvironmentMembershipRequest {
   __type?: "CreateEnvironmentMembershipRequest";
   /**
+   * <p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>
+   */
+  userArn: string | undefined;
+
+  /**
    * <p>The ID of the environment that contains the environment member you want to add.</p>
    */
   environmentId: string | undefined;
@@ -121,11 +131,6 @@ export interface CreateEnvironmentMembershipRequest {
    *          </ul>
    */
   permissions: MemberPermissions | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>
-   */
-  userArn: string | undefined;
 }
 
 export namespace CreateEnvironmentMembershipRequest {
@@ -154,14 +159,14 @@ export namespace CreateEnvironmentMembershipResult {
 export interface DeleteEnvironmentMembershipRequest {
   __type?: "DeleteEnvironmentMembershipRequest";
   /**
-   * <p>The ID of the environment to delete the environment member from.</p>
-   */
-  environmentId: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>
    */
   userArn: string | undefined;
+
+  /**
+   * <p>The ID of the environment to delete the environment member from.</p>
+   */
+  environmentId: string | undefined;
 }
 
 export namespace DeleteEnvironmentMembershipRequest {
@@ -212,21 +217,6 @@ export namespace DeleteEnvironmentResult {
 export interface DescribeEnvironmentMembershipsRequest {
   __type?: "DescribeEnvironmentMembershipsRequest";
   /**
-   * <p>The ID of the environment to get environment member information about.</p>
-   */
-  environmentId?: string;
-
-  /**
-   * <p>The maximum number of environment members to get information about.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The type of environment member permissions to get information about. Available values include:</p>
    *          <ul>
    *             <li>
@@ -247,9 +237,24 @@ export interface DescribeEnvironmentMembershipsRequest {
   permissions?: (Permissions | string)[];
 
   /**
+   * <p>The maximum number of environment members to get information about.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>
    */
   userArn?: string;
+
+  /**
+   * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The ID of the environment to get environment member information about.</p>
+   */
+  environmentId?: string;
 }
 
 export namespace DescribeEnvironmentMembershipsRequest {
@@ -388,29 +393,9 @@ export interface Environment {
   arn?: string;
 
   /**
-   * <p>The description for the environment.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The ID of the environment.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The state of the environment in its creation or deletion lifecycle.</p>
    */
   lifecycle?: EnvironmentLifecycle;
-
-  /**
-   * <p>The name of the environment.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the environment owner.</p>
-   */
-  ownerArn?: string;
 
   /**
    * <p>The type of environment. Valid values include the following:</p>
@@ -426,6 +411,26 @@ export interface Environment {
    *          </ul>
    */
   type?: EnvironmentType | string;
+
+  /**
+   * <p>The description for the environment.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the environment.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the environment owner.</p>
+   */
+  ownerArn?: string;
+
+  /**
+   * <p>The ID of the environment.</p>
+   */
+  id?: string;
 }
 
 export namespace Environment {
@@ -441,16 +446,6 @@ export namespace Environment {
  */
 export interface EnvironmentLifecycle {
   __type?: "EnvironmentLifecycle";
-  /**
-   * <p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>
-   */
-  failureResource?: string;
-
-  /**
-   * <p>Any informational message about the lifecycle state of the environment.</p>
-   */
-  reason?: string;
-
   /**
    * <p>The current creation or deletion lifecycle state of the environment.</p>
    *          <ul>
@@ -477,6 +472,16 @@ export interface EnvironmentLifecycle {
    *          </ul>
    */
   status?: EnvironmentLifecycleStatus | string;
+
+  /**
+   * <p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>
+   */
+  failureResource?: string;
+
+  /**
+   * <p>Any informational message about the lifecycle state of the environment.</p>
+   */
+  reason?: string;
 }
 
 export namespace EnvironmentLifecycle {
@@ -500,14 +505,24 @@ export enum EnvironmentLifecycleStatus {
 export interface EnvironmentMember {
   __type?: "EnvironmentMember";
   /**
-   * <p>The ID of the environment for the environment member.</p>
+   * <p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>
    */
-  environmentId?: string;
+  userId?: string;
 
   /**
    * <p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>
    */
   lastAccess?: Date;
+
+  /**
+   * <p>The ID of the environment for the environment member.</p>
+   */
+  environmentId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the environment member.</p>
+   */
+  userArn?: string;
 
   /**
    * <p>The type of environment member permissions associated with this environment member. Available values include:</p>
@@ -527,16 +542,6 @@ export interface EnvironmentMember {
    *          </ul>
    */
   permissions?: Permissions | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the environment member.</p>
-   */
-  userArn?: string;
-
-  /**
-   * <p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>
-   */
-  userId?: string;
 }
 
 export namespace EnvironmentMember {
@@ -567,8 +572,8 @@ export enum EnvironmentType {
 export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
-  className?: string;
   code?: number;
+  className?: string;
   message?: string;
 }
 
@@ -585,9 +590,9 @@ export namespace ForbiddenException {
 export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
-  className?: string;
-  code?: number;
   message?: string;
+  code?: number;
+  className?: string;
 }
 
 export namespace InternalServerErrorException {
@@ -618,14 +623,14 @@ export namespace LimitExceededException {
 export interface ListEnvironmentsRequest {
   __type?: "ListEnvironmentsRequest";
   /**
-   * <p>The maximum number of environments to get identifiers for.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of environments to get identifiers for.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListEnvironmentsRequest {
@@ -638,14 +643,14 @@ export namespace ListEnvironmentsRequest {
 export interface ListEnvironmentsResult {
   __type?: "ListEnvironmentsResult";
   /**
-   * <p>The list of environment identifiers.</p>
-   */
-  environmentIds?: string[];
-
-  /**
    * <p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of environment identifiers.</p>
+   */
+  environmentIds?: string[];
 }
 
 export namespace ListEnvironmentsResult {
@@ -653,6 +658,36 @@ export namespace ListEnvironmentsResult {
     ...obj,
   });
   export const isa = (o: any): o is ListEnvironmentsResult => __isa(o, "ListEnvironmentsResult");
+}
+
+export interface ListTagsForResourceRequest {
+  __type?: "ListTagsForResourceRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to get the tags for.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
+}
+
+export interface ListTagsForResourceResponse {
+  __type?: "ListTagsForResourceResponse";
+  /**
+   * <p>The list of tags associated with the AWS Cloud9 development environment.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum MemberPermissions {
@@ -666,8 +701,8 @@ export enum MemberPermissions {
 export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
-  className?: string;
   code?: number;
+  className?: string;
   message?: string;
 }
 
@@ -685,14 +720,68 @@ export enum Permissions {
 }
 
 /**
+ * <p>Metadata that is associated with AWS resources. In particular, a name-value pair that can be associated with an AWS Cloud9 development environment. There are two types of tags: <i>user tags</i> and <i>system tags</i>. A user tag is created by the user. A system tag is automatically created by AWS services. A system tag is prefixed with "aws:" and cannot be modified by the user.</p>
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   * <p>The <b>value</b> part of a tag.</p>
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>The <b>name</b> part of a tag.</p>
+   */
+  Key: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
+}
+
+export interface TagResourceRequest {
+  __type?: "TagResourceRequest";
+  /**
+   * <p>The list of tags to add to the given AWS Cloud9 development environment.</p>
+   */
+  Tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to add tags to.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
+}
+
+export interface TagResourceResponse {
+  __type?: "TagResourceResponse";
+}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
+}
+
+/**
  * <p>Too many service requests were made over the given time period.</p>
  */
 export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
+  message?: string;
   className?: string;
   code?: number;
-  message?: string;
 }
 
 export namespace TooManyRequestsException {
@@ -702,12 +791,43 @@ export namespace TooManyRequestsException {
   export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to remove tags from.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tag names of the tags to remove from the given AWS Cloud9 development environment.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
+}
+
+export interface UntagResourceResponse {
+  __type?: "UntagResourceResponse";
+}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
+}
+
 export interface UpdateEnvironmentMembershipRequest {
   __type?: "UpdateEnvironmentMembershipRequest";
   /**
-   * <p>The ID of the environment for the environment member whose settings you want to change.</p>
+   * <p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>
    */
-  environmentId: string | undefined;
+  userArn: string | undefined;
 
   /**
    * <p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p>
@@ -725,9 +845,9 @@ export interface UpdateEnvironmentMembershipRequest {
   permissions: MemberPermissions | string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>
+   * <p>The ID of the environment for the environment member whose settings you want to change.</p>
    */
-  userArn: string | undefined;
+  environmentId: string | undefined;
 }
 
 export namespace UpdateEnvironmentMembershipRequest {
@@ -756,14 +876,14 @@ export namespace UpdateEnvironmentMembershipResult {
 export interface UpdateEnvironmentRequest {
   __type?: "UpdateEnvironmentRequest";
   /**
-   * <p>Any new or replacement description for the environment.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The ID of the environment to change settings.</p>
    */
   environmentId: string | undefined;
+
+  /**
+   * <p>Any new or replacement description for the environment.</p>
+   */
+  description?: string;
 
   /**
    * <p>A replacement name for the environment.</p>

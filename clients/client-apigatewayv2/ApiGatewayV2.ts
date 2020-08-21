@@ -38,6 +38,16 @@ import {
   CreateRouteResponseCommandOutput,
 } from "./commands/CreateRouteResponseCommand";
 import { CreateStageCommand, CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
+import {
+  CreateVpcLinkCommand,
+  CreateVpcLinkCommandInput,
+  CreateVpcLinkCommandOutput,
+} from "./commands/CreateVpcLinkCommand";
+import {
+  DeleteAccessLogSettingsCommand,
+  DeleteAccessLogSettingsCommandInput,
+  DeleteAccessLogSettingsCommandOutput,
+} from "./commands/DeleteAccessLogSettingsCommand";
 import { DeleteApiCommand, DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
 import {
   DeleteApiMappingCommand,
@@ -77,6 +87,11 @@ import {
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import { DeleteRouteCommand, DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
+  DeleteRouteRequestParameterCommand,
+  DeleteRouteRequestParameterCommandInput,
+  DeleteRouteRequestParameterCommandOutput,
+} from "./commands/DeleteRouteRequestParameterCommand";
+import {
   DeleteRouteResponseCommand,
   DeleteRouteResponseCommandInput,
   DeleteRouteResponseCommandOutput,
@@ -87,6 +102,12 @@ import {
   DeleteRouteSettingsCommandOutput,
 } from "./commands/DeleteRouteSettingsCommand";
 import { DeleteStageCommand, DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
+import {
+  DeleteVpcLinkCommand,
+  DeleteVpcLinkCommandInput,
+  DeleteVpcLinkCommandOutput,
+} from "./commands/DeleteVpcLinkCommand";
+import { ExportApiCommand, ExportApiCommandInput, ExportApiCommandOutput } from "./commands/ExportApiCommand";
 import { GetApiCommand, GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
 import {
   GetApiMappingCommand,
@@ -171,6 +192,8 @@ import { GetRoutesCommand, GetRoutesCommandInput, GetRoutesCommandOutput } from 
 import { GetStageCommand, GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
 import { GetStagesCommand, GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
 import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { GetVpcLinkCommand, GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
+import { GetVpcLinksCommand, GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
 import { ImportApiCommand, ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
 import { ReimportApiCommand, ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -218,6 +241,11 @@ import {
   UpdateRouteResponseCommandOutput,
 } from "./commands/UpdateRouteResponseCommand";
 import { UpdateStageCommand, UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
+import {
+  UpdateVpcLinkCommand,
+  UpdateVpcLinkCommandInput,
+  UpdateVpcLinkCommandOutput,
+} from "./commands/UpdateVpcLinkCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -553,6 +581,70 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * <p>Creates a VPC link.</p>
+   */
+  public createVpcLink(
+    args: CreateVpcLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcLinkCommandOutput>;
+  public createVpcLink(
+    args: CreateVpcLinkCommandInput,
+    cb: (err: any, data?: CreateVpcLinkCommandOutput) => void
+  ): void;
+  public createVpcLink(
+    args: CreateVpcLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcLinkCommandOutput) => void
+  ): void;
+  public createVpcLink(
+    args: CreateVpcLinkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcLinkCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcLinkCommandOutput) => void
+  ): Promise<CreateVpcLinkCommandOutput> | void {
+    const command = new CreateVpcLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the AccessLogSettings for a Stage. To disable access logging for a Stage, delete its AccessLogSettings.</p>
+   */
+  public deleteAccessLogSettings(
+    args: DeleteAccessLogSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessLogSettingsCommandOutput>;
+  public deleteAccessLogSettings(
+    args: DeleteAccessLogSettingsCommandInput,
+    cb: (err: any, data?: DeleteAccessLogSettingsCommandOutput) => void
+  ): void;
+  public deleteAccessLogSettings(
+    args: DeleteAccessLogSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessLogSettingsCommandOutput) => void
+  ): void;
+  public deleteAccessLogSettings(
+    args: DeleteAccessLogSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessLogSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccessLogSettingsCommandOutput) => void
+  ): Promise<DeleteAccessLogSettingsCommandOutput> | void {
+    const command = new DeleteAccessLogSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an Api resource.</p>
    */
   public deleteApi(args: DeleteApiCommandInput, options?: __HttpHandlerOptions): Promise<DeleteApiCommandOutput>;
@@ -855,6 +947,38 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * <p>Deletes a route request parameter.</p>
+   */
+  public deleteRouteRequestParameter(
+    args: DeleteRouteRequestParameterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRouteRequestParameterCommandOutput>;
+  public deleteRouteRequestParameter(
+    args: DeleteRouteRequestParameterCommandInput,
+    cb: (err: any, data?: DeleteRouteRequestParameterCommandOutput) => void
+  ): void;
+  public deleteRouteRequestParameter(
+    args: DeleteRouteRequestParameterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRouteRequestParameterCommandOutput) => void
+  ): void;
+  public deleteRouteRequestParameter(
+    args: DeleteRouteRequestParameterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteRequestParameterCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRouteRequestParameterCommandOutput) => void
+  ): Promise<DeleteRouteRequestParameterCommandOutput> | void {
+    const command = new DeleteRouteRequestParameterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a RouteResponse.</p>
    */
   public deleteRouteResponse(
@@ -934,6 +1058,61 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
     cb?: (err: any, data?: DeleteStageCommandOutput) => void
   ): Promise<DeleteStageCommandOutput> | void {
     const command = new DeleteStageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a VPC link.</p>
+   */
+  public deleteVpcLink(
+    args: DeleteVpcLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcLinkCommandOutput>;
+  public deleteVpcLink(
+    args: DeleteVpcLinkCommandInput,
+    cb: (err: any, data?: DeleteVpcLinkCommandOutput) => void
+  ): void;
+  public deleteVpcLink(
+    args: DeleteVpcLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcLinkCommandOutput) => void
+  ): void;
+  public deleteVpcLink(
+    args: DeleteVpcLinkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcLinkCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcLinkCommandOutput) => void
+  ): Promise<DeleteVpcLinkCommandOutput> | void {
+    const command = new DeleteVpcLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public exportApi(args: ExportApiCommandInput, options?: __HttpHandlerOptions): Promise<ExportApiCommandOutput>;
+  public exportApi(args: ExportApiCommandInput, cb: (err: any, data?: ExportApiCommandOutput) => void): void;
+  public exportApi(
+    args: ExportApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportApiCommandOutput) => void
+  ): void;
+  public exportApi(
+    args: ExportApiCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportApiCommandOutput) => void),
+    cb?: (err: any, data?: ExportApiCommandOutput) => void
+  ): Promise<ExportApiCommandOutput> | void {
+    const command = new ExportApiCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1659,6 +1838,58 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * <p>Gets a VPC link.</p>
+   */
+  public getVpcLink(args: GetVpcLinkCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinkCommandOutput>;
+  public getVpcLink(args: GetVpcLinkCommandInput, cb: (err: any, data?: GetVpcLinkCommandOutput) => void): void;
+  public getVpcLink(
+    args: GetVpcLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpcLinkCommandOutput) => void
+  ): void;
+  public getVpcLink(
+    args: GetVpcLinkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVpcLinkCommandOutput) => void),
+    cb?: (err: any, data?: GetVpcLinkCommandOutput) => void
+  ): Promise<GetVpcLinkCommandOutput> | void {
+    const command = new GetVpcLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a collection of VPC links.</p>
+   */
+  public getVpcLinks(args: GetVpcLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinksCommandOutput>;
+  public getVpcLinks(args: GetVpcLinksCommandInput, cb: (err: any, data?: GetVpcLinksCommandOutput) => void): void;
+  public getVpcLinks(
+    args: GetVpcLinksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpcLinksCommandOutput) => void
+  ): void;
+  public getVpcLinks(
+    args: GetVpcLinksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVpcLinksCommandOutput) => void),
+    cb?: (err: any, data?: GetVpcLinksCommandOutput) => void
+  ): Promise<GetVpcLinksCommandOutput> | void {
+    const command = new GetVpcLinksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Imports an API.</p>
    */
   public importApi(args: ImportApiCommandInput, options?: __HttpHandlerOptions): Promise<ImportApiCommandOutput>;
@@ -2086,6 +2317,38 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
     cb?: (err: any, data?: UpdateStageCommandOutput) => void
   ): Promise<UpdateStageCommandOutput> | void {
     const command = new UpdateStageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a VPC link.</p>
+   */
+  public updateVpcLink(
+    args: UpdateVpcLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVpcLinkCommandOutput>;
+  public updateVpcLink(
+    args: UpdateVpcLinkCommandInput,
+    cb: (err: any, data?: UpdateVpcLinkCommandOutput) => void
+  ): void;
+  public updateVpcLink(
+    args: UpdateVpcLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVpcLinkCommandOutput) => void
+  ): void;
+  public updateVpcLink(
+    args: UpdateVpcLinkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVpcLinkCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVpcLinkCommandOutput) => void
+  ): Promise<UpdateVpcLinkCommandOutput> | void {
+    const command = new UpdateVpcLinkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

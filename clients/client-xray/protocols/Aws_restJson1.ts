@@ -2265,6 +2265,8 @@ const deserializeAws_restJson1EncryptionConfig = (output: any, context: __SerdeC
 const deserializeAws_restJson1ErrorRootCause = (output: any, context: __SerdeContext): ErrorRootCause => {
   return {
     __type: "ErrorRootCause",
+    ClientImpacting:
+      output.ClientImpacting !== undefined && output.ClientImpacting !== null ? output.ClientImpacting : undefined,
     Services:
       output.Services !== undefined && output.Services !== null
         ? deserializeAws_restJson1ErrorRootCauseServices(output.Services, context)
@@ -2333,6 +2335,8 @@ const deserializeAws_restJson1ErrorStatistics = (output: any, context: __SerdeCo
 const deserializeAws_restJson1FaultRootCause = (output: any, context: __SerdeContext): FaultRootCause => {
   return {
     __type: "FaultRootCause",
+    ClientImpacting:
+      output.ClientImpacting !== undefined && output.ClientImpacting !== null ? output.ClientImpacting : undefined,
     Services:
       output.Services !== undefined && output.Services !== null
         ? deserializeAws_restJson1FaultRootCauseServices(output.Services, context)
@@ -2460,6 +2464,8 @@ const deserializeAws_restJson1ResourceARNDetail = (output: any, context: __Serde
 const deserializeAws_restJson1ResponseTimeRootCause = (output: any, context: __SerdeContext): ResponseTimeRootCause => {
   return {
     __type: "ResponseTimeRootCause",
+    ClientImpacting:
+      output.ClientImpacting !== undefined && output.ClientImpacting !== null ? output.ClientImpacting : undefined,
     Services:
       output.Services !== undefined && output.Services !== null
         ? deserializeAws_restJson1ResponseTimeRootCauseServices(output.Services, context)

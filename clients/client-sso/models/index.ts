@@ -12,14 +12,14 @@ export interface AccountInfo {
   accountId?: string;
 
   /**
-   * <p>The display name of the AWS account that is assigned to the user.</p>
-   */
-  accountName?: string;
-
-  /**
    * <p>The email address of the AWS account that is assigned to the user.</p>
    */
   emailAddress?: string;
+
+  /**
+   * <p>The display name of the AWS account that is assigned to the user.</p>
+   */
+  accountName?: string;
 }
 
 export namespace AccountInfo {
@@ -32,15 +32,15 @@ export namespace AccountInfo {
 export interface GetRoleCredentialsRequest {
   __type?: "GetRoleCredentialsRequest";
   /**
+   * <p>The identifier for the AWS account that is assigned to the user.</p>
+   */
+  accountId: string | undefined;
+
+  /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
    */
   accessToken: string | undefined;
-
-  /**
-   * <p>The identifier for the AWS account that is assigned to the user.</p>
-   */
-  accountId: string | undefined;
 
   /**
    * <p>The friendly name of the role that is assigned to the user.</p>
@@ -92,6 +92,11 @@ export namespace InvalidRequestException {
 export interface ListAccountRolesRequest {
   __type?: "ListAccountRolesRequest";
   /**
+   * <p>The page token from the previous response output when you request subsequent pages.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
    */
@@ -106,11 +111,6 @@ export interface ListAccountRolesRequest {
    * <p>The number of items that clients can request per page.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The page token from the previous response output when you request subsequent pages.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListAccountRolesRequest {
@@ -227,6 +227,12 @@ export namespace ResourceNotFoundException {
 export interface RoleCredentials {
   __type?: "RoleCredentials";
   /**
+   * <p>The key that is used to sign the request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
+   *         <i>AWS IAM User Guide</i>.</p>
+   */
+  secretAccessKey?: string;
+
+  /**
    * <p>The identifier used for the temporary security credentials. For more information, see
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
    *         <i>AWS IAM User Guide</i>.</p>
@@ -237,12 +243,6 @@ export interface RoleCredentials {
    * <p>The date on which temporary security credentials expire.</p>
    */
   expiration?: number;
-
-  /**
-   * <p>The key that is used to sign the request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
-   *         <i>AWS IAM User Guide</i>.</p>
-   */
-  secretAccessKey?: string;
 
   /**
    * <p>The token used for temporary credentials. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
@@ -266,14 +266,14 @@ export namespace RoleCredentials {
 export interface RoleInfo {
   __type?: "RoleInfo";
   /**
-   * <p>The identifier of the AWS account assigned to the user.</p>
-   */
-  accountId?: string;
-
-  /**
    * <p>The friendly name of the role that is assigned to the user.</p>
    */
   roleName?: string;
+
+  /**
+   * <p>The identifier of the AWS account assigned to the user.</p>
+   */
+  accountId?: string;
 }
 
 export namespace RoleInfo {

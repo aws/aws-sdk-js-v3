@@ -126,6 +126,7 @@ import {
   AccountGateResult,
   AccountLimit,
   AlreadyExistsException,
+  AutoDeployment,
   CFNRegistryException,
   CancelUpdateStackInput,
   Capability,
@@ -150,6 +151,7 @@ import {
   DeleteStackInstancesOutput,
   DeleteStackSetInput,
   DeleteStackSetOutput,
+  DeploymentTargets,
   DeregisterTypeInput,
   DeregisterTypeOutput,
   DescribeAccountLimitsInput,
@@ -257,6 +259,8 @@ import {
   StackDriftInformationSummary,
   StackEvent,
   StackInstance,
+  StackInstanceComprehensiveStatus,
+  StackInstanceFilter,
   StackInstanceNotFoundException,
   StackInstanceSummary,
   StackResource,
@@ -4685,6 +4689,17 @@ const serializeAws_queryAccountList = (input: string[], context: __SerdeContext)
   return entries;
 };
 
+const serializeAws_queryAutoDeployment = (input: AutoDeployment, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.RetainStacksOnAccountRemoval !== undefined) {
+    entries["RetainStacksOnAccountRemoval"] = input.RetainStacksOnAccountRemoval;
+  }
+  if (input.Enabled !== undefined) {
+    entries["Enabled"] = input.Enabled;
+  }
+  return entries;
+};
+
 const serializeAws_queryCancelUpdateStackInput = (input: CancelUpdateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ClientRequestToken !== undefined) {
@@ -4711,8 +4726,11 @@ const serializeAws_queryContinueUpdateRollbackInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClientRequestToken !== undefined) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input.StackName !== undefined) {
+    entries["StackName"] = input.StackName;
+  }
+  if (input.RoleARN !== undefined) {
+    entries["RoleARN"] = input.RoleARN;
   }
   if (input.ResourcesToSkip !== undefined) {
     const memberEntries = serializeAws_queryResourcesToSkip(input.ResourcesToSkip, context);
@@ -4721,57 +4739,14 @@ const serializeAws_queryContinueUpdateRollbackInput = (
       entries[loc] = value;
     });
   }
-  if (input.RoleARN !== undefined) {
-    entries["RoleARN"] = input.RoleARN;
-  }
-  if (input.StackName !== undefined) {
-    entries["StackName"] = input.StackName;
+  if (input.ClientRequestToken !== undefined) {
+    entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   return entries;
 };
 
 const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Capabilities !== undefined) {
-    const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Capabilities.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ChangeSetName !== undefined) {
-    entries["ChangeSetName"] = input.ChangeSetName;
-  }
-  if (input.ChangeSetType !== undefined) {
-    entries["ChangeSetType"] = input.ChangeSetType;
-  }
-  if (input.ClientToken !== undefined) {
-    entries["ClientToken"] = input.ClientToken;
-  }
-  if (input.Description !== undefined) {
-    entries["Description"] = input.Description;
-  }
-  if (input.NotificationARNs !== undefined) {
-    const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `NotificationARNs.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Parameters !== undefined) {
-    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Parameters.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ResourceTypes !== undefined) {
-    const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ResourceTypes.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.ResourcesToImport !== undefined) {
     const memberEntries = serializeAws_queryResourcesToImport(input.ResourcesToImport, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4779,8 +4754,12 @@ const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, con
       entries[loc] = value;
     });
   }
-  if (input.RoleARN !== undefined) {
-    entries["RoleARN"] = input.RoleARN;
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTags(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.RollbackConfiguration !== undefined) {
     const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
@@ -4789,45 +4768,12 @@ const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, con
       entries[loc] = value;
     });
   }
-  if (input.StackName !== undefined) {
-    entries["StackName"] = input.StackName;
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.TemplateBody !== undefined) {
-    entries["TemplateBody"] = input.TemplateBody;
-  }
-  if (input.TemplateURL !== undefined) {
-    entries["TemplateURL"] = input.TemplateURL;
-  }
-  if (input.UsePreviousTemplate !== undefined) {
-    entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
-  }
-  return entries;
-};
-
-const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __SerdeContext): any => {
-  const entries: any = {};
   if (input.Capabilities !== undefined) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ClientRequestToken !== undefined) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.DisableRollback !== undefined) {
-    entries["DisableRollback"] = input.DisableRollback;
-  }
-  if (input.EnableTerminationProtection !== undefined) {
-    entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
   }
   if (input.NotificationARNs !== undefined) {
     const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
@@ -4836,8 +4782,20 @@ const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __
       entries[loc] = value;
     });
   }
-  if (input.OnFailure !== undefined) {
-    entries["OnFailure"] = input.OnFailure;
+  if (input.TemplateURL !== undefined) {
+    entries["TemplateURL"] = input.TemplateURL;
+  }
+  if (input.ChangeSetName !== undefined) {
+    entries["ChangeSetName"] = input.ChangeSetName;
+  }
+  if (input.RoleARN !== undefined) {
+    entries["RoleARN"] = input.RoleARN;
+  }
+  if (input.TemplateBody !== undefined) {
+    entries["TemplateBody"] = input.TemplateBody;
+  }
+  if (input.UsePreviousTemplate !== undefined) {
+    entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
   }
   if (input.Parameters !== undefined) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
@@ -4853,24 +4811,63 @@ const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __
       entries[loc] = value;
     });
   }
-  if (input.RoleARN !== undefined) {
-    entries["RoleARN"] = input.RoleARN;
-  }
-  if (input.RollbackConfiguration !== undefined) {
-    const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `RollbackConfiguration.${key}`;
-      entries[loc] = value;
-    });
+  if (input.Description !== undefined) {
+    entries["Description"] = input.Description;
   }
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
   }
+  if (input.ClientToken !== undefined) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.ChangeSetType !== undefined) {
+    entries["ChangeSetType"] = input.ChangeSetType;
+  }
+  return entries;
+};
+
+const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __SerdeContext): any => {
+  const entries: any = {};
   if (input.StackPolicyBody !== undefined) {
     entries["StackPolicyBody"] = input.StackPolicyBody;
   }
+  if (input.TemplateBody !== undefined) {
+    entries["TemplateBody"] = input.TemplateBody;
+  }
+  if (input.StackName !== undefined) {
+    entries["StackName"] = input.StackName;
+  }
   if (input.StackPolicyURL !== undefined) {
     entries["StackPolicyURL"] = input.StackPolicyURL;
+  }
+  if (input.OnFailure !== undefined) {
+    entries["OnFailure"] = input.OnFailure;
+  }
+  if (input.NotificationARNs !== undefined) {
+    const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NotificationARNs.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Capabilities !== undefined) {
+    const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Capabilities.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.EnableTerminationProtection !== undefined) {
+    entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
+  }
+  if (input.TimeoutInMinutes !== undefined) {
+    entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
+  }
+  if (input.DisableRollback !== undefined) {
+    entries["DisableRollback"] = input.DisableRollback;
+  }
+  if (input.RoleARN !== undefined) {
+    entries["RoleARN"] = input.RoleARN;
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
@@ -4879,14 +4876,32 @@ const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __
       entries[loc] = value;
     });
   }
-  if (input.TemplateBody !== undefined) {
-    entries["TemplateBody"] = input.TemplateBody;
+  if (input.RollbackConfiguration !== undefined) {
+    const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RollbackConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Parameters !== undefined) {
+    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Parameters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ResourceTypes !== undefined) {
+    const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceTypes.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientRequestToken !== undefined) {
+    entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.TemplateURL !== undefined) {
     entries["TemplateURL"] = input.TemplateURL;
-  }
-  if (input.TimeoutInMinutes !== undefined) {
-    entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
   }
   return entries;
 };
@@ -4896,6 +4911,22 @@ const serializeAws_queryCreateStackInstancesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.Regions !== undefined) {
+    const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Regions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.StackSetName !== undefined) {
+    entries["StackSetName"] = input.StackSetName;
+  }
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
+  if (input.OperationId !== undefined) {
+    entries["OperationId"] = input.OperationId;
+  }
   if (input.Accounts !== undefined) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4903,11 +4934,12 @@ const serializeAws_queryCreateStackInstancesInput = (
       entries[loc] = value;
     });
   }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
-  }
-  if (input.OperationId !== undefined) {
-    entries["OperationId"] = input.OperationId;
+  if (input.DeploymentTargets !== undefined) {
+    const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DeploymentTargets.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.OperationPreferences !== undefined) {
     const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
@@ -4923,42 +4955,29 @@ const serializeAws_queryCreateStackInstancesInput = (
       entries[loc] = value;
     });
   }
-  if (input.Regions !== undefined) {
-    const memberEntries = serializeAws_queryRegionList(input.Regions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Regions.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.StackSetName !== undefined) {
-    entries["StackSetName"] = input.StackSetName;
-  }
   return entries;
 };
 
 const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AdministrationRoleARN !== undefined) {
-    entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
-  }
-  if (input.Capabilities !== undefined) {
-    const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Capabilities.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.Description !== undefined) {
-    entries["Description"] = input.Description;
+  if (input.TemplateBody !== undefined) {
+    entries["TemplateBody"] = input.TemplateBody;
   }
   if (input.ExecutionRoleName !== undefined) {
     entries["ExecutionRoleName"] = input.ExecutionRoleName;
+  }
+  if (input.AdministrationRoleARN !== undefined) {
+    entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
+  }
+  if (input.AutoDeployment !== undefined) {
+    const memberEntries = serializeAws_queryAutoDeployment(input.AutoDeployment, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AutoDeployment.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.StackSetName !== undefined) {
+    entries["StackSetName"] = input.StackSetName;
   }
   if (input.Parameters !== undefined) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
@@ -4967,8 +4986,8 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
       entries[loc] = value;
     });
   }
-  if (input.StackSetName !== undefined) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input.Description !== undefined) {
+    entries["Description"] = input.Description;
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
@@ -4977,11 +4996,24 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
       entries[loc] = value;
     });
   }
-  if (input.TemplateBody !== undefined) {
-    entries["TemplateBody"] = input.TemplateBody;
-  }
   if (input.TemplateURL !== undefined) {
     entries["TemplateURL"] = input.TemplateURL;
+  }
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
+  if (input.ClientRequestToken !== undefined) {
+    entries["ClientRequestToken"] = input.ClientRequestToken;
+  }
+  if (input.Capabilities !== undefined) {
+    const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Capabilities.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PermissionModel !== undefined) {
+    entries["PermissionModel"] = input.PermissionModel;
   }
   return entries;
 };
@@ -5002,15 +5034,15 @@ const serializeAws_queryDeleteStackInput = (input: DeleteStackInput, context: __
   if (input.ClientRequestToken !== undefined) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
+  if (input.RoleARN !== undefined) {
+    entries["RoleARN"] = input.RoleARN;
+  }
   if (input.RetainResources !== undefined) {
     const memberEntries = serializeAws_queryRetainResources(input.RetainResources, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RetainResources.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.RoleARN !== undefined) {
-    entries["RoleARN"] = input.RoleARN;
   }
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
@@ -5023,25 +5055,8 @@ const serializeAws_queryDeleteStackInstancesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Accounts !== undefined) {
-    const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Accounts.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
-  }
-  if (input.OperationId !== undefined) {
-    entries["OperationId"] = input.OperationId;
-  }
-  if (input.OperationPreferences !== undefined) {
-    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `OperationPreferences.${key}`;
-      entries[loc] = value;
-    });
+  if (input.StackSetName !== undefined) {
+    entries["StackSetName"] = input.StackSetName;
   }
   if (input.Regions !== undefined) {
     const memberEntries = serializeAws_queryRegionList(input.Regions, context);
@@ -5050,11 +5065,35 @@ const serializeAws_queryDeleteStackInstancesInput = (
       entries[loc] = value;
     });
   }
+  if (input.Accounts !== undefined) {
+    const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Accounts.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.RetainStacks !== undefined) {
     entries["RetainStacks"] = input.RetainStacks;
   }
-  if (input.StackSetName !== undefined) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input.OperationPreferences !== undefined) {
+    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OperationPreferences.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DeploymentTargets !== undefined) {
+    const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DeploymentTargets.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
+  if (input.OperationId !== undefined) {
+    entries["OperationId"] = input.OperationId;
   }
   return entries;
 };
@@ -5067,16 +5106,35 @@ const serializeAws_queryDeleteStackSetInput = (input: DeleteStackSetInput, conte
   return entries;
 };
 
+const serializeAws_queryDeploymentTargets = (input: DeploymentTargets, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Accounts !== undefined) {
+    const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Accounts.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.OrganizationalUnitIds !== undefined) {
+    const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OrganizationalUnitIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryDeregisterTypeInput = (input: DeregisterTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Arn !== undefined) {
     entries["Arn"] = input.Arn;
   }
-  if (input.Type !== undefined) {
-    entries["Type"] = input.Type;
-  }
   if (input.TypeName !== undefined) {
     entries["TypeName"] = input.TypeName;
+  }
+  if (input.Type !== undefined) {
+    entries["Type"] = input.Type;
   }
   if (input.VersionId !== undefined) {
     entries["VersionId"] = input.VersionId;
@@ -5100,11 +5158,11 @@ const serializeAws_queryDescribeChangeSetInput = (input: DescribeChangeSetInput,
   if (input.ChangeSetName !== undefined) {
     entries["ChangeSetName"] = input.ChangeSetName;
   }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -5136,14 +5194,14 @@ const serializeAws_queryDescribeStackInstanceInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.StackSetName !== undefined) {
+    entries["StackSetName"] = input.StackSetName;
+  }
   if (input.StackInstanceAccount !== undefined) {
     entries["StackInstanceAccount"] = input.StackInstanceAccount;
   }
   if (input.StackInstanceRegion !== undefined) {
     entries["StackInstanceRegion"] = input.StackInstanceRegion;
-  }
-  if (input.StackSetName !== undefined) {
-    entries["StackSetName"] = input.StackSetName;
   }
   return entries;
 };
@@ -5153,15 +5211,6 @@ const serializeAws_queryDescribeStackResourceDriftsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxResults !== undefined) {
-    entries["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
-  if (input.StackName !== undefined) {
-    entries["StackName"] = input.StackName;
-  }
   if (input.StackResourceDriftStatusFilters !== undefined) {
     const memberEntries = serializeAws_queryStackResourceDriftStatusFilters(
       input.StackResourceDriftStatusFilters,
@@ -5171,6 +5220,15 @@ const serializeAws_queryDescribeStackResourceDriftsInput = (
       const loc = `StackResourceDriftStatusFilters.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.StackName !== undefined) {
+    entries["StackName"] = input.StackName;
   }
   return entries;
 };
@@ -5194,11 +5252,11 @@ const serializeAws_queryDescribeStackResourcesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LogicalResourceId !== undefined) {
-    entries["LogicalResourceId"] = input.LogicalResourceId;
-  }
   if (input.PhysicalResourceId !== undefined) {
     entries["PhysicalResourceId"] = input.PhysicalResourceId;
+  }
+  if (input.LogicalResourceId !== undefined) {
+    entries["LogicalResourceId"] = input.LogicalResourceId;
   }
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
@@ -5230,28 +5288,28 @@ const serializeAws_queryDescribeStackSetOperationInput = (
 
 const serializeAws_queryDescribeStacksInput = (input: DescribeStacksInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
 
 const serializeAws_queryDescribeTypeInput = (input: DescribeTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Arn !== undefined) {
-    entries["Arn"] = input.Arn;
-  }
-  if (input.Type !== undefined) {
-    entries["Type"] = input.Type;
-  }
   if (input.TypeName !== undefined) {
     entries["TypeName"] = input.TypeName;
   }
+  if (input.Arn !== undefined) {
+    entries["Arn"] = input.Arn;
+  }
   if (input.VersionId !== undefined) {
     entries["VersionId"] = input.VersionId;
+  }
+  if (input.Type !== undefined) {
+    entries["Type"] = input.Type;
   }
   return entries;
 };
@@ -5287,17 +5345,20 @@ const serializeAws_queryDetectStackResourceDriftInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LogicalResourceId !== undefined) {
-    entries["LogicalResourceId"] = input.LogicalResourceId;
-  }
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
+  }
+  if (input.LogicalResourceId !== undefined) {
+    entries["LogicalResourceId"] = input.LogicalResourceId;
   }
   return entries;
 };
 
 const serializeAws_queryDetectStackSetDriftInput = (input: DetectStackSetDriftInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.StackSetName !== undefined) {
+    entries["StackSetName"] = input.StackSetName;
+  }
   if (input.OperationId === undefined) {
     input.OperationId = generateIdempotencyToken();
   }
@@ -5310,9 +5371,6 @@ const serializeAws_queryDetectStackSetDriftInput = (input: DetectStackSetDriftIn
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.StackSetName !== undefined) {
-    entries["StackSetName"] = input.StackSetName;
   }
   return entries;
 };
@@ -5340,14 +5398,14 @@ const serializeAws_queryEstimateTemplateCostInput = (
 
 const serializeAws_queryExecuteChangeSetInput = (input: ExecuteChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ChangeSetName !== undefined) {
-    entries["ChangeSetName"] = input.ChangeSetName;
-  }
   if (input.ClientRequestToken !== undefined) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
+  }
+  if (input.ChangeSetName !== undefined) {
+    entries["ChangeSetName"] = input.ChangeSetName;
   }
   return entries;
 };
@@ -5362,31 +5420,31 @@ const serializeAws_queryGetStackPolicyInput = (input: GetStackPolicyInput, conte
 
 const serializeAws_queryGetTemplateInput = (input: GetTemplateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ChangeSetName !== undefined) {
-    entries["ChangeSetName"] = input.ChangeSetName;
-  }
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
   }
   if (input.TemplateStage !== undefined) {
     entries["TemplateStage"] = input.TemplateStage;
   }
+  if (input.ChangeSetName !== undefined) {
+    entries["ChangeSetName"] = input.ChangeSetName;
+  }
   return entries;
 };
 
 const serializeAws_queryGetTemplateSummaryInput = (input: GetTemplateSummaryInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
-    entries["StackName"] = input.StackName;
-  }
-  if (input.StackSetName !== undefined) {
-    entries["StackSetName"] = input.StackSetName;
-  }
   if (input.TemplateBody !== undefined) {
     entries["TemplateBody"] = input.TemplateBody;
   }
   if (input.TemplateURL !== undefined) {
     entries["TemplateURL"] = input.TemplateURL;
+  }
+  if (input.StackSetName !== undefined) {
+    entries["StackSetName"] = input.StackSetName;
+  }
+  if (input.StackName !== undefined) {
+    entries["StackName"] = input.StackName;
   }
   return entries;
 };
@@ -5423,14 +5481,21 @@ const serializeAws_queryListImportsInput = (input: ListImportsInput, context: __
 
 const serializeAws_queryListStackInstancesInput = (input: ListStackInstancesInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.StackInstanceAccount !== undefined) {
+    entries["StackInstanceAccount"] = input.StackInstanceAccount;
+  }
   if (input.MaxResults !== undefined) {
     entries["MaxResults"] = input.MaxResults;
   }
+  if (input.Filters !== undefined) {
+    const memberEntries = serializeAws_queryStackInstanceFilters(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
-  }
-  if (input.StackInstanceAccount !== undefined) {
-    entries["StackInstanceAccount"] = input.StackInstanceAccount;
   }
   if (input.StackInstanceRegion !== undefined) {
     entries["StackInstanceRegion"] = input.StackInstanceRegion;
@@ -5460,14 +5525,14 @@ const serializeAws_queryListStackSetOperationResultsInput = (
   if (input.MaxResults !== undefined) {
     entries["MaxResults"] = input.MaxResults;
   }
+  if (input.StackSetName !== undefined) {
+    entries["StackSetName"] = input.StackSetName;
+  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
   }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;
-  }
-  if (input.StackSetName !== undefined) {
-    entries["StackSetName"] = input.StackSetName;
   }
   return entries;
 };
@@ -5477,25 +5542,25 @@ const serializeAws_queryListStackSetOperationsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxResults !== undefined) {
-    entries["MaxResults"] = input.MaxResults;
-  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
   }
   if (input.StackSetName !== undefined) {
     entries["StackSetName"] = input.StackSetName;
   }
+  if (input.MaxResults !== undefined) {
+    entries["MaxResults"] = input.MaxResults;
+  }
   return entries;
 };
 
 const serializeAws_queryListStackSetsInput = (input: ListStackSetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxResults !== undefined) {
-    entries["MaxResults"] = input.MaxResults;
-  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined) {
+    entries["MaxResults"] = input.MaxResults;
   }
   if (input.Status !== undefined) {
     entries["Status"] = input.Status;
@@ -5523,40 +5588,40 @@ const serializeAws_queryListTypeRegistrationsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxResults !== undefined) {
-    entries["MaxResults"] = input.MaxResults;
-  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
-  }
-  if (input.RegistrationStatusFilter !== undefined) {
-    entries["RegistrationStatusFilter"] = input.RegistrationStatusFilter;
-  }
-  if (input.Type !== undefined) {
-    entries["Type"] = input.Type;
   }
   if (input.TypeArn !== undefined) {
     entries["TypeArn"] = input.TypeArn;
   }
+  if (input.Type !== undefined) {
+    entries["Type"] = input.Type;
+  }
+  if (input.RegistrationStatusFilter !== undefined) {
+    entries["RegistrationStatusFilter"] = input.RegistrationStatusFilter;
+  }
   if (input.TypeName !== undefined) {
     entries["TypeName"] = input.TypeName;
+  }
+  if (input.MaxResults !== undefined) {
+    entries["MaxResults"] = input.MaxResults;
   }
   return entries;
 };
 
 const serializeAws_queryListTypesInput = (input: ListTypesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DeprecatedStatus !== undefined) {
-    entries["DeprecatedStatus"] = input.DeprecatedStatus;
-  }
-  if (input.MaxResults !== undefined) {
-    entries["MaxResults"] = input.MaxResults;
-  }
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
   }
   if (input.ProvisioningType !== undefined) {
     entries["ProvisioningType"] = input.ProvisioningType;
+  }
+  if (input.MaxResults !== undefined) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.DeprecatedStatus !== undefined) {
+    entries["DeprecatedStatus"] = input.DeprecatedStatus;
   }
   if (input.Visibility !== undefined) {
     entries["Visibility"] = input.Visibility;
@@ -5569,31 +5634,31 @@ const serializeAws_queryListTypeVersionsInput = (input: ListTypeVersionsInput, c
   if (input.Arn !== undefined) {
     entries["Arn"] = input.Arn;
   }
+  if (input.TypeName !== undefined) {
+    entries["TypeName"] = input.TypeName;
+  }
   if (input.DeprecatedStatus !== undefined) {
     entries["DeprecatedStatus"] = input.DeprecatedStatus;
-  }
-  if (input.MaxResults !== undefined) {
-    entries["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
   }
   if (input.Type !== undefined) {
     entries["Type"] = input.Type;
   }
-  if (input.TypeName !== undefined) {
-    entries["TypeName"] = input.TypeName;
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined) {
+    entries["MaxResults"] = input.MaxResults;
   }
   return entries;
 };
 
 const serializeAws_queryLoggingConfig = (input: LoggingConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LogGroupName !== undefined) {
-    entries["LogGroupName"] = input.LogGroupName;
-  }
   if (input.LogRoleArn !== undefined) {
     entries["LogRoleArn"] = input.LogRoleArn;
+  }
+  if (input.LogGroupName !== undefined) {
+    entries["LogGroupName"] = input.LogGroupName;
   }
   return entries;
 };
@@ -5618,16 +5683,26 @@ const serializeAws_queryNotificationARNs = (input: string[], context: __SerdeCon
   return entries;
 };
 
+const serializeAws_queryOrganizationalUnitIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ParameterKey !== undefined) {
     entries["ParameterKey"] = input.ParameterKey;
   }
-  if (input.ParameterValue !== undefined) {
-    entries["ParameterValue"] = input.ParameterValue;
-  }
   if (input.ResolvedValue !== undefined) {
     entries["ResolvedValue"] = input.ResolvedValue;
+  }
+  if (input.ParameterValue !== undefined) {
+    entries["ParameterValue"] = input.ParameterValue;
   }
   if (input.UsePreviousValue !== undefined) {
     entries["UsePreviousValue"] = input.UsePreviousValue;
@@ -5656,14 +5731,14 @@ const serializeAws_queryRecordHandlerProgressInput = (
   if (input.BearerToken !== undefined) {
     entries["BearerToken"] = input.BearerToken;
   }
-  if (input.ClientRequestToken !== undefined) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
-  }
   if (input.CurrentOperationStatus !== undefined) {
     entries["CurrentOperationStatus"] = input.CurrentOperationStatus;
   }
   if (input.ErrorCode !== undefined) {
     entries["ErrorCode"] = input.ErrorCode;
+  }
+  if (input.ClientRequestToken !== undefined) {
+    entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.OperationStatus !== undefined) {
     entries["OperationStatus"] = input.OperationStatus;
@@ -5689,11 +5764,14 @@ const serializeAws_queryRegionList = (input: string[], context: __SerdeContext):
 
 const serializeAws_queryRegisterTypeInput = (input: RegisterTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ExecutionRoleArn !== undefined) {
+    entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
+  }
   if (input.ClientRequestToken !== undefined) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
-  if (input.ExecutionRoleArn !== undefined) {
-    entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
+  if (input.TypeName !== undefined) {
+    entries["TypeName"] = input.TypeName;
   }
   if (input.LoggingConfig !== undefined) {
     const memberEntries = serializeAws_queryLoggingConfig(input.LoggingConfig, context);
@@ -5702,14 +5780,11 @@ const serializeAws_queryRegisterTypeInput = (input: RegisterTypeInput, context: 
       entries[loc] = value;
     });
   }
-  if (input.SchemaHandlerPackage !== undefined) {
-    entries["SchemaHandlerPackage"] = input.SchemaHandlerPackage;
-  }
   if (input.Type !== undefined) {
     entries["Type"] = input.Type;
   }
-  if (input.TypeName !== undefined) {
-    entries["TypeName"] = input.TypeName;
+  if (input.SchemaHandlerPackage !== undefined) {
+    entries["SchemaHandlerPackage"] = input.SchemaHandlerPackage;
   }
   return entries;
 };
@@ -5791,9 +5866,6 @@ const serializeAws_queryRetainResources = (input: string[], context: __SerdeCont
 
 const serializeAws_queryRollbackConfiguration = (input: RollbackConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MonitoringTimeInMinutes !== undefined) {
-    entries["MonitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
-  }
   if (input.RollbackTriggers !== undefined) {
     const memberEntries = serializeAws_queryRollbackTriggers(input.RollbackTriggers, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5801,16 +5873,19 @@ const serializeAws_queryRollbackConfiguration = (input: RollbackConfiguration, c
       entries[loc] = value;
     });
   }
+  if (input.MonitoringTimeInMinutes !== undefined) {
+    entries["MonitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
+  }
   return entries;
 };
 
 const serializeAws_queryRollbackTrigger = (input: RollbackTrigger, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Arn !== undefined) {
-    entries["Arn"] = input.Arn;
-  }
   if (input.Type !== undefined) {
     entries["Type"] = input.Type;
+  }
+  if (input.Arn !== undefined) {
+    entries["Arn"] = input.Arn;
   }
   return entries;
 };
@@ -5830,14 +5905,14 @@ const serializeAws_queryRollbackTriggers = (input: RollbackTrigger[], context: _
 
 const serializeAws_querySetStackPolicyInput = (input: SetStackPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
-    entries["StackName"] = input.StackName;
-  }
   if (input.StackPolicyBody !== undefined) {
     entries["StackPolicyBody"] = input.StackPolicyBody;
   }
   if (input.StackPolicyURL !== undefined) {
     entries["StackPolicyURL"] = input.StackPolicyURL;
+  }
+  if (input.StackName !== undefined) {
+    entries["StackName"] = input.StackName;
   }
   return entries;
 };
@@ -5850,31 +5925,55 @@ const serializeAws_querySetTypeDefaultVersionInput = (
   if (input.Arn !== undefined) {
     entries["Arn"] = input.Arn;
   }
-  if (input.Type !== undefined) {
-    entries["Type"] = input.Type;
-  }
   if (input.TypeName !== undefined) {
     entries["TypeName"] = input.TypeName;
   }
   if (input.VersionId !== undefined) {
     entries["VersionId"] = input.VersionId;
   }
+  if (input.Type !== undefined) {
+    entries["Type"] = input.Type;
+  }
   return entries;
 };
 
 const serializeAws_querySignalResourceInput = (input: SignalResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LogicalResourceId !== undefined) {
-    entries["LogicalResourceId"] = input.LogicalResourceId;
-  }
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
+  }
+  if (input.LogicalResourceId !== undefined) {
+    entries["LogicalResourceId"] = input.LogicalResourceId;
   }
   if (input.Status !== undefined) {
     entries["Status"] = input.Status;
   }
   if (input.UniqueId !== undefined) {
     entries["UniqueId"] = input.UniqueId;
+  }
+  return entries;
+};
+
+const serializeAws_queryStackInstanceFilter = (input: StackInstanceFilter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
+  }
+  if (input.Values !== undefined) {
+    entries["Values"] = input.Values;
+  }
+  return entries;
+};
+
+const serializeAws_queryStackInstanceFilters = (input: StackInstanceFilter[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    const memberEntries = serializeAws_queryStackInstanceFilter(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
   }
   return entries;
 };
@@ -5897,17 +5996,8 @@ const serializeAws_queryStackSetOperationPreferences = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.FailureToleranceCount !== undefined) {
-    entries["FailureToleranceCount"] = input.FailureToleranceCount;
-  }
-  if (input.FailureTolerancePercentage !== undefined) {
-    entries["FailureTolerancePercentage"] = input.FailureTolerancePercentage;
-  }
   if (input.MaxConcurrentCount !== undefined) {
     entries["MaxConcurrentCount"] = input.MaxConcurrentCount;
-  }
-  if (input.MaxConcurrentPercentage !== undefined) {
-    entries["MaxConcurrentPercentage"] = input.MaxConcurrentPercentage;
   }
   if (input.RegionOrder !== undefined) {
     const memberEntries = serializeAws_queryRegionList(input.RegionOrder, context);
@@ -5915,6 +6005,15 @@ const serializeAws_queryStackSetOperationPreferences = (
       const loc = `RegionOrder.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.FailureToleranceCount !== undefined) {
+    entries["FailureToleranceCount"] = input.FailureToleranceCount;
+  }
+  if (input.FailureTolerancePercentage !== undefined) {
+    entries["FailureTolerancePercentage"] = input.FailureTolerancePercentage;
+  }
+  if (input.MaxConcurrentPercentage !== undefined) {
+    entries["MaxConcurrentPercentage"] = input.MaxConcurrentPercentage;
   }
   return entries;
 };
@@ -5945,11 +6044,11 @@ const serializeAws_queryStopStackSetOperationInput = (
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
-    entries["Key"] = input.Key;
-  }
   if (input.Value !== undefined) {
     entries["Value"] = input.Value;
+  }
+  if (input.Key !== undefined) {
+    entries["Key"] = input.Key;
   }
   return entries;
 };
@@ -5969,6 +6068,61 @@ const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
 
 const serializeAws_queryUpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.StackName !== undefined) {
+    entries["StackName"] = input.StackName;
+  }
+  if (input.StackPolicyDuringUpdateURL !== undefined) {
+    entries["StackPolicyDuringUpdateURL"] = input.StackPolicyDuringUpdateURL;
+  }
+  if (input.StackPolicyBody !== undefined) {
+    entries["StackPolicyBody"] = input.StackPolicyBody;
+  }
+  if (input.TemplateBody !== undefined) {
+    entries["TemplateBody"] = input.TemplateBody;
+  }
+  if (input.ResourceTypes !== undefined) {
+    const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceTypes.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.RollbackConfiguration !== undefined) {
+    const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RollbackConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.UsePreviousTemplate !== undefined) {
+    entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+  }
+  if (input.RoleARN !== undefined) {
+    entries["RoleARN"] = input.RoleARN;
+  }
+  if (input.StackPolicyDuringUpdateBody !== undefined) {
+    entries["StackPolicyDuringUpdateBody"] = input.StackPolicyDuringUpdateBody;
+  }
+  if (input.Parameters !== undefined) {
+    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Parameters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.StackPolicyURL !== undefined) {
+    entries["StackPolicyURL"] = input.StackPolicyURL;
+  }
+  if (input.NotificationARNs !== undefined) {
+    const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NotificationARNs.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TemplateURL !== undefined) {
+    entries["TemplateURL"] = input.TemplateURL;
+  }
   if (input.Capabilities !== undefined) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5979,67 +6133,12 @@ const serializeAws_queryUpdateStackInput = (input: UpdateStackInput, context: __
   if (input.ClientRequestToken !== undefined) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
-  if (input.NotificationARNs !== undefined) {
-    const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `NotificationARNs.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Parameters !== undefined) {
-    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Parameters.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ResourceTypes !== undefined) {
-    const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ResourceTypes.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.RoleARN !== undefined) {
-    entries["RoleARN"] = input.RoleARN;
-  }
-  if (input.RollbackConfiguration !== undefined) {
-    const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `RollbackConfiguration.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.StackName !== undefined) {
-    entries["StackName"] = input.StackName;
-  }
-  if (input.StackPolicyBody !== undefined) {
-    entries["StackPolicyBody"] = input.StackPolicyBody;
-  }
-  if (input.StackPolicyDuringUpdateBody !== undefined) {
-    entries["StackPolicyDuringUpdateBody"] = input.StackPolicyDuringUpdateBody;
-  }
-  if (input.StackPolicyDuringUpdateURL !== undefined) {
-    entries["StackPolicyDuringUpdateURL"] = input.StackPolicyDuringUpdateURL;
-  }
-  if (input.StackPolicyURL !== undefined) {
-    entries["StackPolicyURL"] = input.StackPolicyURL;
-  }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.TemplateBody !== undefined) {
-    entries["TemplateBody"] = input.TemplateBody;
-  }
-  if (input.TemplateURL !== undefined) {
-    entries["TemplateURL"] = input.TemplateURL;
-  }
-  if (input.UsePreviousTemplate !== undefined) {
-    entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
   }
   return entries;
 };
@@ -6049,18 +6148,12 @@ const serializeAws_queryUpdateStackInstancesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Accounts !== undefined) {
-    const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+  if (input.ParameterOverrides !== undefined) {
+    const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Accounts.${key}`;
+      const loc = `ParameterOverrides.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
-  }
-  if (input.OperationId !== undefined) {
-    entries["OperationId"] = input.OperationId;
   }
   if (input.OperationPreferences !== undefined) {
     const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
@@ -6069,10 +6162,10 @@ const serializeAws_queryUpdateStackInstancesInput = (
       entries[loc] = value;
     });
   }
-  if (input.ParameterOverrides !== undefined) {
-    const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
+  if (input.DeploymentTargets !== undefined) {
+    const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ParameterOverrides.${key}`;
+      const loc = `DeploymentTargets.${key}`;
       entries[loc] = value;
     });
   }
@@ -6086,11 +6179,6 @@ const serializeAws_queryUpdateStackInstancesInput = (
   if (input.StackSetName !== undefined) {
     entries["StackSetName"] = input.StackSetName;
   }
-  return entries;
-};
-
-const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeContext): any => {
-  const entries: any = {};
   if (input.Accounts !== undefined) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6098,8 +6186,52 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
       entries[loc] = value;
     });
   }
-  if (input.AdministrationRoleARN !== undefined) {
-    entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
+  if (input.OperationId !== undefined) {
+    entries["OperationId"] = input.OperationId;
+  }
+  return entries;
+};
+
+const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TemplateBody !== undefined) {
+    entries["TemplateBody"] = input.TemplateBody;
+  }
+  if (input.PermissionModel !== undefined) {
+    entries["PermissionModel"] = input.PermissionModel;
+  }
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
+  if (input.OperationId !== undefined) {
+    entries["OperationId"] = input.OperationId;
+  }
+  if (input.Accounts !== undefined) {
+    const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Accounts.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AutoDeployment !== undefined) {
+    const memberEntries = serializeAws_queryAutoDeployment(input.AutoDeployment, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AutoDeployment.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Description !== undefined) {
+    entries["Description"] = input.Description;
+  }
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTags(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.Capabilities !== undefined) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
@@ -6108,22 +6240,22 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
       entries[loc] = value;
     });
   }
-  if (input.Description !== undefined) {
-    entries["Description"] = input.Description;
+  if (input.TemplateURL !== undefined) {
+    entries["TemplateURL"] = input.TemplateURL;
   }
   if (input.ExecutionRoleName !== undefined) {
     entries["ExecutionRoleName"] = input.ExecutionRoleName;
   }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
+  if (input.AdministrationRoleARN !== undefined) {
+    entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
   }
-  if (input.OperationId !== undefined) {
-    entries["OperationId"] = input.OperationId;
+  if (input.StackSetName !== undefined) {
+    entries["StackSetName"] = input.StackSetName;
   }
-  if (input.OperationPreferences !== undefined) {
-    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
+  if (input.Regions !== undefined) {
+    const memberEntries = serializeAws_queryRegionList(input.Regions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `OperationPreferences.${key}`;
+      const loc = `Regions.${key}`;
       entries[loc] = value;
     });
   }
@@ -6134,31 +6266,22 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
       entries[loc] = value;
     });
   }
-  if (input.Regions !== undefined) {
-    const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+  if (input.OperationPreferences !== undefined) {
+    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Regions.${key}`;
+      const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.StackSetName !== undefined) {
-    entries["StackSetName"] = input.StackSetName;
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.TemplateBody !== undefined) {
-    entries["TemplateBody"] = input.TemplateBody;
-  }
-  if (input.TemplateURL !== undefined) {
-    entries["TemplateURL"] = input.TemplateURL;
   }
   if (input.UsePreviousTemplate !== undefined) {
     entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+  }
+  if (input.DeploymentTargets !== undefined) {
+    const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DeploymentTargets.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -6179,11 +6302,11 @@ const serializeAws_queryUpdateTerminationProtectionInput = (
 
 const serializeAws_queryValidateTemplateInput = (input: ValidateTemplateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateBody !== undefined) {
-    entries["TemplateBody"] = input.TemplateBody;
-  }
   if (input.TemplateURL !== undefined) {
     entries["TemplateURL"] = input.TemplateURL;
+  }
+  if (input.TemplateBody !== undefined) {
+    entries["TemplateBody"] = input.TemplateBody;
   }
   return entries;
 };
@@ -6191,14 +6314,14 @@ const serializeAws_queryValidateTemplateInput = (input: ValidateTemplateInput, c
 const deserializeAws_queryAccountGateResult = (output: any, context: __SerdeContext): AccountGateResult => {
   let contents: any = {
     __type: "AccountGateResult",
-    Status: undefined,
     StatusReason: undefined,
+    Status: undefined,
   };
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
   if (output["StatusReason"] !== undefined) {
     contents.StatusReason = output["StatusReason"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -6222,6 +6345,10 @@ const deserializeAws_queryAccountLimitList = (output: any, context: __SerdeConte
   return (output || []).map((entry: any) => deserializeAws_queryAccountLimit(entry, context));
 };
 
+const deserializeAws_queryAccountList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_queryAllowedValues = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -6233,6 +6360,21 @@ const deserializeAws_queryAlreadyExistsException = (output: any, context: __Serd
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryAutoDeployment = (output: any, context: __SerdeContext): AutoDeployment => {
+  let contents: any = {
+    __type: "AutoDeployment",
+    RetainStacksOnAccountRemoval: undefined,
+    Enabled: undefined,
+  };
+  if (output["RetainStacksOnAccountRemoval"] !== undefined) {
+    contents.RetainStacksOnAccountRemoval = output["RetainStacksOnAccountRemoval"] == "true";
+  }
+  if (output["Enabled"] !== undefined) {
+    contents.Enabled = output["Enabled"] == "true";
   }
   return contents;
 };
@@ -6292,42 +6434,42 @@ const deserializeAws_queryChangeSetSummaries = (output: any, context: __SerdeCon
 const deserializeAws_queryChangeSetSummary = (output: any, context: __SerdeContext): ChangeSetSummary => {
   let contents: any = {
     __type: "ChangeSetSummary",
-    ChangeSetId: undefined,
-    ChangeSetName: undefined,
-    CreationTime: undefined,
-    Description: undefined,
-    ExecutionStatus: undefined,
-    StackId: undefined,
-    StackName: undefined,
     Status: undefined,
     StatusReason: undefined,
+    Description: undefined,
+    ChangeSetId: undefined,
+    ExecutionStatus: undefined,
+    ChangeSetName: undefined,
+    StackName: undefined,
+    StackId: undefined,
+    CreationTime: undefined,
   };
-  if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId = output["ChangeSetId"];
-  }
-  if (output["ChangeSetName"] !== undefined) {
-    contents.ChangeSetName = output["ChangeSetName"];
-  }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["CreationTime"]);
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["ExecutionStatus"] !== undefined) {
-    contents.ExecutionStatus = output["ExecutionStatus"];
-  }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = output["StackId"];
-  }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = output["StackName"];
-  }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
   if (output["StatusReason"] !== undefined) {
     contents.StatusReason = output["StatusReason"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["ChangeSetId"] !== undefined) {
+    contents.ChangeSetId = output["ChangeSetId"];
+  }
+  if (output["ExecutionStatus"] !== undefined) {
+    contents.ExecutionStatus = output["ExecutionStatus"];
+  }
+  if (output["ChangeSetName"] !== undefined) {
+    contents.ChangeSetName = output["ChangeSetName"];
+  }
+  if (output["StackName"] !== undefined) {
+    contents.StackName = output["StackName"];
+  }
+  if (output["StackId"] !== undefined) {
+    contents.StackId = output["StackId"];
+  }
+  if (output["CreationTime"] !== undefined) {
+    contents.CreationTime = new Date(output["CreationTime"]);
   }
   return contents;
 };
@@ -6345,14 +6487,14 @@ const deserializeAws_queryContinueUpdateRollbackOutput = (
 const deserializeAws_queryCreateChangeSetOutput = (output: any, context: __SerdeContext): CreateChangeSetOutput => {
   let contents: any = {
     __type: "CreateChangeSetOutput",
-    Id: undefined,
     StackId: undefined,
+    Id: undefined,
   };
-  if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
-  }
   if (output["StackId"] !== undefined) {
     contents.StackId = output["StackId"];
+  }
+  if (output["Id"] !== undefined) {
+    contents.Id = output["Id"];
   }
   return contents;
 };
@@ -6435,6 +6577,30 @@ const deserializeAws_queryDeleteStackSetOutput = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_queryDeploymentTargets = (output: any, context: __SerdeContext): DeploymentTargets => {
+  let contents: any = {
+    __type: "DeploymentTargets",
+    Accounts: undefined,
+    OrganizationalUnitIds: undefined,
+  };
+  if (output.Accounts === "") {
+    contents.Accounts = [];
+  }
+  if (output["Accounts"] !== undefined && output["Accounts"]["member"] !== undefined) {
+    contents.Accounts = deserializeAws_queryAccountList(__getArrayIfSingleItem(output["Accounts"]["member"]), context);
+  }
+  if (output.OrganizationalUnitIds === "") {
+    contents.OrganizationalUnitIds = [];
+  }
+  if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
+    contents.OrganizationalUnitIds = deserializeAws_queryOrganizationalUnitIdList(
+      __getArrayIfSingleItem(output["OrganizationalUnitIds"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryDeregisterTypeOutput = (output: any, context: __SerdeContext): DeregisterTypeOutput => {
   let contents: any = {
     __type: "DeregisterTypeOutput",
@@ -6448,9 +6614,12 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
 ): DescribeAccountLimitsOutput => {
   let contents: any = {
     __type: "DescribeAccountLimitsOutput",
-    AccountLimits: undefined,
     NextToken: undefined,
+    AccountLimits: undefined,
   };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.AccountLimits === "") {
     contents.AccountLimits = [];
   }
@@ -6460,32 +6629,59 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
       context
     );
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   return contents;
 };
 
 const deserializeAws_queryDescribeChangeSetOutput = (output: any, context: __SerdeContext): DescribeChangeSetOutput => {
   let contents: any = {
     __type: "DescribeChangeSetOutput",
-    Capabilities: undefined,
-    ChangeSetId: undefined,
-    ChangeSetName: undefined,
+    Parameters: undefined,
     Changes: undefined,
+    Status: undefined,
+    StackName: undefined,
+    StackId: undefined,
     CreationTime: undefined,
     Description: undefined,
-    ExecutionStatus: undefined,
+    Capabilities: undefined,
+    Tags: undefined,
+    RollbackConfiguration: undefined,
+    ChangeSetName: undefined,
+    StatusReason: undefined,
     NextToken: undefined,
     NotificationARNs: undefined,
-    Parameters: undefined,
-    RollbackConfiguration: undefined,
-    StackId: undefined,
-    StackName: undefined,
-    Status: undefined,
-    StatusReason: undefined,
-    Tags: undefined,
+    ChangeSetId: undefined,
+    ExecutionStatus: undefined,
   };
+  if (output.Parameters === "") {
+    contents.Parameters = [];
+  }
+  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
+    contents.Parameters = deserializeAws_queryParameters(
+      __getArrayIfSingleItem(output["Parameters"]["member"]),
+      context
+    );
+  }
+  if (output.Changes === "") {
+    contents.Changes = [];
+  }
+  if (output["Changes"] !== undefined && output["Changes"]["member"] !== undefined) {
+    contents.Changes = deserializeAws_queryChanges(__getArrayIfSingleItem(output["Changes"]["member"]), context);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["StackName"] !== undefined) {
+    contents.StackName = output["StackName"];
+  }
+  if (output["StackId"] !== undefined) {
+    contents.StackId = output["StackId"];
+  }
+  if (output["CreationTime"] !== undefined) {
+    contents.CreationTime = new Date(output["CreationTime"]);
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
   if (output.Capabilities === "") {
     contents.Capabilities = [];
   }
@@ -6495,26 +6691,23 @@ const deserializeAws_queryDescribeChangeSetOutput = (output: any, context: __Ser
       context
     );
   }
-  if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId = output["ChangeSetId"];
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_queryTags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["RollbackConfiguration"] !== undefined) {
+    contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(
+      output["RollbackConfiguration"],
+      context
+    );
   }
   if (output["ChangeSetName"] !== undefined) {
     contents.ChangeSetName = output["ChangeSetName"];
   }
-  if (output.Changes === "") {
-    contents.Changes = [];
-  }
-  if (output["Changes"] !== undefined && output["Changes"]["member"] !== undefined) {
-    contents.Changes = deserializeAws_queryChanges(__getArrayIfSingleItem(output["Changes"]["member"]), context);
-  }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["CreationTime"]);
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["ExecutionStatus"] !== undefined) {
-    contents.ExecutionStatus = output["ExecutionStatus"];
+  if (output["StatusReason"] !== undefined) {
+    contents.StatusReason = output["StatusReason"];
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -6528,38 +6721,11 @@ const deserializeAws_queryDescribeChangeSetOutput = (output: any, context: __Ser
       context
     );
   }
-  if (output.Parameters === "") {
-    contents.Parameters = [];
+  if (output["ChangeSetId"] !== undefined) {
+    contents.ChangeSetId = output["ChangeSetId"];
   }
-  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = deserializeAws_queryParameters(
-      __getArrayIfSingleItem(output["Parameters"]["member"]),
-      context
-    );
-  }
-  if (output["RollbackConfiguration"] !== undefined) {
-    contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(
-      output["RollbackConfiguration"],
-      context
-    );
-  }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = output["StackId"];
-  }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = output["StackName"];
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = output["StatusReason"];
-  }
-  if (output.Tags === "") {
-    contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  if (output["ExecutionStatus"] !== undefined) {
+    contents.ExecutionStatus = output["ExecutionStatus"];
   }
   return contents;
 };
@@ -6570,34 +6736,34 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (
 ): DescribeStackDriftDetectionStatusOutput => {
   let contents: any = {
     __type: "DescribeStackDriftDetectionStatusOutput",
-    DetectionStatus: undefined,
-    DetectionStatusReason: undefined,
-    DriftedStackResourceCount: undefined,
-    StackDriftDetectionId: undefined,
-    StackDriftStatus: undefined,
-    StackId: undefined,
     Timestamp: undefined,
+    DetectionStatus: undefined,
+    StackId: undefined,
+    StackDriftStatus: undefined,
+    StackDriftDetectionId: undefined,
+    DriftedStackResourceCount: undefined,
+    DetectionStatusReason: undefined,
   };
+  if (output["Timestamp"] !== undefined) {
+    contents.Timestamp = new Date(output["Timestamp"]);
+  }
   if (output["DetectionStatus"] !== undefined) {
     contents.DetectionStatus = output["DetectionStatus"];
-  }
-  if (output["DetectionStatusReason"] !== undefined) {
-    contents.DetectionStatusReason = output["DetectionStatusReason"];
-  }
-  if (output["DriftedStackResourceCount"] !== undefined) {
-    contents.DriftedStackResourceCount = parseInt(output["DriftedStackResourceCount"]);
-  }
-  if (output["StackDriftDetectionId"] !== undefined) {
-    contents.StackDriftDetectionId = output["StackDriftDetectionId"];
-  }
-  if (output["StackDriftStatus"] !== undefined) {
-    contents.StackDriftStatus = output["StackDriftStatus"];
   }
   if (output["StackId"] !== undefined) {
     contents.StackId = output["StackId"];
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
+  if (output["StackDriftStatus"] !== undefined) {
+    contents.StackDriftStatus = output["StackDriftStatus"];
+  }
+  if (output["StackDriftDetectionId"] !== undefined) {
+    contents.StackDriftDetectionId = output["StackDriftDetectionId"];
+  }
+  if (output["DriftedStackResourceCount"] !== undefined) {
+    contents.DriftedStackResourceCount = parseInt(output["DriftedStackResourceCount"]);
+  }
+  if (output["DetectionStatusReason"] !== undefined) {
+    contents.DetectionStatusReason = output["DetectionStatusReason"];
   }
   return contents;
 };
@@ -6646,12 +6812,9 @@ const deserializeAws_queryDescribeStackResourceDriftsOutput = (
 ): DescribeStackResourceDriftsOutput => {
   let contents: any = {
     __type: "DescribeStackResourceDriftsOutput",
-    NextToken: undefined,
     StackResourceDrifts: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.StackResourceDrifts === "") {
     contents.StackResourceDrifts = [];
   }
@@ -6660,6 +6823,9 @@ const deserializeAws_queryDescribeStackResourceDriftsOutput = (
       __getArrayIfSingleItem(output["StackResourceDrifts"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -6744,66 +6910,70 @@ const deserializeAws_queryDescribeStacksOutput = (output: any, context: __SerdeC
 const deserializeAws_queryDescribeTypeOutput = (output: any, context: __SerdeContext): DescribeTypeOutput => {
   let contents: any = {
     __type: "DescribeTypeOutput",
-    Arn: undefined,
-    DefaultVersionId: undefined,
     DeprecatedStatus: undefined,
-    Description: undefined,
-    DocumentationUrl: undefined,
-    ExecutionRoleArn: undefined,
-    LastUpdated: undefined,
-    LoggingConfig: undefined,
-    ProvisioningType: undefined,
-    Schema: undefined,
     SourceUrl: undefined,
-    TimeCreated: undefined,
-    Type: undefined,
+    Description: undefined,
+    Arn: undefined,
+    DocumentationUrl: undefined,
     TypeName: undefined,
+    Schema: undefined,
+    LastUpdated: undefined,
+    Type: undefined,
+    TimeCreated: undefined,
+    ProvisioningType: undefined,
+    ExecutionRoleArn: undefined,
     Visibility: undefined,
+    LoggingConfig: undefined,
+    IsDefaultVersion: undefined,
+    DefaultVersionId: undefined,
   };
-  if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
-  }
-  if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId = output["DefaultVersionId"];
-  }
   if (output["DeprecatedStatus"] !== undefined) {
     contents.DeprecatedStatus = output["DeprecatedStatus"];
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["DocumentationUrl"] !== undefined) {
-    contents.DocumentationUrl = output["DocumentationUrl"];
-  }
-  if (output["ExecutionRoleArn"] !== undefined) {
-    contents.ExecutionRoleArn = output["ExecutionRoleArn"];
-  }
-  if (output["LastUpdated"] !== undefined) {
-    contents.LastUpdated = new Date(output["LastUpdated"]);
-  }
-  if (output["LoggingConfig"] !== undefined) {
-    contents.LoggingConfig = deserializeAws_queryLoggingConfig(output["LoggingConfig"], context);
-  }
-  if (output["ProvisioningType"] !== undefined) {
-    contents.ProvisioningType = output["ProvisioningType"];
-  }
-  if (output["Schema"] !== undefined) {
-    contents.Schema = output["Schema"];
   }
   if (output["SourceUrl"] !== undefined) {
     contents.SourceUrl = output["SourceUrl"];
   }
-  if (output["TimeCreated"] !== undefined) {
-    contents.TimeCreated = new Date(output["TimeCreated"]);
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = output["Type"];
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
+  }
+  if (output["DocumentationUrl"] !== undefined) {
+    contents.DocumentationUrl = output["DocumentationUrl"];
   }
   if (output["TypeName"] !== undefined) {
     contents.TypeName = output["TypeName"];
   }
+  if (output["Schema"] !== undefined) {
+    contents.Schema = output["Schema"];
+  }
+  if (output["LastUpdated"] !== undefined) {
+    contents.LastUpdated = new Date(output["LastUpdated"]);
+  }
+  if (output["Type"] !== undefined) {
+    contents.Type = output["Type"];
+  }
+  if (output["TimeCreated"] !== undefined) {
+    contents.TimeCreated = new Date(output["TimeCreated"]);
+  }
+  if (output["ProvisioningType"] !== undefined) {
+    contents.ProvisioningType = output["ProvisioningType"];
+  }
+  if (output["ExecutionRoleArn"] !== undefined) {
+    contents.ExecutionRoleArn = output["ExecutionRoleArn"];
+  }
   if (output["Visibility"] !== undefined) {
     contents.Visibility = output["Visibility"];
+  }
+  if (output["LoggingConfig"] !== undefined) {
+    contents.LoggingConfig = deserializeAws_queryLoggingConfig(output["LoggingConfig"], context);
+  }
+  if (output["IsDefaultVersion"] !== undefined) {
+    contents.IsDefaultVersion = output["IsDefaultVersion"] == "true";
+  }
+  if (output["DefaultVersionId"] !== undefined) {
+    contents.DefaultVersionId = output["DefaultVersionId"];
   }
   return contents;
 };
@@ -6816,8 +6986,8 @@ const deserializeAws_queryDescribeTypeRegistrationOutput = (
     __type: "DescribeTypeRegistrationOutput",
     Description: undefined,
     ProgressStatus: undefined,
-    TypeArn: undefined,
     TypeVersionArn: undefined,
+    TypeArn: undefined,
   };
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -6825,11 +6995,11 @@ const deserializeAws_queryDescribeTypeRegistrationOutput = (
   if (output["ProgressStatus"] !== undefined) {
     contents.ProgressStatus = output["ProgressStatus"];
   }
-  if (output["TypeArn"] !== undefined) {
-    contents.TypeArn = output["TypeArn"];
-  }
   if (output["TypeVersionArn"] !== undefined) {
     contents.TypeVersionArn = output["TypeVersionArn"];
+  }
+  if (output["TypeArn"] !== undefined) {
+    contents.TypeArn = output["TypeArn"];
   }
   return contents;
 };
@@ -6897,18 +7067,18 @@ const deserializeAws_queryExecuteChangeSetOutput = (output: any, context: __Serd
 const deserializeAws_queryExport = (output: any, context: __SerdeContext): Export => {
   let contents: any = {
     __type: "Export",
-    ExportingStackId: undefined,
     Name: undefined,
     Value: undefined,
+    ExportingStackId: undefined,
   };
-  if (output["ExportingStackId"] !== undefined) {
-    contents.ExportingStackId = output["ExportingStackId"];
-  }
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
   }
   if (output["Value"] !== undefined) {
     contents.Value = output["Value"];
+  }
+  if (output["ExportingStackId"] !== undefined) {
+    contents.ExportingStackId = output["ExportingStackId"];
   }
   return contents;
 };
@@ -6931,9 +7101,12 @@ const deserializeAws_queryGetStackPolicyOutput = (output: any, context: __SerdeC
 const deserializeAws_queryGetTemplateOutput = (output: any, context: __SerdeContext): GetTemplateOutput => {
   let contents: any = {
     __type: "GetTemplateOutput",
-    StagesAvailable: undefined,
     TemplateBody: undefined,
+    StagesAvailable: undefined,
   };
+  if (output["TemplateBody"] !== undefined) {
+    contents.TemplateBody = output["TemplateBody"];
+  }
   if (output.StagesAvailable === "") {
     contents.StagesAvailable = [];
   }
@@ -6942,9 +7115,6 @@ const deserializeAws_queryGetTemplateOutput = (output: any, context: __SerdeCont
       __getArrayIfSingleItem(output["StagesAvailable"]["member"]),
       context
     );
-  }
-  if (output["TemplateBody"] !== undefined) {
-    contents.TemplateBody = output["TemplateBody"];
   }
   return contents;
 };
@@ -6955,52 +7125,16 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
 ): GetTemplateSummaryOutput => {
   let contents: any = {
     __type: "GetTemplateSummaryOutput",
+    ResourceIdentifierSummaries: undefined,
+    Version: undefined,
+    Metadata: undefined,
+    Description: undefined,
+    DeclaredTransforms: undefined,
+    ResourceTypes: undefined,
     Capabilities: undefined,
     CapabilitiesReason: undefined,
-    DeclaredTransforms: undefined,
-    Description: undefined,
-    Metadata: undefined,
     Parameters: undefined,
-    ResourceIdentifierSummaries: undefined,
-    ResourceTypes: undefined,
-    Version: undefined,
   };
-  if (output.Capabilities === "") {
-    contents.Capabilities = [];
-  }
-  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-    contents.Capabilities = deserializeAws_queryCapabilities(
-      __getArrayIfSingleItem(output["Capabilities"]["member"]),
-      context
-    );
-  }
-  if (output["CapabilitiesReason"] !== undefined) {
-    contents.CapabilitiesReason = output["CapabilitiesReason"];
-  }
-  if (output.DeclaredTransforms === "") {
-    contents.DeclaredTransforms = [];
-  }
-  if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
-    contents.DeclaredTransforms = deserializeAws_queryTransformsList(
-      __getArrayIfSingleItem(output["DeclaredTransforms"]["member"]),
-      context
-    );
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["Metadata"] !== undefined) {
-    contents.Metadata = output["Metadata"];
-  }
-  if (output.Parameters === "") {
-    contents.Parameters = [];
-  }
-  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = deserializeAws_queryParameterDeclarations(
-      __getArrayIfSingleItem(output["Parameters"]["member"]),
-      context
-    );
-  }
   if (output.ResourceIdentifierSummaries === "") {
     contents.ResourceIdentifierSummaries = [];
   }
@@ -7013,6 +7147,24 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
       context
     );
   }
+  if (output["Version"] !== undefined) {
+    contents.Version = output["Version"];
+  }
+  if (output["Metadata"] !== undefined) {
+    contents.Metadata = output["Metadata"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output.DeclaredTransforms === "") {
+    contents.DeclaredTransforms = [];
+  }
+  if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
+    contents.DeclaredTransforms = deserializeAws_queryTransformsList(
+      __getArrayIfSingleItem(output["DeclaredTransforms"]["member"]),
+      context
+    );
+  }
   if (output.ResourceTypes === "") {
     contents.ResourceTypes = [];
   }
@@ -7022,8 +7174,26 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
       context
     );
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = output["Version"];
+  if (output.Capabilities === "") {
+    contents.Capabilities = [];
+  }
+  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
+    contents.Capabilities = deserializeAws_queryCapabilities(
+      __getArrayIfSingleItem(output["Capabilities"]["member"]),
+      context
+    );
+  }
+  if (output["CapabilitiesReason"] !== undefined) {
+    contents.CapabilitiesReason = output["CapabilitiesReason"];
+  }
+  if (output.Parameters === "") {
+    contents.Parameters = [];
+  }
+  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
+    contents.Parameters = deserializeAws_queryParameterDeclarations(
+      __getArrayIfSingleItem(output["Parameters"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -7141,17 +7311,17 @@ const deserializeAws_queryListExportsOutput = (output: any, context: __SerdeCont
 const deserializeAws_queryListImportsOutput = (output: any, context: __SerdeContext): ListImportsOutput => {
   let contents: any = {
     __type: "ListImportsOutput",
-    Imports: undefined,
     NextToken: undefined,
+    Imports: undefined,
   };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.Imports === "") {
     contents.Imports = [];
   }
   if (output["Imports"] !== undefined && output["Imports"]["member"] !== undefined) {
     contents.Imports = deserializeAws_queryImports(__getArrayIfSingleItem(output["Imports"]["member"]), context);
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7210,12 +7380,9 @@ const deserializeAws_queryListStackSetOperationResultsOutput = (
 ): ListStackSetOperationResultsOutput => {
   let contents: any = {
     __type: "ListStackSetOperationResultsOutput",
-    NextToken: undefined,
     Summaries: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.Summaries === "") {
     contents.Summaries = [];
   }
@@ -7224,6 +7391,9 @@ const deserializeAws_queryListStackSetOperationResultsOutput = (
       __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7276,12 +7446,9 @@ const deserializeAws_queryListStackSetsOutput = (output: any, context: __SerdeCo
 const deserializeAws_queryListStacksOutput = (output: any, context: __SerdeContext): ListStacksOutput => {
   let contents: any = {
     __type: "ListStacksOutput",
-    NextToken: undefined,
     StackSummaries: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.StackSummaries === "") {
     contents.StackSummaries = [];
   }
@@ -7290,6 +7457,9 @@ const deserializeAws_queryListStacksOutput = (output: any, context: __SerdeConte
       __getArrayIfSingleItem(output["StackSummaries"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7300,12 +7470,9 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
 ): ListTypeRegistrationsOutput => {
   let contents: any = {
     __type: "ListTypeRegistrationsOutput",
-    NextToken: undefined,
     RegistrationTokenList: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.RegistrationTokenList === "") {
     contents.RegistrationTokenList = [];
   }
@@ -7315,18 +7482,18 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
       context
     );
   }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   return contents;
 };
 
 const deserializeAws_queryListTypesOutput = (output: any, context: __SerdeContext): ListTypesOutput => {
   let contents: any = {
     __type: "ListTypesOutput",
-    NextToken: undefined,
     TypeSummaries: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.TypeSummaries === "") {
     contents.TypeSummaries = [];
   }
@@ -7335,6 +7502,9 @@ const deserializeAws_queryListTypesOutput = (output: any, context: __SerdeContex
       __getArrayIfSingleItem(output["TypeSummaries"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7363,14 +7533,14 @@ const deserializeAws_queryListTypeVersionsOutput = (output: any, context: __Serd
 const deserializeAws_queryLoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
   let contents: any = {
     __type: "LoggingConfig",
-    LogGroupName: undefined,
     LogRoleArn: undefined,
+    LogGroupName: undefined,
   };
-  if (output["LogGroupName"] !== undefined) {
-    contents.LogGroupName = output["LogGroupName"];
-  }
   if (output["LogRoleArn"] !== undefined) {
     contents.LogRoleArn = output["LogRoleArn"];
+  }
+  if (output["LogGroupName"] !== undefined) {
+    contents.LogGroupName = output["LogGroupName"];
   }
   return contents;
 };
@@ -7453,25 +7623,29 @@ const deserializeAws_queryOperationStatusCheckFailedException = (
   return contents;
 };
 
+const deserializeAws_queryOrganizationalUnitIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_queryOutput = (output: any, context: __SerdeContext): Output => {
   let contents: any = {
     __type: "Output",
-    Description: undefined,
-    ExportName: undefined,
-    OutputKey: undefined,
     OutputValue: undefined,
+    OutputKey: undefined,
+    ExportName: undefined,
+    Description: undefined,
   };
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["ExportName"] !== undefined) {
-    contents.ExportName = output["ExportName"];
+  if (output["OutputValue"] !== undefined) {
+    contents.OutputValue = output["OutputValue"];
   }
   if (output["OutputKey"] !== undefined) {
     contents.OutputKey = output["OutputKey"];
   }
-  if (output["OutputValue"] !== undefined) {
-    contents.OutputValue = output["OutputValue"];
+  if (output["ExportName"] !== undefined) {
+    contents.ExportName = output["ExportName"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
   return contents;
 };
@@ -7484,18 +7658,18 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
   let contents: any = {
     __type: "Parameter",
     ParameterKey: undefined,
-    ParameterValue: undefined,
     ResolvedValue: undefined,
+    ParameterValue: undefined,
     UsePreviousValue: undefined,
   };
   if (output["ParameterKey"] !== undefined) {
     contents.ParameterKey = output["ParameterKey"];
   }
-  if (output["ParameterValue"] !== undefined) {
-    contents.ParameterValue = output["ParameterValue"];
-  }
   if (output["ResolvedValue"] !== undefined) {
     contents.ResolvedValue = output["ResolvedValue"];
+  }
+  if (output["ParameterValue"] !== undefined) {
+    contents.ParameterValue = output["ParameterValue"];
   }
   if (output["UsePreviousValue"] !== undefined) {
     contents.UsePreviousValue = output["UsePreviousValue"] == "true";
@@ -7523,30 +7697,30 @@ const deserializeAws_queryParameterConstraints = (output: any, context: __SerdeC
 const deserializeAws_queryParameterDeclaration = (output: any, context: __SerdeContext): ParameterDeclaration => {
   let contents: any = {
     __type: "ParameterDeclaration",
-    DefaultValue: undefined,
-    Description: undefined,
-    NoEcho: undefined,
     ParameterConstraints: undefined,
-    ParameterKey: undefined,
+    Description: undefined,
     ParameterType: undefined,
+    NoEcho: undefined,
+    DefaultValue: undefined,
+    ParameterKey: undefined,
   };
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = output["DefaultValue"];
+  if (output["ParameterConstraints"] !== undefined) {
+    contents.ParameterConstraints = deserializeAws_queryParameterConstraints(output["ParameterConstraints"], context);
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
+  if (output["ParameterType"] !== undefined) {
+    contents.ParameterType = output["ParameterType"];
+  }
   if (output["NoEcho"] !== undefined) {
     contents.NoEcho = output["NoEcho"] == "true";
   }
-  if (output["ParameterConstraints"] !== undefined) {
-    contents.ParameterConstraints = deserializeAws_queryParameterConstraints(output["ParameterConstraints"], context);
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["ParameterKey"] !== undefined) {
     contents.ParameterKey = output["ParameterKey"];
-  }
-  if (output["ParameterType"] !== undefined) {
-    contents.ParameterType = output["ParameterType"];
   }
   return contents;
 };
@@ -7572,14 +7746,14 @@ const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
 ): PhysicalResourceIdContextKeyValuePair => {
   let contents: any = {
     __type: "PhysicalResourceIdContextKeyValuePair",
-    Key: undefined,
     Value: undefined,
+    Key: undefined,
   };
-  if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
-  }
   if (output["Value"] !== undefined) {
     contents.Value = output["Value"];
+  }
+  if (output["Key"] !== undefined) {
+    contents.Key = output["Key"];
   }
   return contents;
 };
@@ -7587,22 +7761,22 @@ const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
 const deserializeAws_queryPropertyDifference = (output: any, context: __SerdeContext): PropertyDifference => {
   let contents: any = {
     __type: "PropertyDifference",
+    PropertyPath: undefined,
+    ExpectedValue: undefined,
     ActualValue: undefined,
     DifferenceType: undefined,
-    ExpectedValue: undefined,
-    PropertyPath: undefined,
   };
+  if (output["PropertyPath"] !== undefined) {
+    contents.PropertyPath = output["PropertyPath"];
+  }
+  if (output["ExpectedValue"] !== undefined) {
+    contents.ExpectedValue = output["ExpectedValue"];
+  }
   if (output["ActualValue"] !== undefined) {
     contents.ActualValue = output["ActualValue"];
   }
   if (output["DifferenceType"] !== undefined) {
     contents.DifferenceType = output["DifferenceType"];
-  }
-  if (output["ExpectedValue"] !== undefined) {
-    contents.ExpectedValue = output["ExpectedValue"];
-  }
-  if (output["PropertyPath"] !== undefined) {
-    contents.PropertyPath = output["PropertyPath"];
   }
   return contents;
 };
@@ -7643,16 +7817,31 @@ const deserializeAws_queryRegistrationTokenList = (output: any, context: __Serde
 const deserializeAws_queryResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
   let contents: any = {
     __type: "ResourceChange",
-    Action: undefined,
-    Details: undefined,
-    LogicalResourceId: undefined,
     PhysicalResourceId: undefined,
     Replacement: undefined,
+    Action: undefined,
     ResourceType: undefined,
     Scope: undefined,
+    Details: undefined,
+    LogicalResourceId: undefined,
   };
+  if (output["PhysicalResourceId"] !== undefined) {
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
+  }
+  if (output["Replacement"] !== undefined) {
+    contents.Replacement = output["Replacement"];
+  }
   if (output["Action"] !== undefined) {
     contents.Action = output["Action"];
+  }
+  if (output["ResourceType"] !== undefined) {
+    contents.ResourceType = output["ResourceType"];
+  }
+  if (output.Scope === "") {
+    contents.Scope = [];
+  }
+  if (output["Scope"] !== undefined && output["Scope"]["member"] !== undefined) {
+    contents.Scope = deserializeAws_queryScope(__getArrayIfSingleItem(output["Scope"]["member"]), context);
   }
   if (output.Details === "") {
     contents.Details = [];
@@ -7666,43 +7855,28 @@ const deserializeAws_queryResourceChange = (output: any, context: __SerdeContext
   if (output["LogicalResourceId"] !== undefined) {
     contents.LogicalResourceId = output["LogicalResourceId"];
   }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = output["PhysicalResourceId"];
-  }
-  if (output["Replacement"] !== undefined) {
-    contents.Replacement = output["Replacement"];
-  }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = output["ResourceType"];
-  }
-  if (output.Scope === "") {
-    contents.Scope = [];
-  }
-  if (output["Scope"] !== undefined && output["Scope"]["member"] !== undefined) {
-    contents.Scope = deserializeAws_queryScope(__getArrayIfSingleItem(output["Scope"]["member"]), context);
-  }
   return contents;
 };
 
 const deserializeAws_queryResourceChangeDetail = (output: any, context: __SerdeContext): ResourceChangeDetail => {
   let contents: any = {
     __type: "ResourceChangeDetail",
-    CausingEntity: undefined,
     ChangeSource: undefined,
-    Evaluation: undefined,
+    CausingEntity: undefined,
     Target: undefined,
+    Evaluation: undefined,
   };
-  if (output["CausingEntity"] !== undefined) {
-    contents.CausingEntity = output["CausingEntity"];
-  }
   if (output["ChangeSource"] !== undefined) {
     contents.ChangeSource = output["ChangeSource"];
   }
-  if (output["Evaluation"] !== undefined) {
-    contents.Evaluation = output["Evaluation"];
+  if (output["CausingEntity"] !== undefined) {
+    contents.CausingEntity = output["CausingEntity"];
   }
   if (output["Target"] !== undefined) {
     contents.Target = deserializeAws_queryResourceTargetDefinition(output["Target"], context);
+  }
+  if (output["Evaluation"] !== undefined) {
+    contents.Evaluation = output["Evaluation"];
   }
   return contents;
 };
@@ -7762,18 +7936,18 @@ const deserializeAws_queryResourceTargetDefinition = (
 ): ResourceTargetDefinition => {
   let contents: any = {
     __type: "ResourceTargetDefinition",
-    Attribute: undefined,
     Name: undefined,
     RequiresRecreation: undefined,
+    Attribute: undefined,
   };
-  if (output["Attribute"] !== undefined) {
-    contents.Attribute = output["Attribute"];
-  }
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
   }
   if (output["RequiresRecreation"] !== undefined) {
     contents.RequiresRecreation = output["RequiresRecreation"];
+  }
+  if (output["Attribute"] !== undefined) {
+    contents.Attribute = output["Attribute"];
   }
   return contents;
 };
@@ -7785,12 +7959,9 @@ const deserializeAws_queryResourceTypes = (output: any, context: __SerdeContext)
 const deserializeAws_queryRollbackConfiguration = (output: any, context: __SerdeContext): RollbackConfiguration => {
   let contents: any = {
     __type: "RollbackConfiguration",
-    MonitoringTimeInMinutes: undefined,
     RollbackTriggers: undefined,
+    MonitoringTimeInMinutes: undefined,
   };
-  if (output["MonitoringTimeInMinutes"] !== undefined) {
-    contents.MonitoringTimeInMinutes = parseInt(output["MonitoringTimeInMinutes"]);
-  }
   if (output.RollbackTriggers === "") {
     contents.RollbackTriggers = [];
   }
@@ -7800,20 +7971,23 @@ const deserializeAws_queryRollbackConfiguration = (output: any, context: __Serde
       context
     );
   }
+  if (output["MonitoringTimeInMinutes"] !== undefined) {
+    contents.MonitoringTimeInMinutes = parseInt(output["MonitoringTimeInMinutes"]);
+  }
   return contents;
 };
 
 const deserializeAws_queryRollbackTrigger = (output: any, context: __SerdeContext): RollbackTrigger => {
   let contents: any = {
     __type: "RollbackTrigger",
-    Arn: undefined,
     Type: undefined,
+    Arn: undefined,
   };
-  if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
-  }
   if (output["Type"] !== undefined) {
     contents.Type = output["Type"];
+  }
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
   }
   return contents;
 };
@@ -7839,71 +8013,29 @@ const deserializeAws_querySetTypeDefaultVersionOutput = (
 const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack => {
   let contents: any = {
     __type: "Stack",
-    Capabilities: undefined,
-    ChangeSetId: undefined,
-    CreationTime: undefined,
-    DeletionTime: undefined,
-    Description: undefined,
-    DisableRollback: undefined,
-    DriftInformation: undefined,
-    EnableTerminationProtection: undefined,
-    LastUpdatedTime: undefined,
-    NotificationARNs: undefined,
     Outputs: undefined,
     Parameters: undefined,
-    ParentId: undefined,
-    RoleARN: undefined,
     RollbackConfiguration: undefined,
-    RootId: undefined,
-    StackId: undefined,
-    StackName: undefined,
-    StackStatus: undefined,
+    DeletionTime: undefined,
+    RoleARN: undefined,
+    EnableTerminationProtection: undefined,
+    DisableRollback: undefined,
+    CreationTime: undefined,
+    LastUpdatedTime: undefined,
     StackStatusReason: undefined,
+    Capabilities: undefined,
+    StackStatus: undefined,
+    Description: undefined,
+    RootId: undefined,
+    ParentId: undefined,
+    NotificationARNs: undefined,
+    ChangeSetId: undefined,
     Tags: undefined,
     TimeoutInMinutes: undefined,
+    StackName: undefined,
+    StackId: undefined,
+    DriftInformation: undefined,
   };
-  if (output.Capabilities === "") {
-    contents.Capabilities = [];
-  }
-  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-    contents.Capabilities = deserializeAws_queryCapabilities(
-      __getArrayIfSingleItem(output["Capabilities"]["member"]),
-      context
-    );
-  }
-  if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId = output["ChangeSetId"];
-  }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["CreationTime"]);
-  }
-  if (output["DeletionTime"] !== undefined) {
-    contents.DeletionTime = new Date(output["DeletionTime"]);
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["DisableRollback"] !== undefined) {
-    contents.DisableRollback = output["DisableRollback"] == "true";
-  }
-  if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = deserializeAws_queryStackDriftInformation(output["DriftInformation"], context);
-  }
-  if (output["EnableTerminationProtection"] !== undefined) {
-    contents.EnableTerminationProtection = output["EnableTerminationProtection"] == "true";
-  }
-  if (output["LastUpdatedTime"] !== undefined) {
-    contents.LastUpdatedTime = new Date(output["LastUpdatedTime"]);
-  }
-  if (output.NotificationARNs === "") {
-    contents.NotificationARNs = [];
-  }
-  if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
-    contents.NotificationARNs = deserializeAws_queryNotificationARNs(
-      __getArrayIfSingleItem(output["NotificationARNs"]["member"]),
-      context
-    );
-  }
   if (output.Outputs === "") {
     contents.Outputs = [];
   }
@@ -7919,32 +8051,65 @@ const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack 
       context
     );
   }
-  if (output["ParentId"] !== undefined) {
-    contents.ParentId = output["ParentId"];
-  }
-  if (output["RoleARN"] !== undefined) {
-    contents.RoleARN = output["RoleARN"];
-  }
   if (output["RollbackConfiguration"] !== undefined) {
     contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(
       output["RollbackConfiguration"],
       context
     );
   }
-  if (output["RootId"] !== undefined) {
-    contents.RootId = output["RootId"];
+  if (output["DeletionTime"] !== undefined) {
+    contents.DeletionTime = new Date(output["DeletionTime"]);
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = output["StackId"];
+  if (output["RoleARN"] !== undefined) {
+    contents.RoleARN = output["RoleARN"];
   }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = output["StackName"];
+  if (output["EnableTerminationProtection"] !== undefined) {
+    contents.EnableTerminationProtection = output["EnableTerminationProtection"] == "true";
+  }
+  if (output["DisableRollback"] !== undefined) {
+    contents.DisableRollback = output["DisableRollback"] == "true";
+  }
+  if (output["CreationTime"] !== undefined) {
+    contents.CreationTime = new Date(output["CreationTime"]);
+  }
+  if (output["LastUpdatedTime"] !== undefined) {
+    contents.LastUpdatedTime = new Date(output["LastUpdatedTime"]);
+  }
+  if (output["StackStatusReason"] !== undefined) {
+    contents.StackStatusReason = output["StackStatusReason"];
+  }
+  if (output.Capabilities === "") {
+    contents.Capabilities = [];
+  }
+  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
+    contents.Capabilities = deserializeAws_queryCapabilities(
+      __getArrayIfSingleItem(output["Capabilities"]["member"]),
+      context
+    );
   }
   if (output["StackStatus"] !== undefined) {
     contents.StackStatus = output["StackStatus"];
   }
-  if (output["StackStatusReason"] !== undefined) {
-    contents.StackStatusReason = output["StackStatusReason"];
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["RootId"] !== undefined) {
+    contents.RootId = output["RootId"];
+  }
+  if (output["ParentId"] !== undefined) {
+    contents.ParentId = output["ParentId"];
+  }
+  if (output.NotificationARNs === "") {
+    contents.NotificationARNs = [];
+  }
+  if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
+    contents.NotificationARNs = deserializeAws_queryNotificationARNs(
+      __getArrayIfSingleItem(output["NotificationARNs"]["member"]),
+      context
+    );
+  }
+  if (output["ChangeSetId"] !== undefined) {
+    contents.ChangeSetId = output["ChangeSetId"];
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -7954,6 +8119,15 @@ const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack 
   }
   if (output["TimeoutInMinutes"] !== undefined) {
     contents.TimeoutInMinutes = parseInt(output["TimeoutInMinutes"]);
+  }
+  if (output["StackName"] !== undefined) {
+    contents.StackName = output["StackName"];
+  }
+  if (output["StackId"] !== undefined) {
+    contents.StackId = output["StackId"];
+  }
+  if (output["DriftInformation"] !== undefined) {
+    contents.DriftInformation = deserializeAws_queryStackDriftInformation(output["DriftInformation"], context);
   }
   return contents;
 };
@@ -7979,14 +8153,14 @@ const deserializeAws_queryStackDriftInformationSummary = (
 ): StackDriftInformationSummary => {
   let contents: any = {
     __type: "StackDriftInformationSummary",
-    LastCheckTimestamp: undefined,
     StackDriftStatus: undefined,
+    LastCheckTimestamp: undefined,
   };
-  if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
-  }
   if (output["StackDriftStatus"] !== undefined) {
     contents.StackDriftStatus = output["StackDriftStatus"];
+  }
+  if (output["LastCheckTimestamp"] !== undefined) {
+    contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
   }
   return contents;
 };
@@ -7995,49 +8169,49 @@ const deserializeAws_queryStackEvent = (output: any, context: __SerdeContext): S
   let contents: any = {
     __type: "StackEvent",
     ClientRequestToken: undefined,
-    EventId: undefined,
-    LogicalResourceId: undefined,
-    PhysicalResourceId: undefined,
-    ResourceProperties: undefined,
-    ResourceStatus: undefined,
     ResourceStatusReason: undefined,
-    ResourceType: undefined,
-    StackId: undefined,
-    StackName: undefined,
+    LogicalResourceId: undefined,
+    ResourceProperties: undefined,
     Timestamp: undefined,
+    StackName: undefined,
+    StackId: undefined,
+    EventId: undefined,
+    ResourceStatus: undefined,
+    ResourceType: undefined,
+    PhysicalResourceId: undefined,
   };
   if (output["ClientRequestToken"] !== undefined) {
     contents.ClientRequestToken = output["ClientRequestToken"];
   }
-  if (output["EventId"] !== undefined) {
-    contents.EventId = output["EventId"];
+  if (output["ResourceStatusReason"] !== undefined) {
+    contents.ResourceStatusReason = output["ResourceStatusReason"];
   }
   if (output["LogicalResourceId"] !== undefined) {
     contents.LogicalResourceId = output["LogicalResourceId"];
   }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = output["PhysicalResourceId"];
-  }
   if (output["ResourceProperties"] !== undefined) {
     contents.ResourceProperties = output["ResourceProperties"];
   }
-  if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus = output["ResourceStatus"];
-  }
-  if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason = output["ResourceStatusReason"];
-  }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = output["ResourceType"];
-  }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = output["StackId"];
+  if (output["Timestamp"] !== undefined) {
+    contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["StackName"] !== undefined) {
     contents.StackName = output["StackName"];
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
+  if (output["StackId"] !== undefined) {
+    contents.StackId = output["StackId"];
+  }
+  if (output["EventId"] !== undefined) {
+    contents.EventId = output["EventId"];
+  }
+  if (output["ResourceStatus"] !== undefined) {
+    contents.ResourceStatus = output["ResourceStatus"];
+  }
+  if (output["ResourceType"] !== undefined) {
+    contents.ResourceType = output["ResourceType"];
+  }
+  if (output["PhysicalResourceId"] !== undefined) {
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
   return contents;
 };
@@ -8049,24 +8223,23 @@ const deserializeAws_queryStackEvents = (output: any, context: __SerdeContext): 
 const deserializeAws_queryStackInstance = (output: any, context: __SerdeContext): StackInstance => {
   let contents: any = {
     __type: "StackInstance",
-    Account: undefined,
-    DriftStatus: undefined,
-    LastDriftCheckTimestamp: undefined,
-    ParameterOverrides: undefined,
     Region: undefined,
-    StackId: undefined,
-    StackSetId: undefined,
-    Status: undefined,
+    DriftStatus: undefined,
+    ParameterOverrides: undefined,
     StatusReason: undefined,
+    StackId: undefined,
+    LastDriftCheckTimestamp: undefined,
+    Status: undefined,
+    OrganizationalUnitId: undefined,
+    StackSetId: undefined,
+    Account: undefined,
+    StackInstanceStatus: undefined,
   };
-  if (output["Account"] !== undefined) {
-    contents.Account = output["Account"];
+  if (output["Region"] !== undefined) {
+    contents.Region = output["Region"];
   }
   if (output["DriftStatus"] !== undefined) {
     contents.DriftStatus = output["DriftStatus"];
-  }
-  if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
   }
   if (output.ParameterOverrides === "") {
     contents.ParameterOverrides = [];
@@ -8077,20 +8250,46 @@ const deserializeAws_queryStackInstance = (output: any, context: __SerdeContext)
       context
     );
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = output["Region"];
+  if (output["StatusReason"] !== undefined) {
+    contents.StatusReason = output["StatusReason"];
   }
   if (output["StackId"] !== undefined) {
     contents.StackId = output["StackId"];
   }
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = output["StackSetId"];
+  if (output["LastDriftCheckTimestamp"] !== undefined) {
+    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = output["StatusReason"];
+  if (output["OrganizationalUnitId"] !== undefined) {
+    contents.OrganizationalUnitId = output["OrganizationalUnitId"];
+  }
+  if (output["StackSetId"] !== undefined) {
+    contents.StackSetId = output["StackSetId"];
+  }
+  if (output["Account"] !== undefined) {
+    contents.Account = output["Account"];
+  }
+  if (output["StackInstanceStatus"] !== undefined) {
+    contents.StackInstanceStatus = deserializeAws_queryStackInstanceComprehensiveStatus(
+      output["StackInstanceStatus"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryStackInstanceComprehensiveStatus = (
+  output: any,
+  context: __SerdeContext
+): StackInstanceComprehensiveStatus => {
+  let contents: any = {
+    __type: "StackInstanceComprehensiveStatus",
+    DetailedStatus: undefined,
+  };
+  if (output["DetailedStatus"] !== undefined) {
+    contents.DetailedStatus = output["DetailedStatus"];
   }
   return contents;
 };
@@ -8116,38 +8315,49 @@ const deserializeAws_queryStackInstanceSummaries = (output: any, context: __Serd
 const deserializeAws_queryStackInstanceSummary = (output: any, context: __SerdeContext): StackInstanceSummary => {
   let contents: any = {
     __type: "StackInstanceSummary",
-    Account: undefined,
-    DriftStatus: undefined,
-    LastDriftCheckTimestamp: undefined,
-    Region: undefined,
-    StackId: undefined,
-    StackSetId: undefined,
     Status: undefined,
     StatusReason: undefined,
+    LastDriftCheckTimestamp: undefined,
+    OrganizationalUnitId: undefined,
+    StackSetId: undefined,
+    Account: undefined,
+    StackInstanceStatus: undefined,
+    DriftStatus: undefined,
+    StackId: undefined,
+    Region: undefined,
   };
-  if (output["Account"] !== undefined) {
-    contents.Account = output["Account"];
-  }
-  if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus = output["DriftStatus"];
-  }
-  if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
-  }
-  if (output["Region"] !== undefined) {
-    contents.Region = output["Region"];
-  }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = output["StackId"];
-  }
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = output["StackSetId"];
-  }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
   if (output["StatusReason"] !== undefined) {
     contents.StatusReason = output["StatusReason"];
+  }
+  if (output["LastDriftCheckTimestamp"] !== undefined) {
+    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
+  }
+  if (output["OrganizationalUnitId"] !== undefined) {
+    contents.OrganizationalUnitId = output["OrganizationalUnitId"];
+  }
+  if (output["StackSetId"] !== undefined) {
+    contents.StackSetId = output["StackSetId"];
+  }
+  if (output["Account"] !== undefined) {
+    contents.Account = output["Account"];
+  }
+  if (output["StackInstanceStatus"] !== undefined) {
+    contents.StackInstanceStatus = deserializeAws_queryStackInstanceComprehensiveStatus(
+      output["StackInstanceStatus"],
+      context
+    );
+  }
+  if (output["DriftStatus"] !== undefined) {
+    contents.DriftStatus = output["DriftStatus"];
+  }
+  if (output["StackId"] !== undefined) {
+    contents.StackId = output["StackId"];
+  }
+  if (output["Region"] !== undefined) {
+    contents.Region = output["Region"];
   }
   return contents;
 };
@@ -8155,25 +8365,28 @@ const deserializeAws_queryStackInstanceSummary = (output: any, context: __SerdeC
 const deserializeAws_queryStackResource = (output: any, context: __SerdeContext): StackResource => {
   let contents: any = {
     __type: "StackResource",
+    LogicalResourceId: undefined,
+    ResourceStatusReason: undefined,
     Description: undefined,
     DriftInformation: undefined,
-    LogicalResourceId: undefined,
     PhysicalResourceId: undefined,
     ResourceStatus: undefined,
-    ResourceStatusReason: undefined,
     ResourceType: undefined,
-    StackId: undefined,
-    StackName: undefined,
     Timestamp: undefined,
+    StackName: undefined,
+    StackId: undefined,
   };
+  if (output["LogicalResourceId"] !== undefined) {
+    contents.LogicalResourceId = output["LogicalResourceId"];
+  }
+  if (output["ResourceStatusReason"] !== undefined) {
+    contents.ResourceStatusReason = output["ResourceStatusReason"];
+  }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
   if (output["DriftInformation"] !== undefined) {
     contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(output["DriftInformation"], context);
-  }
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = output["LogicalResourceId"];
   }
   if (output["PhysicalResourceId"] !== undefined) {
     contents.PhysicalResourceId = output["PhysicalResourceId"];
@@ -8181,20 +8394,17 @@ const deserializeAws_queryStackResource = (output: any, context: __SerdeContext)
   if (output["ResourceStatus"] !== undefined) {
     contents.ResourceStatus = output["ResourceStatus"];
   }
-  if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason = output["ResourceStatusReason"];
-  }
   if (output["ResourceType"] !== undefined) {
     contents.ResourceType = output["ResourceType"];
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = output["StackId"];
+  if (output["Timestamp"] !== undefined) {
+    contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["StackName"] !== undefined) {
     contents.StackName = output["StackName"];
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
+  if (output["StackId"] !== undefined) {
+    contents.StackId = output["StackId"];
   }
   return contents;
 };
@@ -8202,44 +8412,20 @@ const deserializeAws_queryStackResource = (output: any, context: __SerdeContext)
 const deserializeAws_queryStackResourceDetail = (output: any, context: __SerdeContext): StackResourceDetail => {
   let contents: any = {
     __type: "StackResourceDetail",
-    Description: undefined,
     DriftInformation: undefined,
-    LastUpdatedTimestamp: undefined,
-    LogicalResourceId: undefined,
-    Metadata: undefined,
-    PhysicalResourceId: undefined,
-    ResourceStatus: undefined,
-    ResourceStatusReason: undefined,
-    ResourceType: undefined,
     StackId: undefined,
     StackName: undefined,
+    LogicalResourceId: undefined,
+    LastUpdatedTimestamp: undefined,
+    PhysicalResourceId: undefined,
+    Metadata: undefined,
+    Description: undefined,
+    ResourceType: undefined,
+    ResourceStatusReason: undefined,
+    ResourceStatus: undefined,
   };
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
   if (output["DriftInformation"] !== undefined) {
     contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(output["DriftInformation"], context);
-  }
-  if (output["LastUpdatedTimestamp"] !== undefined) {
-    contents.LastUpdatedTimestamp = new Date(output["LastUpdatedTimestamp"]);
-  }
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = output["LogicalResourceId"];
-  }
-  if (output["Metadata"] !== undefined) {
-    contents.Metadata = output["Metadata"];
-  }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = output["PhysicalResourceId"];
-  }
-  if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus = output["ResourceStatus"];
-  }
-  if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason = output["ResourceStatusReason"];
-  }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = output["ResourceType"];
   }
   if (output["StackId"] !== undefined) {
     contents.StackId = output["StackId"];
@@ -8247,34 +8433,49 @@ const deserializeAws_queryStackResourceDetail = (output: any, context: __SerdeCo
   if (output["StackName"] !== undefined) {
     contents.StackName = output["StackName"];
   }
+  if (output["LogicalResourceId"] !== undefined) {
+    contents.LogicalResourceId = output["LogicalResourceId"];
+  }
+  if (output["LastUpdatedTimestamp"] !== undefined) {
+    contents.LastUpdatedTimestamp = new Date(output["LastUpdatedTimestamp"]);
+  }
+  if (output["PhysicalResourceId"] !== undefined) {
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
+  }
+  if (output["Metadata"] !== undefined) {
+    contents.Metadata = output["Metadata"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["ResourceType"] !== undefined) {
+    contents.ResourceType = output["ResourceType"];
+  }
+  if (output["ResourceStatusReason"] !== undefined) {
+    contents.ResourceStatusReason = output["ResourceStatusReason"];
+  }
+  if (output["ResourceStatus"] !== undefined) {
+    contents.ResourceStatus = output["ResourceStatus"];
+  }
   return contents;
 };
 
 const deserializeAws_queryStackResourceDrift = (output: any, context: __SerdeContext): StackResourceDrift => {
   let contents: any = {
     __type: "StackResourceDrift",
-    ActualProperties: undefined,
-    ExpectedProperties: undefined,
     LogicalResourceId: undefined,
-    PhysicalResourceId: undefined,
     PhysicalResourceIdContext: undefined,
-    PropertyDifferences: undefined,
-    ResourceType: undefined,
-    StackId: undefined,
+    ActualProperties: undefined,
     StackResourceDriftStatus: undefined,
+    ResourceType: undefined,
+    PhysicalResourceId: undefined,
     Timestamp: undefined,
+    ExpectedProperties: undefined,
+    StackId: undefined,
+    PropertyDifferences: undefined,
   };
-  if (output["ActualProperties"] !== undefined) {
-    contents.ActualProperties = output["ActualProperties"];
-  }
-  if (output["ExpectedProperties"] !== undefined) {
-    contents.ExpectedProperties = output["ExpectedProperties"];
-  }
   if (output["LogicalResourceId"] !== undefined) {
     contents.LogicalResourceId = output["LogicalResourceId"];
-  }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
   if (output.PhysicalResourceIdContext === "") {
     contents.PhysicalResourceIdContext = [];
@@ -8288,6 +8489,27 @@ const deserializeAws_queryStackResourceDrift = (output: any, context: __SerdeCon
       context
     );
   }
+  if (output["ActualProperties"] !== undefined) {
+    contents.ActualProperties = output["ActualProperties"];
+  }
+  if (output["StackResourceDriftStatus"] !== undefined) {
+    contents.StackResourceDriftStatus = output["StackResourceDriftStatus"];
+  }
+  if (output["ResourceType"] !== undefined) {
+    contents.ResourceType = output["ResourceType"];
+  }
+  if (output["PhysicalResourceId"] !== undefined) {
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
+  }
+  if (output["Timestamp"] !== undefined) {
+    contents.Timestamp = new Date(output["Timestamp"]);
+  }
+  if (output["ExpectedProperties"] !== undefined) {
+    contents.ExpectedProperties = output["ExpectedProperties"];
+  }
+  if (output["StackId"] !== undefined) {
+    contents.StackId = output["StackId"];
+  }
   if (output.PropertyDifferences === "") {
     contents.PropertyDifferences = [];
   }
@@ -8296,18 +8518,6 @@ const deserializeAws_queryStackResourceDrift = (output: any, context: __SerdeCon
       __getArrayIfSingleItem(output["PropertyDifferences"]["member"]),
       context
     );
-  }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = output["ResourceType"];
-  }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = output["StackId"];
-  }
-  if (output["StackResourceDriftStatus"] !== undefined) {
-    contents.StackResourceDriftStatus = output["StackResourceDriftStatus"];
-  }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
   }
   return contents;
 };
@@ -8318,14 +8528,14 @@ const deserializeAws_queryStackResourceDriftInformation = (
 ): StackResourceDriftInformation => {
   let contents: any = {
     __type: "StackResourceDriftInformation",
-    LastCheckTimestamp: undefined,
     StackResourceDriftStatus: undefined,
+    LastCheckTimestamp: undefined,
   };
-  if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
-  }
   if (output["StackResourceDriftStatus"] !== undefined) {
     contents.StackResourceDriftStatus = output["StackResourceDriftStatus"];
+  }
+  if (output["LastCheckTimestamp"] !== undefined) {
+    contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
   }
   return contents;
 };
@@ -8363,22 +8573,16 @@ const deserializeAws_queryStackResourceSummaries = (output: any, context: __Serd
 const deserializeAws_queryStackResourceSummary = (output: any, context: __SerdeContext): StackResourceSummary => {
   let contents: any = {
     __type: "StackResourceSummary",
-    DriftInformation: undefined,
-    LastUpdatedTimestamp: undefined,
+    ResourceStatusReason: undefined,
     LogicalResourceId: undefined,
     PhysicalResourceId: undefined,
-    ResourceStatus: undefined,
-    ResourceStatusReason: undefined,
+    LastUpdatedTimestamp: undefined,
     ResourceType: undefined,
+    DriftInformation: undefined,
+    ResourceStatus: undefined,
   };
-  if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = deserializeAws_queryStackResourceDriftInformationSummary(
-      output["DriftInformation"],
-      context
-    );
-  }
-  if (output["LastUpdatedTimestamp"] !== undefined) {
-    contents.LastUpdatedTimestamp = new Date(output["LastUpdatedTimestamp"]);
+  if (output["ResourceStatusReason"] !== undefined) {
+    contents.ResourceStatusReason = output["ResourceStatusReason"];
   }
   if (output["LogicalResourceId"] !== undefined) {
     contents.LogicalResourceId = output["LogicalResourceId"];
@@ -8386,14 +8590,20 @@ const deserializeAws_queryStackResourceSummary = (output: any, context: __SerdeC
   if (output["PhysicalResourceId"] !== undefined) {
     contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
-  if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus = output["ResourceStatus"];
-  }
-  if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason = output["ResourceStatusReason"];
+  if (output["LastUpdatedTimestamp"] !== undefined) {
+    contents.LastUpdatedTimestamp = new Date(output["LastUpdatedTimestamp"]);
   }
   if (output["ResourceType"] !== undefined) {
     contents.ResourceType = output["ResourceType"];
+  }
+  if (output["DriftInformation"] !== undefined) {
+    contents.DriftInformation = deserializeAws_queryStackResourceDriftInformationSummary(
+      output["DriftInformation"],
+      context
+    );
+  }
+  if (output["ResourceStatus"] !== undefined) {
+    contents.ResourceStatus = output["ResourceStatus"];
   }
   return contents;
 };
@@ -8405,21 +8615,66 @@ const deserializeAws_queryStacks = (output: any, context: __SerdeContext): Stack
 const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): StackSet => {
   let contents: any = {
     __type: "StackSet",
-    AdministrationRoleARN: undefined,
-    Capabilities: undefined,
-    Description: undefined,
-    ExecutionRoleName: undefined,
-    Parameters: undefined,
-    StackSetARN: undefined,
-    StackSetDriftDetectionDetails: undefined,
-    StackSetId: undefined,
-    StackSetName: undefined,
     Status: undefined,
+    StackSetName: undefined,
+    ExecutionRoleName: undefined,
+    Description: undefined,
+    AdministrationRoleARN: undefined,
+    OrganizationalUnitIds: undefined,
     Tags: undefined,
+    StackSetDriftDetectionDetails: undefined,
+    PermissionModel: undefined,
+    AutoDeployment: undefined,
+    StackSetId: undefined,
+    Capabilities: undefined,
+    StackSetARN: undefined,
+    Parameters: undefined,
     TemplateBody: undefined,
   };
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["StackSetName"] !== undefined) {
+    contents.StackSetName = output["StackSetName"];
+  }
+  if (output["ExecutionRoleName"] !== undefined) {
+    contents.ExecutionRoleName = output["ExecutionRoleName"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
   if (output["AdministrationRoleARN"] !== undefined) {
     contents.AdministrationRoleARN = output["AdministrationRoleARN"];
+  }
+  if (output.OrganizationalUnitIds === "") {
+    contents.OrganizationalUnitIds = [];
+  }
+  if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
+    contents.OrganizationalUnitIds = deserializeAws_queryOrganizationalUnitIdList(
+      __getArrayIfSingleItem(output["OrganizationalUnitIds"]["member"]),
+      context
+    );
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_queryTags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["StackSetDriftDetectionDetails"] !== undefined) {
+    contents.StackSetDriftDetectionDetails = deserializeAws_queryStackSetDriftDetectionDetails(
+      output["StackSetDriftDetectionDetails"],
+      context
+    );
+  }
+  if (output["PermissionModel"] !== undefined) {
+    contents.PermissionModel = output["PermissionModel"];
+  }
+  if (output["AutoDeployment"] !== undefined) {
+    contents.AutoDeployment = deserializeAws_queryAutoDeployment(output["AutoDeployment"], context);
+  }
+  if (output["StackSetId"] !== undefined) {
+    contents.StackSetId = output["StackSetId"];
   }
   if (output.Capabilities === "") {
     contents.Capabilities = [];
@@ -8430,11 +8685,8 @@ const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): Sta
       context
     );
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["ExecutionRoleName"] !== undefined) {
-    contents.ExecutionRoleName = output["ExecutionRoleName"];
+  if (output["StackSetARN"] !== undefined) {
+    contents.StackSetARN = output["StackSetARN"];
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
@@ -8444,30 +8696,6 @@ const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): Sta
       __getArrayIfSingleItem(output["Parameters"]["member"]),
       context
     );
-  }
-  if (output["StackSetARN"] !== undefined) {
-    contents.StackSetARN = output["StackSetARN"];
-  }
-  if (output["StackSetDriftDetectionDetails"] !== undefined) {
-    contents.StackSetDriftDetectionDetails = deserializeAws_queryStackSetDriftDetectionDetails(
-      output["StackSetDriftDetectionDetails"],
-      context
-    );
-  }
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = output["StackSetId"];
-  }
-  if (output["StackSetName"] !== undefined) {
-    contents.StackSetName = output["StackSetName"];
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
-  if (output.Tags === "") {
-    contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["TemplateBody"] !== undefined) {
     contents.TemplateBody = output["TemplateBody"];
@@ -8481,38 +8709,38 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (
 ): StackSetDriftDetectionDetails => {
   let contents: any = {
     __type: "StackSetDriftDetectionDetails",
+    TotalStackInstancesCount: undefined,
+    DriftedStackInstancesCount: undefined,
+    InSyncStackInstancesCount: undefined,
     DriftDetectionStatus: undefined,
     DriftStatus: undefined,
-    DriftedStackInstancesCount: undefined,
-    FailedStackInstancesCount: undefined,
     InProgressStackInstancesCount: undefined,
-    InSyncStackInstancesCount: undefined,
+    FailedStackInstancesCount: undefined,
     LastDriftCheckTimestamp: undefined,
-    TotalStackInstancesCount: undefined,
   };
+  if (output["TotalStackInstancesCount"] !== undefined) {
+    contents.TotalStackInstancesCount = parseInt(output["TotalStackInstancesCount"]);
+  }
+  if (output["DriftedStackInstancesCount"] !== undefined) {
+    contents.DriftedStackInstancesCount = parseInt(output["DriftedStackInstancesCount"]);
+  }
+  if (output["InSyncStackInstancesCount"] !== undefined) {
+    contents.InSyncStackInstancesCount = parseInt(output["InSyncStackInstancesCount"]);
+  }
   if (output["DriftDetectionStatus"] !== undefined) {
     contents.DriftDetectionStatus = output["DriftDetectionStatus"];
   }
   if (output["DriftStatus"] !== undefined) {
     contents.DriftStatus = output["DriftStatus"];
   }
-  if (output["DriftedStackInstancesCount"] !== undefined) {
-    contents.DriftedStackInstancesCount = parseInt(output["DriftedStackInstancesCount"]);
+  if (output["InProgressStackInstancesCount"] !== undefined) {
+    contents.InProgressStackInstancesCount = parseInt(output["InProgressStackInstancesCount"]);
   }
   if (output["FailedStackInstancesCount"] !== undefined) {
     contents.FailedStackInstancesCount = parseInt(output["FailedStackInstancesCount"]);
   }
-  if (output["InProgressStackInstancesCount"] !== undefined) {
-    contents.InProgressStackInstancesCount = parseInt(output["InProgressStackInstancesCount"]);
-  }
-  if (output["InSyncStackInstancesCount"] !== undefined) {
-    contents.InSyncStackInstancesCount = parseInt(output["InSyncStackInstancesCount"]);
-  }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
     contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
-  }
-  if (output["TotalStackInstancesCount"] !== undefined) {
-    contents.TotalStackInstancesCount = parseInt(output["TotalStackInstancesCount"]);
   }
   return contents;
 };
@@ -8548,35 +8776,27 @@ const deserializeAws_queryStackSetNotFoundException = (
 const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeContext): StackSetOperation => {
   let contents: any = {
     __type: "StackSetOperation",
-    Action: undefined,
-    AdministrationRoleARN: undefined,
-    CreationTimestamp: undefined,
-    EndTimestamp: undefined,
-    ExecutionRoleName: undefined,
-    OperationId: undefined,
-    OperationPreferences: undefined,
-    RetainStacks: undefined,
-    StackSetDriftDetectionDetails: undefined,
     StackSetId: undefined,
     Status: undefined,
+    RetainStacks: undefined,
+    OperationPreferences: undefined,
+    EndTimestamp: undefined,
+    DeploymentTargets: undefined,
+    ExecutionRoleName: undefined,
+    OperationId: undefined,
+    StackSetDriftDetectionDetails: undefined,
+    Action: undefined,
+    CreationTimestamp: undefined,
+    AdministrationRoleARN: undefined,
   };
-  if (output["Action"] !== undefined) {
-    contents.Action = output["Action"];
+  if (output["StackSetId"] !== undefined) {
+    contents.StackSetId = output["StackSetId"];
   }
-  if (output["AdministrationRoleARN"] !== undefined) {
-    contents.AdministrationRoleARN = output["AdministrationRoleARN"];
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
-  if (output["CreationTimestamp"] !== undefined) {
-    contents.CreationTimestamp = new Date(output["CreationTimestamp"]);
-  }
-  if (output["EndTimestamp"] !== undefined) {
-    contents.EndTimestamp = new Date(output["EndTimestamp"]);
-  }
-  if (output["ExecutionRoleName"] !== undefined) {
-    contents.ExecutionRoleName = output["ExecutionRoleName"];
-  }
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = output["OperationId"];
+  if (output["RetainStacks"] !== undefined) {
+    contents.RetainStacks = output["RetainStacks"] == "true";
   }
   if (output["OperationPreferences"] !== undefined) {
     contents.OperationPreferences = deserializeAws_queryStackSetOperationPreferences(
@@ -8584,8 +8804,17 @@ const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeCont
       context
     );
   }
-  if (output["RetainStacks"] !== undefined) {
-    contents.RetainStacks = output["RetainStacks"] == "true";
+  if (output["EndTimestamp"] !== undefined) {
+    contents.EndTimestamp = new Date(output["EndTimestamp"]);
+  }
+  if (output["DeploymentTargets"] !== undefined) {
+    contents.DeploymentTargets = deserializeAws_queryDeploymentTargets(output["DeploymentTargets"], context);
+  }
+  if (output["ExecutionRoleName"] !== undefined) {
+    contents.ExecutionRoleName = output["ExecutionRoleName"];
+  }
+  if (output["OperationId"] !== undefined) {
+    contents.OperationId = output["OperationId"];
   }
   if (output["StackSetDriftDetectionDetails"] !== undefined) {
     contents.StackSetDriftDetectionDetails = deserializeAws_queryStackSetDriftDetectionDetails(
@@ -8593,11 +8822,14 @@ const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeCont
       context
     );
   }
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = output["StackSetId"];
+  if (output["Action"] !== undefined) {
+    contents.Action = output["Action"];
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+  if (output["CreationTimestamp"] !== undefined) {
+    contents.CreationTimestamp = new Date(output["CreationTimestamp"]);
+  }
+  if (output["AdministrationRoleARN"] !== undefined) {
+    contents.AdministrationRoleARN = output["AdministrationRoleARN"];
   }
   return contents;
 };
@@ -8608,23 +8840,14 @@ const deserializeAws_queryStackSetOperationPreferences = (
 ): StackSetOperationPreferences => {
   let contents: any = {
     __type: "StackSetOperationPreferences",
+    MaxConcurrentCount: undefined,
+    RegionOrder: undefined,
     FailureToleranceCount: undefined,
     FailureTolerancePercentage: undefined,
-    MaxConcurrentCount: undefined,
     MaxConcurrentPercentage: undefined,
-    RegionOrder: undefined,
   };
-  if (output["FailureToleranceCount"] !== undefined) {
-    contents.FailureToleranceCount = parseInt(output["FailureToleranceCount"]);
-  }
-  if (output["FailureTolerancePercentage"] !== undefined) {
-    contents.FailureTolerancePercentage = parseInt(output["FailureTolerancePercentage"]);
-  }
   if (output["MaxConcurrentCount"] !== undefined) {
     contents.MaxConcurrentCount = parseInt(output["MaxConcurrentCount"]);
-  }
-  if (output["MaxConcurrentPercentage"] !== undefined) {
-    contents.MaxConcurrentPercentage = parseInt(output["MaxConcurrentPercentage"]);
   }
   if (output.RegionOrder === "") {
     contents.RegionOrder = [];
@@ -8634,6 +8857,15 @@ const deserializeAws_queryStackSetOperationPreferences = (
       __getArrayIfSingleItem(output["RegionOrder"]["member"]),
       context
     );
+  }
+  if (output["FailureToleranceCount"] !== undefined) {
+    contents.FailureToleranceCount = parseInt(output["FailureToleranceCount"]);
+  }
+  if (output["FailureTolerancePercentage"] !== undefined) {
+    contents.FailureTolerancePercentage = parseInt(output["FailureTolerancePercentage"]);
+  }
+  if (output["MaxConcurrentPercentage"] !== undefined) {
+    contents.MaxConcurrentPercentage = parseInt(output["MaxConcurrentPercentage"]);
   }
   return contents;
 };
@@ -8651,17 +8883,18 @@ const deserializeAws_queryStackSetOperationResultSummary = (
 ): StackSetOperationResultSummary => {
   let contents: any = {
     __type: "StackSetOperationResultSummary",
-    Account: undefined,
     AccountGateResult: undefined,
+    StatusReason: undefined,
     Region: undefined,
     Status: undefined,
-    StatusReason: undefined,
+    Account: undefined,
+    OrganizationalUnitId: undefined,
   };
-  if (output["Account"] !== undefined) {
-    contents.Account = output["Account"];
-  }
   if (output["AccountGateResult"] !== undefined) {
     contents.AccountGateResult = deserializeAws_queryAccountGateResult(output["AccountGateResult"], context);
+  }
+  if (output["StatusReason"] !== undefined) {
+    contents.StatusReason = output["StatusReason"];
   }
   if (output["Region"] !== undefined) {
     contents.Region = output["Region"];
@@ -8669,8 +8902,11 @@ const deserializeAws_queryStackSetOperationResultSummary = (
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = output["StatusReason"];
+  if (output["Account"] !== undefined) {
+    contents.Account = output["Account"];
+  }
+  if (output["OrganizationalUnitId"] !== undefined) {
+    contents.OrganizationalUnitId = output["OrganizationalUnitId"];
   }
   return contents;
 };
@@ -8689,25 +8925,25 @@ const deserializeAws_queryStackSetOperationSummary = (
   let contents: any = {
     __type: "StackSetOperationSummary",
     Action: undefined,
+    Status: undefined,
+    OperationId: undefined,
     CreationTimestamp: undefined,
     EndTimestamp: undefined,
-    OperationId: undefined,
-    Status: undefined,
   };
   if (output["Action"] !== undefined) {
     contents.Action = output["Action"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["OperationId"] !== undefined) {
+    contents.OperationId = output["OperationId"];
   }
   if (output["CreationTimestamp"] !== undefined) {
     contents.CreationTimestamp = new Date(output["CreationTimestamp"]);
   }
   if (output["EndTimestamp"] !== undefined) {
     contents.EndTimestamp = new Date(output["EndTimestamp"]);
-  }
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = output["OperationId"];
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -8719,30 +8955,38 @@ const deserializeAws_queryStackSetSummaries = (output: any, context: __SerdeCont
 const deserializeAws_queryStackSetSummary = (output: any, context: __SerdeContext): StackSetSummary => {
   let contents: any = {
     __type: "StackSetSummary",
-    Description: undefined,
-    DriftStatus: undefined,
-    LastDriftCheckTimestamp: undefined,
-    StackSetId: undefined,
-    StackSetName: undefined,
     Status: undefined,
+    AutoDeployment: undefined,
+    Description: undefined,
+    StackSetId: undefined,
+    PermissionModel: undefined,
+    LastDriftCheckTimestamp: undefined,
+    StackSetName: undefined,
+    DriftStatus: undefined,
   };
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["AutoDeployment"] !== undefined) {
+    contents.AutoDeployment = deserializeAws_queryAutoDeployment(output["AutoDeployment"], context);
+  }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
-  }
-  if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus = output["DriftStatus"];
-  }
-  if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
   }
   if (output["StackSetId"] !== undefined) {
     contents.StackSetId = output["StackSetId"];
   }
+  if (output["PermissionModel"] !== undefined) {
+    contents.PermissionModel = output["PermissionModel"];
+  }
+  if (output["LastDriftCheckTimestamp"] !== undefined) {
+    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
+  }
   if (output["StackSetName"] !== undefined) {
     contents.StackSetName = output["StackSetName"];
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+  if (output["DriftStatus"] !== undefined) {
+    contents.DriftStatus = output["DriftStatus"];
   }
   return contents;
 };
@@ -8754,29 +8998,35 @@ const deserializeAws_queryStackSummaries = (output: any, context: __SerdeContext
 const deserializeAws_queryStackSummary = (output: any, context: __SerdeContext): StackSummary => {
   let contents: any = {
     __type: "StackSummary",
-    CreationTime: undefined,
-    DeletionTime: undefined,
-    DriftInformation: undefined,
+    StackStatusReason: undefined,
+    StackName: undefined,
+    StackId: undefined,
     LastUpdatedTime: undefined,
+    DriftInformation: undefined,
+    CreationTime: undefined,
     ParentId: undefined,
     RootId: undefined,
-    StackId: undefined,
-    StackName: undefined,
     StackStatus: undefined,
-    StackStatusReason: undefined,
+    DeletionTime: undefined,
     TemplateDescription: undefined,
   };
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["CreationTime"]);
+  if (output["StackStatusReason"] !== undefined) {
+    contents.StackStatusReason = output["StackStatusReason"];
   }
-  if (output["DeletionTime"] !== undefined) {
-    contents.DeletionTime = new Date(output["DeletionTime"]);
+  if (output["StackName"] !== undefined) {
+    contents.StackName = output["StackName"];
+  }
+  if (output["StackId"] !== undefined) {
+    contents.StackId = output["StackId"];
+  }
+  if (output["LastUpdatedTime"] !== undefined) {
+    contents.LastUpdatedTime = new Date(output["LastUpdatedTime"]);
   }
   if (output["DriftInformation"] !== undefined) {
     contents.DriftInformation = deserializeAws_queryStackDriftInformationSummary(output["DriftInformation"], context);
   }
-  if (output["LastUpdatedTime"] !== undefined) {
-    contents.LastUpdatedTime = new Date(output["LastUpdatedTime"]);
+  if (output["CreationTime"] !== undefined) {
+    contents.CreationTime = new Date(output["CreationTime"]);
   }
   if (output["ParentId"] !== undefined) {
     contents.ParentId = output["ParentId"];
@@ -8784,17 +9034,11 @@ const deserializeAws_queryStackSummary = (output: any, context: __SerdeContext):
   if (output["RootId"] !== undefined) {
     contents.RootId = output["RootId"];
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = output["StackId"];
-  }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = output["StackName"];
-  }
   if (output["StackStatus"] !== undefined) {
     contents.StackStatus = output["StackStatus"];
   }
-  if (output["StackStatusReason"] !== undefined) {
-    contents.StackStatusReason = output["StackStatusReason"];
+  if (output["DeletionTime"] !== undefined) {
+    contents.DeletionTime = new Date(output["DeletionTime"]);
   }
   if (output["TemplateDescription"] !== undefined) {
     contents.TemplateDescription = output["TemplateDescription"];
@@ -8830,14 +9074,14 @@ const deserializeAws_queryStopStackSetOperationOutput = (
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
     __type: "Tag",
-    Key: undefined,
     Value: undefined,
+    Key: undefined,
   };
-  if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
-  }
   if (output["Value"] !== undefined) {
     contents.Value = output["Value"];
+  }
+  if (output["Key"] !== undefined) {
+    contents.Key = output["Key"];
   }
   return contents;
 };
@@ -8849,22 +9093,22 @@ const deserializeAws_queryTags = (output: any, context: __SerdeContext): Tag[] =
 const deserializeAws_queryTemplateParameter = (output: any, context: __SerdeContext): TemplateParameter => {
   let contents: any = {
     __type: "TemplateParameter",
-    DefaultValue: undefined,
     Description: undefined,
-    NoEcho: undefined,
     ParameterKey: undefined,
+    NoEcho: undefined,
+    DefaultValue: undefined,
   };
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = output["DefaultValue"];
-  }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
+  }
+  if (output["ParameterKey"] !== undefined) {
+    contents.ParameterKey = output["ParameterKey"];
   }
   if (output["NoEcho"] !== undefined) {
     contents.NoEcho = output["NoEcho"] == "true";
   }
-  if (output["ParameterKey"] !== undefined) {
-    contents.ParameterKey = output["ParameterKey"];
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = output["DefaultValue"];
   }
   return contents;
 };
@@ -8909,30 +9153,30 @@ const deserializeAws_queryTypeSummaries = (output: any, context: __SerdeContext)
 const deserializeAws_queryTypeSummary = (output: any, context: __SerdeContext): TypeSummary => {
   let contents: any = {
     __type: "TypeSummary",
-    DefaultVersionId: undefined,
-    Description: undefined,
-    LastUpdated: undefined,
     Type: undefined,
-    TypeArn: undefined,
     TypeName: undefined,
+    Description: undefined,
+    DefaultVersionId: undefined,
+    LastUpdated: undefined,
+    TypeArn: undefined,
   };
-  if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId = output["DefaultVersionId"];
+  if (output["Type"] !== undefined) {
+    contents.Type = output["Type"];
+  }
+  if (output["TypeName"] !== undefined) {
+    contents.TypeName = output["TypeName"];
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
+  if (output["DefaultVersionId"] !== undefined) {
+    contents.DefaultVersionId = output["DefaultVersionId"];
+  }
   if (output["LastUpdated"] !== undefined) {
     contents.LastUpdated = new Date(output["LastUpdated"]);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = output["Type"];
-  }
   if (output["TypeArn"] !== undefined) {
     contents.TypeArn = output["TypeArn"];
-  }
-  if (output["TypeName"] !== undefined) {
-    contents.TypeName = output["TypeName"];
   }
   return contents;
 };
@@ -8945,29 +9189,33 @@ const deserializeAws_queryTypeVersionSummary = (output: any, context: __SerdeCon
   let contents: any = {
     __type: "TypeVersionSummary",
     Arn: undefined,
-    Description: undefined,
-    TimeCreated: undefined,
-    Type: undefined,
     TypeName: undefined,
+    Description: undefined,
     VersionId: undefined,
+    TimeCreated: undefined,
+    IsDefaultVersion: undefined,
+    Type: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
   }
+  if (output["TypeName"] !== undefined) {
+    contents.TypeName = output["TypeName"];
+  }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
+  }
+  if (output["VersionId"] !== undefined) {
+    contents.VersionId = output["VersionId"];
   }
   if (output["TimeCreated"] !== undefined) {
     contents.TimeCreated = new Date(output["TimeCreated"]);
   }
+  if (output["IsDefaultVersion"] !== undefined) {
+    contents.IsDefaultVersion = output["IsDefaultVersion"] == "true";
+  }
   if (output["Type"] !== undefined) {
     contents.Type = output["Type"];
-  }
-  if (output["TypeName"] !== undefined) {
-    contents.TypeName = output["TypeName"];
-  }
-  if (output["VersionId"] !== undefined) {
-    contents.VersionId = output["VersionId"];
   }
   return contents;
 };
@@ -9025,18 +9273,18 @@ const deserializeAws_queryUpdateTerminationProtectionOutput = (
 const deserializeAws_queryValidateTemplateOutput = (output: any, context: __SerdeContext): ValidateTemplateOutput => {
   let contents: any = {
     __type: "ValidateTemplateOutput",
-    Capabilities: undefined,
+    Parameters: undefined,
     CapabilitiesReason: undefined,
     DeclaredTransforms: undefined,
+    Capabilities: undefined,
     Description: undefined,
-    Parameters: undefined,
   };
-  if (output.Capabilities === "") {
-    contents.Capabilities = [];
+  if (output.Parameters === "") {
+    contents.Parameters = [];
   }
-  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-    contents.Capabilities = deserializeAws_queryCapabilities(
-      __getArrayIfSingleItem(output["Capabilities"]["member"]),
+  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
+    contents.Parameters = deserializeAws_queryTemplateParameters(
+      __getArrayIfSingleItem(output["Parameters"]["member"]),
       context
     );
   }
@@ -9052,17 +9300,17 @@ const deserializeAws_queryValidateTemplateOutput = (output: any, context: __Serd
       context
     );
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+  if (output.Capabilities === "") {
+    contents.Capabilities = [];
   }
-  if (output.Parameters === "") {
-    contents.Parameters = [];
-  }
-  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = deserializeAws_queryTemplateParameters(
-      __getArrayIfSingleItem(output["Parameters"]["member"]),
+  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
+    contents.Capabilities = deserializeAws_queryCapabilities(
+      __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
     );
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
   return contents;
 };

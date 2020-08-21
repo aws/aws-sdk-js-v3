@@ -40,6 +40,7 @@ export * from "./commands/ListGeoLocationsCommand";
 export * from "./commands/ListHealthChecksCommand";
 export * from "./commands/ListHostedZonesCommand";
 export * from "./commands/ListHostedZonesByNameCommand";
+export * from "./commands/ListHostedZonesByVPCCommand";
 export * from "./commands/ListQueryLoggingConfigsCommand";
 export * from "./commands/ListResourceRecordSetsCommand";
 export * from "./commands/ListReusableDelegationSetsCommand";

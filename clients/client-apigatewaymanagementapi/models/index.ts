@@ -42,12 +42,12 @@ export namespace GetConnectionRequest {
 
 export interface GetConnectionResponse {
   __type?: "GetConnectionResponse";
+  Identity?: Identity;
   /**
    * <p>The time in ISO 8601 format for when the connection was established.</p>
    */
   ConnectedAt?: Date;
 
-  Identity?: Identity;
   /**
    * <p>The time in ISO 8601 format for when the connection was last active.</p>
    */

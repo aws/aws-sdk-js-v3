@@ -77,10 +77,21 @@ import {
   ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   RegisterInstanceCommand,
   RegisterInstanceCommandInput,
   RegisterInstanceCommandOutput,
 } from "./commands/RegisterInstanceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateInstanceCustomHealthStatusCommand,
   UpdateInstanceCustomHealthStatusCommandInput,
@@ -94,19 +105,18 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in.
- * 			When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map.
- * 			For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check.
- * 			Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to
- * 			eight healthy records. </p>
+ * <p>AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications
+ *    run in. When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance
+ *    with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional
+ *    health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer
+ *    that contains up to eight healthy records. </p>
  */
 export class ServiceDiscovery extends ServiceDiscoveryClient {
   /**
    * <p>Creates an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a
-   * 			<code>DiscoverInstances</code> request but can't be discovered using DNS. </p>
-   * 		       <p>For the current limit on the number of namespaces that you can create using the same AWS account, see
-   * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
-   * 			<i>AWS Cloud Map Developer Guide</i>.</p>
+   *     <code>DiscoverInstances</code> request but can't be discovered using DNS. </p>
+   *          <p>For the current limit on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
+   *     <i>AWS Cloud Map Developer Guide</i>.</p>
    */
   public createHttpNamespace(
     args: CreateHttpNamespaceCommandInput,
@@ -138,12 +148,12 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The namespace defines
-   * 			your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>,
-   * 			the resulting DNS name for the service will be <code>backend.example.com</code>. For the current limit on the number of namespaces that you can
-   * 			create using the same AWS account, see
-   * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
-   * 			<i>AWS Cloud Map Developer Guide</i>.</p>
+   * <p>Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The
+   *    namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and
+   *    name your service <code>backend</code>, the resulting DNS name for the service will be
+   *     <code>backend.example.com</code>. For the current limit on the number of namespaces that you can create using the
+   *    same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
+   *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
    */
   public createPrivateDnsNamespace(
     args: CreatePrivateDnsNamespaceCommandInput,
@@ -175,12 +185,11 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your service naming scheme.
-   * 			For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name
-   * 			for the service will be <code>backend.example.com</code>. For the current limit on the number of namespaces that you can
-   * 			create using the same AWS account, see
-   * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
-   * 			<i>AWS Cloud Map Developer Guide</i>.</p>
+   * <p>Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your
+   *    service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service
+   *     <code>backend</code>, the resulting DNS name for the service will be <code>backend.example.com</code>. For the
+   *    current limit on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
+   *     <i>AWS Cloud Map Developer Guide</i>.</p>
    */
   public createPublicDnsNamespace(
     args: CreatePublicDnsNamespaceCommandInput,
@@ -213,10 +222,10 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
 
   /**
    * <p>Creates a service, which defines the configuration for the following entities:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>A</p>
    *                   </li>
@@ -233,16 +242,16 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *                      <p>CNAME</p>
    *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>Optionally, a health check</p>
    *             </li>
    *          </ul>
-   * 		       <p>After you create the service, you can submit a <a>RegisterInstance</a> request, and AWS Cloud Map uses the values in the configuration
-   * 			to create the specified entities.</p>
-   * 		       <p>For the current limit on the number of instances that you can register using the same namespace and using the same service, see
-   * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
-   * 			<i>AWS Cloud Map Developer Guide</i>.</p>
+   *          <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and AWS Cloud Map uses the
+   *    values in the configuration to create the specified entities.</p>
+   *          <p>For the current limit on the number of instances that you can register using the same namespace and using the
+   *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
+   *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -274,7 +283,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Deletes a namespace from the current account. If the namespace still contains one or more services, the request fails.</p>
+   * <p>Deletes a namespace from the current account. If the namespace still contains one or more services, the request
+   *    fails.</p>
    */
   public deleteNamespace(
     args: DeleteNamespaceCommandInput,
@@ -306,7 +316,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Deletes a specified service. If the service still contains one or more registered instances, the request fails.</p>
+   * <p>Deletes a specified service. If the service still contains one or more registered instances, the request
+   *    fails.</p>
    */
   public deleteService(
     args: DeleteServiceCommandInput,
@@ -338,7 +349,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified instance.</p>
+   * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified
+   *    instance.</p>
    */
   public deregisterInstance(
     args: DeregisterInstanceCommandInput,
@@ -370,7 +382,9 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Discovers registered instances for a specified namespace and service.</p>
+   * <p>Discovers registered instances for a specified namespace and service. You can use <code>DiscoverInstances</code>
+   *    to discover instances for any type of namespace. For public and private DNS namespaces, you can also use DNS queries
+   *    to discover instances.</p>
    */
   public discoverInstances(
     args: DiscoverInstancesCommandInput,
@@ -428,10 +442,11 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or more instances
-   * 			that are associated with a specified service.</p>
-   * 		       <note>
-   *             <p>There is a brief delay between when you register an instance and when the health status for the instance is available. </p>
+   * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or
+   *    more instances that are associated with a specified service.</p>
+   *          <note>
+   *             <p>There is a brief delay between when you register an instance and when the health status for the instance is
+   *     available. </p>
    *          </note>
    */
   public getInstancesHealthStatus(
@@ -493,11 +508,11 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Gets information about any operation that returns an operation ID in the response, such as a <code>CreateService</code> request.</p>
-   *
-   * 			      <note>
-   * 				        <p>To get a list of operations that match specified criteria, see <a>ListOperations</a>.</p>
-   * 			      </note>
+   * <p>Gets information about any operation that returns an operation ID in the response, such as a
+   *     <code>CreateService</code> request.</p>
+   *          <note>
+   *             <p>To get a list of operations that match specified criteria, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html">ListOperations</a>.</p>
+   *          </note>
    */
   public getOperation(
     args: GetOperationCommandInput,
@@ -677,46 +692,78 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a specified service.
-   * 			When you submit a <code>RegisterInstance</code> request, the following occurs:</p>
-   * 		       <ul>
+   * <p>Lists tags for the specified resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a
+   *    specified service. When you submit a <code>RegisterInstance</code> request, the following occurs:</p>
+   *          <ul>
    *             <li>
-   *                <p>For each DNS record that you define in the service that is specified by <code>ServiceId</code>,
-   * 				a record is created or updated in the hosted zone that is associated with the corresponding namespace.</p>
+   *                <p>For each DNS record that you define in the service that is specified by <code>ServiceId</code>, a record is
+   *      created or updated in the hosted zone that is associated with the corresponding namespace.</p>
    *             </li>
    *             <li>
-   *                <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on the settings
-   * 				in the health check configuration.</p>
+   *                <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on the settings in the
+   *      health check configuration.</p>
    *             </li>
    *             <li>
    *                <p>The health check, if any, is associated with each of the new or updated records.</p>
    *             </li>
    *          </ul>
-   * 		       <important>
+   *          <important>
    *             <p>One <code>RegisterInstance</code> request must complete before you can submit another request and specify the
-   * 			same service ID and instance ID.</p>
+   *     same service ID and instance ID.</p>
    *          </important>
-   * 		       <p>For more information, see <a>CreateService</a>.</p>
-   * 		       <p>When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p>
-   * 		       <ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">CreateService</a>.</p>
+   *          <p>When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <b>If the health check is healthy</b>: returns all the records</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>If the health check is unhealthy</b>: returns the applicable value for the
-   * 				last healthy instance</p>
+   *                   <b>If the health check is unhealthy</b>: returns the applicable value for the last
+   *      healthy instance</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>If you didn't specify a health check configuration</b>: returns all the
-   * 				records</p>
+   *      records</p>
    *             </li>
    *          </ul>
-   * 		       <p>For the current limit on the number of instances that you can register using the same namespace and using the same service, see
-   * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
-   * 			<i>AWS Cloud Map Developer Guide</i>.</p>
+   *          <p>For the current limit on the number of instances that you can register using the same namespace and using the
+   *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
+   *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
    */
   public registerInstance(
     args: RegisterInstanceCommandInput,
@@ -748,11 +795,69 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * <p>Adds one or more tags to the specified resource.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes one or more tags from the specified resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p>
-   * 		       <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks, which you define using
-   * 			<code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the status for Route 53 health checks, which you define
-   * 			using <code>HealthCheckConfig</code>.</p>
-   * 		       <p>For more information, see <a>HealthCheckCustomConfig</a>.</p>
+   *          <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks,
+   *    which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the
+   *    status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html">HealthCheckCustomConfig</a>.</p>
    */
   public updateInstanceCustomHealthStatus(
     args: UpdateInstanceCustomHealthStatusCommandInput,
@@ -785,23 +890,30 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
 
   /**
    * <p>Submits a request to perform the following operations:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>Add or delete <code>DnsRecords</code> configurations</p>
-   *             </li>
+   *          <ul>
    *             <li>
    *                <p>Update the TTL setting for existing <code>DnsRecords</code> configurations</p>
    *             </li>
    *             <li>
    *                <p>Add, update, or delete <code>HealthCheckConfig</code> for a specified service</p>
+   *                <note>
+   *                   <p>You can't add, update, or delete a <code>HealthCheckCustomConfig</code> configuration.</p>
+   *                </note>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>For public and private DNS namespaces, you must specify all <code>DnsRecords</code> configurations (and, optionally,
-   * 			<code>HealthCheckConfig</code>) that you want to appear in the updated service. Any current configurations that don't appear
-   * 			in an <code>UpdateService</code> request are deleted.</p>
-   * 		       <p>When you update the TTL setting for a service, AWS Cloud Map also updates the corresponding settings in all the records and
-   * 			health checks that were created by using the specified service.</p>
+   *          <p>For public and private DNS namespaces, note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you omit any existing <code>DnsRecords</code> or <code>HealthCheckConfig</code> configurations from an
+   *       <code>UpdateService</code> request, the configurations are deleted from the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you omit an existing <code>HealthCheckCustomConfig</code> configuration from an <code>UpdateService</code>
+   *      request, the configuration is not deleted from the service.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When you update settings for a service, AWS Cloud Map also updates the corresponding settings in all the records
+   *    and health checks that were created by using the specified service.</p>
    */
   public updateService(
     args: UpdateServiceCommandInput,

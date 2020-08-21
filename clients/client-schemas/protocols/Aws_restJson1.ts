@@ -3,6 +3,10 @@ import { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "../comm
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "../commands/CreateSchemaCommand";
 import { DeleteDiscovererCommandInput, DeleteDiscovererCommandOutput } from "../commands/DeleteDiscovererCommand";
 import { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "../commands/DeleteRegistryCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "../commands/DeleteSchemaCommand";
 import {
   DeleteSchemaVersionCommandInput,
@@ -23,6 +27,7 @@ import {
   GetDiscoveredSchemaCommandInput,
   GetDiscoveredSchemaCommandOutput,
 } from "../commands/GetDiscoveredSchemaCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { ListDiscoverersCommandInput, ListDiscoverersCommandOutput } from "../commands/ListDiscoverersCommand";
 import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "../commands/ListRegistriesCommand";
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "../commands/ListSchemaVersionsCommand";
@@ -31,19 +36,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import {
-  LockServiceLinkedRoleCommandInput,
-  LockServiceLinkedRoleCommandOutput,
-} from "../commands/LockServiceLinkedRoleCommand";
 import { PutCodeBindingCommandInput, PutCodeBindingCommandOutput } from "../commands/PutCodeBindingCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { SearchSchemasCommandInput, SearchSchemasCommandOutput } from "../commands/SearchSchemasCommand";
 import { StartDiscovererCommandInput, StartDiscovererCommandOutput } from "../commands/StartDiscovererCommand";
 import { StopDiscovererCommandInput, StopDiscovererCommandOutput } from "../commands/StopDiscovererCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
-import {
-  UnlockServiceLinkedRoleCommandInput,
-  UnlockServiceLinkedRoleCommandOutput,
-} from "../commands/UnlockServiceLinkedRoleCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDiscovererCommandInput, UpdateDiscovererCommandOutput } from "../commands/UpdateDiscovererCommand";
 import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "../commands/UpdateRegistryCommand";
@@ -56,6 +54,7 @@ import {
   GoneException,
   InternalServerErrorException,
   NotFoundException,
+  PreconditionFailedException,
   RegistrySummary,
   SchemaSummary,
   SchemaVersionSummary,
@@ -67,6 +66,7 @@ import {
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -146,15 +146,6 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
-  if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RegistryName.");
-    }
-    resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RegistryName.");
-  }
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
@@ -163,6 +154,15 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
     resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
+  }
+  if (input.RegistryName !== undefined) {
+    const labelValue: string = input.RegistryName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RegistryName.");
+    }
+    resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -243,6 +243,31 @@ export const serializeAws_restJson1DeleteRegistryCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/policy";
+  const query: any = {
+    ...(input.RegistryName !== undefined && { registryName: input.RegistryName }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
@@ -290,15 +315,6 @@ export const serializeAws_restJson1DeleteSchemaVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}";
-  if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RegistryName.");
-    }
-    resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RegistryName.");
-  }
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
@@ -307,6 +323,15 @@ export const serializeAws_restJson1DeleteSchemaVersionCommand = async (
     resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
+  }
+  if (input.RegistryName !== undefined) {
+    const labelValue: string = input.RegistryName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RegistryName.");
+    }
+    resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaVersion !== undefined) {
     const labelValue: string = input.SchemaVersion;
@@ -338,15 +363,6 @@ export const serializeAws_restJson1DescribeCodeBindingCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
-  if (input.Language !== undefined) {
-    const labelValue: string = input.Language;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Language.");
-    }
-    resolvedPath = resolvedPath.replace("{Language}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Language.");
-  }
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -355,6 +371,15 @@ export const serializeAws_restJson1DescribeCodeBindingCommand = async (
     resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
+  }
+  if (input.Language !== undefined) {
+    const labelValue: string = input.Language;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Language.");
+    }
+    resolvedPath = resolvedPath.replace("{Language}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Language.");
   }
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
@@ -450,15 +475,6 @@ export const serializeAws_restJson1DescribeSchemaCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
-  if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RegistryName.");
-    }
-    resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RegistryName.");
-  }
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
@@ -467,6 +483,15 @@ export const serializeAws_restJson1DescribeSchemaCommand = async (
     resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
+  }
+  if (input.RegistryName !== undefined) {
+    const labelValue: string = input.RegistryName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RegistryName.");
+    }
+    resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   const query: any = {
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
@@ -493,15 +518,6 @@ export const serializeAws_restJson1GetCodeBindingSourceCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source";
-  if (input.Language !== undefined) {
-    const labelValue: string = input.Language;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Language.");
-    }
-    resolvedPath = resolvedPath.replace("{Language}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Language.");
-  }
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -510,6 +526,15 @@ export const serializeAws_restJson1GetCodeBindingSourceCommand = async (
     resolvedPath = resolvedPath.replace("{RegistryName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
+  }
+  if (input.Language !== undefined) {
+    const labelValue: string = input.Language;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Language.");
+    }
+    resolvedPath = resolvedPath.replace("{Language}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Language.");
   }
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
@@ -564,6 +589,31 @@ export const serializeAws_restJson1GetDiscoveredSchemaCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/policy";
+  const query: any = {
+    ...(input.RegistryName !== undefined && { registryName: input.RegistryName }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListDiscoverersCommand = async (
   input: ListDiscoverersCommandInput,
   context: __SerdeContext
@@ -573,8 +623,8 @@ export const serializeAws_restJson1ListDiscoverersCommand = async (
   };
   let resolvedPath = "/v1/discoverers";
   const query: any = {
-    ...(input.DiscovererIdPrefix !== undefined && { discovererIdPrefix: input.DiscovererIdPrefix }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.DiscovererIdPrefix !== undefined && { discovererIdPrefix: input.DiscovererIdPrefix }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.SourceArnPrefix !== undefined && { sourceArnPrefix: input.SourceArnPrefix }),
   };
@@ -601,9 +651,9 @@ export const serializeAws_restJson1ListRegistriesCommand = async (
   };
   let resolvedPath = "/v1/registries";
   const query: any = {
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.RegistryNamePrefix !== undefined && { registryNamePrefix: input.RegistryNamePrefix }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.Scope !== undefined && { scope: input.Scope }),
   };
   let body: any;
@@ -638,9 +688,9 @@ export const serializeAws_restJson1ListSchemasCommand = async (
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   const query: any = {
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.SchemaNamePrefix !== undefined && { schemaNamePrefix: input.SchemaNamePrefix }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -683,8 +733,8 @@ export const serializeAws_restJson1ListSchemaVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -730,31 +780,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1LockServiceLinkedRoleCommand = async (
-  input: LockServiceLinkedRoleCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "application/json",
-  };
-  let resolvedPath = "/slr-deletion/lock";
-  let body: any;
-  body = JSON.stringify({
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
-  });
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
 export const serializeAws_restJson1PutCodeBindingCommand = async (
   input: PutCodeBindingCommandInput,
   context: __SerdeContext
@@ -763,6 +788,15 @@ export const serializeAws_restJson1PutCodeBindingCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
+  if (input.SchemaName !== undefined) {
+    const labelValue: string = input.SchemaName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SchemaName.");
+    }
+    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SchemaName.");
+  }
   if (input.Language !== undefined) {
     const labelValue: string = input.Language;
     if (labelValue.length <= 0) {
@@ -781,15 +815,6 @@ export const serializeAws_restJson1PutCodeBindingCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
-  if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SchemaName.");
-    }
-    resolvedPath = resolvedPath.replace("{SchemaName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SchemaName.");
-  }
   const query: any = {
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
   };
@@ -800,6 +825,35 @@ export const serializeAws_restJson1PutCodeBindingCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/policy";
+  const query: any = {
+    ...(input.RegistryName !== undefined && { registryName: input.RegistryName }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Policy !== undefined && { Policy: __LazyJsonString.fromObject(input.Policy) }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     query,
@@ -826,8 +880,8 @@ export const serializeAws_restJson1SearchSchemasCommand = async (
   }
   const query: any = {
     ...(input.Keywords !== undefined && { keywords: input.Keywords }),
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -923,30 +977,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Tags !== undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
-  });
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-export const serializeAws_restJson1UnlockServiceLinkedRoleCommand = async (
-  input: UnlockServiceLinkedRoleCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "application/json",
-  };
-  let resolvedPath = "/slr-deletion/unlock";
-  let body: any;
-  body = JSON.stringify({
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1546,6 +1576,97 @@ const deserializeAws_restJson1DeleteRegistryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRegistryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.schemas#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.schemas#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.schemas#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.schemas#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.schemas#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.schemas#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteResourcePolicyCommandError(output, context);
+  }
+  const contents: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2443,6 +2564,106 @@ const deserializeAws_restJson1GetDiscoveredSchemaCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetResourcePolicyCommandError(output, context);
+  }
+  const contents: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetResourcePolicyResponse",
+    Policy: undefined,
+    RevisionId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Policy !== undefined && data.Policy !== null) {
+    contents.Policy = new __LazyJsonString(data.Policy);
+  }
+  if (data.RevisionId !== undefined && data.RevisionId !== null) {
+    contents.RevisionId = data.RevisionId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.schemas#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.schemas#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.schemas#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.schemas#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.schemas#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.schemas#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListDiscoverersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2832,8 +3053,8 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -2878,102 +3099,6 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "com.amazonaws.schemas#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1LockServiceLinkedRoleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LockServiceLinkedRoleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1LockServiceLinkedRoleCommandError(output, context);
-  }
-  const contents: LockServiceLinkedRoleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "LockServiceLinkedRoleResponse",
-    CanBeDeleted: undefined,
-    ReasonOfFailure: undefined,
-    RelatedResources: undefined,
-  };
-  const data: any = await parseBody(output.body, context);
-  if (data.CanBeDeleted !== undefined && data.CanBeDeleted !== null) {
-    contents.CanBeDeleted = data.CanBeDeleted;
-  }
-  if (data.ReasonOfFailure !== undefined && data.ReasonOfFailure !== null) {
-    contents.ReasonOfFailure = data.ReasonOfFailure;
-  }
-  if (data.RelatedResources !== undefined && data.RelatedResources !== null) {
-    contents.RelatedResources = deserializeAws_restJson1__listOfDiscovererSummary(data.RelatedResources, context);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1LockServiceLinkedRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LockServiceLinkedRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.schemas#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ForbiddenException":
-    case "com.amazonaws.schemas#ForbiddenException":
-      response = {
-        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InternalServerErrorException":
-    case "com.amazonaws.schemas#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ServiceUnavailableException":
-    case "com.amazonaws.schemas#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UnauthorizedException":
-    case "com.amazonaws.schemas#UnauthorizedException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3082,6 +3207,114 @@ const deserializeAws_restJson1PutCodeBindingCommandError = async (
     case "com.amazonaws.schemas#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.schemas#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1PutResourcePolicyCommandError(output, context);
+  }
+  const contents: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutResourcePolicyResponse",
+    Policy: undefined,
+    RevisionId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Policy !== undefined && data.Policy !== null) {
+    contents.Policy = new __LazyJsonString(data.Policy);
+  }
+  if (data.RevisionId !== undefined && data.RevisionId !== null) {
+    contents.RevisionId = data.RevisionId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.schemas#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.schemas#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.schemas#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.schemas#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PreconditionFailedException":
+    case "com.amazonaws.schemas#PreconditionFailedException":
+      response = {
+        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.schemas#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3457,90 +3690,6 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "com.amazonaws.schemas#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1UnlockServiceLinkedRoleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnlockServiceLinkedRoleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UnlockServiceLinkedRoleCommandError(output, context);
-  }
-  const contents: UnlockServiceLinkedRoleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "UnlockServiceLinkedRoleResponse",
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1UnlockServiceLinkedRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnlockServiceLinkedRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.schemas#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ForbiddenException":
-    case "com.amazonaws.schemas#ForbiddenException":
-      response = {
-        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InternalServerErrorException":
-    case "com.amazonaws.schemas#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ServiceUnavailableException":
-    case "com.amazonaws.schemas#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UnauthorizedException":
-    case "com.amazonaws.schemas#UnauthorizedException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4088,6 +4237,27 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Code: undefined,
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Code !== undefined && data.Code !== null) {
+    contents.Code = data.Code;
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PreconditionFailedException> => {
+  const contents: PreconditionFailedException = {
+    name: "PreconditionFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Code: undefined,

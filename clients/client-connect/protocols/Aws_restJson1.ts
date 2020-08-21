@@ -43,12 +43,28 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "../commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import {
+  ResumeContactRecordingCommandInput,
+  ResumeContactRecordingCommandOutput,
+} from "../commands/ResumeContactRecordingCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "../commands/StartChatContactCommand";
+import {
+  StartContactRecordingCommandInput,
+  StartContactRecordingCommandOutput,
+} from "../commands/StartContactRecordingCommand";
 import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "../commands/StartOutboundVoiceContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "../commands/StopContactCommand";
+import {
+  StopContactRecordingCommandInput,
+  StopContactRecordingCommandOutput,
+} from "../commands/StopContactRecordingCommand";
+import {
+  SuspendContactRecordingCommandInput,
+  SuspendContactRecordingCommandOutput,
+} from "../commands/SuspendContactRecordingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -117,6 +133,7 @@ import {
   UserNotFoundException,
   UserPhoneConfig,
   UserSummary,
+  VoiceRecordingConfiguration,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -264,15 +281,6 @@ export const serializeAws_restJson1DescribeUserHierarchyGroupCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
-  if (input.HierarchyGroupId !== undefined) {
-    const labelValue: string = input.HierarchyGroupId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: HierarchyGroupId.");
-    }
-    resolvedPath = resolvedPath.replace("{HierarchyGroupId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: HierarchyGroupId.");
-  }
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -281,6 +289,15 @@ export const serializeAws_restJson1DescribeUserHierarchyGroupCommand = async (
     resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.HierarchyGroupId !== undefined) {
+    const labelValue: string = input.HierarchyGroupId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HierarchyGroupId.");
+    }
+    resolvedPath = resolvedPath.replace("{HierarchyGroupId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HierarchyGroupId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -495,8 +512,8 @@ export const serializeAws_restJson1ListContactFlowsCommand = async (
     ...(input.ContactFlowTypes !== undefined && {
       contactFlowTypes: (input.ContactFlowTypes || []).map((_entry) => _entry),
     }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -565,14 +582,14 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.PhoneNumberCountryCodes !== undefined && {
-      phoneNumberCountryCodes: (input.PhoneNumberCountryCodes || []).map((_entry) => _entry),
-    }),
     ...(input.PhoneNumberTypes !== undefined && {
       phoneNumberTypes: (input.PhoneNumberTypes || []).map((_entry) => _entry),
     }),
+    ...(input.PhoneNumberCountryCodes !== undefined && {
+      phoneNumberCountryCodes: (input.PhoneNumberCountryCodes || []).map((_entry) => _entry),
+    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -606,8 +623,8 @@ export const serializeAws_restJson1ListQueuesCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.QueueTypes !== undefined && { queueTypes: (input.QueueTypes || []).map((_entry) => _entry) }),
   };
   let body: any;
@@ -642,8 +659,8 @@ export const serializeAws_restJson1ListRoutingProfilesCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -794,6 +811,32 @@ export const serializeAws_restJson1ListUsersCommand = async (
   });
 };
 
+export const serializeAws_restJson1ResumeContactRecordingCommand = async (
+  input: ResumeContactRecordingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/contact/resume-recording";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ContactId !== undefined && { ContactId: input.ContactId }),
+    ...(input.InitialContactId !== undefined && { InitialContactId: input.InitialContactId }),
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1StartChatContactCommand = async (
   input: StartChatContactCommandInput,
   context: __SerdeContext
@@ -821,6 +864,38 @@ export const serializeAws_restJson1StartChatContactCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartContactRecordingCommand = async (
+  input: StartContactRecordingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/contact/start-recording";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ContactId !== undefined && { ContactId: input.ContactId }),
+    ...(input.InitialContactId !== undefined && { InitialContactId: input.InitialContactId }),
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+    ...(input.VoiceRecordingConfiguration !== undefined && {
+      VoiceRecordingConfiguration: serializeAws_restJson1VoiceRecordingConfiguration(
+        input.VoiceRecordingConfiguration,
+        context
+      ),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -868,6 +943,58 @@ export const serializeAws_restJson1StopContactCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ContactId !== undefined && { ContactId: input.ContactId }),
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StopContactRecordingCommand = async (
+  input: StopContactRecordingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/contact/stop-recording";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ContactId !== undefined && { ContactId: input.ContactId }),
+    ...(input.InitialContactId !== undefined && { InitialContactId: input.InitialContactId }),
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SuspendContactRecordingCommand = async (
+  input: SuspendContactRecordingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/contact/suspend-recording";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ContactId !== undefined && { ContactId: input.ContactId }),
+    ...(input.InitialContactId !== undefined && { InitialContactId: input.InitialContactId }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -983,15 +1110,6 @@ export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}/hierarchy";
-  if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -1000,6 +1118,15 @@ export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1069,15 +1196,6 @@ export const serializeAws_restJson1UpdateUserPhoneConfigCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}/phone-config";
-  if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -1086,6 +1204,15 @@ export const serializeAws_restJson1UpdateUserPhoneConfigCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1113,15 +1240,6 @@ export const serializeAws_restJson1UpdateUserRoutingProfileCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}/routing-profile";
-  if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -1130,6 +1248,15 @@ export const serializeAws_restJson1UpdateUserRoutingProfileCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1155,15 +1282,6 @@ export const serializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}/security-profiles";
-  if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -1172,6 +1290,15 @@ export const serializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2844,6 +2971,74 @@ const deserializeAws_restJson1ListUsersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ResumeContactRecordingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeContactRecordingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ResumeContactRecordingCommandError(output, context);
+  }
+  const contents: ResumeContactRecordingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ResumeContactRecordingResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ResumeContactRecordingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeContactRecordingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1StartChatContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2911,6 +3106,82 @@ const deserializeAws_restJson1StartChatContactCommandError = async (
     case "com.amazonaws.connect#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StartContactRecordingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartContactRecordingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1StartContactRecordingCommandError(output, context);
+  }
+  const contents: StartContactRecordingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartContactRecordingResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartContactRecordingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartContactRecordingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3091,6 +3362,142 @@ const deserializeAws_restJson1StopContactCommandError = async (
     case "com.amazonaws.connect#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StopContactRecordingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopContactRecordingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1StopContactRecordingCommandError(output, context);
+  }
+  const contents: StopContactRecordingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StopContactRecordingResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StopContactRecordingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopContactRecordingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1SuspendContactRecordingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SuspendContactRecordingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1SuspendContactRecordingCommandError(output, context);
+  }
+  const contents: SuspendContactRecordingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "SuspendContactRecordingResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SuspendContactRecordingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SuspendContactRecordingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4075,6 +4482,15 @@ const serializeAws_restJson1UserPhoneConfig = (input: UserPhoneConfig, context: 
     ...(input.AutoAccept !== undefined && { AutoAccept: input.AutoAccept }),
     ...(input.DeskPhoneNumber !== undefined && { DeskPhoneNumber: input.DeskPhoneNumber }),
     ...(input.PhoneType !== undefined && { PhoneType: input.PhoneType }),
+  };
+};
+
+const serializeAws_restJson1VoiceRecordingConfiguration = (
+  input: VoiceRecordingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.VoiceRecordingTrack !== undefined && { VoiceRecordingTrack: input.VoiceRecordingTrack }),
   };
 };
 

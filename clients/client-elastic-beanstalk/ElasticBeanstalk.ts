@@ -10,6 +10,11 @@ import {
   ApplyEnvironmentManagedActionCommandOutput,
 } from "./commands/ApplyEnvironmentManagedActionCommand";
 import {
+  AssociateEnvironmentOperationsRoleCommand,
+  AssociateEnvironmentOperationsRoleCommandInput,
+  AssociateEnvironmentOperationsRoleCommandOutput,
+} from "./commands/AssociateEnvironmentOperationsRoleCommand";
+import {
   CheckDNSAvailabilityCommand,
   CheckDNSAvailabilityCommandInput,
   CheckDNSAvailabilityCommandOutput,
@@ -140,10 +145,20 @@ import {
   DescribePlatformVersionCommandOutput,
 } from "./commands/DescribePlatformVersionCommand";
 import {
+  DisassociateEnvironmentOperationsRoleCommand,
+  DisassociateEnvironmentOperationsRoleCommandInput,
+  DisassociateEnvironmentOperationsRoleCommandOutput,
+} from "./commands/DisassociateEnvironmentOperationsRoleCommand";
+import {
   ListAvailableSolutionStacksCommand,
   ListAvailableSolutionStacksCommandInput,
   ListAvailableSolutionStacksCommandOutput,
 } from "./commands/ListAvailableSolutionStacksCommand";
+import {
+  ListPlatformBranchesCommand,
+  ListPlatformBranchesCommandInput,
+  ListPlatformBranchesCommandOutput,
+} from "./commands/ListPlatformBranchesCommand";
 import {
   ListPlatformVersionsCommand,
   ListPlatformVersionsCommandInput,
@@ -228,7 +243,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable,
  *       fault-tolerant applications running on the Amazon Web Services cloud.</p>
  *          <p>For more information about this product, go to the <a href="http://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a> details page. The location of the
- *       latest AWS Elastic Beanstalk WSDL is <a href="http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl">http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl</a>.
+ *       latest AWS Elastic Beanstalk WSDL is <a href="https://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl">https://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl</a>.
  *       To install the Software Development Kits (SDKs), Integrated Development Environment (IDE)
  *       Toolkits, and command line tools that enable you to access the API, go to <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          <p>
@@ -296,6 +311,41 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
     cb?: (err: any, data?: ApplyEnvironmentManagedActionCommandOutput) => void
   ): Promise<ApplyEnvironmentManagedActionCommandOutput> | void {
     const command = new ApplyEnvironmentManagedActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Add or change the operations role used by an environment. After this call is made, Elastic Beanstalk
+   *       uses the associated operations role for permissions to downstream services during subsequent
+   *       calls acting on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
+   *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
+   */
+  public associateEnvironmentOperationsRole(
+    args: AssociateEnvironmentOperationsRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateEnvironmentOperationsRoleCommandOutput>;
+  public associateEnvironmentOperationsRole(
+    args: AssociateEnvironmentOperationsRoleCommandInput,
+    cb: (err: any, data?: AssociateEnvironmentOperationsRoleCommandOutput) => void
+  ): void;
+  public associateEnvironmentOperationsRole(
+    args: AssociateEnvironmentOperationsRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateEnvironmentOperationsRoleCommandOutput) => void
+  ): void;
+  public associateEnvironmentOperationsRole(
+    args: AssociateEnvironmentOperationsRoleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateEnvironmentOperationsRoleCommandOutput) => void),
+    cb?: (err: any, data?: AssociateEnvironmentOperationsRoleCommandOutput) => void
+  ): Promise<AssociateEnvironmentOperationsRoleCommandOutput> | void {
+    const command = new AssociateEnvironmentOperationsRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -376,8 +426,8 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p> Creates an application that has one configuration template named <code>default</code>
-   *       and no application versions. </p>
+   * <p>Creates an application that has one configuration template named <code>default</code>
+   *       and no application versions.</p>
    */
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -421,8 +471,8 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
    *          <p>Omit both <code>SourceBuildInformation</code> and <code>SourceBundle</code> to use the
    *       default sample application.</p>
    *          <note>
-   *             <p>Once you create an application version with a specified Amazon S3 bucket and key
-   *         location, you cannot change that Amazon S3 location. If you change the Amazon S3 location,
+   *             <p>After you create an application version with a specified Amazon S3 bucket and key
+   *         location, you can't change that Amazon S3 location. If you change the Amazon S3 location,
    *         you receive an exception when you attempt to launch an environment from the application
    *         version.</p>
    *          </note>
@@ -457,9 +507,10 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Creates a configuration template. Templates are associated with a specific application
-   *       and are used to deploy different versions of the application with the same configuration
-   *       settings.</p>
+   * <p>Creates an AWS Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk
+   *       application. You define application configuration settings in a configuration template. You
+   *       can then use the configuration template to deploy different versions of the application with
+   *       the same configuration settings.</p>
    *          <p>Templates aren't associated with any environment. The <code>EnvironmentName</code>
    *       response element is always <code>null</code>.</p>
    *          <p>Related Topics</p>
@@ -511,7 +562,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Launches an environment for the specified application using the specified
+   * <p>Launches an AWS Elastic Beanstalk environment for the specified application using the specified
    *       configuration.</p>
    */
   public createEnvironment(
@@ -1204,7 +1255,10 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Describes the version of the platform.</p>
+   * <p>Describes a platform version. Provides full details. Compare to <a>ListPlatformVersions</a>, which provides summary information about a list of
+   *       platform versions.</p>
+   *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
+   *         Platforms Glossary</a>.</p>
    */
   public describePlatformVersion(
     args: DescribePlatformVersionCommandInput,
@@ -1225,6 +1279,43 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
     cb?: (err: any, data?: DescribePlatformVersionCommandOutput) => void
   ): Promise<DescribePlatformVersionCommandOutput> | void {
     const command = new DescribePlatformVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociate the operations role from an environment. After this call is made, Elastic Beanstalk uses
+   *       the caller's permissions for permissions to downstream services during subsequent calls acting
+   *       on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
+   *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
+   */
+  public disassociateEnvironmentOperationsRole(
+    args: DisassociateEnvironmentOperationsRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateEnvironmentOperationsRoleCommandOutput>;
+  public disassociateEnvironmentOperationsRole(
+    args: DisassociateEnvironmentOperationsRoleCommandInput,
+    cb: (err: any, data?: DisassociateEnvironmentOperationsRoleCommandOutput) => void
+  ): void;
+  public disassociateEnvironmentOperationsRole(
+    args: DisassociateEnvironmentOperationsRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateEnvironmentOperationsRoleCommandOutput) => void
+  ): void;
+  public disassociateEnvironmentOperationsRole(
+    args: DisassociateEnvironmentOperationsRoleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateEnvironmentOperationsRoleCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateEnvironmentOperationsRoleCommandOutput) => void
+  ): Promise<DisassociateEnvironmentOperationsRoleCommandOutput> | void {
+    const command = new DisassociateEnvironmentOperationsRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1269,7 +1360,46 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Lists the available platforms.</p>
+   * <p>Lists the platform branches available for your account in an AWS Region. Provides
+   *       summary information about each platform branch.</p>
+   *          <p>For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
+   *         Platforms Glossary</a>.</p>
+   */
+  public listPlatformBranches(
+    args: ListPlatformBranchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPlatformBranchesCommandOutput>;
+  public listPlatformBranches(
+    args: ListPlatformBranchesCommandInput,
+    cb: (err: any, data?: ListPlatformBranchesCommandOutput) => void
+  ): void;
+  public listPlatformBranches(
+    args: ListPlatformBranchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPlatformBranchesCommandOutput) => void
+  ): void;
+  public listPlatformBranches(
+    args: ListPlatformBranchesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPlatformBranchesCommandOutput) => void),
+    cb?: (err: any, data?: ListPlatformBranchesCommandOutput) => void
+  ): Promise<ListPlatformBranchesCommandOutput> | void {
+    const command = new ListPlatformBranchesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the platform versions available for your account in an AWS Region. Provides
+   *       summary information about each platform version. Compare to <a>DescribePlatformVersion</a>, which provides full details about a single platform
+   *       version.</p>
+   *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
+   *         Platforms Glossary</a>.</p>
    */
   public listPlatformVersions(
     args: ListPlatformVersionsCommandInput,
@@ -1301,8 +1431,10 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Returns the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.</p>
-   *          <p>Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging Resources in Your Elastic Beanstalk Environment</a>.</p>
+   * <p>Return the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.</p>
+   *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
+   *         <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application
+   *         Resources</a>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1743,7 +1875,9 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   /**
    * <p>Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code>
    *       for tags to add or update, and <code>TagsToRemove</code>.</p>
-   *          <p>Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging Resources in Your Elastic Beanstalk Environment</a>.</p>
+   *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
+   *       <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application
+   *         Resources</a>.</p>
    *          <p>If you create a custom IAM user policy to control permission to this operation, specify
    *       one of the following two virtual actions (or both) instead of the API operation name:</p>
    *          <dl>

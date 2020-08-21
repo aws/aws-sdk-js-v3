@@ -8,24 +8,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AttributeValue {
   __type?: "AttributeValue";
   /**
-   * <p>A Binary data type.</p>
-   */
-  B?: Uint8Array;
-
-  /**
    * <p>A Boolean data type.</p>
    */
   BOOL?: boolean;
-
-  /**
-   * <p>A Binary Set data type.</p>
-   */
-  BS?: Uint8Array[];
-
-  /**
-   * <p>A List data type.</p>
-   */
-  L?: AttributeValue[];
 
   /**
    * <p>A Map data type.</p>
@@ -33,9 +18,19 @@ export interface AttributeValue {
   M?: { [key: string]: AttributeValue };
 
   /**
-   * <p>A Number data type.</p>
+   * <p>A List data type.</p>
    */
-  N?: string;
+  L?: AttributeValue[];
+
+  /**
+   * <p>A String data type.</p>
+   */
+  S?: string;
+
+  /**
+   * <p>A Binary data type.</p>
+   */
+  B?: Uint8Array;
 
   /**
    * <p>A Number Set data type.</p>
@@ -48,9 +43,14 @@ export interface AttributeValue {
   NULL?: boolean;
 
   /**
-   * <p>A String data type.</p>
+   * <p>A Number data type.</p>
    */
-  S?: string;
+  N?: string;
+
+  /**
+   * <p>A Binary Set data type.</p>
+   */
+  BS?: Uint8Array[];
 
   /**
    * <p>A String Set data type.</p>
@@ -71,10 +71,9 @@ export namespace AttributeValue {
 export interface DescribeStreamInput {
   __type?: "DescribeStreamInput";
   /**
-   * <p>The shard ID of the first item that this operation will evaluate. Use the value that was
-   *       returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
-  ExclusiveStartShardId?: string;
+  StreamArn: string | undefined;
 
   /**
    * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
@@ -82,9 +81,10 @@ export interface DescribeStreamInput {
   Limit?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   * <p>The shard ID of the first item that this operation will evaluate. Use the value that was
+   *       returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>
    */
-  StreamArn: string | undefined;
+  ExclusiveStartShardId?: string;
 }
 
 export namespace DescribeStreamInput {
@@ -187,6 +187,11 @@ export namespace GetRecordsOutput {
 export interface GetShardIteratorInput {
   __type?: "GetShardIteratorInput";
   /**
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   */
+  StreamArn: string | undefined;
+
+  /**
    * <p>The sequence number of a stream record in the shard from which to start reading.</p>
    */
   SequenceNumber?: string;
@@ -224,11 +229,6 @@ export interface GetShardIteratorInput {
    *          </ul>
    */
   ShardIteratorType: ShardIteratorType | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
-   */
-  StreamArn: string | undefined;
 }
 
 export namespace GetShardIteratorInput {
@@ -262,15 +262,15 @@ export namespace GetShardIteratorOutput {
 export interface Identity {
   __type?: "Identity";
   /**
+   * <p>The type of the identity. For Time To Live, the type is "Service".</p>
+   */
+  Type?: string;
+
+  /**
    * <p>A unique identifier for the entity that made the call. For Time To Live, the
    *       principalId is "dynamodb.amazonaws.com".</p>
    */
   PrincipalId?: string;
-
-  /**
-   * <p>The type of the identity. For Time To Live, the type is "Service".</p>
-   */
-  Type?: string;
 }
 
 export namespace Identity {
@@ -317,14 +317,14 @@ export namespace InternalServerError {
 export interface KeySchemaElement {
   __type?: "KeySchemaElement";
   /**
-   * <p>The name of a key attribute.</p>
-   */
-  AttributeName: string | undefined;
-
-  /**
    * <p>The attribute data, consisting of the data type and the attribute value itself.</p>
    */
   KeyType: KeyType | string | undefined;
+
+  /**
+   * <p>The name of a key attribute.</p>
+   */
+  AttributeName: string | undefined;
 }
 
 export namespace KeySchemaElement {
@@ -365,16 +365,16 @@ export namespace LimitExceededException {
 export interface ListStreamsInput {
   __type?: "ListStreamsInput";
   /**
+   * <p>The maximum number of streams to return. The upper limit is 100.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the
    *       value that was returned for <code>LastEvaluatedStreamArn</code> in the previous operation.
    *     </p>
    */
   ExclusiveStartStreamArn?: string;
-
-  /**
-   * <p>The maximum number of streams to return. The upper limit is 100.</p>
-   */
-  Limit?: number;
 
   /**
    * <p>If this parameter is provided, then only the streams associated with this table name are returned.</p>
@@ -425,19 +425,14 @@ export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
 export interface _Record {
   __type?: "Record";
   /**
-   * <p>The region in which the <code>GetRecords</code> request was received.</p>
-   */
-  awsRegion?: string;
-
-  /**
    * <p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>
    */
   dynamodb?: StreamRecord;
 
   /**
-   * <p>A globally unique identifier for the event that was recorded in this stream record.</p>
+   * <p>The region in which the <code>GetRecords</code> request was received.</p>
    */
-  eventID?: string;
+  awsRegion?: string;
 
   /**
    * <p>The type of data modification that was performed on the DynamoDB table:</p>
@@ -464,14 +459,6 @@ export interface _Record {
   eventSource?: string;
 
   /**
-   * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
-   *          <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular
-   *       value, as this number is subject to change at any time. In general, <code>eventVersion</code> will
-   *       only increase as the low-level DynamoDB Streams API evolves.</p>
-   */
-  eventVersion?: string;
-
-  /**
    * <p>Items that are deleted by the Time to Live process after expiration have the following fields: </p>
    *          <ul>
    *             <li>
@@ -485,6 +472,19 @@ export interface _Record {
    *          </ul>
    */
   userIdentity?: Identity;
+
+  /**
+   * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
+   *          <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular
+   *       value, as this number is subject to change at any time. In general, <code>eventVersion</code> will
+   *       only increase as the low-level DynamoDB Streams API evolves.</p>
+   */
+  eventVersion?: string;
+
+  /**
+   * <p>A globally unique identifier for the event that was recorded in this stream record.</p>
+   */
+  eventID?: string;
 }
 
 export namespace _Record {
@@ -547,14 +547,14 @@ export interface Shard {
   ParentShardId?: string;
 
   /**
-   * <p>The range of possible sequence numbers for the shard.</p>
-   */
-  SequenceNumberRange?: SequenceNumberRange;
-
-  /**
    * <p>The system-generated identifier for this shard.</p>
    */
   ShardId?: string;
+
+  /**
+   * <p>The range of possible sequence numbers for the shard.</p>
+   */
+  SequenceNumberRange?: SequenceNumberRange;
 }
 
 export namespace Shard {
@@ -571,11 +571,6 @@ export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" |
  */
 export interface _Stream {
   __type?: "Stream";
-  /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
-   */
-  StreamArn?: string;
-
   /**
    * <p>A timestamp, in ISO 8601 format, for this stream.</p>
    *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
@@ -600,6 +595,11 @@ export interface _Stream {
    * <p>The DynamoDB table with which the stream is associated.</p>
    */
   TableName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   */
+  StreamArn?: string;
 }
 
 export namespace _Stream {
@@ -615,16 +615,6 @@ export namespace _Stream {
 export interface StreamDescription {
   __type?: "StreamDescription";
   /**
-   * <p>The date and time when the request to create this stream was issued.</p>
-   */
-  CreationRequestDateTime?: Date;
-
-  /**
-   * <p>The key attribute(s) of the stream's DynamoDB table.</p>
-   */
-  KeySchema?: KeySchemaElement[];
-
-  /**
    * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
    *          <p>If <code>LastEvaluatedShardId</code> is empty, then the "last page" of results has been
    *       processed and there is currently no more data to be retrieved.</p>
@@ -635,57 +625,9 @@ export interface StreamDescription {
   LastEvaluatedShardId?: string;
 
   /**
-   * <p>The shards that comprise the stream.</p>
+   * <p>The key attribute(s) of the stream's DynamoDB table.</p>
    */
-  Shards?: Shard[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
-   */
-  StreamArn?: string;
-
-  /**
-   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
-   *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
-   *       possible that a stream from another table might have the same timestamp. However, the
-   *       combination of the following three elements is guaranteed to be unique:</p>
-   *          <ul>
-   *             <li>
-   *                <p>the AWS customer ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>the table name</p>
-   *             </li>
-   *             <li>
-   *                <p>the <code>StreamLabel</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  StreamLabel?: string;
-
-  /**
-   * <p>Indicates the current status of the stream:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLING</code> - Streams is currently being enabled on the DynamoDB table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> - the stream is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLING</code> - Streams is currently being disabled on the DynamoDB table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> - the stream is disabled.</p>
-   *             </li>
-   *          </ul>
-   */
-  StreamStatus?: StreamStatus | string;
+  KeySchema?: KeySchemaElement[];
 
   /**
    * <p>Indicates the format of the records within this stream:</p>
@@ -711,6 +653,64 @@ export interface StreamDescription {
   StreamViewType?: StreamViewType | string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   */
+  StreamArn?: string;
+
+  /**
+   * <p>The shards that comprise the stream.</p>
+   */
+  Shards?: Shard[];
+
+  /**
+   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
+   *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
+   *       possible that a stream from another table might have the same timestamp. However, the
+   *       combination of the following three elements is guaranteed to be unique:</p>
+   *          <ul>
+   *             <li>
+   *                <p>the AWS customer ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>the table name</p>
+   *             </li>
+   *             <li>
+   *                <p>the <code>StreamLabel</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  StreamLabel?: string;
+
+  /**
+   * <p>The date and time when the request to create this stream was issued.</p>
+   */
+  CreationRequestDateTime?: Date;
+
+  /**
+   * <p>Indicates the current status of the stream:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLING</code> - Streams is currently being enabled on the DynamoDB table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> - the stream is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLING</code> - Streams is currently being disabled on the DynamoDB table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> - the stream is disabled.</p>
+   *             </li>
+   *          </ul>
+   */
+  StreamStatus?: StreamStatus | string;
+
+  /**
    * <p>The DynamoDB table with which the stream is associated.</p>
    */
   TableName?: string;
@@ -729,34 +729,9 @@ export namespace StreamDescription {
 export interface StreamRecord {
   __type?: "StreamRecord";
   /**
-   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
-   */
-  ApproximateCreationDateTime?: Date;
-
-  /**
-   * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
-   */
-  Keys?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
-   */
-  NewImage?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
-   */
-  OldImage?: { [key: string]: AttributeValue };
-
-  /**
    * <p>The sequence number of the stream record.</p>
    */
   SequenceNumber?: string;
-
-  /**
-   * <p>The size of the stream record, in bytes.</p>
-   */
-  SizeBytes?: number;
 
   /**
    * <p>The type of data from the modified DynamoDB item that was captured in this stream record:</p>
@@ -780,6 +755,31 @@ export interface StreamRecord {
    *          </ul>
    */
   StreamViewType?: StreamViewType | string;
+
+  /**
+   * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
+   */
+  OldImage?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  ApproximateCreationDateTime?: Date;
+
+  /**
+   * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
+   */
+  Keys?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>The size of the stream record, in bytes.</p>
+   */
+  SizeBytes?: number;
+
+  /**
+   * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
+   */
+  NewImage?: { [key: string]: AttributeValue };
 }
 
 export namespace StreamRecord {

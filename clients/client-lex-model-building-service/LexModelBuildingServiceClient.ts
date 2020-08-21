@@ -56,11 +56,17 @@ import {
 } from "./commands/GetSlotTypeVersionsCommand";
 import { GetSlotTypesCommandInput, GetSlotTypesCommandOutput } from "./commands/GetSlotTypesCommand";
 import { GetUtterancesViewCommandInput, GetUtterancesViewCommandOutput } from "./commands/GetUtterancesViewCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { PutBotAliasCommandInput, PutBotAliasCommandOutput } from "./commands/PutBotAliasCommand";
 import { PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotCommand";
 import { PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand";
 import { PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -140,11 +146,14 @@ export type ServiceInputTypes =
   | GetSlotTypeVersionsCommandInput
   | GetSlotTypesCommandInput
   | GetUtterancesViewCommandInput
+  | ListTagsForResourceCommandInput
   | PutBotAliasCommandInput
   | PutBotCommandInput
   | PutIntentCommandInput
   | PutSlotTypeCommandInput
-  | StartImportCommandInput;
+  | StartImportCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | CreateBotVersionCommandOutput
@@ -178,11 +187,14 @@ export type ServiceOutputTypes =
   | GetSlotTypeVersionsCommandOutput
   | GetSlotTypesCommandOutput
   | GetUtterancesViewCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutBotAliasCommandOutput
   | PutBotCommandOutput
   | PutIntentCommandOutput
   | PutSlotTypeCommandOutput
-  | StartImportCommandOutput;
+  | StartImportCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

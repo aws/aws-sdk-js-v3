@@ -3,19 +3,27 @@ import {
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand";
+import { CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput } from "./commands/CreateDataCatalogCommand";
 import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand";
 import { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand";
+import { DeleteDataCatalogCommandInput, DeleteDataCatalogCommandOutput } from "./commands/DeleteDataCatalogCommand";
 import { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "./commands/DeleteNamedQueryCommand";
 import { DeleteWorkGroupCommandInput, DeleteWorkGroupCommandOutput } from "./commands/DeleteWorkGroupCommand";
+import { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "./commands/GetDataCatalogCommand";
+import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand";
 import { GetQueryExecutionCommandInput, GetQueryExecutionCommandOutput } from "./commands/GetQueryExecutionCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand";
 import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand";
+import { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "./commands/ListDataCatalogsCommand";
+import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import { ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput } from "./commands/ListNamedQueriesCommand";
 import {
   ListQueryExecutionsCommandInput,
   ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand";
+import { ListTableMetadataCommandInput, ListTableMetadataCommandOutput } from "./commands/ListTableMetadataCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -28,6 +36,7 @@ import {
 import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from "./commands/StopQueryExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand";
 import { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "./commands/UpdateWorkGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -79,43 +88,61 @@ import {
 export type ServiceInputTypes =
   | BatchGetNamedQueryCommandInput
   | BatchGetQueryExecutionCommandInput
+  | CreateDataCatalogCommandInput
   | CreateNamedQueryCommandInput
   | CreateWorkGroupCommandInput
+  | DeleteDataCatalogCommandInput
   | DeleteNamedQueryCommandInput
   | DeleteWorkGroupCommandInput
+  | GetDataCatalogCommandInput
+  | GetDatabaseCommandInput
   | GetNamedQueryCommandInput
   | GetQueryExecutionCommandInput
   | GetQueryResultsCommandInput
+  | GetTableMetadataCommandInput
   | GetWorkGroupCommandInput
+  | ListDataCatalogsCommandInput
+  | ListDatabasesCommandInput
   | ListNamedQueriesCommandInput
   | ListQueryExecutionsCommandInput
+  | ListTableMetadataCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkGroupsCommandInput
   | StartQueryExecutionCommandInput
   | StopQueryExecutionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateDataCatalogCommandInput
   | UpdateWorkGroupCommandInput;
 
 export type ServiceOutputTypes =
   | BatchGetNamedQueryCommandOutput
   | BatchGetQueryExecutionCommandOutput
+  | CreateDataCatalogCommandOutput
   | CreateNamedQueryCommandOutput
   | CreateWorkGroupCommandOutput
+  | DeleteDataCatalogCommandOutput
   | DeleteNamedQueryCommandOutput
   | DeleteWorkGroupCommandOutput
+  | GetDataCatalogCommandOutput
+  | GetDatabaseCommandOutput
   | GetNamedQueryCommandOutput
   | GetQueryExecutionCommandOutput
   | GetQueryResultsCommandOutput
+  | GetTableMetadataCommandOutput
   | GetWorkGroupCommandOutput
+  | ListDataCatalogsCommandOutput
+  | ListDatabasesCommandOutput
   | ListNamedQueriesCommandOutput
   | ListQueryExecutionsCommandOutput
+  | ListTableMetadataCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkGroupsCommandOutput
   | StartQueryExecutionCommandOutput
   | StopQueryExecutionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateDataCatalogCommandOutput
   | UpdateWorkGroupCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -226,9 +253,19 @@ export type AthenaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig;
 
 /**
- * <p>Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries. For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon Athena</a> in the <i>Amazon Athena User Guide</i>.</p>
- *          <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier version drivers do not support the API. For more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing Amazon Athena with JDBC</a>.</p>
- *          <p>For code samples using the AWS SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ * <p>Amazon Athena is an interactive query service that lets you use standard SQL to
+ *             analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and
+ *             run ad-hoc queries and get results in seconds. Athena is serverless, so there is no
+ *             infrastructure to set up or manage. You pay only for the queries you run. Athena scales
+ *             automatically—executing queries in parallel—so results are fast, even with large
+ *             datasets and complex queries. For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon
+ *                 Athena</a> in the <i>Amazon Athena User Guide</i>.</p>
+ *         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or
+ *             later with the Amazon Athena API. Earlier version drivers do not support the API. For
+ *             more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
+ *                 Amazon Athena with JDBC</a>.</p>
+ *         <p>For code samples using the AWS SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
  */
 export class AthenaClient extends __Client<
   __HttpHandlerOptions,

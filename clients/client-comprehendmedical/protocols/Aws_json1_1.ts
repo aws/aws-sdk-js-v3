@@ -3,9 +3,17 @@ import {
   DescribeEntitiesDetectionV2JobCommandOutput,
 } from "../commands/DescribeEntitiesDetectionV2JobCommand";
 import {
+  DescribeICD10CMInferenceJobCommandInput,
+  DescribeICD10CMInferenceJobCommandOutput,
+} from "../commands/DescribeICD10CMInferenceJobCommand";
+import {
   DescribePHIDetectionJobCommandInput,
   DescribePHIDetectionJobCommandOutput,
 } from "../commands/DescribePHIDetectionJobCommand";
+import {
+  DescribeRxNormInferenceJobCommandInput,
+  DescribeRxNormInferenceJobCommandOutput,
+} from "../commands/DescribeRxNormInferenceJobCommand";
 import { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "../commands/DetectEntitiesCommand";
 import { DetectEntitiesV2CommandInput, DetectEntitiesV2CommandOutput } from "../commands/DetectEntitiesV2Command";
 import { DetectPHICommandInput, DetectPHICommandOutput } from "../commands/DetectPHICommand";
@@ -16,33 +24,61 @@ import {
   ListEntitiesDetectionV2JobsCommandOutput,
 } from "../commands/ListEntitiesDetectionV2JobsCommand";
 import {
+  ListICD10CMInferenceJobsCommandInput,
+  ListICD10CMInferenceJobsCommandOutput,
+} from "../commands/ListICD10CMInferenceJobsCommand";
+import {
   ListPHIDetectionJobsCommandInput,
   ListPHIDetectionJobsCommandOutput,
 } from "../commands/ListPHIDetectionJobsCommand";
+import {
+  ListRxNormInferenceJobsCommandInput,
+  ListRxNormInferenceJobsCommandOutput,
+} from "../commands/ListRxNormInferenceJobsCommand";
 import {
   StartEntitiesDetectionV2JobCommandInput,
   StartEntitiesDetectionV2JobCommandOutput,
 } from "../commands/StartEntitiesDetectionV2JobCommand";
 import {
+  StartICD10CMInferenceJobCommandInput,
+  StartICD10CMInferenceJobCommandOutput,
+} from "../commands/StartICD10CMInferenceJobCommand";
+import {
   StartPHIDetectionJobCommandInput,
   StartPHIDetectionJobCommandOutput,
 } from "../commands/StartPHIDetectionJobCommand";
+import {
+  StartRxNormInferenceJobCommandInput,
+  StartRxNormInferenceJobCommandOutput,
+} from "../commands/StartRxNormInferenceJobCommand";
 import {
   StopEntitiesDetectionV2JobCommandInput,
   StopEntitiesDetectionV2JobCommandOutput,
 } from "../commands/StopEntitiesDetectionV2JobCommand";
 import {
+  StopICD10CMInferenceJobCommandInput,
+  StopICD10CMInferenceJobCommandOutput,
+} from "../commands/StopICD10CMInferenceJobCommand";
+import {
   StopPHIDetectionJobCommandInput,
   StopPHIDetectionJobCommandOutput,
 } from "../commands/StopPHIDetectionJobCommand";
+import {
+  StopRxNormInferenceJobCommandInput,
+  StopRxNormInferenceJobCommandOutput,
+} from "../commands/StopRxNormInferenceJobCommand";
 import {
   Attribute,
   ComprehendMedicalAsyncJobFilter,
   ComprehendMedicalAsyncJobProperties,
   DescribeEntitiesDetectionV2JobRequest,
   DescribeEntitiesDetectionV2JobResponse,
+  DescribeICD10CMInferenceJobRequest,
+  DescribeICD10CMInferenceJobResponse,
   DescribePHIDetectionJobRequest,
   DescribePHIDetectionJobResponse,
+  DescribeRxNormInferenceJobRequest,
+  DescribeRxNormInferenceJobResponse,
   DetectEntitiesRequest,
   DetectEntitiesResponse,
   DetectEntitiesV2Request,
@@ -64,8 +100,12 @@ import {
   InvalidRequestException,
   ListEntitiesDetectionV2JobsRequest,
   ListEntitiesDetectionV2JobsResponse,
+  ListICD10CMInferenceJobsRequest,
+  ListICD10CMInferenceJobsResponse,
   ListPHIDetectionJobsRequest,
   ListPHIDetectionJobsResponse,
+  ListRxNormInferenceJobsRequest,
+  ListRxNormInferenceJobsResponse,
   OutputDataConfig,
   ResourceNotFoundException,
   RxNormAttribute,
@@ -75,12 +115,20 @@ import {
   ServiceUnavailableException,
   StartEntitiesDetectionV2JobRequest,
   StartEntitiesDetectionV2JobResponse,
+  StartICD10CMInferenceJobRequest,
+  StartICD10CMInferenceJobResponse,
   StartPHIDetectionJobRequest,
   StartPHIDetectionJobResponse,
+  StartRxNormInferenceJobRequest,
+  StartRxNormInferenceJobResponse,
   StopEntitiesDetectionV2JobRequest,
   StopEntitiesDetectionV2JobResponse,
+  StopICD10CMInferenceJobRequest,
+  StopICD10CMInferenceJobResponse,
   StopPHIDetectionJobRequest,
   StopPHIDetectionJobResponse,
+  StopRxNormInferenceJobRequest,
+  StopRxNormInferenceJobResponse,
   TextSizeLimitExceededException,
   TooManyRequestsException,
   Trait,
@@ -111,6 +159,19 @@ export const serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeICD10CMInferenceJobCommand = async (
+  input: DescribeICD10CMInferenceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.DescribeICD10CMInferenceJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeICD10CMInferenceJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribePHIDetectionJobCommand = async (
   input: DescribePHIDetectionJobCommandInput,
   context: __SerdeContext
@@ -121,6 +182,19 @@ export const serializeAws_json1_1DescribePHIDetectionJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePHIDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeRxNormInferenceJobCommand = async (
+  input: DescribeRxNormInferenceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.DescribeRxNormInferenceJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeRxNormInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -202,6 +276,19 @@ export const serializeAws_json1_1ListEntitiesDetectionV2JobsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListICD10CMInferenceJobsCommand = async (
+  input: ListICD10CMInferenceJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.ListICD10CMInferenceJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListICD10CMInferenceJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListPHIDetectionJobsCommand = async (
   input: ListPHIDetectionJobsCommandInput,
   context: __SerdeContext
@@ -212,6 +299,19 @@ export const serializeAws_json1_1ListPHIDetectionJobsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPHIDetectionJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListRxNormInferenceJobsCommand = async (
+  input: ListRxNormInferenceJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.ListRxNormInferenceJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListRxNormInferenceJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -228,6 +328,19 @@ export const serializeAws_json1_1StartEntitiesDetectionV2JobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartICD10CMInferenceJobCommand = async (
+  input: StartICD10CMInferenceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.StartICD10CMInferenceJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartICD10CMInferenceJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartPHIDetectionJobCommand = async (
   input: StartPHIDetectionJobCommandInput,
   context: __SerdeContext
@@ -238,6 +351,19 @@ export const serializeAws_json1_1StartPHIDetectionJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartPHIDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartRxNormInferenceJobCommand = async (
+  input: StartRxNormInferenceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.StartRxNormInferenceJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartRxNormInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -254,6 +380,19 @@ export const serializeAws_json1_1StopEntitiesDetectionV2JobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StopICD10CMInferenceJobCommand = async (
+  input: StopICD10CMInferenceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.StopICD10CMInferenceJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopICD10CMInferenceJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StopPHIDetectionJobCommand = async (
   input: StopPHIDetectionJobCommandInput,
   context: __SerdeContext
@@ -264,6 +403,19 @@ export const serializeAws_json1_1StopPHIDetectionJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopPHIDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopRxNormInferenceJobCommand = async (
+  input: StopRxNormInferenceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.StopRxNormInferenceJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopRxNormInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -347,6 +499,86 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeICD10CMInferenceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeICD10CMInferenceJobCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeICD10CMInferenceJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeICD10CMInferenceJobResponse(data, context);
+  const response: DescribeICD10CMInferenceJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeICD10CMInferenceJobResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeICD10CMInferenceJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeICD10CMInferenceJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribePHIDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -369,6 +601,86 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePHIDetectionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeRxNormInferenceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRxNormInferenceJobCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeRxNormInferenceJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeRxNormInferenceJobResponse(data, context);
+  const response: DescribeRxNormInferenceJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeRxNormInferenceJobResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeRxNormInferenceJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRxNormInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -987,6 +1299,86 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListICD10CMInferenceJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListICD10CMInferenceJobsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListICD10CMInferenceJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListICD10CMInferenceJobsResponse(data, context);
+  const response: ListICD10CMInferenceJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListICD10CMInferenceJobsResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListICD10CMInferenceJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListICD10CMInferenceJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.comprehendmedical#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListPHIDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1009,6 +1401,86 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPHIDetectionJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.comprehendmedical#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListRxNormInferenceJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRxNormInferenceJobsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListRxNormInferenceJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListRxNormInferenceJobsResponse(data, context);
+  const response: ListRxNormInferenceJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListRxNormInferenceJobsResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListRxNormInferenceJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRxNormInferenceJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1147,6 +1619,86 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1StartICD10CMInferenceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartICD10CMInferenceJobCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StartICD10CMInferenceJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartICD10CMInferenceJobResponse(data, context);
+  const response: StartICD10CMInferenceJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartICD10CMInferenceJobResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartICD10CMInferenceJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartICD10CMInferenceJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StartPHIDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1169,6 +1721,86 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartPHIDetectionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StartRxNormInferenceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRxNormInferenceJobCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StartRxNormInferenceJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartRxNormInferenceJobResponse(data, context);
+  const response: StartRxNormInferenceJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartRxNormInferenceJobResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartRxNormInferenceJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRxNormInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1299,6 +1931,78 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1StopICD10CMInferenceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopICD10CMInferenceJobCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StopICD10CMInferenceJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopICD10CMInferenceJobResponse(data, context);
+  const response: StopICD10CMInferenceJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StopICD10CMInferenceJobResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopICD10CMInferenceJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopICD10CMInferenceJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StopPHIDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1321,6 +2025,78 @@ const deserializeAws_json1_1StopPHIDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopPHIDetectionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehendmedical#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehendmedical#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StopRxNormInferenceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRxNormInferenceJobCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StopRxNormInferenceJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopRxNormInferenceJobResponse(data, context);
+  const response: StopRxNormInferenceJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StopRxNormInferenceJobResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopRxNormInferenceJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRxNormInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1514,8 +2290,26 @@ const serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeICD10CMInferenceJobRequest = (
+  input: DescribeICD10CMInferenceJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+  };
+};
+
 const serializeAws_json1_1DescribePHIDetectionJobRequest = (
   input: DescribePHIDetectionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+  };
+};
+
+const serializeAws_json1_1DescribeRxNormInferenceJobRequest = (
+  input: DescribeRxNormInferenceJobRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -1573,8 +2367,34 @@ const serializeAws_json1_1ListEntitiesDetectionV2JobsRequest = (
   };
 };
 
+const serializeAws_json1_1ListICD10CMInferenceJobsRequest = (
+  input: ListICD10CMInferenceJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1ComprehendMedicalAsyncJobFilter(input.Filter, context),
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListPHIDetectionJobsRequest = (
   input: ListPHIDetectionJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1ComprehendMedicalAsyncJobFilter(input.Filter, context),
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListRxNormInferenceJobsRequest = (
+  input: ListRxNormInferenceJobsRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -1612,8 +2432,46 @@ const serializeAws_json1_1StartEntitiesDetectionV2JobRequest = (
   };
 };
 
+const serializeAws_json1_1StartICD10CMInferenceJobRequest = (
+  input: StartICD10CMInferenceJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.InputDataConfig !== undefined && {
+      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.JobName !== undefined && { JobName: input.JobName }),
+    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.OutputDataConfig !== undefined && {
+      OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1StartPHIDetectionJobRequest = (
   input: StartPHIDetectionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.InputDataConfig !== undefined && {
+      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.JobName !== undefined && { JobName: input.JobName }),
+    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.OutputDataConfig !== undefined && {
+      OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1StartRxNormInferenceJobRequest = (
+  input: StartRxNormInferenceJobRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -1640,8 +2498,26 @@ const serializeAws_json1_1StopEntitiesDetectionV2JobRequest = (
   };
 };
 
+const serializeAws_json1_1StopICD10CMInferenceJobRequest = (
+  input: StopICD10CMInferenceJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+  };
+};
+
 const serializeAws_json1_1StopPHIDetectionJobRequest = (
   input: StopPHIDetectionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+  };
+};
+
+const serializeAws_json1_1StopRxNormInferenceJobRequest = (
+  input: StopRxNormInferenceJobRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -1653,12 +2529,15 @@ const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): 
   return {
     __type: "Attribute",
     BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
+    Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
     EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     RelationshipScore:
       output.RelationshipScore !== undefined && output.RelationshipScore !== null
         ? output.RelationshipScore
         : undefined,
+    RelationshipType:
+      output.RelationshipType !== undefined && output.RelationshipType !== null ? output.RelationshipType : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
     Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Traits:
@@ -1733,12 +2612,38 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeICD10CMInferenceJobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeICD10CMInferenceJobResponse => {
+  return {
+    __type: "DescribeICD10CMInferenceJobResponse",
+    ComprehendMedicalAsyncJobProperties:
+      output.ComprehendMedicalAsyncJobProperties !== undefined && output.ComprehendMedicalAsyncJobProperties !== null
+        ? deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribePHIDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribePHIDetectionJobResponse => {
   return {
     __type: "DescribePHIDetectionJobResponse",
+    ComprehendMedicalAsyncJobProperties:
+      output.ComprehendMedicalAsyncJobProperties !== undefined && output.ComprehendMedicalAsyncJobProperties !== null
+        ? deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeRxNormInferenceJobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRxNormInferenceJobResponse => {
+  return {
+    __type: "DescribeRxNormInferenceJobResponse",
     ComprehendMedicalAsyncJobProperties:
       output.ComprehendMedicalAsyncJobProperties !== undefined && output.ComprehendMedicalAsyncJobProperties !== null
         ? deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
@@ -1981,12 +2886,48 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListICD10CMInferenceJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListICD10CMInferenceJobsResponse => {
+  return {
+    __type: "ListICD10CMInferenceJobsResponse",
+    ComprehendMedicalAsyncJobPropertiesList:
+      output.ComprehendMedicalAsyncJobPropertiesList !== undefined &&
+      output.ComprehendMedicalAsyncJobPropertiesList !== null
+        ? deserializeAws_json1_1ComprehendMedicalAsyncJobPropertiesList(
+            output.ComprehendMedicalAsyncJobPropertiesList,
+            context
+          )
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListPHIDetectionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPHIDetectionJobsResponse => {
   return {
     __type: "ListPHIDetectionJobsResponse",
+    ComprehendMedicalAsyncJobPropertiesList:
+      output.ComprehendMedicalAsyncJobPropertiesList !== undefined &&
+      output.ComprehendMedicalAsyncJobPropertiesList !== null
+        ? deserializeAws_json1_1ComprehendMedicalAsyncJobPropertiesList(
+            output.ComprehendMedicalAsyncJobPropertiesList,
+            context
+          )
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListRxNormInferenceJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListRxNormInferenceJobsResponse => {
+  return {
+    __type: "ListRxNormInferenceJobsResponse",
     ComprehendMedicalAsyncJobPropertiesList:
       output.ComprehendMedicalAsyncJobPropertiesList !== undefined &&
       output.ComprehendMedicalAsyncJobPropertiesList !== null
@@ -2115,12 +3056,32 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StartICD10CMInferenceJobResponse = (
+  output: any,
+  context: __SerdeContext
+): StartICD10CMInferenceJobResponse => {
+  return {
+    __type: "StartICD10CMInferenceJobResponse",
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1StartPHIDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): StartPHIDetectionJobResponse => {
   return {
     __type: "StartPHIDetectionJobResponse",
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StartRxNormInferenceJobResponse = (
+  output: any,
+  context: __SerdeContext
+): StartRxNormInferenceJobResponse => {
+  return {
+    __type: "StartRxNormInferenceJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -2135,12 +3096,32 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StopICD10CMInferenceJobResponse = (
+  output: any,
+  context: __SerdeContext
+): StopICD10CMInferenceJobResponse => {
+  return {
+    __type: "StopICD10CMInferenceJobResponse",
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1StopPHIDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): StopPHIDetectionJobResponse => {
   return {
     __type: "StopPHIDetectionJobResponse",
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StopRxNormInferenceJobResponse = (
+  output: any,
+  context: __SerdeContext
+): StopRxNormInferenceJobResponse => {
+  return {
+    __type: "StopRxNormInferenceJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };

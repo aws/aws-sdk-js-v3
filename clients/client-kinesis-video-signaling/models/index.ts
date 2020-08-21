@@ -21,10 +21,10 @@ export namespace ClientLimitExceededException {
 export interface GetIceServerConfigRequest {
   __type?: "GetIceServerConfigRequest";
   /**
-   * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
-   *             configured peers. </p>
+   * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
+   *             value.</p>
    */
-  ChannelARN: string | undefined;
+  Service?: Service | string;
 
   /**
    * <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
@@ -32,15 +32,15 @@ export interface GetIceServerConfigRequest {
   ClientId?: string;
 
   /**
-   * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
-   *             value.</p>
-   */
-  Service?: Service | string;
-
-  /**
    * <p>An optional user ID to be associated with the credentials.</p>
    */
   Username?: string;
+
+  /**
+   * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
+   *             configured peers. </p>
+   */
+  ChannelARN: string | undefined;
 }
 
 export namespace GetIceServerConfigRequest {
@@ -71,11 +71,6 @@ export namespace GetIceServerConfigResponse {
 export interface IceServer {
   __type?: "IceServer";
   /**
-   * <p>A password to login to the ICE server.</p>
-   */
-  Password?: string;
-
-  /**
    * <p>The period of time, in seconds, during which the username and password are
    *             valid.</p>
    */
@@ -86,6 +81,11 @@ export interface IceServer {
    *             addresses and/or protocols that can be used to reach the TURN server.</p>
    */
   Uris?: string[];
+
+  /**
+   * <p>A password to login to the ICE server.</p>
+   */
+  Password?: string;
 
   /**
    * <p>A username to login to the ICE server.</p>
@@ -167,10 +167,9 @@ export namespace ResourceNotFoundException {
 export interface SendAlexaOfferToMasterRequest {
   __type?: "SendAlexaOfferToMasterRequest";
   /**
-   * <p>The ARN of the signaling channel by which Alexa and the master peer
-   *             communicate.</p>
+   * <p>The unique identifier for the sender client.</p>
    */
-  ChannelARN: string | undefined;
+  SenderClientId: string | undefined;
 
   /**
    * <p>The base64-encoded SDP offer content.</p>
@@ -178,9 +177,10 @@ export interface SendAlexaOfferToMasterRequest {
   MessagePayload: string | undefined;
 
   /**
-   * <p>The unique identifier for the sender client.</p>
+   * <p>The ARN of the signaling channel by which Alexa and the master peer
+   *             communicate.</p>
    */
-  SenderClientId: string | undefined;
+  ChannelARN: string | undefined;
 }
 
 export namespace SendAlexaOfferToMasterRequest {

@@ -85,6 +85,11 @@ import {
   ListResourceSharePermissionsCommandOutput,
 } from "./commands/ListResourceSharePermissionsCommand";
 import {
+  ListResourceTypesCommand,
+  ListResourceTypesCommandInput,
+  ListResourceTypesCommandOutput,
+} from "./commands/ListResourceTypesCommand";
+import {
   ListResourcesCommand,
   ListResourcesCommandInput,
   ListResourcesCommandOutput,
@@ -689,6 +694,38 @@ export class RAM extends RAMClient {
     cb?: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
   ): Promise<ListResourceSharePermissionsCommandOutput> | void {
     const command = new ListResourceSharePermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the shareable resource types supported by AWS RAM.</p>
+   */
+  public listResourceTypes(
+    args: ListResourceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceTypesCommandOutput>;
+  public listResourceTypes(
+    args: ListResourceTypesCommandInput,
+    cb: (err: any, data?: ListResourceTypesCommandOutput) => void
+  ): void;
+  public listResourceTypes(
+    args: ListResourceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceTypesCommandOutput) => void
+  ): void;
+  public listResourceTypes(
+    args: ListResourceTypesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceTypesCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceTypesCommandOutput) => void
+  ): Promise<ListResourceTypesCommandOutput> | void {
+    const command = new ListResourceTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -74,6 +74,10 @@ import { GetBlobCommandInput, GetBlobCommandOutput } from "../commands/GetBlobCo
 import { GetBranchCommandInput, GetBranchCommandOutput } from "../commands/GetBranchCommand";
 import { GetCommentCommandInput, GetCommentCommandOutput } from "../commands/GetCommentCommand";
 import {
+  GetCommentReactionsCommandInput,
+  GetCommentReactionsCommandOutput,
+} from "../commands/GetCommentReactionsCommand";
+import {
   GetCommentsForComparedCommitCommandInput,
   GetCommentsForComparedCommitCommandOutput,
 } from "../commands/GetCommentsForComparedCommitCommand";
@@ -158,6 +162,7 @@ import {
   PostCommentForPullRequestCommandOutput,
 } from "../commands/PostCommentForPullRequestCommand";
 import { PostCommentReplyCommandInput, PostCommentReplyCommandOutput } from "../commands/PostCommentReplyCommand";
+import { PutCommentReactionCommandInput, PutCommentReactionCommandOutput } from "../commands/PutCommentReactionCommand";
 import { PutFileCommandInput, PutFileCommandOutput } from "../commands/PutFileCommand";
 import {
   PutRepositoryTriggersCommandInput,
@@ -347,6 +352,8 @@ import {
   GetBranchOutput,
   GetCommentInput,
   GetCommentOutput,
+  GetCommentReactionsInput,
+  GetCommentReactionsOutput,
   GetCommentsForComparedCommitInput,
   GetCommentsForComparedCommitOutput,
   GetCommentsForPullRequestInput,
@@ -413,6 +420,8 @@ import {
   InvalidPullRequestIdException,
   InvalidPullRequestStatusException,
   InvalidPullRequestStatusUpdateException,
+  InvalidReactionUserArnException,
+  InvalidReactionValueException,
   InvalidReferenceNameException,
   InvalidRelativeFileVersionEnumException,
   InvalidReplacementContentException,
@@ -517,12 +526,17 @@ import {
   PullRequestStatusChangedEventMetadata,
   PullRequestStatusRequiredException,
   PullRequestTarget,
+  PutCommentReactionInput,
   PutFileEntry,
   PutFileEntryConflictException,
   PutFileInput,
   PutFileOutput,
   PutRepositoryTriggersInput,
   PutRepositoryTriggersOutput,
+  ReactionForComment,
+  ReactionLimitExceededException,
+  ReactionValueFormats,
+  ReactionValueRequiredException,
   ReferenceDoesNotExistException,
   ReferenceNameRequiredException,
   ReferenceTypeNotSupportedException,
@@ -955,6 +969,19 @@ export const serializeAws_json1_1GetCommentCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetCommentReactionsCommand = async (
+  input: GetCommentReactionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetCommentReactions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetCommentReactionsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetCommentsForComparedCommitCommand = async (
   input: GetCommentsForComparedCommitCommandInput,
   context: __SerdeContext
@@ -1355,6 +1382,19 @@ export const serializeAws_json1_1PostCommentReplyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PostCommentReplyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutCommentReactionCommand = async (
+  input: PutCommentReactionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.PutCommentReaction",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutCommentReactionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -5780,10 +5820,154 @@ const deserializeAws_json1_1GetCommentCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "EncryptionIntegrityChecksFailedException":
+    case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EncryptionKeyAccessDeniedException":
+    case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EncryptionKeyDisabledException":
+    case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EncryptionKeyNotFoundException":
+    case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EncryptionKeyUnavailableException":
+    case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
       response = {
         ...(await deserializeAws_json1_1InvalidCommentIdExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetCommentReactionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCommentReactionsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetCommentReactionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetCommentReactionsOutput(data, context);
+  const response: GetCommentReactionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetCommentReactionsOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetCommentReactionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCommentReactionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "CommentDeletedException":
+    case "com.amazonaws.codecommit#CommentDeletedException":
+      response = {
+        ...(await deserializeAws_json1_1CommentDeletedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CommentDoesNotExistException":
+    case "com.amazonaws.codecommit#CommentDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CommentIdRequiredException":
+    case "com.amazonaws.codecommit#CommentIdRequiredException":
+      response = {
+        ...(await deserializeAws_json1_1CommentIdRequiredExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidCommentIdException":
+    case "com.amazonaws.codecommit#InvalidCommentIdException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommentIdExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidContinuationTokenException":
+    case "com.amazonaws.codecommit#InvalidContinuationTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidMaxResultsException":
+    case "com.amazonaws.codecommit#InvalidMaxResultsException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidReactionUserArnException":
+    case "com.amazonaws.codecommit#InvalidReactionUserArnException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidReactionUserArnExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11261,6 +11445,106 @@ const deserializeAws_json1_1PostCommentReplyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutCommentReactionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutCommentReactionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutCommentReactionCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutCommentReactionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutCommentReactionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutCommentReactionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "CommentDeletedException":
+    case "com.amazonaws.codecommit#CommentDeletedException":
+      response = {
+        ...(await deserializeAws_json1_1CommentDeletedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CommentDoesNotExistException":
+    case "com.amazonaws.codecommit#CommentDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CommentIdRequiredException":
+    case "com.amazonaws.codecommit#CommentIdRequiredException":
+      response = {
+        ...(await deserializeAws_json1_1CommentIdRequiredExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidCommentIdException":
+    case "com.amazonaws.codecommit#InvalidCommentIdException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommentIdExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidReactionValueException":
+    case "com.amazonaws.codecommit#InvalidReactionValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidReactionValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReactionLimitExceededException":
+    case "com.amazonaws.codecommit#ReactionLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ReactionLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReactionValueRequiredException":
+    case "com.amazonaws.codecommit#ReactionValueRequiredException":
+      response = {
+        ...(await deserializeAws_json1_1ReactionValueRequiredExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14957,6 +15241,36 @@ const deserializeAws_json1_1InvalidPullRequestStatusUpdateExceptionResponse = as
   return contents;
 };
 
+const deserializeAws_json1_1InvalidReactionUserArnExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidReactionUserArnException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidReactionUserArnException(body, context);
+  const contents: InvalidReactionUserArnException = {
+    name: "InvalidReactionUserArnException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidReactionValueExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidReactionValueException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidReactionValueException(body, context);
+  const contents: InvalidReactionValueException = {
+    name: "InvalidReactionValueException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidReferenceNameExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -15790,6 +16104,36 @@ const deserializeAws_json1_1PutFileEntryConflictExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1PutFileEntryConflictException(body, context);
   const contents: PutFileEntryConflictException = {
     name: "PutFileEntryConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ReactionLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReactionLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ReactionLimitExceededException(body, context);
+  const contents: ReactionLimitExceededException = {
+    name: "ReactionLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ReactionValueRequiredExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReactionValueRequiredException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ReactionValueRequiredException(body, context);
+  const contents: ReactionValueRequiredException = {
+    name: "ReactionValueRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -16636,6 +16980,18 @@ const serializeAws_json1_1GetCommentInput = (input: GetCommentInput, context: __
   };
 };
 
+const serializeAws_json1_1GetCommentReactionsInput = (
+  input: GetCommentReactionsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.commentId !== undefined && { commentId: input.commentId }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.reactionUserArn !== undefined && { reactionUserArn: input.reactionUserArn }),
+  };
+};
+
 const serializeAws_json1_1GetCommentsForComparedCommitInput = (
   input: GetCommentsForComparedCommitInput,
   context: __SerdeContext
@@ -17023,6 +17379,13 @@ const serializeAws_json1_1PostCommentReplyInput = (input: PostCommentReplyInput,
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.content !== undefined && { content: input.content }),
     ...(input.inReplyTo !== undefined && { inReplyTo: input.inReplyTo }),
+  };
+};
+
+const serializeAws_json1_1PutCommentReactionInput = (input: PutCommentReactionInput, context: __SerdeContext): any => {
+  return {
+    ...(input.commentId !== undefined && { commentId: input.commentId }),
+    ...(input.reactionValue !== undefined && { reactionValue: input.reactionValue }),
   };
 };
 
@@ -17827,6 +18190,10 @@ const deserializeAws_json1_1BranchNameRequiredException = (
   } as any;
 };
 
+const deserializeAws_json1_1CallerReactions = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateException = (
   output: any,
   context: __SerdeContext
@@ -17861,6 +18228,10 @@ const deserializeAws_json1_1Comment = (output: any, context: __SerdeContext): Co
   return {
     __type: "Comment",
     authorArn: output.authorArn !== undefined && output.authorArn !== null ? output.authorArn : undefined,
+    callerReactions:
+      output.callerReactions !== undefined && output.callerReactions !== null
+        ? deserializeAws_json1_1CallerReactions(output.callerReactions, context)
+        : undefined,
     clientRequestToken:
       output.clientRequestToken !== undefined && output.clientRequestToken !== null
         ? output.clientRequestToken
@@ -17876,6 +18247,10 @@ const deserializeAws_json1_1Comment = (output: any, context: __SerdeContext): Co
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
+        : undefined,
+    reactionCounts:
+      output.reactionCounts !== undefined && output.reactionCounts !== null
+        ? deserializeAws_json1_1ReactionCountsMap(output.reactionCounts, context)
         : undefined,
   } as any;
 };
@@ -18682,6 +19057,20 @@ const deserializeAws_json1_1GetCommentOutput = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1GetCommentReactionsOutput = (
+  output: any,
+  context: __SerdeContext
+): GetCommentReactionsOutput => {
+  return {
+    __type: "GetCommentReactionsOutput",
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    reactionsForComment:
+      output.reactionsForComment !== undefined && output.reactionsForComment !== null
+        ? deserializeAws_json1_1ReactionsForCommentList(output.reactionsForComment, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetCommentsForComparedCommitOutput = (
   output: any,
   context: __SerdeContext
@@ -19245,6 +19634,26 @@ const deserializeAws_json1_1InvalidPullRequestStatusUpdateException = (
 ): InvalidPullRequestStatusUpdateException => {
   return {
     __type: "InvalidPullRequestStatusUpdateException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidReactionUserArnException = (
+  output: any,
+  context: __SerdeContext
+): InvalidReactionUserArnException => {
+  return {
+    __type: "InvalidReactionUserArnException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidReactionValueException = (
+  output: any,
+  context: __SerdeContext
+): InvalidReactionValueException => {
+  return {
+    __type: "InvalidReactionValueException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -20335,6 +20744,71 @@ const deserializeAws_json1_1PutRepositoryTriggersOutput = (
     __type: "PutRepositoryTriggersOutput",
     configurationId:
       output.configurationId !== undefined && output.configurationId !== null ? output.configurationId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReactionCountsMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
+const deserializeAws_json1_1ReactionForComment = (output: any, context: __SerdeContext): ReactionForComment => {
+  return {
+    __type: "ReactionForComment",
+    reaction:
+      output.reaction !== undefined && output.reaction !== null
+        ? deserializeAws_json1_1ReactionValueFormats(output.reaction, context)
+        : undefined,
+    reactionUsers:
+      output.reactionUsers !== undefined && output.reactionUsers !== null
+        ? deserializeAws_json1_1ReactionUsersList(output.reactionUsers, context)
+        : undefined,
+    reactionsFromDeletedUsersCount:
+      output.reactionsFromDeletedUsersCount !== undefined && output.reactionsFromDeletedUsersCount !== null
+        ? output.reactionsFromDeletedUsersCount
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReactionLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): ReactionLimitExceededException => {
+  return {
+    __type: "ReactionLimitExceededException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReactionsForCommentList = (output: any, context: __SerdeContext): ReactionForComment[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ReactionForComment(entry, context));
+};
+
+const deserializeAws_json1_1ReactionUsersList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ReactionValueFormats = (output: any, context: __SerdeContext): ReactionValueFormats => {
+  return {
+    __type: "ReactionValueFormats",
+    emoji: output.emoji !== undefined && output.emoji !== null ? output.emoji : undefined,
+    shortCode: output.shortCode !== undefined && output.shortCode !== null ? output.shortCode : undefined,
+    unicode: output.unicode !== undefined && output.unicode !== null ? output.unicode : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReactionValueRequiredException = (
+  output: any,
+  context: __SerdeContext
+): ReactionValueRequiredException => {
+  return {
+    __type: "ReactionValueRequiredException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 

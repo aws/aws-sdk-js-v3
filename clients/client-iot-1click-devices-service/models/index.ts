@@ -81,9 +81,9 @@ export namespace DescribeDeviceResponse {
 export interface Device {
   __type?: "Device";
   /**
-   * <p>The user specified attributes associated with the device for an event.</p>
+   * <p>The device type, such as "button".</p>
    */
-  Attributes?: Attributes;
+  Type?: string;
 
   /**
    * <p>The unique identifier of the device.</p>
@@ -91,9 +91,9 @@ export interface Device {
   DeviceId?: string;
 
   /**
-   * <p>The device type, such as "button".</p>
+   * <p>The user specified attributes associated with the device for an event.</p>
    */
-  Type?: string;
+  Attributes?: Attributes;
 }
 
 export namespace Device {
@@ -106,6 +106,11 @@ export namespace Device {
 export interface DeviceDescription {
   __type?: "DeviceDescription";
   /**
+   * <p>The unique identifier of the device.</p>
+   */
+  DeviceId?: string;
+
+  /**
    * <p>The ARN of the device.</p>
    */
   Arn?: string;
@@ -115,11 +120,6 @@ export interface DeviceDescription {
    *  user specified device attributes.</p>
    */
   Attributes?: { [key: string]: string };
-
-  /**
-   * <p>The unique identifier of the device.</p>
-   */
-  DeviceId?: string;
 
   /**
    * <p>A Boolean value indicating whether or not the device is enabled.</p>
@@ -173,14 +173,14 @@ export namespace DeviceEvent {
 export interface DeviceMethod {
   __type?: "DeviceMethod";
   /**
-   * <p>The type of the device, such as "button".</p>
-   */
-  DeviceType?: string;
-
-  /**
    * <p>The name of the method applicable to the deviceType.</p>
    */
   MethodName?: string;
+
+  /**
+   * <p>The type of the device, such as "button".</p>
+   */
+  DeviceType?: string;
 }
 
 export namespace DeviceMethod {
@@ -314,14 +314,14 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   name: "InternalFailureException";
   $fault: "server";
   /**
-   * <p>500</p>
-   */
-  Code?: string;
-
-  /**
    * <p>The 500 error message returned by the web server.</p>
    */
   Message?: string;
+
+  /**
+   * <p>500</p>
+   */
+  Code?: string;
 }
 
 export namespace InternalFailureException {
@@ -355,14 +355,14 @@ export namespace InvalidRequestException {
 export interface InvokeDeviceMethodRequest {
   __type?: "InvokeDeviceMethodRequest";
   /**
-   * <p>The unique identifier of the device.</p>
-   */
-  DeviceId: string | undefined;
-
-  /**
    * <p>The device method to invoke.</p>
    */
   DeviceMethod?: DeviceMethod;
+
+  /**
+   * <p>The unique identifier of the device.</p>
+   */
+  DeviceId: string | undefined;
 
   /**
    * <p>A JSON encoded string containing the device method request parameters.</p>
@@ -400,6 +400,12 @@ export interface ListDeviceEventsRequest {
   DeviceId: string | undefined;
 
   /**
+   * <p>The maximum number of results to return per request. If not set, a default value of
+   *  100 is used.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The start date for the device event query, in ISO8061 format. For example,
    *  2018-03-28T15:45:12.880Z
    *  </p>
@@ -407,22 +413,16 @@ export interface ListDeviceEventsRequest {
   FromTimeStamp: Date | undefined;
 
   /**
-   * <p>The maximum number of results to return per request. If not set, a default value of
-   *  100 is used.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The end date for the device event query, in ISO8061 format. For example,
    *  2018-03-28T15:45:12.880Z
    *  </p>
    */
   ToTimeStamp: Date | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDeviceEventsRequest {
@@ -456,6 +456,11 @@ export namespace ListDeviceEventsResponse {
 export interface ListDevicesRequest {
   __type?: "ListDevicesRequest";
   /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The type of the device, such as "button".</p>
    */
   DeviceType?: string;
@@ -465,11 +470,6 @@ export interface ListDevicesRequest {
    *  100 is used.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListDevicesRequest {
@@ -482,14 +482,14 @@ export namespace ListDevicesRequest {
 export interface ListDevicesResponse {
   __type?: "ListDevicesResponse";
   /**
-   * <p>A list of devices.</p>
-   */
-  Devices?: DeviceDescription[];
-
-  /**
    * <p>The token to retrieve the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of devices.</p>
+   */
+  Devices?: DeviceDescription[];
 }
 
 export namespace ListDevicesResponse {
@@ -537,14 +537,14 @@ export interface PreconditionFailedException extends __SmithyException, $Metadat
   name: "PreconditionFailedException";
   $fault: "client";
   /**
-   * <p>412</p>
-   */
-  Code?: string;
-
-  /**
    * <p>An error message explaining the error or its remedy.</p>
    */
   Message?: string;
+
+  /**
+   * <p>412</p>
+   */
+  Code?: string;
 }
 
 export namespace PreconditionFailedException {
@@ -558,15 +558,15 @@ export interface RangeNotSatisfiableException extends __SmithyException, $Metada
   name: "RangeNotSatisfiableException";
   $fault: "client";
   /**
-   * <p>416</p>
-   */
-  Code?: string;
-
-  /**
    * <p>The requested number of results specified by nextToken cannot be
    *  satisfied.</p>
    */
   Message?: string;
+
+  /**
+   * <p>416</p>
+   */
+  Code?: string;
 }
 
 export namespace RangeNotSatisfiableException {
@@ -601,14 +601,14 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
-   * <p>404</p>
-   */
-  Code?: string;
-
-  /**
    * <p>The requested device could not be found.</p>
    */
   Message?: string;
+
+  /**
+   * <p>404</p>
+   */
+  Code?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -695,15 +695,15 @@ export namespace UntagResourceRequest {
 export interface UpdateDeviceStateRequest {
   __type?: "UpdateDeviceStateRequest";
   /**
-   * <p>The unique identifier of the device.</p>
-   */
-  DeviceId: string | undefined;
-
-  /**
    * <p>If true, the device is enabled. If false, the device is
    *  disabled.</p>
    */
   Enabled?: boolean;
+
+  /**
+   * <p>The unique identifier of the device.</p>
+   */
+  DeviceId: string | undefined;
 }
 
 export namespace UpdateDeviceStateRequest {

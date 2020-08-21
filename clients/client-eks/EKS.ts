@@ -281,7 +281,7 @@ export class EKS extends EKSClient {
    *             prevent you from being able to delete the VPC. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html">Deleting a
    *                 Cluster</a> in the <i>Amazon EKS User Guide</i>.</p>
    *         <p>If you have managed node groups or Fargate profiles attached to the cluster, you must
-   *             delete them first. For more information, see <a>DeleteNodegroup</a> and<a>DeleteFargateProfile</a>.</p>
+   *             delete them first. For more information, see <a>DeleteNodegroup</a> and <a>DeleteFargateProfile</a>.</p>
    */
   public deleteCluster(
     args: DeleteClusterCommandInput,
@@ -586,8 +586,8 @@ export class EKS extends EKSClient {
   }
 
   /**
-   * <p>Lists the Amazon EKS node groups associated with the specified cluster in your AWS
-   *             account in the specified Region.</p>
+   * <p>Lists the Amazon EKS managed node groups associated with the specified cluster in your AWS
+   *             account in the specified Region. Self-managed node groups are not listed.</p>
    */
   public listNodegroups(
     args: ListNodegroupsCommandInput,

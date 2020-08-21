@@ -11,4 +11,5 @@ export * from "./commands/ListGraphsCommand";
 export * from "./commands/ListInvitationsCommand";
 export * from "./commands/ListMembersCommand";
 export * from "./commands/RejectInvitationCommand";
+export * from "./commands/StartMonitoringMemberCommand";
 export * from "./models/index";

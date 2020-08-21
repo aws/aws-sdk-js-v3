@@ -1,3 +1,4 @@
+import { AdvertiseByoipCidrCommandInput, AdvertiseByoipCidrCommandOutput } from "../commands/AdvertiseByoipCidrCommand";
 import { CreateAcceleratorCommandInput, CreateAcceleratorCommandOutput } from "../commands/CreateAcceleratorCommand";
 import {
   CreateEndpointGroupCommandInput,
@@ -10,6 +11,10 @@ import {
   DeleteEndpointGroupCommandOutput,
 } from "../commands/DeleteEndpointGroupCommand";
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "../commands/DeleteListenerCommand";
+import {
+  DeprovisionByoipCidrCommandInput,
+  DeprovisionByoipCidrCommandOutput,
+} from "../commands/DeprovisionByoipCidrCommand";
 import {
   DescribeAcceleratorAttributesCommandInput,
   DescribeAcceleratorAttributesCommandOutput,
@@ -24,8 +29,16 @@ import {
 } from "../commands/DescribeEndpointGroupCommand";
 import { DescribeListenerCommandInput, DescribeListenerCommandOutput } from "../commands/DescribeListenerCommand";
 import { ListAcceleratorsCommandInput, ListAcceleratorsCommandOutput } from "../commands/ListAcceleratorsCommand";
+import { ListByoipCidrsCommandInput, ListByoipCidrsCommandOutput } from "../commands/ListByoipCidrsCommand";
 import { ListEndpointGroupsCommandInput, ListEndpointGroupsCommandOutput } from "../commands/ListEndpointGroupsCommand";
 import { ListListenersCommandInput, ListListenersCommandOutput } from "../commands/ListListenersCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "../commands/ProvisionByoipCidrCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateAcceleratorAttributesCommandInput,
   UpdateAcceleratorAttributesCommandOutput,
@@ -36,14 +49,21 @@ import {
   UpdateEndpointGroupCommandOutput,
 } from "../commands/UpdateEndpointGroupCommand";
 import { UpdateListenerCommandInput, UpdateListenerCommandOutput } from "../commands/UpdateListenerCommand";
+import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from "../commands/WithdrawByoipCidrCommand";
 import {
   Accelerator,
   AcceleratorAttributes,
   AcceleratorNotDisabledException,
   AcceleratorNotFoundException,
   AccessDeniedException,
+  AdvertiseByoipCidrRequest,
+  AdvertiseByoipCidrResponse,
   AssociatedEndpointGroupFoundException,
   AssociatedListenerFoundException,
+  ByoipCidr,
+  ByoipCidrEvent,
+  ByoipCidrNotFoundException,
+  CidrAuthorizationContext,
   CreateAcceleratorRequest,
   CreateAcceleratorResponse,
   CreateEndpointGroupRequest,
@@ -53,6 +73,8 @@ import {
   DeleteAcceleratorRequest,
   DeleteEndpointGroupRequest,
   DeleteListenerRequest,
+  DeprovisionByoipCidrRequest,
+  DeprovisionByoipCidrResponse,
   DescribeAcceleratorAttributesRequest,
   DescribeAcceleratorAttributesResponse,
   DescribeAcceleratorRequest,
@@ -66,6 +88,7 @@ import {
   EndpointGroup,
   EndpointGroupAlreadyExistsException,
   EndpointGroupNotFoundException,
+  IncorrectCidrStateException,
   InternalServiceErrorException,
   InvalidArgumentException,
   InvalidNextTokenException,
@@ -74,13 +97,24 @@ import {
   LimitExceededException,
   ListAcceleratorsRequest,
   ListAcceleratorsResponse,
+  ListByoipCidrsRequest,
+  ListByoipCidrsResponse,
   ListEndpointGroupsRequest,
   ListEndpointGroupsResponse,
   ListListenersRequest,
   ListListenersResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   Listener,
   ListenerNotFoundException,
   PortRange,
+  ProvisionByoipCidrRequest,
+  ProvisionByoipCidrResponse,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateAcceleratorAttributesRequest,
   UpdateAcceleratorAttributesResponse,
   UpdateAcceleratorRequest,
@@ -89,6 +123,8 @@ import {
   UpdateEndpointGroupResponse,
   UpdateListenerRequest,
   UpdateListenerResponse,
+  WithdrawByoipCidrRequest,
+  WithdrawByoipCidrResponse,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -99,6 +135,20 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_json1_1AdvertiseByoipCidrCommand = async (
+  input: AdvertiseByoipCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.AdvertiseByoipCidr",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AdvertiseByoipCidrRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1CreateAcceleratorCommand = async (
   input: CreateAcceleratorCommandInput,
@@ -178,6 +228,19 @@ export const serializeAws_json1_1DeleteListenerCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeprovisionByoipCidrCommand = async (
+  input: DeprovisionByoipCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DeprovisionByoipCidr",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeprovisionByoipCidrRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeAcceleratorCommand = async (
   input: DescribeAcceleratorCommandInput,
   context: __SerdeContext
@@ -243,6 +306,19 @@ export const serializeAws_json1_1ListAcceleratorsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListByoipCidrsCommand = async (
+  input: ListByoipCidrsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListByoipCidrs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListByoipCidrsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListEndpointGroupsCommand = async (
   input: ListEndpointGroupsCommandInput,
   context: __SerdeContext
@@ -266,6 +342,58 @@ export const serializeAws_json1_1ListListenersCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListListenersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ProvisionByoipCidrCommand = async (
+  input: ProvisionByoipCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ProvisionByoipCidr",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ProvisionByoipCidrRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -319,6 +447,107 @@ export const serializeAws_json1_1UpdateListenerCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1WithdrawByoipCidrCommand = async (
+  input: WithdrawByoipCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.WithdrawByoipCidr",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1WithdrawByoipCidrRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1AdvertiseByoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AdvertiseByoipCidrCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1AdvertiseByoipCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AdvertiseByoipCidrResponse(data, context);
+  const response: AdvertiseByoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AdvertiseByoipCidrResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AdvertiseByoipCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AdvertiseByoipCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ByoipCidrNotFoundException":
+    case "com.amazonaws.globalaccelerator#ByoipCidrNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ByoipCidrNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncorrectCidrStateException":
+    case "com.amazonaws.globalaccelerator#IncorrectCidrStateException":
+      response = {
+        ...(await deserializeAws_json1_1IncorrectCidrStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateAcceleratorCommand = async (
@@ -813,6 +1042,94 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeprovisionByoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeprovisionByoipCidrCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeprovisionByoipCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeprovisionByoipCidrResponse(data, context);
+  const response: DeprovisionByoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeprovisionByoipCidrResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeprovisionByoipCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeprovisionByoipCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ByoipCidrNotFoundException":
+    case "com.amazonaws.globalaccelerator#ByoipCidrNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ByoipCidrNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncorrectCidrStateException":
+    case "com.amazonaws.globalaccelerator#IncorrectCidrStateException":
+      response = {
+        ...(await deserializeAws_json1_1IncorrectCidrStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1173,6 +1490,86 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListByoipCidrsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListByoipCidrsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListByoipCidrsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListByoipCidrsResponse(data, context);
+  const response: ListByoipCidrsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListByoipCidrsResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListByoipCidrsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListByoipCidrsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListEndpointGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1312,6 +1709,310 @@ const deserializeAws_json1_1ListListenersCommandError = async (
     case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ProvisionByoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvisionByoipCidrCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ProvisionByoipCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ProvisionByoipCidrResponse(data, context);
+  const response: ProvisionByoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ProvisionByoipCidrResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ProvisionByoipCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvisionByoipCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncorrectCidrStateException":
+    case "com.amazonaws.globalaccelerator#IncorrectCidrStateException":
+      response = {
+        ...(await deserializeAws_json1_1IncorrectCidrStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1661,6 +2362,94 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1WithdrawByoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<WithdrawByoipCidrCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1WithdrawByoipCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1WithdrawByoipCidrResponse(data, context);
+  const response: WithdrawByoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "WithdrawByoipCidrResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1WithdrawByoipCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<WithdrawByoipCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ByoipCidrNotFoundException":
+    case "com.amazonaws.globalaccelerator#ByoipCidrNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ByoipCidrNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncorrectCidrStateException":
+    case "com.amazonaws.globalaccelerator#IncorrectCidrStateException":
+      response = {
+        ...(await deserializeAws_json1_1IncorrectCidrStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1736,6 +2525,21 @@ const deserializeAws_json1_1AssociatedListenerFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ByoipCidrNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ByoipCidrNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ByoipCidrNotFoundException(body, context);
+  const contents: ByoipCidrNotFoundException = {
+    name: "ByoipCidrNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1759,6 +2563,21 @@ const deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1EndpointGroupNotFoundException(body, context);
   const contents: EndpointGroupNotFoundException = {
     name: "EndpointGroupNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1IncorrectCidrStateExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IncorrectCidrStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1IncorrectCidrStateException(body, context);
+  const contents: IncorrectCidrStateException = {
+    name: "IncorrectCidrStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1856,15 +2675,38 @@ const deserializeAws_json1_1ListenerNotFoundExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1AdvertiseByoipCidrRequest = (
+  input: AdvertiseByoipCidrRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Cidr !== undefined && { Cidr: input.Cidr }),
+  };
+};
+
+const serializeAws_json1_1CidrAuthorizationContext = (
+  input: CidrAuthorizationContext,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Message !== undefined && { Message: input.Message }),
+    ...(input.Signature !== undefined && { Signature: input.Signature }),
+  };
+};
+
 const serializeAws_json1_1CreateAcceleratorRequest = (
   input: CreateAcceleratorRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.IdempotencyToken !== undefined && { IdempotencyToken: input.IdempotencyToken }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
     ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
+    ...(input.IpAddresses !== undefined && {
+      IpAddresses: serializeAws_json1_1IpAddresses(input.IpAddresses, context),
+    }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -1883,7 +2725,7 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
     ...(input.HealthCheckPath !== undefined && { HealthCheckPath: input.HealthCheckPath }),
     ...(input.HealthCheckPort !== undefined && { HealthCheckPort: input.HealthCheckPort }),
     ...(input.HealthCheckProtocol !== undefined && { HealthCheckProtocol: input.HealthCheckProtocol }),
-    ...(input.IdempotencyToken !== undefined && { IdempotencyToken: input.IdempotencyToken }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
     ...(input.ThresholdCount !== undefined && { ThresholdCount: input.ThresholdCount }),
     ...(input.TrafficDialPercentage !== undefined && { TrafficDialPercentage: input.TrafficDialPercentage }),
@@ -1894,7 +2736,7 @@ const serializeAws_json1_1CreateListenerRequest = (input: CreateListenerRequest,
   return {
     ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
     ...(input.ClientAffinity !== undefined && { ClientAffinity: input.ClientAffinity }),
-    ...(input.IdempotencyToken !== undefined && { IdempotencyToken: input.IdempotencyToken }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
     ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
     ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
   };
@@ -1921,6 +2763,15 @@ const serializeAws_json1_1DeleteEndpointGroupRequest = (
 const serializeAws_json1_1DeleteListenerRequest = (input: DeleteListenerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+  };
+};
+
+const serializeAws_json1_1DeprovisionByoipCidrRequest = (
+  input: DeprovisionByoipCidrRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Cidr !== undefined && { Cidr: input.Cidr }),
   };
 };
 
@@ -1971,7 +2822,18 @@ const serializeAws_json1_1EndpointConfigurations = (input: EndpointConfiguration
   return input.map((entry) => serializeAws_json1_1EndpointConfiguration(entry, context));
 };
 
+const serializeAws_json1_1IpAddresses = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1ListAcceleratorsRequest = (input: ListAcceleratorsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListByoipCidrsRequest = (input: ListByoipCidrsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -1997,6 +2859,15 @@ const serializeAws_json1_1ListListenersRequest = (input: ListListenersRequest, c
   };
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+  };
+};
+
 const serializeAws_json1_1PortRange = (input: PortRange, context: __SerdeContext): any => {
   return {
     ...(input.FromPort !== undefined && { FromPort: input.FromPort }),
@@ -2006,6 +2877,47 @@ const serializeAws_json1_1PortRange = (input: PortRange, context: __SerdeContext
 
 const serializeAws_json1_1PortRanges = (input: PortRange[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_json1_1PortRange(entry, context));
+};
+
+const serializeAws_json1_1ProvisionByoipCidrRequest = (
+  input: ProvisionByoipCidrRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Cidr !== undefined && { Cidr: input.Cidr }),
+    ...(input.CidrAuthorizationContext !== undefined && {
+      CidrAuthorizationContext: serializeAws_json1_1CidrAuthorizationContext(input.CidrAuthorizationContext, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+  };
 };
 
 const serializeAws_json1_1UpdateAcceleratorAttributesRequest = (
@@ -2058,6 +2970,15 @@ const serializeAws_json1_1UpdateListenerRequest = (input: UpdateListenerRequest,
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
     ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
     ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
+  };
+};
+
+const serializeAws_json1_1WithdrawByoipCidrRequest = (
+  input: WithdrawByoipCidrRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Cidr !== undefined && { Cidr: input.Cidr }),
   };
 };
 
@@ -2130,6 +3051,19 @@ const deserializeAws_json1_1AccessDeniedException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1AdvertiseByoipCidrResponse = (
+  output: any,
+  context: __SerdeContext
+): AdvertiseByoipCidrResponse => {
+  return {
+    __type: "AdvertiseByoipCidrResponse",
+    ByoipCidr:
+      output.ByoipCidr !== undefined && output.ByoipCidr !== null
+        ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1AssociatedEndpointGroupFoundException = (
   output: any,
   context: __SerdeContext
@@ -2148,6 +3082,47 @@ const deserializeAws_json1_1AssociatedListenerFoundException = (
     __type: "AssociatedListenerFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
+  return {
+    __type: "ByoipCidr",
+    Cidr: output.Cidr !== undefined && output.Cidr !== null ? output.Cidr : undefined,
+    Events:
+      output.Events !== undefined && output.Events !== null
+        ? deserializeAws_json1_1ByoipCidrEvents(output.Events, context)
+        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ByoipCidrEvent = (output: any, context: __SerdeContext): ByoipCidrEvent => {
+  return {
+    __type: "ByoipCidrEvent",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ByoipCidrEvents = (output: any, context: __SerdeContext): ByoipCidrEvent[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ByoipCidrEvent(entry, context));
+};
+
+const deserializeAws_json1_1ByoipCidrNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ByoipCidrNotFoundException => {
+  return {
+    __type: "ByoipCidrNotFoundException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ByoipCidrs = (output: any, context: __SerdeContext): ByoipCidr[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ByoipCidr(entry, context));
 };
 
 const deserializeAws_json1_1CreateAcceleratorResponse = (
@@ -2182,6 +3157,19 @@ const deserializeAws_json1_1CreateListenerResponse = (output: any, context: __Se
     Listener:
       output.Listener !== undefined && output.Listener !== null
         ? deserializeAws_json1_1Listener(output.Listener, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeprovisionByoipCidrResponse = (
+  output: any,
+  context: __SerdeContext
+): DeprovisionByoipCidrResponse => {
+  return {
+    __type: "DeprovisionByoipCidrResponse",
+    ByoipCidr:
+      output.ByoipCidr !== undefined && output.ByoipCidr !== null
+        ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
         : undefined,
   } as any;
 };
@@ -2314,6 +3302,16 @@ const deserializeAws_json1_1EndpointGroups = (output: any, context: __SerdeConte
   return (output || []).map((entry: any) => deserializeAws_json1_1EndpointGroup(entry, context));
 };
 
+const deserializeAws_json1_1IncorrectCidrStateException = (
+  output: any,
+  context: __SerdeContext
+): IncorrectCidrStateException => {
+  return {
+    __type: "IncorrectCidrStateException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InternalServiceErrorException = (
   output: any,
   context: __SerdeContext
@@ -2394,6 +3392,17 @@ const deserializeAws_json1_1ListAcceleratorsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListByoipCidrsResponse = (output: any, context: __SerdeContext): ListByoipCidrsResponse => {
+  return {
+    __type: "ListByoipCidrsResponse",
+    ByoipCidrs:
+      output.ByoipCidrs !== undefined && output.ByoipCidrs !== null
+        ? deserializeAws_json1_1ByoipCidrs(output.ByoipCidrs, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListEndpointGroupsResponse = (
   output: any,
   context: __SerdeContext
@@ -2447,6 +3456,17 @@ const deserializeAws_json1_1ListListenersResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    __type: "ListTagsForResourceResponse",
+    Tags:
+      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
     __type: "PortRange",
@@ -2457,6 +3477,43 @@ const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1PortRanges = (output: any, context: __SerdeContext): PortRange[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1PortRange(entry, context));
+};
+
+const deserializeAws_json1_1ProvisionByoipCidrResponse = (
+  output: any,
+  context: __SerdeContext
+): ProvisionByoipCidrResponse => {
+  return {
+    __type: "ProvisionByoipCidrResponse",
+    ByoipCidr:
+      output.ByoipCidr !== undefined && output.ByoipCidr !== null
+        ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    __type: "Tag",
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {
+    __type: "TagResourceResponse",
+  } as any;
+};
+
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {
+    __type: "UntagResourceResponse",
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateAcceleratorAttributesResponse = (
@@ -2504,6 +3561,19 @@ const deserializeAws_json1_1UpdateListenerResponse = (output: any, context: __Se
     Listener:
       output.Listener !== undefined && output.Listener !== null
         ? deserializeAws_json1_1Listener(output.Listener, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1WithdrawByoipCidrResponse = (
+  output: any,
+  context: __SerdeContext
+): WithdrawByoipCidrResponse => {
+  return {
+    __type: "WithdrawByoipCidrResponse",
+    ByoipCidr:
+      output.ByoipCidr !== undefined && output.ByoipCidr !== null
+        ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
         : undefined,
   } as any;
 };

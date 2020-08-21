@@ -265,6 +265,10 @@ import {
   PutRetentionConfigurationCommandOutput,
 } from "../commands/PutRetentionConfigurationCommand";
 import {
+  SelectAggregateResourceConfigCommandInput,
+  SelectAggregateResourceConfigCommandOutput,
+} from "../commands/SelectAggregateResourceConfigCommand";
+import {
   SelectResourceConfigCommandInput,
   SelectResourceConfigCommandOutput,
 } from "../commands/SelectResourceConfigCommand";
@@ -539,6 +543,8 @@ import {
   ResourceValue,
   RetentionConfiguration,
   Scope,
+  SelectAggregateResourceConfigRequest,
+  SelectAggregateResourceConfigResponse,
   SelectResourceConfigRequest,
   SelectResourceConfigResponse,
   Source,
@@ -1489,6 +1495,19 @@ export const serializeAws_json1_1PutRetentionConfigurationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1SelectAggregateResourceConfigCommand = async (
+  input: SelectAggregateResourceConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StarlingDoveService.SelectAggregateResourceConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SelectAggregateResourceConfigRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1SelectResourceConfigCommand = async (
   input: SelectResourceConfigCommandInput,
   context: __SerdeContext
@@ -2327,6 +2346,14 @@ const deserializeAws_json1_1DeleteRemediationConfigurationCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
+      response = {
+        ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "NoSuchRemediationConfigurationException":
     case "com.amazonaws.configservice#NoSuchRemediationConfigurationException":
       response = {
@@ -3439,6 +3466,14 @@ const deserializeAws_json1_1DescribeConformancePacksCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "NoSuchConformancePackException":
     case "com.amazonaws.configservice#NoSuchConformancePackException":
       response = {
@@ -3507,6 +3542,14 @@ const deserializeAws_json1_1DescribeConformancePackStatusCommandError = async (
     case "com.amazonaws.configservice#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6463,6 +6506,14 @@ const deserializeAws_json1_1PutRemediationExceptionsCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
+      response = {
+        ...(await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidParameterValueException":
     case "com.amazonaws.configservice#InvalidParameterValueException":
       response = {
@@ -6610,6 +6661,86 @@ const deserializeAws_json1_1PutRetentionConfigurationCommandError = async (
           parsedOutput,
           context
         )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1SelectAggregateResourceConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SelectAggregateResourceConfigCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1SelectAggregateResourceConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SelectAggregateResourceConfigResponse(data, context);
+  const response: SelectAggregateResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "SelectAggregateResourceConfigResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SelectAggregateResourceConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SelectAggregateResourceConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidExpressionException":
+    case "com.amazonaws.configservice#InvalidExpressionException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidExpressionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidLimitExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
+      response = {
+        ...(await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9277,6 +9408,21 @@ const serializeAws_json1_1Scope = (input: Scope, context: __SerdeContext): any =
   };
 };
 
+const serializeAws_json1_1SelectAggregateResourceConfigRequest = (
+  input: SelectAggregateResourceConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConfigurationAggregatorName !== undefined && {
+      ConfigurationAggregatorName: input.ConfigurationAggregatorName,
+    }),
+    ...(input.Expression !== undefined && { Expression: input.Expression }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1SelectResourceConfigRequest = (
   input: SelectResourceConfigRequest,
   context: __SerdeContext
@@ -9864,6 +10010,10 @@ const deserializeAws_json1_1ConfigRuleEvaluationStatus = (
       output.FirstEvaluationStarted !== undefined && output.FirstEvaluationStarted !== null
         ? output.FirstEvaluationStarted
         : undefined,
+    LastDeactivatedTime:
+      output.LastDeactivatedTime !== undefined && output.LastDeactivatedTime !== null
+        ? new Date(Math.round(output.LastDeactivatedTime * 1000))
+        : undefined,
     LastErrorCode:
       output.LastErrorCode !== undefined && output.LastErrorCode !== null ? output.LastErrorCode : undefined,
     LastErrorMessage:
@@ -9947,6 +10097,7 @@ const deserializeAws_json1_1ConfigurationAggregator = (
       output.ConfigurationAggregatorName !== undefined && output.ConfigurationAggregatorName !== null
         ? output.ConfigurationAggregatorName
         : undefined,
+    CreatedBy: output.CreatedBy !== undefined && output.CreatedBy !== null ? output.CreatedBy : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -12328,6 +12479,24 @@ const deserializeAws_json1_1Scope = (output: any, context: __SerdeContext): Scop
         : undefined,
     TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
     TagValue: output.TagValue !== undefined && output.TagValue !== null ? output.TagValue : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SelectAggregateResourceConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): SelectAggregateResourceConfigResponse => {
+  return {
+    __type: "SelectAggregateResourceConfigResponse",
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    QueryInfo:
+      output.QueryInfo !== undefined && output.QueryInfo !== null
+        ? deserializeAws_json1_1QueryInfo(output.QueryInfo, context)
+        : undefined,
+    Results:
+      output.Results !== undefined && output.Results !== null
+        ? deserializeAws_json1_1Results(output.Results, context)
+        : undefined,
   } as any;
 };
 

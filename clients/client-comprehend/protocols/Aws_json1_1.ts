@@ -2973,6 +2973,14 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.comprehend#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
       response = {
@@ -5515,7 +5523,9 @@ const serializeAws_json1_1BatchDetectDominantLanguageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
+    ...(input.TextList !== undefined && {
+      TextList: serializeAws_json1_1CustomerInputStringList(input.TextList, context),
+    }),
   };
 };
 
@@ -5525,7 +5535,9 @@ const serializeAws_json1_1BatchDetectEntitiesRequest = (
 ): any => {
   return {
     ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
+    ...(input.TextList !== undefined && {
+      TextList: serializeAws_json1_1CustomerInputStringList(input.TextList, context),
+    }),
   };
 };
 
@@ -5535,7 +5547,9 @@ const serializeAws_json1_1BatchDetectKeyPhrasesRequest = (
 ): any => {
   return {
     ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
+    ...(input.TextList !== undefined && {
+      TextList: serializeAws_json1_1CustomerInputStringList(input.TextList, context),
+    }),
   };
 };
 
@@ -5545,7 +5559,9 @@ const serializeAws_json1_1BatchDetectSentimentRequest = (
 ): any => {
   return {
     ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
+    ...(input.TextList !== undefined && {
+      TextList: serializeAws_json1_1CustomerInputStringList(input.TextList, context),
+    }),
   };
 };
 
@@ -5555,7 +5571,9 @@ const serializeAws_json1_1BatchDetectSyntaxRequest = (
 ): any => {
   return {
     ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
+    ...(input.TextList !== undefined && {
+      TextList: serializeAws_json1_1CustomerInputStringList(input.TextList, context),
+    }),
   };
 };
 
@@ -5614,6 +5632,10 @@ const serializeAws_json1_1CreateEntityRecognizerRequest = (
     ...(input.VolumeKmsKeyId !== undefined && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
+};
+
+const serializeAws_json1_1CustomerInputStringList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1DeleteDocumentClassifierRequest = (
@@ -5729,6 +5751,7 @@ const serializeAws_json1_1DetectDominantLanguageRequest = (
 
 const serializeAws_json1_1DetectEntitiesRequest = (input: DetectEntitiesRequest, context: __SerdeContext): any => {
   return {
+    ...(input.EndpointArn !== undefined && { EndpointArn: input.EndpointArn }),
     ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.Text !== undefined && { Text: input.Text }),
   };
@@ -6243,10 +6266,6 @@ const serializeAws_json1_1StopTrainingEntityRecognizerRequest = (
   return {
     ...(input.EntityRecognizerArn !== undefined && { EntityRecognizerArn: input.EntityRecognizerArn }),
   };
-};
-
-const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1Subnets = (input: string[], context: __SerdeContext): any => {

@@ -151,6 +151,18 @@ import {
   DisassociateConnectionFromLagCommandInput,
   DisassociateConnectionFromLagCommandOutput,
 } from "./commands/DisassociateConnectionFromLagCommand";
+import {
+  ListVirtualInterfaceTestHistoryCommandInput,
+  ListVirtualInterfaceTestHistoryCommandOutput,
+} from "./commands/ListVirtualInterfaceTestHistoryCommand";
+import {
+  StartBgpFailoverTestCommandInput,
+  StartBgpFailoverTestCommandOutput,
+} from "./commands/StartBgpFailoverTestCommand";
+import {
+  StopBgpFailoverTestCommandInput,
+  StopBgpFailoverTestCommandOutput,
+} from "./commands/StopBgpFailoverTestCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -258,6 +270,9 @@ export type ServiceInputTypes =
   | DescribeVirtualGatewaysCommandInput
   | DescribeVirtualInterfacesCommandInput
   | DisassociateConnectionFromLagCommandInput
+  | ListVirtualInterfaceTestHistoryCommandInput
+  | StartBgpFailoverTestCommandInput
+  | StopBgpFailoverTestCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDirectConnectGatewayAssociationCommandInput
@@ -313,6 +328,9 @@ export type ServiceOutputTypes =
   | DescribeVirtualGatewaysCommandOutput
   | DescribeVirtualInterfacesCommandOutput
   | DisassociateConnectionFromLagCommandOutput
+  | ListVirtualInterfaceTestHistoryCommandOutput
+  | StartBgpFailoverTestCommandOutput
+  | StopBgpFailoverTestCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDirectConnectGatewayAssociationCommandOutput

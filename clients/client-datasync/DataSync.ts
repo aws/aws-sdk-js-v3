@@ -11,10 +11,20 @@ import {
   CreateLocationEfsCommandOutput,
 } from "./commands/CreateLocationEfsCommand";
 import {
+  CreateLocationFsxWindowsCommand,
+  CreateLocationFsxWindowsCommandInput,
+  CreateLocationFsxWindowsCommandOutput,
+} from "./commands/CreateLocationFsxWindowsCommand";
+import {
   CreateLocationNfsCommand,
   CreateLocationNfsCommandInput,
   CreateLocationNfsCommandOutput,
 } from "./commands/CreateLocationNfsCommand";
+import {
+  CreateLocationObjectStorageCommand,
+  CreateLocationObjectStorageCommandInput,
+  CreateLocationObjectStorageCommandOutput,
+} from "./commands/CreateLocationObjectStorageCommand";
 import {
   CreateLocationS3Command,
   CreateLocationS3CommandInput,
@@ -44,10 +54,20 @@ import {
   DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand";
 import {
+  DescribeLocationFsxWindowsCommand,
+  DescribeLocationFsxWindowsCommandInput,
+  DescribeLocationFsxWindowsCommandOutput,
+} from "./commands/DescribeLocationFsxWindowsCommand";
+import {
   DescribeLocationNfsCommand,
   DescribeLocationNfsCommandInput,
   DescribeLocationNfsCommandOutput,
 } from "./commands/DescribeLocationNfsCommand";
+import {
+  DescribeLocationObjectStorageCommand,
+  DescribeLocationObjectStorageCommandInput,
+  DescribeLocationObjectStorageCommandOutput,
+} from "./commands/DescribeLocationObjectStorageCommand";
 import {
   DescribeLocationS3Command,
   DescribeLocationS3CommandInput,
@@ -112,7 +132,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class DataSync extends DataSyncClient {
   /**
    * <p>Cancels execution of a task. </p>
-   *          <p>When you cancel a task execution, the transfer of some files are abruptly interrupted.
+   *          <p>When you cancel a task execution, the transfer of some files is abruptly interrupted.
    *       The contents of files that are transferred to the destination might be incomplete or
    *       inconsistent with the source files. However, if you start a new task execution on the same
    *       task and you allow the task execution to complete, file content on the destination is complete
@@ -155,7 +175,7 @@ export class DataSync extends DataSyncClient {
    *       information such as the AWS Region that you want to activate the agent in. You activate the
    *       agent in the AWS Region where your target locations (in Amazon S3 or Amazon EFS) reside. Your
    *       tasks are created in this AWS Region.</p>
-   *          <p>You can activate the agent in a VPC (Virtual private Cloud) or provide the agent access to
+   *          <p>You can activate the agent in a VPC (virtual private cloud) or provide the agent access to
    *       a VPC endpoint so you can run tasks without going over the public Internet.</p>
    *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
    *       them need to have status AVAILABLE for the task to run. If you use multiple agents for a
@@ -222,8 +242,40 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Defines a file system on a  Network File System (NFS) server that can be read from or
-   *       written to</p>
+   * <p>Creates an endpoint for an Amazon FSx for Windows file system.</p>
+   */
+  public createLocationFsxWindows(
+    args: CreateLocationFsxWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationFsxWindowsCommandOutput>;
+  public createLocationFsxWindows(
+    args: CreateLocationFsxWindowsCommandInput,
+    cb: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
+  ): void;
+  public createLocationFsxWindows(
+    args: CreateLocationFsxWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
+  ): void;
+  public createLocationFsxWindows(
+    args: CreateLocationFsxWindowsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationFsxWindowsCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
+  ): Promise<CreateLocationFsxWindowsCommandOutput> | void {
+    const command = new CreateLocationFsxWindowsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Defines a file system on a Network File System (NFS) server that can be read from or
+   *       written to.</p>
    */
   public createLocationNfs(
     args: CreateLocationNfsCommandInput,
@@ -244,6 +296,38 @@ export class DataSync extends DataSyncClient {
     cb?: (err: any, data?: CreateLocationNfsCommandOutput) => void
   ): Promise<CreateLocationNfsCommandOutput> | void {
     const command = new CreateLocationNfsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an endpoint for a self-managed object storage bucket.</p>
+   */
+  public createLocationObjectStorage(
+    args: CreateLocationObjectStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationObjectStorageCommandOutput>;
+  public createLocationObjectStorage(
+    args: CreateLocationObjectStorageCommandInput,
+    cb: (err: any, data?: CreateLocationObjectStorageCommandOutput) => void
+  ): void;
+  public createLocationObjectStorage(
+    args: CreateLocationObjectStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationObjectStorageCommandOutput) => void
+  ): void;
+  public createLocationObjectStorage(
+    args: CreateLocationObjectStorageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationObjectStorageCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocationObjectStorageCommandOutput) => void
+  ): Promise<CreateLocationObjectStorageCommandOutput> | void {
+    const command = new CreateLocationObjectStorageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -296,7 +380,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Defines a file system on an Server Message Block (SMB) server that can be read from or
+   * <p>Defines a file system on a Server Message Block (SMB) server that can be read from or
    *       written to.</p>
    */
   public createLocationSmb(
@@ -519,7 +603,39 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata, such as the path information, about a NFS location.</p>
+   * <p>Returns metadata, such as the path information about an Amazon FSx for Windows location.</p>
+   */
+  public describeLocationFsxWindows(
+    args: DescribeLocationFsxWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationFsxWindowsCommandOutput>;
+  public describeLocationFsxWindows(
+    args: DescribeLocationFsxWindowsCommandInput,
+    cb: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
+  ): void;
+  public describeLocationFsxWindows(
+    args: DescribeLocationFsxWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
+  ): void;
+  public describeLocationFsxWindows(
+    args: DescribeLocationFsxWindowsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
+  ): Promise<DescribeLocationFsxWindowsCommandOutput> | void {
+    const command = new DescribeLocationFsxWindowsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns metadata, such as the path information, about an NFS location.</p>
    */
   public describeLocationNfs(
     args: DescribeLocationNfsCommandInput,
@@ -540,6 +656,38 @@ export class DataSync extends DataSyncClient {
     cb?: (err: any, data?: DescribeLocationNfsCommandOutput) => void
   ): Promise<DescribeLocationNfsCommandOutput> | void {
     const command = new DescribeLocationNfsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns metadata about a self-managed object storage server location.</p>
+   */
+  public describeLocationObjectStorage(
+    args: DescribeLocationObjectStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationObjectStorageCommandOutput>;
+  public describeLocationObjectStorage(
+    args: DescribeLocationObjectStorageCommandInput,
+    cb: (err: any, data?: DescribeLocationObjectStorageCommandOutput) => void
+  ): void;
+  public describeLocationObjectStorage(
+    args: DescribeLocationObjectStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationObjectStorageCommandOutput) => void
+  ): void;
+  public describeLocationObjectStorage(
+    args: DescribeLocationObjectStorageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationObjectStorageCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocationObjectStorageCommandOutput) => void
+  ): Promise<DescribeLocationObjectStorageCommandOutput> | void {
+    const command = new DescribeLocationObjectStorageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -583,7 +731,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata, such as the path and user information about a SMB location.</p>
+   * <p>Returns metadata, such as the path and user information about an SMB location.</p>
    */
   public describeLocationSmb(
     args: DescribeLocationSmbCommandInput,
@@ -709,7 +857,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns a lists of source and destination locations.</p>
+   * <p>Returns a list of source and destination locations.</p>
    *          <p>If you have more locations than are returned in a response (that is, the response
    *       returns only a truncated list of your agents), the response contains a token that you can
    *       specify in your next request to fetch the next page of locations.</p>
@@ -744,7 +892,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns all the tags associated with a specified resources. </p>
+   * <p>Returns all the tags associated with a specified resource. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,

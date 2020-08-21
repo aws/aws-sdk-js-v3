@@ -124,6 +124,7 @@ import {
   LimitExceededException,
   ListCostCategoryDefinitionsRequest,
   ListCostCategoryDefinitionsResponse,
+  MatchOption,
   MetricValue,
   ModifyRecommendationDetail,
   RDSInstanceDetails,
@@ -141,6 +142,7 @@ import {
   ResourceUtilization,
   ResultByTime,
   RightsizingRecommendation,
+  RightsizingRecommendationConfiguration,
   RightsizingRecommendationMetadata,
   RightsizingRecommendationSummary,
   SavingsPlansAmortizedCommitment,
@@ -1961,6 +1963,9 @@ const serializeAws_json1_1DescribeCostCategoryDefinitionRequest = (
 const serializeAws_json1_1DimensionValues = (input: DimensionValues, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.MatchOptions !== undefined && {
+      MatchOptions: serializeAws_json1_1MatchOptions(input.MatchOptions, context),
+    }),
     ...(input.Values !== undefined && { Values: serializeAws_json1_1Values(input.Values, context) }),
   };
 };
@@ -2089,6 +2094,9 @@ const serializeAws_json1_1GetRightsizingRecommendationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Configuration !== undefined && {
+      Configuration: serializeAws_json1_1RightsizingRecommendationConfiguration(input.Configuration, context),
+    }),
     ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
@@ -2116,6 +2124,8 @@ const serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AccountScope !== undefined && { AccountScope: input.AccountScope }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.LookbackPeriodInDays !== undefined && { LookbackPeriodInDays: input.LookbackPeriodInDays }),
     ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
@@ -2184,12 +2194,27 @@ const serializeAws_json1_1ListCostCategoryDefinitionsRequest = (
 ): any => {
   return {
     ...(input.EffectiveOn !== undefined && { EffectiveOn: input.EffectiveOn }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
+const serializeAws_json1_1MatchOptions = (input: (MatchOption | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1MetricNames = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1RightsizingRecommendationConfiguration = (
+  input: RightsizingRecommendationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BenefitsConsidered !== undefined && { BenefitsConsidered: input.BenefitsConsidered }),
+    ...(input.RecommendationTarget !== undefined && { RecommendationTarget: input.RecommendationTarget }),
+  };
 };
 
 const serializeAws_json1_1ServiceSpecification = (input: ServiceSpecification, context: __SerdeContext): any => {
@@ -2203,6 +2228,9 @@ const serializeAws_json1_1ServiceSpecification = (input: ServiceSpecification, c
 const serializeAws_json1_1TagValues = (input: TagValues, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.MatchOptions !== undefined && {
+      MatchOptions: serializeAws_json1_1MatchOptions(input.MatchOptions, context),
+    }),
     ...(input.Values !== undefined && { Values: serializeAws_json1_1Values(input.Values, context) }),
   };
 };
@@ -2268,6 +2296,8 @@ const deserializeAws_json1_1CostCategoryReference = (output: any, context: __Ser
     EffectiveStart:
       output.EffectiveStart !== undefined && output.EffectiveStart !== null ? output.EffectiveStart : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    NumberOfRules:
+      output.NumberOfRules !== undefined && output.NumberOfRules !== null ? output.NumberOfRules : undefined,
   } as any;
 };
 
@@ -2411,6 +2441,7 @@ const deserializeAws_json1_1CurrentInstance = (output: any, context: __SerdeCont
   return {
     __type: "CurrentInstance",
     CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
+    InstanceName: output.InstanceName !== undefined && output.InstanceName !== null ? output.InstanceName : undefined,
     MonthlyCost: output.MonthlyCost !== undefined && output.MonthlyCost !== null ? output.MonthlyCost : undefined,
     OnDemandHoursInLookbackPeriod:
       output.OnDemandHoursInLookbackPeriod !== undefined && output.OnDemandHoursInLookbackPeriod !== null
@@ -2493,6 +2524,10 @@ const deserializeAws_json1_1DimensionValues = (output: any, context: __SerdeCont
   return {
     __type: "DimensionValues",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    MatchOptions:
+      output.MatchOptions !== undefined && output.MatchOptions !== null
+        ? deserializeAws_json1_1MatchOptions(output.MatchOptions, context)
+        : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_json1_1Values(output.Values, context)
@@ -2815,6 +2850,10 @@ const deserializeAws_json1_1GetRightsizingRecommendationResponse = (
 ): GetRightsizingRecommendationResponse => {
   return {
     __type: "GetRightsizingRecommendationResponse",
+    Configuration:
+      output.Configuration !== undefined && output.Configuration !== null
+        ? deserializeAws_json1_1RightsizingRecommendationConfiguration(output.Configuration, context)
+        : undefined,
     Metadata:
       output.Metadata !== undefined && output.Metadata !== null
         ? deserializeAws_json1_1RightsizingRecommendationMetadata(output.Metadata, context)
@@ -3022,6 +3061,10 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsResponse = (
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1MatchOptions = (output: any, context: __SerdeContext): (MatchOption | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { [key: string]: MetricValue } => {
@@ -3434,6 +3477,23 @@ const deserializeAws_json1_1RightsizingRecommendation = (
   } as any;
 };
 
+const deserializeAws_json1_1RightsizingRecommendationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RightsizingRecommendationConfiguration => {
+  return {
+    __type: "RightsizingRecommendationConfiguration",
+    BenefitsConsidered:
+      output.BenefitsConsidered !== undefined && output.BenefitsConsidered !== null
+        ? output.BenefitsConsidered
+        : undefined,
+    RecommendationTarget:
+      output.RecommendationTarget !== undefined && output.RecommendationTarget !== null
+        ? output.RecommendationTarget
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RightsizingRecommendationList = (
   output: any,
   context: __SerdeContext
@@ -3563,6 +3623,7 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendation = (
 ): SavingsPlansPurchaseRecommendation => {
   return {
     __type: "SavingsPlansPurchaseRecommendation",
+    AccountScope: output.AccountScope !== undefined && output.AccountScope !== null ? output.AccountScope : undefined,
     LookbackPeriodInDays:
       output.LookbackPeriodInDays !== undefined && output.LookbackPeriodInDays !== null
         ? output.LookbackPeriodInDays
@@ -3868,6 +3929,10 @@ const deserializeAws_json1_1TagValues = (output: any, context: __SerdeContext): 
   return {
     __type: "TagValues",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    MatchOptions:
+      output.MatchOptions !== undefined && output.MatchOptions !== null
+        ? deserializeAws_json1_1MatchOptions(output.MatchOptions, context)
+        : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_json1_1Values(output.Values, context)

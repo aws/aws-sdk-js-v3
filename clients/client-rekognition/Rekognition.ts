@@ -31,6 +31,16 @@ import {
 } from "./commands/DeleteCollectionCommand";
 import { DeleteFacesCommand, DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
 import {
+  DeleteProjectCommand,
+  DeleteProjectCommandInput,
+  DeleteProjectCommandOutput,
+} from "./commands/DeleteProjectCommand";
+import {
+  DeleteProjectVersionCommand,
+  DeleteProjectVersionCommandInput,
+  DeleteProjectVersionCommandOutput,
+} from "./commands/DeleteProjectVersionCommand";
+import {
   DeleteStreamProcessorCommand,
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput,
@@ -107,6 +117,16 @@ import {
   GetPersonTrackingCommandInput,
   GetPersonTrackingCommandOutput,
 } from "./commands/GetPersonTrackingCommand";
+import {
+  GetSegmentDetectionCommand,
+  GetSegmentDetectionCommandInput,
+  GetSegmentDetectionCommandOutput,
+} from "./commands/GetSegmentDetectionCommand";
+import {
+  GetTextDetectionCommand,
+  GetTextDetectionCommandInput,
+  GetTextDetectionCommandOutput,
+} from "./commands/GetTextDetectionCommand";
 import { IndexFacesCommand, IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand";
 import {
   ListCollectionsCommand,
@@ -166,10 +186,20 @@ import {
   StartProjectVersionCommandOutput,
 } from "./commands/StartProjectVersionCommand";
 import {
+  StartSegmentDetectionCommand,
+  StartSegmentDetectionCommandInput,
+  StartSegmentDetectionCommandOutput,
+} from "./commands/StartSegmentDetectionCommand";
+import {
   StartStreamProcessorCommand,
   StartStreamProcessorCommandInput,
   StartStreamProcessorCommandOutput,
 } from "./commands/StartStreamProcessorCommand";
+import {
+  StartTextDetectionCommand,
+  StartTextDetectionCommandInput,
+  StartTextDetectionCommandOutput,
+} from "./commands/StartTextDetectionCommand";
 import {
   StopProjectVersionCommand,
   StopProjectVersionCommandInput,
@@ -497,6 +527,80 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
+   * <p>Deletes an Amazon Rekognition Custom Labels project.  To delete a project you must first delete all models associated
+   *          with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>rekognition:DeleteProject</code> action. </p>
+   */
+  public deleteProject(
+    args: DeleteProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectCommandOutput>;
+  public deleteProject(
+    args: DeleteProjectCommandInput,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
+  public deleteProject(
+    args: DeleteProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
+  public deleteProject(
+    args: DeleteProjectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): Promise<DeleteProjectCommandOutput> | void {
+    const command = new DeleteProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Amazon Rekognition Custom Labels model.  </p>
+   *          <p>You can't delete a model if it is running or if it is training.
+   *           To check the status of a model, use the <code>Status</code> field returned
+   *          from <a>DescribeProjectVersions</a>.
+   *          To stop a running model call <a>StopProjectVersion</a>. If the model
+   *       is training, wait until it finishes.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>rekognition:DeleteProjectVersion</code> action. </p>
+   */
+  public deleteProjectVersion(
+    args: DeleteProjectVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectVersionCommandOutput>;
+  public deleteProjectVersion(
+    args: DeleteProjectVersionCommandInput,
+    cb: (err: any, data?: DeleteProjectVersionCommandOutput) => void
+  ): void;
+  public deleteProjectVersion(
+    args: DeleteProjectVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProjectVersionCommandOutput) => void
+  ): void;
+  public deleteProjectVersion(
+    args: DeleteProjectVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProjectVersionCommandOutput) => void
+  ): Promise<DeleteProjectVersionCommandOutput> | void {
+    const command = new DeleteProjectVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with
    *             <a>CreateStreamProcessor</a>. You might not be able to use the same name for a stream processor for a few seconds after calling <code>DeleteStreamProcessor</code>.</p>
    */
@@ -738,7 +842,7 @@ export class Rekognition extends RekognitionClient {
    *       obscured faces, the algorithm might not detect the faces or might detect faces with lower
    *       confidence. </p>
    *          <p>You pass the input image either as base64-encoded image bytes or as a reference to an
-   *       image in an Amazon S3 bucket. If you use the
+   *       image in an Amazon S3 bucket. If you use the AWS CLI
    *        to call Amazon Rekognition operations, passing image bytes is not
    *       supported. The image must be either a PNG or JPEG formatted file. </p>
    *
@@ -1355,6 +1459,110 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
+   * <p>Gets the segment detection results of a Amazon Rekognition Video analysis started by <a>StartSegmentDetection</a>.</p>
+   *          <p>Segment detection with Amazon Rekognition Video is an asynchronous operation. You start segment detection by
+   *       calling <a>StartSegmentDetection</a> which returns a job identifier (<code>JobId</code>).
+   *       When the segment detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service
+   *       topic registered in the initial call to <code>StartSegmentDetection</code>. To get the results
+   *       of the segment detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>.
+   *       if so, call <code>GetSegmentDetection</code> and pass the job identifier (<code>JobId</code>) from the initial call
+   *       of <code>StartSegmentDetection</code>.</p>
+   *          <p>
+   *             <code>GetSegmentDetection</code> returns detected segments in an array (<code>Segments</code>)
+   *       of <a>SegmentDetection</a> objects. <code>Segments</code> is sorted by the segment types
+   *       specified in the <code>SegmentTypes</code> input parameter of <code>StartSegmentDetection</code>.
+   *     Each element of the array includes the detected segment, the precentage confidence in the acuracy
+   *       of the detected segment, the type of the segment, and the frame in which the segment was detected.</p>
+   *          <p>Use <code>SelectedSegmentTypes</code> to find out the type of segment detection requested in the
+   *     call to <code>StartSegmentDetection</code>.</p>
+   *          <p>Use the <code>MaxResults</code> parameter to limit the number of segment detections returned. If there are more results than
+   *       specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains
+   *       a pagination token for getting the next set of results. To get the next page of results, call <code>GetSegmentDetection</code>
+   *       and populate the <code>NextToken</code> request parameter with the token value returned from the previous
+   *       call to <code>GetSegmentDetection</code>.</p>
+   *
+   *          <p>For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition Developer Guide.</p>
+   */
+  public getSegmentDetection(
+    args: GetSegmentDetectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentDetectionCommandOutput>;
+  public getSegmentDetection(
+    args: GetSegmentDetectionCommandInput,
+    cb: (err: any, data?: GetSegmentDetectionCommandOutput) => void
+  ): void;
+  public getSegmentDetection(
+    args: GetSegmentDetectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentDetectionCommandOutput) => void
+  ): void;
+  public getSegmentDetection(
+    args: GetSegmentDetectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentDetectionCommandOutput) => void),
+    cb?: (err: any, data?: GetSegmentDetectionCommandOutput) => void
+  ): Promise<GetSegmentDetectionCommandOutput> | void {
+    const command = new GetSegmentDetectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the text detection results of a Amazon Rekognition Video analysis started by <a>StartTextDetection</a>.</p>
+   *          <p>Text detection with Amazon Rekognition Video is an asynchronous operation. You start text detection by
+   *      calling <a>StartTextDetection</a> which returns a job identifier (<code>JobId</code>)
+   *      When the text detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service
+   *      topic registered in the initial call to <code>StartTextDetection</code>. To get the results
+   *      of the text detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>.
+   *      if so, call <code>GetTextDetection</code> and pass the job identifier (<code>JobId</code>) from the initial call
+   *      of <code>StartLabelDetection</code>.</p>
+   *          <p>
+   *             <code>GetTextDetection</code> returns an array of detected text (<code>TextDetections</code>) sorted by
+   *        the time the text was detected, up to 50 words per frame of video.</p>
+   *          <p>Each element of the array includes the detected text, the precentage confidence in the acuracy
+   *        of the detected text, the time the text was detected, bounding box information for where the text
+   *        was located, and unique identifiers for words and their lines.</p>
+   *          <p>Use MaxResults parameter to limit the number of text detections returned. If there are more results than
+   *      specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains
+   *      a pagination token for getting the next set of results. To get the next page of results, call <code>GetTextDetection</code>
+   *      and populate the <code>NextToken</code> request parameter with the token value returned from the previous
+   *      call to <code>GetTextDetection</code>.</p>
+   */
+  public getTextDetection(
+    args: GetTextDetectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTextDetectionCommandOutput>;
+  public getTextDetection(
+    args: GetTextDetectionCommandInput,
+    cb: (err: any, data?: GetTextDetectionCommandOutput) => void
+  ): void;
+  public getTextDetection(
+    args: GetTextDetectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTextDetectionCommandOutput) => void
+  ): void;
+  public getTextDetection(
+    args: GetTextDetectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTextDetectionCommandOutput) => void),
+    cb?: (err: any, data?: GetTextDetectionCommandOutput) => void
+  ): Promise<GetTextDetectionCommandOutput> | void {
+    const command = new GetTextDetectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Detects faces in the input image and adds them to the specified collection. </p>
    *          <p>Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying
    *       detection algorithm first detects the faces in the input image. For each face, the algorithm
@@ -1379,7 +1587,7 @@ export class Rekognition extends RekognitionClient {
    *
    *          <p>For more information, see Model Versioning in the Amazon Rekognition Developer
    *       Guide.</p>
-   *          <p>If you provide the optional <code>ExternalImageID</code> for the input image you
+   *          <p>If you provide the optional <code>ExternalImageId</code> for the input image you
    *       provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the <a>ListFaces</a> operation, the response returns the external ID. You can use this
    *       external image ID to create a client-side index to associate the faces with each image. You
    *       can then use the index to find all faces in an image.</p>
@@ -2063,6 +2271,53 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
+   * <p>Starts asynchronous detection of segment detection in a stored video.</p>
+   *          <p>Amazon Rekognition Video can detect segments in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
+   *       the filename of the video. <code>StartSegmentDetection</code> returns a job identifier (<code>JobId</code>) which you use to get
+   *       the results of the operation. When segment detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic
+   *       that you specify in <code>NotificationChannel</code>.</p>
+   *          <p>You can use the <code>Filters</code> (<a>StartSegmentDetectionFilters</a>)
+   *       input parameter to specify the minimum detection confidence returned in the response.
+   *       Within <code>Filters</code>, use <code>ShotFilter</code> (<a>StartShotDetectionFilter</a>)
+   *       to filter detected shots. Use  <code>TechnicalCueFilter</code> (<a>StartTechnicalCueDetectionFilter</a>)
+   *       to filter technical cues. </p>
+   *          <p>To get the results of the segment detection operation, first check that the status value published to the Amazon SNS
+   *       topic is <code>SUCCEEDED</code>. if so, call <a>GetSegmentDetection</a> and pass the job identifier (<code>JobId</code>)
+   *       from the initial call to <code>StartSegmentDetection</code>. </p>
+   *
+   *
+   *          <p>For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition Developer Guide.</p>
+   */
+  public startSegmentDetection(
+    args: StartSegmentDetectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSegmentDetectionCommandOutput>;
+  public startSegmentDetection(
+    args: StartSegmentDetectionCommandInput,
+    cb: (err: any, data?: StartSegmentDetectionCommandOutput) => void
+  ): void;
+  public startSegmentDetection(
+    args: StartSegmentDetectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSegmentDetectionCommandOutput) => void
+  ): void;
+  public startSegmentDetection(
+    args: StartSegmentDetectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSegmentDetectionCommandOutput) => void),
+    cb?: (err: any, data?: StartSegmentDetectionCommandOutput) => void
+  ): Promise<StartSegmentDetectionCommandOutput> | void {
+    const command = new StartSegmentDetectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
    *             To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to
    *             <code>CreateStreamProcessor</code>.</p>
@@ -2086,6 +2341,45 @@ export class Rekognition extends RekognitionClient {
     cb?: (err: any, data?: StartStreamProcessorCommandOutput) => void
   ): Promise<StartStreamProcessorCommandOutput> | void {
     const command = new StartStreamProcessorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts asynchronous detection of text in a stored video.</p>
+   *          <p>Amazon Rekognition Video can detect text in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
+   *        the filename of the video. <code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) which you use to get
+   *        the results of the operation. When text detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic
+   *        that you specify in <code>NotificationChannel</code>.</p>
+   *          <p>To get the results of the text detection operation, first check that the status value published to the Amazon SNS
+   *        topic is <code>SUCCEEDED</code>. if so, call <a>GetTextDetection</a> and pass the job identifier (<code>JobId</code>)
+   *        from the initial call to <code>StartTextDetection</code>. </p>
+   */
+  public startTextDetection(
+    args: StartTextDetectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTextDetectionCommandOutput>;
+  public startTextDetection(
+    args: StartTextDetectionCommandInput,
+    cb: (err: any, data?: StartTextDetectionCommandOutput) => void
+  ): void;
+  public startTextDetection(
+    args: StartTextDetectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTextDetectionCommandOutput) => void
+  ): void;
+  public startTextDetection(
+    args: StartTextDetectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTextDetectionCommandOutput) => void),
+    cb?: (err: any, data?: StartTextDetectionCommandOutput) => void
+  ): Promise<StartTextDetectionCommandOutput> | void {
+    const command = new StartTextDetectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

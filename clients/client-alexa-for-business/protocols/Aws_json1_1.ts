@@ -5612,6 +5612,14 @@ const deserializeAws_json1_1RegisterAVSDeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "NotFoundException":
+    case "com.amazonaws.alexaforbusiness#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -7681,6 +7689,7 @@ const serializeAws_json1_1CreateBusinessReportScheduleRequest = (
     ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
     ...(input.S3KeyPrefix !== undefined && { S3KeyPrefix: input.S3KeyPrefix }),
     ...(input.ScheduleName !== undefined && { ScheduleName: input.ScheduleName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -7803,6 +7812,7 @@ const serializeAws_json1_1CreateProfileRequest = (input: CreateProfileRequest, c
     ...(input.PSTNEnabled !== undefined && { PSTNEnabled: input.PSTNEnabled }),
     ...(input.ProfileName !== undefined && { ProfileName: input.ProfileName }),
     ...(input.SetupModeDisabled !== undefined && { SetupModeDisabled: input.SetupModeDisabled }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TemperatureUnit !== undefined && { TemperatureUnit: input.TemperatureUnit }),
     ...(input.Timezone !== undefined && { Timezone: input.Timezone }),
     ...(input.WakeWord !== undefined && { WakeWord: input.WakeWord }),
@@ -7832,6 +7842,7 @@ const serializeAws_json1_1CreateSkillGroupRequest = (input: CreateSkillGroupRequ
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.SkillGroupName !== undefined && { SkillGroupName: input.SkillGroupName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -8319,6 +8330,7 @@ const serializeAws_json1_1RegisterAVSDeviceRequest = (
     ...(input.ClientId !== undefined && { ClientId: input.ClientId }),
     ...(input.DeviceSerialNumber !== undefined && { DeviceSerialNumber: input.DeviceSerialNumber }),
     ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.RoomArn !== undefined && { RoomArn: input.RoomArn }),
     ...(input.UserCode !== undefined && { UserCode: input.UserCode }),
   };
 };

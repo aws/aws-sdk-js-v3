@@ -36,6 +36,10 @@ import {
   DescribeRecoveryPointCommandInput,
   DescribeRecoveryPointCommandOutput,
 } from "./commands/DescribeRecoveryPointCommand";
+import {
+  DescribeRegionSettingsCommandInput,
+  DescribeRegionSettingsCommandOutput,
+} from "./commands/DescribeRegionSettingsCommand";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand";
 import {
   ExportBackupPlanTemplateCommandInput,
@@ -116,6 +120,10 @@ import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
 } from "./commands/UpdateRecoveryPointLifecycleCommand";
+import {
+  UpdateRegionSettingsCommandInput,
+  UpdateRegionSettingsCommandOutput,
+} from "./commands/UpdateRegionSettingsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -178,6 +186,7 @@ export type ServiceInputTypes =
   | DescribeCopyJobCommandInput
   | DescribeProtectedResourceCommandInput
   | DescribeRecoveryPointCommandInput
+  | DescribeRegionSettingsCommandInput
   | DescribeRestoreJobCommandInput
   | ExportBackupPlanTemplateCommandInput
   | GetBackupPlanCommandInput
@@ -209,7 +218,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBackupPlanCommandInput
-  | UpdateRecoveryPointLifecycleCommandInput;
+  | UpdateRecoveryPointLifecycleCommandInput
+  | UpdateRegionSettingsCommandInput;
 
 export type ServiceOutputTypes =
   | CreateBackupPlanCommandOutput
@@ -226,6 +236,7 @@ export type ServiceOutputTypes =
   | DescribeCopyJobCommandOutput
   | DescribeProtectedResourceCommandOutput
   | DescribeRecoveryPointCommandOutput
+  | DescribeRegionSettingsCommandOutput
   | DescribeRestoreJobCommandOutput
   | ExportBackupPlanTemplateCommandOutput
   | GetBackupPlanCommandOutput
@@ -257,7 +268,8 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBackupPlanCommandOutput
-  | UpdateRecoveryPointLifecycleCommandOutput;
+  | UpdateRecoveryPointLifecycleCommandOutput
+  | UpdateRegionSettingsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

@@ -8,6 +8,10 @@ import { CreateExportJobCommandInput, CreateExportJobCommandOutput } from "../co
 import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "../commands/CreateImportJobCommand";
 import { CreateJourneyCommandInput, CreateJourneyCommandOutput } from "../commands/CreateJourneyCommand";
 import { CreatePushTemplateCommandInput, CreatePushTemplateCommandOutput } from "../commands/CreatePushTemplateCommand";
+import {
+  CreateRecommenderConfigurationCommandInput,
+  CreateRecommenderConfigurationCommandOutput,
+} from "../commands/CreateRecommenderConfigurationCommand";
 import { CreateSegmentCommandInput, CreateSegmentCommandOutput } from "../commands/CreateSegmentCommand";
 import { CreateSmsTemplateCommandInput, CreateSmsTemplateCommandOutput } from "../commands/CreateSmsTemplateCommand";
 import {
@@ -41,6 +45,10 @@ import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from ".
 import { DeleteGcmChannelCommandInput, DeleteGcmChannelCommandOutput } from "../commands/DeleteGcmChannelCommand";
 import { DeleteJourneyCommandInput, DeleteJourneyCommandOutput } from "../commands/DeleteJourneyCommand";
 import { DeletePushTemplateCommandInput, DeletePushTemplateCommandOutput } from "../commands/DeletePushTemplateCommand";
+import {
+  DeleteRecommenderConfigurationCommandInput,
+  DeleteRecommenderConfigurationCommandOutput,
+} from "../commands/DeleteRecommenderConfigurationCommand";
 import { DeleteSegmentCommandInput, DeleteSegmentCommandOutput } from "../commands/DeleteSegmentCommand";
 import { DeleteSmsChannelCommandInput, DeleteSmsChannelCommandOutput } from "../commands/DeleteSmsChannelCommand";
 import { DeleteSmsTemplateCommandInput, DeleteSmsTemplateCommandOutput } from "../commands/DeleteSmsTemplateCommand";
@@ -114,6 +122,14 @@ import {
   GetJourneyExecutionMetricsCommandOutput,
 } from "../commands/GetJourneyExecutionMetricsCommand";
 import { GetPushTemplateCommandInput, GetPushTemplateCommandOutput } from "../commands/GetPushTemplateCommand";
+import {
+  GetRecommenderConfigurationCommandInput,
+  GetRecommenderConfigurationCommandOutput,
+} from "../commands/GetRecommenderConfigurationCommand";
+import {
+  GetRecommenderConfigurationsCommandInput,
+  GetRecommenderConfigurationsCommandOutput,
+} from "../commands/GetRecommenderConfigurationsCommand";
 import { GetSegmentCommandInput, GetSegmentCommandOutput } from "../commands/GetSegmentCommand";
 import {
   GetSegmentExportJobsCommandInput,
@@ -186,6 +202,10 @@ import { UpdateGcmChannelCommandInput, UpdateGcmChannelCommandOutput } from "../
 import { UpdateJourneyCommandInput, UpdateJourneyCommandOutput } from "../commands/UpdateJourneyCommand";
 import { UpdateJourneyStateCommandInput, UpdateJourneyStateCommandOutput } from "../commands/UpdateJourneyStateCommand";
 import { UpdatePushTemplateCommandInput, UpdatePushTemplateCommandOutput } from "../commands/UpdatePushTemplateCommand";
+import {
+  UpdateRecommenderConfigurationCommandInput,
+  UpdateRecommenderConfigurationCommandOutput,
+} from "../commands/UpdateRecommenderConfigurationCommand";
 import { UpdateSegmentCommandInput, UpdateSegmentCommandOutput } from "../commands/UpdateSegmentCommand";
 import { UpdateSmsChannelCommandInput, UpdateSmsChannelCommandOutput } from "../commands/UpdateSmsChannelCommand";
 import { UpdateSmsTemplateCommandInput, UpdateSmsTemplateCommandOutput } from "../commands/UpdateSmsTemplateCommand";
@@ -228,6 +248,7 @@ import {
   BaiduChannelResponse,
   BaiduMessage,
   BaseKpiResult,
+  CampaignCustomMessage,
   CampaignDateRangeKpiResponse,
   CampaignEmailMessage,
   CampaignEventFilter,
@@ -242,7 +263,10 @@ import {
   Condition,
   ConditionalSplitActivity,
   CreateApplicationRequest,
+  CreateRecommenderConfigurationShape,
   CreateTemplateMessageBody,
+  CustomDeliveryConfiguration,
+  CustomMessageActivity,
   DefaultMessage,
   DefaultPushNotificationMessage,
   DefaultPushNotificationTemplate,
@@ -289,15 +313,19 @@ import {
   ImportJobsResponse,
   InternalServerErrorException,
   ItemResponse,
+  JourneyCustomMessage,
   JourneyDateRangeKpiResponse,
   JourneyEmailMessage,
   JourneyExecutionActivityMetricsResponse,
   JourneyExecutionMetricsResponse,
   JourneyLimits,
+  JourneyPushMessage,
   JourneyResponse,
+  JourneySMSMessage,
   JourneySchedule,
   JourneyStateRequest,
   JourneysResponse,
+  ListRecommenderConfigurationsResponse,
   Message,
   MessageBody,
   MessageConfiguration,
@@ -311,7 +339,9 @@ import {
   NotFoundException,
   NumberValidateRequest,
   NumberValidateResponse,
+  PayloadTooLargeException,
   PublicEndpoint,
+  PushMessageActivity,
   PushNotificationTemplateRequest,
   PushNotificationTemplateResponse,
   QuietTime,
@@ -319,11 +349,13 @@ import {
   RandomSplitEntry,
   RawEmail,
   RecencyDimension,
+  RecommenderConfigurationResponse,
   ResultRow,
   ResultRowValue,
   SMSChannelRequest,
   SMSChannelResponse,
   SMSMessage,
+  SMSMessageActivity,
   SMSTemplateRequest,
   SMSTemplateResponse,
   Schedule,
@@ -357,6 +389,7 @@ import {
   TooManyRequestsException,
   TreatmentResource,
   UpdateAttributesRequest,
+  UpdateRecommenderConfigurationShape,
   VoiceChannelRequest,
   VoiceChannelResponse,
   VoiceMessage,
@@ -370,6 +403,7 @@ import {
   WriteJourneyRequest,
   WriteSegmentRequest,
   WriteTreatmentResource,
+  __EndpointTypesElement,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -616,6 +650,34 @@ export const serializeAws_restJson1CreatePushTemplateCommand = async (
   let body: any;
   if (input.PushNotificationTemplateRequest !== undefined) {
     body = serializeAws_restJson1PushNotificationTemplateRequest(input.PushNotificationTemplateRequest, context);
+  }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateRecommenderConfigurationCommand = async (
+  input: CreateRecommenderConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/recommenders";
+  let body: any;
+  if (input.CreateRecommenderConfiguration !== undefined) {
+    body = serializeAws_restJson1CreateRecommenderConfigurationShape(input.CreateRecommenderConfiguration, context);
   }
   if (body === undefined) {
     body = {};
@@ -962,15 +1024,6 @@ export const serializeAws_restJson1DeleteCampaignCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns/{CampaignId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.CampaignId !== undefined) {
     const labelValue: string = input.CampaignId;
     if (labelValue.length <= 0) {
@@ -979,6 +1032,15 @@ export const serializeAws_restJson1DeleteCampaignCommand = async (
     resolvedPath = resolvedPath.replace("{CampaignId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: CampaignId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1164,15 +1226,6 @@ export const serializeAws_restJson1DeleteJourneyCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.JourneyId !== undefined) {
     const labelValue: string = input.JourneyId;
     if (labelValue.length <= 0) {
@@ -1181,6 +1234,15 @@ export const serializeAws_restJson1DeleteJourneyCommand = async (
     resolvedPath = resolvedPath.replace("{JourneyId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: JourneyId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1225,6 +1287,36 @@ export const serializeAws_restJson1DeletePushTemplateCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteRecommenderConfigurationCommand = async (
+  input: DeleteRecommenderConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/recommenders/{RecommenderId}";
+  if (input.RecommenderId !== undefined) {
+    const labelValue: string = input.RecommenderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RecommenderId.");
+    }
+    resolvedPath = resolvedPath.replace("{RecommenderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RecommenderId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1623,15 +1715,6 @@ export const serializeAws_restJson1GetApplicationDateRangeKpiCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/kpis/daterange/{KpiName}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.KpiName !== undefined) {
     const labelValue: string = input.KpiName;
     if (labelValue.length <= 0) {
@@ -1641,13 +1724,22 @@ export const serializeAws_restJson1GetApplicationDateRangeKpiCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: KpiName.");
   }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
   const query: any = {
-    ...(input.EndTime !== undefined && { "end-time": (input.EndTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
-    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
     ...(input.StartTime !== undefined && {
       "start-time": (input.StartTime.toISOString().split(".")[0] + "Z").toString(),
     }),
+    ...(input.EndTime !== undefined && { "end-time": (input.EndTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1702,8 +1794,8 @@ export const serializeAws_restJson1GetAppsCommand = async (
   };
   let resolvedPath = "/v1/apps";
   const query: any = {
-    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
     ...(input.Token !== undefined && { token: input.Token }),
+    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1840,14 +1932,14 @@ export const serializeAws_restJson1GetCampaignDateRangeKpiCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/kpis/daterange/{KpiName}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
+  if (input.KpiName !== undefined) {
+    const labelValue: string = input.KpiName;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+      throw new Error("Empty value provided for input HTTP label: KpiName.");
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{KpiName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error("No value provided for input HTTP label: KpiName.");
   }
   if (input.CampaignId !== undefined) {
     const labelValue: string = input.CampaignId;
@@ -1858,22 +1950,22 @@ export const serializeAws_restJson1GetCampaignDateRangeKpiCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: CampaignId.");
   }
-  if (input.KpiName !== undefined) {
-    const labelValue: string = input.KpiName;
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: KpiName.");
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
     }
-    resolvedPath = resolvedPath.replace("{KpiName}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: KpiName.");
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.EndTime !== undefined && { "end-time": (input.EndTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
-    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
     ...(input.StartTime !== undefined && {
       "start-time": (input.StartTime.toISOString().split(".")[0] + "Z").toString(),
     }),
+    ...(input.EndTime !== undefined && { "end-time": (input.EndTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1907,8 +1999,8 @@ export const serializeAws_restJson1GetCampaignsCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
     ...(input.Token !== undefined && { token: input.Token }),
+    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1941,15 +2033,6 @@ export const serializeAws_restJson1GetCampaignVersionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  if (input.CampaignId !== undefined) {
-    const labelValue: string = input.CampaignId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: CampaignId.");
-    }
-    resolvedPath = resolvedPath.replace("{CampaignId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: CampaignId.");
-  }
   if (input.Version !== undefined) {
     const labelValue: string = input.Version;
     if (labelValue.length <= 0) {
@@ -1958,6 +2041,15 @@ export const serializeAws_restJson1GetCampaignVersionCommand = async (
     resolvedPath = resolvedPath.replace("{Version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
+  }
+  if (input.CampaignId !== undefined) {
+    const labelValue: string = input.CampaignId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CampaignId.");
+    }
+    resolvedPath = resolvedPath.replace("{CampaignId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CampaignId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1980,15 +2072,6 @@ export const serializeAws_restJson1GetCampaignVersionsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.CampaignId !== undefined) {
     const labelValue: string = input.CampaignId;
     if (labelValue.length <= 0) {
@@ -1997,6 +2080,15 @@ export const serializeAws_restJson1GetCampaignVersionsCommand = async (
     resolvedPath = resolvedPath.replace("{CampaignId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: CampaignId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
     ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
@@ -2291,15 +2383,6 @@ export const serializeAws_restJson1GetImportJobCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/jobs/import/{JobId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
@@ -2308,6 +2391,15 @@ export const serializeAws_restJson1GetImportJobCommand = async (
     resolvedPath = resolvedPath.replace("{JobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2340,8 +2432,8 @@ export const serializeAws_restJson1GetImportJobsCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
     ...(input.Token !== undefined && { token: input.Token }),
+    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2365,15 +2457,6 @@ export const serializeAws_restJson1GetJourneyCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.JourneyId !== undefined) {
     const labelValue: string = input.JourneyId;
     if (labelValue.length <= 0) {
@@ -2382,6 +2465,15 @@ export const serializeAws_restJson1GetJourneyCommand = async (
     resolvedPath = resolvedPath.replace("{JourneyId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: JourneyId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2404,15 +2496,6 @@ export const serializeAws_restJson1GetJourneyDateRangeKpiCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}/kpis/daterange/{KpiName}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.JourneyId !== undefined) {
     const labelValue: string = input.JourneyId;
     if (labelValue.length <= 0) {
@@ -2421,6 +2504,15 @@ export const serializeAws_restJson1GetJourneyDateRangeKpiCommand = async (
     resolvedPath = resolvedPath.replace("{JourneyId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: JourneyId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   if (input.KpiName !== undefined) {
     const labelValue: string = input.KpiName;
@@ -2432,12 +2524,12 @@ export const serializeAws_restJson1GetJourneyDateRangeKpiCommand = async (
     throw new Error("No value provided for input HTTP label: KpiName.");
   }
   const query: any = {
-    ...(input.EndTime !== undefined && { "end-time": (input.EndTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
+    ...(input.EndTime !== undefined && { "end-time": (input.EndTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.StartTime !== undefined && {
       "start-time": (input.StartTime.toISOString().split(".")[0] + "Z").toString(),
     }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2461,14 +2553,14 @@ export const serializeAws_restJson1GetJourneyExecutionActivityMetricsCommand = a
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}/activities/{JourneyActivityId}/execution-metrics";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
+  if (input.JourneyId !== undefined) {
+    const labelValue: string = input.JourneyId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+      throw new Error("Empty value provided for input HTTP label: JourneyId.");
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{JourneyId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error("No value provided for input HTTP label: JourneyId.");
   }
   if (input.JourneyActivityId !== undefined) {
     const labelValue: string = input.JourneyActivityId;
@@ -2479,18 +2571,18 @@ export const serializeAws_restJson1GetJourneyExecutionActivityMetricsCommand = a
   } else {
     throw new Error("No value provided for input HTTP label: JourneyActivityId.");
   }
-  if (input.JourneyId !== undefined) {
-    const labelValue: string = input.JourneyId;
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: JourneyId.");
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
     }
-    resolvedPath = resolvedPath.replace("{JourneyId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: JourneyId.");
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2514,15 +2606,6 @@ export const serializeAws_restJson1GetJourneyExecutionMetricsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}/execution-metrics";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.JourneyId !== undefined) {
     const labelValue: string = input.JourneyId;
     if (labelValue.length <= 0) {
@@ -2532,9 +2615,18 @@ export const serializeAws_restJson1GetJourneyExecutionMetricsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: JourneyId.");
   }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
   const query: any = {
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2584,6 +2676,62 @@ export const serializeAws_restJson1GetPushTemplateCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetRecommenderConfigurationCommand = async (
+  input: GetRecommenderConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/recommenders/{RecommenderId}";
+  if (input.RecommenderId !== undefined) {
+    const labelValue: string = input.RecommenderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RecommenderId.");
+    }
+    resolvedPath = resolvedPath.replace("{RecommenderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RecommenderId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetRecommenderConfigurationsCommand = async (
+  input: GetRecommenderConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/recommenders";
+  const query: any = {
+    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
+    ...(input.Token !== undefined && { token: input.Token }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetSegmentCommand = async (
   input: GetSegmentCommandInput,
   context: __SerdeContext
@@ -2592,15 +2740,6 @@ export const serializeAws_restJson1GetSegmentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/segments/{SegmentId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.SegmentId !== undefined) {
     const labelValue: string = input.SegmentId;
     if (labelValue.length <= 0) {
@@ -2609,6 +2748,15 @@ export const serializeAws_restJson1GetSegmentCommand = async (
     resolvedPath = resolvedPath.replace("{SegmentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SegmentId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2675,15 +2823,6 @@ export const serializeAws_restJson1GetSegmentImportJobsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/import";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.SegmentId !== undefined) {
     const labelValue: string = input.SegmentId;
     if (labelValue.length <= 0) {
@@ -2692,6 +2831,15 @@ export const serializeAws_restJson1GetSegmentImportJobsCommand = async (
     resolvedPath = resolvedPath.replace("{SegmentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SegmentId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
     ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
@@ -2821,8 +2969,8 @@ export const serializeAws_restJson1GetSegmentVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: SegmentId.");
   }
   const query: any = {
-    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
     ...(input.Token !== undefined && { token: input.Token }),
+    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3079,10 +3227,10 @@ export const serializeAws_restJson1ListTemplatesCommand = async (
   };
   let resolvedPath = "/v1/templates";
   const query: any = {
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
-    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
     ...(input.Prefix !== undefined && { prefix: input.Prefix }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.TemplateType !== undefined && { "template-type": input.TemplateType }),
+    ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3106,15 +3254,6 @@ export const serializeAws_restJson1ListTemplateVersionsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/templates/{TemplateName}/{TemplateType}/versions";
-  if (input.TemplateName !== undefined) {
-    const labelValue: string = input.TemplateName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: TemplateName.");
-    }
-    resolvedPath = resolvedPath.replace("{TemplateName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: TemplateName.");
-  }
   if (input.TemplateType !== undefined) {
     const labelValue: string = input.TemplateType;
     if (labelValue.length <= 0) {
@@ -3123,6 +3262,15 @@ export const serializeAws_restJson1ListTemplateVersionsCommand = async (
     resolvedPath = resolvedPath.replace("{TemplateType}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateType.");
+  }
+  if (input.TemplateName !== undefined) {
+    const labelValue: string = input.TemplateName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: TemplateName.");
+    }
+    resolvedPath = resolvedPath.replace("{TemplateName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: TemplateName.");
   }
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
@@ -3252,15 +3400,6 @@ export const serializeAws_restJson1RemoveAttributesCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/attributes/{AttributeType}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.AttributeType !== undefined) {
     const labelValue: string = input.AttributeType;
     if (labelValue.length <= 0) {
@@ -3269,6 +3408,15 @@ export const serializeAws_restJson1RemoveAttributesCommand = async (
     resolvedPath = resolvedPath.replace("{AttributeType}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AttributeType.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   if (input.UpdateAttributesRequest !== undefined) {
@@ -3702,15 +3850,6 @@ export const serializeAws_restJson1UpdateCampaignCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns/{CampaignId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.CampaignId !== undefined) {
     const labelValue: string = input.CampaignId;
     if (labelValue.length <= 0) {
@@ -3719,6 +3858,15 @@ export const serializeAws_restJson1UpdateCampaignCommand = async (
     resolvedPath = resolvedPath.replace("{CampaignId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: CampaignId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   if (input.WriteCampaignRequest !== undefined) {
@@ -3993,15 +4141,6 @@ export const serializeAws_restJson1UpdateJourneyStateCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}/state";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.JourneyId !== undefined) {
     const labelValue: string = input.JourneyId;
     if (labelValue.length <= 0) {
@@ -4010,6 +4149,15 @@ export const serializeAws_restJson1UpdateJourneyStateCommand = async (
     resolvedPath = resolvedPath.replace("{JourneyId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: JourneyId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   if (input.JourneyStateRequest !== undefined) {
@@ -4049,8 +4197,8 @@ export const serializeAws_restJson1UpdatePushTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
   const query: any = {
-    ...(input.CreateNewVersion !== undefined && { "create-new-version": input.CreateNewVersion.toString() }),
     ...(input.Version !== undefined && { version: input.Version }),
+    ...(input.CreateNewVersion !== undefined && { "create-new-version": input.CreateNewVersion.toString() }),
   };
   let body: any;
   if (input.PushNotificationTemplateRequest !== undefined) {
@@ -4073,6 +4221,43 @@ export const serializeAws_restJson1UpdatePushTemplateCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateRecommenderConfigurationCommand = async (
+  input: UpdateRecommenderConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/recommenders/{RecommenderId}";
+  if (input.RecommenderId !== undefined) {
+    const labelValue: string = input.RecommenderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RecommenderId.");
+    }
+    resolvedPath = resolvedPath.replace("{RecommenderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RecommenderId.");
+  }
+  let body: any;
+  if (input.UpdateRecommenderConfiguration !== undefined) {
+    body = serializeAws_restJson1UpdateRecommenderConfigurationShape(input.UpdateRecommenderConfiguration, context);
+  }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateSegmentCommand = async (
   input: UpdateSegmentCommandInput,
   context: __SerdeContext
@@ -4081,15 +4266,6 @@ export const serializeAws_restJson1UpdateSegmentCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/apps/{ApplicationId}/segments/{SegmentId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.SegmentId !== undefined) {
     const labelValue: string = input.SegmentId;
     if (labelValue.length <= 0) {
@@ -4098,6 +4274,15 @@ export const serializeAws_restJson1UpdateSegmentCommand = async (
     resolvedPath = resolvedPath.replace("{SegmentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SegmentId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   if (input.WriteSegmentRequest !== undefined) {
@@ -4206,15 +4391,6 @@ export const serializeAws_restJson1UpdateTemplateActiveVersionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/templates/{TemplateName}/{TemplateType}/active-version";
-  if (input.TemplateName !== undefined) {
-    const labelValue: string = input.TemplateName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: TemplateName.");
-    }
-    resolvedPath = resolvedPath.replace("{TemplateName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: TemplateName.");
-  }
   if (input.TemplateType !== undefined) {
     const labelValue: string = input.TemplateType;
     if (labelValue.length <= 0) {
@@ -4223,6 +4399,15 @@ export const serializeAws_restJson1UpdateTemplateActiveVersionCommand = async (
     resolvedPath = resolvedPath.replace("{TemplateType}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateType.");
+  }
+  if (input.TemplateName !== undefined) {
+    const labelValue: string = input.TemplateName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: TemplateName.");
+    }
+    resolvedPath = resolvedPath.replace("{TemplateName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: TemplateName.");
   }
   let body: any;
   if (input.TemplateActiveVersionRequest !== undefined) {
@@ -4392,6 +4577,14 @@ const deserializeAws_restJson1CreateAppCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -4482,6 +4675,14 @@ const deserializeAws_restJson1CreateCampaignCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4666,6 +4867,14 @@ const deserializeAws_restJson1CreateExportJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -4760,6 +4969,14 @@ const deserializeAws_restJson1CreateImportJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -4850,6 +5067,14 @@ const deserializeAws_restJson1CreateJourneyCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4965,6 +5190,108 @@ const deserializeAws_restJson1CreatePushTemplateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateRecommenderConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRecommenderConfigurationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreateRecommenderConfigurationCommandError(output, context);
+  }
+  const contents: CreateRecommenderConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateRecommenderConfigurationResponse",
+    RecommenderConfigurationResponse: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateRecommenderConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRecommenderConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateSegmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5030,6 +5357,14 @@ const deserializeAws_restJson1CreateSegmentCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5300,6 +5635,14 @@ const deserializeAws_restJson1DeleteAdmChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -5390,6 +5733,14 @@ const deserializeAws_restJson1DeleteApnsChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5488,6 +5839,14 @@ const deserializeAws_restJson1DeleteApnsSandboxChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -5578,6 +5937,14 @@ const deserializeAws_restJson1DeleteApnsVoipChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5676,6 +6043,14 @@ const deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -5766,6 +6141,14 @@ const deserializeAws_restJson1DeleteAppCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5864,6 +6247,14 @@ const deserializeAws_restJson1DeleteBaiduChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -5954,6 +6345,14 @@ const deserializeAws_restJson1DeleteCampaignCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6052,6 +6451,14 @@ const deserializeAws_restJson1DeleteEmailChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -6142,6 +6549,14 @@ const deserializeAws_restJson1DeleteEmailTemplateCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6240,6 +6655,14 @@ const deserializeAws_restJson1DeleteEndpointCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -6330,6 +6753,14 @@ const deserializeAws_restJson1DeleteEventStreamCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6428,6 +6859,14 @@ const deserializeAws_restJson1DeleteGcmChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -6518,6 +6957,14 @@ const deserializeAws_restJson1DeleteJourneyCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6616,6 +7063,116 @@ const deserializeAws_restJson1DeletePushTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteRecommenderConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRecommenderConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteRecommenderConfigurationCommandError(output, context);
+  }
+  const contents: DeleteRecommenderConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteRecommenderConfigurationResponse",
+    RecommenderConfigurationResponse: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteRecommenderConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRecommenderConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -6706,6 +7263,14 @@ const deserializeAws_restJson1DeleteSegmentCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6804,6 +7369,14 @@ const deserializeAws_restJson1DeleteSmsChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -6894,6 +7467,14 @@ const deserializeAws_restJson1DeleteSmsTemplateCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6992,6 +7573,14 @@ const deserializeAws_restJson1DeleteUserEndpointsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -7082,6 +7671,14 @@ const deserializeAws_restJson1DeleteVoiceChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7180,6 +7777,14 @@ const deserializeAws_restJson1DeleteVoiceTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -7270,6 +7875,14 @@ const deserializeAws_restJson1GetAdmChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7368,6 +7981,14 @@ const deserializeAws_restJson1GetApnsChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -7458,6 +8079,14 @@ const deserializeAws_restJson1GetApnsSandboxChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7556,6 +8185,14 @@ const deserializeAws_restJson1GetApnsVoipChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -7646,6 +8283,14 @@ const deserializeAws_restJson1GetApnsVoipSandboxChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7744,6 +8389,14 @@ const deserializeAws_restJson1GetAppCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -7834,6 +8487,14 @@ const deserializeAws_restJson1GetApplicationDateRangeKpiCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7932,6 +8593,14 @@ const deserializeAws_restJson1GetApplicationSettingsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -8022,6 +8691,14 @@ const deserializeAws_restJson1GetAppsCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8120,6 +8797,14 @@ const deserializeAws_restJson1GetBaiduChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -8210,6 +8895,14 @@ const deserializeAws_restJson1GetCampaignCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8308,6 +9001,14 @@ const deserializeAws_restJson1GetCampaignActivitiesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -8398,6 +9099,14 @@ const deserializeAws_restJson1GetCampaignDateRangeKpiCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8496,6 +9205,14 @@ const deserializeAws_restJson1GetCampaignsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -8586,6 +9303,14 @@ const deserializeAws_restJson1GetCampaignVersionCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8684,6 +9409,14 @@ const deserializeAws_restJson1GetCampaignVersionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -8774,6 +9507,14 @@ const deserializeAws_restJson1GetChannelsCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8872,6 +9613,14 @@ const deserializeAws_restJson1GetEmailChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -8962,6 +9711,14 @@ const deserializeAws_restJson1GetEmailTemplateCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9060,6 +9817,14 @@ const deserializeAws_restJson1GetEndpointCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -9150,6 +9915,14 @@ const deserializeAws_restJson1GetEventStreamCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9248,6 +10021,14 @@ const deserializeAws_restJson1GetExportJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -9338,6 +10119,14 @@ const deserializeAws_restJson1GetExportJobsCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9436,6 +10225,14 @@ const deserializeAws_restJson1GetGcmChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -9526,6 +10323,14 @@ const deserializeAws_restJson1GetImportJobCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9624,6 +10429,14 @@ const deserializeAws_restJson1GetImportJobsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -9718,6 +10531,14 @@ const deserializeAws_restJson1GetJourneyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -9808,6 +10629,14 @@ const deserializeAws_restJson1GetJourneyDateRangeKpiCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9909,6 +10738,14 @@ const deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -9999,6 +10836,14 @@ const deserializeAws_restJson1GetJourneyExecutionMetricsCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10097,6 +10942,221 @@ const deserializeAws_restJson1GetPushTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetRecommenderConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRecommenderConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetRecommenderConfigurationCommandError(output, context);
+  }
+  const contents: GetRecommenderConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetRecommenderConfigurationResponse",
+    RecommenderConfigurationResponse: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetRecommenderConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRecommenderConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetRecommenderConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRecommenderConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetRecommenderConfigurationsCommandError(output, context);
+  }
+  const contents: GetRecommenderConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetRecommenderConfigurationsResponse",
+    ListRecommenderConfigurationsResponse: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.ListRecommenderConfigurationsResponse = deserializeAws_restJson1ListRecommenderConfigurationsResponse(
+    data,
+    context
+  );
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetRecommenderConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRecommenderConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -10187,6 +11247,14 @@ const deserializeAws_restJson1GetSegmentCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10285,6 +11353,14 @@ const deserializeAws_restJson1GetSegmentExportJobsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -10375,6 +11451,14 @@ const deserializeAws_restJson1GetSegmentImportJobsCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10473,6 +11557,14 @@ const deserializeAws_restJson1GetSegmentsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -10563,6 +11655,14 @@ const deserializeAws_restJson1GetSegmentVersionCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10661,6 +11761,14 @@ const deserializeAws_restJson1GetSegmentVersionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -10751,6 +11859,14 @@ const deserializeAws_restJson1GetSmsChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10849,6 +11965,14 @@ const deserializeAws_restJson1GetSmsTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -10939,6 +12063,14 @@ const deserializeAws_restJson1GetUserEndpointsCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11037,6 +12169,14 @@ const deserializeAws_restJson1GetVoiceChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -11131,6 +12271,14 @@ const deserializeAws_restJson1GetVoiceTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -11221,6 +12369,14 @@ const deserializeAws_restJson1ListJourneysCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11451,6 +12607,14 @@ const deserializeAws_restJson1ListTemplateVersionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -11541,6 +12705,14 @@ const deserializeAws_restJson1PhoneNumberValidateCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11639,6 +12811,14 @@ const deserializeAws_restJson1PutEventsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -11729,6 +12909,14 @@ const deserializeAws_restJson1PutEventStreamCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11827,6 +13015,14 @@ const deserializeAws_restJson1RemoveAttributesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -11921,6 +13117,14 @@ const deserializeAws_restJson1SendMessagesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -12011,6 +13215,14 @@ const deserializeAws_restJson1SendUsersMessagesCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12195,6 +13407,14 @@ const deserializeAws_restJson1UpdateAdmChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -12285,6 +13505,14 @@ const deserializeAws_restJson1UpdateApnsChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12383,6 +13611,14 @@ const deserializeAws_restJson1UpdateApnsSandboxChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -12473,6 +13709,14 @@ const deserializeAws_restJson1UpdateApnsVoipChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12571,6 +13815,14 @@ const deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -12661,6 +13913,14 @@ const deserializeAws_restJson1UpdateApplicationSettingsCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12759,6 +14019,14 @@ const deserializeAws_restJson1UpdateBaiduChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -12849,6 +14117,14 @@ const deserializeAws_restJson1UpdateCampaignCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12947,6 +14223,14 @@ const deserializeAws_restJson1UpdateEmailChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -13037,6 +14321,14 @@ const deserializeAws_restJson1UpdateEmailTemplateCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13135,6 +14427,14 @@ const deserializeAws_restJson1UpdateEndpointCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -13225,6 +14525,14 @@ const deserializeAws_restJson1UpdateEndpointsBatchCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13323,6 +14631,14 @@ const deserializeAws_restJson1UpdateGcmChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -13413,6 +14729,14 @@ const deserializeAws_restJson1UpdateJourneyCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13511,6 +14835,14 @@ const deserializeAws_restJson1UpdateJourneyStateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -13601,6 +14933,116 @@ const deserializeAws_restJson1UpdatePushTemplateCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateRecommenderConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRecommenderConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateRecommenderConfigurationCommandError(output, context);
+  }
+  const contents: UpdateRecommenderConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateRecommenderConfigurationResponse",
+    RecommenderConfigurationResponse: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateRecommenderConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRecommenderConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13699,6 +15141,14 @@ const deserializeAws_restJson1UpdateSegmentCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -13789,6 +15239,14 @@ const deserializeAws_restJson1UpdateSmsChannelCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13887,6 +15345,14 @@ const deserializeAws_restJson1UpdateSmsTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -13977,6 +15443,14 @@ const deserializeAws_restJson1UpdateTemplateActiveVersionCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -14075,6 +15549,14 @@ const deserializeAws_restJson1UpdateVoiceChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = {
@@ -14165,6 +15647,14 @@ const deserializeAws_restJson1UpdateVoiceTemplateCommandError = async (
     case "com.amazonaws.pinpoint#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -14299,6 +15789,27 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PayloadTooLargeException> => {
+  const contents: PayloadTooLargeException = {
+    name: "PayloadTooLargeException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    RequestID: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.RequestID !== undefined && data.RequestID !== null) {
+    contents.RequestID = data.RequestID;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -14322,6 +15833,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
 
 const serializeAws_restJson1Activity = (input: Activity, context: __SerdeContext): any => {
   return {
+    ...(input.CUSTOM !== undefined && { CUSTOM: serializeAws_restJson1CustomMessageActivity(input.CUSTOM, context) }),
     ...(input.ConditionalSplit !== undefined && {
       ConditionalSplit: serializeAws_restJson1ConditionalSplitActivity(input.ConditionalSplit, context),
     }),
@@ -14331,9 +15843,11 @@ const serializeAws_restJson1Activity = (input: Activity, context: __SerdeContext
     ...(input.MultiCondition !== undefined && {
       MultiCondition: serializeAws_restJson1MultiConditionalSplitActivity(input.MultiCondition, context),
     }),
+    ...(input.PUSH !== undefined && { PUSH: serializeAws_restJson1PushMessageActivity(input.PUSH, context) }),
     ...(input.RandomSplit !== undefined && {
       RandomSplit: serializeAws_restJson1RandomSplitActivity(input.RandomSplit, context),
     }),
+    ...(input.SMS !== undefined && { SMS: serializeAws_restJson1SMSMessageActivity(input.SMS, context) }),
     ...(input.Wait !== undefined && { Wait: serializeAws_restJson1WaitActivity(input.Wait, context) }),
   };
 };
@@ -14543,6 +16057,12 @@ const serializeAws_restJson1BaiduMessage = (input: BaiduMessage, context: __Serd
   };
 };
 
+const serializeAws_restJson1CampaignCustomMessage = (input: CampaignCustomMessage, context: __SerdeContext): any => {
+  return {
+    ...(input.Data !== undefined && { Data: input.Data }),
+  };
+};
+
 const serializeAws_restJson1CampaignEmailMessage = (input: CampaignEmailMessage, context: __SerdeContext): any => {
   return {
     ...(input.Body !== undefined && { Body: input.Body }),
@@ -14616,6 +16136,64 @@ const serializeAws_restJson1CreateApplicationRequest = (
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+  };
+};
+
+const serializeAws_restJson1CreateRecommenderConfigurationShape = (
+  input: CreateRecommenderConfigurationShape,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Attributes !== undefined && {
+      Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context),
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RecommendationProviderIdType !== undefined && {
+      RecommendationProviderIdType: input.RecommendationProviderIdType,
+    }),
+    ...(input.RecommendationProviderRoleArn !== undefined && {
+      RecommendationProviderRoleArn: input.RecommendationProviderRoleArn,
+    }),
+    ...(input.RecommendationProviderUri !== undefined && {
+      RecommendationProviderUri: input.RecommendationProviderUri,
+    }),
+    ...(input.RecommendationTransformerUri !== undefined && {
+      RecommendationTransformerUri: input.RecommendationTransformerUri,
+    }),
+    ...(input.RecommendationsDisplayName !== undefined && {
+      RecommendationsDisplayName: input.RecommendationsDisplayName,
+    }),
+    ...(input.RecommendationsPerMessage !== undefined && {
+      RecommendationsPerMessage: input.RecommendationsPerMessage,
+    }),
+  };
+};
+
+const serializeAws_restJson1CustomDeliveryConfiguration = (
+  input: CustomDeliveryConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeliveryUri !== undefined && { DeliveryUri: input.DeliveryUri }),
+    ...(input.EndpointTypes !== undefined && {
+      EndpointTypes: serializeAws_restJson1ListOf__EndpointTypesElement(input.EndpointTypes, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1CustomMessageActivity = (input: CustomMessageActivity, context: __SerdeContext): any => {
+  return {
+    ...(input.DeliveryUri !== undefined && { DeliveryUri: input.DeliveryUri }),
+    ...(input.EndpointTypes !== undefined && {
+      EndpointTypes: serializeAws_restJson1ListOf__EndpointTypesElement(input.EndpointTypes, context),
+    }),
+    ...(input.MessageConfig !== undefined && {
+      MessageConfig: serializeAws_restJson1JourneyCustomMessage(input.MessageConfig, context),
+    }),
+    ...(input.NextActivity !== undefined && { NextActivity: input.NextActivity }),
+    ...(input.TemplateName !== undefined && { TemplateName: input.TemplateName }),
+    ...(input.TemplateVersion !== undefined && { TemplateVersion: input.TemplateVersion }),
   };
 };
 
@@ -14735,6 +16313,7 @@ const serializeAws_restJson1EmailTemplateRequest = (input: EmailTemplateRequest,
   return {
     ...(input.DefaultSubstitutions !== undefined && { DefaultSubstitutions: input.DefaultSubstitutions }),
     ...(input.HtmlPart !== undefined && { HtmlPart: input.HtmlPart }),
+    ...(input.RecommenderId !== undefined && { RecommenderId: input.RecommenderId }),
     ...(input.Subject !== undefined && { Subject: input.Subject }),
     ...(input.TemplateDescription !== undefined && { TemplateDescription: input.TemplateDescription }),
     ...(input.TextPart !== undefined && { TextPart: input.TextPart }),
@@ -14964,6 +16543,12 @@ const serializeAws_restJson1ImportJobRequest = (input: ImportJobRequest, context
   };
 };
 
+const serializeAws_restJson1JourneyCustomMessage = (input: JourneyCustomMessage, context: __SerdeContext): any => {
+  return {
+    ...(input.Data !== undefined && { Data: input.Data }),
+  };
+};
+
 const serializeAws_restJson1JourneyEmailMessage = (input: JourneyEmailMessage, context: __SerdeContext): any => {
   return {
     ...(input.FromAddress !== undefined && { FromAddress: input.FromAddress }),
@@ -14978,6 +16563,12 @@ const serializeAws_restJson1JourneyLimits = (input: JourneyLimits, context: __Se
   };
 };
 
+const serializeAws_restJson1JourneyPushMessage = (input: JourneyPushMessage, context: __SerdeContext): any => {
+  return {
+    ...(input.TimeToLive !== undefined && { TimeToLive: input.TimeToLive }),
+  };
+};
+
 const serializeAws_restJson1JourneySchedule = (input: JourneySchedule, context: __SerdeContext): any => {
   return {
     ...(input.EndTime !== undefined && { EndTime: input.EndTime.toISOString().split(".")[0] + "Z" }),
@@ -14986,10 +16577,24 @@ const serializeAws_restJson1JourneySchedule = (input: JourneySchedule, context: 
   };
 };
 
+const serializeAws_restJson1JourneySMSMessage = (input: JourneySMSMessage, context: __SerdeContext): any => {
+  return {
+    ...(input.MessageType !== undefined && { MessageType: input.MessageType }),
+    ...(input.SenderId !== undefined && { SenderId: input.SenderId }),
+  };
+};
+
 const serializeAws_restJson1JourneyStateRequest = (input: JourneyStateRequest, context: __SerdeContext): any => {
   return {
     ...(input.State !== undefined && { State: input.State }),
   };
+};
+
+const serializeAws_restJson1ListOf__EndpointTypesElement = (
+  input: (__EndpointTypesElement | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_restJson1ListOf__string = (input: string[], context: __SerdeContext): any => {
@@ -15176,6 +16781,9 @@ const serializeAws_restJson1MessageConfiguration = (input: MessageConfiguration,
     ...(input.BaiduMessage !== undefined && {
       BaiduMessage: serializeAws_restJson1Message(input.BaiduMessage, context),
     }),
+    ...(input.CustomMessage !== undefined && {
+      CustomMessage: serializeAws_restJson1CampaignCustomMessage(input.CustomMessage, context),
+    }),
     ...(input.DefaultMessage !== undefined && {
       DefaultMessage: serializeAws_restJson1Message(input.DefaultMessage, context),
     }),
@@ -15266,6 +16874,17 @@ const serializeAws_restJson1PublicEndpoint = (input: PublicEndpoint, context: __
   };
 };
 
+const serializeAws_restJson1PushMessageActivity = (input: PushMessageActivity, context: __SerdeContext): any => {
+  return {
+    ...(input.MessageConfig !== undefined && {
+      MessageConfig: serializeAws_restJson1JourneyPushMessage(input.MessageConfig, context),
+    }),
+    ...(input.NextActivity !== undefined && { NextActivity: input.NextActivity }),
+    ...(input.TemplateName !== undefined && { TemplateName: input.TemplateName }),
+    ...(input.TemplateVersion !== undefined && { TemplateVersion: input.TemplateVersion }),
+  };
+};
+
 const serializeAws_restJson1PushNotificationTemplateRequest = (
   input: PushNotificationTemplateRequest,
   context: __SerdeContext
@@ -15281,6 +16900,7 @@ const serializeAws_restJson1PushNotificationTemplateRequest = (
     }),
     ...(input.DefaultSubstitutions !== undefined && { DefaultSubstitutions: input.DefaultSubstitutions }),
     ...(input.GCM !== undefined && { GCM: serializeAws_restJson1AndroidPushNotificationTemplate(input.GCM, context) }),
+    ...(input.RecommenderId !== undefined && { RecommenderId: input.RecommenderId }),
     ...(input.TemplateDescription !== undefined && { TemplateDescription: input.TemplateDescription }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
@@ -15489,6 +17109,7 @@ const serializeAws_restJson1SMSMessage = (input: SMSMessage, context: __SerdeCon
   return {
     ...(input.Body !== undefined && { Body: input.Body }),
     ...(input.Keyword !== undefined && { Keyword: input.Keyword }),
+    ...(input.MediaUrl !== undefined && { MediaUrl: input.MediaUrl }),
     ...(input.MessageType !== undefined && { MessageType: input.MessageType }),
     ...(input.OriginationNumber !== undefined && { OriginationNumber: input.OriginationNumber }),
     ...(input.SenderId !== undefined && { SenderId: input.SenderId }),
@@ -15498,10 +17119,22 @@ const serializeAws_restJson1SMSMessage = (input: SMSMessage, context: __SerdeCon
   };
 };
 
+const serializeAws_restJson1SMSMessageActivity = (input: SMSMessageActivity, context: __SerdeContext): any => {
+  return {
+    ...(input.MessageConfig !== undefined && {
+      MessageConfig: serializeAws_restJson1JourneySMSMessage(input.MessageConfig, context),
+    }),
+    ...(input.NextActivity !== undefined && { NextActivity: input.NextActivity }),
+    ...(input.TemplateName !== undefined && { TemplateName: input.TemplateName }),
+    ...(input.TemplateVersion !== undefined && { TemplateVersion: input.TemplateVersion }),
+  };
+};
+
 const serializeAws_restJson1SMSTemplateRequest = (input: SMSTemplateRequest, context: __SerdeContext): any => {
   return {
     ...(input.Body !== undefined && { Body: input.Body }),
     ...(input.DefaultSubstitutions !== undefined && { DefaultSubstitutions: input.DefaultSubstitutions }),
+    ...(input.RecommenderId !== undefined && { RecommenderId: input.RecommenderId }),
     ...(input.TemplateDescription !== undefined && { TemplateDescription: input.TemplateDescription }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
@@ -15559,6 +17192,37 @@ const serializeAws_restJson1UpdateAttributesRequest = (
 ): any => {
   return {
     ...(input.Blacklist !== undefined && { Blacklist: serializeAws_restJson1ListOf__string(input.Blacklist, context) }),
+  };
+};
+
+const serializeAws_restJson1UpdateRecommenderConfigurationShape = (
+  input: UpdateRecommenderConfigurationShape,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Attributes !== undefined && {
+      Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context),
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RecommendationProviderIdType !== undefined && {
+      RecommendationProviderIdType: input.RecommendationProviderIdType,
+    }),
+    ...(input.RecommendationProviderRoleArn !== undefined && {
+      RecommendationProviderRoleArn: input.RecommendationProviderRoleArn,
+    }),
+    ...(input.RecommendationProviderUri !== undefined && {
+      RecommendationProviderUri: input.RecommendationProviderUri,
+    }),
+    ...(input.RecommendationTransformerUri !== undefined && {
+      RecommendationTransformerUri: input.RecommendationTransformerUri,
+    }),
+    ...(input.RecommendationsDisplayName !== undefined && {
+      RecommendationsDisplayName: input.RecommendationsDisplayName,
+    }),
+    ...(input.RecommendationsPerMessage !== undefined && {
+      RecommendationsPerMessage: input.RecommendationsPerMessage,
+    }),
   };
 };
 
@@ -15624,6 +17288,12 @@ const serializeAws_restJson1WriteCampaignRequest = (input: WriteCampaignRequest,
     ...(input.AdditionalTreatments !== undefined && {
       AdditionalTreatments: serializeAws_restJson1ListOfWriteTreatmentResource(input.AdditionalTreatments, context),
     }),
+    ...(input.CustomDeliveryConfiguration !== undefined && {
+      CustomDeliveryConfiguration: serializeAws_restJson1CustomDeliveryConfiguration(
+        input.CustomDeliveryConfiguration,
+        context
+      ),
+    }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.HoldoutPercent !== undefined && { HoldoutPercent: input.HoldoutPercent }),
     ...(input.Hook !== undefined && { Hook: serializeAws_restJson1CampaignHook(input.Hook, context) }),
@@ -15688,6 +17358,12 @@ const serializeAws_restJson1WriteSegmentRequest = (input: WriteSegmentRequest, c
 
 const serializeAws_restJson1WriteTreatmentResource = (input: WriteTreatmentResource, context: __SerdeContext): any => {
   return {
+    ...(input.CustomDeliveryConfiguration !== undefined && {
+      CustomDeliveryConfiguration: serializeAws_restJson1CustomDeliveryConfiguration(
+        input.CustomDeliveryConfiguration,
+        context
+      ),
+    }),
     ...(input.MessageConfiguration !== undefined && {
       MessageConfiguration: serializeAws_restJson1MessageConfiguration(input.MessageConfiguration, context),
     }),
@@ -15715,6 +17391,10 @@ const deserializeAws_restJson1ActivitiesResponse = (output: any, context: __Serd
 const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext): Activity => {
   return {
     __type: "Activity",
+    CUSTOM:
+      output.CUSTOM !== undefined && output.CUSTOM !== null
+        ? deserializeAws_restJson1CustomMessageActivity(output.CUSTOM, context)
+        : undefined,
     ConditionalSplit:
       output.ConditionalSplit !== undefined && output.ConditionalSplit !== null
         ? deserializeAws_restJson1ConditionalSplitActivity(output.ConditionalSplit, context)
@@ -15732,9 +17412,17 @@ const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext):
       output.MultiCondition !== undefined && output.MultiCondition !== null
         ? deserializeAws_restJson1MultiConditionalSplitActivity(output.MultiCondition, context)
         : undefined,
+    PUSH:
+      output.PUSH !== undefined && output.PUSH !== null
+        ? deserializeAws_restJson1PushMessageActivity(output.PUSH, context)
+        : undefined,
     RandomSplit:
       output.RandomSplit !== undefined && output.RandomSplit !== null
         ? deserializeAws_restJson1RandomSplitActivity(output.RandomSplit, context)
+        : undefined,
+    SMS:
+      output.SMS !== undefined && output.SMS !== null
+        ? deserializeAws_restJson1SMSMessageActivity(output.SMS, context)
         : undefined,
     Wait:
       output.Wait !== undefined && output.Wait !== null
@@ -16067,6 +17755,13 @@ const deserializeAws_restJson1BaseKpiResult = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1CampaignCustomMessage = (output: any, context: __SerdeContext): CampaignCustomMessage => {
+  return {
+    __type: "CampaignCustomMessage",
+    Data: output.Data !== undefined && output.Data !== null ? output.Data : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1CampaignDateRangeKpiResponse = (
   output: any,
   context: __SerdeContext
@@ -16145,6 +17840,10 @@ const deserializeAws_restJson1CampaignResponse = (output: any, context: __SerdeC
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
+    CustomDeliveryConfiguration:
+      output.CustomDeliveryConfiguration !== undefined && output.CustomDeliveryConfiguration !== null
+        ? deserializeAws_restJson1CustomDeliveryConfiguration(output.CustomDeliveryConfiguration, context)
+        : undefined,
     DefaultState:
       output.DefaultState !== undefined && output.DefaultState !== null
         ? deserializeAws_restJson1CampaignState(output.DefaultState, context)
@@ -16298,6 +17997,39 @@ const deserializeAws_restJson1CreateTemplateMessageBody = (
   } as any;
 };
 
+const deserializeAws_restJson1CustomDeliveryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CustomDeliveryConfiguration => {
+  return {
+    __type: "CustomDeliveryConfiguration",
+    DeliveryUri: output.DeliveryUri !== undefined && output.DeliveryUri !== null ? output.DeliveryUri : undefined,
+    EndpointTypes:
+      output.EndpointTypes !== undefined && output.EndpointTypes !== null
+        ? deserializeAws_restJson1ListOf__EndpointTypesElement(output.EndpointTypes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CustomMessageActivity = (output: any, context: __SerdeContext): CustomMessageActivity => {
+  return {
+    __type: "CustomMessageActivity",
+    DeliveryUri: output.DeliveryUri !== undefined && output.DeliveryUri !== null ? output.DeliveryUri : undefined,
+    EndpointTypes:
+      output.EndpointTypes !== undefined && output.EndpointTypes !== null
+        ? deserializeAws_restJson1ListOf__EndpointTypesElement(output.EndpointTypes, context)
+        : undefined,
+    MessageConfig:
+      output.MessageConfig !== undefined && output.MessageConfig !== null
+        ? deserializeAws_restJson1JourneyCustomMessage(output.MessageConfig, context)
+        : undefined,
+    NextActivity: output.NextActivity !== undefined && output.NextActivity !== null ? output.NextActivity : undefined,
+    TemplateName: output.TemplateName !== undefined && output.TemplateName !== null ? output.TemplateName : undefined,
+    TemplateVersion:
+      output.TemplateVersion !== undefined && output.TemplateVersion !== null ? output.TemplateVersion : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1DefaultPushNotificationTemplate = (
   output: any,
   context: __SerdeContext
@@ -16367,6 +18099,8 @@ const deserializeAws_restJson1EmailTemplateResponse = (output: any, context: __S
     HtmlPart: output.HtmlPart !== undefined && output.HtmlPart !== null ? output.HtmlPart : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null ? output.LastModifiedDate : undefined,
+    RecommenderId:
+      output.RecommenderId !== undefined && output.RecommenderId !== null ? output.RecommenderId : undefined,
     Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined,
     TemplateDescription:
       output.TemplateDescription !== undefined && output.TemplateDescription !== null
@@ -16734,6 +18468,13 @@ const deserializeAws_restJson1ItemResponse = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1JourneyCustomMessage = (output: any, context: __SerdeContext): JourneyCustomMessage => {
+  return {
+    __type: "JourneyCustomMessage",
+    Data: output.Data !== undefined && output.Data !== null ? output.Data : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1JourneyDateRangeKpiResponse = (
   output: any,
   context: __SerdeContext
@@ -16821,6 +18562,13 @@ const deserializeAws_restJson1JourneyLimits = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1JourneyPushMessage = (output: any, context: __SerdeContext): JourneyPushMessage => {
+  return {
+    __type: "JourneyPushMessage",
+    TimeToLive: output.TimeToLive !== undefined && output.TimeToLive !== null ? output.TimeToLive : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeContext): JourneyResponse => {
   return {
     __type: "JourneyResponse",
@@ -16873,6 +18621,14 @@ const deserializeAws_restJson1JourneySchedule = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1JourneySMSMessage = (output: any, context: __SerdeContext): JourneySMSMessage => {
+  return {
+    __type: "JourneySMSMessage",
+    MessageType: output.MessageType !== undefined && output.MessageType !== null ? output.MessageType : undefined,
+    SenderId: output.SenderId !== undefined && output.SenderId !== null ? output.SenderId : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1JourneysResponse = (output: any, context: __SerdeContext): JourneysResponse => {
   return {
     __type: "JourneysResponse",
@@ -16882,6 +18638,13 @@ const deserializeAws_restJson1JourneysResponse = (output: any, context: __SerdeC
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ListOf__EndpointTypesElement = (
+  output: any,
+  context: __SerdeContext
+): (__EndpointTypesElement | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1ListOf__string = (output: any, context: __SerdeContext): string[] => {
@@ -16930,6 +18693,13 @@ const deserializeAws_restJson1ListOfRandomSplitEntry = (output: any, context: __
   return (output || []).map((entry: any) => deserializeAws_restJson1RandomSplitEntry(entry, context));
 };
 
+const deserializeAws_restJson1ListOfRecommenderConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): RecommenderConfigurationResponse[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1RecommenderConfigurationResponse(entry, context));
+};
+
 const deserializeAws_restJson1ListOfResultRow = (output: any, context: __SerdeContext): ResultRow[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1ResultRow(entry, context));
 };
@@ -16971,6 +18741,20 @@ const deserializeAws_restJson1ListOfTemplateVersionResponse = (
 
 const deserializeAws_restJson1ListOfTreatmentResource = (output: any, context: __SerdeContext): TreatmentResource[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1TreatmentResource(entry, context));
+};
+
+const deserializeAws_restJson1ListRecommenderConfigurationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListRecommenderConfigurationsResponse => {
+  return {
+    __type: "ListRecommenderConfigurationsResponse",
+    Item:
+      output.Item !== undefined && output.Item !== null
+        ? deserializeAws_restJson1ListOfRecommenderConfigurationResponse(output.Item, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1MapOf__double = (output: any, context: __SerdeContext): { [key: string]: number } => {
@@ -17174,6 +18958,10 @@ const deserializeAws_restJson1MessageConfiguration = (output: any, context: __Se
       output.BaiduMessage !== undefined && output.BaiduMessage !== null
         ? deserializeAws_restJson1Message(output.BaiduMessage, context)
         : undefined,
+    CustomMessage:
+      output.CustomMessage !== undefined && output.CustomMessage !== null
+        ? deserializeAws_restJson1CampaignCustomMessage(output.CustomMessage, context)
+        : undefined,
     DefaultMessage:
       output.DefaultMessage !== undefined && output.DefaultMessage !== null
         ? deserializeAws_restJson1Message(output.DefaultMessage, context)
@@ -17307,6 +19095,20 @@ const deserializeAws_restJson1NumberValidateResponse = (
   } as any;
 };
 
+const deserializeAws_restJson1PushMessageActivity = (output: any, context: __SerdeContext): PushMessageActivity => {
+  return {
+    __type: "PushMessageActivity",
+    MessageConfig:
+      output.MessageConfig !== undefined && output.MessageConfig !== null
+        ? deserializeAws_restJson1JourneyPushMessage(output.MessageConfig, context)
+        : undefined,
+    NextActivity: output.NextActivity !== undefined && output.NextActivity !== null ? output.NextActivity : undefined,
+    TemplateName: output.TemplateName !== undefined && output.TemplateName !== null ? output.TemplateName : undefined,
+    TemplateVersion:
+      output.TemplateVersion !== undefined && output.TemplateVersion !== null ? output.TemplateVersion : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1PushNotificationTemplateResponse = (
   output: any,
   context: __SerdeContext
@@ -17341,6 +19143,8 @@ const deserializeAws_restJson1PushNotificationTemplateResponse = (
         : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null ? output.LastModifiedDate : undefined,
+    RecommenderId:
+      output.RecommenderId !== undefined && output.RecommenderId !== null ? output.RecommenderId : undefined,
     TemplateDescription:
       output.TemplateDescription !== undefined && output.TemplateDescription !== null
         ? output.TemplateDescription
@@ -17386,6 +19190,49 @@ const deserializeAws_restJson1RecencyDimension = (output: any, context: __SerdeC
     __type: "RecencyDimension",
     Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     RecencyType: output.RecencyType !== undefined && output.RecencyType !== null ? output.RecencyType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RecommenderConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): RecommenderConfigurationResponse => {
+  return {
+    __type: "RecommenderConfigurationResponse",
+    Attributes:
+      output.Attributes !== undefined && output.Attributes !== null
+        ? deserializeAws_restJson1MapOf__string(output.Attributes, context)
+        : undefined,
+    CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    LastModifiedDate:
+      output.LastModifiedDate !== undefined && output.LastModifiedDate !== null ? output.LastModifiedDate : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    RecommendationProviderIdType:
+      output.RecommendationProviderIdType !== undefined && output.RecommendationProviderIdType !== null
+        ? output.RecommendationProviderIdType
+        : undefined,
+    RecommendationProviderRoleArn:
+      output.RecommendationProviderRoleArn !== undefined && output.RecommendationProviderRoleArn !== null
+        ? output.RecommendationProviderRoleArn
+        : undefined,
+    RecommendationProviderUri:
+      output.RecommendationProviderUri !== undefined && output.RecommendationProviderUri !== null
+        ? output.RecommendationProviderUri
+        : undefined,
+    RecommendationTransformerUri:
+      output.RecommendationTransformerUri !== undefined && output.RecommendationTransformerUri !== null
+        ? output.RecommendationTransformerUri
+        : undefined,
+    RecommendationsDisplayName:
+      output.RecommendationsDisplayName !== undefined && output.RecommendationsDisplayName !== null
+        ? output.RecommendationsDisplayName
+        : undefined,
+    RecommendationsPerMessage:
+      output.RecommendationsPerMessage !== undefined && output.RecommendationsPerMessage !== null
+        ? output.RecommendationsPerMessage
+        : undefined,
   } as any;
 };
 
@@ -17691,6 +19538,20 @@ const deserializeAws_restJson1SMSChannelResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1SMSMessageActivity = (output: any, context: __SerdeContext): SMSMessageActivity => {
+  return {
+    __type: "SMSMessageActivity",
+    MessageConfig:
+      output.MessageConfig !== undefined && output.MessageConfig !== null
+        ? deserializeAws_restJson1JourneySMSMessage(output.MessageConfig, context)
+        : undefined,
+    NextActivity: output.NextActivity !== undefined && output.NextActivity !== null ? output.NextActivity : undefined,
+    TemplateName: output.TemplateName !== undefined && output.TemplateName !== null ? output.TemplateName : undefined,
+    TemplateVersion:
+      output.TemplateVersion !== undefined && output.TemplateVersion !== null ? output.TemplateVersion : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1SMSTemplateResponse = (output: any, context: __SerdeContext): SMSTemplateResponse => {
   return {
     __type: "SMSTemplateResponse",
@@ -17703,6 +19564,8 @@ const deserializeAws_restJson1SMSTemplateResponse = (output: any, context: __Ser
         : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null ? output.LastModifiedDate : undefined,
+    RecommenderId:
+      output.RecommenderId !== undefined && output.RecommenderId !== null ? output.RecommenderId : undefined,
     TemplateDescription:
       output.TemplateDescription !== undefined && output.TemplateDescription !== null
         ? output.TemplateDescription
@@ -17846,6 +19709,10 @@ const deserializeAws_restJson1TemplateVersionsResponse = (
 const deserializeAws_restJson1TreatmentResource = (output: any, context: __SerdeContext): TreatmentResource => {
   return {
     __type: "TreatmentResource",
+    CustomDeliveryConfiguration:
+      output.CustomDeliveryConfiguration !== undefined && output.CustomDeliveryConfiguration !== null
+        ? deserializeAws_restJson1CustomDeliveryConfiguration(output.CustomDeliveryConfiguration, context)
+        : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     MessageConfiguration:
       output.MessageConfiguration !== undefined && output.MessageConfiguration !== null

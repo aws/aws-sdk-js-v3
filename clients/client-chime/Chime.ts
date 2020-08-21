@@ -71,10 +71,20 @@ import {
   CreateMeetingCommandOutput,
 } from "./commands/CreateMeetingCommand";
 import {
+  CreateMeetingWithAttendeesCommand,
+  CreateMeetingWithAttendeesCommandInput,
+  CreateMeetingWithAttendeesCommandOutput,
+} from "./commands/CreateMeetingWithAttendeesCommand";
+import {
   CreatePhoneNumberOrderCommand,
   CreatePhoneNumberOrderCommandInput,
   CreatePhoneNumberOrderCommandOutput,
 } from "./commands/CreatePhoneNumberOrderCommand";
+import {
+  CreateProxySessionCommand,
+  CreateProxySessionCommandInput,
+  CreateProxySessionCommandOutput,
+} from "./commands/CreateProxySessionCommand";
 import { CreateRoomCommand, CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand";
 import {
   CreateRoomMembershipCommand,
@@ -117,6 +127,11 @@ import {
   DeletePhoneNumberCommandInput,
   DeletePhoneNumberCommandOutput,
 } from "./commands/DeletePhoneNumberCommand";
+import {
+  DeleteProxySessionCommand,
+  DeleteProxySessionCommandInput,
+  DeleteProxySessionCommandOutput,
+} from "./commands/DeleteProxySessionCommand";
 import { DeleteRoomCommand, DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand";
 import {
   DeleteRoomMembershipCommand,
@@ -129,6 +144,11 @@ import {
   DeleteVoiceConnectorCommandOutput,
 } from "./commands/DeleteVoiceConnectorCommand";
 import {
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "./commands/DeleteVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
   DeleteVoiceConnectorGroupCommand,
   DeleteVoiceConnectorGroupCommandInput,
   DeleteVoiceConnectorGroupCommandOutput,
@@ -138,6 +158,11 @@ import {
   DeleteVoiceConnectorOriginationCommandInput,
   DeleteVoiceConnectorOriginationCommandOutput,
 } from "./commands/DeleteVoiceConnectorOriginationCommand";
+import {
+  DeleteVoiceConnectorProxyCommand,
+  DeleteVoiceConnectorProxyCommandInput,
+  DeleteVoiceConnectorProxyCommandOutput,
+} from "./commands/DeleteVoiceConnectorProxyCommand";
 import {
   DeleteVoiceConnectorStreamingConfigurationCommand,
   DeleteVoiceConnectorStreamingConfigurationCommandInput,
@@ -207,6 +232,16 @@ import {
   GetPhoneNumberSettingsCommandInput,
   GetPhoneNumberSettingsCommandOutput,
 } from "./commands/GetPhoneNumberSettingsCommand";
+import {
+  GetProxySessionCommand,
+  GetProxySessionCommandInput,
+  GetProxySessionCommandOutput,
+} from "./commands/GetProxySessionCommand";
+import {
+  GetRetentionSettingsCommand,
+  GetRetentionSettingsCommandInput,
+  GetRetentionSettingsCommandOutput,
+} from "./commands/GetRetentionSettingsCommand";
 import { GetRoomCommand, GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
 import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
@@ -219,6 +254,11 @@ import {
   GetVoiceConnectorCommandInput,
   GetVoiceConnectorCommandOutput,
 } from "./commands/GetVoiceConnectorCommand";
+import {
+  GetVoiceConnectorEmergencyCallingConfigurationCommand,
+  GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "./commands/GetVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
   GetVoiceConnectorGroupCommand,
   GetVoiceConnectorGroupCommandInput,
@@ -234,6 +274,11 @@ import {
   GetVoiceConnectorOriginationCommandInput,
   GetVoiceConnectorOriginationCommandOutput,
 } from "./commands/GetVoiceConnectorOriginationCommand";
+import {
+  GetVoiceConnectorProxyCommand,
+  GetVoiceConnectorProxyCommandInput,
+  GetVoiceConnectorProxyCommandOutput,
+} from "./commands/GetVoiceConnectorProxyCommand";
 import {
   GetVoiceConnectorStreamingConfigurationCommand,
   GetVoiceConnectorStreamingConfigurationCommandInput,
@@ -256,11 +301,21 @@ import {
   ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
 import {
+  ListAttendeeTagsCommand,
+  ListAttendeeTagsCommandInput,
+  ListAttendeeTagsCommandOutput,
+} from "./commands/ListAttendeeTagsCommand";
+import {
   ListAttendeesCommand,
   ListAttendeesCommandInput,
   ListAttendeesCommandOutput,
 } from "./commands/ListAttendeesCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import {
+  ListMeetingTagsCommand,
+  ListMeetingTagsCommandInput,
+  ListMeetingTagsCommandOutput,
+} from "./commands/ListMeetingTagsCommand";
 import {
   ListMeetingsCommand,
   ListMeetingsCommandInput,
@@ -277,11 +332,21 @@ import {
   ListPhoneNumbersCommandOutput,
 } from "./commands/ListPhoneNumbersCommand";
 import {
+  ListProxySessionsCommand,
+  ListProxySessionsCommandInput,
+  ListProxySessionsCommandOutput,
+} from "./commands/ListProxySessionsCommand";
+import {
   ListRoomMembershipsCommand,
   ListRoomMembershipsCommandInput,
   ListRoomMembershipsCommandOutput,
 } from "./commands/ListRoomMembershipsCommand";
 import { ListRoomsCommand, ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   ListVoiceConnectorGroupsCommand,
@@ -305,6 +370,16 @@ import {
   PutEventsConfigurationCommandOutput,
 } from "./commands/PutEventsConfigurationCommand";
 import {
+  PutRetentionSettingsCommand,
+  PutRetentionSettingsCommandInput,
+  PutRetentionSettingsCommandOutput,
+} from "./commands/PutRetentionSettingsCommand";
+import {
+  PutVoiceConnectorEmergencyCallingConfigurationCommand,
+  PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "./commands/PutVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
   PutVoiceConnectorLoggingConfigurationCommand,
   PutVoiceConnectorLoggingConfigurationCommandInput,
   PutVoiceConnectorLoggingConfigurationCommandOutput,
@@ -314,6 +389,11 @@ import {
   PutVoiceConnectorOriginationCommandInput,
   PutVoiceConnectorOriginationCommandOutput,
 } from "./commands/PutVoiceConnectorOriginationCommand";
+import {
+  PutVoiceConnectorProxyCommand,
+  PutVoiceConnectorProxyCommandInput,
+  PutVoiceConnectorProxyCommandOutput,
+} from "./commands/PutVoiceConnectorProxyCommand";
 import {
   PutVoiceConnectorStreamingConfigurationCommand,
   PutVoiceConnectorStreamingConfigurationCommandInput,
@@ -329,6 +409,16 @@ import {
   PutVoiceConnectorTerminationCredentialsCommandInput,
   PutVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCredentialsCommand";
+import {
+  RedactConversationMessageCommand,
+  RedactConversationMessageCommandInput,
+  RedactConversationMessageCommandOutput,
+} from "./commands/RedactConversationMessageCommand";
+import {
+  RedactRoomMessageCommand,
+  RedactRoomMessageCommandInput,
+  RedactRoomMessageCommandOutput,
+} from "./commands/RedactRoomMessageCommand";
 import {
   RegenerateSecurityTokenCommand,
   RegenerateSecurityTokenCommandInput,
@@ -349,6 +439,24 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import { TagAttendeeCommand, TagAttendeeCommandInput, TagAttendeeCommandOutput } from "./commands/TagAttendeeCommand";
+import { TagMeetingCommand, TagMeetingCommandInput, TagMeetingCommandOutput } from "./commands/TagMeetingCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagAttendeeCommand,
+  UntagAttendeeCommandInput,
+  UntagAttendeeCommandOutput,
+} from "./commands/UntagAttendeeCommand";
+import {
+  UntagMeetingCommand,
+  UntagMeetingCommandInput,
+  UntagMeetingCommandOutput,
+} from "./commands/UntagMeetingCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateAccountCommand,
   UpdateAccountCommandInput,
@@ -375,6 +483,11 @@ import {
   UpdatePhoneNumberSettingsCommandInput,
   UpdatePhoneNumberSettingsCommandOutput,
 } from "./commands/UpdatePhoneNumberSettingsCommand";
+import {
+  UpdateProxySessionCommand,
+  UpdateProxySessionCommandInput,
+  UpdateProxySessionCommandOutput,
+} from "./commands/UpdateProxySessionCommand";
 import { UpdateRoomCommand, UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
 import {
   UpdateRoomMembershipCommand,
@@ -606,7 +719,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Adds up to 50 members to a chat room. Members can be either users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
+   * <p>Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members can be either users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
    */
   public batchCreateRoomMembership(
     args: BatchCreateRoomMembershipCommandInput,
@@ -921,7 +1034,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+   * <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public createMeeting(
     args: CreateMeetingCommandInput,
@@ -942,6 +1055,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: CreateMeetingCommandOutput) => void
   ): Promise<CreateMeetingCommandOutput> | void {
     const command = new CreateMeetingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+   */
+  public createMeetingWithAttendees(
+    args: CreateMeetingWithAttendeesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMeetingWithAttendeesCommandOutput>;
+  public createMeetingWithAttendees(
+    args: CreateMeetingWithAttendeesCommandInput,
+    cb: (err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void
+  ): void;
+  public createMeetingWithAttendees(
+    args: CreateMeetingWithAttendeesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void
+  ): void;
+  public createMeetingWithAttendees(
+    args: CreateMeetingWithAttendeesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void),
+    cb?: (err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void
+  ): Promise<CreateMeetingWithAttendeesCommandOutput> | void {
+    const command = new CreateMeetingWithAttendeesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -987,7 +1132,39 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Creates a chat room for the specified Amazon Chime account.</p>
+   * <p>Creates a proxy session on the specified Amazon Chime Voice Connector for the specified participant phone numbers.</p>
+   */
+  public createProxySession(
+    args: CreateProxySessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProxySessionCommandOutput>;
+  public createProxySession(
+    args: CreateProxySessionCommandInput,
+    cb: (err: any, data?: CreateProxySessionCommandOutput) => void
+  ): void;
+  public createProxySession(
+    args: CreateProxySessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProxySessionCommandOutput) => void
+  ): void;
+  public createProxySession(
+    args: CreateProxySessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProxySessionCommandOutput) => void),
+    cb?: (err: any, data?: CreateProxySessionCommandOutput) => void
+  ): Promise<CreateProxySessionCommandOutput> | void {
+    const command = new CreateProxySessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a chat room for the specified Amazon Chime Enterprise account.</p>
    */
   public createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
   public createRoom(args: CreateRoomCommandInput, cb: (err: any, data?: CreateRoomCommandOutput) => void): void;
@@ -1013,7 +1190,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Adds a member to a chat room. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
+   * <p>Adds a member to a chat room in an Amazon Chime Enterprise account. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
    */
   public createRoomMembership(
     args: CreateRoomMembershipCommandInput,
@@ -1106,7 +1283,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Creates an Amazon Chime Voice Connector group under the administrator's AWS account.
-   *       You can associate up to three existing Amazon Chime Voice Connectors with the Amazon Chime
+   *       You can associate Amazon Chime Voice Connectors with the Amazon Chime
    *       Voice Connector group by including <code>VoiceConnectorItems</code> in the request.</p>
    *          <p>You can include Amazon Chime Voice Connectors from different AWS Regions in your group.
    *       This creates a fault tolerant mechanism for fallback in case of availability events.</p>
@@ -1314,7 +1491,39 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Deletes a chat room.</p>
+   * <p>Deletes the specified proxy session from the specified Amazon Chime Voice Connector.</p>
+   */
+  public deleteProxySession(
+    args: DeleteProxySessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProxySessionCommandOutput>;
+  public deleteProxySession(
+    args: DeleteProxySessionCommandInput,
+    cb: (err: any, data?: DeleteProxySessionCommandOutput) => void
+  ): void;
+  public deleteProxySession(
+    args: DeleteProxySessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProxySessionCommandOutput) => void
+  ): void;
+  public deleteProxySession(
+    args: DeleteProxySessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProxySessionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProxySessionCommandOutput) => void
+  ): Promise<DeleteProxySessionCommandOutput> | void {
+    const command = new DeleteProxySessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a chat room in an Amazon Chime Enterprise account.</p>
    */
   public deleteRoom(args: DeleteRoomCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoomCommandOutput>;
   public deleteRoom(args: DeleteRoomCommandInput, cb: (err: any, data?: DeleteRoomCommandOutput) => void): void;
@@ -1340,7 +1549,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Removes a member from a chat room.</p>
+   * <p>Removes a member from a chat room in an Amazon Chime Enterprise account.</p>
    */
   public deleteRoomMembership(
     args: DeleteRoomMembershipCommandInput,
@@ -1405,6 +1614,40 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Deletes the emergency calling configuration details from the specified Amazon Chime Voice Connector.</p>
+   */
+  public deleteVoiceConnectorEmergencyCallingConfiguration(
+    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
+  public deleteVoiceConnectorEmergencyCallingConfiguration(
+    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+  public deleteVoiceConnectorEmergencyCallingConfiguration(
+    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+  public deleteVoiceConnectorEmergencyCallingConfiguration(
+    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput> | void {
+    const command = new DeleteVoiceConnectorEmergencyCallingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified Amazon Chime Voice Connector group. Any <code>VoiceConnectorItems</code> and phone numbers associated with the group must be removed before it can be deleted.</p>
    */
   public deleteVoiceConnectorGroup(
@@ -1438,6 +1681,9 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Deletes the origination settings for the specified Amazon Chime Voice Connector.</p>
+   *          <note>
+   *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to deleting the origination settings.</p>
+   *          </note>
    */
   public deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
@@ -1458,6 +1704,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
   ): Promise<DeleteVoiceConnectorOriginationCommandOutput> | void {
     const command = new DeleteVoiceConnectorOriginationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the proxy configuration from the specified Amazon Chime Voice Connector.</p>
+   */
+  public deleteVoiceConnectorProxy(
+    args: DeleteVoiceConnectorProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorProxyCommandOutput>;
+  public deleteVoiceConnectorProxy(
+    args: DeleteVoiceConnectorProxyCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
+  ): void;
+  public deleteVoiceConnectorProxy(
+    args: DeleteVoiceConnectorProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
+  ): void;
+  public deleteVoiceConnectorProxy(
+    args: DeleteVoiceConnectorProxyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
+  ): Promise<DeleteVoiceConnectorProxyCommandOutput> | void {
+    const command = new DeleteVoiceConnectorProxyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1504,6 +1782,9 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Deletes the termination settings for the specified Amazon Chime Voice Connector.</p>
+   *          <note>
+   *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to deleting the termination settings.</p>
+   *          </note>
    */
   public deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
@@ -2007,7 +2288,71 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Retrieves room details, such as the room name.</p>
+   * <p>Gets the specified proxy session details for the specified Amazon Chime Voice Connector.</p>
+   */
+  public getProxySession(
+    args: GetProxySessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProxySessionCommandOutput>;
+  public getProxySession(
+    args: GetProxySessionCommandInput,
+    cb: (err: any, data?: GetProxySessionCommandOutput) => void
+  ): void;
+  public getProxySession(
+    args: GetProxySessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProxySessionCommandOutput) => void
+  ): void;
+  public getProxySession(
+    args: GetProxySessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProxySessionCommandOutput) => void),
+    cb?: (err: any, data?: GetProxySessionCommandOutput) => void
+  ): Promise<GetProxySessionCommandOutput> | void {
+    const command = new GetProxySessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the retention settings for the specified Amazon Chime Enterprise account. For more information about retention settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.</p>
+   */
+  public getRetentionSettings(
+    args: GetRetentionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRetentionSettingsCommandOutput>;
+  public getRetentionSettings(
+    args: GetRetentionSettingsCommandInput,
+    cb: (err: any, data?: GetRetentionSettingsCommandOutput) => void
+  ): void;
+  public getRetentionSettings(
+    args: GetRetentionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRetentionSettingsCommandOutput) => void
+  ): void;
+  public getRetentionSettings(
+    args: GetRetentionSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRetentionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: GetRetentionSettingsCommandOutput) => void
+  ): Promise<GetRetentionSettingsCommandOutput> | void {
+    const command = new GetRetentionSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
    */
   public getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
   public getRoom(args: GetRoomCommandInput, cb: (err: any, data?: GetRoomCommandOutput) => void): void;
@@ -2126,6 +2471,40 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Gets the emergency calling configuration details for the specified Amazon Chime Voice Connector.</p>
+   */
+  public getVoiceConnectorEmergencyCallingConfiguration(
+    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
+  public getVoiceConnectorEmergencyCallingConfiguration(
+    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+  public getVoiceConnectorEmergencyCallingConfiguration(
+    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+  public getVoiceConnectorEmergencyCallingConfiguration(
+    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput> | void {
+    const command = new GetVoiceConnectorEmergencyCallingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,
    *       name, and associated <code>VoiceConnectorItems</code>.</p>
    */
@@ -2214,6 +2593,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
   ): Promise<GetVoiceConnectorOriginationCommandOutput> | void {
     const command = new GetVoiceConnectorOriginationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the proxy configuration details for the specified Amazon Chime Voice Connector.</p>
+   */
+  public getVoiceConnectorProxy(
+    args: GetVoiceConnectorProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorProxyCommandOutput>;
+  public getVoiceConnectorProxy(
+    args: GetVoiceConnectorProxyCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
+  ): void;
+  public getVoiceConnectorProxy(
+    args: GetVoiceConnectorProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
+  ): void;
+  public getVoiceConnectorProxy(
+    args: GetVoiceConnectorProxyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorProxyCommandOutput) => void),
+    cb?: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
+  ): Promise<GetVoiceConnectorProxyCommandOutput> | void {
+    const command = new GetVoiceConnectorProxyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2417,6 +2828,38 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Lists the tags applied to an Amazon Chime SDK attendee resource.</p>
+   */
+  public listAttendeeTags(
+    args: ListAttendeeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAttendeeTagsCommandOutput>;
+  public listAttendeeTags(
+    args: ListAttendeeTagsCommandInput,
+    cb: (err: any, data?: ListAttendeeTagsCommandOutput) => void
+  ): void;
+  public listAttendeeTags(
+    args: ListAttendeeTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAttendeeTagsCommandOutput) => void
+  ): void;
+  public listAttendeeTags(
+    args: ListAttendeeTagsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttendeeTagsCommandOutput) => void),
+    cb?: (err: any, data?: ListAttendeeTagsCommandOutput) => void
+  ): Promise<ListAttendeeTagsCommandOutput> | void {
+    const command = new ListAttendeeTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>
    */
   public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
@@ -2461,6 +2904,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: ListMeetingsCommandOutput) => void
   ): Promise<ListMeetingsCommandOutput> | void {
     const command = new ListMeetingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
+   */
+  public listMeetingTags(
+    args: ListMeetingTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMeetingTagsCommandOutput>;
+  public listMeetingTags(
+    args: ListMeetingTagsCommandInput,
+    cb: (err: any, data?: ListMeetingTagsCommandOutput) => void
+  ): void;
+  public listMeetingTags(
+    args: ListMeetingTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMeetingTagsCommandOutput) => void
+  ): void;
+  public listMeetingTags(
+    args: ListMeetingTagsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMeetingTagsCommandOutput) => void),
+    cb?: (err: any, data?: ListMeetingTagsCommandOutput) => void
+  ): Promise<ListMeetingTagsCommandOutput> | void {
+    const command = new ListMeetingTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2536,7 +3011,39 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Lists the membership details for the specified room, such as the members' IDs, email
+   * <p>Lists the proxy sessions for the specified Amazon Chime Voice Connector.</p>
+   */
+  public listProxySessions(
+    args: ListProxySessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProxySessionsCommandOutput>;
+  public listProxySessions(
+    args: ListProxySessionsCommandInput,
+    cb: (err: any, data?: ListProxySessionsCommandOutput) => void
+  ): void;
+  public listProxySessions(
+    args: ListProxySessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProxySessionsCommandOutput) => void
+  ): void;
+  public listProxySessions(
+    args: ListProxySessionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProxySessionsCommandOutput) => void),
+    cb?: (err: any, data?: ListProxySessionsCommandOutput) => void
+  ): Promise<ListProxySessionsCommandOutput> | void {
+    const command = new ListProxySessionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the membership details for the specified room in an Amazon Chime Enterprise account, such as the members' IDs, email
    *       addresses, and names.</p>
    */
   public listRoomMemberships(
@@ -2569,7 +3076,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Lists the room details for the specified Amazon Chime account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
+   * <p>Lists the room details for the specified Amazon Chime Enterprise account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
    */
   public listRooms(args: ListRoomsCommandInput, options?: __HttpHandlerOptions): Promise<ListRoomsCommandOutput>;
   public listRooms(args: ListRoomsCommandInput, cb: (err: any, data?: ListRoomsCommandOutput) => void): void;
@@ -2584,6 +3091,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: ListRoomsCommandOutput) => void
   ): Promise<ListRoomsCommandOutput> | void {
     const command = new ListRoomsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2779,6 +3318,73 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging Amazon Chime API Calls with AWS CloudTrail</a> in the <i>Amazon Chime Administration Guide</i>.</p>
+   *          <p>To turn off existing retention settings, remove the number of days from the corresponding <b>RetentionDays</b> field in the <b>RetentionSettings</b> object. For more information about retention settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.</p>
+   */
+  public putRetentionSettings(
+    args: PutRetentionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRetentionSettingsCommandOutput>;
+  public putRetentionSettings(
+    args: PutRetentionSettingsCommandInput,
+    cb: (err: any, data?: PutRetentionSettingsCommandOutput) => void
+  ): void;
+  public putRetentionSettings(
+    args: PutRetentionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRetentionSettingsCommandOutput) => void
+  ): void;
+  public putRetentionSettings(
+    args: PutRetentionSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRetentionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: PutRetentionSettingsCommandOutput) => void
+  ): Promise<PutRetentionSettingsCommandOutput> | void {
+    const command = new PutRetentionSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for the Amazon Chime Voice Connector before emergency calling can be configured.</p>
+   */
+  public putVoiceConnectorEmergencyCallingConfiguration(
+    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
+  public putVoiceConnectorEmergencyCallingConfiguration(
+    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+  public putVoiceConnectorEmergencyCallingConfiguration(
+    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+  public putVoiceConnectorEmergencyCallingConfiguration(
+    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput> | void {
+    const command = new PutVoiceConnectorEmergencyCallingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
    */
   public putVoiceConnectorLoggingConfiguration(
@@ -2814,6 +3420,9 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Adds origination settings for the specified Amazon Chime Voice Connector.</p>
+   *          <note>
+   *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off origination settings.</p>
+   *          </note>
    */
   public putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
@@ -2834,6 +3443,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
   ): Promise<PutVoiceConnectorOriginationCommandOutput> | void {
     const command = new PutVoiceConnectorOriginationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.</p>
+   */
+  public putVoiceConnectorProxy(
+    args: PutVoiceConnectorProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorProxyCommandOutput>;
+  public putVoiceConnectorProxy(
+    args: PutVoiceConnectorProxyCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
+  ): void;
+  public putVoiceConnectorProxy(
+    args: PutVoiceConnectorProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
+  ): void;
+  public putVoiceConnectorProxy(
+    args: PutVoiceConnectorProxyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutVoiceConnectorProxyCommandOutput) => void),
+    cb?: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
+  ): Promise<PutVoiceConnectorProxyCommandOutput> | void {
+    const command = new PutVoiceConnectorProxyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2882,6 +3523,9 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
+   *          <note>
+   *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off termination settings.</p>
+   *          </note>
    */
   public putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
@@ -2936,6 +3580,70 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> | void {
     const command = new PutVoiceConnectorTerminationCredentialsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Redacts the specified message from the specified Amazon Chime conversation.</p>
+   */
+  public redactConversationMessage(
+    args: RedactConversationMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RedactConversationMessageCommandOutput>;
+  public redactConversationMessage(
+    args: RedactConversationMessageCommandInput,
+    cb: (err: any, data?: RedactConversationMessageCommandOutput) => void
+  ): void;
+  public redactConversationMessage(
+    args: RedactConversationMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RedactConversationMessageCommandOutput) => void
+  ): void;
+  public redactConversationMessage(
+    args: RedactConversationMessageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RedactConversationMessageCommandOutput) => void),
+    cb?: (err: any, data?: RedactConversationMessageCommandOutput) => void
+  ): Promise<RedactConversationMessageCommandOutput> | void {
+    const command = new RedactConversationMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Redacts the specified message from the specified Amazon Chime chat room.</p>
+   */
+  public redactRoomMessage(
+    args: RedactRoomMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RedactRoomMessageCommandOutput>;
+  public redactRoomMessage(
+    args: RedactRoomMessageCommandInput,
+    cb: (err: any, data?: RedactRoomMessageCommandOutput) => void
+  ): void;
+  public redactRoomMessage(
+    args: RedactRoomMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RedactRoomMessageCommandOutput) => void
+  ): void;
+  public redactRoomMessage(
+    args: RedactRoomMessageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RedactRoomMessageCommandOutput) => void),
+    cb?: (err: any, data?: RedactRoomMessageCommandOutput) => void
+  ): Promise<RedactRoomMessageCommandOutput> | void {
+    const command = new RedactRoomMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3066,6 +3774,177 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
   ): Promise<SearchAvailablePhoneNumbersCommandOutput> | void {
     const command = new SearchAvailablePhoneNumbersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Applies the specified tags to the specified Amazon Chime SDK attendee.</p>
+   */
+  public tagAttendee(args: TagAttendeeCommandInput, options?: __HttpHandlerOptions): Promise<TagAttendeeCommandOutput>;
+  public tagAttendee(args: TagAttendeeCommandInput, cb: (err: any, data?: TagAttendeeCommandOutput) => void): void;
+  public tagAttendee(
+    args: TagAttendeeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagAttendeeCommandOutput) => void
+  ): void;
+  public tagAttendee(
+    args: TagAttendeeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagAttendeeCommandOutput) => void),
+    cb?: (err: any, data?: TagAttendeeCommandOutput) => void
+  ): Promise<TagAttendeeCommandOutput> | void {
+    const command = new TagAttendeeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Applies the specified tags to the specified Amazon Chime SDK meeting.</p>
+   */
+  public tagMeeting(args: TagMeetingCommandInput, options?: __HttpHandlerOptions): Promise<TagMeetingCommandOutput>;
+  public tagMeeting(args: TagMeetingCommandInput, cb: (err: any, data?: TagMeetingCommandOutput) => void): void;
+  public tagMeeting(
+    args: TagMeetingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagMeetingCommandOutput) => void
+  ): void;
+  public tagMeeting(
+    args: TagMeetingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagMeetingCommandOutput) => void),
+    cb?: (err: any, data?: TagMeetingCommandOutput) => void
+  ): Promise<TagMeetingCommandOutput> | void {
+    const command = new TagMeetingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Applies the specified tags to the specified Amazon Chime SDK meeting resource.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Untags the specified tags from the specified Amazon Chime SDK attendee.</p>
+   */
+  public untagAttendee(
+    args: UntagAttendeeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagAttendeeCommandOutput>;
+  public untagAttendee(
+    args: UntagAttendeeCommandInput,
+    cb: (err: any, data?: UntagAttendeeCommandOutput) => void
+  ): void;
+  public untagAttendee(
+    args: UntagAttendeeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagAttendeeCommandOutput) => void
+  ): void;
+  public untagAttendee(
+    args: UntagAttendeeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagAttendeeCommandOutput) => void),
+    cb?: (err: any, data?: UntagAttendeeCommandOutput) => void
+  ): Promise<UntagAttendeeCommandOutput> | void {
+    const command = new UntagAttendeeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Untags the specified tags from the specified Amazon Chime SDK meeting.</p>
+   */
+  public untagMeeting(
+    args: UntagMeetingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagMeetingCommandOutput>;
+  public untagMeeting(args: UntagMeetingCommandInput, cb: (err: any, data?: UntagMeetingCommandOutput) => void): void;
+  public untagMeeting(
+    args: UntagMeetingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagMeetingCommandOutput) => void
+  ): void;
+  public untagMeeting(
+    args: UntagMeetingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagMeetingCommandOutput) => void),
+    cb?: (err: any, data?: UntagMeetingCommandOutput) => void
+  ): Promise<UntagMeetingCommandOutput> | void {
+    const command = new UntagMeetingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Untags the specified tags from the specified Amazon Chime SDK meeting resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3274,7 +4153,39 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Updates room details, such as the room name.</p>
+   * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>
+   */
+  public updateProxySession(
+    args: UpdateProxySessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProxySessionCommandOutput>;
+  public updateProxySession(
+    args: UpdateProxySessionCommandInput,
+    cb: (err: any, data?: UpdateProxySessionCommandOutput) => void
+  ): void;
+  public updateProxySession(
+    args: UpdateProxySessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProxySessionCommandOutput) => void
+  ): void;
+  public updateProxySession(
+    args: UpdateProxySessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProxySessionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateProxySessionCommandOutput) => void
+  ): Promise<UpdateProxySessionCommandOutput> | void {
+    const command = new UpdateProxySessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
    */
   public updateRoom(args: UpdateRoomCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoomCommandOutput>;
   public updateRoom(args: UpdateRoomCommandInput, cb: (err: any, data?: UpdateRoomCommandOutput) => void): void;
@@ -3300,7 +4211,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Updates room membership details, such as the member role. The member role designates
+   * <p>Updates room membership details, such as the member role, for a room in an Amazon Chime Enterprise account. The member role designates
    *       whether the member is a chat room administrator or a general chat room member. The member role
    *       can be updated only for user IDs.</p>
    */

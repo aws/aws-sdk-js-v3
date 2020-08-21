@@ -117,10 +117,23 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a backup of an existing Amazon FSx for Windows File Server file system.
-   *             Creating regular backups for your file system is a best practice that complements the
-   *             replication that Amazon FSx for Windows File Server performs for your file system. It
-   *             also enables you to restore from user modification of data.</p>
+   * <p>Creates a backup of an existing Amazon FSx file system.
+   *             Creating regular backups for your file system is a best practice, enabling you to restore a file system
+   *             from a backup if an issue arises with the original file system.</p>
+   *         <p>For Amazon FSx for Lustre file systems, you can create a backup only
+   *             for file systems with the following configuration:</p>
+   *         <ul>
+   *             <li>
+   *                <p>a Persistent deployment type</p>
+   *             </li>
+   *             <li>
+   *                <p>is <i>not</i> linked to an Amazon S3 data respository.</p>
+   *             </li>
+   *          </ul>
+   *             <p>For more information about backing up Amazon FSx for Lustre file systems,
+   *                 see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for Lustre backups</a>.</p>
+   *         <p>For more information about backing up Amazon FSx for Lustre file systems,
+   *             see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for Windows backups</a>.</p>
    *
    *         <p>If a backup with the specified client request token exists, and the parameters
    *             match, this operation returns the description of the existing backup. If a backup
@@ -144,14 +157,10 @@ export class FSx extends FSxClient {
    *             you use the same client request token and the initial call created a backup, the
    *             operation returns a successful result because all the parameters are the same.</p>
    *
-   *         <p>The <code>CreateFileSystem</code> operation returns while the backup's
-   *             lifecycle state is still <code>CREATING</code>. You can check the file system creation
+   *         <p>The <code>CreateBackup</code> operation returns while the backup's
+   *             lifecycle state is still <code>CREATING</code>. You can check the backup creation
    *             status by calling the <a>DescribeBackups</a> operation, which returns the
    *             backup state along with other information.</p>
-   *
-   *         <note>
-   *             <p></p>
-   *         </note>
    */
   public createBackup(
     args: CreateBackupCommandInput,
@@ -188,7 +197,7 @@ export class FSx extends FSxClient {
    *             linked to the FSx file system. To learn more about data repository tasks, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Using Data Repository Tasks</a>.
    *             To learn more about linking a data repository to your file system, see
-   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/getting-started-step1.html">Step 1: Create Your Amazon FSx for Lustre File System</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repository.html#export-prefix">Setting the Export Prefix</a>.</p>
    */
   public createDataRepositoryTask(
     args: CreateDataRepositoryTaskCommandInput,
@@ -284,8 +293,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a new Amazon FSx file system from an existing Amazon FSx for Windows File
-   *             Server backup.</p>
+   * <p>Creates a new Amazon FSx file system from an existing Amazon FSx backup.</p>
    *
    *         <p>If a file system with the specified client request token exists and the parameters
    *             match, this operation returns the description of the file system. If a client
@@ -352,8 +360,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Deletes an Amazon FSx for Windows File Server backup, deleting its contents. After
-   *             deletion, the backup no longer exists, and its data is gone.</p>
+   * <p>Deletes an Amazon FSx backup, deleting its contents. After deletion, the backup no longer exists, and its data is gone.</p>
    *
    *         <p>The <code>DeleteBackup</code> call returns instantly. The backup will not show up
    *             in later <code>DescribeBackups</code> calls.</p>
@@ -444,7 +451,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Returns the description of specific Amazon FSx for Windows File Server backups, if
+   * <p>Returns the description of specific Amazon FSx backups, if
    *             a <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
    *             backups owned by your AWS account in the AWS Region of the endpoint that you're
    *             calling.</p>
@@ -729,7 +736,46 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Updates a file system configuration.</p>
+   * <p>Use this operation to update the configuration of an existing Amazon FSx file system.
+   *       You can update multiple properties in a single request.</p>
+   *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
+   *     properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AutomaticBackupRetentionDays</p>
+   *             </li>
+   *             <li>
+   *                <p>DailyAutomaticBackupStartTime</p>
+   *             </li>
+   *             <li>
+   *                <p>SelfManagedActiveDirectoryConfiguration</p>
+   *             </li>
+   *             <li>
+   *                <p>StorageCapacity</p>
+   *             </li>
+   *             <li>
+   *                <p>ThroughputCapacity</p>
+   *             </li>
+   *             <li>
+   *                <p>WeeklyMaintenanceStartTime</p>
+   *             </li>
+   *          </ul>
+   *          <p>For Amazon FSx for Lustre file systems, you can update the following
+   *       properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AutoImportPolicy</p>
+   *             </li>
+   *             <li>
+   *                <p>AutomaticBackupRetentionDays</p>
+   *             </li>
+   *             <li>
+   *                <p>DailyAutomaticBackupStartTime</p>
+   *             </li>
+   *             <li>
+   *                <p>WeeklyMaintenanceStartTime</p>
+   *             </li>
+   *          </ul>
    */
   public updateFileSystem(
     args: UpdateFileSystemCommandInput,

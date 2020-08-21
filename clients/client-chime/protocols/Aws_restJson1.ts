@@ -38,9 +38,14 @@ import { CreateAttendeeCommandInput, CreateAttendeeCommandOutput } from "../comm
 import { CreateBotCommandInput, CreateBotCommandOutput } from "../commands/CreateBotCommand";
 import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "../commands/CreateMeetingCommand";
 import {
+  CreateMeetingWithAttendeesCommandInput,
+  CreateMeetingWithAttendeesCommandOutput,
+} from "../commands/CreateMeetingWithAttendeesCommand";
+import {
   CreatePhoneNumberOrderCommandInput,
   CreatePhoneNumberOrderCommandOutput,
 } from "../commands/CreatePhoneNumberOrderCommand";
+import { CreateProxySessionCommandInput, CreateProxySessionCommandOutput } from "../commands/CreateProxySessionCommand";
 import { CreateRoomCommandInput, CreateRoomCommandOutput } from "../commands/CreateRoomCommand";
 import {
   CreateRoomMembershipCommandInput,
@@ -63,6 +68,7 @@ import {
 } from "../commands/DeleteEventsConfigurationCommand";
 import { DeleteMeetingCommandInput, DeleteMeetingCommandOutput } from "../commands/DeleteMeetingCommand";
 import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "../commands/DeletePhoneNumberCommand";
+import { DeleteProxySessionCommandInput, DeleteProxySessionCommandOutput } from "../commands/DeleteProxySessionCommand";
 import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "../commands/DeleteRoomCommand";
 import {
   DeleteRoomMembershipCommandInput,
@@ -73,6 +79,10 @@ import {
   DeleteVoiceConnectorCommandOutput,
 } from "../commands/DeleteVoiceConnectorCommand";
 import {
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "../commands/DeleteVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
   DeleteVoiceConnectorGroupCommandInput,
   DeleteVoiceConnectorGroupCommandOutput,
 } from "../commands/DeleteVoiceConnectorGroupCommand";
@@ -80,6 +90,10 @@ import {
   DeleteVoiceConnectorOriginationCommandInput,
   DeleteVoiceConnectorOriginationCommandOutput,
 } from "../commands/DeleteVoiceConnectorOriginationCommand";
+import {
+  DeleteVoiceConnectorProxyCommandInput,
+  DeleteVoiceConnectorProxyCommandOutput,
+} from "../commands/DeleteVoiceConnectorProxyCommand";
 import {
   DeleteVoiceConnectorStreamingConfigurationCommandInput,
   DeleteVoiceConnectorStreamingConfigurationCommandOutput,
@@ -127,10 +141,19 @@ import {
   GetPhoneNumberSettingsCommandInput,
   GetPhoneNumberSettingsCommandOutput,
 } from "../commands/GetPhoneNumberSettingsCommand";
+import { GetProxySessionCommandInput, GetProxySessionCommandOutput } from "../commands/GetProxySessionCommand";
+import {
+  GetRetentionSettingsCommandInput,
+  GetRetentionSettingsCommandOutput,
+} from "../commands/GetRetentionSettingsCommand";
 import { GetRoomCommandInput, GetRoomCommandOutput } from "../commands/GetRoomCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "../commands/GetUserCommand";
 import { GetUserSettingsCommandInput, GetUserSettingsCommandOutput } from "../commands/GetUserSettingsCommand";
 import { GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput } from "../commands/GetVoiceConnectorCommand";
+import {
+  GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "../commands/GetVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
   GetVoiceConnectorGroupCommandInput,
   GetVoiceConnectorGroupCommandOutput,
@@ -143,6 +166,10 @@ import {
   GetVoiceConnectorOriginationCommandInput,
   GetVoiceConnectorOriginationCommandOutput,
 } from "../commands/GetVoiceConnectorOriginationCommand";
+import {
+  GetVoiceConnectorProxyCommandInput,
+  GetVoiceConnectorProxyCommandOutput,
+} from "../commands/GetVoiceConnectorProxyCommand";
 import {
   GetVoiceConnectorStreamingConfigurationCommandInput,
   GetVoiceConnectorStreamingConfigurationCommandOutput,
@@ -157,19 +184,26 @@ import {
 } from "../commands/GetVoiceConnectorTerminationHealthCommand";
 import { InviteUsersCommandInput, InviteUsersCommandOutput } from "../commands/InviteUsersCommand";
 import { ListAccountsCommandInput, ListAccountsCommandOutput } from "../commands/ListAccountsCommand";
+import { ListAttendeeTagsCommandInput, ListAttendeeTagsCommandOutput } from "../commands/ListAttendeeTagsCommand";
 import { ListAttendeesCommandInput, ListAttendeesCommandOutput } from "../commands/ListAttendeesCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "../commands/ListBotsCommand";
+import { ListMeetingTagsCommandInput, ListMeetingTagsCommandOutput } from "../commands/ListMeetingTagsCommand";
 import { ListMeetingsCommandInput, ListMeetingsCommandOutput } from "../commands/ListMeetingsCommand";
 import {
   ListPhoneNumberOrdersCommandInput,
   ListPhoneNumberOrdersCommandOutput,
 } from "../commands/ListPhoneNumberOrdersCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "../commands/ListPhoneNumbersCommand";
+import { ListProxySessionsCommandInput, ListProxySessionsCommandOutput } from "../commands/ListProxySessionsCommand";
 import {
   ListRoomMembershipsCommandInput,
   ListRoomMembershipsCommandOutput,
 } from "../commands/ListRoomMembershipsCommand";
 import { ListRoomsCommandInput, ListRoomsCommandOutput } from "../commands/ListRoomsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
 import {
   ListVoiceConnectorGroupsCommandInput,
@@ -189,6 +223,14 @@ import {
   PutEventsConfigurationCommandOutput,
 } from "../commands/PutEventsConfigurationCommand";
 import {
+  PutRetentionSettingsCommandInput,
+  PutRetentionSettingsCommandOutput,
+} from "../commands/PutRetentionSettingsCommand";
+import {
+  PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "../commands/PutVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
   PutVoiceConnectorLoggingConfigurationCommandInput,
   PutVoiceConnectorLoggingConfigurationCommandOutput,
 } from "../commands/PutVoiceConnectorLoggingConfigurationCommand";
@@ -196,6 +238,10 @@ import {
   PutVoiceConnectorOriginationCommandInput,
   PutVoiceConnectorOriginationCommandOutput,
 } from "../commands/PutVoiceConnectorOriginationCommand";
+import {
+  PutVoiceConnectorProxyCommandInput,
+  PutVoiceConnectorProxyCommandOutput,
+} from "../commands/PutVoiceConnectorProxyCommand";
 import {
   PutVoiceConnectorStreamingConfigurationCommandInput,
   PutVoiceConnectorStreamingConfigurationCommandOutput,
@@ -209,6 +255,11 @@ import {
   PutVoiceConnectorTerminationCredentialsCommandOutput,
 } from "../commands/PutVoiceConnectorTerminationCredentialsCommand";
 import {
+  RedactConversationMessageCommandInput,
+  RedactConversationMessageCommandOutput,
+} from "../commands/RedactConversationMessageCommand";
+import { RedactRoomMessageCommandInput, RedactRoomMessageCommandOutput } from "../commands/RedactRoomMessageCommand";
+import {
   RegenerateSecurityTokenCommandInput,
   RegenerateSecurityTokenCommandOutput,
 } from "../commands/RegenerateSecurityTokenCommand";
@@ -218,6 +269,12 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
+import { TagAttendeeCommandInput, TagAttendeeCommandOutput } from "../commands/TagAttendeeCommand";
+import { TagMeetingCommandInput, TagMeetingCommandOutput } from "../commands/TagMeetingCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagAttendeeCommandInput, UntagAttendeeCommandOutput } from "../commands/UntagAttendeeCommand";
+import { UntagMeetingCommandInput, UntagMeetingCommandOutput } from "../commands/UntagMeetingCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAccountCommandInput, UpdateAccountCommandOutput } from "../commands/UpdateAccountCommand";
 import {
   UpdateAccountSettingsCommandInput,
@@ -233,6 +290,7 @@ import {
   UpdatePhoneNumberSettingsCommandInput,
   UpdatePhoneNumberSettingsCommandOutput,
 } from "../commands/UpdatePhoneNumberSettingsCommand";
+import { UpdateProxySessionCommandInput, UpdateProxySessionCommandOutput } from "../commands/UpdateProxySessionCommand";
 import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "../commands/UpdateRoomCommand";
 import {
   UpdateRoomMembershipCommandInput,
@@ -257,12 +315,17 @@ import {
   BadRequestException,
   Bot,
   BusinessCallingSettings,
+  Capability,
   ConflictException,
+  ConversationRetentionSettings,
   CreateAttendeeError,
   CreateAttendeeRequestItem,
   Credential,
+  DNISEmergencyCallingConfiguration,
+  EmergencyCallingConfiguration,
   EventsConfiguration,
   ForbiddenException,
+  GeoMatchParams,
   Invite,
   License,
   LoggingConfiguration,
@@ -276,18 +339,25 @@ import {
   OrderedPhoneNumber,
   Origination,
   OriginationRoute,
+  Participant,
   PhoneNumber,
   PhoneNumberAssociation,
   PhoneNumberCapabilities,
   PhoneNumberError,
   PhoneNumberOrder,
+  Proxy,
+  ProxySession,
   ResourceLimitExceededException,
+  RetentionSettings,
   Room,
   RoomMembership,
+  RoomRetentionSettings,
   ServiceFailureException,
   ServiceUnavailableException,
   SigninDelegateGroup,
   StreamingConfiguration,
+  StreamingNotificationTarget,
+  Tag,
   TelephonySettings,
   Termination,
   TerminationHealth,
@@ -785,6 +855,7 @@ export const serializeAws_restJson1CreateAttendeeCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ExternalUserId !== undefined && { ExternalUserId: input.ExternalUserId }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1AttendeeTagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -843,6 +914,7 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ExternalMeetingId !== undefined && { ExternalMeetingId: input.ExternalMeetingId }),
     ...(input.MediaRegion !== undefined && { MediaRegion: input.MediaRegion }),
     ...(input.MeetingHostId !== undefined && { MeetingHostId: input.MeetingHostId }),
     ...(input.NotificationsConfiguration !== undefined && {
@@ -851,6 +923,7 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
         context
       ),
     }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1MeetingTagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -860,6 +933,47 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
+  input: CreateMeetingWithAttendeesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/meetings";
+  const query: any = {
+    operation: "create-attendees",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Attendees !== undefined && {
+      Attendees: serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList(input.Attendees, context),
+    }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ExternalMeetingId !== undefined && { ExternalMeetingId: input.ExternalMeetingId }),
+    ...(input.MediaRegion !== undefined && { MediaRegion: input.MediaRegion }),
+    ...(input.MeetingHostId !== undefined && { MeetingHostId: input.MeetingHostId }),
+    ...(input.NotificationsConfiguration !== undefined && {
+      NotificationsConfiguration: serializeAws_restJson1MeetingNotificationConfiguration(
+        input.NotificationsConfiguration,
+        context
+      ),
+    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1MeetingTagList(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -878,6 +992,51 @@ export const serializeAws_restJson1CreatePhoneNumberOrderCommand = async (
       E164PhoneNumbers: serializeAws_restJson1E164PhoneNumberList(input.E164PhoneNumbers, context),
     }),
     ...(input.ProductType !== undefined && { ProductType: input.ProductType }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateProxySessionCommand = async (
+  input: CreateProxySessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions";
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Capabilities !== undefined && {
+      Capabilities: serializeAws_restJson1CapabilityList(input.Capabilities, context),
+    }),
+    ...(input.ExpiryMinutes !== undefined && { ExpiryMinutes: input.ExpiryMinutes }),
+    ...(input.GeoMatchLevel !== undefined && { GeoMatchLevel: input.GeoMatchLevel }),
+    ...(input.GeoMatchParams !== undefined && {
+      GeoMatchParams: serializeAws_restJson1GeoMatchParams(input.GeoMatchParams, context),
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.NumberSelectionBehavior !== undefined && { NumberSelectionBehavior: input.NumberSelectionBehavior }),
+    ...(input.ParticipantPhoneNumbers !== undefined && {
+      ParticipantPhoneNumbers: serializeAws_restJson1ParticipantPhoneNumberList(input.ParticipantPhoneNumbers, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1098,15 +1257,6 @@ export const serializeAws_restJson1DeleteAttendeeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}";
-  if (input.AttendeeId !== undefined) {
-    const labelValue: string = input.AttendeeId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AttendeeId.");
-    }
-    resolvedPath = resolvedPath.replace("{AttendeeId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AttendeeId.");
-  }
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
     if (labelValue.length <= 0) {
@@ -1115,6 +1265,15 @@ export const serializeAws_restJson1DeleteAttendeeCommand = async (
     resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  if (input.AttendeeId !== undefined) {
+    const labelValue: string = input.AttendeeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttendeeId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttendeeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttendeeId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1137,15 +1296,6 @@ export const serializeAws_restJson1DeleteEventsConfigurationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}/events-configuration";
-  if (input.AccountId !== undefined) {
-    const labelValue: string = input.AccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AccountId.");
-  }
   if (input.BotId !== undefined) {
     const labelValue: string = input.BotId;
     if (labelValue.length <= 0) {
@@ -1154,6 +1304,15 @@ export const serializeAws_restJson1DeleteEventsConfigurationCommand = async (
     resolvedPath = resolvedPath.replace("{BotId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BotId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1228,6 +1387,45 @@ export const serializeAws_restJson1DeletePhoneNumberCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteProxySessionCommand = async (
+  input: DeleteProxySessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}";
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  if (input.ProxySessionId !== undefined) {
+    const labelValue: string = input.ProxySessionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ProxySessionId.");
+    }
+    resolvedPath = resolvedPath.replace("{ProxySessionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ProxySessionId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteRoomCommand = async (
   input: DeleteRoomCommandInput,
   context: __SerdeContext
@@ -1275,15 +1473,6 @@ export const serializeAws_restJson1DeleteRoomMembershipCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}";
-  if (input.AccountId !== undefined) {
-    const labelValue: string = input.AccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AccountId.");
-  }
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
     if (labelValue.length <= 0) {
@@ -1292,6 +1481,15 @@ export const serializeAws_restJson1DeleteRoomMembershipCommand = async (
     resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
   }
   if (input.RoomId !== undefined) {
     const labelValue: string = input.RoomId;
@@ -1323,6 +1521,36 @@ export const serializeAws_restJson1DeleteVoiceConnectorCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand = async (
+  input: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
     if (labelValue.length <= 0) {
@@ -1383,6 +1611,36 @@ export const serializeAws_restJson1DeleteVoiceConnectorOriginationCommand = asyn
     "Content-Type": "",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/origination";
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteVoiceConnectorProxyCommand = async (
+  input: DeleteVoiceConnectorProxyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
     if (labelValue.length <= 0) {
@@ -1512,15 +1770,6 @@ export const serializeAws_restJson1DisassociatePhoneNumberFromUserCommand = asyn
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
-  if (input.AccountId !== undefined) {
-    const labelValue: string = input.AccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AccountId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -1529,6 +1778,15 @@ export const serializeAws_restJson1DisassociatePhoneNumberFromUserCommand = asyn
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
   }
   const query: any = {
     operation: "disassociate-phone-number",
@@ -1771,15 +2029,6 @@ export const serializeAws_restJson1GetBotCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}";
-  if (input.AccountId !== undefined) {
-    const labelValue: string = input.AccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AccountId.");
-  }
   if (input.BotId !== undefined) {
     const labelValue: string = input.BotId;
     if (labelValue.length <= 0) {
@@ -1788,6 +2037,15 @@ export const serializeAws_restJson1GetBotCommand = async (
     resolvedPath = resolvedPath.replace("{BotId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BotId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1975,6 +2233,75 @@ export const serializeAws_restJson1GetPhoneNumberSettingsCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetProxySessionCommand = async (
+  input: GetProxySessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}";
+  if (input.ProxySessionId !== undefined) {
+    const labelValue: string = input.ProxySessionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ProxySessionId.");
+    }
+    resolvedPath = resolvedPath.replace("{ProxySessionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ProxySessionId.");
+  }
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetRetentionSettingsCommand = async (
+  input: GetRetentionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/accounts/{AccountId}/retention-settings";
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetRoomCommand = async (
   input: GetRoomCommandInput,
   context: __SerdeContext
@@ -2022,15 +2349,6 @@ export const serializeAws_restJson1GetUserCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
-  if (input.AccountId !== undefined) {
-    const labelValue: string = input.AccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AccountId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -2039,6 +2357,15 @@ export const serializeAws_restJson1GetUserCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2100,6 +2427,36 @@ export const serializeAws_restJson1GetVoiceConnectorCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand = async (
+  input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
     if (labelValue.length <= 0) {
@@ -2190,6 +2547,36 @@ export const serializeAws_restJson1GetVoiceConnectorOriginationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/origination";
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetVoiceConnectorProxyCommand = async (
+  input: GetVoiceConnectorProxyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
     if (labelValue.length <= 0) {
@@ -2351,10 +2738,10 @@ export const serializeAws_restJson1ListAccountsCommand = async (
   };
   let resolvedPath = "/accounts";
   const query: any = {
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
-    ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.UserEmail !== undefined && { "user-email": input.UserEmail }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2405,6 +2792,45 @@ export const serializeAws_restJson1ListAttendeesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListAttendeeTagsCommand = async (
+  input: ListAttendeeTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}/tags";
+  if (input.AttendeeId !== undefined) {
+    const labelValue: string = input.AttendeeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttendeeId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttendeeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttendeeId.");
+  }
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListBotsCommand = async (
   input: ListBotsCommandInput,
   context: __SerdeContext
@@ -2449,8 +2875,8 @@ export const serializeAws_restJson1ListMeetingsCommand = async (
   };
   let resolvedPath = "/meetings";
   const query: any = {
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2462,6 +2888,36 @@ export const serializeAws_restJson1ListMeetingsCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListMeetingTagsCommand = async (
+  input: ListMeetingTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/meetings/{MeetingId}/tags";
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -2501,12 +2957,48 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
   };
   let resolvedPath = "/phone-numbers";
   const query: any = {
-    ...(input.FilterName !== undefined && { "filter-name": input.FilterName }),
     ...(input.FilterValue !== undefined && { "filter-value": input.FilterValue }),
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.FilterName !== undefined && { "filter-name": input.FilterName }),
     ...(input.ProductType !== undefined && { "product-type": input.ProductType }),
     ...(input.Status !== undefined && { status: input.Status }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListProxySessionsCommand = async (
+  input: ListProxySessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions";
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.Status !== undefined && { status: input.Status }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2585,8 +3077,33 @@ export const serializeAws_restJson1ListRoomsCommand = async (
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
-    ...(input.MemberId !== undefined && { "member-id": input.MemberId }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MemberId !== undefined && { "member-id": input.MemberId }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/tags";
+  const query: any = {
+    ...(input.ResourceARN !== undefined && { arn: input.ResourceARN }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2620,10 +3137,10 @@ export const serializeAws_restJson1ListUsersCommand = async (
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.UserEmail !== undefined && { "user-email": input.UserEmail }),
     ...(input.UserType !== undefined && { "user-type": input.UserType }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2648,8 +3165,8 @@ export const serializeAws_restJson1ListVoiceConnectorGroupsCommand = async (
   };
   let resolvedPath = "/voice-connector-groups";
   const query: any = {
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2674,8 +3191,8 @@ export const serializeAws_restJson1ListVoiceConnectorsCommand = async (
   };
   let resolvedPath = "/voice-connectors";
   const query: any = {
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2809,6 +3326,79 @@ export const serializeAws_restJson1PutEventsConfigurationCommand = async (
   });
 };
 
+export const serializeAws_restJson1PutRetentionSettingsCommand = async (
+  input: PutRetentionSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/accounts/{AccountId}/retention-settings";
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.RetentionSettings !== undefined && {
+      RetentionSettings: serializeAws_restJson1RetentionSettings(input.RetentionSettings, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurationCommand = async (
+  input: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration";
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EmergencyCallingConfiguration !== undefined && {
+      EmergencyCallingConfiguration: serializeAws_restJson1EmergencyCallingConfiguration(
+        input.EmergencyCallingConfiguration,
+        context
+      ),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand = async (
   input: PutVoiceConnectorLoggingConfigurationCommandInput,
   context: __SerdeContext
@@ -2865,6 +3455,46 @@ export const serializeAws_restJson1PutVoiceConnectorOriginationCommand = async (
   body = JSON.stringify({
     ...(input.Origination !== undefined && {
       Origination: serializeAws_restJson1Origination(input.Origination, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutVoiceConnectorProxyCommand = async (
+  input: PutVoiceConnectorProxyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy";
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DefaultSessionExpiryMinutes !== undefined && {
+      DefaultSessionExpiryMinutes: input.DefaultSessionExpiryMinutes,
+    }),
+    ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
+    ...(input.FallBackPhoneNumber !== undefined && { FallBackPhoneNumber: input.FallBackPhoneNumber }),
+    ...(input.PhoneNumberPoolCountries !== undefined && {
+      PhoneNumberPoolCountries: serializeAws_restJson1CountryList(input.PhoneNumberPoolCountries, context),
     }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2988,6 +3618,110 @@ export const serializeAws_restJson1PutVoiceConnectorTerminationCredentialsComman
   });
 };
 
+export const serializeAws_restJson1RedactConversationMessageCommand = async (
+  input: RedactConversationMessageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/accounts/{AccountId}/conversations/{ConversationId}/messages/{MessageId}";
+  if (input.ConversationId !== undefined) {
+    const labelValue: string = input.ConversationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConversationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConversationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConversationId.");
+  }
+  if (input.MessageId !== undefined) {
+    const labelValue: string = input.MessageId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MessageId.");
+    }
+    resolvedPath = resolvedPath.replace("{MessageId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MessageId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
+  }
+  const query: any = {
+    operation: "redact",
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RedactRoomMessageCommand = async (
+  input: RedactRoomMessageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/messages/{MessageId}";
+  if (input.MessageId !== undefined) {
+    const labelValue: string = input.MessageId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MessageId.");
+    }
+    resolvedPath = resolvedPath.replace("{MessageId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MessageId.");
+  }
+  if (input.RoomId !== undefined) {
+    const labelValue: string = input.RoomId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoomId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoomId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoomId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
+  }
+  const query: any = {
+    operation: "redact",
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1RegenerateSecurityTokenCommand = async (
   input: RegenerateSecurityTokenCommandInput,
   context: __SerdeContext
@@ -3039,15 +3773,6 @@ export const serializeAws_restJson1ResetPersonalPINCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
-  if (input.AccountId !== undefined) {
-    const labelValue: string = input.AccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AccountId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -3056,6 +3781,15 @@ export const serializeAws_restJson1ResetPersonalPINCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
   }
   const query: any = {
     operation: "reset-personal-pin",
@@ -3118,13 +3852,13 @@ export const serializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
   let resolvedPath = "/search";
   const query: any = {
     type: "phone-numbers",
-    ...(input.AreaCode !== undefined && { "area-code": input.AreaCode }),
-    ...(input.City !== undefined && { city: input.City }),
-    ...(input.Country !== undefined && { country: input.Country }),
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
-    ...(input.State !== undefined && { state: input.State }),
     ...(input.TollFreePrefix !== undefined && { "toll-free-prefix": input.TollFreePrefix }),
+    ...(input.Country !== undefined && { country: input.Country }),
+    ...(input.City !== undefined && { city: input.City }),
+    ...(input.State !== undefined && { state: input.State }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.AreaCode !== undefined && { "area-code": input.AreaCode }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3133,6 +3867,230 @@ export const serializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagAttendeeCommand = async (
+  input: TagAttendeeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}/tags";
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  if (input.AttendeeId !== undefined) {
+    const labelValue: string = input.AttendeeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttendeeId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttendeeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttendeeId.");
+  }
+  const query: any = {
+    operation: "add",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1AttendeeTagList(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagMeetingCommand = async (
+  input: TagMeetingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/meetings/{MeetingId}/tags";
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  const query: any = {
+    operation: "add",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1MeetingTagList(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/tags";
+  const query: any = {
+    operation: "tag-resource",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagAttendeeCommand = async (
+  input: UntagAttendeeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}/tags";
+  if (input.AttendeeId !== undefined) {
+    const labelValue: string = input.AttendeeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttendeeId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttendeeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttendeeId.");
+  }
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  const query: any = {
+    operation: "delete",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1AttendeeTagKeyList(input.TagKeys, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagMeetingCommand = async (
+  input: UntagMeetingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/meetings/{MeetingId}/tags";
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  const query: any = {
+    operation: "delete",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1MeetingTagKeyList(input.TagKeys, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/tags";
+  const query: any = {
+    operation: "untag-resource",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     query,
@@ -3337,6 +4295,51 @@ export const serializeAws_restJson1UpdatePhoneNumberSettingsCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateProxySessionCommand = async (
+  input: UpdateProxySessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}";
+  if (input.ProxySessionId !== undefined) {
+    const labelValue: string = input.ProxySessionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ProxySessionId.");
+    }
+    resolvedPath = resolvedPath.replace("{ProxySessionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ProxySessionId.");
+  }
+  if (input.VoiceConnectorId !== undefined) {
+    const labelValue: string = input.VoiceConnectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VoiceConnectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{VoiceConnectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VoiceConnectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Capabilities !== undefined && {
+      Capabilities: serializeAws_restJson1CapabilityList(input.Capabilities, context),
+    }),
+    ...(input.ExpiryMinutes !== undefined && { ExpiryMinutes: input.ExpiryMinutes }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateRoomCommand = async (
   input: UpdateRoomCommandInput,
   context: __SerdeContext
@@ -3387,15 +4390,6 @@ export const serializeAws_restJson1UpdateRoomMembershipCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}";
-  if (input.AccountId !== undefined) {
-    const labelValue: string = input.AccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AccountId.");
-  }
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
     if (labelValue.length <= 0) {
@@ -3404,6 +4398,15 @@ export const serializeAws_restJson1UpdateRoomMembershipCommand = async (
     resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
   }
   if (input.RoomId !== undefined) {
     const labelValue: string = input.RoomId;
@@ -3438,15 +4441,6 @@ export const serializeAws_restJson1UpdateUserCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
-  if (input.AccountId !== undefined) {
-    const labelValue: string = input.AccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AccountId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -3455,6 +4449,15 @@ export const serializeAws_restJson1UpdateUserCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -3484,15 +4487,6 @@ export const serializeAws_restJson1UpdateUserSettingsCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}/settings";
-  if (input.AccountId !== undefined) {
-    const labelValue: string = input.AccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AccountId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -3501,6 +4495,15 @@ export const serializeAws_restJson1UpdateUserSettingsCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.AccountId !== undefined) {
+    const labelValue: string = input.AccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -5194,6 +6197,118 @@ const deserializeAws_restJson1CreateMeetingCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMeetingWithAttendeesCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreateMeetingWithAttendeesCommandError(output, context);
+  }
+  const contents: CreateMeetingWithAttendeesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateMeetingWithAttendeesResponse",
+    Attendees: undefined,
+    Errors: undefined,
+    Meeting: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Attendees !== undefined && data.Attendees !== null) {
+    contents.Attendees = deserializeAws_restJson1AttendeeList(data.Attendees, context);
+  }
+  if (data.Errors !== undefined && data.Errors !== null) {
+    contents.Errors = deserializeAws_restJson1BatchCreateAttendeeErrorList(data.Errors, context);
+  }
+  if (data.Meeting !== undefined && data.Meeting !== null) {
+    contents.Meeting = deserializeAws_restJson1Meeting(data.Meeting, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateMeetingWithAttendeesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMeetingWithAttendeesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chime#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreatePhoneNumberOrderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5253,6 +6368,110 @@ const deserializeAws_restJson1CreatePhoneNumberOrderCommandError = async (
     case "com.amazonaws.chime#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateProxySessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProxySessionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreateProxySessionCommandError(output, context);
+  }
+  const contents: CreateProxySessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateProxySessionResponse",
+    ProxySession: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ProxySession !== undefined && data.ProxySession !== null) {
+    contents.ProxySession = deserializeAws_restJson1ProxySession(data.ProxySession, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateProxySessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProxySessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6370,6 +7589,105 @@ const deserializeAws_restJson1DeletePhoneNumberCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteProxySessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProxySessionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteProxySessionCommandError(output, context);
+  }
+  const contents: DeleteProxySessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteProxySessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProxySessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6675,6 +7993,105 @@ const deserializeAws_restJson1DeleteVoiceConnectorCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommandError(output, context);
+  }
+  const contents: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteVoiceConnectorGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6800,6 +8217,105 @@ const deserializeAws_restJson1DeleteVoiceConnectorOriginationCommandError = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceConnectorOriginationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteVoiceConnectorProxyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVoiceConnectorProxyCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteVoiceConnectorProxyCommandError(output, context);
+  }
+  const contents: DeleteVoiceConnectorProxyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteVoiceConnectorProxyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVoiceConnectorProxyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -8618,6 +10134,218 @@ const deserializeAws_restJson1GetPhoneNumberSettingsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetProxySessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProxySessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetProxySessionCommandError(output, context);
+  }
+  const contents: GetProxySessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetProxySessionResponse",
+    ProxySession: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ProxySession !== undefined && data.ProxySession !== null) {
+    contents.ProxySession = deserializeAws_restJson1ProxySession(data.ProxySession, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetProxySessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProxySessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetRetentionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRetentionSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetRetentionSettingsCommandError(output, context);
+  }
+  const contents: GetRetentionSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetRetentionSettingsResponse",
+    InitiateDeletionTimestamp: undefined,
+    RetentionSettings: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.InitiateDeletionTimestamp !== undefined && data.InitiateDeletionTimestamp !== null) {
+    contents.InitiateDeletionTimestamp = new Date(data.InitiateDeletionTimestamp);
+  }
+  if (data.RetentionSettings !== undefined && data.RetentionSettings !== null) {
+    contents.RetentionSettings = deserializeAws_restJson1RetentionSettings(data.RetentionSettings, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetRetentionSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRetentionSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9034,6 +10762,113 @@ const deserializeAws_restJson1GetVoiceConnectorCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommandError(output, context);
+  }
+  const contents: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetVoiceConnectorEmergencyCallingConfigurationResponse",
+    EmergencyCallingConfiguration: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.EmergencyCallingConfiguration !== undefined && data.EmergencyCallingConfiguration !== null) {
+    contents.EmergencyCallingConfiguration = deserializeAws_restJson1EmergencyCallingConfiguration(
+      data.EmergencyCallingConfiguration,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetVoiceConnectorGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9265,6 +11100,110 @@ const deserializeAws_restJson1GetVoiceConnectorOriginationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceConnectorOriginationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetVoiceConnectorProxyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceConnectorProxyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetVoiceConnectorProxyCommandError(output, context);
+  }
+  const contents: GetVoiceConnectorProxyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetVoiceConnectorProxyResponse",
+    Proxy: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Proxy !== undefined && data.Proxy !== null) {
+    contents.Proxy = deserializeAws_restJson1Proxy(data.Proxy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetVoiceConnectorProxyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceConnectorProxyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -9981,6 +11920,110 @@ const deserializeAws_restJson1ListAttendeesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListAttendeeTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttendeeTagsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListAttendeeTagsCommandError(output, context);
+  }
+  const contents: ListAttendeeTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListAttendeeTagsResponse",
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAttendeeTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttendeeTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListBotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10136,6 +12179,110 @@ const deserializeAws_restJson1ListMeetingsCommandError = async (
     case "com.amazonaws.chime#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListMeetingTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMeetingTagsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListMeetingTagsCommandError(output, context);
+  }
+  const contents: ListMeetingTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListMeetingTagsResponse",
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListMeetingTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMeetingTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10389,6 +12536,114 @@ const deserializeAws_restJson1ListPhoneNumbersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListProxySessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProxySessionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListProxySessionsCommandError(output, context);
+  }
+  const contents: ListProxySessionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListProxySessionsResponse",
+    NextToken: undefined,
+    ProxySessions: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.ProxySessions !== undefined && data.ProxySessions !== null) {
+    contents.ProxySessions = deserializeAws_restJson1ProxySessions(data.ProxySessions, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListProxySessionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProxySessionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListRoomMembershipsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10576,6 +12831,102 @@ const deserializeAws_restJson1ListRoomsCommandError = async (
     case "com.amazonaws.chime#ThrottledClientException":
       response = {
         ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11221,6 +13572,229 @@ const deserializeAws_restJson1PutEventsConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1PutRetentionSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRetentionSettingsCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1PutRetentionSettingsCommandError(output, context);
+  }
+  const contents: PutRetentionSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutRetentionSettingsResponse",
+    InitiateDeletionTimestamp: undefined,
+    RetentionSettings: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.InitiateDeletionTimestamp !== undefined && data.InitiateDeletionTimestamp !== null) {
+    contents.InitiateDeletionTimestamp = new Date(data.InitiateDeletionTimestamp);
+  }
+  if (data.RetentionSettings !== undefined && data.RetentionSettings !== null) {
+    contents.RetentionSettings = deserializeAws_restJson1RetentionSettings(data.RetentionSettings, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutRetentionSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRetentionSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.chime#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurationCommandError(output, context);
+  }
+  const contents: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutVoiceConnectorEmergencyCallingConfigurationResponse",
+    EmergencyCallingConfiguration: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.EmergencyCallingConfiguration !== undefined && data.EmergencyCallingConfiguration !== null) {
+    contents.EmergencyCallingConfiguration = deserializeAws_restJson1EmergencyCallingConfiguration(
+      data.EmergencyCallingConfiguration,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11356,6 +13930,118 @@ const deserializeAws_restJson1PutVoiceConnectorOriginationCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutVoiceConnectorProxyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutVoiceConnectorProxyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1PutVoiceConnectorProxyCommandError(output, context);
+  }
+  const contents: PutVoiceConnectorProxyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutVoiceConnectorProxyResponse",
+    Proxy: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Proxy !== undefined && data.Proxy !== null) {
+    contents.Proxy = deserializeAws_restJson1Proxy(data.Proxy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutVoiceConnectorProxyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutVoiceConnectorProxyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chime#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "BadRequestException":
     case "com.amazonaws.chime#BadRequestException":
       response = {
@@ -11666,6 +14352,206 @@ const deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RedactConversationMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RedactConversationMessageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1RedactConversationMessageCommandError(output, context);
+  }
+  const contents: RedactConversationMessageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RedactConversationMessageResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RedactConversationMessageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RedactConversationMessageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RedactRoomMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RedactRoomMessageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1RedactRoomMessageCommandError(output, context);
+  }
+  const contents: RedactRoomMessageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RedactRoomMessageResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RedactRoomMessageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RedactRoomMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -12142,6 +15028,600 @@ const deserializeAws_restJson1SearchAvailablePhoneNumbersCommandError = async (
     case "com.amazonaws.chime#ThrottledClientException":
       response = {
         ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagAttendeeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagAttendeeCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1TagAttendeeCommandError(output, context);
+  }
+  const contents: TagAttendeeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagAttendeeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagAttendeeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chime#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagMeetingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagMeetingCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1TagMeetingCommandError(output, context);
+  }
+  const contents: TagMeetingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagMeetingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagMeetingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chime#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagAttendeeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagAttendeeCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UntagAttendeeCommandError(output, context);
+  }
+  const contents: UntagAttendeeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagAttendeeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagAttendeeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagMeetingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagMeetingCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UntagMeetingCommandError(output, context);
+  }
+  const contents: UntagMeetingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagMeetingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagMeetingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12720,6 +16200,110 @@ const deserializeAws_restJson1UpdatePhoneNumberSettingsCommandError = async (
     case "com.amazonaws.chime#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateProxySessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProxySessionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateProxySessionCommandError(output, context);
+  }
+  const contents: UpdateProxySessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateProxySessionResponse",
+    ProxySession: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ProxySession !== undefined && data.ProxySession !== null) {
+    contents.ProxySession = deserializeAws_restJson1ProxySession(data.ProxySession, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateProxySessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProxySessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13650,6 +17234,14 @@ const serializeAws_restJson1AlexaForBusinessMetadata = (
   };
 };
 
+const serializeAws_restJson1AttendeeTagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1AttendeeTagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+};
+
 const serializeAws_restJson1BusinessCallingSettings = (
   input: BusinessCallingSettings,
   context: __SerdeContext
@@ -13663,16 +17255,41 @@ const serializeAws_restJson1CallingRegionList = (input: string[], context: __Ser
   return input.map((entry) => entry);
 };
 
+const serializeAws_restJson1CapabilityList = (input: (Capability | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1ConversationRetentionSettings = (
+  input: ConversationRetentionSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RetentionDays !== undefined && { RetentionDays: input.RetentionDays }),
+  };
+};
+
+const serializeAws_restJson1CountryList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1CreateAttendeeRequestItem = (
   input: CreateAttendeeRequestItem,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.ExternalUserId !== undefined && { ExternalUserId: input.ExternalUserId }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1AttendeeTagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_restJson1CreateAttendeeRequestItemList = (
+  input: CreateAttendeeRequestItem[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1CreateAttendeeRequestItem(entry, context));
+};
+
+const serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList = (
   input: CreateAttendeeRequestItem[],
   context: __SerdeContext
 ): any => {
@@ -13690,8 +17307,44 @@ const serializeAws_restJson1CredentialList = (input: Credential[], context: __Se
   return input.map((entry) => serializeAws_restJson1Credential(entry, context));
 };
 
+const serializeAws_restJson1DNISEmergencyCallingConfiguration = (
+  input: DNISEmergencyCallingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CallingCountry !== undefined && { CallingCountry: input.CallingCountry }),
+    ...(input.EmergencyPhoneNumber !== undefined && { EmergencyPhoneNumber: input.EmergencyPhoneNumber }),
+    ...(input.TestPhoneNumber !== undefined && { TestPhoneNumber: input.TestPhoneNumber }),
+  };
+};
+
+const serializeAws_restJson1DNISEmergencyCallingConfigurationList = (
+  input: DNISEmergencyCallingConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1DNISEmergencyCallingConfiguration(entry, context));
+};
+
 const serializeAws_restJson1E164PhoneNumberList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1EmergencyCallingConfiguration = (
+  input: EmergencyCallingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DNIS !== undefined && {
+      DNIS: serializeAws_restJson1DNISEmergencyCallingConfigurationList(input.DNIS, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GeoMatchParams = (input: GeoMatchParams, context: __SerdeContext): any => {
+  return {
+    ...(input.AreaCode !== undefined && { AreaCode: input.AreaCode }),
+    ...(input.Country !== undefined && { Country: input.Country }),
+  };
 };
 
 const serializeAws_restJson1LoggingConfiguration = (input: LoggingConfiguration, context: __SerdeContext): any => {
@@ -13708,6 +17361,14 @@ const serializeAws_restJson1MeetingNotificationConfiguration = (
     ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
     ...(input.SqsQueueArn !== undefined && { SqsQueueArn: input.SqsQueueArn }),
   };
+};
+
+const serializeAws_restJson1MeetingTagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1MeetingTagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
 };
 
 const serializeAws_restJson1MembershipItem = (input: MembershipItem, context: __SerdeContext): any => {
@@ -13746,6 +17407,30 @@ const serializeAws_restJson1OriginationRouteList = (input: OriginationRoute[], c
   return input.map((entry) => serializeAws_restJson1OriginationRoute(entry, context));
 };
 
+const serializeAws_restJson1ParticipantPhoneNumberList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1RetentionSettings = (input: RetentionSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.ConversationRetentionSettings !== undefined && {
+      ConversationRetentionSettings: serializeAws_restJson1ConversationRetentionSettings(
+        input.ConversationRetentionSettings,
+        context
+      ),
+    }),
+    ...(input.RoomRetentionSettings !== undefined && {
+      RoomRetentionSettings: serializeAws_restJson1RoomRetentionSettings(input.RoomRetentionSettings, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1RoomRetentionSettings = (input: RoomRetentionSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.RetentionDays !== undefined && { RetentionDays: input.RetentionDays }),
+  };
+};
+
 const serializeAws_restJson1SensitiveStringList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -13764,11 +17449,48 @@ const serializeAws_restJson1StreamingConfiguration = (input: StreamingConfigurat
   return {
     ...(input.DataRetentionInHours !== undefined && { DataRetentionInHours: input.DataRetentionInHours }),
     ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
+    ...(input.StreamingNotificationTargets !== undefined && {
+      StreamingNotificationTargets: serializeAws_restJson1StreamingNotificationTargetList(
+        input.StreamingNotificationTargets,
+        context
+      ),
+    }),
   };
+};
+
+const serializeAws_restJson1StreamingNotificationTarget = (
+  input: StreamingNotificationTarget,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NotificationTarget !== undefined && { NotificationTarget: input.NotificationTarget }),
+  };
+};
+
+const serializeAws_restJson1StreamingNotificationTargetList = (
+  input: StreamingNotificationTarget[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1StreamingNotificationTarget(entry, context));
 };
 
 const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
 };
 
 const serializeAws_restJson1TelephonySettings = (input: TelephonySettings, context: __SerdeContext): any => {
@@ -13980,6 +17702,21 @@ const deserializeAws_restJson1CallingRegionList = (output: any, context: __Serde
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_restJson1CapabilityList = (output: any, context: __SerdeContext): (Capability | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1ConversationRetentionSettings = (
+  output: any,
+  context: __SerdeContext
+): ConversationRetentionSettings => {
+  return {
+    __type: "ConversationRetentionSettings",
+    RetentionDays:
+      output.RetentionDays !== undefined && output.RetentionDays !== null ? output.RetentionDays : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1CreateAttendeeError = (output: any, context: __SerdeContext): CreateAttendeeError => {
   return {
     __type: "CreateAttendeeError",
@@ -13990,8 +17727,45 @@ const deserializeAws_restJson1CreateAttendeeError = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_restJson1DNISEmergencyCallingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DNISEmergencyCallingConfiguration => {
+  return {
+    __type: "DNISEmergencyCallingConfiguration",
+    CallingCountry:
+      output.CallingCountry !== undefined && output.CallingCountry !== null ? output.CallingCountry : undefined,
+    EmergencyPhoneNumber:
+      output.EmergencyPhoneNumber !== undefined && output.EmergencyPhoneNumber !== null
+        ? output.EmergencyPhoneNumber
+        : undefined,
+    TestPhoneNumber:
+      output.TestPhoneNumber !== undefined && output.TestPhoneNumber !== null ? output.TestPhoneNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DNISEmergencyCallingConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): DNISEmergencyCallingConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DNISEmergencyCallingConfiguration(entry, context));
+};
+
 const deserializeAws_restJson1E164PhoneNumberList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1EmergencyCallingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EmergencyCallingConfiguration => {
+  return {
+    __type: "EmergencyCallingConfiguration",
+    DNIS:
+      output.DNIS !== undefined && output.DNIS !== null
+        ? deserializeAws_restJson1DNISEmergencyCallingConfigurationList(output.DNIS, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1EventsConfiguration = (output: any, context: __SerdeContext): EventsConfiguration => {
@@ -14006,6 +17780,14 @@ const deserializeAws_restJson1EventsConfiguration = (output: any, context: __Ser
       output.OutboundEventsHTTPSEndpoint !== undefined && output.OutboundEventsHTTPSEndpoint !== null
         ? output.OutboundEventsHTTPSEndpoint
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GeoMatchParams = (output: any, context: __SerdeContext): GeoMatchParams => {
+  return {
+    __type: "GeoMatchParams",
+    AreaCode: output.AreaCode !== undefined && output.AreaCode !== null ? output.AreaCode : undefined,
+    Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
   } as any;
 };
 
@@ -14038,6 +17820,8 @@ const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __Se
 const deserializeAws_restJson1MediaPlacement = (output: any, context: __SerdeContext): MediaPlacement => {
   return {
     __type: "MediaPlacement",
+    AudioFallbackUrl:
+      output.AudioFallbackUrl !== undefined && output.AudioFallbackUrl !== null ? output.AudioFallbackUrl : undefined,
     AudioHostUrl: output.AudioHostUrl !== undefined && output.AudioHostUrl !== null ? output.AudioHostUrl : undefined,
     ScreenDataUrl:
       output.ScreenDataUrl !== undefined && output.ScreenDataUrl !== null ? output.ScreenDataUrl : undefined,
@@ -14054,6 +17838,10 @@ const deserializeAws_restJson1MediaPlacement = (output: any, context: __SerdeCon
 const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): Meeting => {
   return {
     __type: "Meeting",
+    ExternalMeetingId:
+      output.ExternalMeetingId !== undefined && output.ExternalMeetingId !== null
+        ? output.ExternalMeetingId
+        : undefined,
     MediaPlacement:
       output.MediaPlacement !== undefined && output.MediaPlacement !== null
         ? deserializeAws_restJson1MediaPlacement(output.MediaPlacement, context)
@@ -14128,6 +17916,19 @@ const deserializeAws_restJson1OriginationRoute = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1OriginationRouteList = (output: any, context: __SerdeContext): OriginationRoute[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1OriginationRoute(entry, context));
+};
+
+const deserializeAws_restJson1Participant = (output: any, context: __SerdeContext): Participant => {
+  return {
+    __type: "Participant",
+    PhoneNumber: output.PhoneNumber !== undefined && output.PhoneNumber !== null ? output.PhoneNumber : undefined,
+    ProxyPhoneNumber:
+      output.ProxyPhoneNumber !== undefined && output.ProxyPhoneNumber !== null ? output.ProxyPhoneNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Participants = (output: any, context: __SerdeContext): Participant[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Participant(entry, context));
 };
 
 const deserializeAws_restJson1PhoneNumber = (output: any, context: __SerdeContext): PhoneNumber => {
@@ -14251,6 +18052,87 @@ const deserializeAws_restJson1PhoneNumberOrderList = (output: any, context: __Se
   return (output || []).map((entry: any) => deserializeAws_restJson1PhoneNumberOrder(entry, context));
 };
 
+const deserializeAws_restJson1Proxy = (output: any, context: __SerdeContext): Proxy => {
+  return {
+    __type: "Proxy",
+    DefaultSessionExpiryMinutes:
+      output.DefaultSessionExpiryMinutes !== undefined && output.DefaultSessionExpiryMinutes !== null
+        ? output.DefaultSessionExpiryMinutes
+        : undefined,
+    Disabled: output.Disabled !== undefined && output.Disabled !== null ? output.Disabled : undefined,
+    FallBackPhoneNumber:
+      output.FallBackPhoneNumber !== undefined && output.FallBackPhoneNumber !== null
+        ? output.FallBackPhoneNumber
+        : undefined,
+    PhoneNumberCountries:
+      output.PhoneNumberCountries !== undefined && output.PhoneNumberCountries !== null
+        ? deserializeAws_restJson1StringList(output.PhoneNumberCountries, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ProxySession = (output: any, context: __SerdeContext): ProxySession => {
+  return {
+    __type: "ProxySession",
+    Capabilities:
+      output.Capabilities !== undefined && output.Capabilities !== null
+        ? deserializeAws_restJson1CapabilityList(output.Capabilities, context)
+        : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(output.CreatedTimestamp)
+        : undefined,
+    EndedTimestamp:
+      output.EndedTimestamp !== undefined && output.EndedTimestamp !== null
+        ? new Date(output.EndedTimestamp)
+        : undefined,
+    ExpiryMinutes:
+      output.ExpiryMinutes !== undefined && output.ExpiryMinutes !== null ? output.ExpiryMinutes : undefined,
+    GeoMatchLevel:
+      output.GeoMatchLevel !== undefined && output.GeoMatchLevel !== null ? output.GeoMatchLevel : undefined,
+    GeoMatchParams:
+      output.GeoMatchParams !== undefined && output.GeoMatchParams !== null
+        ? deserializeAws_restJson1GeoMatchParams(output.GeoMatchParams, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    NumberSelectionBehavior:
+      output.NumberSelectionBehavior !== undefined && output.NumberSelectionBehavior !== null
+        ? output.NumberSelectionBehavior
+        : undefined,
+    Participants:
+      output.Participants !== undefined && output.Participants !== null
+        ? deserializeAws_restJson1Participants(output.Participants, context)
+        : undefined,
+    ProxySessionId:
+      output.ProxySessionId !== undefined && output.ProxySessionId !== null ? output.ProxySessionId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+        ? new Date(output.UpdatedTimestamp)
+        : undefined,
+    VoiceConnectorId:
+      output.VoiceConnectorId !== undefined && output.VoiceConnectorId !== null ? output.VoiceConnectorId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ProxySessions = (output: any, context: __SerdeContext): ProxySession[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ProxySession(entry, context));
+};
+
+const deserializeAws_restJson1RetentionSettings = (output: any, context: __SerdeContext): RetentionSettings => {
+  return {
+    __type: "RetentionSettings",
+    ConversationRetentionSettings:
+      output.ConversationRetentionSettings !== undefined && output.ConversationRetentionSettings !== null
+        ? deserializeAws_restJson1ConversationRetentionSettings(output.ConversationRetentionSettings, context)
+        : undefined,
+    RoomRetentionSettings:
+      output.RoomRetentionSettings !== undefined && output.RoomRetentionSettings !== null
+        ? deserializeAws_restJson1RoomRetentionSettings(output.RoomRetentionSettings, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Room = (output: any, context: __SerdeContext): Room => {
   return {
     __type: "Room",
@@ -14294,6 +18176,14 @@ const deserializeAws_restJson1RoomMembershipList = (output: any, context: __Serd
   return (output || []).map((entry: any) => deserializeAws_restJson1RoomMembership(entry, context));
 };
 
+const deserializeAws_restJson1RoomRetentionSettings = (output: any, context: __SerdeContext): RoomRetentionSettings => {
+  return {
+    __type: "RoomRetentionSettings",
+    RetentionDays:
+      output.RetentionDays !== undefined && output.RetentionDays !== null ? output.RetentionDays : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1SensitiveStringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -14323,11 +18213,47 @@ const deserializeAws_restJson1StreamingConfiguration = (
         ? output.DataRetentionInHours
         : undefined,
     Disabled: output.Disabled !== undefined && output.Disabled !== null ? output.Disabled : undefined,
+    StreamingNotificationTargets:
+      output.StreamingNotificationTargets !== undefined && output.StreamingNotificationTargets !== null
+        ? deserializeAws_restJson1StreamingNotificationTargetList(output.StreamingNotificationTargets, context)
+        : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1StreamingNotificationTarget = (
+  output: any,
+  context: __SerdeContext
+): StreamingNotificationTarget => {
+  return {
+    __type: "StreamingNotificationTarget",
+    NotificationTarget:
+      output.NotificationTarget !== undefined && output.NotificationTarget !== null
+        ? output.NotificationTarget
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StreamingNotificationTargetList = (
+  output: any,
+  context: __SerdeContext
+): StreamingNotificationTarget[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1StreamingNotificationTarget(entry, context));
 };
 
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    __type: "Tag",
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
 };
 
 const deserializeAws_restJson1TelephonySettings = (output: any, context: __SerdeContext): TelephonySettings => {

@@ -98,12 +98,12 @@ export const serializeAws_restJson1DescribeVoicesCommand = async (
   };
   let resolvedPath = "/v1/voices";
   const query: any = {
-    ...(input.Engine !== undefined && { Engine: input.Engine }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.IncludeAdditionalLanguageCodes !== undefined && {
       IncludeAdditionalLanguageCodes: input.IncludeAdditionalLanguageCodes.toString(),
     }),
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Engine !== undefined && { Engine: input.Engine }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

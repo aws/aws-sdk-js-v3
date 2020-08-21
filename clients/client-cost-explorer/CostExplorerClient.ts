@@ -269,7 +269,7 @@ export type CostExplorerClientResolvedConfig = __SmithyResolvedConfiguration<__H
  * 			         </li>
  *          </ul>
  * 		       <p>For information about costs associated with the Cost Explorer API, see
- * 			<a href="https://aws.amazon.com/aws-cost-management/pricing/">AWS Cost Management Pricing</a>.</p>
+ * 			<a href="http://aws.amazon.com/aws-cost-management/pricing/">AWS Cost Management Pricing</a>.</p>
  */
 export class CostExplorerClient extends __Client<
   __HttpHandlerOptions,

@@ -18,12 +18,8 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.Accept) && { Accept: input.Accept! }),
     ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
-    ...(isSerializableHeaderValue(input.CustomAttributes) && {
-      "X-Amzn-SageMaker-Custom-Attributes": input.CustomAttributes!,
-    }),
-    ...(isSerializableHeaderValue(input.TargetModel) && { "X-Amzn-SageMaker-Target-Model": input.TargetModel! }),
+    ...(isSerializableHeaderValue(input.Accept) && { Accept: input.Accept! }),
   };
   let resolvedPath = "/endpoints/{EndpointName}/invocations";
   if (input.EndpointName !== undefined) {
@@ -63,17 +59,13 @@ export const deserializeAws_restJson1InvokeEndpointCommand = async (
     __type: "InvokeEndpointOutput",
     Body: undefined,
     ContentType: undefined,
-    CustomAttributes: undefined,
     InvokedProductionVariant: undefined,
   };
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
-  if (output.headers["x-amzn-sagemaker-custom-attributes"] !== undefined) {
-    contents.CustomAttributes = output.headers["x-amzn-sagemaker-custom-attributes"];
-  }
   if (output.headers["x-amzn-invoked-production-variant"] !== undefined) {
     contents.InvokedProductionVariant = output.headers["x-amzn-invoked-production-variant"];
+  }
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
   const data: any = await collectBody(output.body, context);
   contents.Body = data;

@@ -45,6 +45,7 @@ import {
   DescribeClusterResult,
   DescribeJobRequest,
   DescribeJobResult,
+  DeviceConfiguration,
   Ec2AmiResource,
   Ec2RequestFailedException,
   EventTriggerDefinition,
@@ -56,6 +57,7 @@ import {
   GetSnowballUsageResult,
   GetSoftwareUpdatesRequest,
   GetSoftwareUpdatesResult,
+  INDTaxDocuments,
   InvalidAddressException,
   InvalidInputCombinationException,
   InvalidJobStateException,
@@ -81,11 +83,14 @@ import {
   S3Resource,
   Shipment,
   ShippingDetails,
+  SnowconeDeviceConfiguration,
+  TaxDocuments,
   UnsupportedAddressException,
   UpdateClusterRequest,
   UpdateClusterResult,
   UpdateJobRequest,
   UpdateJobResult,
+  WirelessConnection,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -1802,6 +1807,9 @@ const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, c
     ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
     ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
     ...(input.SnowballType !== undefined && { SnowballType: input.SnowballType }),
+    ...(input.TaxDocuments !== undefined && {
+      TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context),
+    }),
   };
 };
 
@@ -1810,6 +1818,9 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
     ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DeviceConfiguration !== undefined && {
+      DeviceConfiguration: serializeAws_json1_1DeviceConfiguration(input.DeviceConfiguration, context),
+    }),
     ...(input.ForwardingAddressId !== undefined && { ForwardingAddressId: input.ForwardingAddressId }),
     ...(input.JobType !== undefined && { JobType: input.JobType }),
     ...(input.KmsKeyARN !== undefined && { KmsKeyARN: input.KmsKeyARN }),
@@ -1823,6 +1834,9 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
       SnowballCapacityPreference: input.SnowballCapacityPreference,
     }),
     ...(input.SnowballType !== undefined && { SnowballType: input.SnowballType }),
+    ...(input.TaxDocuments !== undefined && {
+      TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context),
+    }),
   };
 };
 
@@ -1851,6 +1865,17 @@ const serializeAws_json1_1DescribeClusterRequest = (input: DescribeClusterReques
 const serializeAws_json1_1DescribeJobRequest = (input: DescribeJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId !== undefined && { JobId: input.JobId }),
+  };
+};
+
+const serializeAws_json1_1DeviceConfiguration = (input: DeviceConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.SnowconeDeviceConfiguration !== undefined && {
+      SnowconeDeviceConfiguration: serializeAws_json1_1SnowconeDeviceConfiguration(
+        input.SnowconeDeviceConfiguration,
+        context
+      ),
+    }),
   };
 };
 
@@ -1900,6 +1925,12 @@ const serializeAws_json1_1GetSoftwareUpdatesRequest = (
 ): any => {
   return {
     ...(input.JobId !== undefined && { JobId: input.JobId }),
+  };
+};
+
+const serializeAws_json1_1INDTaxDocuments = (input: INDTaxDocuments, context: __SerdeContext): any => {
+  return {
+    ...(input.GSTIN !== undefined && { GSTIN: input.GSTIN }),
   };
 };
 
@@ -1994,6 +2025,23 @@ const serializeAws_json1_1S3ResourceList = (input: S3Resource[], context: __Serd
   return input.map((entry) => serializeAws_json1_1S3Resource(entry, context));
 };
 
+const serializeAws_json1_1SnowconeDeviceConfiguration = (
+  input: SnowconeDeviceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.WirelessConnection !== undefined && {
+      WirelessConnection: serializeAws_json1_1WirelessConnection(input.WirelessConnection, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1TaxDocuments = (input: TaxDocuments, context: __SerdeContext): any => {
+  return {
+    ...(input.IND !== undefined && { IND: serializeAws_json1_1INDTaxDocuments(input.IND, context) }),
+  };
+};
+
 const serializeAws_json1_1UpdateClusterRequest = (input: UpdateClusterRequest, context: __SerdeContext): any => {
   return {
     ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
@@ -2024,6 +2072,12 @@ const serializeAws_json1_1UpdateJobRequest = (input: UpdateJobRequest, context: 
     ...(input.SnowballCapacityPreference !== undefined && {
       SnowballCapacityPreference: input.SnowballCapacityPreference,
     }),
+  };
+};
+
+const serializeAws_json1_1WirelessConnection = (input: WirelessConnection, context: __SerdeContext): any => {
+  return {
+    ...(input.IsWifiEnabled !== undefined && { IsWifiEnabled: input.IsWifiEnabled }),
   };
 };
 
@@ -2123,6 +2177,10 @@ const deserializeAws_json1_1ClusterMetadata = (output: any, context: __SerdeCont
     ShippingOption:
       output.ShippingOption !== undefined && output.ShippingOption !== null ? output.ShippingOption : undefined,
     SnowballType: output.SnowballType !== undefined && output.SnowballType !== null ? output.SnowballType : undefined,
+    TaxDocuments:
+      output.TaxDocuments !== undefined && output.TaxDocuments !== null
+        ? deserializeAws_json1_1TaxDocuments(output.TaxDocuments, context)
+        : undefined,
   } as any;
 };
 
@@ -2221,6 +2279,16 @@ const deserializeAws_json1_1DescribeJobResult = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1DeviceConfiguration = (output: any, context: __SerdeContext): DeviceConfiguration => {
+  return {
+    __type: "DeviceConfiguration",
+    SnowconeDeviceConfiguration:
+      output.SnowconeDeviceConfiguration !== undefined && output.SnowconeDeviceConfiguration !== null
+        ? deserializeAws_json1_1SnowconeDeviceConfiguration(output.SnowconeDeviceConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Ec2AmiResource = (output: any, context: __SerdeContext): Ec2AmiResource => {
   return {
     __type: "Ec2AmiResource",
@@ -2290,6 +2358,13 @@ const deserializeAws_json1_1GetSoftwareUpdatesResult = (
   return {
     __type: "GetSoftwareUpdatesResult",
     UpdatesURI: output.UpdatesURI !== undefined && output.UpdatesURI !== null ? output.UpdatesURI : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1INDTaxDocuments = (output: any, context: __SerdeContext): INDTaxDocuments => {
+  return {
+    __type: "INDTaxDocuments",
+    GSTIN: output.GSTIN !== undefined && output.GSTIN !== null ? output.GSTIN : undefined,
   } as any;
 };
 
@@ -2392,6 +2467,10 @@ const deserializeAws_json1_1JobMetadata = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1DataTransfer(output.DataTransferProgress, context)
         : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    DeviceConfiguration:
+      output.DeviceConfiguration !== undefined && output.DeviceConfiguration !== null
+        ? deserializeAws_json1_1DeviceConfiguration(output.DeviceConfiguration, context)
+        : undefined,
     ForwardingAddressId:
       output.ForwardingAddressId !== undefined && output.ForwardingAddressId !== null
         ? output.ForwardingAddressId
@@ -2422,6 +2501,10 @@ const deserializeAws_json1_1JobMetadata = (output: any, context: __SerdeContext)
         ? output.SnowballCapacityPreference
         : undefined,
     SnowballType: output.SnowballType !== undefined && output.SnowballType !== null ? output.SnowballType : undefined,
+    TaxDocuments:
+      output.TaxDocuments !== undefined && output.TaxDocuments !== null
+        ? deserializeAws_json1_1TaxDocuments(output.TaxDocuments, context)
+        : undefined,
   } as any;
 };
 
@@ -2583,6 +2666,29 @@ const deserializeAws_json1_1ShippingDetails = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1SnowconeDeviceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SnowconeDeviceConfiguration => {
+  return {
+    __type: "SnowconeDeviceConfiguration",
+    WirelessConnection:
+      output.WirelessConnection !== undefined && output.WirelessConnection !== null
+        ? deserializeAws_json1_1WirelessConnection(output.WirelessConnection, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TaxDocuments = (output: any, context: __SerdeContext): TaxDocuments => {
+  return {
+    __type: "TaxDocuments",
+    IND:
+      output.IND !== undefined && output.IND !== null
+        ? deserializeAws_json1_1INDTaxDocuments(output.IND, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UnsupportedAddressException = (
   output: any,
   context: __SerdeContext
@@ -2602,6 +2708,14 @@ const deserializeAws_json1_1UpdateClusterResult = (output: any, context: __Serde
 const deserializeAws_json1_1UpdateJobResult = (output: any, context: __SerdeContext): UpdateJobResult => {
   return {
     __type: "UpdateJobResult",
+  } as any;
+};
+
+const deserializeAws_json1_1WirelessConnection = (output: any, context: __SerdeContext): WirelessConnection => {
+  return {
+    __type: "WirelessConnection",
+    IsWifiEnabled:
+      output.IsWifiEnabled !== undefined && output.IsWifiEnabled !== null ? output.IsWifiEnabled : undefined,
   } as any;
 };
 

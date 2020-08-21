@@ -11,6 +11,11 @@ import {
 } from "../commands/CreateStreamProcessorCommand";
 import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "../commands/DeleteCollectionCommand";
 import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "../commands/DeleteFacesCommand";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import {
+  DeleteProjectVersionCommandInput,
+  DeleteProjectVersionCommandOutput,
+} from "../commands/DeleteProjectVersionCommand";
 import {
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput,
@@ -46,6 +51,11 @@ import { GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput } from "../
 import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "../commands/GetFaceSearchCommand";
 import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "../commands/GetLabelDetectionCommand";
 import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "../commands/GetPersonTrackingCommand";
+import {
+  GetSegmentDetectionCommandInput,
+  GetSegmentDetectionCommandOutput,
+} from "../commands/GetSegmentDetectionCommand";
+import { GetTextDetectionCommandInput, GetTextDetectionCommandOutput } from "../commands/GetTextDetectionCommand";
 import { IndexFacesCommandInput, IndexFacesCommandOutput } from "../commands/IndexFacesCommand";
 import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "../commands/ListCollectionsCommand";
 import { ListFacesCommandInput, ListFacesCommandOutput } from "../commands/ListFacesCommand";
@@ -82,9 +92,14 @@ import {
   StartProjectVersionCommandOutput,
 } from "../commands/StartProjectVersionCommand";
 import {
+  StartSegmentDetectionCommandInput,
+  StartSegmentDetectionCommandOutput,
+} from "../commands/StartSegmentDetectionCommand";
+import {
   StartStreamProcessorCommandInput,
   StartStreamProcessorCommandOutput,
 } from "../commands/StartStreamProcessorCommand";
+import { StartTextDetectionCommandInput, StartTextDetectionCommandOutput } from "../commands/StartTextDetectionCommand";
 import { StopProjectVersionCommandInput, StopProjectVersionCommandOutput } from "../commands/StopProjectVersionCommand";
 import {
   StopStreamProcessorCommandInput,
@@ -95,6 +110,7 @@ import {
   AgeRange,
   Asset,
   Attribute,
+  AudioMetadata,
   Beard,
   BoundingBox,
   Celebrity,
@@ -120,6 +136,10 @@ import {
   DeleteCollectionResponse,
   DeleteFacesRequest,
   DeleteFacesResponse,
+  DeleteProjectRequest,
+  DeleteProjectResponse,
+  DeleteProjectVersionRequest,
+  DeleteProjectVersionResponse,
   DeleteStreamProcessorRequest,
   DeleteStreamProcessorResponse,
   DescribeCollectionRequest,
@@ -138,8 +158,10 @@ import {
   DetectLabelsResponse,
   DetectModerationLabelsRequest,
   DetectModerationLabelsResponse,
+  DetectTextFilters,
   DetectTextRequest,
   DetectTextResponse,
+  DetectionFilter,
   Emotion,
   EvaluationResult,
   EyeOpen,
@@ -166,6 +188,10 @@ import {
   GetLabelDetectionResponse,
   GetPersonTrackingRequest,
   GetPersonTrackingResponse,
+  GetSegmentDetectionRequest,
+  GetSegmentDetectionResponse,
+  GetTextDetectionRequest,
+  GetTextDetectionResponse,
   GroundTruthManifest,
   HumanLoopActivationOutput,
   HumanLoopConfig,
@@ -212,6 +238,7 @@ import {
   Reason,
   RecognizeCelebritiesRequest,
   RecognizeCelebritiesResponse,
+  RegionOfInterest,
   ResourceAlreadyExistsException,
   ResourceInUseException,
   ResourceNotFoundException,
@@ -221,6 +248,10 @@ import {
   SearchFacesByImageResponse,
   SearchFacesRequest,
   SearchFacesResponse,
+  SegmentDetection,
+  SegmentType,
+  SegmentTypeInfo,
+  ShotSegment,
   Smile,
   StartCelebrityRecognitionRequest,
   StartCelebrityRecognitionResponse,
@@ -236,8 +267,16 @@ import {
   StartPersonTrackingResponse,
   StartProjectVersionRequest,
   StartProjectVersionResponse,
+  StartSegmentDetectionFilters,
+  StartSegmentDetectionRequest,
+  StartSegmentDetectionResponse,
+  StartShotDetectionFilter,
   StartStreamProcessorRequest,
   StartStreamProcessorResponse,
+  StartTechnicalCueDetectionFilter,
+  StartTextDetectionFilters,
+  StartTextDetectionRequest,
+  StartTextDetectionResponse,
   StopProjectVersionRequest,
   StopProjectVersionResponse,
   StopStreamProcessorRequest,
@@ -248,9 +287,11 @@ import {
   StreamProcessorSettings,
   Summary,
   Sunglasses,
+  TechnicalCueSegment,
   TestingData,
   TestingDataResult,
   TextDetection,
+  TextDetectionResult,
   ThrottlingException,
   TrainingData,
   TrainingDataResult,
@@ -357,6 +398,32 @@ export const serializeAws_json1_1DeleteFacesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFacesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteProjectCommand = async (
+  input: DeleteProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "RekognitionService.DeleteProject",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteProjectRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteProjectVersionCommand = async (
+  input: DeleteProjectVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "RekognitionService.DeleteProjectVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteProjectVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -581,6 +648,32 @@ export const serializeAws_json1_1GetPersonTrackingCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetSegmentDetectionCommand = async (
+  input: GetSegmentDetectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "RekognitionService.GetSegmentDetection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetSegmentDetectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetTextDetectionCommand = async (
+  input: GetTextDetectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "RekognitionService.GetTextDetection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetTextDetectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1IndexFacesCommand = async (
   input: IndexFacesCommandInput,
   context: __SerdeContext
@@ -763,6 +856,19 @@ export const serializeAws_json1_1StartProjectVersionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartSegmentDetectionCommand = async (
+  input: StartSegmentDetectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "RekognitionService.StartSegmentDetection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartSegmentDetectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartStreamProcessorCommand = async (
   input: StartStreamProcessorCommandInput,
   context: __SerdeContext
@@ -773,6 +879,19 @@ export const serializeAws_json1_1StartStreamProcessorCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartStreamProcessorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartTextDetectionCommand = async (
+  input: StartTextDetectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "RekognitionService.StartTextDetection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartTextDetectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1485,6 +1604,214 @@ const deserializeAws_json1_1DeleteFacesCommandError = async (
     case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       response = {
         ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteProjectCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteProjectResponse(data, context);
+  const response: DeleteProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteProjectResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteProjectCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteProjectVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectVersionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteProjectVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteProjectVersionResponse(data, context);
+  const response: DeleteProjectVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteProjectVersionResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteProjectVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3330,6 +3657,214 @@ const deserializeAws_json1_1GetPersonTrackingCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetSegmentDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSegmentDetectionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetSegmentDetectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetSegmentDetectionResponse(data, context);
+  const response: GetSegmentDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetSegmentDetectionResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetSegmentDetectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSegmentDetectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetTextDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTextDetectionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetTextDetectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetTextDetectionResponse(data, context);
+  const response: GetTextDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetTextDetectionResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetTextDetectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTextDetectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1IndexFacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4922,6 +5457,126 @@ const deserializeAws_json1_1StartProjectVersionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1StartSegmentDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSegmentDetectionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StartSegmentDetectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartSegmentDetectionResponse(data, context);
+  const response: StartSegmentDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartSegmentDetectionResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartSegmentDetectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSegmentDetectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "VideoTooLargeException":
+    case "com.amazonaws.rekognition#VideoTooLargeException":
+      response = {
+        ...(await deserializeAws_json1_1VideoTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StartStreamProcessorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5005,6 +5660,126 @@ const deserializeAws_json1_1StartStreamProcessorCommandError = async (
     case "com.amazonaws.rekognition#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StartTextDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTextDetectionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StartTextDetectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartTextDetectionResponse(data, context);
+  const response: StartTextDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartTextDetectionResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartTextDetectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTextDetectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "VideoTooLargeException":
+    case "com.amazonaws.rekognition#VideoTooLargeException":
+      response = {
+        ...(await deserializeAws_json1_1VideoTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5505,6 +6280,15 @@ const serializeAws_json1_1Attributes = (input: (Attribute | string)[], context: 
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1BoundingBox = (input: BoundingBox, context: __SerdeContext): any => {
+  return {
+    ...(input.Height !== undefined && { Height: input.Height }),
+    ...(input.Left !== undefined && { Left: input.Left }),
+    ...(input.Top !== undefined && { Top: input.Top }),
+    ...(input.Width !== undefined && { Width: input.Width }),
+  };
+};
+
 const serializeAws_json1_1CompareFacesRequest = (input: CompareFacesRequest, context: __SerdeContext): any => {
   return {
     ...(input.QualityFilter !== undefined && { QualityFilter: input.QualityFilter }),
@@ -5580,6 +6364,21 @@ const serializeAws_json1_1DeleteFacesRequest = (input: DeleteFacesRequest, conte
   };
 };
 
+const serializeAws_json1_1DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ProjectArn !== undefined && { ProjectArn: input.ProjectArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteProjectVersionRequest = (
+  input: DeleteProjectVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ProjectVersionArn !== undefined && { ProjectVersionArn: input.ProjectVersionArn }),
+  };
+};
+
 const serializeAws_json1_1DeleteStreamProcessorRequest = (
   input: DeleteStreamProcessorRequest,
   context: __SerdeContext
@@ -5647,6 +6446,14 @@ const serializeAws_json1_1DetectFacesRequest = (input: DetectFacesRequest, conte
   };
 };
 
+const serializeAws_json1_1DetectionFilter = (input: DetectionFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.MinBoundingBoxHeight !== undefined && { MinBoundingBoxHeight: input.MinBoundingBoxHeight }),
+    ...(input.MinBoundingBoxWidth !== undefined && { MinBoundingBoxWidth: input.MinBoundingBoxWidth }),
+    ...(input.MinConfidence !== undefined && { MinConfidence: input.MinConfidence }),
+  };
+};
+
 const serializeAws_json1_1DetectLabelsRequest = (input: DetectLabelsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
@@ -5668,8 +6475,20 @@ const serializeAws_json1_1DetectModerationLabelsRequest = (
   };
 };
 
+const serializeAws_json1_1DetectTextFilters = (input: DetectTextFilters, context: __SerdeContext): any => {
+  return {
+    ...(input.RegionsOfInterest !== undefined && {
+      RegionsOfInterest: serializeAws_json1_1RegionsOfInterest(input.RegionsOfInterest, context),
+    }),
+    ...(input.WordFilter !== undefined && {
+      WordFilter: serializeAws_json1_1DetectionFilter(input.WordFilter, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1DetectTextRequest = (input: DetectTextRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1DetectTextFilters(input.Filters, context) }),
     ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
   };
 };
@@ -5753,6 +6572,25 @@ const serializeAws_json1_1GetPersonTrackingRequest = (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
+  };
+};
+
+const serializeAws_json1_1GetSegmentDetectionRequest = (
+  input: GetSegmentDetectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1GetTextDetectionRequest = (input: GetTextDetectionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -5860,6 +6698,18 @@ const serializeAws_json1_1RecognizeCelebritiesRequest = (
   };
 };
 
+const serializeAws_json1_1RegionOfInterest = (input: RegionOfInterest, context: __SerdeContext): any => {
+  return {
+    ...(input.BoundingBox !== undefined && {
+      BoundingBox: serializeAws_json1_1BoundingBox(input.BoundingBox, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1RegionsOfInterest = (input: RegionOfInterest[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1RegionOfInterest(entry, context));
+};
+
 const serializeAws_json1_1S3Object = (input: S3Object, context: __SerdeContext): any => {
   return {
     ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
@@ -5888,6 +6738,10 @@ const serializeAws_json1_1SearchFacesRequest = (input: SearchFacesRequest, conte
     ...(input.FaceMatchThreshold !== undefined && { FaceMatchThreshold: input.FaceMatchThreshold }),
     ...(input.MaxFaces !== undefined && { MaxFaces: input.MaxFaces }),
   };
+};
+
+const serializeAws_json1_1SegmentTypes = (input: (SegmentType | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1StartCelebrityRecognitionRequest = (
@@ -5986,12 +6840,95 @@ const serializeAws_json1_1StartProjectVersionRequest = (
   };
 };
 
+const serializeAws_json1_1StartSegmentDetectionFilters = (
+  input: StartSegmentDetectionFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ShotFilter !== undefined && {
+      ShotFilter: serializeAws_json1_1StartShotDetectionFilter(input.ShotFilter, context),
+    }),
+    ...(input.TechnicalCueFilter !== undefined && {
+      TechnicalCueFilter: serializeAws_json1_1StartTechnicalCueDetectionFilter(input.TechnicalCueFilter, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1StartSegmentDetectionRequest = (
+  input: StartSegmentDetectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1StartSegmentDetectionFilters(input.Filters, context),
+    }),
+    ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
+    ...(input.NotificationChannel !== undefined && {
+      NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+    }),
+    ...(input.SegmentTypes !== undefined && {
+      SegmentTypes: serializeAws_json1_1SegmentTypes(input.SegmentTypes, context),
+    }),
+    ...(input.Video !== undefined && { Video: serializeAws_json1_1Video(input.Video, context) }),
+  };
+};
+
+const serializeAws_json1_1StartShotDetectionFilter = (
+  input: StartShotDetectionFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MinSegmentConfidence !== undefined && { MinSegmentConfidence: input.MinSegmentConfidence }),
+  };
+};
+
 const serializeAws_json1_1StartStreamProcessorRequest = (
   input: StartStreamProcessorRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1StartTechnicalCueDetectionFilter = (
+  input: StartTechnicalCueDetectionFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MinSegmentConfidence !== undefined && { MinSegmentConfidence: input.MinSegmentConfidence }),
+  };
+};
+
+const serializeAws_json1_1StartTextDetectionFilters = (
+  input: StartTextDetectionFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RegionsOfInterest !== undefined && {
+      RegionsOfInterest: serializeAws_json1_1RegionsOfInterest(input.RegionsOfInterest, context),
+    }),
+    ...(input.WordFilter !== undefined && {
+      WordFilter: serializeAws_json1_1DetectionFilter(input.WordFilter, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1StartTextDetectionRequest = (
+  input: StartTextDetectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1StartTextDetectionFilters(input.Filters, context),
+    }),
+    ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
+    ...(input.NotificationChannel !== undefined && {
+      NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+    }),
+    ...(input.Video !== undefined && { Video: serializeAws_json1_1Video(input.Video, context) }),
   };
 };
 
@@ -6089,6 +7026,22 @@ const deserializeAws_json1_1Asset = (output: any, context: __SerdeContext): Asse
 
 const deserializeAws_json1_1Assets = (output: any, context: __SerdeContext): Asset[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Asset(entry, context));
+};
+
+const deserializeAws_json1_1AudioMetadata = (output: any, context: __SerdeContext): AudioMetadata => {
+  return {
+    __type: "AudioMetadata",
+    Codec: output.Codec !== undefined && output.Codec !== null ? output.Codec : undefined,
+    DurationMillis:
+      output.DurationMillis !== undefined && output.DurationMillis !== null ? output.DurationMillis : undefined,
+    NumberOfChannels:
+      output.NumberOfChannels !== undefined && output.NumberOfChannels !== null ? output.NumberOfChannels : undefined,
+    SampleRate: output.SampleRate !== undefined && output.SampleRate !== null ? output.SampleRate : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AudioMetadataList = (output: any, context: __SerdeContext): AudioMetadata[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AudioMetadata(entry, context));
 };
 
 const deserializeAws_json1_1Beard = (output: any, context: __SerdeContext): Beard => {
@@ -6355,6 +7308,23 @@ const deserializeAws_json1_1DeleteFacesResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1DeleteProjectResponse = (output: any, context: __SerdeContext): DeleteProjectResponse => {
+  return {
+    __type: "DeleteProjectResponse",
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteProjectVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteProjectVersionResponse => {
+  return {
+    __type: "DeleteProjectVersionResponse",
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
@@ -6521,6 +7491,8 @@ const deserializeAws_json1_1DetectTextResponse = (output: any, context: __SerdeC
       output.TextDetections !== undefined && output.TextDetections !== null
         ? deserializeAws_json1_1TextDetectionList(output.TextDetections, context)
         : undefined,
+    TextModelVersion:
+      output.TextModelVersion !== undefined && output.TextModelVersion !== null ? output.TextModelVersion : undefined,
   } as any;
 };
 
@@ -6868,6 +7840,58 @@ const deserializeAws_json1_1GetPersonTrackingResponse = (
         : undefined,
     StatusMessage:
       output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
+    VideoMetadata:
+      output.VideoMetadata !== undefined && output.VideoMetadata !== null
+        ? deserializeAws_json1_1VideoMetadata(output.VideoMetadata, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetSegmentDetectionResponse = (
+  output: any,
+  context: __SerdeContext
+): GetSegmentDetectionResponse => {
+  return {
+    __type: "GetSegmentDetectionResponse",
+    AudioMetadata:
+      output.AudioMetadata !== undefined && output.AudioMetadata !== null
+        ? deserializeAws_json1_1AudioMetadataList(output.AudioMetadata, context)
+        : undefined,
+    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    Segments:
+      output.Segments !== undefined && output.Segments !== null
+        ? deserializeAws_json1_1SegmentDetections(output.Segments, context)
+        : undefined,
+    SelectedSegmentTypes:
+      output.SelectedSegmentTypes !== undefined && output.SelectedSegmentTypes !== null
+        ? deserializeAws_json1_1SegmentTypesInfo(output.SelectedSegmentTypes, context)
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
+    VideoMetadata:
+      output.VideoMetadata !== undefined && output.VideoMetadata !== null
+        ? deserializeAws_json1_1VideoMetadataList(output.VideoMetadata, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetTextDetectionResponse = (
+  output: any,
+  context: __SerdeContext
+): GetTextDetectionResponse => {
+  return {
+    __type: "GetTextDetectionResponse",
+    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
+    TextDetections:
+      output.TextDetections !== undefined && output.TextDetections !== null
+        ? deserializeAws_json1_1TextDetectionResults(output.TextDetections, context)
+        : undefined,
+    TextModelVersion:
+      output.TextModelVersion !== undefined && output.TextModelVersion !== null ? output.TextModelVersion : undefined,
     VideoMetadata:
       output.VideoMetadata !== undefined && output.VideoMetadata !== null
         ? deserializeAws_json1_1VideoMetadata(output.VideoMetadata, context)
@@ -7477,6 +8501,63 @@ const deserializeAws_json1_1SearchFacesResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1SegmentDetection = (output: any, context: __SerdeContext): SegmentDetection => {
+  return {
+    __type: "SegmentDetection",
+    DurationMillis:
+      output.DurationMillis !== undefined && output.DurationMillis !== null ? output.DurationMillis : undefined,
+    DurationSMPTE:
+      output.DurationSMPTE !== undefined && output.DurationSMPTE !== null ? output.DurationSMPTE : undefined,
+    EndTimecodeSMPTE:
+      output.EndTimecodeSMPTE !== undefined && output.EndTimecodeSMPTE !== null ? output.EndTimecodeSMPTE : undefined,
+    EndTimestampMillis:
+      output.EndTimestampMillis !== undefined && output.EndTimestampMillis !== null
+        ? output.EndTimestampMillis
+        : undefined,
+    ShotSegment:
+      output.ShotSegment !== undefined && output.ShotSegment !== null
+        ? deserializeAws_json1_1ShotSegment(output.ShotSegment, context)
+        : undefined,
+    StartTimecodeSMPTE:
+      output.StartTimecodeSMPTE !== undefined && output.StartTimecodeSMPTE !== null
+        ? output.StartTimecodeSMPTE
+        : undefined,
+    StartTimestampMillis:
+      output.StartTimestampMillis !== undefined && output.StartTimestampMillis !== null
+        ? output.StartTimestampMillis
+        : undefined,
+    TechnicalCueSegment:
+      output.TechnicalCueSegment !== undefined && output.TechnicalCueSegment !== null
+        ? deserializeAws_json1_1TechnicalCueSegment(output.TechnicalCueSegment, context)
+        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SegmentDetections = (output: any, context: __SerdeContext): SegmentDetection[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1SegmentDetection(entry, context));
+};
+
+const deserializeAws_json1_1SegmentTypeInfo = (output: any, context: __SerdeContext): SegmentTypeInfo => {
+  return {
+    __type: "SegmentTypeInfo",
+    ModelVersion: output.ModelVersion !== undefined && output.ModelVersion !== null ? output.ModelVersion : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SegmentTypesInfo = (output: any, context: __SerdeContext): SegmentTypeInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1SegmentTypeInfo(entry, context));
+};
+
+const deserializeAws_json1_1ShotSegment = (output: any, context: __SerdeContext): ShotSegment => {
+  return {
+    __type: "ShotSegment",
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    Index: output.Index !== undefined && output.Index !== null ? output.Index : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Smile = (output: any, context: __SerdeContext): Smile => {
   return {
     __type: "Smile",
@@ -7555,12 +8636,32 @@ const deserializeAws_json1_1StartProjectVersionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StartSegmentDetectionResponse = (
+  output: any,
+  context: __SerdeContext
+): StartSegmentDetectionResponse => {
+  return {
+    __type: "StartSegmentDetectionResponse",
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1StartStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): StartStreamProcessorResponse => {
   return {
     __type: "StartStreamProcessorResponse",
+  } as any;
+};
+
+const deserializeAws_json1_1StartTextDetectionResponse = (
+  output: any,
+  context: __SerdeContext
+): StartTextDetectionResponse => {
+  return {
+    __type: "StartTextDetectionResponse",
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
 
@@ -7646,6 +8747,14 @@ const deserializeAws_json1_1Sunglasses = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1TechnicalCueSegment = (output: any, context: __SerdeContext): TechnicalCueSegment => {
+  return {
+    __type: "TechnicalCueSegment",
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1TestingData = (output: any, context: __SerdeContext): TestingData => {
   return {
     __type: "TestingData",
@@ -7688,6 +8797,21 @@ const deserializeAws_json1_1TextDetection = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1TextDetectionList = (output: any, context: __SerdeContext): TextDetection[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1TextDetection(entry, context));
+};
+
+const deserializeAws_json1_1TextDetectionResult = (output: any, context: __SerdeContext): TextDetectionResult => {
+  return {
+    __type: "TextDetectionResult",
+    TextDetection:
+      output.TextDetection !== undefined && output.TextDetection !== null
+        ? deserializeAws_json1_1TextDetection(output.TextDetection, context)
+        : undefined,
+    Timestamp: output.Timestamp !== undefined && output.Timestamp !== null ? output.Timestamp : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TextDetectionResults = (output: any, context: __SerdeContext): TextDetectionResult[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1TextDetectionResult(entry, context));
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
@@ -7756,6 +8880,10 @@ const deserializeAws_json1_1VideoMetadata = (output: any, context: __SerdeContex
     FrameRate: output.FrameRate !== undefined && output.FrameRate !== null ? output.FrameRate : undefined,
     FrameWidth: output.FrameWidth !== undefined && output.FrameWidth !== null ? output.FrameWidth : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1VideoMetadataList = (output: any, context: __SerdeContext): VideoMetadata[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1VideoMetadata(entry, context));
 };
 
 const deserializeAws_json1_1VideoTooLargeException = (output: any, context: __SerdeContext): VideoTooLargeException => {

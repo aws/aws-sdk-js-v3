@@ -9,14 +9,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AgentListEntry {
   __type?: "AgentListEntry";
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
-   */
-  AgentArn?: string;
-
-  /**
    * <p>The name of the agent.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   */
+  AgentArn?: string;
 
   /**
    * <p>The status of the agent.</p>
@@ -76,33 +76,6 @@ export namespace CancelTaskExecutionResponse {
 export interface CreateAgentRequest {
   __type?: "CreateAgentRequest";
   /**
-   * <p>Your agent activation key. You can get the activation key either by sending an HTTP GET
-   *       request with redirects that enable you to get the agent IP address (port 80). Alternatively,
-   *       you can get it from the AWS DataSync console.</p>
-   *          <p>The redirect URL returned in the response provides you the activation key for your
-   *       agent in the query string parameter <code>activationKey</code>. It might also include other
-   *       activation-related parameters; however, these are merely defaults. The arguments you pass to
-   *       this API call determine the actual configuration of your agent.</p>
-   *
-   *
-   *          <p>For more information, see Activating an Agent in the <i>AWS DataSync
-   *         User Guide.</i>
-   *          </p>
-   */
-  ActivationKey: string | undefined;
-
-  /**
-   * <p>The name you configured for your agent. This value is a text reference that is used to
-   *       identify the agent in the console.</p>
-   */
-  AgentName?: string;
-
-  /**
-   * <p>The ARNs of the security groups used to protect your data transfer task subnets. See <a>CreateAgentRequest$SubnetArns</a>.</p>
-   */
-  SecurityGroupArns?: string[];
-
-  /**
    * <p>The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic
    *       network interfaces for each data transfer task. The agent that runs a task must be private.
    *       When you start a task that is associated with an agent created in a VPC, or one that has
@@ -124,12 +97,39 @@ export interface CreateAgentRequest {
   Tags?: TagListEntry[];
 
   /**
-   * <p>The ID of the VPC (Virtual Private Cloud) endpoint that the agent has access to. This is
+   * <p>The ID of the VPC (virtual private cloud) endpoint that the agent has access to. This is
    *       the client-side VPC endpoint, also called a PrivateLink. If you don't have a PrivateLink VPC
-   *       endpoint, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html#create-endpoint-service">Creating a VPC Endpoint Service Configuration</a> in the AWS VPC User Guide.</p>
+   *       endpoint, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html#create-endpoint-service">Creating a VPC Endpoint Service Configuration</a> in the Amazon VPC User Guide.</p>
    *          <p>VPC endpoint ID looks like this: <code>vpce-01234d5aff67890e1</code>.</p>
    */
   VpcEndpointId?: string;
+
+  /**
+   * <p>The name you configured for your agent. This value is a text reference that is used to
+   *       identify the agent in the console.</p>
+   */
+  AgentName?: string;
+
+  /**
+   * <p>Your agent activation key. You can get the activation key either by sending an HTTP GET
+   *       request with redirects that enable you to get the agent IP address (port 80). Alternatively,
+   *       you can get it from the AWS DataSync console.</p>
+   *          <p>The redirect URL returned in the response provides you the activation key for your
+   *       agent in the query string parameter <code>activationKey</code>. It might also include other
+   *       activation-related parameters; however, these are merely defaults. The arguments you pass to
+   *       this API call determine the actual configuration of your agent.</p>
+   *
+   *
+   *          <p>For more information, see Activating an Agent in the <i>AWS DataSync
+   *         User Guide.</i>
+   *          </p>
+   */
+  ActivationKey: string | undefined;
+
+  /**
+   * <p>The ARNs of the security groups used to protect your data transfer task subnets. See <a>CreateAgentRequest$SubnetArns</a>.</p>
+   */
+  SecurityGroupArns?: string[];
 }
 
 export namespace CreateAgentRequest {
@@ -164,6 +164,30 @@ export namespace CreateAgentResponse {
 export interface CreateLocationEfsRequest {
   __type?: "CreateLocationEfsRequest";
   /**
+   * <p>A subdirectory in the location’s path. This subdirectory in the EFS file system is used
+   *       to read data from the EFS source location or write data to the EFS destination. By default,
+   *       AWS DataSync uses the root directory.</p>
+   *          <note>
+   *             <p>
+   *                <code>Subdirectory</code> must be specified with forward slashes. For example,
+   *           <code>/path/to/folder</code>.</p>
+   *          </note>
+   */
+  Subdirectory?: string;
+
+  /**
+   * <p>The key-value pair that represents a tag that you want to add to the resource. The
+   *       value can be an empty string. This value helps you manage, filter, and search for your
+   *       resources. We recommend that you create a name tag for your location.</p>
+   */
+  Tags?: TagListEntry[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon EFS file system.</p>
+   */
+  EfsFilesystemArn: string | undefined;
+
+  /**
    * <p>The subnet and security group that the Amazon EFS file system uses. The security group
    *       that you provide needs to be able to communicate with the security group on the mount target
    *       in the subnet specified.</p>
@@ -190,30 +214,6 @@ export interface CreateLocationEfsRequest {
    *          </ul>
    */
   Ec2Config: Ec2Config | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon EFS file system.</p>
-   */
-  EfsFilesystemArn: string | undefined;
-
-  /**
-   * <p>A subdirectory in the location’s path. This subdirectory in the EFS file system is used
-   *       to read data from the EFS source location or write data to the EFS destination. By default,
-   *       AWS DataSync uses the root directory.</p>
-   *          <note>
-   *             <p>
-   *                <code>Subdirectory</code> must be specified with forward slashes. For example
-   *       <code>/path/to/folder</code>.</p>
-   *          </note>
-   */
-  Subdirectory?: string;
-
-  /**
-   * <p>The key-value pair that represents a tag that you want to add to the resource. The
-   *       value can be an empty string. This value helps you manage, filter, and search for your
-   *       resources. We recommend that you create a name tag for your location.</p>
-   */
-  Tags?: TagListEntry[];
 }
 
 export namespace CreateLocationEfsRequest {
@@ -242,6 +242,74 @@ export namespace CreateLocationEfsResponse {
   export const isa = (o: any): o is CreateLocationEfsResponse => __isa(o, "CreateLocationEfsResponse");
 }
 
+export interface CreateLocationFsxWindowsRequest {
+  __type?: "CreateLocationFsxWindowsRequest";
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the security groups that are to use to configure the
+   *       FSx for Windows file system.</p>
+   */
+  SecurityGroupArns: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the FSx for Windows file system.</p>
+   */
+  FsxFilesystemArn: string | undefined;
+
+  /**
+   * <p>The name of the Windows domain that the FSx for Windows server belongs to.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The password of the user who has the permissions to access files and folders in the
+   *       FSx for Windows file system.</p>
+   */
+  Password: string | undefined;
+
+  /**
+   * <p>The key-value pair that represents a tag that you want to add to the resource. The
+   *       value can be an empty string. This value helps you manage, filter, and search for your
+   *       resources. We recommend that you create a name tag for your location.</p>
+   */
+  Tags?: TagListEntry[];
+
+  /**
+   * <p>The user who has the permissions to access files and folders in the
+   *       FSx for Windows file system.</p>
+   */
+  User: string | undefined;
+
+  /**
+   * <p>A subdirectory in the location’s path. This subdirectory in the Amazon FSx for Windows file system is used
+   *       to read data from the Amazon FSx for Windows source location or write data to the FSx for Windows destination.</p>
+   */
+  Subdirectory?: string;
+}
+
+export namespace CreateLocationFsxWindowsRequest {
+  export const filterSensitiveLog = (obj: CreateLocationFsxWindowsRequest): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is CreateLocationFsxWindowsRequest => __isa(o, "CreateLocationFsxWindowsRequest");
+}
+
+export interface CreateLocationFsxWindowsResponse {
+  __type?: "CreateLocationFsxWindowsResponse";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the FSx for Windows file system location that is
+   *       created.</p>
+   */
+  LocationArn?: string;
+}
+
+export namespace CreateLocationFsxWindowsResponse {
+  export const filterSensitiveLog = (obj: CreateLocationFsxWindowsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateLocationFsxWindowsResponse => __isa(o, "CreateLocationFsxWindowsResponse");
+}
+
 /**
  * <p>CreateLocationNfsRequest</p>
  */
@@ -254,14 +322,22 @@ export interface CreateLocationNfsRequest {
 
   /**
    * <p>Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect to
-   *       an NFS server.</p>
+   *       an NFS server. </p>
+   *          <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p>
    */
   OnPremConfig: OnPremConfig | undefined;
+
+  /**
+   * <p>The key-value pair that represents the tag that you want to add to the location. The
+   *       value can be an empty string. We recommend using tags to name your resources.</p>
+   */
+  Tags?: TagListEntry[];
 
   /**
    * <p>The name of the NFS server. This value is the IP address or Domain Name Service (DNS)
    *       name of the NFS server. An agent that is installed on-premises uses this host name to mount
    *       the NFS server in a network. </p>
+   *          <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p>
    *          <note>
    *             <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4)
    *         address.</p>
@@ -284,17 +360,12 @@ export interface CreateLocationNfsRequest {
    *       want DataSync allow read access for all users. Doing either enables the agent to read the
    *       files. For the agent to access directories, you must additionally enable all execute
    *       access.</p>
+   *          <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p>
    *
    *          <p>For information about NFS export configuration, see 18.7. The /etc/exports
    *       Configuration File in the Red Hat Enterprise Linux documentation.</p>
    */
   Subdirectory: string | undefined;
-
-  /**
-   * <p>The key-value pair that represents the tag that you want to add to the location. The
-   *       value can be an empty string. We recommend using tags to name your resources.</p>
-   */
-  Tags?: TagListEntry[];
 }
 
 export namespace CreateLocationNfsRequest {
@@ -324,15 +395,101 @@ export namespace CreateLocationNfsResponse {
 }
 
 /**
+ * <p>CreateLocationObjectStorageRequest</p>
+ */
+export interface CreateLocationObjectStorageRequest {
+  __type?: "CreateLocationObjectStorageRequest";
+  /**
+   * <p>The protocol that the object storage server uses to communicate.
+   *       Valid values are HTTP or HTTPS.</p>
+   */
+  ServerProtocol?: ObjectStorageServerProtocol | string;
+
+  /**
+   * <p>The key-value pair that represents the tag that you want to add to the location. The
+   *       value can be an empty string. We recommend using tags to name your resources.</p>
+   */
+  Tags?: TagListEntry[];
+
+  /**
+   * <p>The subdirectory in the self-managed object storage server that is used
+   *       to read data from.</p>
+   */
+  Subdirectory?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agents associated with the
+   *       self-managed object storage server location.</p>
+   */
+  AgentArns: string[] | undefined;
+
+  /**
+   * <p>The bucket on the self-managed object storage server that is used
+   *       to read data from.</p>
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>Optional. The access key is used if credentials are required to access
+   *       the self-managed object storage server.</p>
+   */
+  AccessKey?: string;
+
+  /**
+   * <p>Optional. The secret key is used if credentials are required to access
+   *       the self-managed object storage server.</p>
+   */
+  SecretKey?: string;
+
+  /**
+   * <p>The port that your self-managed object storage server accepts inbound network traffic on.
+   *       The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can
+   *       specify a custom port if your self-managed object storage server requires one.</p>
+   */
+  ServerPort?: number;
+
+  /**
+   * <p>The name of the self-managed object storage server. This value is the
+   *       IP address or Domain Name Service (DNS) name of the object storage server.
+   *       An agent uses this host name to mount the object storage server in a network. </p>
+   */
+  ServerHostname: string | undefined;
+}
+
+export namespace CreateLocationObjectStorageRequest {
+  export const filterSensitiveLog = (obj: CreateLocationObjectStorageRequest): any => ({
+    ...obj,
+    ...(obj.SecretKey && { SecretKey: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is CreateLocationObjectStorageRequest =>
+    __isa(o, "CreateLocationObjectStorageRequest");
+}
+
+/**
+ * <p>CreateLocationObjectStorageResponse</p>
+ */
+export interface CreateLocationObjectStorageResponse {
+  __type?: "CreateLocationObjectStorageResponse";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agents associated with the
+   *       self-managed object storage server location.</p>
+   */
+  LocationArn?: string;
+}
+
+export namespace CreateLocationObjectStorageResponse {
+  export const filterSensitiveLog = (obj: CreateLocationObjectStorageResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateLocationObjectStorageResponse =>
+    __isa(o, "CreateLocationObjectStorageResponse");
+}
+
+/**
  * <p>CreateLocationS3Request</p>
  */
 export interface CreateLocationS3Request {
   __type?: "CreateLocationS3Request";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket.</p>
-   */
-  S3BucketArn: string | undefined;
-
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
    *       that is used to access an Amazon S3 bucket.</p>
@@ -361,6 +518,11 @@ export interface CreateLocationS3Request {
    *       value can be an empty string. We recommend using tags to name your resources.</p>
    */
   Tags?: TagListEntry[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket.</p>
+   */
+  S3BucketArn: string | undefined;
 }
 
 export namespace CreateLocationS3Request {
@@ -395,15 +557,15 @@ export namespace CreateLocationS3Response {
 export interface CreateLocationSmbRequest {
   __type?: "CreateLocationSmbRequest";
   /**
+   * <p>The name of the Windows domain that the SMB server belongs to.</p>
+   */
+  Domain?: string;
+
+  /**
    * <p>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB)
    *       location. </p>
    */
   AgentArns: string[] | undefined;
-
-  /**
-   * <p>The name of the Windows domain that the SMB server belongs to.</p>
-   */
-  Domain?: string;
 
   /**
    * <p>The mount options used by DataSync to access the SMB server.</p>
@@ -417,14 +579,16 @@ export interface CreateLocationSmbRequest {
   Password: string | undefined;
 
   /**
-   * <p>The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name
-   *       of the SMB server. An agent that is installed on-premises uses this hostname to mount the SMB
-   *       server in a network.</p>
-   *          <note>
-   *             <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</p>
-   *          </note>
+   * <p>The user who can mount the share, has the permissions to access files and folders in the
+   *       SMB share.</p>
    */
-  ServerHostname: string | undefined;
+  User: string | undefined;
+
+  /**
+   * <p>The key-value pair that represents the tag that you want to add to the location. The value
+   *       can be an empty string. We recommend using tags to name your resources.</p>
+   */
+  Tags?: TagListEntry[];
 
   /**
    * <p>The subdirectory in the SMB file system that is used to read data from the SMB source
@@ -433,8 +597,8 @@ export interface CreateLocationSmbRequest {
    *       can be mounted by other SMB clients in your network.</p>
    *          <note>
    *             <p>
-   *                <code>Subdirectory</code> must be specified with forward slashes. For example
-   *       <code>/path/to/folder</code>.</p>
+   *                <code>Subdirectory</code> must be specified with forward slashes. For example,
+   *           <code>/path/to/folder</code>.</p>
    *          </note>
    *
    *          <p>To transfer all the data in the folder you specified, DataSync needs to have permissions
@@ -448,16 +612,14 @@ export interface CreateLocationSmbRequest {
   Subdirectory: string | undefined;
 
   /**
-   * <p>The key-value pair that represents the tag that you want to add to the location. The value
-   *       can be an empty string. We recommend using tags to name your resources.</p>
+   * <p>The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name
+   *       of the SMB server. An agent that is installed on-premises uses this hostname to mount the SMB
+   *       server in a network.</p>
+   *          <note>
+   *             <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</p>
+   *          </note>
    */
-  Tags?: TagListEntry[];
-
-  /**
-   * <p>The user who can mount the share, has the permissions to access files and folders in the
-   *       SMB share.</p>
-   */
-  User: string | undefined;
+  ServerHostname: string | undefined;
 }
 
 export namespace CreateLocationSmbRequest {
@@ -493,24 +655,32 @@ export namespace CreateLocationSmbResponse {
 export interface CreateTaskRequest {
   __type?: "CreateTaskRequest";
   /**
+   * <p>The Amazon Resource Name (ARN) of the source location for the task.</p>
+   */
+  SourceLocationArn: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to
    *       monitor and log events in the task. </p>
-   *
-   *          <p>For more information on these groups, see Working with Log Groups and Log
-   *       Streams in the <i>Amazon CloudWatch User Guide.</i>
-   *          </p>
-   *
-   *
-   *          <p>For more information about how to use CloudWatch Logs with DataSync, see
-   *       Monitoring Your Task in the <i>AWS DataSync User Guide.</i>
-   *          </p>
    */
   CloudWatchLogGroupArn?: string;
+
+  /**
+   * <p>The name of a task. This value is a text reference that is used to identify the task in
+   *       the console. </p>
+   */
+  Name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS storage resource's location. </p>
    */
   DestinationLocationArn: string | undefined;
+
+  /**
+   * <p>The key-value pair that represents the tag that you want to add to the resource. The
+   *       value can be an empty string. </p>
+   */
+  Tags?: TagListEntry[];
 
   /**
    * <p>A list of filter rules that determines which files to exclude from a task. The list should
@@ -523,10 +693,10 @@ export interface CreateTaskRequest {
   Excludes?: FilterRule[];
 
   /**
-   * <p>The name of a task. This value is a text reference that is used to identify the task in
-   *       the console. </p>
+   * <p>Specifies a schedule used to periodically transfer files from a source to a destination
+   *       location. The schedule should be specified in UTC time. For more information, see <a>task-scheduling</a>.</p>
    */
-  Name?: string;
+  Schedule?: TaskSchedule;
 
   /**
    * <p>The set of configuration options that control the behavior of a single execution of the
@@ -534,27 +704,10 @@ export interface CreateTaskRequest {
    *       options to preserve metadata such as user ID (UID) and group ID (GID), file permissions, data
    *       integrity verification, and so on.</p>
    *          <p>For each individual task execution, you can override these options by specifying the
-   *         <code>OverrideOptions</code> before starting a the task execution. For more information, see
+   *         <code>OverrideOptions</code> before starting the task execution. For more information, see
    *       the  operation. </p>
    */
   Options?: Options;
-
-  /**
-   * <p>Specifies a schedule used to periodically transfer files from a source to a destination
-   *       location. The schedule should be specified in UTC time. For more information, see <a>task-scheduling</a>.</p>
-   */
-  Schedule?: TaskSchedule;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source location for the task.</p>
-   */
-  SourceLocationArn: string | undefined;
-
-  /**
-   * <p>The key-value pair that represents the tag that you want to add to the resource. The
-   *       value can be an empty string. </p>
-   */
-  Tags?: TagListEntry[];
 }
 
 export namespace CreateTaskRequest {
@@ -694,18 +847,18 @@ export namespace DescribeAgentRequest {
 export interface DescribeAgentResponse {
   __type?: "DescribeAgentResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
-   */
-  AgentArn?: string;
-
-  /**
    * <p>The time that the agent was activated (that is, created in your account).</p>
    */
   CreationTime?: Date;
 
   /**
+   * <p>The name of the agent.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The type of endpoint that your agent is connected to. If the endpoint is a VPC endpoint,
-   *       the agent is not accessible over the public Internet. </p>
+   *       the agent is not accessible over the public internet. </p>
    */
   EndpointType?: EndpointType | string;
 
@@ -715,16 +868,6 @@ export interface DescribeAgentResponse {
   LastConnectionTime?: Date;
 
   /**
-   * <p>The name of the agent.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The subnet and the security group that DataSync used to access a VPC endpoint.</p>
-   */
-  PrivateLinkConfig?: PrivateLinkConfig;
-
-  /**
    * <p>The status of the agent. If the status is ONLINE, then the agent is configured properly
    *       and is available to use. The Running status is the normal running status for an agent. If the
    *       status is OFFLINE, the agent's VM is turned off or the agent is in an unhealthy state. When
@@ -732,6 +875,16 @@ export interface DescribeAgentResponse {
    *       status.</p>
    */
   Status?: AgentStatus | string;
+
+  /**
+   * <p>The subnet and the security group that DataSync used to access a VPC endpoint.</p>
+   */
+  PrivateLinkConfig?: PrivateLinkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   */
+  AgentArn?: string;
 }
 
 export namespace DescribeAgentResponse {
@@ -765,11 +918,6 @@ export namespace DescribeLocationEfsRequest {
 export interface DescribeLocationEfsResponse {
   __type?: "DescribeLocationEfsResponse";
   /**
-   * <p>The time that the EFS location was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
    * <p>The subnet and the security group that DataSync uses to access target EFS file system.
    *       The subnet must have at least one mount target for that file system. The security group that
    *       you provide needs to be able to communicate with the security group on the mount target in the
@@ -778,14 +926,19 @@ export interface DescribeLocationEfsResponse {
   Ec2Config?: Ec2Config;
 
   /**
-   * <p>The Amazon resource Name (ARN) of the EFS location that was described.</p>
+   * <p>The URL of the EFS location that was described.</p>
+   */
+  LocationUri?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the EFS location that was described.</p>
    */
   LocationArn?: string;
 
   /**
-   * <p>The URL of the EFS location that was described.</p>
+   * <p>The time that the EFS location was created.</p>
    */
-  LocationUri?: string;
+  CreationTime?: Date;
 }
 
 export namespace DescribeLocationEfsResponse {
@@ -795,13 +948,71 @@ export namespace DescribeLocationEfsResponse {
   export const isa = (o: any): o is DescribeLocationEfsResponse => __isa(o, "DescribeLocationEfsResponse");
 }
 
+export interface DescribeLocationFsxWindowsRequest {
+  __type?: "DescribeLocationFsxWindowsRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the FSx for Windows location to describe.</p>
+   */
+  LocationArn: string | undefined;
+}
+
+export namespace DescribeLocationFsxWindowsRequest {
+  export const filterSensitiveLog = (obj: DescribeLocationFsxWindowsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeLocationFsxWindowsRequest => __isa(o, "DescribeLocationFsxWindowsRequest");
+}
+
+export interface DescribeLocationFsxWindowsResponse {
+  __type?: "DescribeLocationFsxWindowsResponse";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the FSx for Windows location that was described.</p>
+   */
+  LocationArn?: string;
+
+  /**
+   * <p>The user who has the permissions to access files and folders in the
+   *       FSx for Windows file system.</p>
+   */
+  User?: string;
+
+  /**
+   * <p>The name of the Windows domain that the FSx for Windows server belongs to.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the FSx
+   *       for Windows file system.</p>
+   */
+  SecurityGroupArns?: string[];
+
+  /**
+   * <p>The time that the FSx for Windows location was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The URL of the FSx for Windows location that was described.</p>
+   */
+  LocationUri?: string;
+}
+
+export namespace DescribeLocationFsxWindowsResponse {
+  export const filterSensitiveLog = (obj: DescribeLocationFsxWindowsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeLocationFsxWindowsResponse =>
+    __isa(o, "DescribeLocationFsxWindowsResponse");
+}
+
 /**
  * <p>DescribeLocationNfsRequest</p>
  */
 export interface DescribeLocationNfsRequest {
   __type?: "DescribeLocationNfsRequest";
   /**
-   * <p>The Amazon resource Name (ARN) of the NFS location to describe.</p>
+   * <p>The Amazon Resource Name (ARN) of the NFS location to describe.</p>
    */
   LocationArn: string | undefined;
 }
@@ -819,16 +1030,6 @@ export namespace DescribeLocationNfsRequest {
 export interface DescribeLocationNfsResponse {
   __type?: "DescribeLocationNfsResponse";
   /**
-   * <p>The time that the NFS location was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The Amazon resource Name (ARN) of the NFS location that was described.</p>
-   */
-  LocationArn?: string;
-
-  /**
    * <p>The URL of the source NFS location that was described.</p>
    */
   LocationUri?: string;
@@ -839,10 +1040,20 @@ export interface DescribeLocationNfsResponse {
   MountOptions?: NfsMountOptions;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the NFS location that was described.</p>
+   */
+  LocationArn?: string;
+
+  /**
    * <p>A list of Amazon Resource Names (ARNs) of agents to use for a Network File System (NFS)
    *       location.</p>
    */
   OnPremConfig?: OnPremConfig;
+
+  /**
+   * <p>The time that the NFS location was created.</p>
+   */
+  CreationTime?: Date;
 }
 
 export namespace DescribeLocationNfsResponse {
@@ -850,6 +1061,78 @@ export namespace DescribeLocationNfsResponse {
     ...obj,
   });
   export const isa = (o: any): o is DescribeLocationNfsResponse => __isa(o, "DescribeLocationNfsResponse");
+}
+
+/**
+ * <p>DescribeLocationObjectStorageRequest</p>
+ */
+export interface DescribeLocationObjectStorageRequest {
+  __type?: "DescribeLocationObjectStorageRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the self-managed object storage server location that was described.</p>
+   */
+  LocationArn: string | undefined;
+}
+
+export namespace DescribeLocationObjectStorageRequest {
+  export const filterSensitiveLog = (obj: DescribeLocationObjectStorageRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeLocationObjectStorageRequest =>
+    __isa(o, "DescribeLocationObjectStorageRequest");
+}
+
+/**
+ * <p>DescribeLocationObjectStorageResponse</p>
+ */
+export interface DescribeLocationObjectStorageResponse {
+  __type?: "DescribeLocationObjectStorageResponse";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agents associated with the
+   *       self-managed object storage server location.</p>
+   */
+  AgentArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the self-managed object storage server location to describe.</p>
+   */
+  LocationArn?: string;
+
+  /**
+   * <p>The URL of the source self-managed object storage server location that was described.</p>
+   */
+  LocationUri?: string;
+
+  /**
+   * <p>Optional. The access key is used if credentials are required to access
+   *       the self-managed object storage server.</p>
+   */
+  AccessKey?: string;
+
+  /**
+   * <p>The port that your self-managed object storage server accepts inbound network traffic on.
+   *       The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS).</p>
+   */
+  ServerPort?: number;
+
+  /**
+   * <p>The time that the self-managed object storage server agent was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The protocol that the object storage server uses to communicate.
+   *       Valid values are HTTP or HTTPS.</p>
+   */
+  ServerProtocol?: ObjectStorageServerProtocol | string;
+}
+
+export namespace DescribeLocationObjectStorageResponse {
+  export const filterSensitiveLog = (obj: DescribeLocationObjectStorageResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeLocationObjectStorageResponse =>
+    __isa(o, "DescribeLocationObjectStorageResponse");
 }
 
 /**
@@ -876,9 +1159,26 @@ export namespace DescribeLocationS3Request {
 export interface DescribeLocationS3Response {
   __type?: "DescribeLocationS3Response";
   /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+   *       that is used to access an Amazon S3 bucket.</p>
+   *
+   *          <p>For detailed information about using such a role, see Creating a Location for
+   *       Amazon S3 in the <i>AWS DataSync User Guide</i>.</p>
+   */
+  S3Config?: S3Config;
+
+  /**
    * <p>The time that the Amazon S3 bucket location was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The Amazon S3 storage class that you chose to store your files in when this location is
+   *       used as a task destination. For more information about S3 storage classes, see <a href="https://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a> in the
+   *         <i>Amazon Simple Storage Service Developer Guide</i>. Some storage classes
+   *       have behaviors that can affect your S3 storage cost. For detailed information, see <a>using-storage-classes</a>.</p>
+   */
+  S3StorageClass?: S3StorageClass | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket location.</p>
@@ -889,23 +1189,6 @@ export interface DescribeLocationS3Response {
    * <p>The URL of the Amazon S3 location that was described.</p>
    */
   LocationUri?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-   *       that is used to access an Amazon S3 bucket.</p>
-   *
-   *          <p>For detailed information about using such a role, see Creating a Location for
-   *       Amazon S3 in the <i>AWS DataSync User Guide</i>.</p>
-   */
-  S3Config?: S3Config;
-
-  /**
-   * <p>The Amazon S3 storage class that you chose to store your files in when this location is
-   *       used as a task destination. For more information about S3 storage classes, see <a href="https://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a> in the
-   *         <i>Amazon Simple Storage Service Developer Guide</i>. Some storage classes
-   *       have behaviors that can affect your S3 storage cost. For detailed information, see <a>using-storage-classes</a>.</p>
-   */
-  S3StorageClass?: S3StorageClass | string;
 }
 
 export namespace DescribeLocationS3Response {
@@ -921,7 +1204,7 @@ export namespace DescribeLocationS3Response {
 export interface DescribeLocationSmbRequest {
   __type?: "DescribeLocationSmbRequest";
   /**
-   * <p>The Amazon resource Name (ARN) of the SMB location to describe.</p>
+   * <p>The Amazon Resource Name (ARN) of the SMB location to describe.</p>
    */
   LocationArn: string | undefined;
 }
@@ -939,6 +1222,11 @@ export namespace DescribeLocationSmbRequest {
 export interface DescribeLocationSmbResponse {
   __type?: "DescribeLocationSmbResponse";
   /**
+   * <p>The Amazon Resource Name (ARN) of the SMB location that was described.</p>
+   */
+  LocationArn?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the source SMB file system location that is
    *       created.</p>
    */
@@ -950,19 +1238,15 @@ export interface DescribeLocationSmbResponse {
   CreationTime?: Date;
 
   /**
+   * <p>The user who can mount the share, has the permissions to access files and folders in the
+   *       SMB share.</p>
+   */
+  User?: string;
+
+  /**
    * <p>The name of the Windows domain that the SMB server belongs to.</p>
    */
   Domain?: string;
-
-  /**
-   * <p>The Amazon resource Name (ARN) of the SMB location that was described.</p>
-   */
-  LocationArn?: string;
-
-  /**
-   * <p>The URL of the source SBM location that was described.</p>
-   */
-  LocationUri?: string;
 
   /**
    * <p>The mount options that are available for DataSync to use to access an SMB location.</p>
@@ -970,10 +1254,9 @@ export interface DescribeLocationSmbResponse {
   MountOptions?: SmbMountOptions;
 
   /**
-   * <p>The user who can mount the share, has the permissions to access files and folders in the
-   *       SMB share.</p>
+   * <p>The URL of the source SBM location that was described.</p>
    */
-  User?: string;
+  LocationUri?: string;
 }
 
 export namespace DescribeLocationSmbResponse {
@@ -1007,39 +1290,24 @@ export namespace DescribeTaskExecutionRequest {
 export interface DescribeTaskExecutionResponse {
   __type?: "DescribeTaskExecutionResponse";
   /**
-   * <p>The physical number of bytes transferred over the network.</p>
-   */
-  BytesTransferred?: number;
-
-  /**
-   * <p>The number of logical bytes written to the destination AWS storage resource.</p>
-   */
-  BytesWritten?: number;
-
-  /**
-   * <p>The estimated physical number of bytes that is to be transferred over the
-   *       network.</p>
-   */
-  EstimatedBytesToTransfer?: number;
-
-  /**
-   * <p>The expected number of files that is to be transferred over the network. This value is
-   *       calculated during the PREPARING phase, before the TRANSFERRING phase. This value is the
-   *       expected number of files to be transferred. It's calculated based on comparing the
-   *       content of the source and destination locations and finding the delta that needs to be
-   *       transferred. </p>
-   */
-  EstimatedFilesToTransfer?: number;
-
-  /**
-   * <p>A list of filter rules that determines which files to exclude from a task. The list should
-   *       contain a single filter string that consists of the patterns to exclude. The patterns are
-   *       delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
+   * <p>A list of filter rules that determines which files to include when running a task. The
+   *       list should contain a single filter string that consists of the patterns to include. The
+   *       patterns are delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
    *          </p>
    *          <p>
    *     </p>
    */
-  Excludes?: FilterRule[];
+  Includes?: FilterRule[];
+
+  /**
+   * <p>The status of the task execution. </p>
+   *
+   *
+   *          <p>For detailed information about task execution statuses, see Understanding
+   *       Task Statuses in the <i>AWS DataSync User Guide.</i>
+   *          </p>
+   */
+  Status?: TaskExecutionStatus | string;
 
   /**
    * <p>The actual number of files that was transferred over the network. This value is
@@ -1054,16 +1322,6 @@ export interface DescribeTaskExecutionResponse {
   FilesTransferred?: number;
 
   /**
-   * <p>A list of filter rules that determines which files to include when running a task. The
-   *       list should contain a single filter string that consists of the patterns to include. The
-   *       patterns are delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
-   *          </p>
-   *          <p>
-   *     </p>
-   */
-  Includes?: FilterRule[];
-
-  /**
    * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
    *       ID (UID), group ID (GID), and file permissions, and also overwriting files in the destination,
    *       data integrity verification, and so on.</p>
@@ -1075,24 +1333,28 @@ export interface DescribeTaskExecutionResponse {
   Options?: Options;
 
   /**
-   * <p>The result of the task execution.</p>
+   * <p>The expected number of files that is to be transferred over the network. This value is
+   *       calculated during the PREPARING phase, before the TRANSFERRING phase. This value is the
+   *       expected number of files to be transferred. It's calculated based on comparing the
+   *       content of the source and destination locations and finding the delta that needs to be
+   *       transferred. </p>
    */
-  Result?: TaskExecutionResultDetail;
+  EstimatedFilesToTransfer?: number;
+
+  /**
+   * <p>The number of logical bytes written to the destination AWS storage resource.</p>
+   */
+  BytesWritten?: number;
+
+  /**
+   * <p>The physical number of bytes transferred over the network.</p>
+   */
+  BytesTransferred?: number;
 
   /**
    * <p>The time that the task execution was started.</p>
    */
   StartTime?: Date;
-
-  /**
-   * <p>The status of the task execution. </p>
-   *
-   *
-   *          <p>For detailed information about task execution statuses, see Understanding
-   *       Task Statuses in the <i>AWS DataSync User Guide.</i>
-   *          </p>
-   */
-  Status?: TaskExecutionStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the task execution that was described.
@@ -1104,6 +1366,27 @@ export interface DescribeTaskExecutionResponse {
    *         <code>arn:aws:datasync:us-east-1:111222333444:task/task-0208075f79cedf4a2</code>. </p>
    */
   TaskExecutionArn?: string;
+
+  /**
+   * <p>The estimated physical number of bytes that is to be transferred over the
+   *       network.</p>
+   */
+  EstimatedBytesToTransfer?: number;
+
+  /**
+   * <p>A list of filter rules that determines which files to exclude from a task. The list should
+   *       contain a single filter string that consists of the patterns to exclude. The patterns are
+   *       delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
+   *          </p>
+   *          <p>
+   *     </p>
+   */
+  Excludes?: FilterRule[];
+
+  /**
+   * <p>The result of the task execution.</p>
+   */
+  Result?: TaskExecutionResultDetail;
 }
 
 export namespace DescribeTaskExecutionResponse {
@@ -1137,31 +1420,6 @@ export namespace DescribeTaskRequest {
 export interface DescribeTaskResponse {
   __type?: "DescribeTaskResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that was used to
-   *       monitor and log events in the task.</p>
-   *
-   *
-   *          <p>For more information on these groups, see Working with Log Groups and Log
-   *       Streams in the <i>Amazon CloudWatch User Guide</i>.</p>
-   */
-  CloudWatchLogGroupArn?: string;
-
-  /**
-   * <p>The time that the task was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the task execution that is syncing files.</p>
-   */
-  CurrentTaskExecutionArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS storage resource's location.</p>
-   */
-  DestinationLocationArn?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the destination ENIs (Elastic Network Interface) that
    *       was created for your subnet.</p>
    */
@@ -1174,25 +1432,30 @@ export interface DescribeTaskResponse {
   ErrorCode?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the source file system's location.</p>
+   */
+  SourceLocationArn?: string;
+
+  /**
+   * <p>The time that the task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
    * <p>Detailed description of an error that was encountered during the task execution. You
    *       can use this information to help troubleshoot issues. </p>
    */
   ErrorDetail?: string;
 
   /**
-   * <p>A list of filter rules that determines which files to exclude from a task. The list should
-   *       contain a single filter string that consists of the patterns to exclude. The patterns are
-   *       delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
+   * <p>The status of the task that was described.</p>
+   *
+   *
+   *          <p>For detailed information about task execution statuses, see Understanding
+   *       Task Statuses in the <i>AWS DataSync User Guide.</i>
    *          </p>
-   *          <p>
-   *     </p>
    */
-  Excludes?: FilterRule[];
-
-  /**
-   * <p>The name of the task that was described.</p>
-   */
-  Name?: string;
+  Status?: TaskStatus | string;
 
   /**
    * <p>The set of configuration options that control the behavior of a single execution of the
@@ -1206,14 +1469,19 @@ export interface DescribeTaskResponse {
   Options?: Options;
 
   /**
-   * <p>The schedule used to periodically transfer files from a source to a destination location.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS storage resource's location.</p>
    */
-  Schedule?: TaskSchedule;
+  DestinationLocationArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source file system's location.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that was used to
+   *       monitor and log events in the task.</p>
+   *
+   *
+   *          <p>For more information on these groups, see Working with Log Groups and Log
+   *       Streams in the <i>Amazon CloudWatch User Guide</i>.</p>
    */
-  SourceLocationArn?: string;
+  CloudWatchLogGroupArn?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source ENIs (Elastic Network Interface) that was
@@ -1222,14 +1490,29 @@ export interface DescribeTaskResponse {
   SourceNetworkInterfaceArns?: string[];
 
   /**
-   * <p>The status of the task that was described.</p>
-   *
-   *
-   *          <p>For detailed information about task execution statuses, see Understanding
-   *       Task Statuses in the <i>AWS DataSync User Guide.</i>
-   *          </p>
+   * <p>The schedule used to periodically transfer files from a source to a destination location.</p>
    */
-  Status?: TaskStatus | string;
+  Schedule?: TaskSchedule;
+
+  /**
+   * <p>The name of the task that was described.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task execution that is syncing files.</p>
+   */
+  CurrentTaskExecutionArn?: string;
+
+  /**
+   * <p>A list of filter rules that determines which files to exclude from a task. The list should
+   *       contain a single filter string that consists of the patterns to exclude. The patterns are
+   *       delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
+   *          </p>
+   *          <p>
+   *     </p>
+   */
+  Excludes?: FilterRule[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the task that was described.</p>
@@ -1285,12 +1568,6 @@ export enum EndpointType {
 export interface FilterRule {
   __type?: "FilterRule";
   /**
-   * <p>The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule
-   *       type.</p>
-   */
-  FilterType?: FilterType | string;
-
-  /**
    * <p>A single filter string that consists of the patterns to include or exclude. The patterns
    *       are delimited by "|" (that is, a pipe), for example: <code>/folder1|/folder2</code>
    *          </p>
@@ -1298,6 +1575,12 @@ export interface FilterRule {
    *     </p>
    */
   Value?: string;
+
+  /**
+   * <p>The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule
+   *       type.</p>
+   */
+  FilterType?: FilterType | string;
 }
 
 export namespace FilterRule {
@@ -1341,8 +1624,8 @@ export namespace InternalException {
 export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
-  errorCode?: string;
   message?: string;
+  errorCode?: string;
 }
 
 export namespace InvalidRequestException {
@@ -1406,15 +1689,15 @@ export namespace ListAgentsResponse {
 export interface ListLocationsRequest {
   __type?: "ListLocationsRequest";
   /**
-   * <p>The maximum number of locations to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>An opaque string that indicates the position at which to begin the next list of
    *       locations.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of locations to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListLocationsRequest {
@@ -1430,15 +1713,15 @@ export namespace ListLocationsRequest {
 export interface ListLocationsResponse {
   __type?: "ListLocationsResponse";
   /**
-   * <p>An array that contains a list of locations.</p>
-   */
-  Locations?: LocationListEntry[];
-
-  /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
    *       of locations.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array that contains a list of locations.</p>
+   */
+  Locations?: LocationListEntry[];
 }
 
 export namespace ListLocationsResponse {
@@ -1454,6 +1737,11 @@ export namespace ListLocationsResponse {
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags to list.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
    * <p>The maximum number of locations to return.</p>
    */
   MaxResults?: number;
@@ -1463,11 +1751,6 @@ export interface ListTagsForResourceRequest {
    *       locations.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags to list.</p>
-   */
-  ResourceArn: string | undefined;
 }
 
 export namespace ListTagsForResourceRequest {
@@ -1483,15 +1766,15 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
+   * <p>Array of resource tags.</p>
+   */
+  Tags?: TagListEntry[];
+
+  /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
    *       of resource tags.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Array of resource tags.</p>
-   */
-  Tags?: TagListEntry[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1642,6 +1925,12 @@ export namespace LocationListEntry {
   export const isa = (o: any): o is LocationListEntry => __isa(o, "LocationListEntry");
 }
 
+export enum LogLevel {
+  BASIC = "BASIC",
+  OFF = "OFF",
+  TRANSFER = "TRANSFER",
+}
+
 export enum Mtime {
   NONE = "NONE",
   PRESERVE = "PRESERVE",
@@ -1702,6 +1991,11 @@ export enum NfsVersion {
   NFS4_1 = "NFS4_1",
 }
 
+export enum ObjectStorageServerProtocol {
+  HTTP = "HTTP",
+  HTTPS = "HTTPS",
+}
+
 /**
  * <p>A list of Amazon Resource Names (ARNs) of agents to use for a Network File System (NFS)
  *       location.</p>
@@ -1733,6 +2027,92 @@ export namespace OnPremConfig {
 export interface Options {
   __type?: "Options";
   /**
+   * <p>A value that determines whether a data integrity verification should be performed at
+   *       the end of a task execution after all data and metadata have been transferred.
+   *       For more information, see
+   *       <a>create-task</a>
+   *          </p>
+   *          <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
+   *          <p>ONLY_FILES_TRANSFERRED (recommended): Perform verification only on files that were transferred.
+   *     </p>
+   *
+   *          <p>POINT_IN_TIME_CONSISTENT: Scan the entire source and entire destination
+   *       at the end of the transfer
+   *       to verify that source and destination are fully
+   *       synchronized. This option isn't supported when transferring to S3 Glacier or S3 Glacier
+   *       Deep Archive storage classes.</p>
+   *          <p>NONE: No additional verification is done at the end of the
+   *       transfer, but all data transmissions are integrity-checked with
+   *       checksum verification during the transfer.</p>
+   */
+  VerifyMode?: VerifyMode | string;
+
+  /**
+   * <p>The group ID (GID) of the file's owners. </p>
+   *          <p>Default value: INT_VALUE. This preserves the integer value of the ID.</p>
+   *          <p>INT_VALUE: Preserve the integer value of user ID (UID) and GID (recommended).</p>
+   *          <p>NONE: Ignore UID and GID. </p>
+   */
+  Gid?: Gid | string;
+
+  /**
+   * <p>A value that specifies whether files in the destination that don't exist in the source
+   *       file system should be preserved. This option can affect your storage cost.
+   *       If your task deletes objects, you might incur minimum storage duration charges for certain storage classes. For detailed
+   *       information, see <a>using-storage-classes</a> in the <i>AWS DataSync User
+   *         Guide</i>.</p>
+   *          <p>Default value: PRESERVE.</p>
+   *          <p>PRESERVE: Ignore such destination files (recommended). </p>
+   *          <p>REMOVE: Delete destination files that aren’t present in the source.</p>
+   */
+  PreserveDeletedFiles?: PreserveDeletedFiles | string;
+
+  /**
+   * <p>A value that determines whether tasks should be queued before executing the tasks. If set
+   *       to <code>ENABLED</code>, the tasks will be queued. The default is <code>ENABLED</code>.</p>
+   *          <p>If you use the same agent to run multiple tasks, you can enable the tasks to run in
+   *       series. For more information, see <a>queue-task-execution</a>.</p>
+   */
+  TaskQueueing?: TaskQueueing | string;
+
+  /**
+   * <p>A value that determines which users or groups can access a file for a specific purpose
+   *       such as reading, writing, or execution of the file. </p>
+   *          <p>Default value: PRESERVE.</p>
+   *          <p>PRESERVE: Preserve POSIX-style permissions (recommended).</p>
+   *          <p>NONE: Ignore permissions. </p>
+   *          <note>
+   *             <p>AWS DataSync can preserve extant permissions of a source location.</p>
+   *          </note>
+   */
+  PosixPermissions?: PosixPermissions | string;
+
+  /**
+   * <p>TransferMode has two values: CHANGED and ALL. CHANGED performs an "incremental"
+   *       or "delta sync", it compares file modification time between source and destination to
+   *       determine which files need to be transferred. ALL skips destination inventory and
+   *       transfers all files discovered on the source.</p>
+   */
+  TransferMode?: TransferMode | string;
+
+  /**
+   * <p>A value that limits the bandwidth used by AWS DataSync. For example, if you want
+   *       AWS DataSync to use a maximum of 1 MB, set this value to <code>1048576</code>
+   *         (<code>=1024*1024</code>).</p>
+   */
+  BytesPerSecond?: number;
+
+  /**
+   * <p>A value that determines whether files at the destination should be overwritten or
+   *       preserved when copying files. If set to <code>NEVER</code> a destination file will not be
+   *       replaced by a source file, even if the destination file differs from the source file. If you modify files in the destination and you sync the files, you can use this value to
+   *       protect against overwriting those changes. </p>
+   *          <p>Some storage classes have specific behaviors that can affect your S3 storage cost. For detailed information, see <a>using-storage-classes</a> in the <i>AWS DataSync
+   *         User Guide</i>.</p>
+   */
+  OverwriteMode?: OverwriteMode | string;
+
+  /**
    * <p>A file metadata value that shows the last time a file was accessed (that is, when the
    *       file was read or written to). If you set <code>Atime</code> to BEST_EFFORT, DataSync
    *       attempts to preserve the original <code>Atime</code> attribute on all source files (that is,
@@ -1750,19 +2130,23 @@ export interface Options {
   Atime?: Atime | string;
 
   /**
-   * <p>A value that limits the bandwidth used by AWS DataSync. For example, if you want
-   *       AWS DataSync to use a maximum of 1 MB, set this value to <code>1048576</code>
-   *         (<code>=1024*1024</code>).</p>
-   */
-  BytesPerSecond?: number;
-
-  /**
-   * <p>The group ID (GID) of the file's owners. </p>
+   * <p>The user ID (UID) of the file's owner. </p>
    *          <p>Default value: INT_VALUE. This preserves the integer value of the ID.</p>
-   *          <p>INT_VALUE: Preserve the integer value of user ID (UID) and GID (recommended).</p>
+   *          <p>INT_VALUE: Preserve the integer value of UID and group ID (GID)
+   *       (recommended).</p>
    *          <p>NONE: Ignore UID and GID. </p>
    */
-  Gid?: Gid | string;
+  Uid?: Uid | string;
+
+  /**
+   * <p>A value that determines the type of logs that DataSync publishes to a log stream in the
+   *       Amazon CloudWatch log group that you provide. For more information about providing a log group
+   *       for DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn">CloudWatchLogGroupArn</a>. If set to <code>OFF</code>, no logs are published.
+   *         <code>BASIC</code> publishes logs on errors for individual files transferred, and
+   *         <code>TRANSFER</code> publishes logs for every file or object that is transferred and
+   *       integrity checked.</p>
+   */
+  LogLevel?: LogLevel | string;
 
   /**
    * <p>A value that indicates the last time that a file was modified (that is, a file was
@@ -1780,40 +2164,6 @@ export interface Options {
   Mtime?: Mtime | string;
 
   /**
-   * <p>A value that determines whether files at the destination should be overwritten or
-   *       preserved when copying files. If set to <code>NEVER</code> a destination file will not be
-   *       replaced by a source file, even if the destination file differs from the source file. If you modify files in the destination and you sync the files, you can use this value to
-   *       protect against overwriting those changes. </p>
-   *          <p>Some storage classes have specific behaviors that can affect your S3 storage cost. For detailed information, see <a>using-storage-classes</a> in the <i>AWS DataSync
-   *         User Guide</i>.</p>
-   */
-  OverwriteMode?: OverwriteMode | string;
-
-  /**
-   * <p>A value that determines which users or groups can access a file for a specific purpose
-   *       such as reading, writing, or execution of the file. </p>
-   *          <p>Default value: PRESERVE.</p>
-   *          <p>PRESERVE: Preserve POSIX-style permissions (recommended).</p>
-   *          <p>NONE: Ignore permissions. </p>
-   *          <note>
-   *             <p>AWS DataSync can preserve extant permissions of a source location.</p>
-   *          </note>
-   */
-  PosixPermissions?: PosixPermissions | string;
-
-  /**
-   * <p>A value that specifies whether files in the destination that don't exist in the source
-   *       file system should be preserved. This option can affect your storage cost.
-   *       If your task deletes objects, you might incur minimum storage duration charges for certain storage classes. For detailed
-   *       information, see <a>using-storage-classes</a> in the <i>AWS DataSync User
-   *         Guide</i>.</p>
-   *          <p>Default value: PRESERVE.</p>
-   *          <p>PRESERVE: Ignore such destination files (recommended). </p>
-   *          <p>REMOVE: Delete destination files that aren’t present in the source.</p>
-   */
-  PreserveDeletedFiles?: PreserveDeletedFiles | string;
-
-  /**
    * <p>A value that determines whether AWS DataSync should preserve the metadata of block
    *       and character devices in the source file system, and recreate the files with that device name
    *       and metadata on the destination.</p>
@@ -1827,33 +2177,6 @@ export interface Options {
    *       supported for Amazon EFS. </p>
    */
   PreserveDevices?: PreserveDevices | string;
-
-  /**
-   * <p>A value that determines whether tasks should be queued before executing the tasks. If set
-   *       to <code>ENABLED</code>, the tasks will be queued. The default is <code>ENABLED</code>.</p>
-   *          <p>If you use the same agent to run multiple tasks you can enable the tasks to run in
-   *       series. For more information see <a>queue-task-execution</a>.</p>
-   */
-  TaskQueueing?: TaskQueueing | string;
-
-  /**
-   * <p>The user ID (UID) of the file's owner. </p>
-   *          <p>Default value: INT_VALUE. This preserves the integer value of the ID.</p>
-   *          <p>INT_VALUE: Preserve the integer value of UID and group ID (GID)
-   *       (recommended).</p>
-   *          <p>NONE: Ignore UID and GID. </p>
-   */
-  Uid?: Uid | string;
-
-  /**
-   * <p>A value that determines whether a data integrity verification should be performed at
-   *       the end of a task execution after all data and metadata have been transferred. </p>
-   *          <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
-   *          <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p>
-   *          <p>ONLY_FILES_TRANSFERRED: Perform verification on only files that were transferred.</p>
-   *          <p>NONE: Skip verification.</p>
-   */
-  VerifyMode?: VerifyMode | string;
 }
 
 export namespace Options {
@@ -1890,15 +2213,27 @@ export enum PreserveDevices {
 }
 
 /**
- * <p>The VPC endpoint, subnet and security group that an agent uses to access IP addresses in a
- *       VPC (Virtual Private Cloud).</p>
+ * <p>The VPC endpoint, subnet, and security group that an agent uses to access IP addresses in
+ *       a VPC (Virtual Private Cloud).</p>
  */
 export interface PrivateLinkConfig {
   __type?: "PrivateLinkConfig";
   /**
+   * <p>The ID of the VPC endpoint that is configured for an agent. An agent that is configured
+   *       with a VPC endpoint will not be accessible over the public internet.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the subnets that are configured for an agent activated
+   *       in a VPC or an agent that has access to a VPC endpoint.</p>
+   */
+  SubnetArns?: string[];
+
+  /**
    * <p>The private endpoint that is configured for an agent that has access to IP addresses in a
    *         <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">PrivateLink</a>. An agent that is configured with this endpoint will not be accessible
-   *       over the public Internet.</p>
+   *       over the public internet.</p>
    */
   PrivateLinkEndpoint?: string;
 
@@ -1908,18 +2243,6 @@ export interface PrivateLinkConfig {
    *       endpoint.</p>
    */
   SecurityGroupArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the subnets that are configured for an agent activated
-   *       in a VPC or an agent that has access to a VPC endpoint.</p>
-   */
-  SubnetArns?: string[];
-
-  /**
-   * <p>The ID of the VPC endpoint that is configured for an agent. An agent that is configured
-   *       with a VPC endpoint will not be accessible over the public Internet.</p>
-   */
-  VpcEndpointId?: string;
 }
 
 export namespace PrivateLinkConfig {
@@ -1993,16 +2316,6 @@ export enum SmbVersion {
 export interface StartTaskExecutionRequest {
   __type?: "StartTaskExecutionRequest";
   /**
-   * <p>A list of filter rules that determines which files to include when running a task. The
-   *       pattern should contain a single filter string that consists of the patterns to include. The
-   *       patterns are delimited by "|" (that is, a pipe). For example: <code>"/folder1|/folder2"</code>
-   *          </p>
-   *          <p>
-   *     </p>
-   */
-  Includes?: FilterRule[];
-
-  /**
    * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
    *       ID (UID), group ID (GID), and file permissions, and also overwriting files in the destination,
    *       data integrity verification, and so on.</p>
@@ -2017,6 +2330,16 @@ export interface StartTaskExecutionRequest {
    * <p>The Amazon Resource Name (ARN) of the task to start.</p>
    */
   TaskArn: string | undefined;
+
+  /**
+   * <p>A list of filter rules that determines which files to include when running a task. The
+   *       pattern should contain a single filter string that consists of the patterns to include. The
+   *       patterns are delimited by "|" (that is, a pipe). For example: <code>"/folder1|/folder2"</code>
+   *          </p>
+   *          <p>
+   *     </p>
+   */
+  Includes?: FilterRule[];
 }
 
 export namespace StartTaskExecutionRequest {
@@ -2053,14 +2376,14 @@ export namespace StartTaskExecutionResponse {
 export interface TagListEntry {
   __type?: "TagListEntry";
   /**
-   * <p>The key for an AWS resource tag.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>The value for an AWS resource tag.</p>
    */
   Value?: string;
+
+  /**
+   * <p>The key for an AWS resource tag.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace TagListEntry {
@@ -2112,14 +2435,14 @@ export namespace TagResourceResponse {
 export interface TaskExecutionListEntry {
   __type?: "TaskExecutionListEntry";
   /**
-   * <p>The status of a task execution.</p>
-   */
-  Status?: TaskExecutionStatus | string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the task that was executed.</p>
    */
   TaskExecutionArn?: string;
+
+  /**
+   * <p>The status of a task execution.</p>
+   */
+  Status?: TaskExecutionStatus | string;
 }
 
 export namespace TaskExecutionListEntry {
@@ -2137,18 +2460,6 @@ export namespace TaskExecutionListEntry {
 export interface TaskExecutionResultDetail {
   __type?: "TaskExecutionResultDetail";
   /**
-   * <p>Errors that AWS DataSync encountered during execution of the task. You can use this
-   *       error code to help troubleshoot issues.</p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>Detailed description of an error that was encountered during the task execution. You
-   *       can use this information to help troubleshoot issues. </p>
-   */
-  ErrorDetail?: string;
-
-  /**
    * <p>The total time in milliseconds that AWS DataSync spent in the PREPARING phase.
    *     </p>
    */
@@ -2165,15 +2476,10 @@ export interface TaskExecutionResultDetail {
   TotalDuration?: number;
 
   /**
-   * <p>The total time in milliseconds that AWS DataSync spent in the TRANSFERRING
-   *       phase.</p>
+   * <p>Errors that AWS DataSync encountered during execution of the task. You can use this
+   *       error code to help troubleshoot issues.</p>
    */
-  TransferDuration?: number;
-
-  /**
-   * <p>The status of the TRANSFERRING Phase.</p>
-   */
-  TransferStatus?: PhaseStatus | string;
+  ErrorCode?: string;
 
   /**
    * <p>The total time in milliseconds that AWS DataSync spent in the VERIFYING
@@ -2182,9 +2488,26 @@ export interface TaskExecutionResultDetail {
   VerifyDuration?: number;
 
   /**
+   * <p>Detailed description of an error that was encountered during the task execution. You
+   *       can use this information to help troubleshoot issues. </p>
+   */
+  ErrorDetail?: string;
+
+  /**
+   * <p>The total time in milliseconds that AWS DataSync spent in the TRANSFERRING
+   *       phase.</p>
+   */
+  TransferDuration?: number;
+
+  /**
    * <p>The status of the VERIFYING Phase.</p>
    */
   VerifyStatus?: PhaseStatus | string;
+
+  /**
+   * <p>The status of the TRANSFERRING Phase.</p>
+   */
+  TransferStatus?: PhaseStatus | string;
 }
 
 export namespace TaskExecutionResultDetail {
@@ -2213,6 +2536,11 @@ export enum TaskExecutionStatus {
 export interface TaskListEntry {
   __type?: "TaskListEntry";
   /**
+   * <p>The Amazon Resource Name (ARN) of the task.</p>
+   */
+  TaskArn?: string;
+
+  /**
    * <p>The name of the task.</p>
    */
   Name?: string;
@@ -2221,11 +2549,6 @@ export interface TaskListEntry {
    * <p>The status of the task.</p>
    */
   Status?: TaskStatus | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the task.</p>
-   */
-  TaskArn?: string;
 }
 
 export namespace TaskListEntry {
@@ -2266,6 +2589,11 @@ export enum TaskStatus {
   QUEUED = "QUEUED",
   RUNNING = "RUNNING",
   UNAVAILABLE = "UNAVAILABLE",
+}
+
+export enum TransferMode {
+  ALL = "ALL",
+  CHANGED = "CHANGED",
 }
 
 export enum Uid {
@@ -2349,20 +2677,23 @@ export namespace UpdateAgentResponse {
 export interface UpdateTaskRequest {
   __type?: "UpdateTaskRequest";
   /**
+   * <p>The Amazon Resource Name (ARN) of the resource name of the task to update.</p>
+   */
+  TaskArn: string | undefined;
+
+  /**
+   * <p>Specifies a schedule used to periodically transfer files from a source to a destination
+   *       location. You can configure your task to execute hourly, daily, weekly or on specific days of
+   *       the week. You control when in the day or hour you want the task to execute. The time you
+   *       specify is UTC time. For more information, see <a>task-scheduling</a>.</p>
+   */
+  Schedule?: TaskSchedule;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource name of the CloudWatch
    *       LogGroup.</p>
    */
   CloudWatchLogGroupArn?: string;
-
-  /**
-   * <p>A list of filter rules that determines which files to exclude from a task. The list should
-   *       contain a single filter string that consists of the patterns to exclude. The patterns are
-   *       delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
-   *          </p>
-   *          <p>
-   *     </p>
-   */
-  Excludes?: FilterRule[];
 
   /**
    * <p>The name of the task to update.</p>
@@ -2381,17 +2712,14 @@ export interface UpdateTaskRequest {
   Options?: Options;
 
   /**
-   * <p>Specifies a schedule used to periodically transfer files from a source to a destination
-   *       location. You can configure your task to execute hourly, daily, weekly or on specific days of
-   *       the week. You control when in the day or hour you want the task to execute. The time you
-   *       specify is UTC time. For more information, see <a>task-scheduling</a>.</p>
+   * <p>A list of filter rules that determines which files to exclude from a task. The list should
+   *       contain a single filter string that consists of the patterns to exclude. The patterns are
+   *       delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
+   *          </p>
+   *          <p>
+   *     </p>
    */
-  Schedule?: TaskSchedule;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource name of the task to update.</p>
-   */
-  TaskArn: string | undefined;
+  Excludes?: FilterRule[];
 }
 
 export namespace UpdateTaskRequest {

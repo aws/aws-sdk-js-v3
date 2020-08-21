@@ -33,18 +33,6 @@ export namespace DeleteLexiconOutput {
 export interface DescribeVoicesInput {
   __type?: "DescribeVoicesInput";
   /**
-   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) used by Amazon Polly when processing input text for speech synthesis. </p>
-   */
-  Engine?: Engine | string;
-
-  /**
-   * <p>Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if
-   *     you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will
-   *     be included if you specify <code>yes</code> but not if you specify <code>no</code>.</p>
-   */
-  IncludeAdditionalLanguageCodes?: boolean;
-
-  /**
    * <p>
    *
    *       The language identification tag (ISO 639 code for the language name-ISO 3166 country code)
@@ -60,6 +48,18 @@ export interface DescribeVoicesInput {
    *     continue the listing.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if
+   *     you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will
+   *     be included if you specify <code>yes</code> but not if you specify <code>no</code>.</p>
+   */
+  IncludeAdditionalLanguageCodes?: boolean;
+
+  /**
+   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) used by Amazon Polly when processing input text for speech synthesis. </p>
+   */
+  Engine?: Engine | string;
 }
 
 export namespace DescribeVoicesInput {
@@ -134,16 +134,16 @@ export namespace GetLexiconInput {
 export interface GetLexiconOutput {
   __type?: "GetLexiconOutput";
   /**
-   * <p>Lexicon object that provides name and the string content of the
-   *     lexicon. </p>
-   */
-  Lexicon?: Lexicon;
-
-  /**
    * <p>Metadata of the lexicon, including phonetic alphabetic used, language code,
    *     lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.</p>
    */
   LexiconAttributes?: LexiconAttributes;
+
+  /**
+   * <p>Lexicon object that provides name and the string content of the
+   *     lexicon. </p>
+   */
+  Lexicon?: Lexicon;
 }
 
 export namespace GetLexiconOutput {
@@ -399,10 +399,20 @@ export namespace Lexicon {
 export interface LexiconAttributes {
   __type?: "LexiconAttributes";
   /**
+   * <p>Date lexicon was last modified (a timestamp value).</p>
+   */
+  LastModified?: Date;
+
+  /**
    * <p>Phonetic alphabet used in the lexicon.
    *       Valid values are <code>ipa</code> and <code>x-sampa</code>.</p>
    */
   Alphabet?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the lexicon.</p>
+   */
+  LexiconArn?: string;
 
   /**
    * <p>Language code that the lexicon applies to.
@@ -413,24 +423,14 @@ export interface LexiconAttributes {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>Date lexicon was last modified (a timestamp value).</p>
+   * <p>Total size of the lexicon, in characters.</p>
    */
-  LastModified?: Date;
+  Size?: number;
 
   /**
    * <p>Number of lexemes in the lexicon.</p>
    */
   LexemesCount?: number;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the lexicon.</p>
-   */
-  LexiconArn?: string;
-
-  /**
-   * <p>Total size of the lexicon, in characters.</p>
-   */
-  Size?: number;
 }
 
 export namespace LexiconAttributes {
@@ -446,14 +446,14 @@ export namespace LexiconAttributes {
 export interface LexiconDescription {
   __type?: "LexiconDescription";
   /**
-   * <p>Provides lexicon metadata.</p>
-   */
-  Attributes?: LexiconAttributes;
-
-  /**
    * <p>Name of the lexicon.</p>
    */
   Name?: string;
+
+  /**
+   * <p>Provides lexicon metadata.</p>
+   */
+  Attributes?: LexiconAttributes;
 }
 
 export namespace LexiconDescription {
@@ -569,16 +569,16 @@ export namespace ListSpeechSynthesisTasksInput {
 export interface ListSpeechSynthesisTasksOutput {
   __type?: "ListSpeechSynthesisTasksOutput";
   /**
-   * <p>An opaque pagination token returned from the previous List operation
-   *       in this request. If present, this indicates where to continue the listing.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>List of SynthesisTask objects that provides information from the specified task in the list request,
    *       including output format, creation time, task status, and so on.</p>
    */
   SynthesisTasks?: SynthesisTask[];
+
+  /**
+   * <p>An opaque pagination token returned from the previous List operation
+   *       in this request. If present, this indicates where to continue the listing.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListSpeechSynthesisTasksOutput {
@@ -724,10 +724,17 @@ export namespace SsmlMarksNotSupportedForTextTypeException {
 export interface StartSpeechSynthesisTaskInput {
   __type?: "StartSpeechSynthesisTaskInput";
   /**
-   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine
-   *       selected will result in an error.</p>
+   * <p>The audio frequency specified in Hz.</p>
+   *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The
+   *       default value for standard voices is "22050". The default value for neural voices is "24000".</p>
+   *          <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
    */
-  Engine?: Engine | string;
+  SampleRate?: string;
+
+  /**
+   * <p>The type of speech marks returned for the input text.</p>
+   */
+  SpeechMarkTypes?: (SpeechMarkType | string)[];
 
   /**
    * <p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice,
@@ -746,16 +753,15 @@ export interface StartSpeechSynthesisTaskInput {
   LexiconNames?: string[];
 
   /**
-   * <p>The format in which the returned output will be encoded. For
-   *       audio stream, this will be mp3, ogg_vorbis, or pcm. For speech
-   *       marks, this will be json. </p>
-   */
-  OutputFormat: OutputFormat | string | undefined;
-
-  /**
    * <p>Amazon S3 bucket name to which the output file will be saved.</p>
    */
   OutputS3BucketName: string | undefined;
+
+  /**
+   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine
+   *       selected will result in an error.</p>
+   */
+  Engine?: Engine | string;
 
   /**
    * <p>The Amazon S3 key prefix for the output speech file.</p>
@@ -763,22 +769,14 @@ export interface StartSpeechSynthesisTaskInput {
   OutputS3KeyPrefix?: string;
 
   /**
-   * <p>The audio frequency specified in Hz.</p>
-   *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The
-   *       default value for standard voices is "22050". The default value for neural voices is "24000".</p>
-   *          <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
+   * <p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>
    */
-  SampleRate?: string;
+  TextType?: TextType | string;
 
   /**
    * <p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>
    */
   SnsTopicArn?: string;
-
-  /**
-   * <p>The type of speech marks returned for the input text.</p>
-   */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
 
   /**
    * <p>The input text to synthesize. If you specify
@@ -787,14 +785,16 @@ export interface StartSpeechSynthesisTaskInput {
   Text: string | undefined;
 
   /**
-   * <p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>
-   */
-  TextType?: TextType | string;
-
-  /**
    * <p>Voice ID to use for the synthesis. </p>
    */
   VoiceId: VoiceId | string | undefined;
+
+  /**
+   * <p>The format in which the returned output will be encoded. For
+   *       audio stream, this will be mp3, ogg_vorbis, or pcm. For speech
+   *       marks, this will be json. </p>
+   */
+  OutputFormat: OutputFormat | string | undefined;
 }
 
 export namespace StartSpeechSynthesisTaskInput {
@@ -827,15 +827,54 @@ export namespace StartSpeechSynthesisTaskOutput {
 export interface SynthesisTask {
   __type?: "SynthesisTask";
   /**
-   * <p>Timestamp for the time the synthesis task was started.</p>
+   * <p>List of one or more pronunciation lexicon names you want the service
+   *       to apply during synthesis. Lexicons are applied only if the language
+   *       of the lexicon is the same as the language of the voice. </p>
    */
-  CreationTime?: Date;
+  LexiconNames?: string[];
 
   /**
-   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine
-   *       selected will result in an error.</p>
+   * <p>Reason for the current status of a specific speech synthesis task, including
+   *       errors if the task has failed.</p>
    */
-  Engine?: Engine | string;
+  TaskStatusReason?: string;
+
+  /**
+   * <p>Number of billable characters synthesized.</p>
+   */
+  RequestCharacters?: number;
+
+  /**
+   * <p>The format in which the returned output will be encoded. For
+   *       audio stream, this will be mp3, ogg_vorbis, or pcm. For speech
+   *       marks, this will be json. </p>
+   */
+  OutputFormat?: OutputFormat | string;
+
+  /**
+   * <p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>
+   */
+  SnsTopicArn?: string;
+
+  /**
+   * <p>Current status of the individual speech synthesis task.</p>
+   */
+  TaskStatus?: TaskStatus | string;
+
+  /**
+   * <p>Pathway for the output speech file.</p>
+   */
+  OutputUri?: string;
+
+  /**
+   * <p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>
+   */
+  TextType?: TextType | string;
+
+  /**
+   * <p>The type of speech marks returned for the input text.</p>
+   */
+  SpeechMarkTypes?: (SpeechMarkType | string)[];
 
   /**
    * <p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as
@@ -848,30 +887,6 @@ export interface SynthesisTask {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>List of one or more pronunciation lexicon names you want the service
-   *       to apply during synthesis. Lexicons are applied only if the language
-   *       of the lexicon is the same as the language of the voice. </p>
-   */
-  LexiconNames?: string[];
-
-  /**
-   * <p>The format in which the returned output will be encoded. For
-   *       audio stream, this will be mp3, ogg_vorbis, or pcm. For speech
-   *       marks, this will be json. </p>
-   */
-  OutputFormat?: OutputFormat | string;
-
-  /**
-   * <p>Pathway for the output speech file.</p>
-   */
-  OutputUri?: string;
-
-  /**
-   * <p>Number of billable characters synthesized.</p>
-   */
-  RequestCharacters?: number;
-
-  /**
    * <p>The audio frequency specified in Hz.</p>
    *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The
    *       default value for standard voices is "22050". The default value for neural voices is "24000".</p>
@@ -880,14 +895,9 @@ export interface SynthesisTask {
   SampleRate?: string;
 
   /**
-   * <p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>
+   * <p>Voice ID to use for the synthesis. </p>
    */
-  SnsTopicArn?: string;
-
-  /**
-   * <p>The type of speech marks returned for the input text.</p>
-   */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  VoiceId?: VoiceId | string;
 
   /**
    * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
@@ -895,25 +905,15 @@ export interface SynthesisTask {
   TaskId?: string;
 
   /**
-   * <p>Current status of the individual speech synthesis task.</p>
+   * <p>Timestamp for the time the synthesis task was started.</p>
    */
-  TaskStatus?: TaskStatus | string;
+  CreationTime?: Date;
 
   /**
-   * <p>Reason for the current status of a specific speech synthesis task, including
-   *       errors if the task has failed.</p>
+   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine
+   *       selected will result in an error.</p>
    */
-  TaskStatusReason?: string;
-
-  /**
-   * <p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>
-   */
-  TextType?: TextType | string;
-
-  /**
-   * <p>Voice ID to use for the synthesis. </p>
-   */
-  VoiceId?: VoiceId | string;
+  Engine?: Engine | string;
 }
 
 export namespace SynthesisTask {
@@ -943,49 +943,12 @@ export namespace SynthesisTaskNotFoundException {
 export interface SynthesizeSpeechInput {
   __type?: "SynthesizeSpeechInput";
   /**
-   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine
-   *       selected will result in an error.</p>
-   */
-  Engine?: Engine | string;
-
-  /**
-   * <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice,
-   *       such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p>
-   *          <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language
-   *         of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
-   *         operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than
-   *       Hindi.</p>
-   */
-  LanguageCode?: LanguageCode | string;
-
-  /**
-   * <p>List of one or more pronunciation lexicon names you want the service to apply
-   *       during synthesis. Lexicons are applied only if the language of the lexicon is the same
-   *       as the language of the voice. For information about storing lexicons,
-   *       see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html">PutLexicon</a>.</p>
-   */
-  LexiconNames?: string[];
-
-  /**
    * <p>
    *       The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm.
    *       For speech marks, this will be json.  </p>
    *          <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>
    */
   OutputFormat: OutputFormat | string | undefined;
-
-  /**
-   * <p>The audio frequency specified in Hz.</p>
-   *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The
-   *       default value for standard voices is "22050". The default value for neural voices is "24000".</p>
-   *          <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
-   */
-  SampleRate?: string;
-
-  /**
-   * <p>The type of speech marks returned for the input text.</p>
-   */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
 
   /**
    * <p>
@@ -998,18 +961,55 @@ export interface SynthesizeSpeechInput {
 
   /**
    * <p>
+   *       Voice ID to use for the synthesis. You can get a list of
+   *       available voice IDs by calling the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation.
+   *     </p>
+   */
+  VoiceId: VoiceId | string | undefined;
+
+  /**
+   * <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice,
+   *       such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p>
+   *          <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language
+   *         of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
+   *         operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than
+   *       Hindi.</p>
+   */
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The audio frequency specified in Hz.</p>
+   *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The
+   *       default value for standard voices is "22050". The default value for neural voices is "24000".</p>
+   *          <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
+   */
+  SampleRate?: string;
+
+  /**
+   * <p>List of one or more pronunciation lexicon names you want the service to apply
+   *       during synthesis. Lexicons are applied only if the language of the lexicon is the same
+   *       as the language of the voice. For information about storing lexicons,
+   *       see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html">PutLexicon</a>.</p>
+   */
+  LexiconNames?: string[];
+
+  /**
+   * <p>The type of speech marks returned for the input text.</p>
+   */
+  SpeechMarkTypes?: (SpeechMarkType | string)[];
+
+  /**
+   * <p>
    *       Specifies whether the input text is plain text or SSML. The default value is plain text.
    *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/ssml.html">Using SSML</a>.</p>
    */
   TextType?: TextType | string;
 
   /**
-   * <p>
-   *       Voice ID to use for the synthesis. You can get a list of
-   *       available voice IDs by calling the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation.
-   *     </p>
+   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine
+   *       selected will result in an error.</p>
    */
-  VoiceId: VoiceId | string | undefined;
+  Engine?: Engine | string;
 }
 
 export namespace SynthesizeSpeechInput {
@@ -1147,22 +1147,18 @@ export namespace UnsupportedPlsLanguageException {
 export interface Voice {
   __type?: "Voice";
   /**
+   * <p>Name of the voice (for example, Salli, Kendra, etc.).
+   *       This provides a human readable voice name that you might display
+   *     in your application.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>Additional codes for languages available for the specified voice in addition to its default language. </p>
    *          <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since
    *     Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.</p>
    */
   AdditionalLanguageCodes?: (LanguageCode | string)[];
-
-  /**
-   * <p>Gender of the voice.</p>
-   */
-  Gender?: Gender | string;
-
-  /**
-   * <p>Amazon Polly assigned voice ID. This is the ID that you specify
-   *     when calling the <code>SynthesizeSpeech</code> operation.</p>
-   */
-  Id?: VoiceId | string;
 
   /**
    * <p>Language code of the voice.</p>
@@ -1175,16 +1171,20 @@ export interface Voice {
   LanguageName?: string;
 
   /**
-   * <p>Name of the voice (for example, Salli, Kendra, etc.).
-   *       This provides a human readable voice name that you might display
-   *     in your application.</p>
+   * <p>Gender of the voice.</p>
    */
-  Name?: string;
+  Gender?: Gender | string;
 
   /**
    * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that are supported by a given voice.</p>
    */
   SupportedEngines?: (Engine | string)[];
+
+  /**
+   * <p>Amazon Polly assigned voice ID. This is the ID that you specify
+   *     when calling the <code>SynthesizeSpeech</code> operation.</p>
+   */
+  Id?: VoiceId | string;
 }
 
 export namespace Voice {
@@ -1225,6 +1225,7 @@ export type VoiceId =
   | "Justin"
   | "Karl"
   | "Kendra"
+  | "Kevin"
   | "Kimberly"
   | "Lea"
   | "Liv"

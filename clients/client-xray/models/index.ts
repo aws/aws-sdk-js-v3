@@ -12,14 +12,14 @@ export interface Alias {
   Name?: string;
 
   /**
-   * <p>A list of names for the alias, including the canonical name.</p>
-   */
-  Names?: string[];
-
-  /**
    * <p>The type of the alias.</p>
    */
   Type?: string;
+
+  /**
+   * <p>A list of names for the alias, including the canonical name.</p>
+   */
+  Names?: string[];
 }
 
 export namespace Alias {
@@ -36,14 +36,14 @@ export namespace Alias {
 export interface AnnotationValue {
   __type?: "AnnotationValue";
   /**
-   * <p>Value for a Boolean annotation.</p>
-   */
-  BooleanValue?: boolean;
-
-  /**
    * <p>Value for a Number annotation.</p>
    */
   NumberValue?: number;
+
+  /**
+   * <p>Value for a Boolean annotation.</p>
+   */
+  BooleanValue?: boolean;
 
   /**
    * <p>Value for a String annotation.</p>
@@ -84,6 +84,11 @@ export interface BackendConnectionErrors {
   /**
    * <p></p>
    */
+  HTTPCode5XXCount?: number;
+
+  /**
+   * <p></p>
+   */
   ConnectionRefusedCount?: number;
 
   /**
@@ -94,7 +99,7 @@ export interface BackendConnectionErrors {
   /**
    * <p></p>
    */
-  HTTPCode5XXCount?: number;
+  UnknownHostCount?: number;
 
   /**
    * <p></p>
@@ -105,11 +110,6 @@ export interface BackendConnectionErrors {
    * <p></p>
    */
   TimeoutCount?: number;
-
-  /**
-   * <p></p>
-   */
-  UnknownHostCount?: number;
 }
 
 export namespace BackendConnectionErrors {
@@ -147,14 +147,14 @@ export interface BatchGetTracesResult {
   NextToken?: string;
 
   /**
-   * <p>Full traces for the specified requests.</p>
-   */
-  Traces?: Trace[];
-
-  /**
    * <p>Trace IDs of requests that haven't been processed.</p>
    */
   UnprocessedTraceIds?: string[];
+
+  /**
+   * <p>Full traces for the specified requests.</p>
+   */
+  Traces?: Trace[];
 }
 
 export namespace BatchGetTracesResult {
@@ -167,15 +167,15 @@ export namespace BatchGetTracesResult {
 export interface CreateGroupRequest {
   __type?: "CreateGroupRequest";
   /**
-   * <p>The filter expression defining criteria by which to group traces.</p>
-   */
-  FilterExpression?: string;
-
-  /**
    * <p>The case-sensitive name of the new group. Default is a reserved name and names must
    *             be unique.</p>
    */
   GroupName: string | undefined;
+
+  /**
+   * <p>The filter expression defining criteria by which to group traces.</p>
+   */
+  FilterExpression?: string;
 }
 
 export namespace CreateGroupRequest {
@@ -235,14 +235,14 @@ export namespace CreateSamplingRuleResult {
 export interface DeleteGroupRequest {
   __type?: "DeleteGroupRequest";
   /**
-   * <p>The ARN of the group that was generated on creation.</p>
-   */
-  GroupARN?: string;
-
-  /**
    * <p>The case-sensitive name of the group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The ARN of the group that was generated on creation.</p>
+   */
+  GroupARN?: string;
 }
 
 export namespace DeleteGroupRequest {
@@ -304,24 +304,14 @@ export namespace DeleteSamplingRuleResult {
 export interface Edge {
   __type?: "Edge";
   /**
-   * <p>Aliases for the edge.</p>
-   */
-  Aliases?: Alias[];
-
-  /**
    * <p>The end time of the last segment on the edge.</p>
    */
   EndTime?: Date;
 
   /**
-   * <p>Identifier of the edge. Unique within a service map.</p>
+   * <p>Aliases for the edge.</p>
    */
-  ReferenceId?: number;
-
-  /**
-   * <p>A histogram that maps the spread of client response times on an edge.</p>
-   */
-  ResponseTimeHistogram?: HistogramEntry[];
+  Aliases?: Alias[];
 
   /**
    * <p>The start time of the first segment on the edge.</p>
@@ -329,9 +319,19 @@ export interface Edge {
   StartTime?: Date;
 
   /**
+   * <p>Identifier of the edge. Unique within a service map.</p>
+   */
+  ReferenceId?: number;
+
+  /**
    * <p>Response statistics for segments on the edge.</p>
    */
   SummaryStatistics?: EdgeStatistics;
+
+  /**
+   * <p>A histogram that maps the spread of client response times on an edge.</p>
+   */
+  ResponseTimeHistogram?: HistogramEntry[];
 }
 
 export namespace Edge {
@@ -347,9 +347,9 @@ export namespace Edge {
 export interface EdgeStatistics {
   __type?: "EdgeStatistics";
   /**
-   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
+   * <p>The number of requests that completed with a 2xx Success status code.</p>
    */
-  ErrorStatistics?: ErrorStatistics;
+  OkCount?: number;
 
   /**
    * <p>Information about requests that failed with a 5xx Server Error status code.</p>
@@ -357,9 +357,9 @@ export interface EdgeStatistics {
   FaultStatistics?: FaultStatistics;
 
   /**
-   * <p>The number of requests that completed with a 2xx Success status code.</p>
+   * <p>The aggregate response time of completed requests.</p>
    */
-  OkCount?: number;
+  TotalResponseTime?: number;
 
   /**
    * <p>The total number of completed requests.</p>
@@ -367,9 +367,9 @@ export interface EdgeStatistics {
   TotalCount?: number;
 
   /**
-   * <p>The aggregate response time of completed requests.</p>
+   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
    */
-  TotalResponseTime?: number;
+  ErrorStatistics?: ErrorStatistics;
 }
 
 export namespace EdgeStatistics {
@@ -428,6 +428,11 @@ export interface ErrorRootCause {
    *       contains a name, account ID, type, and inferred flag.</p>
    */
   Services?: ErrorRootCauseService[];
+
+  /**
+   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   */
+  ClientImpacting?: boolean;
 }
 
 export namespace ErrorRootCause {
@@ -449,14 +454,14 @@ export interface ErrorRootCauseEntity {
   Exceptions?: RootCauseException[];
 
   /**
-   * <p>The name of the entity.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>A flag that denotes a remote subsegment.</p>
    */
   Remote?: boolean;
+
+  /**
+   * <p>The name of the entity.</p>
+   */
+  Name?: string;
 }
 
 export namespace ErrorRootCauseEntity {
@@ -472,6 +477,21 @@ export namespace ErrorRootCauseEntity {
 export interface ErrorRootCauseService {
   __type?: "ErrorRootCauseService";
   /**
+   * <p>The service name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   */
+  Inferred?: boolean;
+
+  /**
+   * <p>A collection of associated service names.</p>
+   */
+  Names?: string[];
+
+  /**
    * <p>The account ID associated to the service.</p>
    */
   AccountId?: string;
@@ -480,21 +500,6 @@ export interface ErrorRootCauseService {
    * <p>The path of root cause entities found on the service. </p>
    */
   EntityPath?: ErrorRootCauseEntity[];
-
-  /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
-   */
-  Inferred?: boolean;
-
-  /**
-   * <p>The service name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A collection of associated service names.</p>
-   */
-  Names?: string[];
 
   /**
    * <p>The type associated to the service.</p>
@@ -515,6 +520,11 @@ export namespace ErrorRootCauseService {
 export interface ErrorStatistics {
   __type?: "ErrorStatistics";
   /**
+   * <p>The total number of requests that failed with a 4xx Client Error status code.</p>
+   */
+  TotalCount?: number;
+
+  /**
    * <p>The number of requests that failed with untracked 4xx Client Error status
    *       codes.</p>
    */
@@ -524,11 +534,6 @@ export interface ErrorStatistics {
    * <p>The number of requests that failed with a 419 throttling status code.</p>
    */
   ThrottleCount?: number;
-
-  /**
-   * <p>The total number of requests that failed with a 4xx Client Error status code.</p>
-   */
-  TotalCount?: number;
 }
 
 export namespace ErrorStatistics {
@@ -548,6 +553,11 @@ export interface FaultRootCause {
    *       name, account ID, type, and inferred flag.</p>
    */
   Services?: FaultRootCauseService[];
+
+  /**
+   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   */
+  ClientImpacting?: boolean;
 }
 
 export namespace FaultRootCause {
@@ -592,19 +602,19 @@ export namespace FaultRootCauseEntity {
 export interface FaultRootCauseService {
   __type?: "FaultRootCauseService";
   /**
+   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   */
+  Inferred?: boolean;
+
+  /**
    * <p>The account ID associated to the service.</p>
    */
   AccountId?: string;
 
   /**
-   * <p>The path of root cause entities found on the service. </p>
+   * <p>A collection of associated service names.</p>
    */
-  EntityPath?: FaultRootCauseEntity[];
-
-  /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
-   */
-  Inferred?: boolean;
+  Names?: string[];
 
   /**
    * <p>The service name.</p>
@@ -612,9 +622,9 @@ export interface FaultRootCauseService {
   Name?: string;
 
   /**
-   * <p>A collection of associated service names.</p>
+   * <p>The path of root cause entities found on the service. </p>
    */
-  Names?: string[];
+  EntityPath?: FaultRootCauseEntity[];
 
   /**
    * <p>The type associated to the service.</p>
@@ -635,15 +645,15 @@ export namespace FaultRootCauseService {
 export interface FaultStatistics {
   __type?: "FaultStatistics";
   /**
+   * <p>The total number of requests that failed with a 5xx Server Error status code.</p>
+   */
+  TotalCount?: number;
+
+  /**
    * <p>The number of requests that failed with untracked 5xx Server Error status
    *       codes.</p>
    */
   OtherCount?: number;
-
-  /**
-   * <p>The total number of requests that failed with a 5xx Server Error status code.</p>
-   */
-  TotalCount?: number;
 }
 
 export namespace FaultStatistics {
@@ -682,14 +692,14 @@ export namespace GetEncryptionConfigResult {
 export interface GetGroupRequest {
   __type?: "GetGroupRequest";
   /**
-   * <p>The ARN of the group that was generated on creation.</p>
-   */
-  GroupARN?: string;
-
-  /**
    * <p>The case-sensitive name of the group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The ARN of the group that was generated on creation.</p>
+   */
+  GroupARN?: string;
 }
 
 export namespace GetGroupRequest {
@@ -768,14 +778,14 @@ export namespace GetSamplingRulesRequest {
 export interface GetSamplingRulesResult {
   __type?: "GetSamplingRulesResult";
   /**
-   * <p>Pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Rule definitions and metadata.</p>
    */
   SamplingRuleRecords?: SamplingRuleRecord[];
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetSamplingRulesResult {
@@ -804,15 +814,15 @@ export namespace GetSamplingStatisticSummariesRequest {
 export interface GetSamplingStatisticSummariesResult {
   __type?: "GetSamplingStatisticSummariesResult";
   /**
-   * <p>Pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the number of requests instrumented for each sampling
    *          rule.</p>
    */
   SamplingStatisticSummaries?: SamplingStatisticSummary[];
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetSamplingStatisticSummariesResult {
@@ -848,15 +858,15 @@ export interface GetSamplingTargetsResult {
   LastRuleModification?: Date;
 
   /**
-   * <p>Updated rules that the service should use to sample requests.</p>
-   */
-  SamplingTargetDocuments?: SamplingTargetDocument[];
-
-  /**
    * <p>Information about <a>SamplingStatisticsDocument</a> that X-Ray could not
    *          process.</p>
    */
   UnprocessedStatistics?: UnprocessedStatistics[];
+
+  /**
+   * <p>Updated rules that the service should use to sample requests.</p>
+   */
+  SamplingTargetDocuments?: SamplingTargetDocument[];
 }
 
 export namespace GetSamplingTargetsResult {
@@ -869,6 +879,11 @@ export namespace GetSamplingTargetsResult {
 export interface GetServiceGraphRequest {
   __type?: "GetServiceGraphRequest";
   /**
+   * <p>The name of a group to generate a graph based on.</p>
+   */
+  GroupName?: string;
+
+  /**
    * <p>The end of the timeframe for which to generate a graph.</p>
    */
   EndTime: Date | undefined;
@@ -877,11 +892,6 @@ export interface GetServiceGraphRequest {
    * <p>The ARN of a group to generate a graph based on.</p>
    */
   GroupARN?: string;
-
-  /**
-   * <p>The name of a group to generate a graph based on.</p>
-   */
-  GroupName?: string;
 
   /**
    * <p>Pagination token.</p>
@@ -911,25 +921,25 @@ export interface GetServiceGraphResult {
   ContainsOldGroupVersions?: boolean;
 
   /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The end of the time frame for which the graph was generated.</p>
    */
   EndTime?: Date;
 
   /**
-   * <p>Pagination token.</p>
+   * <p>The start of the time frame for which the graph was generated.</p>
    */
-  NextToken?: string;
+  StartTime?: Date;
 
   /**
    * <p>The services that have processed a traced request during the specified time
    *       frame.</p>
    */
   Services?: Service[];
-
-  /**
-   * <p>The start of the time frame for which the graph was generated.</p>
-   */
-  StartTime?: Date;
 }
 
 export namespace GetServiceGraphResult {
@@ -941,23 +951,6 @@ export namespace GetServiceGraphResult {
 
 export interface GetTimeSeriesServiceStatisticsRequest {
   __type?: "GetTimeSeriesServiceStatisticsRequest";
-  /**
-   * <p>The end of the time frame for which to aggregate statistics.</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>A filter expression defining entities that will be aggregated for statistics.
-   *             Supports ID, service, and edge functions. If no selector expression is specified, edge
-   *             statistics are returned. </p>
-   */
-  EntitySelectorExpression?: string;
-
-  /**
-   * <p>The ARN of the group for which to pull statistics from.</p>
-   */
-  GroupARN?: string;
-
   /**
    * <p>The case-sensitive name of the group for which to pull statistics from.</p>
    */
@@ -974,9 +967,26 @@ export interface GetTimeSeriesServiceStatisticsRequest {
   Period?: number;
 
   /**
+   * <p>The ARN of the group for which to pull statistics from.</p>
+   */
+  GroupARN?: string;
+
+  /**
    * <p>The start of the time frame for which to aggregate statistics.</p>
    */
   StartTime: Date | undefined;
+
+  /**
+   * <p>The end of the time frame for which to aggregate statistics.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>A filter expression defining entities that will be aggregated for statistics.
+   *             Supports ID, service, and edge functions. If no selector expression is specified, edge
+   *             statistics are returned. </p>
+   */
+  EntitySelectorExpression?: string;
 }
 
 export namespace GetTimeSeriesServiceStatisticsRequest {
@@ -990,13 +1000,6 @@ export namespace GetTimeSeriesServiceStatisticsRequest {
 export interface GetTimeSeriesServiceStatisticsResult {
   __type?: "GetTimeSeriesServiceStatisticsResult";
   /**
-   * <p>A flag indicating whether or not a group's filter expression has been consistent,
-   *             or if a returned aggregation may show statistics from an older version of the group's
-   *             filter expression.</p>
-   */
-  ContainsOldGroupVersions?: boolean;
-
-  /**
    * <p>Pagination token.</p>
    */
   NextToken?: string;
@@ -1005,6 +1008,13 @@ export interface GetTimeSeriesServiceStatisticsResult {
    * <p>The collection of statistics.</p>
    */
   TimeSeriesServiceStatistics?: TimeSeriesServiceStatistics[];
+
+  /**
+   * <p>A flag indicating whether or not a group's filter expression has been consistent,
+   *             or if a returned aggregation may show statistics from an older version of the group's
+   *             filter expression.</p>
+   */
+  ContainsOldGroupVersions?: boolean;
 }
 
 export namespace GetTimeSeriesServiceStatisticsResult {
@@ -1018,14 +1028,14 @@ export namespace GetTimeSeriesServiceStatisticsResult {
 export interface GetTraceGraphRequest {
   __type?: "GetTraceGraphRequest";
   /**
-   * <p>Pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Trace IDs of requests for which to generate a service graph.</p>
    */
   TraceIds: string[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetTraceGraphRequest {
@@ -1038,14 +1048,14 @@ export namespace GetTraceGraphRequest {
 export interface GetTraceGraphResult {
   __type?: "GetTraceGraphResult";
   /**
-   * <p>Pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The services that have processed one of the specified requests.</p>
    */
   Services?: Service[];
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetTraceGraphResult {
@@ -1063,18 +1073,6 @@ export interface GetTraceSummariesRequest {
   EndTime: Date | undefined;
 
   /**
-   * <p>Specify a filter expression to retrieve trace summaries for services or requests that
-   *       meet certain requirements.</p>
-   */
-  FilterExpression?: string;
-
-  /**
-   * <p>Specify the pagination token returned by a previous request to retrieve the next page
-   *       of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Set to <code>true</code> to get summaries for only a subset of available
    *       traces.</p>
    */
@@ -1087,14 +1085,26 @@ export interface GetTraceSummariesRequest {
   SamplingStrategy?: SamplingStrategy;
 
   /**
-   * <p>The start of the time frame for which to retrieve traces.</p>
+   * <p>Specify the pagination token returned by a previous request to retrieve the next page
+   *       of results.</p>
    */
-  StartTime: Date | undefined;
+  NextToken?: string;
+
+  /**
+   * <p>Specify a filter expression to retrieve trace summaries for services or requests that
+   *       meet certain requirements.</p>
+   */
+  FilterExpression?: string;
 
   /**
    * <p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>
    */
   TimeRangeType?: TimeRangeType | string;
+
+  /**
+   * <p>The start of the time frame for which to retrieve traces.</p>
+   */
+  StartTime: Date | undefined;
 }
 
 export namespace GetTraceSummariesRequest {
@@ -1107,6 +1117,12 @@ export namespace GetTraceSummariesRequest {
 export interface GetTraceSummariesResult {
   __type?: "GetTraceSummariesResult";
   /**
+   * <p>Trace IDs and annotations for traces that were found in the specified time
+   *       frame.</p>
+   */
+  TraceSummaries?: TraceSummary[];
+
+  /**
    * <p>The start time of this page of results.</p>
    */
   ApproximateTime?: Date;
@@ -1117,12 +1133,6 @@ export interface GetTraceSummariesResult {
    *       to the end of the time frame.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Trace IDs and annotations for traces that were found in the specified time
-   *       frame.</p>
-   */
-  TraceSummaries?: TraceSummary[];
 
   /**
    * <p>The total number of traces processed, including traces that did not match the specified
@@ -1144,11 +1154,6 @@ export namespace GetTraceSummariesResult {
 export interface Group {
   __type?: "Group";
   /**
-   * <p>The filter expression defining the parameters to include traces.</p>
-   */
-  FilterExpression?: string;
-
-  /**
    * <p>The ARN of the group generated based on the GroupName.</p>
    */
   GroupARN?: string;
@@ -1157,6 +1162,11 @@ export interface Group {
    * <p>The unique case-sensitive name of the group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The filter expression defining the parameters to include traces.</p>
+   */
+  FilterExpression?: string;
 }
 
 export namespace Group {
@@ -1224,9 +1234,9 @@ export namespace HistogramEntry {
 export interface Http {
   __type?: "Http";
   /**
-   * <p>The IP address of the requestor.</p>
+   * <p>The request URL.</p>
    */
-  ClientIp?: string;
+  HttpURL?: string;
 
   /**
    * <p>The request method.</p>
@@ -1234,19 +1244,19 @@ export interface Http {
   HttpMethod?: string;
 
   /**
-   * <p>The response status.</p>
+   * <p>The IP address of the requestor.</p>
    */
-  HttpStatus?: number;
-
-  /**
-   * <p>The request URL.</p>
-   */
-  HttpURL?: string;
+  ClientIp?: string;
 
   /**
    * <p>The request's user agent string.</p>
    */
   UserAgent?: string;
+
+  /**
+   * <p>The response status.</p>
+   */
+  HttpStatus?: number;
 }
 
 export namespace Http {
@@ -1351,6 +1361,11 @@ export interface PutTelemetryRecordsRequest {
   /**
    * <p></p>
    */
+  TelemetryRecords: TelemetryRecord[] | undefined;
+
+  /**
+   * <p></p>
+   */
   EC2InstanceId?: string;
 
   /**
@@ -1362,11 +1377,6 @@ export interface PutTelemetryRecordsRequest {
    * <p></p>
    */
   ResourceARN?: string;
-
-  /**
-   * <p></p>
-   */
-  TelemetryRecords: TelemetryRecord[] | undefined;
 }
 
 export namespace PutTelemetryRecordsRequest {
@@ -1446,6 +1456,11 @@ export interface ResponseTimeRootCause {
    *       account ID, type, and inferred flag.</p>
    */
   Services?: ResponseTimeRootCauseService[];
+
+  /**
+   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   */
+  ClientImpacting?: boolean;
 }
 
 export namespace ResponseTimeRootCause {
@@ -1490,24 +1505,14 @@ export namespace ResponseTimeRootCauseEntity {
 export interface ResponseTimeRootCauseService {
   __type?: "ResponseTimeRootCauseService";
   /**
-   * <p>The account ID associated to the service.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The path of root cause entities found on the service. </p>
-   */
-  EntityPath?: ResponseTimeRootCauseEntity[];
-
-  /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
-   */
-  Inferred?: boolean;
-
-  /**
    * <p>The service name.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The type associated to the service.</p>
+   */
+  Type?: string;
 
   /**
    * <p>A collection of associated service names.</p>
@@ -1515,9 +1520,19 @@ export interface ResponseTimeRootCauseService {
   Names?: string[];
 
   /**
-   * <p>The type associated to the service.</p>
+   * <p>The account ID associated to the service.</p>
    */
-  Type?: string;
+  AccountId?: string;
+
+  /**
+   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   */
+  Inferred?: boolean;
+
+  /**
+   * <p>The path of root cause entities found on the service. </p>
+   */
+  EntityPath?: ResponseTimeRootCauseEntity[];
 }
 
 export namespace ResponseTimeRootCauseService {
@@ -1574,15 +1589,25 @@ export namespace RuleLimitExceededException {
 export interface SamplingRule {
   __type?: "SamplingRule";
   /**
+   * <p>The percentage of matching requests to instrument, after the reservoir is
+   *       exhausted.</p>
+   */
+  FixedRate: number | undefined;
+
+  /**
+   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   */
+  ServiceType: string | undefined;
+
+  /**
    * <p>Matches attributes derived from the request.</p>
    */
   Attributes?: { [key: string]: string };
 
   /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
+   * <p>The version of the sampling rule format (<code>1</code>).</p>
    */
-  FixedRate: number | undefined;
+  Version: number | undefined;
 
   /**
    * <p>Matches the HTTP method of a request.</p>
@@ -1590,14 +1615,9 @@ export interface SamplingRule {
   HTTPMethod: string | undefined;
 
   /**
-   * <p>Matches the hostname from a request URL.</p>
+   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
    */
-  Host: string | undefined;
-
-  /**
-   * <p>The priority of the sampling rule.</p>
-   */
-  Priority: number | undefined;
+  ServiceName: string | undefined;
 
   /**
    * <p>A fixed number of matching requests to instrument per second, prior to applying the
@@ -1606,29 +1626,24 @@ export interface SamplingRule {
   ReservoirSize: number | undefined;
 
   /**
-   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
    */
   RuleARN?: string;
 
   /**
-   * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * <p>Matches the hostname from a request URL.</p>
    */
-  RuleName?: string;
+  Host: string | undefined;
 
   /**
-   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
    */
-  ServiceName: string | undefined;
+  ResourceARN: string | undefined;
 
   /**
-   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   * <p>The priority of the sampling rule.</p>
    */
-  ServiceType: string | undefined;
+  Priority: number | undefined;
 
   /**
    * <p>Matches the path from a request URL.</p>
@@ -1636,9 +1651,9 @@ export interface SamplingRule {
   URLPath: string | undefined;
 
   /**
-   * <p>The version of the sampling rule format (<code>1</code>).</p>
+   * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
    */
-  Version: number | undefined;
+  RuleName?: string;
 }
 
 export namespace SamplingRule {
@@ -1654,6 +1669,11 @@ export namespace SamplingRule {
 export interface SamplingRuleRecord {
   __type?: "SamplingRuleRecord";
   /**
+   * <p>The sampling rule.</p>
+   */
+  SamplingRule?: SamplingRule;
+
+  /**
    * <p>When the rule was created.</p>
    */
   CreatedAt?: Date;
@@ -1662,11 +1682,6 @@ export interface SamplingRuleRecord {
    * <p>When the rule was last modified.</p>
    */
   ModifiedAt?: Date;
-
-  /**
-   * <p>The sampling rule.</p>
-   */
-  SamplingRule?: SamplingRule;
 }
 
 export namespace SamplingRuleRecord {
@@ -1682,20 +1697,30 @@ export namespace SamplingRuleRecord {
 export interface SamplingRuleUpdate {
   __type?: "SamplingRuleUpdate";
   /**
+   * <p>A fixed number of matching requests to instrument per second, prior to applying the
+   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
+   */
+  ReservoirSize?: number;
+
+  /**
+   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   */
+  ServiceName?: string;
+
+  /**
    * <p>Matches attributes derived from the request.</p>
    */
   Attributes?: { [key: string]: string };
 
   /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
+   * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
    */
-  FixedRate?: number;
+  RuleARN?: string;
 
   /**
-   * <p>Matches the HTTP method of a request.</p>
+   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
    */
-  HTTPMethod?: string;
+  ServiceType?: string;
 
   /**
    * <p>Matches the hostname from a request URL.</p>
@@ -1708,20 +1733,14 @@ export interface SamplingRuleUpdate {
   Priority?: number;
 
   /**
-   * <p>A fixed number of matching requests to instrument per second, prior to applying the
-   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
-   */
-  ReservoirSize?: number;
-
-  /**
    * <p>Matches the ARN of the AWS resource on which the service runs.</p>
    */
   ResourceARN?: string;
 
   /**
-   * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * <p>Matches the path from a request URL.</p>
    */
-  RuleARN?: string;
+  URLPath?: string;
 
   /**
    * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
@@ -1729,19 +1748,15 @@ export interface SamplingRuleUpdate {
   RuleName?: string;
 
   /**
-   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   * <p>The percentage of matching requests to instrument, after the reservoir is
+   *       exhausted.</p>
    */
-  ServiceName?: string;
+  FixedRate?: number;
 
   /**
-   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   * <p>Matches the HTTP method of a request.</p>
    */
-  ServiceType?: string;
-
-  /**
-   * <p>Matches the path from a request URL.</p>
-   */
-  URLPath?: string;
+  HTTPMethod?: string;
 }
 
 export namespace SamplingRuleUpdate {
@@ -1759,14 +1774,9 @@ export namespace SamplingRuleUpdate {
 export interface SamplingStatisticsDocument {
   __type?: "SamplingStatisticsDocument";
   /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   * <p>The number of requests recorded.</p>
    */
-  BorrowCount?: number;
-
-  /**
-   * <p>A unique identifier for the service in hexadecimal.</p>
-   */
-  ClientID: string | undefined;
+  SampledCount: number | undefined;
 
   /**
    * <p>The number of requests that matched the rule.</p>
@@ -1779,14 +1789,19 @@ export interface SamplingStatisticsDocument {
   RuleName: string | undefined;
 
   /**
-   * <p>The number of requests recorded.</p>
+   * <p>The number of requests recorded with borrowed reservoir quota.</p>
    */
-  SampledCount: number | undefined;
+  BorrowCount?: number;
 
   /**
    * <p>The current time.</p>
    */
   Timestamp: Date | undefined;
+
+  /**
+   * <p>A unique identifier for the service in hexadecimal.</p>
+   */
+  ClientID: string | undefined;
 }
 
 export namespace SamplingStatisticsDocument {
@@ -1803,16 +1818,6 @@ export namespace SamplingStatisticsDocument {
 export interface SamplingStatisticSummary {
   __type?: "SamplingStatisticSummary";
   /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
-   */
-  BorrowCount?: number;
-
-  /**
-   * <p>The number of requests that matched the rule.</p>
-   */
-  RequestCount?: number;
-
-  /**
    * <p>The name of the sampling rule.</p>
    */
   RuleName?: string;
@@ -1826,6 +1831,16 @@ export interface SamplingStatisticSummary {
    * <p>The start time of the reporting window.</p>
    */
   Timestamp?: Date;
+
+  /**
+   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   */
+  BorrowCount?: number;
+
+  /**
+   * <p>The number of requests that matched the rule.</p>
+   */
+  RequestCount?: number;
 }
 
 export namespace SamplingStatisticSummary {
@@ -1871,6 +1886,16 @@ export enum SamplingStrategyName {
 export interface SamplingTargetDocument {
   __type?: "SamplingTargetDocument";
   /**
+   * <p>The name of the sampling rule.</p>
+   */
+  RuleName?: string;
+
+  /**
+   * <p>When the reservoir quota expires.</p>
+   */
+  ReservoirQuotaTTL?: Date;
+
+  /**
    * <p>The percentage of matching requests to instrument, after the reservoir is
    *       exhausted.</p>
    */
@@ -1886,16 +1911,6 @@ export interface SamplingTargetDocument {
    * <p>The number of requests per second that X-Ray allocated this service.</p>
    */
   ReservoirQuota?: number;
-
-  /**
-   * <p>When the reservoir quota expires.</p>
-   */
-  ReservoirQuotaTTL?: Date;
-
-  /**
-   * <p>The name of the sampling rule.</p>
-   */
-  RuleName?: string;
 }
 
 export namespace SamplingTargetDocument {
@@ -1916,14 +1931,14 @@ export namespace SamplingTargetDocument {
 export interface Segment {
   __type?: "Segment";
   /**
-   * <p>The segment document.</p>
-   */
-  Document?: string;
-
-  /**
    * <p>The segment's ID.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The segment document.</p>
+   */
+  Document?: string;
 }
 
 export namespace Segment {
@@ -1940,54 +1955,9 @@ export namespace Segment {
 export interface Service {
   __type?: "Service";
   /**
-   * <p>Identifier of the AWS account in which the service runs.</p>
+   * <p>Aggregated statistics for the service.</p>
    */
-  AccountId?: string;
-
-  /**
-   * <p>A histogram that maps the spread of service durations.</p>
-   */
-  DurationHistogram?: HistogramEntry[];
-
-  /**
-   * <p>Connections to downstream services.</p>
-   */
-  Edges?: Edge[];
-
-  /**
-   * <p>The end time of the last segment that the service generated.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The canonical name of the service.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A list of names for the service, including the canonical name.</p>
-   */
-  Names?: string[];
-
-  /**
-   * <p>Identifier for the service. Unique within the service map.</p>
-   */
-  ReferenceId?: number;
-
-  /**
-   * <p>A histogram that maps the spread of service response times.</p>
-   */
-  ResponseTimeHistogram?: HistogramEntry[];
-
-  /**
-   * <p>Indicates that the service was the first service to process a request.</p>
-   */
-  Root?: boolean;
-
-  /**
-   * <p>The start time of the first segment that the service generated.</p>
-   */
-  StartTime?: Date;
+  SummaryStatistics?: ServiceStatistics;
 
   /**
    * <p>The service's state.</p>
@@ -1995,9 +1965,54 @@ export interface Service {
   State?: string;
 
   /**
-   * <p>Aggregated statistics for the service.</p>
+   * <p>The start time of the first segment that the service generated.</p>
    */
-  SummaryStatistics?: ServiceStatistics;
+  StartTime?: Date;
+
+  /**
+   * <p>A histogram that maps the spread of service response times.</p>
+   */
+  ResponseTimeHistogram?: HistogramEntry[];
+
+  /**
+   * <p>Identifier of the AWS account in which the service runs.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The canonical name of the service.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The end time of the last segment that the service generated.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Connections to downstream services.</p>
+   */
+  Edges?: Edge[];
+
+  /**
+   * <p>A histogram that maps the spread of service durations.</p>
+   */
+  DurationHistogram?: HistogramEntry[];
+
+  /**
+   * <p>Identifier for the service. Unique within the service map.</p>
+   */
+  ReferenceId?: number;
+
+  /**
+   * <p>Indicates that the service was the first service to process a request.</p>
+   */
+  Root?: boolean;
+
+  /**
+   * <p>A list of names for the service, including the canonical name.</p>
+   */
+  Names?: string[];
 
   /**
    * <p>The type of service.</p>
@@ -2046,17 +2061,17 @@ export interface ServiceId {
   /**
    * <p></p>
    */
+  Type?: string;
+
+  /**
+   * <p></p>
+   */
   Name?: string;
 
   /**
    * <p></p>
    */
   Names?: string[];
-
-  /**
-   * <p></p>
-   */
-  Type?: string;
 }
 
 export namespace ServiceId {
@@ -2072,19 +2087,9 @@ export namespace ServiceId {
 export interface ServiceStatistics {
   __type?: "ServiceStatistics";
   /**
-   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
+   * <p>The aggregate response time of completed requests.</p>
    */
-  ErrorStatistics?: ErrorStatistics;
-
-  /**
-   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
-   */
-  FaultStatistics?: FaultStatistics;
-
-  /**
-   * <p>The number of requests that completed with a 2xx Success status code.</p>
-   */
-  OkCount?: number;
+  TotalResponseTime?: number;
 
   /**
    * <p>The total number of completed requests.</p>
@@ -2092,9 +2097,19 @@ export interface ServiceStatistics {
   TotalCount?: number;
 
   /**
-   * <p>The aggregate response time of completed requests.</p>
+   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
    */
-  TotalResponseTime?: number;
+  ErrorStatistics?: ErrorStatistics;
+
+  /**
+   * <p>The number of requests that completed with a 2xx Success status code.</p>
+   */
+  OkCount?: number;
+
+  /**
+   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
+   */
+  FaultStatistics?: FaultStatistics;
 }
 
 export namespace ServiceStatistics {
@@ -2112,7 +2127,7 @@ export interface TelemetryRecord {
   /**
    * <p></p>
    */
-  BackendConnectionErrors?: BackendConnectionErrors;
+  Timestamp: Date | undefined;
 
   /**
    * <p></p>
@@ -2122,22 +2137,22 @@ export interface TelemetryRecord {
   /**
    * <p></p>
    */
-  SegmentsRejectedCount?: number;
-
-  /**
-   * <p></p>
-   */
   SegmentsSentCount?: number;
 
   /**
    * <p></p>
    */
-  SegmentsSpilloverCount?: number;
+  SegmentsRejectedCount?: number;
 
   /**
    * <p></p>
    */
-  Timestamp: Date | undefined;
+  BackendConnectionErrors?: BackendConnectionErrors;
+
+  /**
+   * <p></p>
+   */
+  SegmentsSpilloverCount?: number;
 }
 
 export namespace TelemetryRecord {
@@ -2174,16 +2189,6 @@ export enum TimeRangeType {
 export interface TimeSeriesServiceStatistics {
   __type?: "TimeSeriesServiceStatistics";
   /**
-   * <p>Response statistics for an edge.</p>
-   */
-  EdgeSummaryStatistics?: EdgeStatistics;
-
-  /**
-   * <p>The response time histogram for the selected entities.</p>
-   */
-  ResponseTimeHistogram?: HistogramEntry[];
-
-  /**
    * <p>Response statistics for a service.</p>
    */
   ServiceSummaryStatistics?: ServiceStatistics;
@@ -2192,6 +2197,16 @@ export interface TimeSeriesServiceStatistics {
    * <p>Timestamp of the window for which statistics are aggregated.</p>
    */
   Timestamp?: Date;
+
+  /**
+   * <p>Response statistics for an edge.</p>
+   */
+  EdgeSummaryStatistics?: EdgeStatistics;
+
+  /**
+   * <p>The response time histogram for the selected entities.</p>
+   */
+  ResponseTimeHistogram?: HistogramEntry[];
 }
 
 export namespace TimeSeriesServiceStatistics {
@@ -2207,12 +2222,6 @@ export namespace TimeSeriesServiceStatistics {
 export interface Trace {
   __type?: "Trace";
   /**
-   * <p>The length of time in seconds between the start time of the root segment and the end
-   *       time of the last segment that completed.</p>
-   */
-  Duration?: number;
-
-  /**
    * <p>The unique identifier for the request that generated the trace's segments and
    *       subsegments.</p>
    */
@@ -2222,6 +2231,12 @@ export interface Trace {
    * <p>Segment documents for the segments and subsegments that comprise the trace.</p>
    */
   Segments?: Segment[];
+
+  /**
+   * <p>The length of time in seconds between the start time of the root segment and the end
+   *       time of the last segment that completed.</p>
+   */
+  Duration?: number;
 }
 
 export namespace Trace {
@@ -2237,32 +2252,9 @@ export namespace Trace {
 export interface TraceSummary {
   __type?: "TraceSummary";
   /**
-   * <p>Annotations from the trace's segment documents.</p>
-   */
-  Annotations?: { [key: string]: ValueWithServiceIds[] };
-
-  /**
-   * <p>A list of availability zones for any zone corresponding to the trace
-   *       segments.</p>
-   */
-  AvailabilityZones?: AvailabilityZoneDetail[];
-
-  /**
-   * <p>The length of time in seconds between the start time of the root segment and the end
-   *       time of the last segment that completed.</p>
-   */
-  Duration?: number;
-
-  /**
    * <p>The root of a trace.</p>
    */
   EntryPoint?: ServiceId;
-
-  /**
-   * <p>A collection of ErrorRootCause structures corresponding to the trace
-   *       segments.</p>
-   */
-  ErrorRootCauses?: ErrorRootCause[];
 
   /**
    * <p>A collection of FaultRootCause structures corresponding to the the trace
@@ -2271,30 +2263,15 @@ export interface TraceSummary {
   FaultRootCauses?: FaultRootCause[];
 
   /**
-   * <p>The root segment document has a 400 series error.</p>
-   */
-  HasError?: boolean;
-
-  /**
-   * <p>The root segment document has a 500 series error.</p>
-   */
-  HasFault?: boolean;
-
-  /**
-   * <p>One or more of the segment documents has a 429 throttling error.</p>
-   */
-  HasThrottle?: boolean;
-
-  /**
    * <p>Information about the HTTP request served by the trace.</p>
    */
   Http?: Http;
 
   /**
-   * <p>The unique identifier for the request that generated the trace's segments and
-   *       subsegments.</p>
+   * <p>A list of availability zones for any zone corresponding to the trace
+   *       segments.</p>
    */
-  Id?: string;
+  AvailabilityZones?: AvailabilityZoneDetail[];
 
   /**
    * <p>A list of EC2 instance IDs for any instance corresponding to the trace
@@ -2303,9 +2280,9 @@ export interface TraceSummary {
   InstanceIds?: InstanceIdDetail[];
 
   /**
-   * <p>One or more of the segment documents is in progress.</p>
+   * <p>The root segment document has a 400 series error.</p>
    */
-  IsPartial?: boolean;
+  HasError?: boolean;
 
   /**
    * <p>The matched time stamp of a defined event.</p>
@@ -2313,9 +2290,42 @@ export interface TraceSummary {
   MatchedEventTime?: Date;
 
   /**
+   * <p>The unique identifier for the request that generated the trace's segments and
+   *       subsegments.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>A list of resource ARNs for any resource corresponding to the trace segments.</p>
    */
   ResourceARNs?: ResourceARNDetail[];
+
+  /**
+   * <p>The root segment document has a 500 series error.</p>
+   */
+  HasFault?: boolean;
+
+  /**
+   * <p>Annotations from the trace's segment documents.</p>
+   */
+  Annotations?: { [key: string]: ValueWithServiceIds[] };
+
+  /**
+   * <p>A collection of ErrorRootCause structures corresponding to the trace
+   *       segments.</p>
+   */
+  ErrorRootCauses?: ErrorRootCause[];
+
+  /**
+   * <p>One or more of the segment documents is in progress.</p>
+   */
+  IsPartial?: boolean;
+
+  /**
+   * <p>The length of time in seconds between the start time of the root segment and the end
+   *       time of the last segment that completed.</p>
+   */
+  Duration?: number;
 
   /**
    * <p>The length of time in seconds between the start and end times of the root segment. If
@@ -2324,6 +2334,11 @@ export interface TraceSummary {
    *       traced activity completes.</p>
    */
   ResponseTime?: number;
+
+  /**
+   * <p>Service IDs from the trace's segment documents.</p>
+   */
+  ServiceIds?: ServiceId[];
 
   /**
    * <p>A collection of ResponseTimeRootCause structures corresponding to the trace
@@ -2337,9 +2352,9 @@ export interface TraceSummary {
   Revision?: number;
 
   /**
-   * <p>Service IDs from the trace's segment documents.</p>
+   * <p>One or more of the segment documents has a 429 throttling error.</p>
    */
-  ServiceIds?: ServiceId[];
+  HasThrottle?: boolean;
 
   /**
    * <p>Users from the trace's segment documents.</p>
@@ -2360,14 +2375,14 @@ export namespace TraceSummary {
 export interface TraceUser {
   __type?: "TraceUser";
   /**
-   * <p>Services that the user's request hit.</p>
-   */
-  ServiceIds?: ServiceId[];
-
-  /**
    * <p>The user's name.</p>
    */
   UserName?: string;
+
+  /**
+   * <p>Services that the user's request hit.</p>
+   */
+  ServiceIds?: ServiceId[];
 }
 
 export namespace TraceUser {
@@ -2384,14 +2399,14 @@ export namespace TraceUser {
 export interface UnprocessedStatistics {
   __type?: "UnprocessedStatistics";
   /**
-   * <p>The error code.</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>The error message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: string;
 
   /**
    * <p>The name of the sampling rule.</p>
@@ -2412,9 +2427,9 @@ export namespace UnprocessedStatistics {
 export interface UnprocessedTraceSegment {
   __type?: "UnprocessedTraceSegment";
   /**
-   * <p>The error that caused processing to fail.</p>
+   * <p>The error message.</p>
    */
-  ErrorCode?: string;
+  Message?: string;
 
   /**
    * <p>The segment's ID.</p>
@@ -2422,9 +2437,9 @@ export interface UnprocessedTraceSegment {
   Id?: string;
 
   /**
-   * <p>The error message.</p>
+   * <p>The error that caused processing to fail.</p>
    */
-  Message?: string;
+  ErrorCode?: string;
 }
 
 export namespace UnprocessedTraceSegment {
@@ -2437,6 +2452,11 @@ export namespace UnprocessedTraceSegment {
 export interface UpdateGroupRequest {
   __type?: "UpdateGroupRequest";
   /**
+   * <p>The case-sensitive name of the group.</p>
+   */
+  GroupName?: string;
+
+  /**
    * <p>The updated filter expression defining criteria by which to group traces.</p>
    */
   FilterExpression?: string;
@@ -2445,11 +2465,6 @@ export interface UpdateGroupRequest {
    * <p>The ARN that was generated upon creation.</p>
    */
   GroupARN?: string;
-
-  /**
-   * <p>The case-sensitive name of the group.</p>
-   */
-  GroupName?: string;
 }
 
 export namespace UpdateGroupRequest {
@@ -2512,14 +2527,14 @@ export namespace UpdateSamplingRuleResult {
 export interface ValueWithServiceIds {
   __type?: "ValueWithServiceIds";
   /**
-   * <p>Values of the annotation.</p>
-   */
-  AnnotationValue?: AnnotationValue;
-
-  /**
    * <p>Services to which the annotation applies.</p>
    */
   ServiceIds?: ServiceId[];
+
+  /**
+   * <p>Values of the annotation.</p>
+   */
+  AnnotationValue?: AnnotationValue;
 }
 
 export namespace ValueWithServiceIds {

@@ -58,6 +58,8 @@ import {
   EngineVersion,
   ForbiddenException,
   InternalServerErrorException,
+  LdapServerMetadataInput,
+  LdapServerMetadataOutput,
   Logs,
   LogsSummary,
   NotFoundException,
@@ -92,6 +94,7 @@ export const serializeAws_restJson1CreateBrokerCommand = async (
   let resolvedPath = "/v1/brokers";
   let body: any;
   body = JSON.stringify({
+    ...(input.AuthenticationStrategy !== undefined && { authenticationStrategy: input.AuthenticationStrategy }),
     ...(input.AutoMinorVersionUpgrade !== undefined && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
     ...(input.BrokerName !== undefined && { brokerName: input.BrokerName }),
     ...(input.Configuration !== undefined && {
@@ -105,6 +108,9 @@ export const serializeAws_restJson1CreateBrokerCommand = async (
     ...(input.EngineType !== undefined && { engineType: input.EngineType }),
     ...(input.EngineVersion !== undefined && { engineVersion: input.EngineVersion }),
     ...(input.HostInstanceType !== undefined && { hostInstanceType: input.HostInstanceType }),
+    ...(input.LdapServerMetadata !== undefined && {
+      ldapServerMetadata: serializeAws_restJson1LdapServerMetadataInput(input.LdapServerMetadata, context),
+    }),
     ...(input.Logs !== undefined && { logs: serializeAws_restJson1Logs(input.Logs, context) }),
     ...(input.MaintenanceWindowStartTime !== undefined && {
       maintenanceWindowStartTime: serializeAws_restJson1WeeklyStartTime(input.MaintenanceWindowStartTime, context),
@@ -142,6 +148,7 @@ export const serializeAws_restJson1CreateConfigurationCommand = async (
   let resolvedPath = "/v1/configurations";
   let body: any;
   body = JSON.stringify({
+    ...(input.AuthenticationStrategy !== undefined && { authenticationStrategy: input.AuthenticationStrategy }),
     ...(input.EngineType !== undefined && { engineType: input.EngineType }),
     ...(input.EngineVersion !== undefined && { engineVersion: input.EngineVersion }),
     ...(input.Name !== undefined && { name: input.Name }),
@@ -200,15 +207,6 @@ export const serializeAws_restJson1CreateUserCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
-  if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BrokerId.");
-    }
-    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BrokerId.");
-  }
   if (input.Username !== undefined) {
     const labelValue: string = input.Username;
     if (labelValue.length <= 0) {
@@ -217,6 +215,15 @@ export const serializeAws_restJson1CreateUserCommand = async (
     resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
+  }
+  if (input.BrokerId !== undefined) {
+    const labelValue: string = input.BrokerId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: BrokerId.");
+    }
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -378,9 +385,9 @@ export const serializeAws_restJson1DescribeBrokerEngineTypesCommand = async (
   };
   let resolvedPath = "/v1/broker-engine-types";
   const query: any = {
-    ...(input.EngineType !== undefined && { engineType: input.EngineType }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.EngineType !== undefined && { engineType: input.EngineType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -405,11 +412,11 @@ export const serializeAws_restJson1DescribeBrokerInstanceOptionsCommand = async 
   };
   let resolvedPath = "/v1/broker-instance-options";
   const query: any = {
-    ...(input.EngineType !== undefined && { engineType: input.EngineType }),
-    ...(input.HostInstanceType !== undefined && { hostInstanceType: input.HostInstanceType }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.StorageType !== undefined && { storageType: input.StorageType }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.HostInstanceType !== undefined && { hostInstanceType: input.HostInstanceType }),
+    ...(input.EngineType !== undefined && { engineType: input.EngineType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -463,15 +470,6 @@ export const serializeAws_restJson1DescribeConfigurationRevisionCommand = async 
     "Content-Type": "",
   };
   let resolvedPath = "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}";
-  if (input.ConfigurationId !== undefined) {
-    const labelValue: string = input.ConfigurationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationId.");
-  }
   if (input.ConfigurationRevision !== undefined) {
     const labelValue: string = input.ConfigurationRevision;
     if (labelValue.length <= 0) {
@@ -480,6 +478,15 @@ export const serializeAws_restJson1DescribeConfigurationRevisionCommand = async 
     resolvedPath = resolvedPath.replace("{ConfigurationRevision}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationRevision.");
+  }
+  if (input.ConfigurationId !== undefined) {
+    const labelValue: string = input.ConfigurationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConfigurationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConfigurationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -502,15 +509,6 @@ export const serializeAws_restJson1DescribeUserCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
-  if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BrokerId.");
-    }
-    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BrokerId.");
-  }
   if (input.Username !== undefined) {
     const labelValue: string = input.Username;
     if (labelValue.length <= 0) {
@@ -519,6 +517,15 @@ export const serializeAws_restJson1DescribeUserCommand = async (
     resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
+  }
+  if (input.BrokerId !== undefined) {
+    const labelValue: string = input.BrokerId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: BrokerId.");
+    }
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -603,8 +610,8 @@ export const serializeAws_restJson1ListConfigurationsCommand = async (
   };
   let resolvedPath = "/v1/configurations";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -734,12 +741,16 @@ export const serializeAws_restJson1UpdateBrokerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.AuthenticationStrategy !== undefined && { authenticationStrategy: input.AuthenticationStrategy }),
     ...(input.AutoMinorVersionUpgrade !== undefined && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
     ...(input.Configuration !== undefined && {
       configuration: serializeAws_restJson1ConfigurationId(input.Configuration, context),
     }),
     ...(input.EngineVersion !== undefined && { engineVersion: input.EngineVersion }),
     ...(input.HostInstanceType !== undefined && { hostInstanceType: input.HostInstanceType }),
+    ...(input.LdapServerMetadata !== undefined && {
+      ldapServerMetadata: serializeAws_restJson1LdapServerMetadataInput(input.LdapServerMetadata, context),
+    }),
     ...(input.Logs !== undefined && { logs: serializeAws_restJson1Logs(input.Logs, context) }),
     ...(input.SecurityGroups !== undefined && {
       securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
@@ -799,15 +810,6 @@ export const serializeAws_restJson1UpdateUserCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
-  if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BrokerId.");
-    }
-    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BrokerId.");
-  }
   if (input.Username !== undefined) {
     const labelValue: string = input.Username;
     if (labelValue.length <= 0) {
@@ -816,6 +818,15 @@ export const serializeAws_restJson1UpdateUserCommand = async (
     resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
+  }
+  if (input.BrokerId !== undefined) {
+    const labelValue: string = input.BrokerId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: BrokerId.");
+    }
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -938,6 +949,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "CreateConfigurationResponse",
     Arn: undefined,
+    AuthenticationStrategy: undefined,
     Created: undefined,
     Id: undefined,
     LatestRevision: undefined,
@@ -946,6 +958,9 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
     contents.Arn = data.arn;
+  }
+  if (data.authenticationStrategy !== undefined && data.authenticationStrategy !== null) {
+    contents.AuthenticationStrategy = data.authenticationStrategy;
   }
   if (data.created !== undefined && data.created !== null) {
     contents.Created = new Date(data.created);
@@ -1423,6 +1438,7 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
   const contents: DescribeBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBrokerResponse",
+    AuthenticationStrategy: undefined,
     AutoMinorVersionUpgrade: undefined,
     BrokerArn: undefined,
     BrokerId: undefined,
@@ -1436,10 +1452,13 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
     EngineType: undefined,
     EngineVersion: undefined,
     HostInstanceType: undefined,
+    LdapServerMetadata: undefined,
     Logs: undefined,
     MaintenanceWindowStartTime: undefined,
+    PendingAuthenticationStrategy: undefined,
     PendingEngineVersion: undefined,
     PendingHostInstanceType: undefined,
+    PendingLdapServerMetadata: undefined,
     PendingSecurityGroups: undefined,
     PubliclyAccessible: undefined,
     SecurityGroups: undefined,
@@ -1449,6 +1468,9 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
     Users: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.authenticationStrategy !== undefined && data.authenticationStrategy !== null) {
+    contents.AuthenticationStrategy = data.authenticationStrategy;
+  }
   if (data.autoMinorVersionUpgrade !== undefined && data.autoMinorVersionUpgrade !== null) {
     contents.AutoMinorVersionUpgrade = data.autoMinorVersionUpgrade;
   }
@@ -1488,6 +1510,9 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
   if (data.hostInstanceType !== undefined && data.hostInstanceType !== null) {
     contents.HostInstanceType = data.hostInstanceType;
   }
+  if (data.ldapServerMetadata !== undefined && data.ldapServerMetadata !== null) {
+    contents.LdapServerMetadata = deserializeAws_restJson1LdapServerMetadataOutput(data.ldapServerMetadata, context);
+  }
   if (data.logs !== undefined && data.logs !== null) {
     contents.Logs = deserializeAws_restJson1LogsSummary(data.logs, context);
   }
@@ -1497,11 +1522,20 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
       context
     );
   }
+  if (data.pendingAuthenticationStrategy !== undefined && data.pendingAuthenticationStrategy !== null) {
+    contents.PendingAuthenticationStrategy = data.pendingAuthenticationStrategy;
+  }
   if (data.pendingEngineVersion !== undefined && data.pendingEngineVersion !== null) {
     contents.PendingEngineVersion = data.pendingEngineVersion;
   }
   if (data.pendingHostInstanceType !== undefined && data.pendingHostInstanceType !== null) {
     contents.PendingHostInstanceType = data.pendingHostInstanceType;
+  }
+  if (data.pendingLdapServerMetadata !== undefined && data.pendingLdapServerMetadata !== null) {
+    contents.PendingLdapServerMetadata = deserializeAws_restJson1LdapServerMetadataOutput(
+      data.pendingLdapServerMetadata,
+      context
+    );
   }
   if (data.pendingSecurityGroups !== undefined && data.pendingSecurityGroups !== null) {
     contents.PendingSecurityGroups = deserializeAws_restJson1__listOf__string(data.pendingSecurityGroups, context);
@@ -1762,6 +1796,7 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "DescribeConfigurationResponse",
     Arn: undefined,
+    AuthenticationStrategy: undefined,
     Created: undefined,
     Description: undefined,
     EngineType: undefined,
@@ -1774,6 +1809,9 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
     contents.Arn = data.arn;
+  }
+  if (data.authenticationStrategy !== undefined && data.authenticationStrategy !== null) {
+    contents.AuthenticationStrategy = data.authenticationStrategy;
   }
   if (data.created !== undefined && data.created !== null) {
     contents.Created = new Date(data.created);
@@ -2557,15 +2595,20 @@ export const deserializeAws_restJson1UpdateBrokerCommand = async (
   const contents: UpdateBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateBrokerResponse",
+    AuthenticationStrategy: undefined,
     AutoMinorVersionUpgrade: undefined,
     BrokerId: undefined,
     Configuration: undefined,
     EngineVersion: undefined,
     HostInstanceType: undefined,
+    LdapServerMetadata: undefined,
     Logs: undefined,
     SecurityGroups: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.authenticationStrategy !== undefined && data.authenticationStrategy !== null) {
+    contents.AuthenticationStrategy = data.authenticationStrategy;
+  }
   if (data.autoMinorVersionUpgrade !== undefined && data.autoMinorVersionUpgrade !== null) {
     contents.AutoMinorVersionUpgrade = data.autoMinorVersionUpgrade;
   }
@@ -2580,6 +2623,9 @@ export const deserializeAws_restJson1UpdateBrokerCommand = async (
   }
   if (data.hostInstanceType !== undefined && data.hostInstanceType !== null) {
     contents.HostInstanceType = data.hostInstanceType;
+  }
+  if (data.ldapServerMetadata !== undefined && data.ldapServerMetadata !== null) {
+    contents.LdapServerMetadata = deserializeAws_restJson1LdapServerMetadataOutput(data.ldapServerMetadata, context);
   }
   if (data.logs !== undefined && data.logs !== null) {
     contents.Logs = deserializeAws_restJson1Logs(data.logs, context);
@@ -3009,6 +3055,25 @@ const serializeAws_restJson1EncryptionOptions = (input: EncryptionOptions, conte
   };
 };
 
+const serializeAws_restJson1LdapServerMetadataInput = (
+  input: LdapServerMetadataInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Hosts !== undefined && { hosts: serializeAws_restJson1__listOf__string(input.Hosts, context) }),
+    ...(input.RoleBase !== undefined && { roleBase: input.RoleBase }),
+    ...(input.RoleName !== undefined && { roleName: input.RoleName }),
+    ...(input.RoleSearchMatching !== undefined && { roleSearchMatching: input.RoleSearchMatching }),
+    ...(input.RoleSearchSubtree !== undefined && { roleSearchSubtree: input.RoleSearchSubtree }),
+    ...(input.ServiceAccountPassword !== undefined && { serviceAccountPassword: input.ServiceAccountPassword }),
+    ...(input.ServiceAccountUsername !== undefined && { serviceAccountUsername: input.ServiceAccountUsername }),
+    ...(input.UserBase !== undefined && { userBase: input.UserBase }),
+    ...(input.UserRoleName !== undefined && { userRoleName: input.UserRoleName }),
+    ...(input.UserSearchMatching !== undefined && { userSearchMatching: input.UserSearchMatching }),
+    ...(input.UserSearchSubtree !== undefined && { userSearchSubtree: input.UserSearchSubtree }),
+  };
+};
+
 const serializeAws_restJson1Logs = (input: Logs, context: __SerdeContext): any => {
   return {
     ...(input.Audit !== undefined && { audit: input.Audit }),
@@ -3178,6 +3243,10 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
   return {
     __type: "Configuration",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    AuthenticationStrategy:
+      output.authenticationStrategy !== undefined && output.authenticationStrategy !== null
+        ? output.authenticationStrategy
+        : undefined,
     Created: output.created !== undefined && output.created !== null ? new Date(output.created) : undefined,
     Description: output.description !== undefined && output.description !== null ? output.description : undefined,
     EngineType: output.engineType !== undefined && output.engineType !== null ? output.engineType : undefined,
@@ -3244,6 +3313,43 @@ const deserializeAws_restJson1EngineVersion = (output: any, context: __SerdeCont
   return {
     __type: "EngineVersion",
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LdapServerMetadataOutput = (
+  output: any,
+  context: __SerdeContext
+): LdapServerMetadataOutput => {
+  return {
+    __type: "LdapServerMetadataOutput",
+    Hosts:
+      output.hosts !== undefined && output.hosts !== null
+        ? deserializeAws_restJson1__listOf__string(output.hosts, context)
+        : undefined,
+    RoleBase: output.roleBase !== undefined && output.roleBase !== null ? output.roleBase : undefined,
+    RoleName: output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
+    RoleSearchMatching:
+      output.roleSearchMatching !== undefined && output.roleSearchMatching !== null
+        ? output.roleSearchMatching
+        : undefined,
+    RoleSearchSubtree:
+      output.roleSearchSubtree !== undefined && output.roleSearchSubtree !== null
+        ? output.roleSearchSubtree
+        : undefined,
+    ServiceAccountUsername:
+      output.serviceAccountUsername !== undefined && output.serviceAccountUsername !== null
+        ? output.serviceAccountUsername
+        : undefined,
+    UserBase: output.userBase !== undefined && output.userBase !== null ? output.userBase : undefined,
+    UserRoleName: output.userRoleName !== undefined && output.userRoleName !== null ? output.userRoleName : undefined,
+    UserSearchMatching:
+      output.userSearchMatching !== undefined && output.userSearchMatching !== null
+        ? output.userSearchMatching
+        : undefined,
+    UserSearchSubtree:
+      output.userSearchSubtree !== undefined && output.userSearchSubtree !== null
+        ? output.userSearchSubtree
+        : undefined,
   } as any;
 };
 

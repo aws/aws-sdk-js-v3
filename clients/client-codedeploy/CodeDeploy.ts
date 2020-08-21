@@ -85,6 +85,11 @@ import {
   DeleteGitHubAccountTokenCommandOutput,
 } from "./commands/DeleteGitHubAccountTokenCommand";
 import {
+  DeleteResourcesByExternalIdCommand,
+  DeleteResourcesByExternalIdCommandInput,
+  DeleteResourcesByExternalIdCommandOutput,
+} from "./commands/DeleteResourcesByExternalIdCommand";
+import {
   DeregisterOnPremisesInstanceCommand,
   DeregisterOnPremisesInstanceCommandInput,
   DeregisterOnPremisesInstanceCommandOutput,
@@ -395,7 +400,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p>Gets information about one or more applications. The maximum number of applications that can be returned is 25.</p>
+   * <p>Gets information about one or more applications. The maximum number of applications that can be returned is 100.</p>
    */
   public batchGetApplications(
     args: BatchGetApplicationsCommandInput,
@@ -534,7 +539,7 @@ export class CodeDeploy extends CodeDeployClient {
    *             compute types and should be used instead of the deprecated
    *             <code>BatchGetDeploymentInstances</code>.
    *             The maximum number of targets that can be returned is 25.</p>
-   *         <p> The type of targets returned depends on the deployment's compute platform: </p>
+   *         <p> The type of targets returned depends on the deployment's compute platform or deployment method: </p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -550,6 +555,11 @@ export class CodeDeploy extends CodeDeployClient {
    *                 <p>
    *                     <b>Amazon ECS</b>: Information about Amazon ECS
    *                     service targets. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>CloudFormation</b>: Information about targets of
+   *                     blue/green deployments initiated by a CloudFormation stack update.</p>
    *             </li>
    *          </ul>
    */
@@ -900,6 +910,38 @@ export class CodeDeploy extends CodeDeployClient {
     cb?: (err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void
   ): Promise<DeleteGitHubAccountTokenCommandOutput> | void {
     const command = new DeleteGitHubAccountTokenCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes resources linked to an external ID.</p>
+   */
+  public deleteResourcesByExternalId(
+    args: DeleteResourcesByExternalIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcesByExternalIdCommandOutput>;
+  public deleteResourcesByExternalId(
+    args: DeleteResourcesByExternalIdCommandInput,
+    cb: (err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void
+  ): void;
+  public deleteResourcesByExternalId(
+    args: DeleteResourcesByExternalIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void
+  ): void;
+  public deleteResourcesByExternalId(
+    args: DeleteResourcesByExternalIdCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcesByExternalIdCommandOutput) => void
+  ): Promise<DeleteResourcesByExternalIdCommandOutput> | void {
+    const command = new DeleteResourcesByExternalIdCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1336,9 +1378,10 @@ export class CodeDeploy extends CodeDeployClient {
 
   /**
    * <note>
-   *             <p> The newer BatchGetDeploymentTargets should be used instead because it works with
-   *                 all compute types. <code>ListDeploymentInstances</code> throws an exception if it is
-   *                 used with a compute platform other than EC2/On-premises or AWS Lambda. </p>
+   *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because
+   *                 it works with all compute types. <code>ListDeploymentInstances</code> throws an
+   *                 exception if it is used with a compute platform other than EC2/On-premises or AWS
+   *                 Lambda. </p>
    *         </note>
    *         <p> Lists the instance for a deployment associated with the IAM user or AWS account. </p>
    */
@@ -1504,10 +1547,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p>
-   *             Returns a list of tags for the resource identified by a specified ARN. Tags are used to organize and categorize
-   *             your CodeDeploy resources.
-   *         </p>
+   * <p> Returns a list of tags for the resource identified by a specified Amazon Resource
+   *             Name (ARN). Tags are used to organize and categorize your CodeDeploy resources. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1539,9 +1580,16 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p> Sets the result of a Lambda validation function. The function validates one or both
-   *             lifecycle events (<code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>)
-   *             and returns <code>Succeeded</code> or <code>Failed</code>. </p>
+   * <p> Sets the result of a Lambda validation function. The function validates
+   *             lifecycle hooks during a deployment that uses the AWS Lambda or Amazon ECS compute platform. For AWS
+   *             Lambda deployments, the available lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>.
+   *             For Amazon ECS deployments, the available lifecycle hooks are <code>BeforeInstall</code>, <code>AfterInstall</code>,
+   *             <code>AfterAllowTestTraffic</code>, <code>BeforeAllowTraffic</code>, and <code>AfterAllowTraffic</code>. Lambda
+   *             validation functions return <code>Succeeded</code> or <code>Failed</code>. For more information,
+   *             see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks'
+   *                 Section for an AWS Lambda Deployment
+   *             </a> and <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec
+   *                 'hooks' Section for an Amazon ECS Deployment</a>.</p>
    */
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
@@ -1766,10 +1814,9 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p>
-   *             Disassociates a resource from a list of tags. The resource is identified by the <code>ResourceArn</code>
-   *             input parameter. The tags are identfied by the list of keys in the <code>TagKeys</code> input parameter.
-   *         </p>
+   * <p> Disassociates a resource from a list of tags. The resource is identified by the
+   *                 <code>ResourceArn</code> input parameter. The tags are identified by the list of
+   *             keys in the <code>TagKeys</code> input parameter. </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

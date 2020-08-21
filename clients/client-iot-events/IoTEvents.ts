@@ -62,9 +62,9 @@ import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput }
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation,
- *         and triggers actions when such events occur. AWS IoT Events API commands enable you to create, read,
- *         update and delete inputs and detector models, and to list their versions.</p>
+ * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and
+ *       triggers actions when such events occur. You can use AWS IoT Events API operations to create, read,
+ *       update, and delete inputs and detector models, and to list their versions.</p>
  */
 export class IoTEvents extends IoTEventsClient {
   /**
@@ -127,7 +127,7 @@ export class IoTEvents extends IoTEventsClient {
 
   /**
    * <p>Deletes a detector model. Any active instances of the detector model are also
-   *           deleted.</p>
+   *       deleted.</p>
    */
   public deleteDetectorModel(
     args: DeleteDetectorModelCommandInput,
@@ -185,8 +185,8 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   * <p>Describes a detector model. If the <code>"version"</code> parameter is not specified, information
-   *         about the latest version is returned.</p>
+   * <p>Describes a detector model. If the <code>version</code> parameter is not specified,
+   *       information about the latest version is returned.</p>
    */
   public describeDetectorModel(
     args: DescribeDetectorModelCommandInput,
@@ -282,8 +282,8 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   * <p>Lists the detector models you have created.
-   *           Only the metadata associated with each detector model is returned.</p>
+   * <p>Lists the detector models you have created. Only the metadata associated with each
+   *       detector model is returned.</p>
    */
   public listDetectorModels(
     args: ListDetectorModelsCommandInput,
@@ -316,7 +316,7 @@ export class IoTEvents extends IoTEventsClient {
 
   /**
    * <p>Lists all the versions of a detector model. Only the metadata associated with each
-   *           detector model version is returned.</p>
+   *       detector model version is returned.</p>
    */
   public listDetectorModelVersions(
     args: ListDetectorModelVersionsCommandInput,
@@ -407,10 +407,10 @@ export class IoTEvents extends IoTEventsClient {
 
   /**
    * <p>Sets or updates the AWS IoT Events logging options.</p>
-   *         <p>If you update the value of any <code>"loggingOptions"</code> field, it takes up to one minute
-   *           for the change to take effect. Also, if you change the policy attached to the role you specified
-   *           in the <code>"roleArn"</code> field (for example, to correct an invalid policy) it takes up to
-   *           five minutes for that change to take effect.</p>
+   *          <p>If you update the value of any <code>loggingOptions</code> field, it takes up to one
+   *       minute for the change to take effect. If you change the policy attached to the role you
+   *       specified in the <code>roleArn</code> field (for example, to correct an invalid policy), it
+   *       takes up to five minutes for that change to take effect.</p>
    */
   public putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
@@ -443,7 +443,7 @@ export class IoTEvents extends IoTEventsClient {
 
   /**
    * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
-   *         manage a resource.</p>
+   *       manage a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -502,7 +502,7 @@ export class IoTEvents extends IoTEventsClient {
 
   /**
    * <p>Updates a detector model. Detectors (instances) spawned by the previous version are
-   *           deleted and then re-created as new inputs arrive.</p>
+   *       deleted and then re-created as new inputs arrive.</p>
    */
   public updateDetectorModel(
     args: UpdateDetectorModelCommandInput,

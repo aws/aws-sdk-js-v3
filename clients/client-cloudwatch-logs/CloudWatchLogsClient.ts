@@ -8,6 +8,10 @@ import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "./comma
 import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "./commands/DeleteLogStreamCommand";
 import { DeleteMetricFilterCommandInput, DeleteMetricFilterCommandOutput } from "./commands/DeleteMetricFilterCommand";
 import {
+  DeleteQueryDefinitionCommandInput,
+  DeleteQueryDefinitionCommandOutput,
+} from "./commands/DeleteQueryDefinitionCommand";
+import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
@@ -35,6 +39,10 @@ import {
 } from "./commands/DescribeMetricFiltersCommand";
 import { DescribeQueriesCommandInput, DescribeQueriesCommandOutput } from "./commands/DescribeQueriesCommand";
 import {
+  DescribeQueryDefinitionsCommandInput,
+  DescribeQueryDefinitionsCommandOutput,
+} from "./commands/DescribeQueryDefinitionsCommand";
+import {
   DescribeResourcePoliciesCommandInput,
   DescribeResourcePoliciesCommandOutput,
 } from "./commands/DescribeResourcePoliciesCommand";
@@ -56,6 +64,7 @@ import {
 } from "./commands/PutDestinationPolicyCommand";
 import { PutLogEventsCommandInput, PutLogEventsCommandOutput } from "./commands/PutLogEventsCommand";
 import { PutMetricFilterCommandInput, PutMetricFilterCommandOutput } from "./commands/PutMetricFilterCommand";
+import { PutQueryDefinitionCommandInput, PutQueryDefinitionCommandOutput } from "./commands/PutQueryDefinitionCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "./commands/PutRetentionPolicyCommand";
 import {
@@ -124,6 +133,7 @@ export type ServiceInputTypes =
   | DeleteLogGroupCommandInput
   | DeleteLogStreamCommandInput
   | DeleteMetricFilterCommandInput
+  | DeleteQueryDefinitionCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRetentionPolicyCommandInput
   | DeleteSubscriptionFilterCommandInput
@@ -133,6 +143,7 @@ export type ServiceInputTypes =
   | DescribeLogStreamsCommandInput
   | DescribeMetricFiltersCommandInput
   | DescribeQueriesCommandInput
+  | DescribeQueryDefinitionsCommandInput
   | DescribeResourcePoliciesCommandInput
   | DescribeSubscriptionFiltersCommandInput
   | DisassociateKmsKeyCommandInput
@@ -146,6 +157,7 @@ export type ServiceInputTypes =
   | PutDestinationPolicyCommandInput
   | PutLogEventsCommandInput
   | PutMetricFilterCommandInput
+  | PutQueryDefinitionCommandInput
   | PutResourcePolicyCommandInput
   | PutRetentionPolicyCommandInput
   | PutSubscriptionFilterCommandInput
@@ -165,6 +177,7 @@ export type ServiceOutputTypes =
   | DeleteLogGroupCommandOutput
   | DeleteLogStreamCommandOutput
   | DeleteMetricFilterCommandOutput
+  | DeleteQueryDefinitionCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRetentionPolicyCommandOutput
   | DeleteSubscriptionFilterCommandOutput
@@ -174,6 +187,7 @@ export type ServiceOutputTypes =
   | DescribeLogStreamsCommandOutput
   | DescribeMetricFiltersCommandOutput
   | DescribeQueriesCommandOutput
+  | DescribeQueryDefinitionsCommandOutput
   | DescribeResourcePoliciesCommandOutput
   | DescribeSubscriptionFiltersCommandOutput
   | DisassociateKmsKeyCommandOutput
@@ -187,6 +201,7 @@ export type ServiceOutputTypes =
   | PutDestinationPolicyCommandOutput
   | PutLogEventsCommandOutput
   | PutMetricFilterCommandOutput
+  | PutQueryDefinitionCommandOutput
   | PutResourcePolicyCommandOutput
   | PutRetentionPolicyCommandOutput
   | PutSubscriptionFilterCommandOutput

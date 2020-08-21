@@ -6,6 +6,7 @@ export * from "./commands/CreateServiceCommand";
 export * from "./commands/CreateTaskSetCommand";
 export * from "./commands/DeleteAccountSettingCommand";
 export * from "./commands/DeleteAttributesCommand";
+export * from "./commands/DeleteCapacityProviderCommand";
 export * from "./commands/DeleteClusterCommand";
 export * from "./commands/DeleteServiceCommand";
 export * from "./commands/DeleteTaskSetCommand";

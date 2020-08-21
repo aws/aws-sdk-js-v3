@@ -135,15 +135,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>
- *             Amplify is a fully managed continuous deployment and hosting service for modern web apps.
- *         </p>
+ * <p>Amplify enables developers to develop and deploy cloud-powered mobile and web apps.
+ *             The Amplify Console provides a continuous delivery and hosting service for web
+ *             applications. For more information, see the <a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify Console User Guide</a>. The
+ *             Amplify Framework is a comprehensive set of SDKs, libraries, tools, and documentation
+ *             for client app development. For more information, see the <a href="https://docs.amplify.aws/">Amplify Framework.</a>
+ *          </p>
  */
 export class Amplify extends AmplifyClient {
   /**
-   * <p>
-   *             Creates a new Amplify App.
-   *         </p>
+   * <p> Creates a new Amplify app. </p>
    */
   public createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
   public createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
@@ -169,9 +170,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Creates a new backend environment for an Amplify App.
-   *         </p>
+   * <p> Creates a new backend environment for an Amplify app. </p>
    */
   public createBackendEnvironment(
     args: CreateBackendEnvironmentCommandInput,
@@ -203,9 +202,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Creates a new Branch for an Amplify App.
-   *         </p>
+   * <p> Creates a new branch for an Amplify app. </p>
    */
   public createBranch(
     args: CreateBranchCommandInput,
@@ -234,9 +231,8 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Create a deployment for manual deploy apps. (Apps are not connected to repository)
-   *         </p>
+   * <p> Creates a deployment for a manually deployed Amplify app. Manually deployed apps are
+   *             not connected to a repository. </p>
    */
   public createDeployment(
     args: CreateDeploymentCommandInput,
@@ -268,9 +264,8 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Create a new DomainAssociation on an App
-   *         </p>
+   * <p> Creates a new domain association for an Amplify app. This action associates a custom
+   *             domain with the Amplify app </p>
    */
   public createDomainAssociation(
     args: CreateDomainAssociationCommandInput,
@@ -302,9 +297,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Create a new webhook on an App.
-   *         </p>
+   * <p> Creates a new webhook on an Amplify app. </p>
    */
   public createWebhook(
     args: CreateWebhookCommandInput,
@@ -336,9 +329,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Delete an existing Amplify App by appId.
-   *         </p>
+   * <p> Deletes an existing Amplify app specified by an app ID. </p>
    */
   public deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
   public deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
@@ -364,9 +355,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Delete backend environment for an Amplify App.
-   *         </p>
+   * <p> Deletes a backend environment for an Amplify app. </p>
    */
   public deleteBackendEnvironment(
     args: DeleteBackendEnvironmentCommandInput,
@@ -398,9 +387,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Deletes a branch for an Amplify App.
-   *         </p>
+   * <p> Deletes a branch for an Amplify app. </p>
    */
   public deleteBranch(
     args: DeleteBranchCommandInput,
@@ -429,9 +416,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Deletes a DomainAssociation.
-   *         </p>
+   * <p> Deletes a domain association for an Amplify app. </p>
    */
   public deleteDomainAssociation(
     args: DeleteDomainAssociationCommandInput,
@@ -463,9 +448,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Delete a job, for an Amplify branch, part of Amplify App.
-   *         </p>
+   * <p> Deletes a job for a branch of an Amplify app. </p>
    */
   public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
   public deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
@@ -491,9 +474,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Deletes a webhook.
-   *         </p>
+   * <p> Deletes a webhook. </p>
    */
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
@@ -525,8 +506,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Retrieve website access logs for a specific time range via a pre-signed URL.
+   * <p> Returns the website access logs for a specific time range using a presigned URL.
    *         </p>
    */
   public generateAccessLogs(
@@ -559,9 +539,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Retrieves an existing Amplify App by appId.
-   *         </p>
+   * <p> Returns an existing Amplify app by appID. </p>
    */
   public getApp(args: GetAppCommandInput, options?: __HttpHandlerOptions): Promise<GetAppCommandOutput>;
   public getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
@@ -587,9 +565,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Retrieves artifact info that corresponds to a artifactId.
-   *         </p>
+   * <p> Returns the artifact info that corresponds to an artifact id. </p>
    */
   public getArtifactUrl(
     args: GetArtifactUrlCommandInput,
@@ -621,9 +597,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Retrieves a backend environment for an Amplify App.
-   *         </p>
+   * <p> Returns a backend environment for an Amplify app. </p>
    */
   public getBackendEnvironment(
     args: GetBackendEnvironmentCommandInput,
@@ -655,9 +629,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Retrieves a branch for an Amplify App.
-   *         </p>
+   * <p> Returns a branch for an Amplify app. </p>
    */
   public getBranch(args: GetBranchCommandInput, options?: __HttpHandlerOptions): Promise<GetBranchCommandOutput>;
   public getBranch(args: GetBranchCommandInput, cb: (err: any, data?: GetBranchCommandOutput) => void): void;
@@ -683,9 +655,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Retrieves domain info that corresponds to an appId and domainName.
-   *         </p>
+   * <p> Returns the domain information for an Amplify app. </p>
    */
   public getDomainAssociation(
     args: GetDomainAssociationCommandInput,
@@ -717,9 +687,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Get a job for a branch, part of an Amplify App.
-   *         </p>
+   * <p> Returns a job for a branch of an Amplify app. </p>
    */
   public getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
   public getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
@@ -745,9 +713,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Retrieves webhook info that corresponds to a webhookId.
-   *         </p>
+   * <p> Returns the webhook information that corresponds to a specified webhook ID. </p>
    */
   public getWebhook(args: GetWebhookCommandInput, options?: __HttpHandlerOptions): Promise<GetWebhookCommandOutput>;
   public getWebhook(args: GetWebhookCommandInput, cb: (err: any, data?: GetWebhookCommandOutput) => void): void;
@@ -773,9 +739,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Lists existing Amplify Apps.
-   *         </p>
+   * <p> Returns a list of the existing Amplify apps. </p>
    */
   public listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
   public listApps(args: ListAppsCommandInput, cb: (err: any, data?: ListAppsCommandOutput) => void): void;
@@ -801,9 +765,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             List artifacts with an app, a branch, a job and an artifact type.
-   *         </p>
+   * <p> Returns a list of artifacts for a specified app, branch, and job. </p>
    */
   public listArtifacts(
     args: ListArtifactsCommandInput,
@@ -835,9 +797,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Lists backend environments for an Amplify App.
-   *         </p>
+   * <p> Lists the backend environments for an Amplify app. </p>
    */
   public listBackendEnvironments(
     args: ListBackendEnvironmentsCommandInput,
@@ -869,9 +829,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Lists branches for an Amplify App.
-   *         </p>
+   * <p> Lists the branches of an Amplify app. </p>
    */
   public listBranches(
     args: ListBranchesCommandInput,
@@ -900,9 +858,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             List domains with an app
-   *         </p>
+   * <p> Returns the domain associations for an Amplify app. </p>
    */
   public listDomainAssociations(
     args: ListDomainAssociationsCommandInput,
@@ -934,9 +890,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             List Jobs for a branch, part of an Amplify App.
-   *         </p>
+   * <p> Lists the jobs for a branch of an Amplify app. </p>
    */
   public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   public listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
@@ -962,9 +916,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             List tags for resource.
-   *         </p>
+   * <p> Returns a list of tags for a specified Amazon Resource Name (ARN). </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -996,9 +948,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             List webhooks with an app.
-   *         </p>
+   * <p> Returns a list of webhooks for an Amplify app. </p>
    */
   public listWebhooks(
     args: ListWebhooksCommandInput,
@@ -1027,9 +977,8 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Start a deployment for manual deploy apps. (Apps are not connected to repository)
-   *         </p>
+   * <p> Starts a deployment for a manually deployed app. Manually deployed apps are not
+   *             connected to a repository. </p>
    */
   public startDeployment(
     args: StartDeploymentCommandInput,
@@ -1061,9 +1010,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Starts a new job for a branch, part of an Amplify App.
-   *         </p>
+   * <p> Starts a new job for a branch of an Amplify app. </p>
    */
   public startJob(args: StartJobCommandInput, options?: __HttpHandlerOptions): Promise<StartJobCommandOutput>;
   public startJob(args: StartJobCommandInput, cb: (err: any, data?: StartJobCommandOutput) => void): void;
@@ -1089,9 +1036,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Stop a job that is in progress, for an Amplify branch, part of Amplify App.
-   *         </p>
+   * <p> Stops a job that is in progress for a branch of an Amplify app. </p>
    */
   public stopJob(args: StopJobCommandInput, options?: __HttpHandlerOptions): Promise<StopJobCommandOutput>;
   public stopJob(args: StopJobCommandInput, cb: (err: any, data?: StopJobCommandOutput) => void): void;
@@ -1117,9 +1062,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Tag resource with tag key and value.
-   *         </p>
+   * <p> Tags the resource with a tag key and value. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1145,9 +1088,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Untag resource with resourceArn.
-   *         </p>
+   * <p> Untags a resource with a specified Amazon Resource Name (ARN). </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1179,9 +1120,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Updates an existing Amplify App.
-   *         </p>
+   * <p> Updates an existing Amplify app. </p>
    */
   public updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
   public updateApp(args: UpdateAppCommandInput, cb: (err: any, data?: UpdateAppCommandOutput) => void): void;
@@ -1207,9 +1146,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Updates a branch for an Amplify App.
-   *         </p>
+   * <p> Updates a branch for an Amplify app. </p>
    */
   public updateBranch(
     args: UpdateBranchCommandInput,
@@ -1238,9 +1175,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Create a new DomainAssociation on an App
-   *         </p>
+   * <p> Creates a new domain association for an Amplify app.</p>
    */
   public updateDomainAssociation(
     args: UpdateDomainAssociationCommandInput,
@@ -1272,9 +1207,7 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   * <p>
-   *             Update a webhook.
-   *         </p>
+   * <p> Updates a webhook. </p>
    */
   public updateWebhook(
     args: UpdateWebhookCommandInput,

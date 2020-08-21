@@ -7486,6 +7486,10 @@ const deserializeAws_json1_1CertificateInfo = (output: any, context: __SerdeCont
     CertificateId:
       output.CertificateId !== undefined && output.CertificateId !== null ? output.CertificateId : undefined,
     CommonName: output.CommonName !== undefined && output.CommonName !== null ? output.CommonName : undefined,
+    ExpiryDateTime:
+      output.ExpiryDateTime !== undefined && output.ExpiryDateTime !== null
+        ? new Date(Math.round(output.ExpiryDateTime * 1000))
+        : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
   } as any;
 };

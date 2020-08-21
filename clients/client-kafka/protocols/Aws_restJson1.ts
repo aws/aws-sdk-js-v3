@@ -22,6 +22,10 @@ import {
   GetBootstrapBrokersCommandOutput,
 } from "../commands/GetBootstrapBrokersCommand";
 import {
+  GetCompatibleKafkaVersionsCommandInput,
+  GetCompatibleKafkaVersionsCommandOutput,
+} from "../commands/GetCompatibleKafkaVersionsCommand";
+import {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
 } from "../commands/ListClusterOperationsCommand";
@@ -31,11 +35,13 @@ import {
   ListConfigurationRevisionsCommandOutput,
 } from "../commands/ListConfigurationRevisionsCommand";
 import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "../commands/ListConfigurationsCommand";
+import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "../commands/ListKafkaVersionsCommand";
 import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "../commands/RebootBrokerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput } from "../commands/UpdateBrokerCountCommand";
@@ -47,16 +53,25 @@ import {
   UpdateClusterConfigurationCommandInput,
   UpdateClusterConfigurationCommandOutput,
 } from "../commands/UpdateClusterConfigurationCommand";
+import {
+  UpdateClusterKafkaVersionCommandInput,
+  UpdateClusterKafkaVersionCommandOutput,
+} from "../commands/UpdateClusterKafkaVersionCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "../commands/UpdateMonitoringCommand";
 import {
   BadRequestException,
   BrokerEBSVolumeInfo,
+  BrokerLogs,
   BrokerNodeGroupInfo,
   BrokerNodeInfo,
   BrokerSoftwareInfo,
   ClientAuthentication,
+  CloudWatchLogs,
   ClusterInfo,
   ClusterOperationInfo,
+  ClusterOperationStep,
+  ClusterOperationStepInfo,
+  CompatibleKafkaVersion,
   Configuration,
   ConfigurationInfo,
   ConfigurationRevision,
@@ -66,10 +81,13 @@ import {
   EncryptionInTransit,
   EncryptionInfo,
   ErrorInfo,
+  Firehose,
   ForbiddenException,
   InternalServerErrorException,
   JmxExporter,
   JmxExporterInfo,
+  KafkaVersion,
+  LoggingInfo,
   MutableClusterInfo,
   NodeExporter,
   NodeExporterInfo,
@@ -79,7 +97,9 @@ import {
   OpenMonitoringInfo,
   Prometheus,
   PrometheusInfo,
+  S3,
   ServiceUnavailableException,
+  StateInfo,
   StorageInfo,
   Tls,
   TooManyRequestsException,
@@ -123,6 +143,9 @@ export const serializeAws_restJson1CreateClusterCommand = async (
     }),
     ...(input.EnhancedMonitoring !== undefined && { enhancedMonitoring: input.EnhancedMonitoring }),
     ...(input.KafkaVersion !== undefined && { kafkaVersion: input.KafkaVersion }),
+    ...(input.LoggingInfo !== undefined && {
+      loggingInfo: serializeAws_restJson1LoggingInfo(input.LoggingInfo, context),
+    }),
     ...(input.NumberOfBrokerNodes !== undefined && { numberOfBrokerNodes: input.NumberOfBrokerNodes }),
     ...(input.OpenMonitoring !== undefined && {
       openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
@@ -363,6 +386,31 @@ export const serializeAws_restJson1GetBootstrapBrokersCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetCompatibleKafkaVersionsCommand = async (
+  input: GetCompatibleKafkaVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/compatible-kafka-versions";
+  const query: any = {
+    ...(input.ClusterArn !== undefined && { clusterArn: input.ClusterArn }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListClusterOperationsCommand = async (
   input: ListClusterOperationsCommandInput,
   context: __SerdeContext
@@ -381,8 +429,8 @@ export const serializeAws_restJson1ListClusterOperationsCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -407,9 +455,9 @@ export const serializeAws_restJson1ListClustersCommand = async (
   };
   let resolvedPath = "/v1/clusters";
   const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.ClusterNameFilter !== undefined && { clusterNameFilter: input.ClusterNameFilter }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -443,8 +491,8 @@ export const serializeAws_restJson1ListConfigurationRevisionsCommand = async (
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -468,6 +516,32 @@ export const serializeAws_restJson1ListConfigurationsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/configurations";
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListKafkaVersionsCommand = async (
+  input: ListKafkaVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/kafka-versions";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -504,8 +578,8 @@ export const serializeAws_restJson1ListNodesCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -545,6 +619,41 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RebootBrokerCommand = async (
+  input: RebootBrokerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/clusters/{ClusterArn}/reboot-broker";
+  if (input.ClusterArn !== undefined) {
+    const labelValue: string = input.ClusterArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ClusterArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ClusterArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ClusterArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.BrokerIds !== undefined && {
+      brokerIds: serializeAws_restJson1__listOf__string(input.BrokerIds, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -729,6 +838,43 @@ export const serializeAws_restJson1UpdateClusterConfigurationCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
+  input: UpdateClusterKafkaVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/clusters/{ClusterArn}/version";
+  if (input.ClusterArn !== undefined) {
+    const labelValue: string = input.ClusterArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ClusterArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ClusterArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ClusterArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ConfigurationInfo !== undefined && {
+      configurationInfo: serializeAws_restJson1ConfigurationInfo(input.ConfigurationInfo, context),
+    }),
+    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
+    ...(input.TargetKafkaVersion !== undefined && { targetKafkaVersion: input.TargetKafkaVersion }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateMonitoringCommand = async (
   input: UpdateMonitoringCommandInput,
   context: __SerdeContext
@@ -750,6 +896,9 @@ export const serializeAws_restJson1UpdateMonitoringCommand = async (
   body = JSON.stringify({
     ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
     ...(input.EnhancedMonitoring !== undefined && { enhancedMonitoring: input.EnhancedMonitoring }),
+    ...(input.LoggingInfo !== undefined && {
+      loggingInfo: serializeAws_restJson1LoggingInfo(input.LoggingInfo, context),
+    }),
     ...(input.OpenMonitoring !== undefined && {
       openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
     }),
@@ -1574,6 +1723,113 @@ const deserializeAws_restJson1GetBootstrapBrokersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetCompatibleKafkaVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCompatibleKafkaVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetCompatibleKafkaVersionsCommandError(output, context);
+  }
+  const contents: GetCompatibleKafkaVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetCompatibleKafkaVersionsResponse",
+    CompatibleKafkaVersions: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.compatibleKafkaVersions !== undefined && data.compatibleKafkaVersions !== null) {
+    contents.CompatibleKafkaVersions = deserializeAws_restJson1__listOfCompatibleKafkaVersion(
+      data.compatibleKafkaVersions,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetCompatibleKafkaVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCompatibleKafkaVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListClusterOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1937,6 +2193,90 @@ const deserializeAws_restJson1ListConfigurationsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListKafkaVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKafkaVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListKafkaVersionsCommandError(output, context);
+  }
+  const contents: ListKafkaVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListKafkaVersionsResponse",
+    KafkaVersions: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.kafkaVersions !== undefined && data.kafkaVersions !== null) {
+    contents.KafkaVersions = deserializeAws_restJson1__listOfKafkaVersion(data.kafkaVersions, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.NextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListKafkaVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKafkaVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2072,6 +2412,114 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "com.amazonaws.kafka#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RebootBrokerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootBrokerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1RebootBrokerCommandError(output, context);
+  }
+  const contents: RebootBrokerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RebootBrokerResponse",
+    ClusterArn: undefined,
+    ClusterOperationArn: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.clusterArn !== undefined && data.clusterArn !== null) {
+    contents.ClusterArn = data.clusterArn;
+  }
+  if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
+    contents.ClusterOperationArn = data.clusterOperationArn;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RebootBrokerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootBrokerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2511,6 +2959,114 @@ const deserializeAws_restJson1UpdateClusterConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterKafkaVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateClusterKafkaVersionCommandError(output, context);
+  }
+  const contents: UpdateClusterKafkaVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateClusterKafkaVersionResponse",
+    ClusterArn: undefined,
+    ClusterOperationArn: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.clusterArn !== undefined && data.clusterArn !== null) {
+    contents.ClusterArn = data.clusterArn;
+  }
+  if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
+    contents.ClusterOperationArn = data.clusterOperationArn;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateClusterKafkaVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterKafkaVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateMonitoringCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2799,6 +3355,16 @@ const serializeAws_restJson1BrokerEBSVolumeInfo = (input: BrokerEBSVolumeInfo, c
   };
 };
 
+const serializeAws_restJson1BrokerLogs = (input: BrokerLogs, context: __SerdeContext): any => {
+  return {
+    ...(input.CloudWatchLogs !== undefined && {
+      cloudWatchLogs: serializeAws_restJson1CloudWatchLogs(input.CloudWatchLogs, context),
+    }),
+    ...(input.Firehose !== undefined && { firehose: serializeAws_restJson1Firehose(input.Firehose, context) }),
+    ...(input.S3 !== undefined && { s3: serializeAws_restJson1S3(input.S3, context) }),
+  };
+};
+
 const serializeAws_restJson1BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, context: __SerdeContext): any => {
   return {
     ...(input.BrokerAZDistribution !== undefined && { brokerAZDistribution: input.BrokerAZDistribution }),
@@ -2818,6 +3384,13 @@ const serializeAws_restJson1BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, c
 const serializeAws_restJson1ClientAuthentication = (input: ClientAuthentication, context: __SerdeContext): any => {
   return {
     ...(input.Tls !== undefined && { tls: serializeAws_restJson1Tls(input.Tls, context) }),
+  };
+};
+
+const serializeAws_restJson1CloudWatchLogs = (input: CloudWatchLogs, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && { enabled: input.Enabled }),
+    ...(input.LogGroup !== undefined && { logGroup: input.LogGroup }),
   };
 };
 
@@ -2858,9 +3431,22 @@ const serializeAws_restJson1EncryptionInTransit = (input: EncryptionInTransit, c
   };
 };
 
+const serializeAws_restJson1Firehose = (input: Firehose, context: __SerdeContext): any => {
+  return {
+    ...(input.DeliveryStream !== undefined && { deliveryStream: input.DeliveryStream }),
+    ...(input.Enabled !== undefined && { enabled: input.Enabled }),
+  };
+};
+
 const serializeAws_restJson1JmxExporterInfo = (input: JmxExporterInfo, context: __SerdeContext): any => {
   return {
     ...(input.EnabledInBroker !== undefined && { enabledInBroker: input.EnabledInBroker }),
+  };
+};
+
+const serializeAws_restJson1LoggingInfo = (input: LoggingInfo, context: __SerdeContext): any => {
+  return {
+    ...(input.BrokerLogs !== undefined && { brokerLogs: serializeAws_restJson1BrokerLogs(input.BrokerLogs, context) }),
   };
 };
 
@@ -2886,6 +3472,14 @@ const serializeAws_restJson1PrometheusInfo = (input: PrometheusInfo, context: __
     ...(input.NodeExporter !== undefined && {
       nodeExporter: serializeAws_restJson1NodeExporterInfo(input.NodeExporter, context),
     }),
+  };
+};
+
+const serializeAws_restJson1S3 = (input: S3, context: __SerdeContext): any => {
+  return {
+    ...(input.Bucket !== undefined && { bucket: input.Bucket }),
+    ...(input.Enabled !== undefined && { enabled: input.Enabled }),
+    ...(input.Prefix !== undefined && { prefix: input.Prefix }),
   };
 };
 
@@ -2927,6 +3521,20 @@ const deserializeAws_restJson1__listOfClusterOperationInfo = (
   return (output || []).map((entry: any) => deserializeAws_restJson1ClusterOperationInfo(entry, context));
 };
 
+const deserializeAws_restJson1__listOfClusterOperationStep = (
+  output: any,
+  context: __SerdeContext
+): ClusterOperationStep[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ClusterOperationStep(entry, context));
+};
+
+const deserializeAws_restJson1__listOfCompatibleKafkaVersion = (
+  output: any,
+  context: __SerdeContext
+): CompatibleKafkaVersion[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1CompatibleKafkaVersion(entry, context));
+};
+
 const deserializeAws_restJson1__listOfConfiguration = (output: any, context: __SerdeContext): Configuration[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Configuration(entry, context));
 };
@@ -2936,6 +3544,10 @@ const deserializeAws_restJson1__listOfConfigurationRevision = (
   context: __SerdeContext
 ): ConfigurationRevision[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1ConfigurationRevision(entry, context));
+};
+
+const deserializeAws_restJson1__listOfKafkaVersion = (output: any, context: __SerdeContext): KafkaVersion[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1KafkaVersion(entry, context));
 };
 
 const deserializeAws_restJson1__listOfNodeInfo = (output: any, context: __SerdeContext): NodeInfo[] => {
@@ -2960,6 +3572,21 @@ const deserializeAws_restJson1BrokerEBSVolumeInfo = (output: any, context: __Ser
         ? output.kafkaBrokerNodeId
         : undefined,
     VolumeSizeGB: output.volumeSizeGB !== undefined && output.volumeSizeGB !== null ? output.volumeSizeGB : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BrokerLogs = (output: any, context: __SerdeContext): BrokerLogs => {
+  return {
+    __type: "BrokerLogs",
+    CloudWatchLogs:
+      output.cloudWatchLogs !== undefined && output.cloudWatchLogs !== null
+        ? deserializeAws_restJson1CloudWatchLogs(output.cloudWatchLogs, context)
+        : undefined,
+    Firehose:
+      output.firehose !== undefined && output.firehose !== null
+        ? deserializeAws_restJson1Firehose(output.firehose, context)
+        : undefined,
+    S3: output.s3 !== undefined && output.s3 !== null ? deserializeAws_restJson1S3(output.s3, context) : undefined,
   } as any;
 };
 
@@ -3028,6 +3655,14 @@ const deserializeAws_restJson1ClientAuthentication = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1CloudWatchLogs = (output: any, context: __SerdeContext): CloudWatchLogs => {
+  return {
+    __type: "CloudWatchLogs",
+    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    LogGroup: output.logGroup !== undefined && output.logGroup !== null ? output.logGroup : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContext): ClusterInfo => {
   return {
     __type: "ClusterInfo",
@@ -3061,6 +3696,10 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
       output.enhancedMonitoring !== undefined && output.enhancedMonitoring !== null
         ? output.enhancedMonitoring
         : undefined,
+    LoggingInfo:
+      output.loggingInfo !== undefined && output.loggingInfo !== null
+        ? deserializeAws_restJson1LoggingInfo(output.loggingInfo, context)
+        : undefined,
     NumberOfBrokerNodes:
       output.numberOfBrokerNodes !== undefined && output.numberOfBrokerNodes !== null
         ? output.numberOfBrokerNodes
@@ -3070,6 +3709,10 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
         ? deserializeAws_restJson1OpenMonitoring(output.openMonitoring, context)
         : undefined,
     State: output.state !== undefined && output.state !== null ? output.state : undefined,
+    StateInfo:
+      output.stateInfo !== undefined && output.stateInfo !== null
+        ? deserializeAws_restJson1StateInfo(output.stateInfo, context)
+        : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__mapOf__string(output.tags, context)
@@ -3097,6 +3740,10 @@ const deserializeAws_restJson1ClusterOperationInfo = (output: any, context: __Se
     OperationArn: output.operationArn !== undefined && output.operationArn !== null ? output.operationArn : undefined,
     OperationState:
       output.operationState !== undefined && output.operationState !== null ? output.operationState : undefined,
+    OperationSteps:
+      output.operationSteps !== undefined && output.operationSteps !== null
+        ? deserializeAws_restJson1__listOfClusterOperationStep(output.operationSteps, context)
+        : undefined,
     OperationType:
       output.operationType !== undefined && output.operationType !== null ? output.operationType : undefined,
     SourceClusterInfo:
@@ -3106,6 +3753,42 @@ const deserializeAws_restJson1ClusterOperationInfo = (output: any, context: __Se
     TargetClusterInfo:
       output.targetClusterInfo !== undefined && output.targetClusterInfo !== null
         ? deserializeAws_restJson1MutableClusterInfo(output.targetClusterInfo, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ClusterOperationStep = (output: any, context: __SerdeContext): ClusterOperationStep => {
+  return {
+    __type: "ClusterOperationStep",
+    StepInfo:
+      output.stepInfo !== undefined && output.stepInfo !== null
+        ? deserializeAws_restJson1ClusterOperationStepInfo(output.stepInfo, context)
+        : undefined,
+    StepName: output.stepName !== undefined && output.stepName !== null ? output.stepName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ClusterOperationStepInfo = (
+  output: any,
+  context: __SerdeContext
+): ClusterOperationStepInfo => {
+  return {
+    __type: "ClusterOperationStepInfo",
+    StepStatus: output.stepStatus !== undefined && output.stepStatus !== null ? output.stepStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CompatibleKafkaVersion = (
+  output: any,
+  context: __SerdeContext
+): CompatibleKafkaVersion => {
+  return {
+    __type: "CompatibleKafkaVersion",
+    SourceVersion:
+      output.sourceVersion !== undefined && output.sourceVersion !== null ? output.sourceVersion : undefined,
+    TargetVersions:
+      output.targetVersions !== undefined && output.targetVersions !== null
+        ? deserializeAws_restJson1__listOf__string(output.targetVersions, context)
         : undefined,
   } as any;
 };
@@ -3194,11 +3877,38 @@ const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_restJson1Firehose = (output: any, context: __SerdeContext): Firehose => {
+  return {
+    __type: "Firehose",
+    DeliveryStream:
+      output.deliveryStream !== undefined && output.deliveryStream !== null ? output.deliveryStream : undefined,
+    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1JmxExporter = (output: any, context: __SerdeContext): JmxExporter => {
   return {
     __type: "JmxExporter",
     EnabledInBroker:
       output.enabledInBroker !== undefined && output.enabledInBroker !== null ? output.enabledInBroker : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KafkaVersion = (output: any, context: __SerdeContext): KafkaVersion => {
+  return {
+    __type: "KafkaVersion",
+    Status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    Version: output.version !== undefined && output.version !== null ? output.version : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LoggingInfo = (output: any, context: __SerdeContext): LoggingInfo => {
+  return {
+    __type: "LoggingInfo",
+    BrokerLogs:
+      output.brokerLogs !== undefined && output.brokerLogs !== null
+        ? deserializeAws_restJson1BrokerLogs(output.brokerLogs, context)
+        : undefined,
   } as any;
 };
 
@@ -3216,6 +3926,11 @@ const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __Serd
     EnhancedMonitoring:
       output.enhancedMonitoring !== undefined && output.enhancedMonitoring !== null
         ? output.enhancedMonitoring
+        : undefined,
+    KafkaVersion: output.kafkaVersion !== undefined && output.kafkaVersion !== null ? output.kafkaVersion : undefined,
+    LoggingInfo:
+      output.loggingInfo !== undefined && output.loggingInfo !== null
+        ? deserializeAws_restJson1LoggingInfo(output.loggingInfo, context)
         : undefined,
     NumberOfBrokerNodes:
       output.numberOfBrokerNodes !== undefined && output.numberOfBrokerNodes !== null
@@ -3278,6 +3993,23 @@ const deserializeAws_restJson1Prometheus = (output: any, context: __SerdeContext
       output.nodeExporter !== undefined && output.nodeExporter !== null
         ? deserializeAws_restJson1NodeExporter(output.nodeExporter, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1S3 = (output: any, context: __SerdeContext): S3 => {
+  return {
+    __type: "S3",
+    Bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
+    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    Prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StateInfo = (output: any, context: __SerdeContext): StateInfo => {
+  return {
+    __type: "StateInfo",
+    Code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    Message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 

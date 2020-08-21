@@ -74,16 +74,36 @@ import {
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
+  ResumeContactRecordingCommand,
+  ResumeContactRecordingCommandInput,
+  ResumeContactRecordingCommandOutput,
+} from "./commands/ResumeContactRecordingCommand";
+import {
   StartChatContactCommand,
   StartChatContactCommandInput,
   StartChatContactCommandOutput,
 } from "./commands/StartChatContactCommand";
+import {
+  StartContactRecordingCommand,
+  StartContactRecordingCommandInput,
+  StartContactRecordingCommandOutput,
+} from "./commands/StartContactRecordingCommand";
 import {
   StartOutboundVoiceContactCommand,
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
 import { StopContactCommand, StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
+import {
+  StopContactRecordingCommand,
+  StopContactRecordingCommandInput,
+  StopContactRecordingCommandOutput,
+} from "./commands/StopContactRecordingCommand";
+import {
+  SuspendContactRecordingCommand,
+  SuspendContactRecordingCommandInput,
+  SuspendContactRecordingCommandOutput,
+} from "./commands/SuspendContactRecordingCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -692,6 +712,41 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>When a contact is being recorded, and the recording has been suspended using
+   *    SuspendContactRecording, this API resumes recording the call.</p>
+   *
+   *          <p>Only voice recordings are supported at this time.</p>
+   */
+  public resumeContactRecording(
+    args: ResumeContactRecordingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeContactRecordingCommandOutput>;
+  public resumeContactRecording(
+    args: ResumeContactRecordingCommandInput,
+    cb: (err: any, data?: ResumeContactRecordingCommandOutput) => void
+  ): void;
+  public resumeContactRecording(
+    args: ResumeContactRecordingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResumeContactRecordingCommandOutput) => void
+  ): void;
+  public resumeContactRecording(
+    args: ResumeContactRecordingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeContactRecordingCommandOutput) => void),
+    cb?: (err: any, data?: ResumeContactRecordingCommandOutput) => void
+  ): Promise<ResumeContactRecordingCommandOutput> | void {
+    const command = new ResumeContactRecordingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides
    *    a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
    *
@@ -729,7 +784,51 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates a contact flow to place an outbound call to a customer.</p>
+   * <p>This API starts recording the contact when the agent joins the call. StartContactRecording
+   *    is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing
+   *    call, you can't use StartContactRecording to restart it. For scenarios where the recording has
+   *    started and you want to suspend and resume it, such as when collecting sensitive information (for
+   *    example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p>
+   *          <p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording
+   *     behavior</a> block.</p>
+   *          <p>Only voice recordings are supported at this time.</p>
+   */
+  public startContactRecording(
+    args: StartContactRecordingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartContactRecordingCommandOutput>;
+  public startContactRecording(
+    args: StartContactRecordingCommandInput,
+    cb: (err: any, data?: StartContactRecordingCommandOutput) => void
+  ): void;
+  public startContactRecording(
+    args: StartContactRecordingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartContactRecordingCommandOutput) => void
+  ): void;
+  public startContactRecording(
+    args: StartContactRecordingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartContactRecordingCommandOutput) => void),
+    cb?: (err: any, data?: StartContactRecordingCommandOutput) => void
+  ): Promise<StartContactRecordingCommandOutput> | void {
+    const command = new StartContactRecordingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API places an outbound call to a contact, and then initiates the contact flow. It
+   *    performs the actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p>
+   *
+   *          <p>Agents are not involved in initiating the outbound API (that is, dialing the contact). If
+   *    the contact flow places an outbound call to a contact, and then puts the contact in queue, that's
+   *    when the call is routed to the agent, like any other inbound case.</p>
    *
    *          <p>There is a 60 second dialing timeout for this operation. If the call is not connected after
    *    60 seconds, it fails.</p>
@@ -779,6 +878,81 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: StopContactCommandOutput) => void
   ): Promise<StopContactCommandOutput> | void {
     const command = new StopContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>When a contact is being recorded, this API stops recording the call. StopContactRecording is
+   *    a one-time action. If you use StopContactRecording to stop recording an ongoing call, you can't
+   *    use StartContactRecording to restart it. For scenarios where the recording has started and you
+   *    want to suspend it for sensitive information (for example, to collect a credit card number), and
+   *    then restart it, use SuspendContactRecording and ResumeContactRecording.</p>
+   *
+   *          <p>Only voice recordings are supported at this time.</p>
+   */
+  public stopContactRecording(
+    args: StopContactRecordingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopContactRecordingCommandOutput>;
+  public stopContactRecording(
+    args: StopContactRecordingCommandInput,
+    cb: (err: any, data?: StopContactRecordingCommandOutput) => void
+  ): void;
+  public stopContactRecording(
+    args: StopContactRecordingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopContactRecordingCommandOutput) => void
+  ): void;
+  public stopContactRecording(
+    args: StopContactRecordingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopContactRecordingCommandOutput) => void),
+    cb?: (err: any, data?: StopContactRecordingCommandOutput) => void
+  ): Promise<StopContactRecordingCommandOutput> | void {
+    const command = new StopContactRecordingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>When a contact is being recorded, this API suspends recording the call. For example, you
+   *    might suspend the call recording while collecting sensitive information, such as a credit card
+   *    number. Then use ResumeContactRecording to restart recording. </p>
+   *          <p>The period of time that the recording is suspended is filled with silence in the final
+   *    recording. </p>
+   *          <p>Only voice recordings are supported at this time.</p>
+   */
+  public suspendContactRecording(
+    args: SuspendContactRecordingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SuspendContactRecordingCommandOutput>;
+  public suspendContactRecording(
+    args: SuspendContactRecordingCommandInput,
+    cb: (err: any, data?: SuspendContactRecordingCommandOutput) => void
+  ): void;
+  public suspendContactRecording(
+    args: SuspendContactRecordingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SuspendContactRecordingCommandOutput) => void
+  ): void;
+  public suspendContactRecording(
+    args: SuspendContactRecordingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SuspendContactRecordingCommandOutput) => void),
+    cb?: (err: any, data?: SuspendContactRecordingCommandOutput) => void
+  ): Promise<SuspendContactRecordingCommandOutput> | void {
+    const command = new SuspendContactRecordingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -1,3 +1,4 @@
+import { GetClipCommandInput, GetClipCommandOutput } from "./commands/GetClipCommand";
 import {
   GetDASHStreamingSessionURLCommandInput,
   GetDASHStreamingSessionURLCommandOutput,
@@ -59,12 +60,14 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | GetClipCommandInput
   | GetDASHStreamingSessionURLCommandInput
   | GetHLSStreamingSessionURLCommandInput
   | GetMediaForFragmentListCommandInput
   | ListFragmentsCommandInput;
 
 export type ServiceOutputTypes =
+  | GetClipCommandOutput
   | GetDASHStreamingSessionURLCommandOutput
   | GetHLSStreamingSessionURLCommandOutput
   | GetMediaForFragmentListCommandOutput

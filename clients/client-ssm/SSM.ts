@@ -605,14 +605,15 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *    collecting system inventory, applying operating system (OS) patches, automating the creation of
  *    Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale.
  *    Systems Manager lets you remotely and securely manage the configuration of your managed instances. A
- *     <i>managed instance</i> is any Amazon EC2 instance or on-premises machine in your
- *    hybrid environment that has been configured for Systems Manager.</p>
- *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/">AWS Systems Manager User Guide</a>.</p>
+ *     <i>managed instance</i> is any Amazon Elastic Compute Cloud instance (EC2 instance), or any
+ *    on-premises server or virtual machine (VM) in your hybrid environment that has been configured
+ *    for Systems Manager.</p>
+ *          <p>This reference is intended to be used with the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/">AWS Systems Manager User Guide</a>.</p>
  *          <p>To get started, verify prerequisites and configure managed instances. For more information,
- *    see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting Up AWS Systems Manager</a> in
- *    the <i>AWS Systems Manager User Guide</i>.</p>
- *          <p>For information about other API actions you can perform on Amazon EC2 instances, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information about how to use a Query API, see
- *     <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API Requests</a>. </p>
+ *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting up
+ *     AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+ *          <p>For information about other API actions you can perform on EC2 instances, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information
+ *    about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API requests</a>. </p>
  */
 export class SSM extends SSMClient {
   /**
@@ -629,9 +630,9 @@ export class SSM extends SSMClient {
    *          <p>We recommend that you devise a set of tag keys that meets your needs for each resource type.
    *    Using a consistent set of tag keys makes it easier for you to manage your resources. You can
    *    search and filter the resources based on the tags you add. Tags don't have any semantic meaning
-   *    to Amazon EC2 and are interpreted strictly as a string of characters. </p>
-   *          <p>For more information about tags, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your
-   *     Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *    to and are interpreted strictly as a string of characters. </p>
+   *          <p>For more information about using tags with EC2 instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2 resources</a> in the
+   *     <i>Amazon EC2 User Guide</i>.</p>
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -734,11 +735,11 @@ export class SSM extends SSMClient {
    *    server or virtual machine (VM) with Systems Manager. Registering these machines with Systems Manager makes it
    *    possible to manage them using Systems Manager capabilities. You use the activation code and ID when
    *    installing SSM Agent on machines in your hybrid environment. For more information about
-   *    requirements for managing on-premises instances and VMs using Systems Manager, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting Up AWS Systems Manager for Hybrid
-   *     Environments</a> in the <i>AWS Systems Manager User Guide</i>. </p>
+   *    requirements for managing on-premises instances and VMs using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting up
+   *     AWS Systems Manager for hybrid environments</a> in the <i>AWS Systems Manager User Guide</i>. </p>
    *          <note>
-   *             <p>On-premises servers or VMs that are registered with Systems Manager and Amazon EC2 instances that you
-   *     manage with Systems Manager are all called <i>managed instances</i>.</p>
+   *             <p>On-premises servers or VMs that are registered with Systems Manager and EC2 instances that you manage
+   *     with Systems Manager are all called <i>managed instances</i>.</p>
    *          </note>
    */
   public createActivation(
@@ -771,12 +772,16 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Associates the specified Systems Manager document with the specified instances or targets.</p>
-   *          <p>When you associate a document with one or more instances using instance IDs or tags,
-   *    SSM Agent running on the instance processes the document and configures the instance as
-   *    specified.</p>
-   *          <p>If you associate a document with an instance that already has an associated document, the
-   *    system returns the AssociationAlreadyExists exception.</p>
+   * <p>A State Manager association defines the state that you want to maintain on your instances.
+   *    For example, an association can specify that anti-virus software must be installed and running on
+   *    your instances, or that certain ports must be closed. For static targets, the association
+   *    specifies a schedule for when the configuration is reapplied. For dynamic targets, such as an AWS
+   *    Resource Group or an AWS Autoscaling Group, State Manager applies the configuration when new
+   *    instances are added to the group. The association also specifies actions to take when applying
+   *    the configuration. For example, an association for anti-virus software might run once a day. If
+   *    the software is not installed, then State Manager installs it. If the software is installed, but
+   *    the service is not running, then the association might instruct State Manager to start the
+   *    service. </p>
    */
   public createAssociation(
     args: CreateAssociationCommandInput,
@@ -845,9 +850,10 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Creates a Systems Manager document.</p>
-   *          <p>After you create a document, you can use CreateAssociation to associate it with one or more
-   *    running instances.</p>
+   * <p>Creates a Systems Manager (SSM) document. An SSM document defines the actions that Systems Manager performs on
+   *    your managed instances. For more information about SSM documents, including information about
+   *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">AWS Systems Manager Documents</a> in the
+   *     <i>AWS Systems Manager User Guide</i>.</p>
    */
   public createDocument(
     args: CreateDocumentCommandInput,
@@ -920,11 +926,11 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Creates a new OpsItem. You must have permission in AWS Identity and Access Management (IAM)
-   *    to create a new OpsItem. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
+   *    to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+   *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
   public createOpsItem(
@@ -997,16 +1003,15 @@ export class SSM extends SSMClient {
    *    Manager offers two types of resource data sync: <code>SyncToDestination</code> and
    *     <code>SyncFromSource</code>.</p>
    *          <p>You can configure Systems Manager Inventory to use the <code>SyncToDestination</code> type to
-   *    synchronize Inventory data from multiple AWS Regions to a single Amazon S3 bucket. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring Resource
-   *     Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    synchronize Inventory data from multiple AWS Regions to a single S3 bucket. For more information,
+   *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring Resource Data
+   *     Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *
-   *          <p>You can configure Systems Manager Explorer to use the <code>SyncToDestination</code> type to
-   *    synchronize operational work items (OpsItems) and operational data (OpsData) from multiple AWS
-   *    Regions to a single Amazon S3 bucket. You can also configure Explorer to use the
-   *     <code>SyncFromSource</code> type. This type synchronizes OpsItems and OpsData from multiple AWS
-   *    accounts and Regions by using AWS Organizations. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting Up Explorer to Display Data from
-   *     Multiple Accounts and Regions</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *          <p>You can configure Systems Manager Explorer to use the <code>SyncFromSource</code> type to synchronize
+   *    operational work items (OpsItems) and operational data (OpsData) from multiple AWS Regions to a
+   *    single S3 bucket. This type can synchronize OpsItems and OpsData from multiple AWS accounts and
+   *    Regions or <code>EntireOrganization</code> by using AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager Explorer to display data from multiple accounts and Regions</a> in the
+   *     <i>AWS Systems Manager User Guide</i>.</p>
    *
    *          <p>A resource data sync is an asynchronous operation that returns immediately. After a
    *    successful initial sync is completed, the system continuously syncs data. To check the status of
@@ -1879,14 +1884,14 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Describes one or more of your instances. You can use this to get information about instances
-   *    like the operating system platform, the SSM Agent version (Linux), status etc. If you specify one
-   *    or more instance IDs, it returns information for those instances. If you do not specify instance
-   *    IDs, it returns information for all your instances. If you specify an instance ID that is not
-   *    valid or an instance that you do not own, you receive an error. </p>
+   * <p>Describes one or more of your instances, including information about the operating system
+   *    platform, the version of SSM Agent installed on the instance, instance status, and so on.</p>
+   *          <p>If you specify one or more instance IDs, it returns information for those instances. If you
+   *    do not specify instance IDs, it returns information for all your instances. If you specify an
+   *    instance ID that is not valid or an instance that you do not own, you receive an error.</p>
    *          <note>
    *             <p>The IamRole field for this API action is the Amazon Identity and Access Management (IAM)
-   *     role assigned to on-premises instances. This call does not return the IAM role for Amazon EC2
+   *     role assigned to on-premises instances. This call does not return the IAM role for EC2
    *     instances.</p>
    *          </note>
    */
@@ -2316,11 +2321,11 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Query a set of OpsItems. You must have permission in AWS Identity and Access Management
-   *    (IAM) to query a list of OpsItems. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
+   *    (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+   *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
   public describeOpsItems(
@@ -2625,7 +2630,8 @@ export class SSM extends SSMClient {
    *    time, and returns the next time that the Change Calendar state will transition. If you do not
    *    specify a time, <code>GetCalendarState</code> assumes the current time. Change Calendar entries
    *    have two possible states: <code>OPEN</code> or <code>CLOSED</code>. For more information about
-   *    Systems Manager Change Calendar, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">AWS Systems Manager Change Calendar</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    Systems Manager Change Calendar, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">AWS Systems Manager Change
+   *     Calendar</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   public getCalendarState(
     args: GetCalendarStateCommandInput,
@@ -2689,8 +2695,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Retrieves the Session Manager connection status for an instance to determine whether it is connected
-   *    and ready to receive Session Manager connections.</p>
+   * <p>Retrieves the Session Manager connection status for an instance to determine whether it is running and
+   *    ready to receive Session Manager connections.</p>
    */
   public getConnectionStatus(
     args: GetConnectionStatusCommandInput,
@@ -2849,7 +2855,7 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Return a list of inventory type names for the account, or return a list of attribute names
-   *    for a specific Inventory item type. </p>
+   *    for a specific Inventory item type.</p>
    */
   public getInventorySchema(
     args: GetInventorySchemaCommandInput,
@@ -3046,11 +3052,11 @@ export class SSM extends SSMClient {
   /**
    * <p>Get information about an OpsItem by using the ID. You must have permission in AWS Identity
    *    and Access Management (IAM) to view information about an OpsItem. For more information, see
-   *     <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a>
-   *    in the <i>AWS Systems Manager User Guide</i>.</p>
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+   *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
   public getOpsItem(args: GetOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<GetOpsItemCommandOutput>;
@@ -3353,9 +3359,9 @@ export class SSM extends SSMClient {
 
   /**
    * <p>A parameter label is a user-defined alias to help you manage different versions of a
-   *    parameter. When you modify a parameter, Systems Manager automatically saves a new version and
-   *    increments the version number by one. A label can help you remember the purpose of a parameter
-   *    when there are multiple versions. </p>
+   *    parameter. When you modify a parameter, Systems Manager automatically saves a new version and increments
+   *    the version number by one. A label can help you remember the purpose of a parameter when there
+   *    are multiple versions. </p>
    *          <p>Parameter labels have the following requirements and restrictions.</p>
    *          <ul>
    *             <li>
@@ -3552,7 +3558,7 @@ export class SSM extends SSMClient {
   /**
    * <p>For a specified resource ID, this API action returns a list of compliance statuses for
    *    different resource types. Currently, you can only specify one resource ID per call. List results
-   *    depend on the criteria specified in the filter. </p>
+   *    depend on the criteria specified in the filter.</p>
    */
   public listComplianceItems(
     args: ListComplianceItemsCommandInput,
@@ -3586,7 +3592,7 @@ export class SSM extends SSMClient {
   /**
    * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
    *    example, this call can return State Manager associations, patches, or custom compliance types
-   *    according to the filter criteria that you specify. </p>
+   *    according to the filter criteria that you specify.</p>
    */
   public listComplianceSummaries(
     args: ListComplianceSummariesCommandInput,
@@ -3618,8 +3624,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can
-   *    limit the results of this request by using a filter.</p>
+   * <p>Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can limit the
+   *    results of this request by using a filter.</p>
    */
   public listDocuments(
     args: ListDocumentsCommandInput,
@@ -4377,8 +4383,8 @@ export class SSM extends SSMClient {
    *    outputs.</p>
    *          <note>
    *             <p>AWS CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager
-   *     plugin to be installed on the client machine making the call. For information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html"> Install the Session Manager Plugin
-   *      for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *     plugin to be installed on the client machine making the call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
+   *      the Session Manager plugin for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *             <p>AWS Tools for PowerShell usage: Start-SSMSession is not currently supported by AWS Tools
    *     for PowerShell on Windows local machines.</p>
    *          </note>
@@ -4770,8 +4776,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Assigns or changes an Amazon Identity and Access Management (IAM) role for the managed
-   *    instance.</p>
+   * <p>Changes the Amazon Identity and Access Management (IAM) role that is assigned to the
+   *    on-premises instance or virtual machines (VM). IAM roles are first assigned to these hybrid
+   *    instances during the activation process. For more information, see <a>CreateActivation</a>.</p>
    */
   public updateManagedInstanceRole(
     args: UpdateManagedInstanceRoleCommandInput,
@@ -4804,11 +4811,11 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Edit or change an OpsItem. You must have permission in AWS Identity and Access Management
-   *    (IAM) to update an OpsItem. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
+   *    (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+   *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
   public updateOpsItem(
@@ -4881,8 +4888,12 @@ export class SSM extends SSMClient {
    * <p>Update a resource data sync. After you create a resource data sync for a Region, you can't
    *    change the account options for that sync. For example, if you create a sync in the us-east-2
    *    (Ohio) Region and you choose the Include only the current account option, you can't edit that
-   *    sync later and choose the Include all accounts from my AWS Organizations configuration option.
-   *    Instead, you must delete the first resource data sync, and create a new one.</p>
+   *    sync later and choose the Include all accounts from my AWS Organizations configuration option. Instead,
+   *    you must delete the first resource data sync, and create a new one.</p>
+   *          <note>
+   *             <p>This API action only supports a resource data sync that was created with a SyncFromSource
+   *      <code>SyncType</code>.</p>
+   *          </note>
    */
   public updateResourceDataSync(
     args: UpdateResourceDataSyncCommandInput,

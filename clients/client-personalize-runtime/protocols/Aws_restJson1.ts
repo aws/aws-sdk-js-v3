@@ -52,6 +52,7 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   body = JSON.stringify({
     ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
     ...(input.context !== undefined && { context: serializeAws_restJson1Context(input.context, context) }),
+    ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
     ...(input.itemId !== undefined && { itemId: input.itemId }),
     ...(input.numResults !== undefined && { numResults: input.numResults }),
     ...(input.userId !== undefined && { userId: input.userId }),
@@ -252,6 +253,7 @@ const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeCont
   return {
     __type: "PredictedItem",
     itemId: output.itemId !== undefined && output.itemId !== null ? output.itemId : undefined,
+    score: output.score !== undefined && output.score !== null ? output.score : undefined,
   } as any;
 };
 

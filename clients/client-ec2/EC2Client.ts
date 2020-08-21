@@ -178,6 +178,10 @@ import {
   CreateLocalGatewayRouteTableVpcAssociationCommandInput,
   CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/CreateLocalGatewayRouteTableVpcAssociationCommand";
+import {
+  CreateManagedPrefixListCommandInput,
+  CreateManagedPrefixListCommandOutput,
+} from "./commands/CreateManagedPrefixListCommand";
 import { CreateNatGatewayCommandInput, CreateNatGatewayCommandOutput } from "./commands/CreateNatGatewayCommand";
 import { CreateNetworkAclCommandInput, CreateNetworkAclCommandOutput } from "./commands/CreateNetworkAclCommand";
 import {
@@ -319,6 +323,10 @@ import {
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteTableVpcAssociationCommand";
+import {
+  DeleteManagedPrefixListCommandInput,
+  DeleteManagedPrefixListCommandOutput,
+} from "./commands/DeleteManagedPrefixListCommand";
 import { DeleteNatGatewayCommandInput, DeleteNatGatewayCommandOutput } from "./commands/DeleteNatGatewayCommand";
 import { DeleteNetworkAclCommandInput, DeleteNetworkAclCommandOutput } from "./commands/DeleteNetworkAclCommand";
 import {
@@ -423,6 +431,10 @@ import {
   DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
 import { DeregisterImageCommandInput, DeregisterImageCommandOutput } from "./commands/DeregisterImageCommand";
+import {
+  DeregisterInstanceEventNotificationAttributesCommandInput,
+  DeregisterInstanceEventNotificationAttributesCommandOutput,
+} from "./commands/DeregisterInstanceEventNotificationAttributesCommand";
 import {
   DeregisterTransitGatewayMulticastGroupMembersCommandInput,
   DeregisterTransitGatewayMulticastGroupMembersCommandOutput,
@@ -565,6 +577,10 @@ import {
   DescribeInstanceCreditSpecificationsCommandOutput,
 } from "./commands/DescribeInstanceCreditSpecificationsCommand";
 import {
+  DescribeInstanceEventNotificationAttributesCommandInput,
+  DescribeInstanceEventNotificationAttributesCommandOutput,
+} from "./commands/DescribeInstanceEventNotificationAttributesCommand";
+import {
   DescribeInstanceStatusCommandInput,
   DescribeInstanceStatusCommandOutput,
 } from "./commands/DescribeInstanceStatusCommand";
@@ -615,6 +631,10 @@ import {
   DescribeLocalGatewaysCommandInput,
   DescribeLocalGatewaysCommandOutput,
 } from "./commands/DescribeLocalGatewaysCommand";
+import {
+  DescribeManagedPrefixListsCommandInput,
+  DescribeManagedPrefixListsCommandOutput,
+} from "./commands/DescribeManagedPrefixListsCommand";
 import {
   DescribeMovingAddressesCommandInput,
   DescribeMovingAddressesCommandOutput,
@@ -960,6 +980,10 @@ import {
   GetEbsEncryptionByDefaultCommandOutput,
 } from "./commands/GetEbsEncryptionByDefaultCommand";
 import {
+  GetGroupsForCapacityReservationCommandInput,
+  GetGroupsForCapacityReservationCommandOutput,
+} from "./commands/GetGroupsForCapacityReservationCommand";
+import {
   GetHostReservationPurchasePreviewCommandInput,
   GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
@@ -967,6 +991,14 @@ import {
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput,
 } from "./commands/GetLaunchTemplateDataCommand";
+import {
+  GetManagedPrefixListAssociationsCommandInput,
+  GetManagedPrefixListAssociationsCommandOutput,
+} from "./commands/GetManagedPrefixListAssociationsCommand";
+import {
+  GetManagedPrefixListEntriesCommandInput,
+  GetManagedPrefixListEntriesCommandOutput,
+} from "./commands/GetManagedPrefixListEntriesCommand";
 import { GetPasswordDataCommandInput, GetPasswordDataCommandOutput } from "./commands/GetPasswordDataCommand";
 import {
   GetReservedInstancesExchangeQuoteCommandInput,
@@ -997,6 +1029,10 @@ import { ImportInstanceCommandInput, ImportInstanceCommandOutput } from "./comma
 import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./commands/ImportKeyPairCommand";
 import { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "./commands/ImportSnapshotCommand";
 import { ImportVolumeCommandInput, ImportVolumeCommandOutput } from "./commands/ImportVolumeCommand";
+import {
+  ModifyAvailabilityZoneGroupCommandInput,
+  ModifyAvailabilityZoneGroupCommandOutput,
+} from "./commands/ModifyAvailabilityZoneGroupCommand";
 import {
   ModifyCapacityReservationCommandInput,
   ModifyCapacityReservationCommandOutput,
@@ -1056,6 +1092,10 @@ import {
   ModifyLaunchTemplateCommandInput,
   ModifyLaunchTemplateCommandOutput,
 } from "./commands/ModifyLaunchTemplateCommand";
+import {
+  ModifyManagedPrefixListCommandInput,
+  ModifyManagedPrefixListCommandOutput,
+} from "./commands/ModifyManagedPrefixListCommand";
 import {
   ModifyNetworkInterfaceAttributeCommandInput,
   ModifyNetworkInterfaceAttributeCommandOutput,
@@ -1146,6 +1186,10 @@ import {
 import { RebootInstancesCommandInput, RebootInstancesCommandOutput } from "./commands/RebootInstancesCommand";
 import { RegisterImageCommandInput, RegisterImageCommandOutput } from "./commands/RegisterImageCommand";
 import {
+  RegisterInstanceEventNotificationAttributesCommandInput,
+  RegisterInstanceEventNotificationAttributesCommandOutput,
+} from "./commands/RegisterInstanceEventNotificationAttributesCommand";
+import {
   RegisterTransitGatewayMulticastGroupMembersCommandInput,
   RegisterTransitGatewayMulticastGroupMembersCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupMembersCommand";
@@ -1229,6 +1273,10 @@ import {
   RestoreAddressToClassicCommandInput,
   RestoreAddressToClassicCommandOutput,
 } from "./commands/RestoreAddressToClassicCommand";
+import {
+  RestoreManagedPrefixListVersionCommandInput,
+  RestoreManagedPrefixListVersionCommandOutput,
+} from "./commands/RestoreManagedPrefixListVersionCommand";
 import {
   RevokeClientVpnIngressCommandInput,
   RevokeClientVpnIngressCommandOutput,
@@ -1399,6 +1447,7 @@ export type ServiceInputTypes =
   | CreateLaunchTemplateVersionCommandInput
   | CreateLocalGatewayRouteCommandInput
   | CreateLocalGatewayRouteTableVpcAssociationCommandInput
+  | CreateManagedPrefixListCommandInput
   | CreateNatGatewayCommandInput
   | CreateNetworkAclCommandInput
   | CreateNetworkAclEntryCommandInput
@@ -1447,6 +1496,7 @@ export type ServiceInputTypes =
   | DeleteLaunchTemplateVersionsCommandInput
   | DeleteLocalGatewayRouteCommandInput
   | DeleteLocalGatewayRouteTableVpcAssociationCommandInput
+  | DeleteManagedPrefixListCommandInput
   | DeleteNatGatewayCommandInput
   | DeleteNetworkAclCommandInput
   | DeleteNetworkAclEntryCommandInput
@@ -1482,6 +1532,7 @@ export type ServiceInputTypes =
   | DeleteVpnGatewayCommandInput
   | DeprovisionByoipCidrCommandInput
   | DeregisterImageCommandInput
+  | DeregisterInstanceEventNotificationAttributesCommandInput
   | DeregisterTransitGatewayMulticastGroupMembersCommandInput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandInput
   | DescribeAccountAttributesCommandInput
@@ -1524,6 +1575,7 @@ export type ServiceInputTypes =
   | DescribeImportSnapshotTasksCommandInput
   | DescribeInstanceAttributeCommandInput
   | DescribeInstanceCreditSpecificationsCommandInput
+  | DescribeInstanceEventNotificationAttributesCommandInput
   | DescribeInstanceStatusCommandInput
   | DescribeInstanceTypeOfferingsCommandInput
   | DescribeInstanceTypesCommandInput
@@ -1539,6 +1591,7 @@ export type ServiceInputTypes =
   | DescribeLocalGatewayVirtualInterfaceGroupsCommandInput
   | DescribeLocalGatewayVirtualInterfacesCommandInput
   | DescribeLocalGatewaysCommandInput
+  | DescribeManagedPrefixListsCommandInput
   | DescribeMovingAddressesCommandInput
   | DescribeNatGatewaysCommandInput
   | DescribeNetworkAclsCommandInput
@@ -1634,8 +1687,11 @@ export type ServiceInputTypes =
   | GetDefaultCreditSpecificationCommandInput
   | GetEbsDefaultKmsKeyIdCommandInput
   | GetEbsEncryptionByDefaultCommandInput
+  | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
   | GetLaunchTemplateDataCommandInput
+  | GetManagedPrefixListAssociationsCommandInput
+  | GetManagedPrefixListEntriesCommandInput
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
@@ -1648,6 +1704,7 @@ export type ServiceInputTypes =
   | ImportKeyPairCommandInput
   | ImportSnapshotCommandInput
   | ImportVolumeCommandInput
+  | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
   | ModifyClientVpnEndpointCommandInput
   | ModifyDefaultCreditSpecificationCommandInput
@@ -1665,6 +1722,7 @@ export type ServiceInputTypes =
   | ModifyInstanceMetadataOptionsCommandInput
   | ModifyInstancePlacementCommandInput
   | ModifyLaunchTemplateCommandInput
+  | ModifyManagedPrefixListCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
   | ModifyReservedInstancesCommandInput
   | ModifySnapshotAttributeCommandInput
@@ -1694,6 +1752,7 @@ export type ServiceInputTypes =
   | PurchaseScheduledInstancesCommandInput
   | RebootInstancesCommandInput
   | RegisterImageCommandInput
+  | RegisterInstanceEventNotificationAttributesCommandInput
   | RegisterTransitGatewayMulticastGroupMembersCommandInput
   | RegisterTransitGatewayMulticastGroupSourcesCommandInput
   | RejectTransitGatewayPeeringAttachmentCommandInput
@@ -1718,6 +1777,7 @@ export type ServiceInputTypes =
   | ResetNetworkInterfaceAttributeCommandInput
   | ResetSnapshotAttributeCommandInput
   | RestoreAddressToClassicCommandInput
+  | RestoreManagedPrefixListVersionCommandInput
   | RevokeClientVpnIngressCommandInput
   | RevokeSecurityGroupEgressCommandInput
   | RevokeSecurityGroupIngressCommandInput
@@ -1800,6 +1860,7 @@ export type ServiceOutputTypes =
   | CreateLaunchTemplateVersionCommandOutput
   | CreateLocalGatewayRouteCommandOutput
   | CreateLocalGatewayRouteTableVpcAssociationCommandOutput
+  | CreateManagedPrefixListCommandOutput
   | CreateNatGatewayCommandOutput
   | CreateNetworkAclCommandOutput
   | CreateNetworkAclEntryCommandOutput
@@ -1848,6 +1909,7 @@ export type ServiceOutputTypes =
   | DeleteLaunchTemplateVersionsCommandOutput
   | DeleteLocalGatewayRouteCommandOutput
   | DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
+  | DeleteManagedPrefixListCommandOutput
   | DeleteNatGatewayCommandOutput
   | DeleteNetworkAclCommandOutput
   | DeleteNetworkAclEntryCommandOutput
@@ -1883,6 +1945,7 @@ export type ServiceOutputTypes =
   | DeleteVpnGatewayCommandOutput
   | DeprovisionByoipCidrCommandOutput
   | DeregisterImageCommandOutput
+  | DeregisterInstanceEventNotificationAttributesCommandOutput
   | DeregisterTransitGatewayMulticastGroupMembersCommandOutput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
   | DescribeAccountAttributesCommandOutput
@@ -1925,6 +1988,7 @@ export type ServiceOutputTypes =
   | DescribeImportSnapshotTasksCommandOutput
   | DescribeInstanceAttributeCommandOutput
   | DescribeInstanceCreditSpecificationsCommandOutput
+  | DescribeInstanceEventNotificationAttributesCommandOutput
   | DescribeInstanceStatusCommandOutput
   | DescribeInstanceTypeOfferingsCommandOutput
   | DescribeInstanceTypesCommandOutput
@@ -1940,6 +2004,7 @@ export type ServiceOutputTypes =
   | DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
   | DescribeLocalGatewayVirtualInterfacesCommandOutput
   | DescribeLocalGatewaysCommandOutput
+  | DescribeManagedPrefixListsCommandOutput
   | DescribeMovingAddressesCommandOutput
   | DescribeNatGatewaysCommandOutput
   | DescribeNetworkAclsCommandOutput
@@ -2035,8 +2100,11 @@ export type ServiceOutputTypes =
   | GetDefaultCreditSpecificationCommandOutput
   | GetEbsDefaultKmsKeyIdCommandOutput
   | GetEbsEncryptionByDefaultCommandOutput
+  | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
   | GetLaunchTemplateDataCommandOutput
+  | GetManagedPrefixListAssociationsCommandOutput
+  | GetManagedPrefixListEntriesCommandOutput
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
@@ -2049,6 +2117,7 @@ export type ServiceOutputTypes =
   | ImportKeyPairCommandOutput
   | ImportSnapshotCommandOutput
   | ImportVolumeCommandOutput
+  | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput
   | ModifyClientVpnEndpointCommandOutput
   | ModifyDefaultCreditSpecificationCommandOutput
@@ -2066,6 +2135,7 @@ export type ServiceOutputTypes =
   | ModifyInstanceMetadataOptionsCommandOutput
   | ModifyInstancePlacementCommandOutput
   | ModifyLaunchTemplateCommandOutput
+  | ModifyManagedPrefixListCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
   | ModifyReservedInstancesCommandOutput
   | ModifySnapshotAttributeCommandOutput
@@ -2095,6 +2165,7 @@ export type ServiceOutputTypes =
   | PurchaseScheduledInstancesCommandOutput
   | RebootInstancesCommandOutput
   | RegisterImageCommandOutput
+  | RegisterInstanceEventNotificationAttributesCommandOutput
   | RegisterTransitGatewayMulticastGroupMembersCommandOutput
   | RegisterTransitGatewayMulticastGroupSourcesCommandOutput
   | RejectTransitGatewayPeeringAttachmentCommandOutput
@@ -2119,6 +2190,7 @@ export type ServiceOutputTypes =
   | ResetNetworkInterfaceAttributeCommandOutput
   | ResetSnapshotAttributeCommandOutput
   | RestoreAddressToClassicCommandOutput
+  | RestoreManagedPrefixListVersionCommandOutput
   | RevokeClientVpnIngressCommandOutput
   | RevokeSecurityGroupEgressCommandOutput
   | RevokeSecurityGroupIngressCommandOutput

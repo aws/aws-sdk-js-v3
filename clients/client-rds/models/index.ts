@@ -95,8 +95,13 @@ export namespace AccountAttributesMessage {
  *             </li>
  *             <li>
  *               <p>
- *                   <code>ManualSnapshots</code> - The number of manual DB snapshots per account.
- *                   The used value is the count of the manual DB snapshots in the account.</p>
+ *                   <code>ManualClusterSnapshots</code> - The number of manual DB cluster snapshots per account.
+ *                   The used value is the count of the manual DB cluster snapshots in the account.</p>
+ *             </li>
+ *             <li>
+ *               <p>
+ *                   <code>ManualSnapshots</code> - The number of manual DB instance snapshots per account.
+ *                   The used value is the count of the manual DB instance snapshots in the account.</p>
  *             </li>
  *             <li>
  *               <p>
@@ -106,9 +111,10 @@ export namespace AccountAttributesMessage {
  *             </li>
  *             <li>
  *               <p>
- *                   <code>ReadReplicasPerMaster</code> - The number of Read Replicas per DB instance.
- *                   The used value is the highest number of Read Replicas for a DB instance in the account. Other
- *                   DB instances in the account might have a lower number of Read Replicas.</p>
+ *                   <code>ReadReplicasPerMaster</code> - The number of read replicas per DB
+ *                     instance. The used value is the highest number of read replicas for a DB
+ *                     instance in the account. Other DB instances in the account might have a lower
+ *                     number of read replicas.</p>
  *             </li>
  *             <li>
  *               <p>
@@ -163,16 +169,16 @@ export interface AddRoleToDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p>The name of the feature for the DB cluster that the IAM role is to be associated with.
-   *             For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
-   */
-  FeatureName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB
    *             cluster, for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>The name of the feature for the DB cluster that the IAM role is to be associated with.
+   *             For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
+   */
+  FeatureName?: string;
 }
 
 export namespace AddRoleToDBClusterMessage {
@@ -185,16 +191,16 @@ export namespace AddRoleToDBClusterMessage {
 export interface AddRoleToDBInstanceMessage {
   __type?: "AddRoleToDBInstanceMessage";
   /**
-   * <p>The name of the DB instance to associate the IAM role with.</p>
-   */
-  DBInstanceIdentifier: string | undefined;
-
-  /**
    * <p>The name of the feature for the DB instance that the IAM role is to be associated with.
    *             For the list of supported feature names, see <a>DBEngineVersion</a>.
    *         </p>
    */
   FeatureName: string | undefined;
+
+  /**
+   * <p>The name of the DB instance to associate the IAM role with.</p>
+   */
+  DBInstanceIdentifier: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the DB instance, for
@@ -299,12 +305,13 @@ export type ApplyMethod = "immediate" | "pending-reboot";
 export interface ApplyPendingMaintenanceActionMessage {
   __type?: "ApplyPendingMaintenanceActionMessage";
   /**
-   * <p>The pending maintenance action to apply to this resource.</p>
-   *          <p>Valid values: <code>system-update</code>, <code>db-upgrade</code>,
-   *           <code>hardware-maintenance</code>, <code>ca-certificate-rotation</code>
-   *          </p>
+   * <p>The RDS Amazon Resource Name (ARN) of the resource that the
+   *       pending maintenance action applies to. For information about
+   *       creating an ARN,
+   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+   *         Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
    */
-  ApplyAction: string | undefined;
+  ResourceIdentifier: string | undefined;
 
   /**
    * <p>A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in
@@ -330,13 +337,12 @@ export interface ApplyPendingMaintenanceActionMessage {
   OptInType: string | undefined;
 
   /**
-   * <p>The RDS Amazon Resource Name (ARN) of the resource that the
-   *       pending maintenance action applies to. For information about
-   *       creating an ARN,
-   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-   *         Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
+   * <p>The pending maintenance action to apply to this resource.</p>
+   *          <p>Valid values: <code>system-update</code>, <code>db-upgrade</code>,
+   *           <code>hardware-maintenance</code>, <code>ca-certificate-rotation</code>
+   *          </p>
    */
-  ResourceIdentifier: string | undefined;
+  ApplyAction: string | undefined;
 }
 
 export namespace ApplyPendingMaintenanceActionMessage {
@@ -421,9 +427,30 @@ export namespace AuthorizationQuotaExceededFault {
 export interface AuthorizeDBSecurityGroupIngressMessage {
   __type?: "AuthorizeDBSecurityGroupIngressMessage";
   /**
+   * <p>
+   *         AWS account number of the owner of the EC2 security group
+   *         specified in the <code>EC2SecurityGroupName</code> parameter.
+   *         The AWS access key ID isn't an acceptable value.
+   *         For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided.
+   *         Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.
+   *         </p>
+   */
+  EC2SecurityGroupOwnerId?: string;
+
+  /**
    * <p>The IP range to authorize.</p>
    */
   CIDRIP?: string;
+
+  /**
+   * <p>
+   *         Name of the EC2 security group to authorize.
+   *         For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided.
+   *         Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
+   *       or <code>EC2SecurityGroupId</code> must be provided.
+   *         </p>
+   */
+  EC2SecurityGroupName?: string;
 
   /**
    * <p>The name of the DB security group to add authorization to.</p>
@@ -438,27 +465,6 @@ export interface AuthorizeDBSecurityGroupIngressMessage {
    *         </p>
    */
   EC2SecurityGroupId?: string;
-
-  /**
-   * <p>
-   *         Name of the EC2 security group to authorize.
-   *         For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided.
-   *         Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
-   *       or <code>EC2SecurityGroupId</code> must be provided.
-   *         </p>
-   */
-  EC2SecurityGroupName?: string;
-
-  /**
-   * <p>
-   *         AWS account number of the owner of the EC2 security group
-   *         specified in the <code>EC2SecurityGroupName</code> parameter.
-   *         The AWS access key ID isn't an acceptable value.
-   *         For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided.
-   *         Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.
-   *         </p>
-   */
-  EC2SecurityGroupOwnerId?: string;
 }
 
 export namespace AuthorizeDBSecurityGroupIngressMessage {
@@ -523,9 +529,10 @@ export namespace AvailabilityZone {
 export interface AvailableProcessorFeature {
   __type?: "AvailableProcessorFeature";
   /**
-   * <p>The allowed values for the processor feature of the DB instance class.</p>
+   * <p>The name of the processor feature. Valid names are <code>coreCount</code>
+   *             and <code>threadsPerCore</code>.</p>
    */
-  AllowedValues?: string;
+  Name?: string;
 
   /**
    * <p>The default value for the processor feature of the DB instance class.</p>
@@ -533,10 +540,9 @@ export interface AvailableProcessorFeature {
   DefaultValue?: string;
 
   /**
-   * <p>The name of the processor feature. Valid names are <code>coreCount</code>
-   *             and <code>threadsPerCore</code>.</p>
+   * <p>The allowed values for the processor feature of the DB instance class.</p>
    */
-  Name?: string;
+  AllowedValues?: string;
 }
 
 export namespace AvailableProcessorFeature {
@@ -595,18 +601,18 @@ export interface BacktrackDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p>A value that indicates whether to force the DB cluster to backtrack when binary logging is
-   *             enabled. Otherwise, an error occurs when binary logging is enabled.</p>
-   */
-  Force?: boolean;
-
-  /**
    * <p>A value that indicates whether to backtrack the DB cluster to the earliest possible
    *             backtrack time when <i>BacktrackTo</i> is set to a timestamp earlier than the earliest
    *             backtrack time. When this parameter is disabled and <i>BacktrackTo</i> is set to a timestamp earlier than the earliest
    *             backtrack time, an error occurs.</p>
    */
   UseEarliestTimeOnPointInTimeUnavailable?: boolean;
+
+  /**
+   * <p>A value that indicates whether to force the DB cluster to backtrack when binary logging is
+   *             enabled. Otherwise, an error occurs when binary logging is enabled.</p>
+   */
+  Force?: boolean;
 }
 
 export namespace BacktrackDBClusterMessage {
@@ -627,6 +633,21 @@ export namespace BackupPolicyNotFoundFault {
     ...obj,
   });
   export const isa = (o: any): o is BackupPolicyNotFoundFault => __isa(o, "BackupPolicyNotFoundFault");
+}
+
+export interface CancelExportTaskMessage {
+  __type?: "CancelExportTaskMessage";
+  /**
+   * <p>The identifier of the snapshot export task to cancel.</p>
+   */
+  ExportTaskIdentifier: string | undefined;
+}
+
+export namespace CancelExportTaskMessage {
+  export const filterSensitiveLog = (obj: CancelExportTaskMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CancelExportTaskMessage => __isa(o, "CancelExportTaskMessage");
 }
 
 /**
@@ -650,20 +671,15 @@ export interface Certificate {
   CertificateType?: string;
 
   /**
-   * <p>Whether there is an override for the default certificate identifier.</p>
-   */
-  CustomerOverride?: boolean;
-
-  /**
    * <p>If there is an override for the default certificate identifier, when the override
    *             expires.</p>
    */
   CustomerOverrideValidTill?: Date;
 
   /**
-   * <p>The thumbprint of the certificate.</p>
+   * <p>The final date that the certificate continues to be valid.</p>
    */
-  Thumbprint?: string;
+  ValidTill?: Date;
 
   /**
    * <p>The starting date from which the certificate is valid.</p>
@@ -671,9 +687,14 @@ export interface Certificate {
   ValidFrom?: Date;
 
   /**
-   * <p>The final date that the certificate continues to be valid.</p>
+   * <p>The thumbprint of the certificate.</p>
    */
-  ValidTill?: Date;
+  Thumbprint?: string;
+
+  /**
+   * <p>Whether there is an override for the default certificate identifier.</p>
+   */
+  CustomerOverride?: boolean;
 }
 
 export namespace Certificate {
@@ -739,14 +760,14 @@ export namespace CertificateNotFoundFault {
 export interface CharacterSet {
   __type?: "CharacterSet";
   /**
-   * <p>The description of the character set.</p>
-   */
-  CharacterSetDescription?: string;
-
-  /**
    * <p>The name of the character set.</p>
    */
   CharacterSetName?: string;
+
+  /**
+   * <p>The description of the character set.</p>
+   */
+  CharacterSetDescription?: string;
 }
 
 export namespace CharacterSet {
@@ -767,14 +788,14 @@ export namespace CharacterSet {
 export interface CloudwatchLogsExportConfiguration {
   __type?: "CloudwatchLogsExportConfiguration";
   /**
-   * <p>The list of log types to disable.</p>
-   */
-  DisableLogTypes?: string[];
-
-  /**
    * <p>The list of log types to enable.</p>
    */
   EnableLogTypes?: string[];
+
+  /**
+   * <p>The list of log types to disable.</p>
+   */
+  DisableLogTypes?: string[];
 }
 
 export namespace CloudwatchLogsExportConfiguration {
@@ -785,21 +806,31 @@ export namespace CloudwatchLogsExportConfiguration {
 }
 
 /**
- * <note>
- *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
- *          </note>
- *
- *          <p>Specifies the settings that control the size and behavior of the connection pool associated with a <code>DBProxyTargetGroup</code>.</p>
+ * <p>Specifies the settings that control the size and behavior of the connection pool associated with a <code>DBProxyTargetGroup</code>.</p>
  */
 export interface ConnectionPoolConfiguration {
   __type?: "ConnectionPoolConfiguration";
   /**
-   * <p>The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the
-   *         proxy has opened its maximum number of connections and all connections are busy with client sessions.</p>
-   *          <p>Default: 120</p>
-   *          <p>Constraints: between 1 and 3600, or 0 representing unlimited</p>
+   * <p>
+   *         Controls how actively the proxy closes idle database connections in the connection pool.
+   *         A high value enables the proxy to leave a high percentage of idle connections open.
+   *         A low value causes the proxy to close idle client connections and return the underlying
+   *         database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the
+   *         <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.
+   *       </p>
+   *          <p>Default: 50</p>
+   *          <p>Constraints: between 0 and <code>MaxConnectionsPercent</code>
+   *          </p>
    */
-  ConnectionBorrowTimeout?: number;
+  MaxIdleConnectionsPercent?: number;
+
+  /**
+   * <p>Each item in the list represents a class of SQL operations that normally cause all later statements
+   *         in a session using a proxy to be pinned to the same underlying database connection. Including an item
+   *         in the list exempts that class of SQL operations from the pinning behavior.</p>
+   *          <p>Default: no session pinning filters</p>
+   */
+  SessionPinningFilters?: string[];
 
   /**
    * <p>
@@ -822,26 +853,12 @@ export interface ConnectionPoolConfiguration {
   MaxConnectionsPercent?: number;
 
   /**
-   * <p>
-   *         Controls how actively the proxy closes idle database connections in the connection pool.
-   *         A high value enables the proxy to leave a high percentage of idle connections open.
-   *         A low value causes the proxy to close idle client connections and return the underlying
-   *         database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the
-   *         <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.
-   *       </p>
-   *          <p>Default: 50</p>
-   *          <p>Constraints: between 0 and <code>MaxConnectionsPercent</code>
-   *          </p>
+   * <p>The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the
+   *         proxy has opened its maximum number of connections and all connections are busy with client sessions.</p>
+   *          <p>Default: 120</p>
+   *          <p>Constraints: between 1 and 3600, or 0 representing unlimited</p>
    */
-  MaxIdleConnectionsPercent?: number;
-
-  /**
-   * <p>Each item in the list represents a class of SQL operations that normally cause all later statements
-   *         in a session using a proxy to be pinned to the same underlying database connection. Including an item
-   *         in the list exempts that class of SQL operations from the pinning behavior.</p>
-   *          <p>Default: no session pinning filters</p>
-   */
-  SessionPinningFilters?: string[];
+  ConnectionBorrowTimeout?: number;
 }
 
 export namespace ConnectionPoolConfiguration {
@@ -852,19 +869,17 @@ export namespace ConnectionPoolConfiguration {
 }
 
 /**
- * <note>
- *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
- *          </note>
- *
- *          <p>Displays the settings that control the size and behavior of the connection pool associated with a <code>DBProxyTarget</code>.</p>
+ * <p>Displays the settings that control the size and behavior of the connection pool associated with a <code>DBProxyTarget</code>.</p>
  */
 export interface ConnectionPoolConfigurationInfo {
   __type?: "ConnectionPoolConfigurationInfo";
   /**
-   * <p>The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the
-   *         proxy has opened its maximum number of connections and all connections are busy with client sessions.</p>
+   * <p>Each item in the list represents a class of SQL operations that normally cause all later statements
+   *         in a session using a proxy to be pinned to the same underlying database connection. Including an item
+   *         in the list exempts that class of SQL operations from the pinning behavior. Currently, the only
+   *         allowed value is <code>EXCLUDE_VARIABLE_SETS</code>.</p>
    */
-  ConnectionBorrowTimeout?: number;
+  SessionPinningFilters?: string[];
 
   /**
    * <p>
@@ -879,10 +894,10 @@ export interface ConnectionPoolConfigurationInfo {
   InitQuery?: string;
 
   /**
-   * <p>The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the
-   *         <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.</p>
+   * <p>The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the
+   *         proxy has opened its maximum number of connections and all connections are busy with client sessions.</p>
    */
-  MaxConnectionsPercent?: number;
+  ConnectionBorrowTimeout?: number;
 
   /**
    * <p>
@@ -895,12 +910,10 @@ export interface ConnectionPoolConfigurationInfo {
   MaxIdleConnectionsPercent?: number;
 
   /**
-   * <p>Each item in the list represents a class of SQL operations that normally cause all later statements
-   *         in a session using a proxy to be pinned to the same underlying database connection. Including an item
-   *         in the list exempts that class of SQL operations from the pinning behavior. Currently, the only
-   *         allowed value is <code>EXCLUDE_VARIABLE_SETS</code>.</p>
+   * <p>The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the
+   *         <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.</p>
    */
-  SessionPinningFilters?: string[];
+  MaxConnectionsPercent?: number;
 }
 
 export namespace ConnectionPoolConfigurationInfo {
@@ -912,6 +925,33 @@ export namespace ConnectionPoolConfigurationInfo {
 
 export interface CopyDBClusterParameterGroupMessage {
   __type?: "CopyDBClusterParameterGroupMessage";
+  /**
+   * <p>A description for the copied DB cluster parameter group.</p>
+   */
+  TargetDBClusterParameterGroupDescription: string | undefined;
+
+  /**
+   * <p>The identifier for the copied DB cluster parameter group.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Can't be null, empty, or blank</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain from 1 to 255 letters, numbers, or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   *         <p>Example: <code>my-cluster-param-group1</code>
+   *         </p>
+   */
+  TargetDBClusterParameterGroupIdentifier: string | undefined;
+
   /**
    * <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group.
    *             For information about
@@ -944,33 +984,6 @@ export interface CopyDBClusterParameterGroupMessage {
    *          </p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>A description for the copied DB cluster parameter group.</p>
-   */
-  TargetDBClusterParameterGroupDescription: string | undefined;
-
-  /**
-   * <p>The identifier for the copied DB cluster parameter group.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Can't be null, empty, or blank</p>
-   *             </li>
-   *             <li>
-   *                <p>Must contain from 1 to 255 letters, numbers, or hyphens</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   *         <p>Example: <code>my-cluster-param-group1</code>
-   *         </p>
-   */
-  TargetDBClusterParameterGroupIdentifier: string | undefined;
 }
 
 export namespace CopyDBClusterParameterGroupMessage {
@@ -1005,35 +1018,29 @@ export namespace CopyDBClusterParameterGroupResult {
 export interface CopyDBClusterSnapshotMessage {
   __type?: "CopyDBClusterSnapshotMessage";
   /**
-   * <p>A value that indicates whether to copy all tags from the source DB cluster snapshot to the target DB cluster snapshot.
-   *             By default, tags are not copied.</p>
+   * <p>The identifier of the new DB cluster snapshot to create from the source DB cluster snapshot. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster-snapshot2</code>
+   *          </p>
    */
-  CopyTags?: boolean;
-
-  /**
-   * <p>The AWS AWS KMS key ID for an encrypted DB cluster snapshot.
-   *             The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p>
-   *
-   *         <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key.
-   *             If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot.
-   *         </p>
-   *
-   *         <p>If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for <code>KmsKeyId</code>. </p>
-   *
-   *         <p>To copy an encrypted DB cluster snapshot to another AWS Region, you must set <code>KmsKeyId</code> to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot
-   *             in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region
-   *             in another AWS Region.</p>
-   *
-   *         <p>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter,
-   *             an error is returned.</p>
-   */
-  KmsKeyId?: string;
+  TargetDBClusterSnapshotIdentifier: string | undefined;
 
   /**
    * <p>The URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code> API action in the AWS Region that contains the
    *             source DB cluster snapshot to copy. The <code>PreSignedUrl</code> parameter must be used when copying an encrypted DB cluster snapshot from another AWS Region.
    *             Don't specify <code>PreSignedUrl</code> when you are copying an encrypted DB cluster snapshot in the same AWS Region.</p>
-   *         <p>The pre-signed URL must be a valid request for the <code>CopyDBSClusterSnapshot</code> API action that can be
+   *         <p>The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be
    *             executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied.
    *             The pre-signed URL request must contain the following parameter values:</p>
    *
@@ -1046,7 +1053,7 @@ export interface CopyDBClusterSnapshotMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot will be created in.</p>
+   *                   <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot is to be created in.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1097,6 +1104,12 @@ export interface CopyDBClusterSnapshotMessage {
   SourceDBClusterSnapshotIdentifier: string | undefined;
 
   /**
+   * <p>A value that indicates whether to copy all tags from the source DB cluster snapshot to the target DB cluster snapshot.
+   *             By default, tags are not copied.</p>
+   */
+  CopyTags?: boolean;
+
+  /**
    * <p>A list of tags.
    *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -1104,23 +1117,23 @@ export interface CopyDBClusterSnapshotMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The identifier of the new DB cluster snapshot to create from the source DB cluster snapshot. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>my-cluster-snapshot2</code>
-   *          </p>
+   * <p>The AWS KMS key ID for an encrypted DB cluster snapshot.
+   *             The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p>
+   *
+   *         <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key.
+   *             If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot.
+   *         </p>
+   *
+   *         <p>If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for <code>KmsKeyId</code>. </p>
+   *
+   *         <p>To copy an encrypted DB cluster snapshot to another AWS Region, you must set <code>KmsKeyId</code> to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot
+   *             in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region
+   *             in another AWS Region.</p>
+   *
+   *         <p>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter,
+   *             an error is returned.</p>
    */
-  TargetDBClusterSnapshotIdentifier: string | undefined;
+  KmsKeyId?: string;
 }
 
 export namespace CopyDBClusterSnapshotMessage {
@@ -1183,11 +1196,6 @@ export interface CopyDBParameterGroupMessage {
   Tags?: Tag[];
 
   /**
-   * <p>A description for the copied DB parameter group.</p>
-   */
-  TargetDBParameterGroupDescription: string | undefined;
-
-  /**
    * <p>The identifier for the copied DB parameter group.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -1208,6 +1216,11 @@ export interface CopyDBParameterGroupMessage {
    *          </p>
    */
   TargetDBParameterGroupIdentifier: string | undefined;
+
+  /**
+   * <p>A description for the copied DB parameter group.</p>
+   */
+  TargetDBParameterGroupDescription: string | undefined;
 }
 
 export namespace CopyDBParameterGroupMessage {
@@ -1241,11 +1254,6 @@ export namespace CopyDBParameterGroupResult {
 export interface CopyDBSnapshotMessage {
   __type?: "CopyDBSnapshotMessage";
   /**
-   * <p>A value that indicates whether to copy all tags from the source DB snapshot to the target DB snapshot. By default, tags are not copied.</p>
-   */
-  CopyTags?: boolean;
-
-  /**
    * <p>The AWS KMS key ID for an encrypted DB snapshot.
    *             The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
    *         </p>
@@ -1274,17 +1282,70 @@ export interface CopyDBSnapshotMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>The name of an option group to associate with the copy of the snapshot.</p>
-   *
-   *         <p>Specify this option if you are copying a snapshot from one AWS Region to another,
-   *             and your DB instance uses a nondefault option group.
-   *             If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server,
-   *             you must specify this option when copying across AWS Regions.
-   *             For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
-   *         </p>
+   * <p>A value that indicates whether to copy all tags from the source DB snapshot to the target DB snapshot. By default, tags are not copied.</p>
    */
-  OptionGroupName?: string;
+  CopyTags?: boolean;
+
+  /**
+   * <p>The identifier for the source DB snapshot.</p>
+   *
+   *          <p>If the source snapshot is in the same AWS Region as the copy, specify a valid DB
+   *             snapshot identifier. For example, you might specify
+   *                 <code>rds:mysql-instance1-snapshot-20130805</code>. </p>
+   *
+   *          <p>If the source snapshot is in a different AWS Region than the copy, specify a valid DB
+   *             snapshot ARN. For example, you might specify
+   *                 <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code>. </p>
+   *
+   *          <p>If you are copying from a shared manual DB snapshot,
+   *           this parameter must be the Amazon Resource Name (ARN) of the shared DB snapshot.
+   *       </p>
+   *
+   *          <p>If you are copying an encrypted snapshot
+   *             this parameter must be in the ARN format for the source AWS Region,
+   *             and must match the <code>SourceDBSnapshotIdentifier</code> in the <code>PreSignedUrl</code> parameter.
+   *       </p>
+   *
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must specify a valid system snapshot in the "available" state.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>Example: <code>rds:mydb-2012-04-02-00-01</code>
+   *          </p>
+   *
+   *          <p>Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code>
+   *          </p>
+   */
+  SourceDBSnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for the copy of the snapshot.
+   *         </p>
+   *
+   *         <p>Constraints:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                <p>Can't be null, empty, or blank</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain from 1 to 255 letters, numbers, or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>Example: <code>my-db-snapshot</code>
+   *          </p>
+   */
+  TargetDBSnapshotIdentifier: string | undefined;
 
   /**
    * <p>The URL that contains a Signature Version 4 signed request for the
@@ -1345,41 +1406,6 @@ export interface CopyDBSnapshotMessage {
   PreSignedUrl?: string;
 
   /**
-   * <p>The identifier for the source DB snapshot.</p>
-   *
-   *          <p>If the source snapshot is in the same AWS Region as the copy, specify a valid DB
-   *             snapshot identifier. For example, you might specify
-   *                 <code>rds:mysql-instance1-snapshot-20130805</code>. </p>
-   *
-   *          <p>If the source snapshot is in a different AWS Region than the copy, specify a valid DB
-   *             snapshot ARN. For example, you might specify
-   *                 <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code>. </p>
-   *
-   *          <p>If you are copying from a shared manual DB snapshot,
-   *           this parameter must be the Amazon Resource Name (ARN) of the shared DB snapshot.
-   *       </p>
-   *
-   *          <p>If you are copying an encrypted snapshot
-   *             this parameter must be in the ARN format for the source AWS Region,
-   *             and must match the <code>SourceDBSnapshotIdentifier</code> in the <code>PreSignedUrl</code> parameter.
-   *       </p>
-   *
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must specify a valid system snapshot in the "available" state.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>Example: <code>rds:mydb-2012-04-02-00-01</code>
-   *          </p>
-   *
-   *          <p>Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code>
-   *          </p>
-   */
-  SourceDBSnapshotIdentifier: string | undefined;
-
-  /**
    * <p>A list of tags.
    *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -1387,30 +1413,17 @@ export interface CopyDBSnapshotMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The identifier for the copy of the snapshot.
+   * <p>The name of an option group to associate with the copy of the snapshot.</p>
+   *
+   *         <p>Specify this option if you are copying a snapshot from one AWS Region to another,
+   *             and your DB instance uses a nondefault option group.
+   *             If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server,
+   *             you must specify this option when copying across AWS Regions.
+   *             For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
-   *
-   *         <p>Constraints:</p>
-   *
-   *         <ul>
-   *             <li>
-   *                <p>Can't be null, empty, or blank</p>
-   *             </li>
-   *             <li>
-   *                <p>Must contain from 1 to 255 letters, numbers, or hyphens</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p>Example: <code>my-db-snapshot</code>
-   *          </p>
    */
-  TargetDBSnapshotIdentifier: string | undefined;
+  OptionGroupName?: string;
 }
 
 export namespace CopyDBSnapshotMessage {
@@ -1445,6 +1458,40 @@ export namespace CopyDBSnapshotResult {
 export interface CopyOptionGroupMessage {
   __type?: "CopyOptionGroupMessage";
   /**
+   * <p>The identifier for the copied option group.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be null, empty, or blank</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain from 1 to 255 letters, numbers, or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-option-group</code>
+   *          </p>
+   */
+  TargetOptionGroupIdentifier: string | undefined;
+
+  /**
+   * <p>The description for the copied option group.</p>
+   */
+  TargetOptionGroupDescription: string | undefined;
+
+  /**
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The identifier or ARN for the source option group. For information about
    *       creating an ARN,
    *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
@@ -1468,40 +1515,6 @@ export interface CopyOptionGroupMessage {
    *          </ul>
    */
   SourceOptionGroupIdentifier: string | undefined;
-
-  /**
-   * <p>A list of tags.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The description for the copied option group.</p>
-   */
-  TargetOptionGroupDescription: string | undefined;
-
-  /**
-   * <p>The identifier for the copied option group.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Can't be null, empty, or blank</p>
-   *             </li>
-   *             <li>
-   *                <p>Must contain from 1 to 255 letters, numbers, or hyphens</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>my-option-group</code>
-   *          </p>
-   */
-  TargetOptionGroupIdentifier: string | undefined;
 }
 
 export namespace CopyOptionGroupMessage {
@@ -1532,27 +1545,27 @@ export namespace CopyOptionGroupResult {
 export interface CreateCustomAvailabilityZoneMessage {
   __type?: "CreateCustomAvailabilityZoneMessage";
   /**
-   * <p>The name of the custom Availability Zone (AZ).</p>
-   */
-  CustomAvailabilityZoneName: string | undefined;
-
-  /**
    * <p>The ID of an existing virtual private network (VPN) between the Amazon RDS website and
    *             the VMware vSphere cluster.</p>
    */
   ExistingVpnId?: string;
 
   /**
-   * <p>The name of a new VPN tunnel between the Amazon RDS website and the VMware vSphere cluster.</p>
-   *         <p>Specify this parameter only if <code>ExistingVpnId</code> isn't specified.</p>
-   */
-  NewVpnTunnelName?: string;
-
-  /**
    * <p>The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.</p>
    *         <p>Specify this parameter only if <code>ExistingVpnId</code> isn't specified.</p>
    */
   VpnTunnelOriginatorIP?: string;
+
+  /**
+   * <p>The name of the custom Availability Zone (AZ).</p>
+   */
+  CustomAvailabilityZoneName: string | undefined;
+
+  /**
+   * <p>The name of a new VPN tunnel between the Amazon RDS website and the VMware vSphere cluster.</p>
+   *         <p>Specify this parameter only if <code>ExistingVpnId</code> isn't specified.</p>
+   */
+  NewVpnTunnelName?: string;
 }
 
 export namespace CreateCustomAvailabilityZoneMessage {
@@ -1590,9 +1603,26 @@ export namespace CreateCustomAvailabilityZoneResult {
 export interface CreateDBClusterEndpointMessage {
   __type?: "CreateDBClusterEndpointMessage";
   /**
+   * <p>The tags to be assigned to the Amazon RDS resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The identifier to use for the new endpoint. This parameter is stored as a lowercase string.</p>
    */
   DBClusterEndpointIdentifier: string | undefined;
+
+  /**
+   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
+   */
+  StaticMembers?: string[];
+
+  /**
+   * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
+   *        All other eligible instances are reachable through the custom endpoint.
+   *        Only relevant if the list of static members is empty.</p>
+   */
+  ExcludedMembers?: string[];
 
   /**
    * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
@@ -1604,23 +1634,6 @@ export interface CreateDBClusterEndpointMessage {
    * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</p>
    */
   EndpointType: string | undefined;
-
-  /**
-   * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
-   *        All other eligible instances are reachable through the custom endpoint.
-   *        Only relevant if the list of static members is empty.</p>
-   */
-  ExcludedMembers?: string[];
-
-  /**
-   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
-   */
-  StaticMembers?: string[];
-
-  /**
-   * <p>The tags to be assigned to the Amazon RDS resource.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateDBClusterEndpointMessage {
@@ -1636,43 +1649,17 @@ export namespace CreateDBClusterEndpointMessage {
 export interface CreateDBClusterMessage {
   __type?: "CreateDBClusterMessage";
   /**
-   * <p>A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on
-   *             AWS Regions and Availability Zones, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html">Choosing the Regions and
-   *                 Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
-   *         </p>
+   * <p>A list of EC2 VPC security groups to associate with this DB cluster.</p>
    */
-  AvailabilityZones?: string[];
+  VpcSecurityGroupIds?: string[];
 
   /**
-   * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
-   *             0. </p>
-   *          <p>Default: 0</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
-   *             </li>
-   *          </ul>
+   * <p>A DB subnet group to associate with this DB cluster.</p>
+   *          <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
    */
-  BacktrackWindow?: number;
-
-  /**
-   * <p>The number of days for which automated backups are retained.</p>
-   *          <p>Default: 1</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be a value from 1 to 35</p>
-   *             </li>
-   *          </ul>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>A value that indicates that the DB cluster should be associated with the specified CharacterSet.</p>
-   */
-  CharacterSetName?: string;
+  DBSubnetGroupName?: string;
 
   /**
    * <p>A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
@@ -1681,23 +1668,11 @@ export interface CreateDBClusterMessage {
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>The DB cluster identifier. This parameter is stored as a lowercase string.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>my-cluster1</code>
-   *          </p>
+   * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs. The values
+   *             in the list depend on the DB engine being used. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
-  DBClusterIdentifier: string | undefined;
+  EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>
@@ -1715,55 +1690,16 @@ export interface CreateDBClusterMessage {
   DBClusterParameterGroupName?: string;
 
   /**
-   * <p>A DB subnet group to associate with this DB cluster.</p>
-   *          <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
-   *          </p>
+   * <p>The number of days for which automated backups are retained.</p>
+   *          <p>Default: 1</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be a value from 1 to 35</p>
+   *             </li>
+   *          </ul>
    */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>The name for your database of up to 64 alpha-numeric characters. If you do not
-   *             provide a name, Amazon RDS will not create a database in the DB cluster you are
-   *             creating.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled.</p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
-
-  /**
-   * <p>A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint
-   *             is disabled.</p>
-   *         <p>When enabled, the HTTP endpoint provides a connectionless web service API for running
-   *             SQL queries on the Aurora Serverless DB cluster. You can also query your database
-   *             from inside the RDS console with the query editor.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API for Aurora Serverless</a> in the
-   *             <i>Amazon Aurora User Guide</i>.</p>
-   */
-  EnableHttpEndpoint?: boolean;
-
-  /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
-   *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
-   *          </p>
-   */
-  EnableIAMDatabaseAuthentication?: boolean;
+  BackupRetentionPeriod?: number;
 
   /**
    * <p>The name of the database engine to be used for this DB cluster.</p>
@@ -1773,65 +1709,37 @@ export interface CreateDBClusterMessage {
   Engine: string | undefined;
 
   /**
-   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-   *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
-   *         <p>Limitations and requirements apply to some DB engine modes. For more information, see the
-   *             following sections in the <i>Amazon Aurora User Guide</i>:</p>
-   *         <ul>
+   * <p>The name of the master user for the DB cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
-   *                     Limitations of Aurora Serverless</a>
-   *                </p>
+   *                <p>Must be 1 to 16 letters or numbers.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
-   *                     Limitations of Parallel Query</a>
-   *                </p>
+   *                <p>First character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
-   *                     Requirements for Aurora Global Databases</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
-   *                     Limitations of Multi-Master Clusters</a>
-   *                </p>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
    *             </li>
    *          </ul>
    */
-  EngineMode?: string;
+  MasterUsername?: string;
 
   /**
-   * <p>The version number of the database engine to use.</p>
-   *          <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p>
-   *          <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p>
-   *          <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *          <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p>
-   *          <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *          <p>
-   *             <b>Aurora MySQL</b>
-   *          </p>
-   *          <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code>
-   *          </p>
-   *          <p>
-   *             <b>Aurora PostgreSQL</b>
-   *          </p>
-   *          <p>Example: <code>9.6.3</code>, <code>10.7</code>
-   *          </p>
+   * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
+   *             0. </p>
+   *         <note>
+   *             <p>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</p>
+   *         </note>
+   *          <p>Default: 0</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
+   *             </li>
+   *          </ul>
    */
-  EngineVersion?: string;
+  BacktrackWindow?: number;
 
   /**
    * <p>
@@ -1840,6 +1748,22 @@ export interface CreateDBClusterMessage {
    *       </p>
    */
   GlobalClusterIdentifier?: string;
+
+  /**
+   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled. By default,
+   *             deletion protection is disabled.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on
+   *             AWS Regions and Availability Zones, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html">Choosing the Regions and
+   *                 Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+   *         </p>
+   */
+  AvailabilityZones?: string[];
 
   /**
    * <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
@@ -1862,48 +1786,18 @@ export interface CreateDBClusterMessage {
    *          </ul>
    *         <p>AWS KMS creates the default encryption key for your AWS account. Your AWS account
    *             has a different default encryption key for each AWS Region.</p>
-   *         <p>If you create a Read Replica of an encrypted DB cluster in another AWS Region, you must
-   *             set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS Region. This
-   *             key is used to encrypt the Read Replica in that AWS Region.</p>
+   *         <p>If you create a read replica of an encrypted DB cluster in another AWS Region, you
+   *             must set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS
+   *             Region. This key is used to encrypt the read replica in that AWS Region.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   * <p>The name for your database of up to 64 alphanumeric characters. If you do not
+   *             provide a name, Amazon RDS doesn't create a database in the DB cluster you are
+   *             creating.</p>
    */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>The name of the master user for the DB cluster.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be 1 to 16 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a reserved word for the chosen database engine.</p>
-   *             </li>
-   *          </ul>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>A value that indicates that the DB cluster should be associated with the specified option group.</p>
-   *          <p>Permanent options can't be removed from an option group. The option group can't be removed from a DB cluster once it is associated with a DB cluster.</p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The port number on which the instances in the DB cluster accept connections.</p>
-   *          <p>
-   *             Default: <code>3306</code> if engine is set as aurora or <code>5432</code> if set to aurora-postgresql.
-   *       </p>
-   */
-  Port?: number;
+  DatabaseName?: string;
 
   /**
    * <p>A URL that contains a Signature Version 4 signed request for
@@ -1922,7 +1816,8 @@ export interface CreateDBClusterMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DestinationRegion</code> - The name of the AWS Region that Aurora Read Replica will be created in.</p>
+   *                   <code>DestinationRegion</code> - The name of the AWS Region that Aurora read replica will
+   *                     be created in.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1991,19 +1886,19 @@ export interface CreateDBClusterMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.</p>
+   * <p>A value that indicates whether to enable write operations to be forwarded
+   *       from this cluster to the primary cluster in an Aurora global database. The
+   *       resulting changes are replicated back to this cluster. This parameter only
+   *       applies to DB clusters that are secondary clusters in an Aurora global database.
+   *       By default, Aurora disallows write operations for secondary clusters.</p>
    */
-  ReplicationSourceIdentifier?: string;
+  EnableGlobalWriteForwarding?: boolean;
 
   /**
-   * <p>For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.</p>
+   * <p>The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
+   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
    */
-  ScalingConfiguration?: ScalingConfiguration;
-
-  /**
-   * <p>A value that indicates whether the DB cluster is encrypted.</p>
-   */
-  StorageEncrypted?: boolean;
+  MasterUserPassword?: string;
 
   /**
    * <p>Tags to assign to the DB cluster.</p>
@@ -2011,9 +1906,163 @@ export interface CreateDBClusterMessage {
   Tags?: Tag[];
 
   /**
-   * <p>A list of EC2 VPC security groups to associate with this DB cluster.</p>
+   * <p>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB
+   *             cluster is created as a read replica.</p>
    */
-  VpcSecurityGroupIds?: string[];
+  ReplicationSourceIdentifier?: string;
+
+  /**
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   */
+  DomainIAMRoleName?: string;
+
+  /**
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   *
+   *         <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>The Active Directory directory ID to create the DB cluster in.</p>
+   *          <p>
+   *          For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB cluster.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos Authentication</a>
+   *          in the <i>Amazon Aurora User Guide</i>.
+   *        </p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>A value that indicates whether the DB cluster is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>A value that indicates that the DB cluster should be associated with the specified CharacterSet.</p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
+   *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
+   *         <note>
+   *             <p>
+   *                <code>global</code> engine mode only applies for global database clusters created with Aurora MySQL version
+   *             5.6.10a. For higher Aurora MySQL versions, the clusters in a global database use <code>provisioned</code>
+   *             engine mode.
+   *           </p>
+   *         </note>
+   *         <p>Limitations and requirements apply to some DB engine modes. For more information, see the
+   *             following sections in the <i>Amazon Aurora User Guide</i>:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+   *                     Limitations of Aurora Serverless</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+   *                     Limitations of Parallel Query</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+   *                     Requirements for Aurora Global Databases</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+   *                     Limitations of Multi-Master Clusters</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  EngineMode?: string;
+
+  /**
+   * <p>The port number on which the instances in the DB cluster accept connections.</p>
+   *          <p>
+   *             Default: <code>3306</code> if engine is set as aurora or <code>5432</code> if set to aurora-postgresql.
+   *       </p>
+   */
+  Port?: number;
+
+  /**
+   * <p>A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint
+   *             is disabled.</p>
+   *         <p>When enabled, the HTTP endpoint provides a connectionless web service API for running
+   *             SQL queries on the Aurora Serverless DB cluster. You can also query your database
+   *             from inside the RDS console with the query editor.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API for Aurora Serverless</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  EnableHttpEndpoint?: boolean;
+
+  /**
+   * <p>For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.</p>
+   */
+  ScalingConfiguration?: ScalingConfiguration;
+
+  /**
+   * <p>The DB cluster identifier. This parameter is stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster1</code>
+   *          </p>
+   */
+  DBClusterIdentifier: string | undefined;
+
+  /**
+   * <p>A value that indicates that the DB cluster should be associated with the specified option group.</p>
+   *          <p>Permanent options can't be removed from an option group. The option group can't be removed from a DB cluster once it is associated with a DB cluster.</p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>The version number of the database engine to use.</p>
+   *          <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
+   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
+   *          <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
+   *          <p>
+   *             <b>Aurora MySQL</b>
+   *          </p>
+   *          <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code>
+   *          </p>
+   *          <p>
+   *             <b>Aurora PostgreSQL</b>
+   *          </p>
+   *          <p>Example: <code>9.6.3</code>, <code>10.7</code>
+   *          </p>
+   */
+  EngineVersion?: string;
 }
 
 export namespace CreateDBClusterMessage {
@@ -2029,18 +2078,14 @@ export namespace CreateDBClusterMessage {
 export interface CreateDBClusterParameterGroupMessage {
   __type?: "CreateDBClusterParameterGroupMessage";
   /**
-   * <p>The name of the DB cluster parameter group.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match the name of an existing DB cluster parameter group.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>This value is stored as a lowercase string.</p>
-   *          </note>
+   * <p>Tags to assign to the DB cluster parameter group.</p>
    */
-  DBClusterParameterGroupName: string | undefined;
+  Tags?: Tag[];
+
+  /**
+   * <p>The description for the DB cluster parameter group.</p>
+   */
+  Description: string | undefined;
 
   /**
    * <p>The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster
@@ -2059,14 +2104,18 @@ export interface CreateDBClusterParameterGroupMessage {
   DBParameterGroupFamily: string | undefined;
 
   /**
-   * <p>The description for the DB cluster parameter group.</p>
+   * <p>The name of the DB cluster parameter group.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the name of an existing DB cluster parameter group.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>This value is stored as a lowercase string.</p>
+   *          </note>
    */
-  Description: string | undefined;
-
-  /**
-   * <p>Tags to assign to the DB cluster parameter group.</p>
-   */
-  Tags?: Tag[];
+  DBClusterParameterGroupName: string | undefined;
 }
 
 export namespace CreateDBClusterParameterGroupMessage {
@@ -2121,19 +2170,6 @@ export namespace CreateDBClusterResult {
 export interface CreateDBClusterSnapshotMessage {
   __type?: "CreateDBClusterSnapshotMessage";
   /**
-   * <p>The identifier of the DB cluster to create a snapshot for. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match the identifier of an existing DBCluster.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>my-cluster1</code>
-   *          </p>
-   */
-  DBClusterIdentifier: string | undefined;
-
-  /**
    * <p>The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -2151,6 +2187,19 @@ export interface CreateDBClusterSnapshotMessage {
    *          </p>
    */
   DBClusterSnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the DB cluster to create a snapshot for. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing DBCluster.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster1</code>
+   *          </p>
+   */
+  DBClusterIdentifier: string | undefined;
 
   /**
    * <p>The tags to be assigned to the DB cluster snapshot.</p>
@@ -2189,6 +2238,891 @@ export namespace CreateDBClusterSnapshotResult {
  */
 export interface CreateDBInstanceMessage {
   __type?: "CreateDBInstanceMessage";
+  /**
+   * <p>A DB subnet group to associate with this DB instance.</p>
+   *          <p>If there is no DB subnet group, then it is a non-VPC DB instance.</p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>A list of DB security groups to associate with this DB instance.</p>
+   *          <p>Default: The default DB security group for the database engine.</p>
+   */
+  DBSecurityGroups?: string[];
+
+  /**
+   * <p>A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
+   *           By default, minor engine upgrades are applied automatically.</p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
+   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
+   *           For the full list of DB instance classes,
+   *           and availability for your engine, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  DBInstanceClass: string | undefined;
+
+  /**
+   * <p>A list of Amazon EC2 VPC security groups to associate with this DB instance.</p>
+   *
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. The associated list of EC2 VPC security groups is managed by
+   *           the DB cluster.</p>
+   *
+   *          <p>Default: The default EC2 VPC security group for the DB subnet group's VPC.</p>
+   */
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs. The values
+   *             in the list depend on the DB engine being used. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database
+   *                     Service User Guide</i>.</p>
+   */
+  EnableCloudwatchLogsExports?: string[];
+
+  /**
+   * <p>The name of the database engine to be used for this instance.
+   *       </p>
+   *
+   *          <p>Not every database engine is available for every AWS Region.
+   *       </p>
+   *
+   *          <p>Valid Values:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Engine: string | undefined;
+
+  /**
+   * <p>A value that indicates whether the DB instance has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled. By default,
+   *             deletion protection is disabled. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+   *                 Deleting a DB Instance</a>.
+   *         </p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *         </p>
+   *         <p>Not applicable. You can enable or disable deletion protection for the DB cluster.
+   *             For more information, see <code>CreateDBCluster</code>. DB instances in a DB
+   *             cluster can be deleted even when deletion protection is enabled for the DB cluster.
+   *         </p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The meaning of this parameter differs according to the database engine you use.</p>
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain 1 to 64 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a word reserved by the specified database engine</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>MariaDB</b>
+   *          </p>
+   *          <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain 1 to 64 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a word reserved by the specified database engine</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, the default "postgres" database is created in the DB instance.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain 1 to 63 letters, numbers, or underscores.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0-9).</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a word reserved by the specified database engine</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Oracle</b>
+   *          </p>
+   *          <p>The Oracle System ID (SID) of the created DB instance.
+   *           If you specify <code>null</code>, the default value <code>ORCL</code> is used.
+   *           You can't specify the string NULL, or any other reserved word, for <code>DBName</code>.
+   *       </p>
+   *          <p>Default: <code>ORCL</code>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be longer than 8 characters</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SQL Server</b>
+   *          </p>
+   *          <p>Not applicable. Must be null.</p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>The name of the database to create when the primary instance of the DB cluster is created.
+   *         If this parameter isn't specified, no database is created in the DB instance.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain 1 to 64 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a word reserved by the specified database engine</p>
+   *             </li>
+   *          </ul>
+   */
+  DBName?: string;
+
+  /**
+   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   */
+  MaxAllocatedStorage?: number;
+
+  /**
+   * <p>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this
+   *           value for an Aurora DB instance has no effect on the DB cluster setting.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>The name for the master user.</p>
+   *
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. The name for the master user is managed by the DB cluster.
+   *         </p>
+   *
+   *          <p>
+   *             <b>MariaDB</b>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *               <p>Required for MariaDB.</p>
+   *             </li>
+   *             <li>
+   *               <p>Must be 1 to 16 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *               <p>Can't be a reserved word for the chosen database engine.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>
+   *             <b>Microsoft SQL Server</b>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *               <p>Required for SQL Server.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be 1 to 128 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>The first character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *               <p>Required for MySQL.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be 1 to 16 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>
+   *             <b>Oracle</b>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *               <p>Required for Oracle.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be 1 to 30 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *               <p>Required for PostgreSQL.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be 1 to 63 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
+   *             </li>
+   *          </ul>
+   */
+  MasterUsername?: string;
+
+  /**
+   * <p>
+   *         The Availability Zone (AZ) where the database will be created. For information on
+   *         AWS Regions and Availability Zones, see
+   *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+   *         and Availability Zones</a>.
+   *         </p>
+   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
+   *          <p>
+   *             Example: <code>us-east-1d</code>
+   *          </p>
+   *          <p>
+   *           Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the DB instance is a Multi-AZ deployment.
+   *             The specified Availability Zone must be in the same AWS Region as the current endpoint.
+   *         </p>
+   *          <note>
+   *             <p>If you're creating a DB instance in an RDS on VMware environment,
+   *                 specify the identifier of the custom Availability Zone to create the DB instance
+   *                 in.</p>
+   *             <p>For more information about RDS on VMware, see the
+   *               <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+   *                   <i>RDS on VMware User Guide.</i>
+   *                </a>
+   *             </p>
+   *          </note>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The AWS KMS key identifier for an encrypted DB instance.</p>
+   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key.</p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. The KMS key identifier is managed by
+   *           the DB cluster. For more information, see <code>CreateDBCluster</code>.</p>
+   *
+   *          <p>If <code>StorageEncrypted</code> is enabled, and you do
+   *         not specify a value for the <code>KmsKeyId</code> parameter, then
+   *         Amazon RDS will use your default encryption key. AWS KMS creates the
+   *         default encryption key for your AWS account. Your AWS account has a different
+   *         default encryption key for each AWS Region.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>
+   *         The daily time range during which automated backups are created
+   *         if automated backups are enabled,
+   *         using the <code>BackupRetentionPeriod</code> parameter.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">The Backup Window</a> in the <i>Amazon RDS User Guide</i>.
+   *       </p>
+   *
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. The daily time range for creating automated backups is managed by
+   *           the DB cluster.</p>
+   *
+   *          <p>
+   *             The default is a 30-minute window selected at random from an
+   *             8-hour block of time for each AWS Region.
+   *             To see the time blocks available, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow">
+   *                 Adjusting the Preferred DB Instance Maintenance Window</a> in the <i>Amazon RDS User Guide</i>.
+   *      </p>
+   *
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be in Universal Coordinated Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must not conflict with the preferred maintenance window.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be at least 30 minutes.</p>
+   *             </li>
+   *          </ul>
+   */
+  PreferredBackupWindow?: string;
+
+  /**
+   * <p>The time zone of the DB instance.
+   *             The time zone parameter is currently supported only by
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone">Microsoft SQL Server</a>.
+   *         </p>
+   */
+  Timezone?: string;
+
+  /**
+   * <p>A value that indicates whether to enable Performance Insights for the DB instance.
+   *         </p>
+   *         <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service
+   *                     User Guide</i>.
+   *         </p>
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>The time range each week during which system maintenance can occur,
+   *           in Universal Coordinated Time (UTC).
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance">Amazon RDS Maintenance Window</a>.
+   *       </p>
+   *          <p>
+   *             Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *          </p>
+   *          <p>The default is a 30-minute window selected at random from an
+   *             8-hour block of time for each AWS Region, occurring on a random day of the
+   *             week.
+   *         </p>
+   *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
+   *          <p>Constraints: Minimum 30-minute window.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>License model information for this DB instance.</p>
+   *          <p>
+   *             Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
+   *          </p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
+   *           For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide</i>.
+   *       </p>
+   *          <p>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple between .5 and 50 of the storage amount for the DB instance.
+   *           For SQL Server DB instances, must be a multiple between 1 and 50 of the storage amount for the DB instance.
+   *     </p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+   *       to a value other than 0.</p>
+   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
+   *          </p>
+   */
+  MonitoringInterval?: number;
+
+  /**
+   * <p>The password for the given ARN from the key store in order to access the device.</p>
+   */
+  TdeCredentialPassword?: string;
+
+  /**
+   * <p>The name of the DB parameter group to associate with this DB instance. If you do not specify a value, then
+   *           the default DB parameter group for the specified DB engine and version is used.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   */
+  DBParameterGroupName?: string;
+
+  /**
+   * <p>The Active Directory directory ID to create the DB instance in. Currently, only Microsoft SQL Server and Oracle
+   *             DB instances can be created in an Active Directory Domain.</p>
+   *          <p>For Microsoft SQL Server DB instances, Amazon RDS can use
+   *            Windows Authentication to authenticate users that connect to the DB instance. For more
+   *            information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+   *            Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server</a> in the
+   *            <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate
+   *             users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html"> Using
+   *                 Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+   *                 RDS User Guide</i>.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   *          <p>You can enable IAM database authentication for the following database engines:</p>
+   *
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
+   *         cluster.</p>
+   *
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>For MySQL 5.6, minor version 5.6.34 or higher</p>
+   *             </li>
+   *             <li>
+   *                <p>For MySQL 5.7, minor version 5.7.16 or higher</p>
+   *             </li>
+   *             <li>
+   *                <p>For MySQL 8.0, minor version 8.0.16 or higher</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>For PostgreSQL 9.5, minor version 9.5.15 or higher</p>
+   *             </li>
+   *             <li>
+   *                <p>For PostgreSQL 9.6, minor version 9.6.11 or higher</p>
+   *             </li>
+   *             <li>
+   *                <p>PostgreSQL 10.6, 10.7, and 10.9</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>For more information, see
+   *        <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+   *            IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance
+   *       after a failure of the existing primary instance. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
+   *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
+   *     </p>
+   *          <p>Default: 1</p>
+   *          <p>Valid Values: 0 - 15</p>
+   */
+  PromotionTier?: number;
+
+  /**
+   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   */
+  ProcessorFeatures?: ProcessorFeature[];
+
+  /**
+   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment. You can't set
+   *           the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * <p>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For
+   *       example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
+   *       go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting Up and Enabling Enhanced Monitoring</a>
+   *           in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
+   */
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>Tags to assign to the DB instance.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A value that indicates whether the DB instance is publicly accessible.</p>
+   *          <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
+   *           and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
+   *           and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
+   *          <p>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code> is specified.</p>
+   *          <p>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
+   *          <ul>
+   *             <li>
+   *               <p>If the default VPC in the target region doesn’t have an Internet gateway attached to it, the DB instance is private.</p>
+   *             </li>
+   *             <li>
+   *               <p>If the default VPC in the target region has an Internet gateway attached to it, the DB instance is public.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
+   *          <ul>
+   *             <li>
+   *               <p>If the subnets are part of a VPC that doesn’t have an Internet gateway attached to it, the DB instance is private.</p>
+   *             </li>
+   *             <li>
+   *               <p>If the subnets are part of a VPC that has an Internet gateway attached to it, the DB instance is public.</p>
+   *             </li>
+   *          </ul>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>The password for the master user. The password can include any printable ASCII character except "/", """, or "@".</p>
+   *
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. The password for the master user is managed by the DB
+   *             cluster.</p>
+   *
+   *          <p>
+   *             <b>MariaDB</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   *
+   *          <p>
+   *             <b>Microsoft SQL Server</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
+   *
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   *
+   *          <p>
+   *             <b>Oracle</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 30 characters.</p>
+   *
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
+   */
+  MasterUserPassword?: string;
+
+  /**
+   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
+   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
+   *             encryption key.</p>
+   *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
+   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
+   *             Your AWS account has a different default encryption key for each AWS Region.</p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   */
+  DomainIAMRoleName?: string;
+
+  /**
+   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   */
+  TdeCredentialArn?: string;
+
+  /**
+   * <p>The port number on which the database accepts connections.</p>
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>
+   *             Default: <code>3306</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   *          <p>Type: Integer</p>
+   *          <p>
+   *             <b>MariaDB</b>
+   *          </p>
+   *          <p>
+   *       Default: <code>3306</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   *          <p>Type: Integer</p>
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>
+   *             Default: <code>5432</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   *          <p>Type: Integer</p>
+   *          <p>
+   *             <b>Oracle</b>
+   *          </p>
+   *          <p>
+   *             Default: <code>1521</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   *          <p>
+   *             <b>SQL Server</b>
+   *          </p>
+   *          <p>
+   *             Default: <code>1433</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code> except <code>1234</code>, <code>1434</code>,
+   *                 <code>3260</code>, <code>3343</code>, <code>3389</code>, <code>47001</code>, and
+   *                 <code>49152-49156</code>.</p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>
+   *       Default: <code>3306</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   *          <p>Type: Integer</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Indicates that the DB instance should be associated with the specified option group.</p>
+   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance</p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>The identifier of the DB cluster that the instance will belong to.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>For supported engines, indicates that the DB instance should be associated with the specified CharacterSet.</p>
+   *
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. The character set is managed by
+   *           the DB cluster. For more information, see <code>CreateDBCluster</code>.</p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * <p>The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. The retention period for automated backups is managed by the DB
+   *           cluster.</p>
+   *          <p>Default: 1</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be a value from 0 to 35</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be set to 0 if the DB instance is a source to read replicas</p>
+   *             </li>
+   *          </ul>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.</p>
+   *
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. The encryption for DB instances is managed by
+   *           the DB cluster.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
+   */
+  PerformanceInsightsRetentionPeriod?: number;
+
+  /**
+   * <p>The version number of the database engine to use.</p>
+   *          <p>For a list of valid engine versions, use the  <code>DescribeDBEngineVersions</code> action.</p>
+   *          <p>The following are the database engines and links to information about the major and minor versions that are available with
+   *           Amazon RDS. Not every database engine is available for every AWS Region.</p>
+   *
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. The version number of the database engine to be used by the DB
+   *             instance is managed by the DB cluster.</p>
+   *
+   *          <p>
+   *             <b>MariaDB</b>
+   *          </p>
+   *
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB on Amazon RDS Versions</a> in the
+   *           <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *
+   *          <p>
+   *             <b>Microsoft SQL Server</b>
+   *          </p>
+   *
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport">Version and Feature Support on Amazon RDS</a> in the
+   *           <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL on Amazon RDS Versions</a> in the
+   *           <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *
+   *          <p>
+   *             <b>Oracle</b>
+   *          </p>
+   *
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html">Oracle Database Engine Release Notes</a> in the
+   *           <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions">Supported PostgreSQL Database Versions</a> in the
+   *           <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>Specifies the storage type to be associated with the DB instance.</p>
+   *          <p>
+   *             Valid values: <code>standard | gp2 | io1</code>
+   *          </p>
+   *          <p>
+   *             If you specify <code>io1</code>, you must also include a value for the
+   *             <code>Iops</code> parameter.
+   *         </p>
+   *          <p>
+   *             Default: <code>io1</code> if the <code>Iops</code> parameter
+   *             is specified, otherwise <code>gp2</code>
+   *          </p>
+   */
+  StorageType?: string;
+
   /**
    * <p>The amount of storage (in gibibytes) to allocate for the DB instance.</p>
    *          <p>Type: Integer</p>
@@ -2310,96 +3244,6 @@ export interface CreateDBInstanceMessage {
   AllocatedStorage?: number;
 
   /**
-   * <p>A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-   *           By default, minor engine upgrades are applied automatically.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>
-   *         The Availability Zone (AZ) where the database will be created. For information on
-   *         AWS Regions and Availability Zones, see
-   *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-   *         and Availability Zones</a>.
-   *         </p>
-   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
-   *          <p>
-   *             Example: <code>us-east-1d</code>
-   *          </p>
-   *          <p>
-   *           Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the DB instance is a Multi-AZ deployment.
-   *             The specified Availability Zone must be in the same AWS Region as the current endpoint.
-   *         </p>
-   *          <note>
-   *             <p>If you're creating a DB instance in an RDS on VMware environment,
-   *                 specify the identifier of the custom Availability Zone to create the DB instance
-   *                 in.</p>
-   *             <p>For more information about RDS on VMware, see the
-   *               <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                   <i>RDS on VMware User Guide.</i>
-   *                </a>
-   *             </p>
-   *          </note>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The retention period for automated backups is managed by the DB
-   *           cluster.</p>
-   *          <p>Default: 1</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be a value from 0 to 35</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be set to 0 if the DB instance is a source to Read Replicas</p>
-   *             </li>
-   *          </ul>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>For supported engines, indicates that the DB instance should be associated with the specified CharacterSet.</p>
-   *
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The character set is managed by
-   *           the DB cluster. For more information, see <code>CreateDBCluster</code>.</p>
-   */
-  CharacterSetName?: string;
-
-  /**
-   * <p>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this
-   *           value for an Aurora DB instance has no effect on the DB cluster setting.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The identifier of the DB cluster that the instance will belong to.</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * <p>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
-   *           For the full list of DB instance classes,
-   *           and availability for your engine, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
-  DBInstanceClass: string | undefined;
-
-  /**
    * <p>The DB instance identifier. This parameter is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -2417,804 +3261,6 @@ export interface CreateDBInstanceMessage {
    *          </p>
    */
   DBInstanceIdentifier: string | undefined;
-
-  /**
-   * <p>The meaning of this parameter differs according to the database engine you use.</p>
-   *          <p>
-   *             <b>MySQL</b>
-   *          </p>
-   *          <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain 1 to 64 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a word reserved by the specified database engine</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>MariaDB</b>
-   *          </p>
-   *          <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain 1 to 64 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a word reserved by the specified database engine</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *          <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, the default "postgres" database is created in the DB instance.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain 1 to 63 letters, numbers, or underscores.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0-9).</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a word reserved by the specified database engine</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>The Oracle System ID (SID) of the created DB instance.
-   *           If you specify <code>null</code>, the default value <code>ORCL</code> is used.
-   *           You can't specify the string NULL, or any other reserved word, for <code>DBName</code>.
-   *       </p>
-   *          <p>Default: <code>ORCL</code>
-   *          </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Can't be longer than 8 characters</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>SQL Server</b>
-   *          </p>
-   *          <p>Not applicable. Must be null.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>The name of the database to create when the primary instance of the DB cluster is created.
-   *         If this parameter isn't specified, no database is created in the DB instance.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain 1 to 64 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a word reserved by the specified database engine</p>
-   *             </li>
-   *          </ul>
-   */
-  DBName?: string;
-
-  /**
-   * <p>The name of the DB parameter group to associate with this DB instance. If you do not specify a value, then
-   *           the default DB parameter group for the specified DB engine and version is used.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   */
-  DBParameterGroupName?: string;
-
-  /**
-   * <p>A list of DB security groups to associate with this DB instance.</p>
-   *          <p>Default: The default DB security group for the database engine.</p>
-   */
-  DBSecurityGroups?: string[];
-
-  /**
-   * <p>A DB subnet group to associate with this DB instance.</p>
-   *          <p>If there is no DB subnet group, then it is a non-VPC DB instance.</p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>A value that indicates whether the DB instance has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-   *                 Deleting a DB Instance</a>.
-   *         </p>
-   *         <p>
-   *             <b>Amazon Aurora</b>
-   *         </p>
-   *         <p>Not applicable. You can enable or disable deletion protection for the DB cluster.
-   *             For more information, see <code>CreateDBCluster</code>. DB instances in a DB
-   *             cluster can be deleted even when deletion protection is enabled for the DB cluster.
-   *         </p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>The Active Directory directory ID to create the DB instance in. Currently, only Microsoft SQL Server and Oracle
-   *             DB instances can be created in an Active Directory Domain.</p>
-   *          <p>For Microsoft SQL Server DB instances, Amazon RDS can use
-   *            Windows Authentication to authenticate users that connect to the DB instance. For more
-   *            information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
-   *            Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server</a> in the
-   *            <i>Amazon RDS User Guide</i>.</p>
-   *          <p>For Oracle DB instance, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB instance. For more information,
-   *              see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
-   *                Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p></p>
-   */
-  Domain?: string;
-
-  /**
-   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
-   */
-  DomainIAMRoleName?: string;
-
-  /**
-   * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database
-   *                     Service User Guide</i>.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
-
-  /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *          <p>You can enable IAM database authentication for the following database engines:</p>
-   *
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
-   *         cluster.</p>
-   *
-   *          <p>
-   *             <b>MySQL</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>For MySQL 5.6, minor version 5.6.34 or higher</p>
-   *             </li>
-   *             <li>
-   *                <p>For MySQL 5.7, minor version 5.7.16 or higher</p>
-   *             </li>
-   *             <li>
-   *                <p>For MySQL 8.0, minor version 8.0.16 or higher</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>For PostgreSQL 9.5, minor version 9.5.15 or higher</p>
-   *             </li>
-   *             <li>
-   *                <p>For PostgreSQL 9.6, minor version 9.6.11 or higher</p>
-   *             </li>
-   *             <li>
-   *                <p>PostgreSQL 10.6, 10.7, and 10.9</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>For more information, see
-   *        <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
-   *            IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
-  EnableIAMDatabaseAuthentication?: boolean;
-
-  /**
-   * <p>A value that indicates whether to enable Performance Insights for the DB instance.
-   *         </p>
-   *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service
-   *                     User Guide</i>.
-   *         </p>
-   */
-  EnablePerformanceInsights?: boolean;
-
-  /**
-   * <p>The name of the database engine to be used for this instance.
-   *       </p>
-   *
-   *          <p>Not every database engine is available for every AWS Region.
-   *       </p>
-   *
-   *          <p>Valid Values:
-   *       </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aurora-postgresql</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mariadb</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mysql</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-ee</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se2</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>postgres</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sqlserver-ee</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sqlserver-se</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sqlserver-ex</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sqlserver-web</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Engine: string | undefined;
-
-  /**
-   * <p>The version number of the database engine to use.</p>
-   *          <p>For a list of valid engine versions, use the  <code>DescribeDBEngineVersions</code> action.</p>
-   *          <p>The following are the database engines and links to information about the major and minor versions that are available with
-   *           Amazon RDS. Not every database engine is available for every AWS Region.</p>
-   *
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *         <p>Not applicable. The version number of the database engine to be used by the DB
-   *             instance is managed by the DB cluster.</p>
-   *
-   *          <p>
-   *             <b>MariaDB</b>
-   *          </p>
-   *
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB on Amazon RDS Versions</a> in the
-   *           <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *
-   *          <p>
-   *             <b>Microsoft SQL Server</b>
-   *          </p>
-   *
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport">Version and Feature Support on Amazon RDS</a> in the
-   *           <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *
-   *          <p>
-   *             <b>MySQL</b>
-   *          </p>
-   *
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL on Amazon RDS Versions</a> in the
-   *           <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html">Oracle Database Engine Release Notes</a> in the
-   *           <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions">Supported PostgreSQL Database Versions</a> in the
-   *           <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
-   *           For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide</i>.
-   *       </p>
-   *          <p>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple between .5 and 50 of the storage amount for the DB instance.
-   *           For SQL Server DB instances, must be a multiple between 1 and 50 of the storage amount for the DB instance.
-   *     </p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>The AWS KMS key identifier for an encrypted DB instance.</p>
-   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The KMS key identifier is managed by
-   *           the DB cluster. For more information, see <code>CreateDBCluster</code>.</p>
-   *
-   *          <p>If <code>StorageEncrypted</code> is enabled, and you do
-   *         not specify a value for the <code>KmsKeyId</code> parameter, then
-   *         Amazon RDS will use your default encryption key. AWS KMS creates the
-   *         default encryption key for your AWS account. Your AWS account has a different
-   *         default encryption key for each AWS Region.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>License model information for this DB instance.</p>
-   *          <p>
-   *             Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
-   *          </p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>The password for the master user. The password can include any printable ASCII character except "/", """, or "@".</p>
-   *
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *         <p>Not applicable. The password for the master user is managed by the DB
-   *             cluster.</p>
-   *
-   *          <p>
-   *             <b>MariaDB</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
-   *
-   *          <p>
-   *             <b>Microsoft SQL Server</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
-   *
-   *          <p>
-   *             <b>MySQL</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
-   *
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 30 characters.</p>
-   *
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>The name for the master user.</p>
-   *
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *         <p>Not applicable. The name for the master user is managed by the DB cluster.
-   *         </p>
-   *
-   *          <p>
-   *             <b>MariaDB</b>
-   *          </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *               <p>Required for MariaDB.</p>
-   *             </li>
-   *             <li>
-   *               <p>Must be 1 to 16 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *               <p>Can't be a reserved word for the chosen database engine.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>
-   *             <b>Microsoft SQL Server</b>
-   *          </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *               <p>Required for SQL Server.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be 1 to 128 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>The first character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a reserved word for the chosen database engine.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>
-   *             <b>MySQL</b>
-   *          </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *               <p>Required for MySQL.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be 1 to 16 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a reserved word for the chosen database engine.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *               <p>Required for Oracle.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be 1 to 30 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a reserved word for the chosen database engine.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *               <p>Required for PostgreSQL.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be 1 to 63 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a reserved word for the chosen database engine.</p>
-   *             </li>
-   *          </ul>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
-   */
-  MaxAllocatedStorage?: number;
-
-  /**
-   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.</p>
-   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-   *       to a value other than 0.</p>
-   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
-   *          </p>
-   */
-  MonitoringInterval?: number;
-
-  /**
-   * <p>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For
-   *       example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
-   *       go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting Up and Enabling Enhanced Monitoring</a>
-   *           in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
-   */
-  MonitoringRoleArn?: string;
-
-  /**
-   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment. You can't set
-   *           the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>Indicates that the DB instance should be associated with the specified option group.</p>
-   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
-   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
-   *             encryption key.</p>
-   *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS Region.</p>
-   */
-  PerformanceInsightsKMSKeyId?: string;
-
-  /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
-   */
-  PerformanceInsightsRetentionPeriod?: number;
-
-  /**
-   * <p>The port number on which the database accepts connections.</p>
-   *          <p>
-   *             <b>MySQL</b>
-   *          </p>
-   *          <p>
-   *             Default: <code>3306</code>
-   *          </p>
-   *          <p>
-   *             Valid Values: <code>1150-65535</code>
-   *          </p>
-   *          <p>Type: Integer</p>
-   *          <p>
-   *             <b>MariaDB</b>
-   *          </p>
-   *          <p>
-   *       Default: <code>3306</code>
-   *          </p>
-   *          <p>
-   *       Valid Values: <code>1150-65535</code>
-   *          </p>
-   *          <p>Type: Integer</p>
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *          <p>
-   *             Default: <code>5432</code>
-   *          </p>
-   *          <p>
-   *             Valid Values: <code>1150-65535</code>
-   *          </p>
-   *          <p>Type: Integer</p>
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>
-   *             Default: <code>1521</code>
-   *          </p>
-   *          <p>
-   *             Valid Values: <code>1150-65535</code>
-   *          </p>
-   *          <p>
-   *             <b>SQL Server</b>
-   *          </p>
-   *          <p>
-   *             Default: <code>1433</code>
-   *          </p>
-   *          <p>
-   *             Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>, <code>47001</code>,
-   *             <code>49152</code>, and <code>49152</code> through <code>49156</code>.
-   *         </p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>
-   *       Default: <code>3306</code>
-   *          </p>
-   *          <p>
-   *       Valid Values: <code>1150-65535</code>
-   *          </p>
-   *          <p>Type: Integer</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>
-   *         The daily time range during which automated backups are created
-   *         if automated backups are enabled,
-   *         using the <code>BackupRetentionPeriod</code> parameter.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">The Backup Window</a> in the <i>Amazon RDS User Guide</i>.
-   *       </p>
-   *
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The daily time range for creating automated backups is managed by
-   *           the DB cluster.</p>
-   *
-   *          <p>
-   *             The default is a 30-minute window selected at random from an
-   *             8-hour block of time for each AWS Region.
-   *             To see the time blocks available, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow">
-   *                 Adjusting the Preferred DB Instance Maintenance Window</a> in the <i>Amazon RDS User Guide</i>.
-   *      </p>
-   *
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be in Universal Coordinated Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Must not conflict with the preferred maintenance window.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be at least 30 minutes.</p>
-   *             </li>
-   *          </ul>
-   */
-  PreferredBackupWindow?: string;
-
-  /**
-   * <p>The time range each week during which system maintenance can occur,
-   *           in Universal Coordinated Time (UTC).
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance">Amazon RDS Maintenance Window</a>.
-   *       </p>
-   *          <p>
-   *             Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *          </p>
-   *          <p>The default is a 30-minute window selected at random from an
-   *             8-hour block of time for each AWS Region, occurring on a random day of the
-   *             week.
-   *         </p>
-   *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
-   *          <p>Constraints: Minimum 30-minute window.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
-   */
-  ProcessorFeatures?: ProcessorFeature[];
-
-  /**
-   * <p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance
-   *       after a failure of the existing primary instance. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
-   *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
-   *     </p>
-   *          <p>Default: 1</p>
-   *          <p>Valid Values: 0 - 15</p>
-   */
-  PromotionTier?: number;
-
-  /**
-   * <p>A value that indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible, it is an Internet-facing instance with a publicly resolvable DNS name,
-   *           which resolves to a public IP address. When the DB instance isn't publicly accessible, it is an internal instance with a DNS name that resolves to a private IP address.</p>
-   *          <p>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code> is specified.</p>
-   *          <p>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
-   *          <ul>
-   *             <li>
-   *               <p>If the default VPC in the target region doesn’t have an Internet gateway attached to it, the DB instance is private.</p>
-   *             </li>
-   *             <li>
-   *               <p>If the default VPC in the target region has an Internet gateway attached to it, the DB instance is public.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
-   *          <ul>
-   *             <li>
-   *               <p>If the subnets are part of a VPC that doesn’t have an Internet gateway attached to it, the DB instance is private.</p>
-   *             </li>
-   *             <li>
-   *               <p>If the subnets are part of a VPC that has an Internet gateway attached to it, the DB instance is public.</p>
-   *             </li>
-   *          </ul>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.</p>
-   *
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The encryption for DB instances is managed by
-   *           the DB cluster.</p>
-   */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *          <p>
-   *             Valid values: <code>standard | gp2 | io1</code>
-   *          </p>
-   *          <p>
-   *             If you specify <code>io1</code>, you must also include a value for the
-   *             <code>Iops</code> parameter.
-   *         </p>
-   *          <p>
-   *             Default: <code>io1</code> if the <code>Iops</code> parameter
-   *             is specified, otherwise <code>gp2</code>
-   *          </p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>Tags to assign to the DB instance.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
-   */
-  TdeCredentialArn?: string;
-
-  /**
-   * <p>The password for the given ARN from the key store in order to access the device.</p>
-   */
-  TdeCredentialPassword?: string;
-
-  /**
-   * <p>The time zone of the DB instance.
-   *             The time zone parameter is currently supported only by
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone">Microsoft SQL Server</a>.
-   *         </p>
-   */
-  Timezone?: string;
-
-  /**
-   * <p>A list of Amazon EC2 VPC security groups to associate with this DB instance.</p>
-   *
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The associated list of EC2 VPC security groups is managed by
-   *           the DB cluster.</p>
-   *
-   *          <p>Default: The default EC2 VPC security group for the DB subnet group's VPC.</p>
-   */
-  VpcSecurityGroupIds?: string[];
 }
 
 export namespace CreateDBInstanceMessage {
@@ -3227,46 +3273,178 @@ export namespace CreateDBInstanceMessage {
 export interface CreateDBInstanceReadReplicaMessage {
   __type?: "CreateDBInstanceReadReplicaMessage";
   /**
-   * <p>A value that indicates whether minor engine upgrades are applied automatically to the Read Replica during the maintenance window.</p>
-   *          <p>Default: Inherits from the source DB instance</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>The Availability Zone (AZ) where the Read Replica will be created.</p>
-   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
-   *          <p>
-   *            Example: <code>us-east-1d</code>
-   *          </p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>A value that indicates whether to copy all tags from the Read Replica to snapshots of the Read Replica. By default, tags are not copied.</p>
+   * <p>A value that indicates whether to copy all tags from the read replica to snapshots of
+   *             the read replica. By default, tags are not copied.</p>
    */
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>The compute and memory capacity of the Read Replica, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
-   *           For the full list of DB instance classes,
-   *           and availability for your engine, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
+   * <p>The URL that contains a Signature Version 4 signed request for the <code>CreateDBInstanceReadReplica</code> API action
+   *             in the source AWS Region that contains the source DB instance.
+   *         </p>
+   *
+   *         <p>You must specify this parameter when you create an encrypted read replica from
+   *             another AWS Region by using the Amazon RDS API. Don't specify
+   *                 <code>PreSignedUrl</code> when you are creating an encrypted read replica in the
+   *             same AWS Region.</p>
+   *
+   *         <p>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code> API action
+   *             that can be executed in the source AWS Region that contains the encrypted source DB instance.
+   *             The presigned URL request must contain the following parameter values:
+   *         </p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DestinationRegion</code> - The AWS Region that the encrypted read
+   *                     replica is created in. This AWS Region is the same one where the
+   *                         <code>CreateDBInstanceReadReplica</code> action is called that contains this presigned URL.</p>
+   *
+   *                 <p>For example, if you create an encrypted DB instance in the us-west-1 AWS Region,
+   *                     from a source DB instance in the us-east-2 AWS Region,
+   *                     then you call the <code>CreateDBInstanceReadReplica</code> action in
+   *                     the us-east-1 AWS Region and provide a presigned URL that contains a call to the
+   *                     <code>CreateDBInstanceReadReplica</code> action in the us-west-2 AWS Region. For this
+   *                     example, the <code>DestinationRegion</code> in the presigned URL must be set to
+   *                     the us-east-1 AWS Region.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to
+   *                     encrypt the read replica in the destination AWS Region. This is the same
+   *                     identifier for both the <code>CreateDBInstanceReadReplica</code> action that is
+   *                     called in the destination AWS Region, and the action contained in the presigned
+   *                     URL. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SourceDBInstanceIdentifier</code> - The DB instance identifier for
+   *                     the encrypted DB instance to be replicated. This identifier must be in the
+   *                     Amazon Resource Name (ARN) format for the source AWS Region. For example, if you
+   *                     are creating an encrypted read replica from a DB instance in the us-west-2 AWS
+   *                     Region, then your <code>SourceDBInstanceIdentifier</code> looks like the
+   *                     following example:
+   *                         <code>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</code>. </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>To learn how to generate a Signature Version 4 signed request, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
+   *             <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>.
+   *         </p>
+   *
+   *         <note>
+   *             <p>If you are using an AWS SDK tool or the AWS CLI, you can specify
+   *                     <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI)
+   *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying
+   *                     <code>SourceRegion</code> autogenerates a presigned URL that is a valid request
+   *                 for the operation that can be executed in the source AWS Region.</p>
+   *             <p>
+   *                <code>SourceRegion</code> isn't supported for SQL Server, because SQL Server on Amazon RDS
+   *                 doesn't support cross-region read replicas.</p>
+   *         </note>
+   */
+  PreSignedUrl?: string;
+
+  /**
+   * <p> A list of EC2 VPC security groups to associate with the read replica. </p>
+   *         <p>
+   *             Default: The default EC2 VPC security group for the DB subnet group's VPC.
+   *         </p>
+   */
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>A value that indicates whether the DB instance class of the DB instance uses its default
+   *             processor features.</p>
+   */
+  UseDefaultProcessorFeatures?: boolean;
+
+  /**
+   * <p>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For
+   *       example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
+   *       go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+   *           create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
+   */
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>A value that indicates whether to enable Performance Insights for the read replica. </p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
+   *             Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.
+   *         </p>
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>A value that indicates whether the read replica is in a Multi-AZ deployment. </p>
+   *
+   *         <p>You can create a read replica as a Multi-AZ DB instance. RDS creates a standby of
+   *             your replica in another Availability Zone for failover support for the replica. Creating
+   *             your read replica as a Multi-AZ DB instance is independent of whether the source
+   *             database is a Multi-AZ DB instance. </p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * <p>Specifies a DB subnet group for the DB instance. The new DB instance is created in the VPC associated with the DB subnet group. If no DB subnet group is specified, then the new DB instance isn't created in a VPC.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can only be specified if the source DB instance identifier specifies a DB instance in another AWS Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *             </li>
+   *             <li>
+   *                <p>The specified DB subnet group must be in the same AWS Region in which the operation is running.</p>
+   *             </li>
+   *             <li>
+   *               <p>All read replicas in one AWS Region that are created from the same source DB
+   *                     instance must either:></p>
+   *               <ul>
+   *                   <li>
+   *                      <p>Specify DB subnet groups from the same VPC. All these read replicas are created in the same
+   *                             VPC.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Not specify a DB subnet group. All these read replicas are created outside of any
+   *                             VPC.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>mySubnetgroup</code>
    *          </p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>The compute and memory capacity of the read replica, for example,
+   *                 <code>db.m4.large</code>. Not all DB instance classes are available in all AWS
+   *             Regions, or for all database engines. For the full list of DB instance classes, and
+   *             availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
+   *                 Class</a> in the <i>Amazon RDS User Guide.</i>
+   *         </p>
    *          <p>Default: Inherits from the source DB instance.</p>
    */
   DBInstanceClass?: string;
 
   /**
-   * <p>The DB instance identifier of the Read Replica. This identifier is the unique key that identifies a DB instance. This parameter is stored as a lowercase string.</p>
+   * <p>A value that indicates whether minor engine upgrades are applied automatically to the
+   *             read replica during the maintenance window.</p>
+   *          <p>Default: Inherits from the source DB instance</p>
    */
-  DBInstanceIdentifier: string | undefined;
+  AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>The name of the DB parameter group to associate with this DB instance.</p>
-   *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then Amazon RDS uses the <code>DBParameterGroup</code> of
-   *             source DB instance for a same region Read Replica, or the default <code>DBParameterGroup</code> for the specified DB engine for a cross
-   *             region Read Replica.</p>
+   *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then Amazon RDS
+   *             uses the <code>DBParameterGroup</code> of source DB instance for a same region read
+   *             replica, or the default <code>DBParameterGroup</code> for the specified DB engine for a
+   *             cross region read replica.</p>
    *         <note>
    *             <p>Currently, specifying a parameter group for this operation is only supported for Oracle DB instances.</p>
    *         </note>
@@ -3286,34 +3464,55 @@ export interface CreateDBInstanceReadReplicaMessage {
   DBParameterGroupName?: string;
 
   /**
-   * <p>Specifies a DB subnet group for the DB instance. The new DB instance is created in the VPC associated with the DB subnet group. If no DB subnet group is specified, then the new DB instance isn't created in a VPC.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Can only be specified if the source DB instance identifier specifies a DB instance in another AWS Region.</p>
-   *             </li>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *             </li>
-   *             <li>
-   *                <p>The specified DB subnet group must be in the same AWS Region in which the operation is running.</p>
-   *             </li>
-   *             <li>
-   *               <p>All Read Replicas in one AWS Region that are created from the same source DB instance must either:></p>
-   *               <ul>
-   *                   <li>
-   *                      <p>Specify DB subnet groups from the same VPC. All these Read Replicas are created in the same VPC.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Not specify a DB subnet group. All these Read Replicas are created outside of any VPC.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>mySubnetgroup</code>
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are
+   *             collected for the read replica. To disable collecting Enhanced Monitoring metrics,
+   *             specify 0. The default is 0.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+   *       to a value other than 0.</p>
+   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
    *          </p>
    */
-  DBSubnetGroupName?: string;
+  MonitoringInterval?: number;
+
+  /**
+   * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>A value that indicates whether the DB instance is publicly accessible.</p>
+   *          <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
+   *               and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
+   *               and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
+   *          <p>For more information, see <a>CreateDBInstance</a>.</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The option group the DB instance is associated with. If omitted, the option group associated with the source instance is used.</p>
+   *         <note>
+   *             <p>For SQL Server, you must use the option group associated with the source
+   *                 instance.</p>
+   *         </note>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>The Availability Zone (AZ) where the read replica will be created.</p>
+   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
+   *          <p>
+   *            Example: <code>us-east-1d</code>
+   *          </p>
+   */
+  AvailabilityZone?: string;
 
   /**
    * <p>A value that indicates whether the DB instance has deletion protection enabled.
@@ -3326,24 +3525,21 @@ export interface CreateDBInstanceReadReplicaMessage {
   DeletionProtection?: boolean;
 
   /**
-   * <p>The Active Directory directory ID to create the DB instance in.</p>
-   *         <p>For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB instance.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
-   *                 Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
+   * <p>The AWS KMS key ID for an encrypted read replica. The KMS key ID is the Amazon
+   *             Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>
+   *
+   *         <p>If you create an encrypted read replica in the same AWS Region as the source DB
+   *             instance, then you do not have to specify a value for this parameter. The read replica
+   *             is encrypted with the same KMS key as the source DB instance.</p>
+   *
+   *         <p>If you create an encrypted read replica in a different AWS Region, then you must
+   *             specify a KMS key for the destination AWS Region. KMS encryption keys are specific to
+   *             the AWS Region that they are created in, and you can't use encryption keys from one
+   *             AWS Region in another AWS Region.</p>
+   *
+   *         <p>You can't create an encrypted read replica from an unencrypted DB instance.</p>
    */
-  Domain?: string;
-
-  /**
-   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
-   */
-  DomainIAMRoleName?: string;
-
-  /**
-   * <p>The list of logs that the new DB instance is to export to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon RDS User Guide</i>.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
+  KmsKeyId?: string;
 
   /**
    * <p>A value that indicates whether to enable mapping of AWS Identity and Access
@@ -3358,83 +3554,8 @@ export interface CreateDBInstanceReadReplicaMessage {
   EnableIAMDatabaseAuthentication?: boolean;
 
   /**
-   * <p>A value that indicates whether to enable Performance Insights for the Read Replica.
-   *         </p>
-   *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.
-   *         </p>
-   */
-  EnablePerformanceInsights?: boolean;
-
-  /**
-   * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.</p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>The AWS KMS key ID for an encrypted Read Replica.
-   *             The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier,
-   *             or the KMS key alias for the KMS encryption key.
-   *         </p>
-   *
-   *         <p>If you create an encrypted Read Replica in the same AWS Region
-   *             as the source DB instance,
-   *             then you do not have to specify a value for this parameter.
-   *             The Read Replica is encrypted with the same KMS key as the source DB instance.
-   *         </p>
-   *
-   *         <p>If you create an encrypted Read Replica in a different AWS Region,
-   *             then you must specify a KMS key for the destination AWS Region.
-   *             KMS encryption keys are specific to the AWS Region
-   *             that they are created in,
-   *             and you can't use encryption keys from one AWS Region
-   *             in another AWS Region.
-   *         </p>
-   *
-   *         <p>You can't create an encrypted Read Replica from an unencrypted DB instance.
-   *         </p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the Read Replica. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.</p>
-   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-   *       to a value other than 0.</p>
-   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
-   *          </p>
-   */
-  MonitoringInterval?: number;
-
-  /**
-   * <p>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For
-   *       example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
-   *       go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-   *           create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
-   */
-  MonitoringRoleArn?: string;
-
-  /**
-   * <p>A value that indicates whether the Read Replica is in a Multi-AZ deployment.
-   *         </p>
-   *
-   *         <p>You can create a Read Replica as a Multi-AZ DB instance.
-   *             RDS creates a standby of your replica in another Availability Zone for failover support for the replica.
-   *             Creating your Read Replica as a Multi-AZ DB instance
-   *             is independent of whether the source database is a Multi-AZ DB instance.
-   *         </p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>The option group the DB instance is associated with. If omitted, the option group associated with the source instance is used.</p>
-   */
-  OptionGroupName?: string;
-
-  /**
    * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
-   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
-   *             encryption key.</p>
+   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
    *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
    *             Your AWS account has a different default encryption key for each AWS Region.</p>
@@ -3442,9 +3563,39 @@ export interface CreateDBInstanceReadReplicaMessage {
   PerformanceInsightsKMSKeyId?: string;
 
   /**
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   */
+  DomainIAMRoleName?: string;
+
+  /**
+   * <p>The Active Directory directory ID to create the DB instance in.</p>
+   *         <p>For Oracle DB instances, Amazon RDS can use Kerberos authentication to authenticate users that connect to the DB instance.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+   *                 Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows Authentication to
+   *             authenticate users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+   *                 Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL
+   *                 Server</a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The list of logs that the new DB instance is to export to CloudWatch Logs. The values
+   *             in the list depend on the DB engine being used. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+   *                 Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  EnableCloudwatchLogsExports?: string[];
+
+  /**
    * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
    */
   PerformanceInsightsRetentionPeriod?: number;
+
+  /**
+   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   */
+  ProcessorFeatures?: ProcessorFeature[];
 
   /**
    * <p>The port number that the DB instance uses for connections.</p>
@@ -3455,115 +3606,7 @@ export interface CreateDBInstanceReadReplicaMessage {
   Port?: number;
 
   /**
-   * <p>The URL that contains a Signature Version 4 signed request for the
-   *             <code>CreateDBInstanceReadReplica</code> API action
-   *             in the source AWS Region that contains the
-   *             source DB instance.
-   *         </p>
-   *
-   *         <p>You must specify this parameter when you create an encrypted Read Replica
-   *             from another AWS Region by using the Amazon RDS API.
-   *             Don't specify <code>PreSignedUrl</code> when you are creating an encrypted Read Replica in the same AWS Region.
-   *         </p>
-   *
-   *         <p>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code> API action
-   *             that can be executed in the source AWS Region that contains the encrypted source DB instance.
-   *             The presigned URL request must contain the following parameter values:
-   *         </p>
-   *
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>DestinationRegion</code> - The AWS Region that the encrypted Read Replica is created in.
-   *                     This AWS Region is the same one where the <code>CreateDBInstanceReadReplica</code> action is called that contains this presigned URL.
-   *                 </p>
-   *
-   *                 <p>For example, if you create an encrypted DB instance in the us-west-1 AWS Region,
-   *                     from a source DB instance in the us-east-2 AWS Region,
-   *                     then you call the <code>CreateDBInstanceReadReplica</code> action in
-   *                     the us-east-1 AWS Region and provide a presigned URL that contains a call to the
-   *                     <code>CreateDBInstanceReadReplica</code> action in the us-west-2 AWS Region. For this
-   *                     example, the <code>DestinationRegion</code> in the presigned URL must be set to
-   *                     the us-east-1 AWS Region.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the Read Replica in the destination AWS Region.
-   *                     This is the same identifier for both the <code>CreateDBInstanceReadReplica</code> action that is called in the destination AWS Region,
-   *                     and the action contained in the presigned URL.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>SourceDBInstanceIdentifier</code> - The DB instance identifier for the encrypted DB instance to be replicated.
-   *                     This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region.
-   *                     For example, if you are creating an encrypted Read Replica from a DB instance in the us-west-2 AWS Region,
-   *                     then your <code>SourceDBInstanceIdentifier</code> looks like
-   *                     the following example: <code>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</code>.
-   *                 </p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p>To learn how to generate a Signature Version 4 signed request, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>.
-   *         </p>
-   *
-   *         <note>
-   *             <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI)
-   *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid
-   *                 request for the operation that can be executed in the source AWS Region.</p>
-   *         </note>
-   */
-  PreSignedUrl?: string;
-
-  /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
-   */
-  ProcessorFeatures?: ProcessorFeature[];
-
-  /**
-   * <p>A value that indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible, it is an Internet-facing instance with a publicly resolvable DNS name,
-   *           which resolves to a public IP address. When the DB instance isn't publicly accessible, it is an internal instance with a DNS name that resolves to a private IP address.
-   *           For more information, see <a>CreateDBInstance</a>.</p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>The identifier of the DB instance that will act as the source for the Read Replica. Each DB instance can have up to five Read Replicas.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be the identifier of an existing MySQL, MariaDB, Oracle, or PostgreSQL DB instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can specify a DB instance that is a MySQL Read Replica only if the source is running MySQL 5.6 or later.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the limitations of Oracle Read Replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Read Replica Limitations with Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can specify a DB instance that is a PostgreSQL DB instance only if the source is running PostgreSQL 9.3.5 or later (9.4.7 and higher for cross-region replication).</p>
-   *             </li>
-   *             <li>
-   *                <p>The specified DB instance must have automatic backups enabled, its backup retention period must be greater than 0.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the source DB instance is in the same AWS Region as the Read Replica, specify a valid DB instance identifier.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the source DB instance is in a different AWS Region than the Read Replica,
-   *                specify a valid DB instance ARN. For more information, go to
-   *                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-   *                    Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *             </li>
-   *          </ul>
-   */
-  SourceDBInstanceIdentifier: string | undefined;
-
-  /**
-   * <p>Specifies the storage type to be associated with the Read Replica.</p>
+   * <p>Specifies the storage type to be associated with the read replica.</p>
    *          <p>
    *             Valid values: <code>standard | gp2 | io1</code>
    *          </p>
@@ -3579,27 +3622,52 @@ export interface CreateDBInstanceReadReplicaMessage {
   StorageType?: string;
 
   /**
-   * <p>A list of tags.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
+   * <p>The DB instance identifier of the read replica. This identifier is the unique key
+   *             that identifies a DB instance. This parameter is stored as a lowercase string.</p>
    */
-  Tags?: Tag[];
+  DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>A value that indicates whether the DB instance class of the DB instance uses its default
-   *             processor features.</p>
+   * <p>The identifier of the DB instance that will act as the source for the read replica.
+   *             Each DB instance can have up to five read replicas.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be the identifier of an existing MySQL, MariaDB, Oracle, PostgreSQL, or SQL Server DB
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can specify a DB instance that is a MySQL read replica only if the source is running MySQL
+   *                     5.6 or later.</p>
+   *             </li>
+   *             <li>
+   *               <p>For the limitations of Oracle read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Read Replica Limitations with Oracle</a> in the
+   *                   <i>Amazon RDS User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the limitations of SQL Server read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.Limitations.html">Read Replica
+   *                         Limitations with Microsoft SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can specify a PostgreSQL DB instance only if the source is running PostgreSQL 9.3.5 or
+   *                     later (9.4.7 and higher for cross-region replication).</p>
+   *             </li>
+   *             <li>
+   *                <p>The specified DB instance must have automatic backups enabled, that is, its backup
+   *                     retention period must be greater than 0.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source DB instance is in the same AWS Region as the read replica, specify a valid DB
+   *                     instance identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source DB instance is in a different AWS Region from the read replica, specify a valid DB instance ARN.
+   *              For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">Constructing an ARN for Amazon RDS</a>
+   *              in the <i>Amazon RDS User Guide</i>. This doesn't apply to SQL Server, which doesn't support cross-region replicas.</p>
+   *             </li>
+   *          </ul>
    */
-  UseDefaultProcessorFeatures?: boolean;
-
-  /**
-   * <p>
-   *             A list of EC2 VPC security groups to associate with the Read Replica.
-   *         </p>
-   *         <p>
-   *             Default: The default EC2 VPC security group for the DB subnet group's VPC.
-   *         </p>
-   */
-  VpcSecurityGroupIds?: string[];
+  SourceDBInstanceIdentifier: string | undefined;
 }
 
 export namespace CreateDBInstanceReadReplicaMessage {
@@ -3664,6 +3732,11 @@ export interface CreateDBParameterGroupMessage {
   DBParameterGroupFamily: string | undefined;
 
   /**
+   * <p>Tags to assign to the DB parameter group.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The name of the DB parameter group.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3687,11 +3760,6 @@ export interface CreateDBParameterGroupMessage {
    * <p>The description for the DB parameter group.</p>
    */
   Description: string | undefined;
-
-  /**
-   * <p>Tags to assign to the DB parameter group.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateDBParameterGroupMessage {
@@ -3722,14 +3790,44 @@ export namespace CreateDBParameterGroupResult {
 export interface CreateDBProxyRequest {
   __type?: "CreateDBProxyRequest";
   /**
-   * <p>The authorization mechanism that the proxy uses.</p>
-   */
-  Auth: UserAuthConfig[] | undefined;
-
-  /**
    * <p>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
    */
   DBProxyName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this
+   *         value higher or lower than the connection timeout limit for the associated database.</p>
+   */
+  IdleClientTimeout?: number;
+
+  /**
+   * <p>One or more VPC subnet IDs to associate with the new proxy.</p>
+   */
+  VpcSubnetIds: string[] | undefined;
+
+  /**
+   * <p>A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+   *         By enabling this setting, you can enforce encrypted TLS connections to the proxy.</p>
+   */
+  RequireTLS?: boolean;
+
+  /**
+   * <p>An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The kinds of databases that the proxy can connect to.
+   *           This value determines which database network protocol the proxy recognizes when it interprets
+   *         network traffic to and from the database.
+   *         The engine family applies to MySQL and PostgreSQL for both RDS and Aurora.</p>
+   */
+  EngineFamily: EngineFamily | string | undefined;
 
   /**
    * <p>Whether the proxy includes detailed information about SQL statements in its logs.
@@ -3742,43 +3840,14 @@ export interface CreateDBProxyRequest {
   DebugLogging?: boolean;
 
   /**
-   * <p>The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets
-   *         network traffic to and from the database. Currently, this value is always <code>MYSQL</code>. The engine family applies to
-   *         both RDS MySQL and Aurora MySQL.</p>
+   * <p>The authorization mechanism that the proxy uses.</p>
    */
-  EngineFamily: EngineFamily | string | undefined;
-
-  /**
-   * <p>The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this
-   *         value higher or lower than the connection timeout limit for the associated database.</p>
-   */
-  IdleClientTimeout?: number;
-
-  /**
-   * <p>A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-   *         By enabling this setting, you can enforce encrypted TLS connections to the proxy.</p>
-   */
-  RequireTLS?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.</p>
-   */
-  Tags?: Tag[];
+  Auth: UserAuthConfig[] | undefined;
 
   /**
    * <p>One or more VPC security group IDs to associate with the new proxy.</p>
    */
   VpcSecurityGroupIds?: string[];
-
-  /**
-   * <p>One or more VPC subnet IDs to associate with the new proxy.</p>
-   */
-  VpcSubnetIds: string[] | undefined;
 }
 
 export namespace CreateDBProxyRequest {
@@ -3809,6 +3878,11 @@ export namespace CreateDBProxyResponse {
 export interface CreateDBSecurityGroupMessage {
   __type?: "CreateDBSecurityGroupMessage";
   /**
+   * <p>Tags to assign to the DB security group.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The description for the DB security group.</p>
    */
   DBSecurityGroupDescription: string | undefined;
@@ -3834,11 +3908,6 @@ export interface CreateDBSecurityGroupMessage {
    *          </p>
    */
   DBSecurityGroupName: string | undefined;
-
-  /**
-   * <p>Tags to assign to the DB security group.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateDBSecurityGroupMessage {
@@ -3884,6 +3953,13 @@ export interface CreateDBSnapshotMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The identifier for the DB snapshot.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3904,13 +3980,6 @@ export interface CreateDBSnapshotMessage {
    *          </p>
    */
   DBSnapshotIdentifier: string | undefined;
-
-  /**
-   * <p>A list of tags.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateDBSnapshotMessage {
@@ -3945,17 +4014,17 @@ export namespace CreateDBSnapshotResult {
 export interface CreateDBSubnetGroupMessage {
   __type?: "CreateDBSubnetGroupMessage";
   /**
-   * <p>The description for the DB subnet group.</p>
-   */
-  DBSubnetGroupDescription: string | undefined;
-
-  /**
    * <p>The name for the DB subnet group. This value is stored as a lowercase string.</p>
    *          <p>Constraints: Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens. Must not be default.</p>
    *          <p>Example: <code>mySubnetgroup</code>
    *          </p>
    */
   DBSubnetGroupName: string | undefined;
+
+  /**
+   * <p>The description for the DB subnet group.</p>
+   */
+  DBSubnetGroupDescription: string | undefined;
 
   /**
    * <p>The EC2 Subnet IDs for the DB subnet group.</p>
@@ -4007,23 +4076,13 @@ export interface CreateEventSubscriptionMessage {
   Enabled?: boolean;
 
   /**
-   * <p>
-   *             A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories
-   *             for a given SourceType
-   *             in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> topic
-   *             in the <i>Amazon RDS User Guide</i>
-   *             or by using the <b>DescribeEventCategories</b> action.
-   *         </p>
-   */
-  EventCategories?: string[];
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.</p>
    */
   SnsTopicArn: string | undefined;
 
   /**
-   * <p>The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
+   * <p>The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response.
+   *           An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens. It can't end with a hyphen or contain two consecutive hyphens.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4046,12 +4105,11 @@ export interface CreateEventSubscriptionMessage {
   SourceIds?: string[];
 
   /**
-   * <p>The type of source that is generating the events. For example, if you want to be notified of
-   *           events generated by a DB instance, you would set this parameter to db-instance. if this value isn't specified, all events are returned.</p>
-   *          <p>Valid values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code> | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code>
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
    */
-  SourceType?: string;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the subscription.</p>
@@ -4060,11 +4118,23 @@ export interface CreateEventSubscriptionMessage {
   SubscriptionName: string | undefined;
 
   /**
-   * <p>A list of tags.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   * <p>
+   *             A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories
+   *             for a given SourceType
+   *             in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> topic
+   *             in the <i>Amazon RDS User Guide</i>
+   *             or by using the <b>DescribeEventCategories</b> action.
+   *         </p>
+   */
+  EventCategories?: string[];
+
+  /**
+   * <p>The type of source that is generating the events. For example, if you want to be notified of
+   *           events generated by a DB instance, you would set this parameter to db-instance. if this value isn't specified, all events are returned.</p>
+   *          <p>Valid values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code> | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code>
    *          </p>
    */
-  Tags?: Tag[];
+  SourceType?: string;
 }
 
 export namespace CreateEventSubscriptionMessage {
@@ -4113,14 +4183,16 @@ export interface CreateGlobalClusterMessage {
   Engine?: string;
 
   /**
+   * <p>
+   *         The storage encryption setting for the new global database cluster.
+   *       </p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
    * <p>The engine version of the Aurora global database.</p>
    */
   EngineVersion?: string;
-
-  /**
-   * <p>The cluster identifier of the new global database cluster.</p>
-   */
-  GlobalClusterIdentifier?: string;
 
   /**
    * <p>
@@ -4131,11 +4203,9 @@ export interface CreateGlobalClusterMessage {
   SourceDBClusterIdentifier?: string;
 
   /**
-   * <p>
-   *         The storage encryption setting for the new global database cluster.
-   *       </p>
+   * <p>The cluster identifier of the new global database cluster.</p>
    */
-  StorageEncrypted?: boolean;
+  GlobalClusterIdentifier?: string;
 }
 
 export namespace CreateGlobalClusterMessage {
@@ -4166,21 +4236,6 @@ export namespace CreateGlobalClusterResult {
 export interface CreateOptionGroupMessage {
   __type?: "CreateOptionGroupMessage";
   /**
-   * <p>Specifies the name of the engine that this option group should be associated with.</p>
-   */
-  EngineName: string | undefined;
-
-  /**
-   * <p>Specifies the major version of the engine that this option group should be associated with.</p>
-   */
-  MajorEngineVersion: string | undefined;
-
-  /**
-   * <p>The description of the option group.</p>
-   */
-  OptionGroupDescription: string | undefined;
-
-  /**
    * <p>Specifies the name of the option group to be created.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -4200,9 +4255,24 @@ export interface CreateOptionGroupMessage {
   OptionGroupName: string | undefined;
 
   /**
+   * <p>Specifies the name of the engine that this option group should be associated with.</p>
+   */
+  EngineName: string | undefined;
+
+  /**
+   * <p>The description of the option group.</p>
+   */
+  OptionGroupDescription: string | undefined;
+
+  /**
    * <p>Tags to assign to the option group.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Specifies the major version of the engine that this option group should be associated with.</p>
+   */
+  MajorEngineVersion: string | undefined;
 }
 
 export namespace CreateOptionGroupMessage {
@@ -4249,15 +4319,15 @@ export interface CustomAvailabilityZone {
   CustomAvailabilityZoneName?: string;
 
   /**
-   * <p>The status of the custom AZ.</p>
-   */
-  CustomAvailabilityZoneStatus?: string;
-
-  /**
    * <p>Information about the virtual private network (VPN) between the VMware vSphere cluster
    *             and the AWS website.</p>
    */
   VpnDetails?: VpnDetails;
+
+  /**
+   * <p>The status of the custom AZ.</p>
+   */
+  CustomAvailabilityZoneStatus?: string;
 }
 
 export namespace CustomAvailabilityZone {
@@ -4290,11 +4360,6 @@ export namespace CustomAvailabilityZoneAlreadyExistsFault {
 export interface CustomAvailabilityZoneMessage {
   __type?: "CustomAvailabilityZoneMessage";
   /**
-   * <p>The list of <a>CustomAvailabilityZone</a> objects for the AWS account.</p>
-   */
-  CustomAvailabilityZones?: CustomAvailabilityZone[];
-
-  /**
    * <p>An optional pagination token provided by a previous
    *             <code>DescribeCustomAvailabilityZones</code> request.
    *             If this parameter is specified, the response includes
@@ -4302,6 +4367,11 @@ export interface CustomAvailabilityZoneMessage {
    *             up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The list of <a>CustomAvailabilityZone</a> objects for the AWS account.</p>
+   */
+  CustomAvailabilityZones?: CustomAvailabilityZone[];
 }
 
 export namespace CustomAvailabilityZoneMessage {
@@ -4362,62 +4432,20 @@ export namespace CustomAvailabilityZoneQuotaExceededFault {
 export interface DBCluster {
   __type?: "DBCluster";
   /**
-   * <p>The name of the Amazon Kinesis data stream used for the database activity stream.</p>
+   * <p>Provides a list of VPC security groups that the DB cluster belongs to.</p>
    */
-  ActivityStreamKinesisStreamName?: string;
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+
+  /**
+   * <p>Contains the identifier of the source DB cluster if this DB cluster is a read
+   *             replica.</p>
+   */
+  ReplicationSourceIdentifier?: string;
 
   /**
    * <p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>
    */
   ActivityStreamKmsKeyId?: string;
-
-  /**
-   * <p>The mode of the database activity stream.
-   *            Database events such as a change or access generate an activity stream event.
-   *            The database session can handle these events either synchronously or asynchronously.
-   *        </p>
-   */
-  ActivityStreamMode?: ActivityStreamMode | string;
-
-  /**
-   * <p>The status of the database activity stream.</p>
-   */
-  ActivityStreamStatus?: ActivityStreamStatus | string;
-
-  /**
-   * <p>For all database engines except Amazon Aurora, <code>AllocatedStorage</code> specifies the allocated storage size in gibibytes (GiB).
-   *           For Aurora, <code>AllocatedStorage</code> always returns 1, because Aurora DB cluster storage size isn't fixed, but instead automatically
-   *       adjusts as needed.</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster.
-   *           IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services
-   *           on your behalf.</p>
-   */
-  AssociatedRoles?: DBClusterRole[];
-
-  /**
-   * <p>Provides the list of Availability Zones (AZs) where instances in the DB cluster can be created.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The number of change records stored for Backtrack.</p>
-   */
-  BacktrackConsumedChangeRecords?: number;
-
-  /**
-   * <p>The target backtrack window, in seconds. If this value is set to 0, backtracking is
-   *             disabled for the DB cluster. Otherwise, backtracking is enabled.</p>
-   */
-  BacktrackWindow?: number;
-
-  /**
-   * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
-   */
-  BackupRetentionPeriod?: number;
 
   /**
    * <p>The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero)
@@ -4428,81 +4456,9 @@ export interface DBCluster {
   Capacity?: number;
 
   /**
-   * <p>If present, specifies the name of the character set that this cluster is associated with.</p>
+   * <p>Specifies the connection endpoint for the primary instance of the DB cluster.</p>
    */
-  CharacterSetName?: string;
-
-  /**
-   * <p>Identifies the clone group to which the DB cluster is associated.</p>
-   */
-  CloneGroupId?: string;
-
-  /**
-   * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
-   */
-  ClusterCreateTime?: Date;
-
-  /**
-   * <p>Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>Specifies whether the DB cluster is a clone of a DB cluster owned by a different AWS account.</p>
-   */
-  CrossAccountClone?: boolean;
-
-  /**
-   * <p>Identifies all custom endpoints associated with the cluster.</p>
-   */
-  CustomEndpoints?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
-   */
-  DBClusterArn?: string;
-
-  /**
-   * <p>Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * <p>Provides the list of instances that make up the DB cluster.</p>
-   */
-  DBClusterMembers?: DBClusterMember[];
-
-  /**
-   * <p>Provides the list of option group memberships for this DB cluster.</p>
-   */
-  DBClusterOptionGroupMemberships?: DBClusterOptionGroupStatus[];
-
-  /**
-   * <p>Specifies the name of the DB cluster parameter group for the DB cluster.</p>
-   */
-  DBClusterParameterGroup?: string;
-
-  /**
-   * <p>Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.</p>
-   */
-  DBSubnetGroup?: string;
-
-  /**
-   * <p>Contains the name of the initial database of this DB cluster that was provided at create time, if one was specified when the DB cluster was created. This same name is returned for the life of the DB cluster.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.</p>
-   */
-  DbClusterResourceId?: string;
-
-  /**
-   * <p>Indicates if the DB cluster has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled.
-   *         </p>
-   */
-  DeletionProtection?: boolean;
+  Endpoint?: string;
 
   /**
    * <p>The earliest time to which a DB cluster can be backtracked.</p>
@@ -4510,44 +4466,24 @@ export interface DBCluster {
   EarliestBacktrackTime?: Date;
 
   /**
-   * <p>The earliest time to which a database can be restored with point-in-time
-   *             restore.</p>
+   * <p>A value that indicates whether the mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
    */
-  EarliestRestorableTime?: Date;
+  IAMDatabaseAuthenticationEnabled?: boolean;
 
   /**
-   * <p>A list of log types that this DB cluster is configured to export to CloudWatch Logs.</p>
-   *         <p>Log types vary by DB engine. For information about the log types for each DB engine, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i>
-   *          </p>
+   * <p>Specifies whether the DB cluster is encrypted.</p>
    */
-  EnabledCloudwatchLogsExports?: string[];
+  StorageEncrypted?: boolean;
 
   /**
-   * <p>Specifies the connection endpoint for the primary instance of the DB cluster.</p>
+   * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for the encrypted DB cluster.</p>
    */
-  Endpoint?: string;
+  KmsKeyId?: string;
 
   /**
-   * <p>Provides the name of the database engine to be used for this DB cluster.</p>
+   * <p>Specifies the port that the database engine is listening on.</p>
    */
-  Engine?: string;
-
-  /**
-   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-   *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
-   */
-  EngineMode?: string;
-
-  /**
-   * <p>Indicates the database engine version.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
-   */
-  HostedZoneId?: string;
+  Port?: number;
 
   /**
    * <p>A value that indicates whether the HTTP endpoint for an Aurora Serverless DB cluster is enabled.</p>
@@ -4560,57 +4496,19 @@ export interface DBCluster {
   HttpEndpointEnabled?: boolean;
 
   /**
-   * <p>A value that indicates whether the mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
+   * <p>Provides the list of instances that make up the DB cluster.</p>
    */
-  IAMDatabaseAuthenticationEnabled?: boolean;
+  DBClusterMembers?: DBClusterMember[];
 
   /**
-   * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for the encrypted DB cluster.</p>
+   * <p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.</p>
    */
-  KmsKeyId?: string;
+  DbClusterResourceId?: string;
 
   /**
-   * <p>Specifies the latest time to which a database can be restored with point-in-time restore.</p>
+   * <p>The Active Directory Domain membership records associated with the DB cluster.</p>
    */
-  LatestRestorableTime?: Date;
-
-  /**
-   * <p>Contains the master username for the DB cluster.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>Specifies whether the DB cluster has instances in multiple Availability Zones.</p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>Specifies the progress of the operation as a percentage.</p>
-   */
-  PercentProgress?: string;
-
-  /**
-   * <p>Specifies the port that the database engine is listening on.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>Specifies the daily time range during which automated backups are
-   *             created if automated backups are enabled, as determined
-   *             by the <code>BackupRetentionPeriod</code>.
-   *         </p>
-   */
-  PreferredBackupWindow?: string;
-
-  /**
-   * <p>Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>Contains one or more identifiers of the Read Replicas associated with this DB cluster.</p>
-   */
-  ReadReplicaIdentifiers?: string[];
+  DomainMemberships?: DomainMembership[];
 
   /**
    * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances
@@ -4625,9 +4523,50 @@ export interface DBCluster {
   ReaderEndpoint?: string;
 
   /**
-   * <p>Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.</p>
+   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
+   *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
+   *         <note>
+   *             <p>
+   *                <code>global</code> engine mode only applies for global database clusters created with Aurora MySQL version
+   *             5.6.10a. For higher Aurora MySQL versions, the clusters in a global database use <code>provisioned</code>
+   *             engine mode. To check if a DB cluster is part of a global database, use <code>DescribeGlobalClusters</code>
+   *             instead of checking the <code>EngineMode</code> return value from <code>DescribeDBClusters</code>.
+   *           </p>
+   *         </note>
    */
-  ReplicationSourceIdentifier?: string;
+  EngineMode?: string;
+
+  /**
+   * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>The earliest time to which a database can be restored with point-in-time
+   *             restore.</p>
+   */
+  EarliestRestorableTime?: Date;
+
+  /**
+   * <p>The status of the database activity stream.</p>
+   */
+  ActivityStreamStatus?: ActivityStreamStatus | string;
+
+  /**
+   * <p>Specifies whether the DB cluster is a clone of a DB cluster owned by a different AWS account.</p>
+   */
+  CrossAccountClone?: boolean;
+
+  /**
+   * <p>The target backtrack window, in seconds. If this value is set to 0, backtracking is
+   *             disabled for the DB cluster. Otherwise, backtracking is enabled.</p>
+   */
+  BacktrackWindow?: number;
+
+  /**
+   * <p>Contains the master username for the DB cluster.</p>
+   */
+  MasterUsername?: string;
 
   /**
    * <p>Shows the scaling configuration for an Aurora DB cluster in <code>serverless</code> DB engine mode.</p>
@@ -4637,19 +4576,179 @@ export interface DBCluster {
   ScalingConfigurationInfo?: ScalingConfigurationInfo;
 
   /**
+   * <p>Indicates if the DB cluster has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled.
+   *         </p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>Specifies the name of the DB cluster parameter group for the DB cluster.</p>
+   */
+  DBClusterParameterGroup?: string;
+
+  /**
+   * <p>Specifies whether the DB cluster has instances in multiple Availability Zones.</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster.
+   *           IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services
+   *           on your behalf.</p>
+   */
+  AssociatedRoles?: DBClusterRole[];
+
+  /**
+   * <p>Specifies the latest time to which a database can be restored with point-in-time restore.</p>
+   */
+  LatestRestorableTime?: Date;
+
+  /**
+   * <p>Identifies all custom endpoints associated with the cluster.</p>
+   */
+  CustomEndpoints?: string[];
+
+  /**
+   * <p>Contains one or more identifiers of the read replicas associated with this DB
+   *             cluster.</p>
+   */
+  ReadReplicaIdentifiers?: string[];
+
+  /**
+   * <p>The number of change records stored for Backtrack.</p>
+   */
+  BacktrackConsumedChangeRecords?: number;
+
+  /**
+   * <p>Contains the name of the initial database of this DB cluster that was provided at create time, if one was specified when the DB cluster was created. This same name is returned for the life of the DB cluster.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>If present, specifies the name of the character set that this cluster is associated with.</p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * <p>Specifies the progress of the operation as a percentage.</p>
+   */
+  PercentProgress?: string;
+
+  /**
+   * <p>The mode of the database activity stream.
+   *            Database events such as a change or access generate an activity stream event.
+   *            The database session can handle these events either synchronously or asynchronously.
+   *        </p>
+   */
+  ActivityStreamMode?: ActivityStreamMode | string;
+
+  /**
+   * <p>For all database engines except Amazon Aurora, <code>AllocatedStorage</code> specifies the allocated storage size in gibibytes (GiB).
+   *           For Aurora, <code>AllocatedStorage</code> always returns 1, because Aurora DB cluster storage size isn't fixed, but instead automatically
+   *       adjusts as needed.</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>Indicates the database engine version.</p>
+   */
+  EngineVersion?: string;
+
+  /**
    * <p>Specifies the current state of this DB cluster.</p>
    */
   Status?: string;
 
   /**
-   * <p>Specifies whether the DB cluster is encrypted.</p>
+   * <p>Identifies the clone group to which the DB cluster is associated.</p>
    */
-  StorageEncrypted?: boolean;
+  CloneGroupId?: string;
 
   /**
-   * <p>Provides a list of VPC security groups that the DB cluster belongs to.</p>
+   * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
    */
-  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+  ClusterCreateTime?: Date;
+
+  /**
+   * <p>Provides the name of the database engine to be used for this DB cluster.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>Specifies whether a secondary cluster in an Aurora global database has
+   *         write forwarding enabled, not enabled, or is in the process of enabling it.</p>
+   */
+  GlobalWriteForwardingStatus?: WriteForwardingStatus | string;
+
+  /**
+   * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
+   */
+  HostedZoneId?: string;
+
+  /**
+   * <p>The name of the Amazon Kinesis data stream used for the database activity stream.</p>
+   */
+  ActivityStreamKinesisStreamName?: string;
+
+  /**
+   * <p>Specifies the daily time range during which automated backups are
+   *             created if automated backups are enabled, as determined
+   *             by the <code>BackupRetentionPeriod</code>.
+   *         </p>
+   */
+  PreferredBackupWindow?: string;
+
+  /**
+   * <p>Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>Provides the list of option group memberships for this DB cluster.</p>
+   */
+  DBClusterOptionGroupMemberships?: DBClusterOptionGroupStatus[];
+
+  /**
+   * <p>Provides the list of Availability Zones (AZs) where instances in the DB cluster can be created.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
+   */
+  DBClusterArn?: string;
+
+  /**
+   * <p>A list of log types that this DB cluster is configured to export to CloudWatch Logs.</p>
+   *         <p>Log types vary by DB engine. For information about the log types for each DB engine, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   */
+  EnabledCloudwatchLogsExports?: string[];
+
+  /**
+   * <p>Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.</p>
+   */
+  DBSubnetGroup?: string;
+
+  /**
+   * <p>Specifies whether you have requested to enable write forwarding for a secondary cluster
+   *       in an Aurora global database. Because write forwarding takes time to enable, check the
+   *       value of <code>GlobalWriteForwardingStatus</code> to confirm that the request has completed
+   *       before using the write forwarding feature for this cluster.</p>
+   */
+  GlobalWriteForwardingRequested?: boolean;
+
+  /**
+   * <p>Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
 }
 
 export namespace DBCluster {
@@ -4681,9 +4780,9 @@ export namespace DBClusterAlreadyExistsFault {
 export interface DBClusterBacktrack {
   __type?: "DBClusterBacktrack";
   /**
-   * <p>Contains the backtrack identifier.</p>
+   * <p>The timestamp of the time to which the DB cluster was backtracked.</p>
    */
-  BacktrackIdentifier?: string;
+  BacktrackTo?: Date;
 
   /**
    * <p>The timestamp of the time at which the backtrack was requested.</p>
@@ -4691,9 +4790,9 @@ export interface DBClusterBacktrack {
   BacktrackRequestCreationTime?: Date;
 
   /**
-   * <p>The timestamp of the time to which the DB cluster was backtracked.</p>
+   * <p>Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.</p>
    */
-  BacktrackTo?: Date;
+  DBClusterIdentifier?: string;
 
   /**
    * <p>The timestamp of the time from which the DB cluster was backtracked.</p>
@@ -4701,9 +4800,9 @@ export interface DBClusterBacktrack {
   BacktrackedFrom?: Date;
 
   /**
-   * <p>Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.</p>
+   * <p>Contains the backtrack identifier.</p>
    */
-  DBClusterIdentifier?: string;
+  BacktrackIdentifier?: string;
 
   /**
    * <p>The status of the backtrack. This property returns one of the following
@@ -4743,14 +4842,14 @@ export namespace DBClusterBacktrack {
 export interface DBClusterBacktrackMessage {
   __type?: "DBClusterBacktrackMessage";
   /**
+   * <p>A pagination token that can be used in a later <code>DescribeDBClusterBacktracks</code> request.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>Contains a list of backtracks for the user.</p>
    */
   DBClusterBacktracks?: DBClusterBacktrack[];
-
-  /**
-   * <p>A pagination token that can be used in a subsequent <code>DescribeDBClusterBacktracks</code> request.</p>
-   */
-  Marker?: string;
 }
 
 export namespace DBClusterBacktrackMessage {
@@ -4780,9 +4879,10 @@ export namespace DBClusterBacktrackNotFoundFault {
 export interface DBClusterCapacityInfo {
   __type?: "DBClusterCapacityInfo";
   /**
-   * <p>The current capacity of the DB cluster.</p>
+   * <p>The timeout action of a call to <code>ModifyCurrentDBClusterCapacity</code>, either
+   *             <code>ForceApplyCapacityChange</code> or <code>RollbackCapacityChange</code>.</p>
    */
-  CurrentCapacity?: number;
+  TimeoutAction?: string;
 
   /**
    * <p>A user-supplied DB cluster identifier. This identifier is the unique key that
@@ -4791,20 +4891,19 @@ export interface DBClusterCapacityInfo {
   DBClusterIdentifier?: string;
 
   /**
-   * <p>A value that specifies the capacity that the DB cluster scales to next.</p>
-   */
-  PendingCapacity?: number;
-
-  /**
    * <p>The number of seconds before a call to <code>ModifyCurrentDBClusterCapacity</code> times out.</p>
    */
   SecondsBeforeTimeout?: number;
 
   /**
-   * <p>The timeout action of a call to <code>ModifyCurrentDBClusterCapacity</code>, either
-   *             <code>ForceApplyCapacityChange</code> or <code>RollbackCapacityChange</code>.</p>
+   * <p>A value that specifies the capacity that the DB cluster scales to next.</p>
    */
-  TimeoutAction?: string;
+  PendingCapacity?: number;
+
+  /**
+   * <p>The current capacity of the DB cluster.</p>
+   */
+  CurrentCapacity?: number;
 }
 
 export namespace DBClusterCapacityInfo {
@@ -4845,25 +4944,9 @@ export namespace DBClusterCapacityInfo {
 export interface DBClusterEndpoint {
   __type?: "DBClusterEndpoint";
   /**
-   * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
-   *        <code>WRITER</code>, <code>ANY</code>.</p>
-   */
-  CustomEndpointType?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
-   */
-  DBClusterEndpointArn?: string;
-
-  /**
    * <p>The identifier associated with the endpoint. This parameter is stored as a lowercase string.</p>
    */
   DBClusterEndpointIdentifier?: string;
-
-  /**
-   * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
-   */
-  DBClusterEndpointResourceIdentifier?: string;
 
   /**
    * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
@@ -4872,14 +4955,19 @@ export interface DBClusterEndpoint {
   DBClusterIdentifier?: string;
 
   /**
+   * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
+   */
+  EndpointType?: string;
+
+  /**
    * <p>The DNS address of the endpoint.</p>
    */
   Endpoint?: string;
 
   /**
-   * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
+   * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
    */
-  EndpointType?: string;
+  DBClusterEndpointResourceIdentifier?: string;
 
   /**
    * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
@@ -4889,14 +4977,25 @@ export interface DBClusterEndpoint {
   ExcludedMembers?: string[];
 
   /**
-   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
-   */
-  StaticMembers?: string[];
-
-  /**
    * <p>The current status of the endpoint. One of: <code>creating</code>, <code>available</code>, <code>deleting</code>, <code>modifying</code>.</p>
    */
   Status?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
+   */
+  DBClusterEndpointArn?: string;
+
+  /**
+   * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
+   *        <code>WRITER</code>, <code>ANY</code>.</p>
+   */
+  CustomEndpointType?: string;
+
+  /**
+   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
+   */
+  StaticMembers?: string[];
 }
 
 export namespace DBClusterEndpoint {
@@ -4926,12 +5025,6 @@ export namespace DBClusterEndpointAlreadyExistsFault {
 export interface DBClusterEndpointMessage {
   __type?: "DBClusterEndpointMessage";
   /**
-   * <p>Contains the details of the endpoints associated with the cluster
-   *        and matching any filter conditions.</p>
-   */
-  DBClusterEndpoints?: DBClusterEndpoint[];
-
-  /**
    * <p> An optional pagination token provided by a previous
    *             <code>DescribeDBClusterEndpoints</code> request.
    *             If this parameter is specified, the response includes
@@ -4940,6 +5033,12 @@ export interface DBClusterEndpointMessage {
    *         </p>
    */
   Marker?: string;
+
+  /**
+   * <p>Contains the details of the endpoints associated with the cluster
+   *        and matching any filter conditions.</p>
+   */
+  DBClusterEndpoints?: DBClusterEndpoint[];
 }
 
 export namespace DBClusterEndpointMessage {
@@ -4988,16 +5087,6 @@ export namespace DBClusterEndpointQuotaExceededFault {
 export interface DBClusterMember {
   __type?: "DBClusterMember";
   /**
-   * <p>Specifies the status of the DB cluster parameter group for this member of the DB cluster.</p>
-   */
-  DBClusterParameterGroupStatus?: string;
-
-  /**
-   * <p>Specifies the instance identifier for this member of the DB cluster.</p>
-   */
-  DBInstanceIdentifier?: string;
-
-  /**
    * <p>Value that is <code>true</code> if the cluster member is the primary instance for the DB cluster and <code>false</code> otherwise.</p>
    */
   IsClusterWriter?: boolean;
@@ -5010,6 +5099,16 @@ export interface DBClusterMember {
    *     </p>
    */
   PromotionTier?: number;
+
+  /**
+   * <p>Specifies the instance identifier for this member of the DB cluster.</p>
+   */
+  DBInstanceIdentifier?: string;
+
+  /**
+   * <p>Specifies the status of the DB cluster parameter group for this member of the DB cluster.</p>
+   */
+  DBClusterParameterGroupStatus?: string;
 }
 
 export namespace DBClusterMember {
@@ -5030,7 +5129,7 @@ export interface DBClusterMessage {
   DBClusters?: DBCluster[];
 
   /**
-   * <p>A pagination token that can be used in a subsequent DescribeDBClusters request.</p>
+   * <p>A pagination token that can be used in a later DescribeDBClusters request.</p>
    */
   Marker?: string;
 }
@@ -5066,14 +5165,14 @@ export namespace DBClusterNotFoundFault {
 export interface DBClusterOptionGroupStatus {
   __type?: "DBClusterOptionGroupStatus";
   /**
-   * <p>Specifies the name of the DB cluster option group.</p>
-   */
-  DBClusterOptionGroupName?: string;
-
-  /**
    * <p>Specifies the status of the DB cluster option group.</p>
    */
   Status?: string;
+
+  /**
+   * <p>Specifies the name of the DB cluster option group.</p>
+   */
+  DBClusterOptionGroupName?: string;
 }
 
 export namespace DBClusterOptionGroupStatus {
@@ -5092,11 +5191,6 @@ export namespace DBClusterOptionGroupStatus {
 export interface DBClusterParameterGroup {
   __type?: "DBClusterParameterGroup";
   /**
-   * <p>The Amazon Resource Name (ARN) for the DB cluster parameter group.</p>
-   */
-  DBClusterParameterGroupArn?: string;
-
-  /**
    * <p>Provides the name of the DB cluster parameter group.</p>
    */
   DBClusterParameterGroupName?: string;
@@ -5110,6 +5204,11 @@ export interface DBClusterParameterGroup {
    * <p>Provides the customer-specified description for this DB cluster parameter group.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DB cluster parameter group.</p>
+   */
+  DBClusterParameterGroupArn?: string;
 }
 
 export namespace DBClusterParameterGroup {
@@ -5207,11 +5306,6 @@ export namespace DBClusterParameterGroupNotFoundFault {
 export interface DBClusterParameterGroupsMessage {
   __type?: "DBClusterParameterGroupsMessage";
   /**
-   * <p>A list of DB cluster parameter groups.</p>
-   */
-  DBClusterParameterGroups?: DBClusterParameterGroup[];
-
-  /**
    * <p>
    *             An optional pagination token provided by a previous
    *             <code>DescribeDBClusterParameterGroups</code> request.
@@ -5221,6 +5315,11 @@ export interface DBClusterParameterGroupsMessage {
    *         </p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of DB cluster parameter groups.</p>
+   */
+  DBClusterParameterGroups?: DBClusterParameterGroup[];
 }
 
 export namespace DBClusterParameterGroupsMessage {
@@ -5253,18 +5352,6 @@ export namespace DBClusterQuotaExceededFault {
 export interface DBClusterRole {
   __type?: "DBClusterRole";
   /**
-   * <p>The name of the feature associated with the AWS Identity and Access Management (IAM) role.
-   *             For the list of supported feature names, see <a>DBEngineVersion</a>.
-   *         </p>
-   */
-  FeatureName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.</p>
-   */
-  RoleArn?: string;
-
-  /**
    * <p>Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following
    *         values:</p>
    *         <ul>
@@ -5285,6 +5372,18 @@ export interface DBClusterRole {
    *          </ul>
    */
   Status?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The name of the feature associated with the AWS Identity and Access Management (IAM) role.
+   *             For the list of supported feature names, see <a>DBEngineVersion</a>.
+   *         </p>
+   */
+  FeatureName?: string;
 }
 
 export namespace DBClusterRole {
@@ -5352,36 +5451,6 @@ export namespace DBClusterRoleQuotaExceededFault {
 export interface DBClusterSnapshot {
   __type?: "DBClusterSnapshot";
   /**
-   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>Provides the list of Availability Zones (AZs) where instances in the DB cluster snapshot can be restored.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
-   */
-  ClusterCreateTime?: Date;
-
-  /**
-   * <p>Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the DB cluster snapshot.</p>
-   */
-  DBClusterSnapshotArn?: string;
-
-  /**
-   * <p>Specifies the identifier for the DB cluster snapshot.</p>
-   */
-  DBClusterSnapshotIdentifier?: string;
-
-  /**
    * <p>Specifies the name of the database engine.</p>
    */
   Engine?: string;
@@ -5392,14 +5461,9 @@ export interface DBClusterSnapshot {
   EngineVersion?: string;
 
   /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
+   * <p>Specifies whether the DB cluster snapshot is encrypted.</p>
    */
-  IAMDatabaseAuthenticationEnabled?: boolean;
-
-  /**
-   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.</p>
-   */
-  KmsKeyId?: string;
+  StorageEncrypted?: boolean;
 
   /**
    * <p>Provides the license model information for this DB cluster snapshot.</p>
@@ -5407,24 +5471,39 @@ export interface DBClusterSnapshot {
   LicenseModel?: string;
 
   /**
-   * <p>Provides the master username for the DB cluster snapshot.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>Specifies the percentage of the estimated data that has been transferred.</p>
-   */
-  PercentProgress?: number;
-
-  /**
-   * <p>Specifies the port that the DB cluster was listening on at the time of the snapshot.</p>
-   */
-  Port?: number;
-
-  /**
    * <p>Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).</p>
    */
   SnapshotCreateTime?: Date;
+
+  /**
+   * <p>Provides the list of Availability Zones (AZs) where instances in the DB cluster snapshot can be restored.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Provides the VPC ID associated with the DB cluster snapshot.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
+   */
+  IAMDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DB cluster snapshot.</p>
+   */
+  DBClusterSnapshotArn?: string;
 
   /**
    * <p>Provides the type of the DB cluster snapshot.</p>
@@ -5432,10 +5511,29 @@ export interface DBClusterSnapshot {
   SnapshotType?: string;
 
   /**
-   * <p>If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon
-   *             Resource Name (ARN) for the source DB cluster snapshot, otherwise, a null value.</p>
+   * <p>Provides the master username for the DB cluster snapshot.</p>
    */
-  SourceDBClusterSnapshotArn?: string;
+  MasterUsername?: string;
+
+  /**
+   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>Specifies the port that the DB cluster was listening on at the time of the snapshot.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Specifies the identifier for the DB cluster snapshot.</p>
+   */
+  DBClusterSnapshotIdentifier?: string;
+
+  /**
+   * <p>Specifies the percentage of the estimated data that has been transferred.</p>
+   */
+  PercentProgress?: number;
 
   /**
    * <p>Specifies the status of this DB cluster snapshot.</p>
@@ -5443,14 +5541,15 @@ export interface DBClusterSnapshot {
   Status?: string;
 
   /**
-   * <p>Specifies whether the DB cluster snapshot is encrypted.</p>
+   * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
    */
-  StorageEncrypted?: boolean;
+  ClusterCreateTime?: Date;
 
   /**
-   * <p>Provides the VPC ID associated with the DB cluster snapshot.</p>
+   * <p>If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon
+   *             Resource Name (ARN) for the source DB cluster snapshot, otherwise, a null value.</p>
    */
-  VpcId?: string;
+  SourceDBClusterSnapshotArn?: string;
 }
 
 export namespace DBClusterSnapshot {
@@ -5486,15 +5585,6 @@ export namespace DBClusterSnapshotAlreadyExistsFault {
 export interface DBClusterSnapshotAttribute {
   __type?: "DBClusterSnapshotAttribute";
   /**
-   * <p>The name of the manual DB cluster snapshot attribute.</p>
-   *         <p>The attribute named <code>restore</code> refers to the list of AWS accounts that
-   *             have permission to copy or restore the manual DB cluster snapshot. For more information,
-   *             see the <code>ModifyDBClusterSnapshotAttribute</code>
-   *             API action.</p>
-   */
-  AttributeName?: string;
-
-  /**
    * <p>The value(s) for the manual DB cluster snapshot attribute.</p>
    *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
    *             returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual
@@ -5502,6 +5592,15 @@ export interface DBClusterSnapshotAttribute {
    *             is public and available for any AWS account to copy or restore.</p>
    */
   AttributeValues?: string[];
+
+  /**
+   * <p>The name of the manual DB cluster snapshot attribute.</p>
+   *         <p>The attribute named <code>restore</code> refers to the list of AWS accounts that
+   *             have permission to copy or restore the manual DB cluster snapshot. For more information,
+   *             see the <code>ModifyDBClusterSnapshotAttribute</code>
+   *             API action.</p>
+   */
+  AttributeName?: string;
 }
 
 export namespace DBClusterSnapshotAttribute {
@@ -5546,11 +5645,6 @@ export namespace DBClusterSnapshotAttributesResult {
 export interface DBClusterSnapshotMessage {
   __type?: "DBClusterSnapshotMessage";
   /**
-   * <p>Provides a list of DB cluster snapshots for the user.</p>
-   */
-  DBClusterSnapshots?: DBClusterSnapshot[];
-
-  /**
    * <p>
    *       An optional pagination token provided by a previous
    *           <code>DescribeDBClusterSnapshots</code> request.
@@ -5560,6 +5654,11 @@ export interface DBClusterSnapshotMessage {
    *     </p>
    */
   Marker?: string;
+
+  /**
+   * <p>Provides a list of DB cluster snapshots for the user.</p>
+   */
+  DBClusterSnapshots?: DBClusterSnapshot[];
 }
 
 export namespace DBClusterSnapshotMessage {
@@ -5595,19 +5694,9 @@ export namespace DBClusterSnapshotNotFoundFault {
 export interface DBEngineVersion {
   __type?: "DBEngineVersion";
   /**
-   * <p>The description of the database engine.</p>
+   * <p>The types of logs that the database engine has available for export to CloudWatch Logs.</p>
    */
-  DBEngineDescription?: string;
-
-  /**
-   * <p>The description of the database engine version.</p>
-   */
-  DBEngineVersionDescription?: string;
-
-  /**
-   * <p>The name of the DB parameter group family for the database engine.</p>
-   */
-  DBParameterGroupFamily?: string;
+  ExportableLogTypes?: string[];
 
   /**
    * <p>
@@ -5619,9 +5708,26 @@ export interface DBEngineVersion {
   DefaultCharacterSet?: CharacterSet;
 
   /**
-   * <p>The name of the database engine.</p>
+   * <p>A list of engine versions that this database engine version can be upgraded to.</p>
    */
-  Engine?: string;
+  ValidUpgradeTarget?: UpgradeTarget[];
+
+  /**
+   * <p>
+   *         A list of features supported by the DB engine. Supported feature names include the following.
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>s3Import</p>
+   *             </li>
+   *          </ul>
+   */
+  SupportedFeatureNames?: string[];
+
+  /**
+   * <p>A value that indicates whether you can use Aurora parallel query with a specific DB engine version.</p>
+   */
+  SupportsParallelQuery?: boolean;
 
   /**
    * <p>The version number of the database engine.</p>
@@ -5629,9 +5735,43 @@ export interface DBEngineVersion {
   EngineVersion?: string;
 
   /**
-   * <p>The types of logs that the database engine has available for export to CloudWatch Logs.</p>
+   * <p>A list of the supported DB engine modes.</p>
+   *         <note>
+   *             <p>
+   *                <code>global</code> engine mode only applies for global database clusters created with Aurora MySQL version
+   *             5.6.10a. For higher Aurora MySQL versions, the clusters in a global database use <code>provisioned</code>
+   *             engine mode.
+   *           </p>
+   *         </note>
    */
-  ExportableLogTypes?: string[];
+  SupportedEngineModes?: string[];
+
+  /**
+   * <p>A list of the time zones supported by this engine for the
+   *             <code>Timezone</code> parameter of the <code>CreateDBInstance</code> action.
+   *         </p>
+   */
+  SupportedTimezones?: Timezone[];
+
+  /**
+   * <p>The description of the database engine.</p>
+   */
+  DBEngineDescription?: string;
+
+  /**
+   * <p>Indicates whether the database engine version supports read replicas.</p>
+   */
+  SupportsReadReplica?: boolean;
+
+  /**
+   * <p>The name of the database engine.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The name of the DB parameter group family for the database engine.</p>
+   */
+  DBParameterGroupFamily?: string;
 
   /**
    * <p>The status of the DB engine version, either <code>available</code> or <code>deprecated</code>.</p>
@@ -5647,43 +5787,19 @@ export interface DBEngineVersion {
   SupportedCharacterSets?: CharacterSet[];
 
   /**
-   * <p>A list of the supported DB engine modes.</p>
-   */
-  SupportedEngineModes?: string[];
-
-  /**
-   * <p>
-   *         A list of features supported by the DB engine. Supported feature names include the following.
-   *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>s3Import</p>
-   *             </li>
-   *          </ul>
-   */
-  SupportedFeatureNames?: string[];
-
-  /**
-   * <p>A list of the time zones supported by this engine for the
-   *             <code>Timezone</code> parameter of the <code>CreateDBInstance</code> action.
-   *         </p>
-   */
-  SupportedTimezones?: Timezone[];
-
-  /**
    * <p>A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.</p>
    */
   SupportsLogExportsToCloudwatchLogs?: boolean;
 
   /**
-   * <p>Indicates whether the database engine version supports Read Replicas.</p>
+   * <p>A value that indicates whether you can use Aurora global databases with a specific DB engine version.</p>
    */
-  SupportsReadReplica?: boolean;
+  SupportsGlobalDatabases?: boolean;
 
   /**
-   * <p>A list of engine versions that this database engine version can be upgraded to.</p>
+   * <p>The description of the database engine version.</p>
    */
-  ValidUpgradeTarget?: UpgradeTarget[];
+  DBEngineVersionDescription?: string;
 }
 
 export namespace DBEngineVersion {
@@ -5702,13 +5818,6 @@ export interface DBEngineVersionMessage {
   __type?: "DBEngineVersionMessage";
   /**
    * <p>
-   *             A list of <code>DBEngineVersion</code> elements.
-   *         </p>
-   */
-  DBEngineVersions?: DBEngineVersion[];
-
-  /**
-   * <p>
    *             An optional pagination token provided by a previous request.
    *             If this parameter is specified, the response includes
    *             only records beyond the marker,
@@ -5716,6 +5825,13 @@ export interface DBEngineVersionMessage {
    *         </p>
    */
   Marker?: string;
+
+  /**
+   * <p>
+   *             A list of <code>DBEngineVersion</code> elements.
+   *         </p>
+   */
+  DBEngineVersions?: DBEngineVersion[];
 }
 
 export namespace DBEngineVersionMessage {
@@ -5734,67 +5850,43 @@ export namespace DBEngineVersionMessage {
 export interface DBInstance {
   __type?: "DBInstance";
   /**
-   * <p>Specifies the allocated storage size specified in gibibytes.</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>
-   *             The AWS Identity and Access Management (IAM) roles associated with the DB instance.
-   *         </p>
-   */
-  AssociatedRoles?: DBInstanceRole[];
-
-  /**
-   * <p>Indicates that minor version patches are applied automatically.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>Specifies the name of the Availability Zone the DB instance is located in.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>The identifier of the CA certificate for this DB instance.</p>
-   */
-  CACertificateIdentifier?: string;
-
-  /**
    * <p>If present, specifies the name of the character set that this instance is associated with.</p>
    */
   CharacterSetName?: string;
 
   /**
-   * <p>Specifies whether tags are copied from the DB instance to snapshots of the DB instance.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this
-   *             value for an Aurora DB instance has no effect on the DB cluster setting. For more
-   *             information, see <code>DBCluster</code>.</p>
+   * <p>
+   *         Specifies the daily time range during which automated backups are
+   *         created if automated backups are enabled, as determined
+   *         by the <code>BackupRetentionPeriod</code>.
+   *         </p>
    */
-  CopyTagsToSnapshot?: boolean;
+  PreferredBackupWindow?: string;
 
   /**
-   * <p>If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.</p>
+   * <p>Provides the date and time the DB instance was created.</p>
    */
-  DBClusterIdentifier?: string;
+  InstanceCreateTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the DB instance.</p>
+   * <p>The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.</p>
    */
-  DBInstanceArn?: string;
+  MonitoringRoleArn?: string;
 
   /**
-   * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
+   * <p>Contains the master username for the DB instance.</p>
    */
-  DBInstanceClass?: string;
+  MasterUsername?: string;
+
+  /**
+   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   */
+  ProcessorFeatures?: ProcessorFeature[];
+
+  /**
+   * <p>Specifies the listener connection endpoint for SQL Server Always On.</p>
+   */
+  ListenerEndpoint?: Endpoint;
 
   /**
    * <p>Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.</p>
@@ -5802,9 +5894,70 @@ export interface DBInstance {
   DBInstanceIdentifier?: string;
 
   /**
-   * <p>Specifies the current state of this database.</p>
+   * <p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance
+   *       after a failure of the existing primary instance. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
+   *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
+   *     </p>
    */
-  DBInstanceStatus?: string;
+  PromotionTier?: number;
+
+  /**
+   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
+   */
+  PerformanceInsightsRetentionPeriod?: number;
+
+  /**
+   * <p>Specifies the storage type associated with DB instance.</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>License model information for this DB instance.</p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>Contains the identifier of the source DB instance if this DB instance is a read
+   *             replica.</p>
+   */
+  ReadReplicaSourceDBInstanceIdentifier?: string;
+
+  /**
+   * <p>Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.</p>
+   */
+  DBSubnetGroup?: DBSubnetGroup;
+
+  /**
+   * <p>Specifies the allocated storage size specified in gibibytes.</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>Specifies the connection endpoint.</p>
+   */
+  Endpoint?: Endpoint;
+
+  /**
+   * <p>Contains one or more identifiers of the read replicas associated with this DB
+   *             instance.</p>
+   */
+  ReadReplicaDBInstanceIdentifiers?: string[];
+
+  /**
+   * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB cluster, this can be a different port than the DB cluster port.</p>
+   */
+  DbInstancePort?: number;
+
+  /**
+   * <p>The identifier of the CA certificate for this DB instance.</p>
+   */
+  CACertificateIdentifier?: string;
 
   /**
    * <p>The meaning of this parameter differs according to the database engine you use.</p>
@@ -5826,42 +5979,37 @@ export interface DBInstance {
   DBParameterGroups?: DBParameterGroupStatus[];
 
   /**
-   * <p>
-   *         A list of DB security group elements containing
-   *         <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code> subelements.
-   *         </p>
+   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
+   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
+   *             encryption key.</p>
    */
-  DBSecurityGroups?: DBSecurityGroupMembership[];
+  PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.</p>
+   * <p>Provides the name of the database engine to be used for this DB instance.</p>
    */
-  DBSubnetGroup?: DBSubnetGroup;
+  Engine?: string;
 
   /**
-   * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB cluster, this can be a different port than the DB cluster port.</p>
+   * <p>Specifies whether tags are copied from the DB instance to snapshots of the DB instance.</p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this
+   *             value for an Aurora DB instance has no effect on the DB cluster setting. For more
+   *             information, see <code>DBCluster</code>.</p>
    */
-  DbInstancePort?: number;
+  CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.</p>
+   * <p>Specifies the Provisioned IOPS (I/O operations per second) value.</p>
    */
-  DbiResourceId?: string;
+  Iops?: number;
 
   /**
-   * <p>Indicates if the DB instance has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled.
-   *             For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-   *                 Deleting a DB Instance</a>.
-   *         </p>
+   * <p>The Amazon Resource Name (ARN) for the DB instance.</p>
    */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>The Active Directory Domain membership records associated with the DB instance.</p>
-   */
-  DomainMemberships?: DomainMembership[];
+  DBInstanceArn?: string;
 
   /**
    * <p>A list of log types that this DB instance is configured to export to CloudWatch Logs.</p>
@@ -5872,24 +6020,29 @@ export interface DBInstance {
   EnabledCloudwatchLogsExports?: string[];
 
   /**
-   * <p>Specifies the connection endpoint.</p>
+   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.</p>
    */
-  Endpoint?: Endpoint;
+  DbiResourceId?: string;
 
   /**
-   * <p>Provides the name of the database engine to be used for this DB instance.</p>
+   * <p>If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.</p>
    */
-  Engine?: string;
+  SecondaryAvailabilityZone?: string;
 
   /**
-   * <p>Indicates the database engine version.</p>
+   * <p>The time zone of the DB instance.
+   *             In most cases, the <code>Timezone</code> element is empty.
+   *             <code>Timezone</code> content appears only for
+   *             Microsoft SQL Server DB instances
+   *             that were created with a time zone specified.
+   *         </p>
    */
-  EngineVersion?: string;
+  Timezone?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.</p>
+   * <p>Specifies whether the DB instance is encrypted.</p>
    */
-  EnhancedMonitoringResourceArn?: string;
+  StorageEncrypted?: boolean;
 
   /**
    * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
@@ -5910,14 +6063,62 @@ export interface DBInstance {
   IAMDatabaseAuthenticationEnabled?: boolean;
 
   /**
-   * <p>Provides the date and time the DB instance was created.</p>
+   * <p>If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.</p>
    */
-  InstanceCreateTime?: Date;
+  DBClusterIdentifier?: string;
 
   /**
-   * <p>Specifies the Provisioned IOPS (I/O operations per second) value.</p>
+   * <p>The ARN from the key store with which the instance is associated for TDE encryption.</p>
    */
-  Iops?: number;
+  TdeCredentialArn?: string;
+
+  /**
+   * <p>The Active Directory Domain membership records associated with the DB instance.</p>
+   */
+  DomainMemberships?: DomainMembership[];
+
+  /**
+   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   */
+  MaxAllocatedStorage?: number;
+
+  /**
+   * <p>Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.</p>
+   */
+  PendingModifiedValues?: PendingModifiedValues;
+
+  /**
+   * <p>
+   *         A list of DB security group elements containing
+   *         <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code> subelements.
+   *         </p>
+   */
+  DBSecurityGroups?: DBSecurityGroupMembership[];
+
+  /**
+   * <p>True if Performance Insights is enabled for the DB instance, and otherwise false.</p>
+   */
+  PerformanceInsightsEnabled?: boolean;
+
+  /**
+   * <p>Specifies the accessibility options for the DB instance.</p>
+   *          <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
+   *           and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
+   *           and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
+   *          <p>For more information, see <a>CreateDBInstance</a>.</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>Indicates the database engine version.</p>
+   */
+  EngineVersion?: string;
 
   /**
    * <p>
@@ -5928,29 +6129,29 @@ export interface DBInstance {
   KmsKeyId?: string;
 
   /**
-   * <p>Specifies the latest time to which a database can be restored with point-in-time restore.</p>
+   * <p>Indicates if the DB instance has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled.
+   *             For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+   *                 Deleting a DB Instance</a>.
+   *         </p>
    */
-  LatestRestorableTime?: Date;
+  DeletionProtection?: boolean;
 
   /**
-   * <p>License model information for this DB instance.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.</p>
    */
-  LicenseModel?: string;
+  EnhancedMonitoringResourceArn?: string;
 
   /**
-   * <p>Specifies the listener connection endpoint for SQL Server Always On.</p>
+   * <p>Specifies the name of the Availability Zone the DB instance is located in.</p>
    */
-  ListenerEndpoint?: Endpoint;
+  AvailabilityZone?: string;
 
   /**
-   * <p>Contains the master username for the DB instance.</p>
+   * <p>Provides a list of VPC security group elements that the DB instance belongs to.</p>
    */
-  MasterUsername?: string;
-
-  /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
-   */
-  MaxAllocatedStorage?: number;
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
 
   /**
    * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.</p>
@@ -5958,9 +6159,28 @@ export interface DBInstance {
   MonitoringInterval?: number;
 
   /**
-   * <p>The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.</p>
+   * <p>Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance
+   *             is replicated as a read replica. For example, when you create an Aurora read replica of
+   *             an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora read replica is
+   *             shown. This output does not contain information about cross region Aurora read
+   *             replicas.</p>
+   *         <note>
+   *             <p>Currently, each RDS DB instance can have only one Aurora read replica.</p>
+   *         </note>
    */
-  MonitoringRoleArn?: string;
+  ReadReplicaDBClusterIdentifiers?: string[];
+
+  /**
+   * <p>Indicates that minor version patches are applied automatically.</p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>
+   *             The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+   *         </p>
+   */
+  AssociatedRoles?: DBInstanceRole[];
 
   /**
    * <p>Specifies if the DB instance is a Multi-AZ deployment.</p>
@@ -5968,124 +6188,33 @@ export interface DBInstance {
   MultiAZ?: boolean;
 
   /**
+   * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
+   */
+  DBInstanceClass?: string;
+
+  /**
    * <p>Provides the list of option group memberships for this DB instance.</p>
    */
   OptionGroupMemberships?: OptionGroupMembership[];
 
   /**
-   * <p>Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.</p>
+   * <p>Specifies the latest time to which a database can be restored with point-in-time restore.</p>
    */
-  PendingModifiedValues?: PendingModifiedValues;
+  LatestRestorableTime?: Date;
 
   /**
-   * <p>True if Performance Insights is enabled for the DB instance, and otherwise false.</p>
-   */
-  PerformanceInsightsEnabled?: boolean;
-
-  /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
-   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
-   *             encryption key.</p>
-   */
-  PerformanceInsightsKMSKeyId?: string;
-
-  /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
-   */
-  PerformanceInsightsRetentionPeriod?: number;
-
-  /**
-   * <p>
-   *         Specifies the daily time range during which automated backups are
-   *         created if automated backups are enabled, as determined
-   *         by the <code>BackupRetentionPeriod</code>.
-   *         </p>
-   */
-  PreferredBackupWindow?: string;
-
-  /**
-   * <p>Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
-   */
-  ProcessorFeatures?: ProcessorFeature[];
-
-  /**
-   * <p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance
-   *       after a failure of the existing primary instance. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
-   *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
-   *     </p>
-   */
-  PromotionTier?: number;
-
-  /**
-   * <p>Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address.</p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a Read Replica.
-   *             For example, when you create an Aurora Read Replica of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the
-   *             Aurora Read Replica is shown. This output does not contain information about cross region Aurora Read Replicas.</p>
-   *         <note>
-   *             <p>Currently, each RDS DB instance can have only one Aurora Read Replica.</p>
-   *         </note>
-   */
-  ReadReplicaDBClusterIdentifiers?: string[];
-
-  /**
-   * <p>Contains one or more identifiers of the Read Replicas associated with this DB instance.</p>
-   */
-  ReadReplicaDBInstanceIdentifiers?: string[];
-
-  /**
-   * <p>Contains the identifier of the source DB instance if this DB instance is a Read Replica.</p>
-   */
-  ReadReplicaSourceDBInstanceIdentifier?: string;
-
-  /**
-   * <p>If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.</p>
-   */
-  SecondaryAvailabilityZone?: string;
-
-  /**
-   * <p>The status of a Read Replica. If the instance isn't a Read Replica, this is blank.</p>
+   * <p>The status of a read replica. If the instance isn't a read replica, this is
+   *             blank.</p>
    */
   StatusInfos?: DBInstanceStatusInfo[];
 
   /**
-   * <p>Specifies whether the DB instance is encrypted.</p>
+   * <p>Specifies the current state of this database.</p>
+   *          <p>For information about DB instance statuses, see
+   *       <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Status.html">DB Instance Status</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>Specifies the storage type associated with DB instance.</p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>The ARN from the key store with which the instance is associated for TDE encryption.</p>
-   */
-  TdeCredentialArn?: string;
-
-  /**
-   * <p>The time zone of the DB instance.
-   *             In most cases, the <code>Timezone</code> element is empty.
-   *             <code>Timezone</code> content appears only for
-   *             Microsoft SQL Server DB instances
-   *             that were created with a time zone specified.
-   *         </p>
-   */
-  Timezone?: string;
-
-  /**
-   * <p>Provides a list of VPC security group elements that the DB instance belongs to.</p>
-   */
-  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+  DBInstanceStatus?: string;
 }
 
 export namespace DBInstance {
@@ -6119,22 +6248,29 @@ export namespace DBInstanceAlreadyExistsFault {
 export interface DBInstanceAutomatedBackup {
   __type?: "DBInstanceAutomatedBackup";
   /**
-   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>The Availability Zone that the automated backup was created in. For information on
-   *             AWS Regions and Availability Zones, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-   *                 and Availability Zones</a>.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the automated backup.</p>
    */
   DBInstanceArn?: string;
+
+  /**
+   * <p>Earliest and latest time an instance can be restored to.</p>
+   */
+  RestoreWindow?: RestoreWindow;
+
+  /**
+   * <p>The IOPS (I/O operations per second) value for the automated backup. </p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>The version of the database engine for the automated backup.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>
+   */
+  DbiResourceId?: string;
 
   /**
    * <p>The customer id of the instance that is/was associated with the automated backup.
@@ -6143,24 +6279,21 @@ export interface DBInstanceAutomatedBackup {
   DBInstanceIdentifier?: string;
 
   /**
-   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>
+   * <p>Specifies the storage type associated with the automated backup.</p>
    */
-  DbiResourceId?: string;
+  StorageType?: string;
 
   /**
-   * <p>Specifies whether the automated backup is encrypted.</p>
+   * <p>License model information for the automated backup.</p>
    */
-  Encrypted?: boolean;
+  LicenseModel?: string;
 
   /**
-   * <p>The name of the database engine for this automated backup.</p>
+   * <p>The time zone of the automated backup. In most cases, the <code>Timezone</code> element is empty.
+   *             <code>Timezone</code> content appears only for Microsoft SQL Server DB instances
+   *             that were created with a time zone specified.</p>
    */
-  Engine?: string;
-
-  /**
-   * <p>The version of the database engine for the automated backup.</p>
-   */
-  EngineVersion?: string;
+  Timezone?: string;
 
   /**
    * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled,
@@ -6169,55 +6302,9 @@ export interface DBInstanceAutomatedBackup {
   IAMDatabaseAuthenticationEnabled?: boolean;
 
   /**
-   * <p>Provides the date and time that the DB instance was created.
-   *         </p>
-   */
-  InstanceCreateTime?: Date;
-
-  /**
-   * <p>The IOPS (I/O operations per second) value for the automated backup. </p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>The AWS KMS key ID for an automated backup.
-   *             The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>License model information for the automated backup.</p>
-   */
-  LicenseModel?: string;
-
-  /**
    * <p>The license model of an automated backup.</p>
    */
   MasterUsername?: string;
-
-  /**
-   * <p>The option group the automated backup is associated with.
-   *             If omitted, the default option group for the engine specified is used.</p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The port number that the automated backup used for connections.</p>
-   *         <p>Default: Inherits from the source DB instance</p>
-   *         <p>Valid Values: <code>1150-65535</code>
-   *          </p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The AWS Region associated with the automated backup.</p>
-   */
-  Region?: string;
-
-  /**
-   * <p>Earliest and latest time an instance can be restored to.</p>
-   */
-  RestoreWindow?: RestoreWindow;
 
   /**
    * <p>Provides a list of status information for an automated backup:</p>
@@ -6240,26 +6327,68 @@ export interface DBInstanceAutomatedBackup {
   Status?: string;
 
   /**
-   * <p>Specifies the storage type associated with the automated backup.</p>
+   * <p>The port number that the automated backup used for connections.</p>
+   *         <p>Default: Inherits from the source DB instance</p>
+   *         <p>Valid Values: <code>1150-65535</code>
+   *          </p>
    */
-  StorageType?: string;
+  Port?: number;
 
   /**
-   * <p>The ARN from the key store with which the automated backup is associated for TDE encryption.</p>
+   * <p>The Availability Zone that the automated backup was created in. For information on
+   *             AWS Regions and Availability Zones, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+   *                 and Availability Zones</a>.</p>
    */
-  TdeCredentialArn?: string;
+  AvailabilityZone?: string;
 
   /**
-   * <p>The time zone of the automated backup. In most cases, the <code>Timezone</code> element is empty.
-   *             <code>Timezone</code> content appears only for Microsoft SQL Server DB instances
-   *             that were created with a time zone specified.</p>
+   * <p>The AWS KMS key ID for an automated backup.
+   *             The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. </p>
    */
-  Timezone?: string;
+  KmsKeyId?: string;
+
+  /**
+   * <p>Specifies whether the automated backup is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The AWS Region associated with the automated backup.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>Provides the date and time that the DB instance was created.
+   *         </p>
+   */
+  InstanceCreateTime?: Date;
 
   /**
    * <p>Provides the VPC ID associated with the DB instance</p>
    */
   VpcId?: string;
+
+  /**
+   * <p>The option group the automated backup is associated with.
+   *             If omitted, the default option group for the engine specified is used.</p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>The name of the database engine for this automated backup.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The ARN from the key store with which the automated backup is associated for TDE encryption.</p>
+   */
+  TdeCredentialArn?: string;
 }
 
 export namespace DBInstanceAutomatedBackup {
@@ -6278,13 +6407,6 @@ export interface DBInstanceAutomatedBackupMessage {
   __type?: "DBInstanceAutomatedBackupMessage";
   /**
    * <p>
-   *             A list of <code>DBInstanceAutomatedBackup</code> instances.
-   *         </p>
-   */
-  DBInstanceAutomatedBackups?: DBInstanceAutomatedBackup[];
-
-  /**
-   * <p>
    *             An optional pagination token provided by a previous request.
    *             If this parameter is specified, the response includes
    *             only records beyond the marker,
@@ -6292,6 +6414,13 @@ export interface DBInstanceAutomatedBackupMessage {
    *         </p>
    */
   Marker?: string;
+
+  /**
+   * <p>
+   *             A list of <code>DBInstanceAutomatedBackup</code> instances.
+   *         </p>
+   */
+  DBInstanceAutomatedBackups?: DBInstanceAutomatedBackup[];
 }
 
 export namespace DBInstanceAutomatedBackupMessage {
@@ -6346,13 +6475,6 @@ export interface DBInstanceMessage {
   __type?: "DBInstanceMessage";
   /**
    * <p>
-   *         A list of <code>DBInstance</code> instances.
-   *         </p>
-   */
-  DBInstances?: DBInstance[];
-
-  /**
-   * <p>
    *             An optional pagination token provided by a previous request.
    *             If this parameter is specified, the response includes
    *             only records beyond the marker,
@@ -6360,6 +6482,13 @@ export interface DBInstanceMessage {
    *         </p>
    */
   Marker?: string;
+
+  /**
+   * <p>
+   *         A list of <code>DBInstance</code> instances.
+   *         </p>
+   */
+  DBInstances?: DBInstance[];
 }
 
 export namespace DBInstanceMessage {
@@ -6490,25 +6619,26 @@ export namespace DBInstanceRoleQuotaExceededFault {
 export interface DBInstanceStatusInfo {
   __type?: "DBInstanceStatusInfo";
   /**
+   * <p>This value is currently "read replication."</p>
+   */
+  StatusType?: string;
+
+  /**
    * <p>Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.</p>
    */
   Message?: string;
 
   /**
-   * <p>Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.</p>
-   */
-  Normal?: boolean;
-
-  /**
-   * <p>Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set,
-   *           replication stop point reached, error, stopped, or terminated.</p>
+   * <p>Status of the DB instance. For a StatusType of read replica, the values can be
+   *             replicating, replication stop point set, replication stop point reached, error, stopped,
+   *             or terminated.</p>
    */
   Status?: string;
 
   /**
-   * <p>This value is currently "read replication."</p>
+   * <p>Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.</p>
    */
-  StatusType?: string;
+  Normal?: boolean;
 }
 
 export namespace DBInstanceStatusInfo {
@@ -6544,16 +6674,6 @@ export namespace DBLogFileNotFoundFault {
 export interface DBParameterGroup {
   __type?: "DBParameterGroup";
   /**
-   * <p>The Amazon Resource Name (ARN) for the DB parameter group.</p>
-   */
-  DBParameterGroupArn?: string;
-
-  /**
-   * <p>Provides the name of the DB parameter group family that this DB parameter group is compatible with.</p>
-   */
-  DBParameterGroupFamily?: string;
-
-  /**
    * <p>Provides the name of the DB parameter group.</p>
    */
   DBParameterGroupName?: string;
@@ -6562,6 +6682,16 @@ export interface DBParameterGroup {
    * <p>Provides the customer-specified description for this DB parameter group.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Provides the name of the DB parameter group family that this DB parameter group is compatible with.</p>
+   */
+  DBParameterGroupFamily?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DB parameter group.</p>
+   */
+  DBParameterGroupArn?: string;
 }
 
 export namespace DBParameterGroup {
@@ -6597,6 +6727,13 @@ export interface DBParameterGroupDetails {
   __type?: "DBParameterGroupDetails";
   /**
    * <p>
+   *         A list of <code>Parameter</code> values.
+   *         </p>
+   */
+  Parameters?: Parameter[];
+
+  /**
+   * <p>
    *             An optional pagination token provided by a previous request.
    *             If this parameter is specified, the response includes
    *             only records beyond the marker,
@@ -6604,13 +6741,6 @@ export interface DBParameterGroupDetails {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>
-   *         A list of <code>Parameter</code> values.
-   *         </p>
-   */
-  Parameters?: Parameter[];
 }
 
 export namespace DBParameterGroupDetails {
@@ -6749,14 +6879,14 @@ export namespace DBParameterGroupsMessage {
 export interface DBParameterGroupStatus {
   __type?: "DBParameterGroupStatus";
   /**
-   * <p>The name of the DB parameter group.</p>
-   */
-  DBParameterGroupName?: string;
-
-  /**
    * <p>The status of parameter updates.</p>
    */
   ParameterApplyStatus?: string;
+
+  /**
+   * <p>The name of the DB parameter group.</p>
+   */
+  DBParameterGroupName?: string;
 }
 
 export namespace DBParameterGroupStatus {
@@ -6767,11 +6897,7 @@ export namespace DBParameterGroupStatus {
 }
 
 /**
- * <note>
- *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
- *          </note>
- *
- *          <p>The data structure representing a proxy managed by the RDS Proxy.</p>
+ * <p>The data structure representing a proxy managed by the RDS Proxy.</p>
  *          <p>This data type is used as a response element in the <code>DescribeDBProxies</code> action.</p>
  */
 export interface DBProxy {
@@ -6793,9 +6919,18 @@ export interface DBProxy {
   DBProxyArn?: string;
 
   /**
-   * <p>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</p>
+   * <p>Provides a list of VPC security groups that the proxy belongs to.</p>
    */
-  DBProxyName?: string;
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+   *         The proxy keeps the underlying database connection open and puts it back into the connection pool for reuse by
+   *         later connection requests.</p>
+   *          <p>Default: 1800 (30 minutes)</p>
+   *          <p>Constraints: 1 to 28,800</p>
+   */
+  IdleClientTimeout?: number;
 
   /**
    * <p>Whether the proxy includes detailed information about SQL statements in its logs.
@@ -6808,35 +6943,30 @@ export interface DBProxy {
   DebugLogging?: boolean;
 
   /**
+   * <p>The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The EC2 subnet IDs for the proxy.</p>
+   */
+  VpcSubnetIds?: string[];
+
+  /**
+   * <p>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</p>
+   */
+  DBProxyName?: string;
+
+  /**
+   * <p>The date and time when the proxy was last updated.</p>
+   */
+  UpdatedDate?: Date;
+
+  /**
    * <p>The endpoint that you can use to connect to the proxy. You include the endpoint value in the
    *         connection string for a database client application.</p>
    */
   Endpoint?: string;
-
-  /**
-   * <p>Currently, this value is always <code>MYSQL</code>. The engine family applies to
-   *         both RDS MySQL and Aurora MySQL.</p>
-   */
-  EngineFamily?: string;
-
-  /**
-   * <p>The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
-   *         The proxy keeps the underlying database connection open and puts it back into the connection pool for reuse by
-   *         later connection requests.</p>
-   *          <p>Default: 1800 (30 minutes)</p>
-   *          <p>Constraints: 1 to 28,800</p>
-   */
-  IdleClientTimeout?: number;
-
-  /**
-   * <p>Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.</p>
-   */
-  RequireTLS?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.</p>
-   */
-  RoleArn?: string;
 
   /**
    * <p>The current status of this proxy. A status of <code>available</code> means the
@@ -6846,19 +6976,14 @@ export interface DBProxy {
   Status?: DBProxyStatus | string;
 
   /**
-   * <p>The date and time when the proxy was last updated.</p>
+   * <p>Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.</p>
    */
-  UpdatedDate?: Date;
+  RequireTLS?: boolean;
 
   /**
-   * <p>Provides a list of VPC security groups that the proxy belongs to.</p>
+   * <p>The engine family applies to MySQL and PostgreSQL for both RDS and Aurora.</p>
    */
-  VpcSecurityGroupIds?: string[];
-
-  /**
-   * <p>The EC2 subnet IDs for the proxy.</p>
-   */
-  VpcSubnetIds?: string[];
+  EngineFamily?: string;
 }
 
 export namespace DBProxy {
@@ -6923,14 +7048,13 @@ export enum DBProxyStatus {
   INCOMPATIBLE_NETWORK = "incompatible-network",
   INSUFFICIENT_RESOURCE_LIMITS = "insufficient-resource-limits",
   MODIFYING = "modifying",
+  REACTIVATING = "reactivating",
+  SUSPENDED = "suspended",
+  SUSPENDING = "suspending",
 }
 
 /**
- * <note>
- *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
- *          </note>
- *
- *          <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
+ * <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
  *         that the proxy can connect to. One or more targets are associated with an RDS Proxy target group.</p>
  *          <p>This data type is used as a response element in the <code>DescribeDBProxyTargets</code> action.</p>
  */
@@ -6942,9 +7066,9 @@ export interface DBProxyTarget {
   Endpoint?: string;
 
   /**
-   * <p>The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.</p>
+   * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
    */
-  Port?: number;
+  Type?: TargetType | string;
 
   /**
    * <p>The identifier representing the target. It can be the instance identifier for an RDS DB instance,
@@ -6953,19 +7077,24 @@ export interface DBProxyTarget {
   RdsResourceId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.</p>
-   */
-  TargetArn?: string;
-
-  /**
    * <p>The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.</p>
    */
   TrackedClusterId?: string;
 
   /**
-   * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
+   * <p>The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.</p>
    */
-  Type?: TargetType | string;
+  Port?: number;
+
+  /**
+   * <p>Information about the connection health of the RDS Proxy target.</p>
+   */
+  TargetHealth?: TargetHealth;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.</p>
+   */
+  TargetArn?: string;
 }
 
 export namespace DBProxyTarget {
@@ -6993,30 +7122,36 @@ export namespace DBProxyTargetAlreadyRegisteredFault {
 }
 
 /**
- * <note>
- *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
- *          </note>
- *
- *          <p>Represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group
+ * <p>Represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group
  *         is associated with exactly one RDS DB instance or Aurora DB cluster.</p>
  *          <p>This data type is used as a response element in the <code>DescribeDBProxyTargetGroups</code> action.</p>
  */
 export interface DBProxyTargetGroup {
   __type?: "DBProxyTargetGroup";
   /**
-   * <p>The settings that determine the size and behavior of the connection pool for the target group.</p>
+   * <p>The date and time when the target group was last updated.</p>
    */
-  ConnectionPoolConfig?: ConnectionPoolConfigurationInfo;
-
-  /**
-   * <p>The date and time when the target group was first created.</p>
-   */
-  CreatedDate?: Date;
+  UpdatedDate?: Date;
 
   /**
    * <p>The identifier for the RDS proxy associated with this target group.</p>
    */
   DBProxyName?: string;
+
+  /**
+   * <p>The settings that determine the size and behavior of the connection pool for the target group.</p>
+   */
+  ConnectionPoolConfig?: ConnectionPoolConfigurationInfo;
+
+  /**
+   * <p>The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.</p>
+   */
+  TargetGroupName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) representing the target group.</p>
+   */
+  TargetGroupArn?: string;
 
   /**
    * <p>Whether this target group is the first one used for connection requests by the associated proxy.
@@ -7026,26 +7161,16 @@ export interface DBProxyTargetGroup {
   IsDefault?: boolean;
 
   /**
+   * <p>The date and time when the target group was first created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
    * <p>The current status of this target group. A status of <code>available</code> means the
    *         target group is correctly associated with a database. Other values indicate that you must wait for
    *         the target group to be ready, or take some action to resolve an issue.</p>
    */
   Status?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) representing the target group.</p>
-   */
-  TargetGroupArn?: string;
-
-  /**
-   * <p>The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.</p>
-   */
-  TargetGroupName?: string;
-
-  /**
-   * <p>The date and time when the target group was last updated.</p>
-   */
-  UpdatedDate?: Date;
 }
 
 export namespace DBProxyTargetGroup {
@@ -7102,14 +7227,11 @@ export interface DBSecurityGroup {
   DBSecurityGroupArn?: string;
 
   /**
-   * <p>Provides the description of the DB security group.</p>
+   * <p>
+   *         Contains a list of <code>IPRange</code> elements.
+   *         </p>
    */
-  DBSecurityGroupDescription?: string;
-
-  /**
-   * <p>Specifies the name of the DB security group.</p>
-   */
-  DBSecurityGroupName?: string;
+  IPRanges?: IPRange[];
 
   /**
    * <p>
@@ -7119,11 +7241,14 @@ export interface DBSecurityGroup {
   EC2SecurityGroups?: EC2SecurityGroup[];
 
   /**
-   * <p>
-   *         Contains a list of <code>IPRange</code> elements.
-   *         </p>
+   * <p>Provides the description of the DB security group.</p>
    */
-  IPRanges?: IPRange[];
+  DBSecurityGroupDescription?: string;
+
+  /**
+   * <p>Provides the VpcId of the DB security group.</p>
+   */
+  VpcId?: string;
 
   /**
    * <p>Provides the AWS ID of the owner of a specific DB security group.</p>
@@ -7131,9 +7256,9 @@ export interface DBSecurityGroup {
   OwnerId?: string;
 
   /**
-   * <p>Provides the VpcId of the DB security group.</p>
+   * <p>Specifies the name of the DB security group.</p>
    */
-  VpcId?: string;
+  DBSecurityGroupName?: string;
 }
 
 export namespace DBSecurityGroup {
@@ -7300,34 +7425,10 @@ export namespace DBSecurityGroupQuotaExceededFault {
 export interface DBSnapshot {
   __type?: "DBSnapshot";
   /**
-   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
+   * <p>The number of CPU cores and the number of threads per core for the DB instance class
+   *             of the DB instance when the DB snapshot was created.</p>
    */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>Specifies the DB instance identifier of the DB instance this DB snapshot was created from.</p>
-   */
-  DBInstanceIdentifier?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the DB snapshot.</p>
-   */
-  DBSnapshotArn?: string;
-
-  /**
-   * <p>Specifies the identifier for the DB snapshot.</p>
-   */
-  DBSnapshotIdentifier?: string;
-
-  /**
-   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>
-   */
-  DbiResourceId?: string;
+  ProcessorFeatures?: ProcessorFeature[];
 
   /**
    * <p>Specifies whether the DB snapshot is encrypted.</p>
@@ -7335,103 +7436,10 @@ export interface DBSnapshot {
   Encrypted?: boolean;
 
   /**
-   * <p>Specifies the name of the database engine.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>Specifies the version of the database engine.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
-   */
-  IAMDatabaseAuthenticationEnabled?: boolean;
-
-  /**
-   * <p>Specifies the time when the snapshot was taken, in Universal Coordinated Time (UTC).</p>
+   * <p>Specifies the time in Coordinated Universal Time (UTC) when the DB instance, from
+   *             which the snapshot was taken, was created.</p>
    */
   InstanceCreateTime?: Date;
-
-  /**
-   * <p>Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.</p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>
-   *             If <code>Encrypted</code> is true, the AWS KMS key identifier
-   *             for the encrypted DB snapshot.
-   *         </p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>License model information for the restored DB instance.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>Provides the master username for the DB snapshot.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>Provides the option group name for the DB snapshot.</p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The percentage of the estimated data that has been transferred.</p>
-   */
-  PercentProgress?: number;
-
-  /**
-   * <p>Specifies the port that the database engine was listening on at the time of the snapshot.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class
-   *             of the DB instance when the DB snapshot was created.</p>
-   */
-  ProcessorFeatures?: ProcessorFeature[];
-
-  /**
-   * <p>Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).</p>
-   */
-  SnapshotCreateTime?: Date;
-
-  /**
-   * <p>Provides the type of the DB snapshot.</p>
-   */
-  SnapshotType?: string;
-
-  /**
-   * <p>The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has value in case of cross-customer or cross-region copy.</p>
-   */
-  SourceDBSnapshotIdentifier?: string;
-
-  /**
-   * <p>The AWS Region that the DB snapshot was created in or copied from.</p>
-   */
-  SourceRegion?: string;
-
-  /**
-   * <p>Specifies the status of this DB snapshot.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>Specifies the storage type associated with DB snapshot.</p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
-   */
-  TdeCredentialArn?: string;
 
   /**
    * <p>The time zone of the DB snapshot.
@@ -7445,9 +7453,127 @@ export interface DBSnapshot {
   Timezone?: string;
 
   /**
+   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>
+   */
+  DbiResourceId?: string;
+
+  /**
+   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
+   */
+  IAMDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * <p>Specifies the identifier for the DB snapshot.</p>
+   */
+  DBSnapshotIdentifier?: string;
+
+  /**
    * <p>Provides the VPC ID associated with the DB snapshot.</p>
    */
   VpcId?: string;
+
+  /**
+   * <p>Provides the type of the DB snapshot.</p>
+   */
+  SnapshotType?: string;
+
+  /**
+   * <p>The percentage of the estimated data that has been transferred.</p>
+   */
+  PercentProgress?: number;
+
+  /**
+   * <p>Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>Specifies the port that the database engine was listening on at the time of the snapshot.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>
+   *             If <code>Encrypted</code> is true, the AWS KMS key identifier
+   *             for the encrypted DB snapshot.
+   *         </p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Provides the master username for the DB snapshot.</p>
+   */
+  MasterUsername?: string;
+
+  /**
+   * <p>Specifies the status of this DB snapshot.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has value in case of cross-customer or cross-region copy.</p>
+   */
+  SourceDBSnapshotIdentifier?: string;
+
+  /**
+   * <p>Specifies the name of the database engine.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DB snapshot.</p>
+   */
+  DBSnapshotArn?: string;
+
+  /**
+   * <p>Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>Specifies the version of the database engine.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>Specifies when the snapshot was taken in Coodinated Universal Time (UTC).</p>
+   */
+  SnapshotCreateTime?: Date;
+
+  /**
+   * <p>License model information for the restored DB instance.</p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>The AWS Region that the DB snapshot was created in or copied from.</p>
+   */
+  SourceRegion?: string;
+
+  /**
+   * <p>Specifies the storage type associated with DB snapshot.</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>Specifies the DB instance identifier of the DB instance this DB snapshot was created from.</p>
+   */
+  DBInstanceIdentifier?: string;
+
+  /**
+   * <p>Provides the option group name for the DB snapshot.</p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   */
+  TdeCredentialArn?: string;
 }
 
 export namespace DBSnapshot {
@@ -7596,19 +7722,14 @@ export namespace DBSnapshotNotFoundFault {
 export interface DBSubnetGroup {
   __type?: "DBSubnetGroup";
   /**
-   * <p>The Amazon Resource Name (ARN) for the DB subnet group.</p>
-   */
-  DBSubnetGroupArn?: string;
-
-  /**
-   * <p>Provides the description of the DB subnet group.</p>
-   */
-  DBSubnetGroupDescription?: string;
-
-  /**
    * <p>The name of the DB subnet group.</p>
    */
   DBSubnetGroupName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DB subnet group.</p>
+   */
+  DBSubnetGroupArn?: string;
 
   /**
    * <p>Provides the status of the DB subnet group.</p>
@@ -7621,6 +7742,11 @@ export interface DBSubnetGroup {
    *         </p>
    */
   Subnets?: Subnet[];
+
+  /**
+   * <p>Provides the description of the DB subnet group.</p>
+   */
+  DBSubnetGroupDescription?: string;
 
   /**
    * <p>Provides the VpcId of the DB subnet group.</p>
@@ -7679,13 +7805,6 @@ export interface DBSubnetGroupMessage {
   __type?: "DBSubnetGroupMessage";
   /**
    * <p>
-   *         A list of <code>DBSubnetGroup</code> instances.
-   *         </p>
-   */
-  DBSubnetGroups?: DBSubnetGroup[];
-
-  /**
-   * <p>
    *             An optional pagination token provided by a previous request.
    *             If this parameter is specified, the response includes
    *             only records beyond the marker,
@@ -7693,6 +7812,13 @@ export interface DBSubnetGroupMessage {
    *         </p>
    */
   Marker?: string;
+
+  /**
+   * <p>
+   *         A list of <code>DBSubnetGroup</code> instances.
+   *         </p>
+   */
+  DBSubnetGroups?: DBSubnetGroup[];
 }
 
 export namespace DBSubnetGroupMessage {
@@ -7849,17 +7975,6 @@ export namespace DeleteDBClusterEndpointMessage {
 export interface DeleteDBClusterMessage {
   __type?: "DeleteDBClusterMessage";
   /**
-   * <p>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match an existing DBClusterIdentifier.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterIdentifier: string | undefined;
-
-  /**
    * <p>
    *       The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
    *       is disabled.
@@ -7883,6 +7998,17 @@ export interface DeleteDBClusterMessage {
    *          </ul>
    */
   FinalDBSnapshotIdentifier?: string;
+
+  /**
+   * <p>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match an existing DBClusterIdentifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterIdentifier: string | undefined;
 
   /**
    * <p>A value that indicates whether to skip the creation of a final DB cluster snapshot before the DB cluster is deleted.
@@ -8045,6 +8171,18 @@ export interface DeleteDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
+   * <p>A value that indicates whether to skip the creation of a final DB snapshot before the DB instance is deleted.
+   *           If skip is specified, no DB snapshot is created. If skip isn't specified, a DB snapshot
+   *           is created before the DB instance is deleted. By default, skip isn't specified, and the DB snapshot is created.</p>
+   *          <p>When a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when skip is specified.</p>
+   *          <p>Specify skip when deleting a read replica.</p>
+   *          <note>
+   *             <p>The FinalDBSnapshotIdentifier parameter must be specified if skip isn't specified.</p>
+   *          </note>
+   */
+  SkipFinalSnapshot?: boolean;
+
+  /**
    * <p>A value that indicates whether to remove automated backups immediately after the DB
    *             instance is deleted. This parameter isn't case-sensitive. The default is to remove
    *             automated backups immediately after the DB instance is deleted.</p>
@@ -8071,23 +8209,11 @@ export interface DeleteDBInstanceMessage {
    *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>Can't be specified when deleting a Read Replica.</p>
+   *                <p>Can't be specified when deleting a read replica.</p>
    *             </li>
    *          </ul>
    */
   FinalDBSnapshotIdentifier?: string;
-
-  /**
-   * <p>A value that indicates whether to skip the creation of a final DB snapshot before the DB instance is deleted.
-   *           If skip is specified, no DB snapshot is created. If skip isn't specified, a DB snapshot
-   *           is created before the DB instance is deleted. By default, skip isn't specified, and the DB snapshot is created.</p>
-   *          <p>Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when skip is specified.</p>
-   *          <p>Specify skip when deleting a Read Replica.</p>
-   *          <note>
-   *             <p>The FinalDBSnapshotIdentifier parameter must be specified if skip isn't specified.</p>
-   *          </note>
-   */
-  SkipFinalSnapshot?: boolean;
 }
 
 export namespace DeleteDBInstanceMessage {
@@ -8378,14 +8504,14 @@ export namespace DeleteOptionGroupMessage {
 export interface DeregisterDBProxyTargetsRequest {
   __type?: "DeregisterDBProxyTargetsRequest";
   /**
+   * <p>The identifier of the <code>DBProxyTargetGroup</code>.</p>
+   */
+  TargetGroupName?: string;
+
+  /**
    * <p>One or more DB cluster identifiers.</p>
    */
   DBClusterIdentifiers?: string[];
-
-  /**
-   * <p>One or more DB instance identifiers.</p>
-   */
-  DBInstanceIdentifiers?: string[];
 
   /**
    * <p>The identifier of the <code>DBProxy</code> that is associated with the <code>DBProxyTargetGroup</code>.</p>
@@ -8393,9 +8519,9 @@ export interface DeregisterDBProxyTargetsRequest {
   DBProxyName: string | undefined;
 
   /**
-   * <p>The identifier of the <code>DBProxyTargetGroup</code>.</p>
+   * <p>One or more DB instance identifiers.</p>
    */
-  TargetGroupName?: string;
+  DBInstanceIdentifiers?: string[];
 }
 
 export namespace DeregisterDBProxyTargetsRequest {
@@ -8447,6 +8573,17 @@ export interface DescribeCertificatesMessage {
   CertificateIdentifier?: string;
 
   /**
+   * <p>
+   *         The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so you can retrieve the remaining results.
+   *         </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
    * <p>This parameter isn't currently supported.</p>
    */
   Filters?: Filter[];
@@ -8461,17 +8598,6 @@ export interface DescribeCertificatesMessage {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>
-   *         The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *         a pagination token called a marker is included in the response so you can retrieve the remaining results.
-   *         </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeCertificatesMessage {
@@ -8484,9 +8610,13 @@ export namespace DescribeCertificatesMessage {
 export interface DescribeCustomAvailabilityZonesMessage {
   __type?: "DescribeCustomAvailabilityZonesMessage";
   /**
-   * <p>The custom AZ identifier. If this parameter is specified, information from only the specific custom AZ is returned.</p>
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *         <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
    */
-  CustomAvailabilityZoneId?: string;
+  MaxRecords?: number;
 
   /**
    * <p>A filter that specifies one or more custom AZs to describe.</p>
@@ -8503,13 +8633,9 @@ export interface DescribeCustomAvailabilityZonesMessage {
   Marker?: string;
 
   /**
-   * <p>The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *         <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   * <p>The custom AZ identifier. If this parameter is specified, information from only the specific custom AZ is returned.</p>
    */
-  MaxRecords?: number;
+  CustomAvailabilityZoneId?: string;
 }
 
 export namespace DescribeCustomAvailabilityZonesMessage {
@@ -8525,42 +8651,6 @@ export namespace DescribeCustomAvailabilityZonesMessage {
  */
 export interface DescribeDBClusterBacktracksMessage {
   __type?: "DescribeDBClusterBacktracksMessage";
-  /**
-   * <p>If specified, this value is the backtrack identifier of the backtrack to be
-   *             described.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must contain a valid universally unique identifier (UUID). For more
-   *                     information about UUIDs, see <a href="http://www.ietf.org/rfc/rfc4122.txt">A Universally Unique Identifier
-   *                         (UUID) URN Namespace</a>.</p>
-   *             </li>
-   *          </ul>
-   *         <p>Example: <code>123e4567-e89b-12d3-a456-426655440000</code>
-   *         </p>
-   */
-  BacktrackIdentifier?: string;
-
-  /**
-   * <p>The DB cluster identifier of the DB cluster to be described. This parameter is
-   *             stored as a lowercase string.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   *         <p>Example: <code>my-cluster1</code>
-   *         </p>
-   */
-  DBClusterIdentifier: string | undefined;
-
   /**
    * <p>A filter that specifies one or more DB clusters to describe. Supported filters
    *             include the following:</p>
@@ -8604,14 +8694,40 @@ export interface DescribeDBClusterBacktracksMessage {
   Filters?: Filter[];
 
   /**
-   * <p> An optional pagination token provided by a previous
-   *             <code>DescribeDBClusterBacktracks</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.
+   * <p>If specified, this value is the backtrack identifier of the backtrack to be
+   *             described.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must contain a valid universally unique identifier (UUID). For more
+   *                     information about UUIDs, see <a href="http://www.ietf.org/rfc/rfc4122.txt">A Universally Unique Identifier
+   *                         (UUID) URN Namespace</a>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Example: <code>123e4567-e89b-12d3-a456-426655440000</code>
    *         </p>
    */
-  Marker?: string;
+  BacktrackIdentifier?: string;
+
+  /**
+   * <p>The DB cluster identifier of the DB cluster to be described. This parameter is
+   *             stored as a lowercase string.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Example: <code>my-cluster1</code>
+   *         </p>
+   */
+  DBClusterIdentifier: string | undefined;
 
   /**
    * <p>The maximum number of records to include in the response.
@@ -8622,6 +8738,16 @@ export interface DescribeDBClusterBacktracksMessage {
    *         <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p> An optional pagination token provided by a previous
+   *             <code>DescribeDBClusterBacktracks</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeDBClusterBacktracksMessage {
@@ -8634,6 +8760,16 @@ export namespace DescribeDBClusterBacktracksMessage {
 
 export interface DescribeDBClusterEndpointsMessage {
   __type?: "DescribeDBClusterEndpointsMessage";
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.
+   *         </p>
+   *         <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
   /**
    * <p>The identifier of the endpoint to describe. This parameter is stored as a lowercase string.</p>
    */
@@ -8666,16 +8802,6 @@ export interface DescribeDBClusterEndpointsMessage {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.
-   *         </p>
-   *         <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeDBClusterEndpointsMessage {
@@ -8690,22 +8816,6 @@ export namespace DescribeDBClusterEndpointsMessage {
  */
 export interface DescribeDBClusterParameterGroupsMessage {
   __type?: "DescribeDBClusterParameterGroupsMessage";
-  /**
-   * <p>The name of a specific DB cluster parameter group to return details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterParameterGroupName?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
   /**
    * <p>
    *         An optional pagination token provided by a previous
@@ -8727,6 +8837,22 @@ export interface DescribeDBClusterParameterGroupsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>The name of a specific DB cluster parameter group to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterParameterGroupName?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeDBClusterParameterGroupsMessage {
@@ -8743,20 +8869,15 @@ export namespace DescribeDBClusterParameterGroupsMessage {
 export interface DescribeDBClusterParametersMessage {
   __type?: "DescribeDBClusterParametersMessage";
   /**
-   * <p>The name of a specific DB cluster parameter group to return parameter details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
+   * <p>
+   *       The maximum number of records to include in the response.
+   *       If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.
+   *     </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
-  DBClusterParameterGroupName: string | undefined;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
+  MaxRecords?: number;
 
   /**
    * <p>
@@ -8771,23 +8892,28 @@ export interface DescribeDBClusterParametersMessage {
 
   /**
    * <p>
-   *       The maximum number of records to include in the response.
-   *       If more records exist than the specified <code>MaxRecords</code> value,
-   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.
-   *     </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>
    *       A value that indicates to return only parameters for a specific source.
    *       Parameter sources can be <code>engine</code>, <code>service</code>,
    *       or <code>customer</code>.
    *     </p>
    */
   Source?: string;
+
+  /**
+   * <p>The name of a specific DB cluster parameter group to return parameter details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterParameterGroupName: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeDBClusterParametersMessage {
@@ -8803,17 +8929,6 @@ export namespace DescribeDBClusterParametersMessage {
  */
 export interface DescribeDBClustersMessage {
   __type?: "DescribeDBClustersMessage";
-  /**
-   * <p>The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match an existing DBClusterIdentifier.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterIdentifier?: string;
-
   /**
    * <p>A filter that specifies one or more DB clusters to describe.</p>
    *          <p>Supported filters:</p>
@@ -8835,14 +8950,15 @@ export interface DescribeDBClustersMessage {
   IncludeShared?: boolean;
 
   /**
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeDBClusters</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.
-   *         </p>
+   * <p>The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DBClusterIdentifier.</p>
+   *             </li>
+   *          </ul>
    */
-  Marker?: string;
+  DBClusterIdentifier?: string;
 
   /**
    * <p>The maximum number of records to include in the response.
@@ -8853,6 +8969,16 @@ export interface DescribeDBClustersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusters</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeDBClustersMessage {
@@ -8907,19 +9033,14 @@ export namespace DescribeDBClusterSnapshotAttributesResult {
 export interface DescribeDBClusterSnapshotsMessage {
   __type?: "DescribeDBClusterSnapshotsMessage";
   /**
-   * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
-   *             This parameter can't be used in conjunction with the
-   *             <code>DBClusterSnapshotIdentifier</code> parameter.
-   *             This parameter isn't case-sensitive.
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.
    *         </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the identifier of an existing DBCluster.</p>
-   *             </li>
-   *          </ul>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
-  DBClusterIdentifier?: string;
+  MaxRecords?: number;
 
   /**
    * <p>A specific DB cluster snapshot identifier to describe.
@@ -8938,6 +9059,53 @@ export interface DescribeDBClusterSnapshotsMessage {
    *          </ul>
    */
   DBClusterSnapshotIdentifier?: string;
+
+  /**
+   * <p>The type of DB cluster snapshots to be returned. You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>automated</code> - Return all DB cluster snapshots that have been automatically taken by
+   *               Amazon RDS for my AWS account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>manual</code> - Return all DB cluster snapshots that have been taken by my AWS account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>shared</code> - Return all manual DB cluster snapshots that have been shared to my AWS account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public</code> - Return all DB cluster snapshots that have been marked as public.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual DB cluster snapshots are
+   *           returned. You can include shared DB cluster snapshots with these results by enabling the <code>IncludeShared</code>
+   *           parameter. You can include public DB cluster snapshots with these results by enabling the
+   *           <code>IncludePublic</code> parameter.</p>
+   *          <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values
+   *           of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is
+   *           set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to
+   *           <code>public</code>.</p>
+   */
+  SnapshotType?: string;
+
+  /**
+   * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
+   *             This parameter can't be used in conjunction with the
+   *             <code>DBClusterSnapshotIdentifier</code> parameter.
+   *             This parameter isn't case-sensitive.
+   *         </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBCluster.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterIdentifier?: string;
 
   /**
    * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
@@ -8989,48 +9157,6 @@ export interface DescribeDBClusterSnapshotsMessage {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.
-   *         </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>The type of DB cluster snapshots to be returned. You can specify one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>automated</code> - Return all DB cluster snapshots that have been automatically taken by
-   *               Amazon RDS for my AWS account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>manual</code> - Return all DB cluster snapshots that have been taken by my AWS account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>shared</code> - Return all manual DB cluster snapshots that have been shared to my AWS account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>public</code> - Return all DB cluster snapshots that have been marked as public.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual DB cluster snapshots are
-   *           returned. You can include shared DB cluster snapshots with these results by enabling the <code>IncludeShared</code>
-   *           parameter. You can include public DB cluster snapshots with these results by enabling the
-   *           <code>IncludePublic</code> parameter.</p>
-   *          <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values
-   *           of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is
-   *           set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to
-   *           <code>public</code>.</p>
-   */
-  SnapshotType?: string;
 }
 
 export namespace DescribeDBClusterSnapshotsMessage {
@@ -9043,6 +9169,54 @@ export namespace DescribeDBClusterSnapshotsMessage {
 export interface DescribeDBEngineVersionsMessage {
   __type?: "DescribeDBEngineVersionsMessage";
   /**
+   * <p>The database engine version to return.</p>
+   *          <p>Example: <code>5.1.49</code>
+   *          </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.</p>
+   */
+  DefaultOnly?: boolean;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>
+   *     The maximum number of records to include in the response.
+   *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
+   *     included in the response so you can retrieve the remaining results.
+   *     </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The database engine to return.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.</p>
+   */
+  IncludeAll?: boolean;
+
+  /**
+   * <p>
+   *         An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.
+   *     </p>
+   */
+  Marker?: string;
+
+  /**
    * <p>The name of a specific DB parameter group family to return details for.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -9052,33 +9226,6 @@ export interface DescribeDBEngineVersionsMessage {
    *          </ul>
    */
   DBParameterGroupFamily?: string;
-
-  /**
-   * <p>A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.</p>
-   */
-  DefaultOnly?: boolean;
-
-  /**
-   * <p>The database engine to return.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The database engine version to return.</p>
-   *          <p>Example: <code>5.1.49</code>
-   *          </p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.</p>
-   */
-  IncludeAll?: boolean;
 
   /**
    * <p>A value that indicates whether to list the supported character sets for each engine version.</p>
@@ -9095,27 +9242,6 @@ export interface DescribeDBEngineVersionsMessage {
    *         </p>
    */
   ListSupportedTimezones?: boolean;
-
-  /**
-   * <p>
-   *         An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.
-   *     </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>
-   *     The maximum number of records to include in the response.
-   *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
-   *     included in the response so you can retrieve the remaining results.
-   *     </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeDBEngineVersionsMessage {
@@ -9130,6 +9256,12 @@ export namespace DescribeDBEngineVersionsMessage {
  */
 export interface DescribeDBInstanceAutomatedBackupsMessage {
   __type?: "DescribeDBInstanceAutomatedBackupsMessage";
+  /**
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response
+   * 			includes only records beyond the marker, up to <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
   /**
    * <p>(Optional) The user-supplied instance identifier. If this parameter is specified, it must
    *             match the identifier of an existing DB instance. It returns information from the
@@ -9185,12 +9317,6 @@ export interface DescribeDBInstanceAutomatedBackupsMessage {
   Filters?: Filter[];
 
   /**
-   * <p>The pagination token provided in the previous request. If this parameter is specified the response
-   * 			includes only records beyond the marker, up to <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The maximum number of records to include in the response. If more records exist than the specified
    * 			<code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
    * 			you can retrieve the remaining results.</p>
@@ -9221,6 +9347,18 @@ export interface DescribeDBInstancesMessage {
    *          </ul>
    */
   DBInstanceIdentifier?: string;
+
+  /**
+   * <p>
+   *         The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.
+   *         </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
 
   /**
    * <p>A filter that specifies one or more DB instances to describe.</p>
@@ -9267,18 +9405,6 @@ export interface DescribeDBInstancesMessage {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>
-   *         The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *         a pagination token called a marker is included in the response so that
-   *         you can retrieve the remaining results.
-   *         </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeDBInstancesMessage {
@@ -9294,14 +9420,14 @@ export namespace DescribeDBInstancesMessage {
 export interface DescribeDBLogFilesDetails {
   __type?: "DescribeDBLogFilesDetails";
   /**
-   * <p>A POSIX timestamp when the last log entry was written.</p>
-   */
-  LastWritten?: number;
-
-  /**
    * <p>The name of the log file for the specified DB instance.</p>
    */
   LogFileName?: string;
+
+  /**
+   * <p>A POSIX timestamp when the last log entry was written.</p>
+   */
+  LastWritten?: number;
 
   /**
    * <p>The size, in bytes, of the log file for the specified DB instance.</p>
@@ -9322,6 +9448,31 @@ export namespace DescribeDBLogFilesDetails {
 export interface DescribeDBLogFilesMessage {
   __type?: "DescribeDBLogFilesMessage";
   /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.</p>
+   */
+  FileLastWritten?: number;
+
+  /**
+   * <p>Filters the available log files for log file names that contain the specified string.</p>
+   */
+  FilenameContains?: string;
+
+  /**
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -9333,34 +9484,9 @@ export interface DescribeDBLogFilesMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.</p>
-   */
-  FileLastWritten?: number;
-
-  /**
    * <p>Filters the available log files for files larger than the specified size.</p>
    */
   FileSize?: number;
-
-  /**
-   * <p>Filters the available log files for log file names that contain the specified string.</p>
-   */
-  FilenameContains?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeDBLogFilesMessage {
@@ -9378,14 +9504,14 @@ export namespace DescribeDBLogFilesMessage {
 export interface DescribeDBLogFilesResponse {
   __type?: "DescribeDBLogFilesResponse";
   /**
+   * <p>A pagination token that can be used in a later DescribeDBLogFiles request.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>The DB log files returned.</p>
    */
   DescribeDBLogFiles?: DescribeDBLogFilesDetails[];
-
-  /**
-   * <p>A pagination token that can be used in a subsequent DescribeDBLogFiles request.</p>
-   */
-  Marker?: string;
 }
 
 export namespace DescribeDBLogFilesResponse {
@@ -9401,22 +9527,6 @@ export namespace DescribeDBLogFilesResponse {
 export interface DescribeDBParameterGroupsMessage {
   __type?: "DescribeDBParameterGroupsMessage";
   /**
-   * <p>The name of a specific DB parameter group to return details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBParameterGroupName?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>
    *         An optional pagination token provided by a previous
    *         <code>DescribeDBParameterGroups</code> request.
@@ -9426,6 +9536,17 @@ export interface DescribeDBParameterGroupsMessage {
    *         </p>
    */
   Marker?: string;
+
+  /**
+   * <p>The name of a specific DB parameter group to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBParameterGroupName?: string;
 
   /**
    * <p>
@@ -9438,6 +9559,11 @@ export interface DescribeDBParameterGroupsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeDBParameterGroupsMessage {
@@ -9450,31 +9576,17 @@ export namespace DescribeDBParameterGroupsMessage {
 export interface DescribeDBParametersMessage {
   __type?: "DescribeDBParametersMessage";
   /**
-   * <p>The name of a specific DB parameter group to return details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBParameterGroup.</p>
-   *             </li>
-   *          </ul>
+   * <p>The parameter types to return.</p>
+   *          <p>Default: All parameter types returned</p>
+   *          <p>Valid Values: <code>user | system | engine-default</code>
+   *          </p>
    */
-  DBParameterGroupName: string | undefined;
+  Source?: string;
 
   /**
    * <p>This parameter isn't currently supported.</p>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>
-   *         An optional pagination token provided by a previous
-   *         <code>DescribeDBParameters</code> request.
-   *             If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.
-   *         </p>
-   */
-  Marker?: string;
 
   /**
    * <p>
@@ -9489,12 +9601,26 @@ export interface DescribeDBParametersMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The parameter types to return.</p>
-   *          <p>Default: All parameter types returned</p>
-   *          <p>Valid Values: <code>user | system | engine-default</code>
-   *          </p>
+   * <p>The name of a specific DB parameter group to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBParameterGroup.</p>
+   *             </li>
+   *          </ul>
    */
-  Source?: string;
+  DBParameterGroupName: string | undefined;
+
+  /**
+   * <p>
+   *         An optional pagination token provided by a previous
+   *         <code>DescribeDBParameters</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeDBParametersMessage {
@@ -9507,14 +9633,14 @@ export namespace DescribeDBParametersMessage {
 export interface DescribeDBProxiesRequest {
   __type?: "DescribeDBProxiesRequest";
   /**
-   * <p>The name of the DB proxy.</p>
-   */
-  DBProxyName?: string;
-
-  /**
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The name of the DB proxy.</p>
+   */
+  DBProxyName?: string;
 
   /**
    * <p>
@@ -9569,9 +9695,9 @@ export namespace DescribeDBProxiesResponse {
 export interface DescribeDBProxyTargetGroupsRequest {
   __type?: "DescribeDBProxyTargetGroupsRequest";
   /**
-   * <p>The identifier of the <code>DBProxy</code> associated with the target group.</p>
+   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
    */
-  DBProxyName: string | undefined;
+  TargetGroupName?: string;
 
   /**
    * <p>This parameter is not currently supported.</p>
@@ -9579,13 +9705,9 @@ export interface DescribeDBProxyTargetGroupsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>
-   *         An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.
-   *       </p>
+   * <p>The identifier of the <code>DBProxy</code> associated with the target group.</p>
    */
-  Marker?: string;
+  DBProxyName: string | undefined;
 
   /**
    * <p>
@@ -9600,9 +9722,13 @@ export interface DescribeDBProxyTargetGroupsRequest {
   MaxRecords?: number;
 
   /**
-   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
+   * <p>
+   *         An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.
+   *       </p>
    */
-  TargetGroupName?: string;
+  Marker?: string;
 }
 
 export namespace DescribeDBProxyTargetGroupsRequest {
@@ -9641,23 +9767,9 @@ export namespace DescribeDBProxyTargetGroupsResponse {
 export interface DescribeDBProxyTargetsRequest {
   __type?: "DescribeDBProxyTargetsRequest";
   /**
-   * <p>The identifier of the <code>DBProxyTarget</code> to describe.</p>
+   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
    */
-  DBProxyName: string | undefined;
-
-  /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>
-   *         An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.
-   *       </p>
-   */
-  Marker?: string;
+  TargetGroupName?: string;
 
   /**
    * <p>
@@ -9672,9 +9784,23 @@ export interface DescribeDBProxyTargetsRequest {
   MaxRecords?: number;
 
   /**
-   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
+   * <p>The identifier of the <code>DBProxyTarget</code> to describe.</p>
    */
-  TargetGroupName?: string;
+  DBProxyName: string | undefined;
+
+  /**
+   * <p>
+   *         An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.
+   *       </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeDBProxyTargetsRequest {
@@ -9714,16 +9840,6 @@ export namespace DescribeDBProxyTargetsResponse {
 export interface DescribeDBSecurityGroupsMessage {
   __type?: "DescribeDBSecurityGroupsMessage";
   /**
-   * <p>The name of the DB security group to return details for.</p>
-   */
-  DBSecurityGroupName?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>
    *         An optional pagination token provided by a previous
    *         <code>DescribeDBSecurityGroups</code> request.
@@ -9733,6 +9849,16 @@ export interface DescribeDBSecurityGroupsMessage {
    *         </p>
    */
   Marker?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The name of the DB security group to return details for.</p>
+   */
+  DBSecurityGroupName?: string;
 
   /**
    * <p>
@@ -9799,110 +9925,6 @@ export namespace DescribeDBSnapshotAttributesResult {
 export interface DescribeDBSnapshotsMessage {
   __type?: "DescribeDBSnapshotsMessage";
   /**
-   * <p>The ID of the DB instance to retrieve the list of DB snapshots for.
-   *         This parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
-   *         This parameter isn't case-sensitive.
-   *         </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the identifier of an existing DBInstance.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBInstanceIdentifier?: string;
-
-  /**
-   * <p>
-   *         A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with <code>DBInstanceIdentifier</code>.
-   *             This value is stored as a lowercase string.
-   *         </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the identifier of an existing DBSnapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter must also be specified.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBSnapshotIdentifier?: string;
-
-  /**
-   * <p>A specific DB resource ID to describe.</p>
-   */
-  DbiResourceId?: string;
-
-  /**
-   * <p>A filter that specifies one or more DB snapshots to describe.</p>
-   *          <p>Supported filters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
-   *               instance Amazon Resource Names (ARNs).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dbi-resource-id</code> - Accepts identifiers of source DB instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-type</code> - Accepts types of DB snapshots.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>engine</code> - Accepts names of database engines.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>A value that indicates whether to include manual DB cluster snapshots that are public and can be copied
-   *           or restored by any AWS account. By default, the public snapshots are not included.</p>
-   *          <p>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a> API.</p>
-   */
-  IncludePublic?: boolean;
-
-  /**
-   * <p>A value that indicates whether to include shared manual DB cluster snapshots
-   *           from other AWS accounts that this AWS account has been given
-   *           permission to copy or restore. By default, these snapshots are not included.</p>
-   *          <p>You can give an AWS account permission to restore a manual DB snapshot from
-   *     another AWS account by using the <code>ModifyDBSnapshotAttribute</code> API action.</p>
-   */
-  IncludeShared?: boolean;
-
-  /**
-   * <p>
-   *         An optional pagination token provided by a previous
-   *         <code>DescribeDBSnapshots</code> request.
-   *             If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.
-   *         </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>
-   *         The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *         a pagination token called a marker is included in the response so that
-   *         you can retrieve the remaining results.
-   *         </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
    * <p>The type of snapshots to be returned. You can specify one of the following values:</p>
    *          <ul>
    *             <li>
@@ -9944,6 +9966,110 @@ export interface DescribeDBSnapshotsMessage {
    *       <code>public</code>.</p>
    */
   SnapshotType?: string;
+
+  /**
+   * <p>
+   *         An optional pagination token provided by a previous
+   *         <code>DescribeDBSnapshots</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A value that indicates whether to include manual DB cluster snapshots that are public and can be copied
+   *           or restored by any AWS account. By default, the public snapshots are not included.</p>
+   *          <p>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a> API.</p>
+   */
+  IncludePublic?: boolean;
+
+  /**
+   * <p>A value that indicates whether to include shared manual DB cluster snapshots
+   *           from other AWS accounts that this AWS account has been given
+   *           permission to copy or restore. By default, these snapshots are not included.</p>
+   *          <p>You can give an AWS account permission to restore a manual DB snapshot from
+   *     another AWS account by using the <code>ModifyDBSnapshotAttribute</code> API action.</p>
+   */
+  IncludeShared?: boolean;
+
+  /**
+   * <p>A filter that specifies one or more DB snapshots to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
+   *               instance Amazon Resource Names (ARNs).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - Accepts identifiers of source DB instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-type</code> - Accepts types of DB snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts names of database engines.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>
+   *         A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with <code>DBInstanceIdentifier</code>.
+   *             This value is stored as a lowercase string.
+   *         </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBSnapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter must also be specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBSnapshotIdentifier?: string;
+
+  /**
+   * <p>
+   *         The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.
+   *         </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>A specific DB resource ID to describe.</p>
+   */
+  DbiResourceId?: string;
+
+  /**
+   * <p>The ID of the DB instance to retrieve the list of DB snapshots for.
+   *         This parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
+   *         This parameter isn't case-sensitive.
+   *         </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBInstance.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBInstanceIdentifier?: string;
 }
 
 export namespace DescribeDBSnapshotsMessage {
@@ -9959,24 +10085,14 @@ export namespace DescribeDBSnapshotsMessage {
 export interface DescribeDBSubnetGroupsMessage {
   __type?: "DescribeDBSubnetGroupsMessage";
   /**
-   * <p>The name of the DB subnet group to return details for.</p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
    * <p>This parameter isn't currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
-   * <p>
-   *             An optional pagination token provided by a previous DescribeDBSubnetGroups request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.
-   *         </p>
+   * <p>The name of the DB subnet group to return details for.</p>
    */
-  Marker?: string;
+  DBSubnetGroupName?: string;
 
   /**
    * <p>
@@ -9989,6 +10105,16 @@ export interface DescribeDBSubnetGroupsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>
+   *             An optional pagination token provided by a previous DescribeDBSubnetGroups request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeDBSubnetGroupsMessage {
@@ -10004,16 +10130,6 @@ export namespace DescribeDBSubnetGroupsMessage {
 export interface DescribeEngineDefaultClusterParametersMessage {
   __type?: "DescribeEngineDefaultClusterParametersMessage";
   /**
-   * <p>The name of the DB cluster parameter group family to return engine parameter information for.</p>
-   */
-  DBParameterGroupFamily: string | undefined;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>
    *       An optional pagination token provided by a previous
    *       <code>DescribeEngineDefaultClusterParameters</code> request.
@@ -10023,6 +10139,16 @@ export interface DescribeEngineDefaultClusterParametersMessage {
    *     </p>
    */
   Marker?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The name of the DB cluster parameter group family to return engine parameter information for.</p>
+   */
+  DBParameterGroupFamily: string | undefined;
 
   /**
    * <p>
@@ -10073,11 +10199,6 @@ export interface DescribeEngineDefaultParametersMessage {
   DBParameterGroupFamily: string | undefined;
 
   /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>
    *         An optional pagination token provided by a previous
    *         <code>DescribeEngineDefaultParameters</code> request.
@@ -10098,6 +10219,11 @@ export interface DescribeEngineDefaultParametersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeEngineDefaultParametersMessage {
@@ -10156,30 +10282,14 @@ export namespace DescribeEventCategoriesMessage {
 export interface DescribeEventsMessage {
   __type?: "DescribeEventsMessage";
   /**
-   * <p>The number of minutes to retrieve events for.</p>
-   *          <p>Default: 60</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>
-   *         The end of the time interval for which to retrieve events,
-   *         specified in ISO 8601 format. For more information about ISO 8601,
-   *         go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
-   *          </p>
-   *          <p>Example: 2009-07-08T18:00Z</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>A list of event categories that trigger notifications for a event notification subscription.</p>
-   */
-  EventCategories?: string[];
-
-  /**
    * <p>This parameter isn't currently supported.</p>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
+   */
+  SourceType?: SourceType | string;
 
   /**
    * <p>
@@ -10191,18 +10301,6 @@ export interface DescribeEventsMessage {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>
-   *         The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so that
-   *         you can retrieve the remaining results.
-   *         </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
 
   /**
    * <p>The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.</p>
@@ -10231,9 +10329,9 @@ export interface DescribeEventsMessage {
   SourceIdentifier?: string;
 
   /**
-   * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
+   * <p>A list of event categories that trigger notifications for a event notification subscription.</p>
    */
-  SourceType?: SourceType | string;
+  EventCategories?: string[];
 
   /**
    * <p>
@@ -10244,6 +10342,34 @@ export interface DescribeEventsMessage {
    *          <p>Example: 2009-07-08T18:00Z</p>
    */
   StartTime?: Date;
+
+  /**
+   * <p>
+   *         The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.
+   *         </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>
+   *         The end of the time interval for which to retrieve events,
+   *         specified in ISO 8601 format. For more information about ISO 8601,
+   *         go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *          </p>
+   *          <p>Example: 2009-07-08T18:00Z</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The number of minutes to retrieve events for.</p>
+   *          <p>Default: 60</p>
+   */
+  Duration?: number;
 }
 
 export namespace DescribeEventsMessage {
@@ -10264,15 +10390,9 @@ export interface DescribeEventSubscriptionsMessage {
   Filters?: Filter[];
 
   /**
-   * <p>
-   *             An optional pagination token provided by a previous
-   *             DescribeOrderableDBInstanceOptions request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code> .
-   *         </p>
+   * <p>The name of the RDS event notification subscription you want to describe.</p>
    */
-  Marker?: string;
+  SubscriptionName?: string;
 
   /**
    * <p>
@@ -10287,9 +10407,15 @@ export interface DescribeEventSubscriptionsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The name of the RDS event notification subscription you want to describe.</p>
+   * <p>
+   *             An optional pagination token provided by a previous
+   *             DescribeOrderableDBInstanceOptions request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code> .
+   *         </p>
    */
-  SubscriptionName?: string;
+  Marker?: string;
 }
 
 export namespace DescribeEventSubscriptionsMessage {
@@ -10297,6 +10423,72 @@ export namespace DescribeEventSubscriptionsMessage {
     ...obj,
   });
   export const isa = (o: any): o is DescribeEventSubscriptionsMessage => __isa(o, "DescribeEventSubscriptionsMessage");
+}
+
+export interface DescribeExportTasksMessage {
+  __type?: "DescribeExportTasksMessage";
+  /**
+   * <p>
+   *             An optional pagination token provided by a previous <code>DescribeExportTasks</code> request.
+   *             If you specify this parameter, the response includes only records beyond the marker,
+   *             up to the value specified by the <code>MaxRecords</code> parameter.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>
+   *             The maximum number of records to include in the response. If more records exist than the
+   *             specified value, a pagination token called a marker is included in the response.
+   *             You can use the marker in a later <code>DescribeExportTasks</code> request
+   *             to retrieve the remaining results.
+   *         </p>
+   *         <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>Filters specify one or more snapshot exports to describe. The filters are specified
+   *             as name-value pairs that define what to include in the output.</p>
+   *         <p>Supported filters include the following: </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>export-task-identifier</code> - An identifier for the snapshot export task.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>s3-bucket</code> - The Amazon S3 bucket the snapshot is exported to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-arn</code> - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The status of the export task.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The identifier of the snapshot export task to be described.</p>
+   */
+  ExportTaskIdentifier?: string;
+}
+
+export namespace DescribeExportTasksMessage {
+  export const filterSensitiveLog = (obj: DescribeExportTasksMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeExportTasksMessage => __isa(o, "DescribeExportTasksMessage");
 }
 
 export interface DescribeGlobalClustersMessage {
@@ -10317,16 +10509,14 @@ export interface DescribeGlobalClustersMessage {
 
   /**
    * <p>
-   *         The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.
+   *         The maximum number of records to include in the response. If more records exist than the specified
+   *         <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
+   *        you can retrieve the remaining results.
    *       </p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match an existing DBClusterIdentifier.</p>
-   *             </li>
-   *          </ul>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
-  GlobalClusterIdentifier?: string;
+  MaxRecords?: number;
 
   /**
    * <p>
@@ -10339,14 +10529,16 @@ export interface DescribeGlobalClustersMessage {
 
   /**
    * <p>
-   *         The maximum number of records to include in the response. If more records exist than the specified
-   *         <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
-   *        you can retrieve the remaining results.
+   *         The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.
    *       </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DBClusterIdentifier.</p>
+   *             </li>
+   *          </ul>
    */
-  MaxRecords?: number;
+  GlobalClusterIdentifier?: string;
 }
 
 export namespace DescribeGlobalClustersMessage {
@@ -10358,6 +10550,13 @@ export namespace DescribeGlobalClustersMessage {
 
 export interface DescribeInstallationMediaMessage {
   __type?: "DescribeInstallationMediaMessage";
+  /**
+   * <p>An optional pagination token provided by a previous DescribeInstallationMedia request.
+   *           If this parameter is specified, the response includes
+   *           only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  MaxRecords?: number;
+
   /**
    * <p>A filter that specifies one or more installation media to describe. Supported filters
    *           include the following:</p>
@@ -10390,13 +10589,6 @@ export interface DescribeInstallationMediaMessage {
    *           up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>An optional pagination token provided by a previous DescribeInstallationMedia request.
-   *           If this parameter is specified, the response includes
-   *           only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeInstallationMediaMessage {
@@ -10412,27 +10604,17 @@ export namespace DescribeInstallationMediaMessage {
 export interface DescribeOptionGroupOptionsMessage {
   __type?: "DescribeOptionGroupOptionsMessage";
   /**
-   * <p>A required parameter. Options available for the given engine name are described.</p>
-   */
-  EngineName: string | undefined;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>If specified, filters the results to include only options for the specified major engine version.</p>
-   */
-  MajorEngineVersion?: string;
-
-  /**
    * <p>An optional pagination token provided by a previous request.
    *             If this parameter is specified, the response includes
    *             only records beyond the marker,
    *             up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>If specified, filters the results to include only options for the specified major engine version.</p>
+   */
+  MajorEngineVersion?: string;
 
   /**
    * <p>
@@ -10445,6 +10627,16 @@ export interface DescribeOptionGroupOptionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>A required parameter. Options available for the given engine name are described.</p>
+   */
+  EngineName: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeOptionGroupOptionsMessage {
@@ -10460,29 +10652,9 @@ export namespace DescribeOptionGroupOptionsMessage {
 export interface DescribeOptionGroupsMessage {
   __type?: "DescribeOptionGroupsMessage";
   /**
-   * <p>Filters the list of option groups to only include groups associated with a specific database engine.</p>
-   */
-  EngineName?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>Filters the list of option groups to only include groups associated with a specific database engine version. If specified, then EngineName must also be specified.</p>
    */
   MajorEngineVersion?: string;
-
-  /**
-   * <p>
-   *             An optional pagination token provided by a previous DescribeOptionGroups request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.
-   *         </p>
-   */
-  Marker?: string;
 
   /**
    * <p>
@@ -10497,9 +10669,29 @@ export interface DescribeOptionGroupsMessage {
   MaxRecords?: number;
 
   /**
+   * <p>
+   *             An optional pagination token provided by a previous DescribeOptionGroups request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
    * <p>The name of the option group to describe. Can't be supplied together with EngineName or MajorEngineVersion.</p>
    */
   OptionGroupName?: string;
+
+  /**
+   * <p>Filters the list of option groups to only include groups associated with a specific database engine.</p>
+   */
+  EngineName?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeOptionGroupsMessage {
@@ -10514,6 +10706,34 @@ export namespace DescribeOptionGroupsMessage {
  */
 export interface DescribeOrderableDBInstanceOptionsMessage {
   __type?: "DescribeOrderableDBInstanceOptionsMessage";
+  /**
+   * <p>The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group.</p>
+   *         <p>Omit this parameter to show the available offerings in the specified AWS Region.</p>
+   */
+  AvailabilityZoneGroup?: string;
+
+  /**
+   * <p>
+   *             The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *             you can retrieve the remaining results.
+   *         </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The license model filter value. Specify this parameter to show only the available offerings matching the specified license model.</p>
+   */
+  LicenseModel?: string;
+
   /**
    * <p>The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.</p>
    */
@@ -10530,16 +10750,6 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
   EngineVersion?: string;
 
   /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The license model filter value. Specify this parameter to show only the available offerings matching the specified license model.</p>
-   */
-  LicenseModel?: string;
-
-  /**
    * <p>
    *             An optional pagination token provided by a previous
    *             DescribeOrderableDBInstanceOptions request.
@@ -10549,18 +10759,6 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>
-   *             The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so that
-   *             you can retrieve the remaining results.
-   *         </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
 
   /**
    * <p>A value that indicates whether to show only VPC or non-VPC offerings.</p>
@@ -10582,24 +10780,9 @@ export namespace DescribeOrderableDBInstanceOptionsMessage {
 export interface DescribePendingMaintenanceActionsMessage {
   __type?: "DescribePendingMaintenanceActionsMessage";
   /**
-   * <p>A filter that specifies one or more resources to return pending maintenance actions for.</p>
-   *          <p>Supported filters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
-   *               cluster Amazon Resource Names (ARNs). The results list will only include pending maintenance
-   *               actions for the DB clusters identified by these ARNs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
-   *             instance ARNs. The results list will only include pending maintenance
-   *             actions for the DB instances identified by these ARNs.</p>
-   *             </li>
-   *          </ul>
+   * <p>The ARN of a resource to return pending maintenance actions for.</p>
    */
-  Filters?: Filter[];
+  ResourceIdentifier?: string;
 
   /**
    * <p>
@@ -10625,9 +10808,24 @@ export interface DescribePendingMaintenanceActionsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The ARN of a resource to return pending maintenance actions for.</p>
+   * <p>A filter that specifies one or more resources to return pending maintenance actions for.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
+   *               cluster Amazon Resource Names (ARNs). The results list will only include pending maintenance
+   *               actions for the DB clusters identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
+   *             instance ARNs. The results list will only include pending maintenance
+   *             actions for the DB instances identified by these ARNs.</p>
+   *             </li>
+   *          </ul>
    */
-  ResourceIdentifier?: string;
+  Filters?: Filter[];
 }
 
 export namespace DescribePendingMaintenanceActionsMessage {
@@ -10644,9 +10842,14 @@ export namespace DescribePendingMaintenanceActionsMessage {
 export interface DescribeReservedDBInstancesMessage {
   __type?: "DescribeReservedDBInstancesMessage";
   /**
-   * <p>The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.</p>
+   * <p>The product description filter value. Specify this parameter to show only those reservations matching the specified product description.</p>
    */
-  DBInstanceClass?: string;
+  ProductDescription?: string;
+
+  /**
+   * <p>The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.</p>
+   */
+  ReservedDBInstancesOfferingId?: string;
 
   /**
    * <p>The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.</p>
@@ -10656,9 +10859,9 @@ export interface DescribeReservedDBInstancesMessage {
   Duration?: string;
 
   /**
-   * <p>This parameter isn't currently supported.</p>
+   * <p>The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.</p>
    */
-  Filters?: Filter[];
+  DBInstanceClass?: string;
 
   /**
    * <p>The lease identifier filter value. Specify this parameter to show only the reservation that matches the specified lease ID.</p>
@@ -10667,6 +10870,11 @@ export interface DescribeReservedDBInstancesMessage {
    *          </note>
    */
   LeaseId?: string;
+
+  /**
+   * <p>The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.</p>
+   */
+  ReservedDBInstanceId?: string;
 
   /**
    * <p>
@@ -10679,20 +10887,9 @@ export interface DescribeReservedDBInstancesMessage {
   Marker?: string;
 
   /**
-   * <p>
-   *     The maximum number of records to include in the response.
-   *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
-   *           included in the response so you can retrieve the remaining results.
-   *     </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * <p>This parameter isn't currently supported.</p>
    */
-  MaxRecords?: number;
-
-  /**
-   * <p>A value that indicates whether to show only those reservations that support Multi-AZ.</p>
-   */
-  MultiAZ?: boolean;
+  Filters?: Filter[];
 
   /**
    * <p>The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.</p>
@@ -10702,19 +10899,20 @@ export interface DescribeReservedDBInstancesMessage {
   OfferingType?: string;
 
   /**
-   * <p>The product description filter value. Specify this parameter to show only those reservations matching the specified product description.</p>
+   * <p>A value that indicates whether to show only those reservations that support Multi-AZ.</p>
    */
-  ProductDescription?: string;
+  MultiAZ?: boolean;
 
   /**
-   * <p>The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.</p>
+   * <p>
+   *     The maximum number of records to include in the response.
+   *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
+   *           included in the response so you can retrieve the remaining results.
+   *     </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
-  ReservedDBInstanceId?: string;
-
-  /**
-   * <p>The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.</p>
-   */
-  ReservedDBInstancesOfferingId?: string;
+  MaxRecords?: number;
 }
 
 export namespace DescribeReservedDBInstancesMessage {
@@ -10736,16 +10934,36 @@ export interface DescribeReservedDBInstancesOfferingsMessage {
   DBInstanceClass?: string;
 
   /**
-   * <p>Duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.</p>
-   *          <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
+   * <p>The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier.</p>
+   *          <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code>
    *          </p>
    */
-  Duration?: string;
+  ReservedDBInstancesOfferingId?: string;
+
+  /**
+   * <p>A value that indicates whether to show only those reservations that support Multi-AZ.</p>
+   */
+  MultiAZ?: boolean;
 
   /**
    * <p>This parameter isn't currently supported.</p>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.</p>
+   *          <note>
+   *             <p>The results show offerings that partially match the filter value.</p>
+   *          </note>
+   */
+  ProductDescription?: string;
+
+  /**
+   * <p>Duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.</p>
+   *          <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
+   *          </p>
+   */
+  Duration?: string;
 
   /**
    * <p>
@@ -10758,6 +10976,13 @@ export interface DescribeReservedDBInstancesOfferingsMessage {
   Marker?: string;
 
   /**
+   * <p>The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.</p>
+   *          <p>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code>
+   *          </p>
+   */
+  OfferingType?: string;
+
+  /**
    * <p>
    *     The maximum number of records to include in the response.
    *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
@@ -10767,33 +10992,6 @@ export interface DescribeReservedDBInstancesOfferingsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>A value that indicates whether to show only those reservations that support Multi-AZ.</p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.</p>
-   *          <p>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code>
-   *          </p>
-   */
-  OfferingType?: string;
-
-  /**
-   * <p>Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.</p>
-   *          <note>
-   *             <p>The results show offerings that partially match the filter value.</p>
-   *          </note>
-   */
-  ProductDescription?: string;
-
-  /**
-   * <p>The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier.</p>
-   *          <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code>
-   *          </p>
-   */
-  ReservedDBInstancesOfferingId?: string;
 }
 
 export namespace DescribeReservedDBInstancesOfferingsMessage {
@@ -10822,15 +11020,6 @@ export interface DescribeSourceRegionsMessage {
   Marker?: string;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist
-   *             than the specified <code>MaxRecords</code> value, a pagination token called a marker is
-   *             included in the response so you can retrieve the remaining results. </p>
-   *         <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
    * <p>The source AWS Region name. For example, <code>us-east-1</code>.</p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -10840,6 +11029,15 @@ export interface DescribeSourceRegionsMessage {
    *          </ul>
    */
   RegionName?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so you can retrieve the remaining results. </p>
+   *         <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
 }
 
 export namespace DescribeSourceRegionsMessage {
@@ -10891,10 +11089,15 @@ export namespace DescribeValidDBInstanceModificationsResult {
 }
 
 /**
- * <p>An Active Directory Domain membership record associated with the DB instance.</p>
+ * <p>An Active Directory Domain membership record associated with the DB instance or cluster.</p>
  */
 export interface DomainMembership {
   __type?: "DomainMembership";
+  /**
+   * <p>The name of the IAM role to be used when making API calls to the Directory Service.</p>
+   */
+  IAMRoleName?: string;
+
   /**
    * <p>The identifier of the Active Directory Domain.</p>
    */
@@ -10906,12 +11109,7 @@ export interface DomainMembership {
   FQDN?: string;
 
   /**
-   * <p>The name of the IAM role to be used when making API calls to the Directory Service.</p>
-   */
-  IAMRoleName?: string;
-
-  /**
-   * <p>The status of the DB instance's Active Directory Domain membership, such as joined, pending-join, failed etc).</p>
+   * <p>The status of the Active Directory Domain membership for the DB instance or cluster. Values include joined, pending-join, failed, and so on.</p>
    */
   Status?: string;
 }
@@ -10947,14 +11145,14 @@ export namespace DomainNotFoundFault {
 export interface DoubleRange {
   __type?: "DoubleRange";
   /**
-   * <p>The minimum value in the range.</p>
-   */
-  From?: number;
-
-  /**
    * <p>The maximum value in the range.</p>
    */
   To?: number;
+
+  /**
+   * <p>The minimum value in the range.</p>
+   */
+  From?: number;
 }
 
 export namespace DoubleRange {
@@ -10970,9 +11168,9 @@ export namespace DoubleRange {
 export interface DownloadDBLogFilePortionDetails {
   __type?: "DownloadDBLogFilePortionDetails";
   /**
-   * <p>Boolean value that if true, indicates there is more data to be downloaded.</p>
+   * <p>A pagination token that can be used in a later DownloadDBLogFilePortion request.</p>
    */
-  AdditionalDataPending?: boolean;
+  Marker?: string;
 
   /**
    * <p>Entries from the specified log file.</p>
@@ -10980,9 +11178,9 @@ export interface DownloadDBLogFilePortionDetails {
   LogFileData?: string;
 
   /**
-   * <p>A pagination token that can be used in a subsequent DownloadDBLogFilePortion request.</p>
+   * <p>Boolean value that if true, indicates there is more data to be downloaded.</p>
    */
-  Marker?: string;
+  AdditionalDataPending?: boolean;
 }
 
 export namespace DownloadDBLogFilePortionDetails {
@@ -10998,25 +11196,14 @@ export namespace DownloadDBLogFilePortionDetails {
 export interface DownloadDBLogFilePortionMessage {
   __type?: "DownloadDBLogFilePortionMessage";
   /**
-   * <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match the identifier of an existing DBInstance.</p>
-   *             </li>
-   *          </ul>
+   * <p>The pagination token provided in the previous request or "0". If the Marker parameter is specified the response includes only records beyond the marker until the end of the file or up to NumberOfLines.</p>
    */
-  DBInstanceIdentifier: string | undefined;
+  Marker?: string;
 
   /**
    * <p>The name of the log file to be downloaded.</p>
    */
   LogFileName: string | undefined;
-
-  /**
-   * <p>The pagination token provided in the previous request or "0". If the Marker parameter is specified the response includes only records beyond the marker until the end of the file or up to NumberOfLines.</p>
-   */
-  Marker?: string;
 
   /**
    * <p>The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.</p>
@@ -11046,6 +11233,17 @@ export interface DownloadDBLogFilePortionMessage {
    *          </ul>
    */
   NumberOfLines?: number;
+
+  /**
+   * <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing DBInstance.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBInstanceIdentifier: string | undefined;
 }
 
 export namespace DownloadDBLogFilePortionMessage {
@@ -11078,14 +11276,9 @@ export namespace DownloadDBLogFilePortionMessage {
 export interface EC2SecurityGroup {
   __type?: "EC2SecurityGroup";
   /**
-   * <p>Specifies the id of the EC2 security group.</p>
+   * <p>Provides the status of the EC2 security group. Status can be "authorizing", "authorized", "revoking", and "revoked".</p>
    */
-  EC2SecurityGroupId?: string;
-
-  /**
-   * <p>Specifies the name of the EC2 security group.</p>
-   */
-  EC2SecurityGroupName?: string;
+  Status?: string;
 
   /**
    * <p>
@@ -11096,9 +11289,14 @@ export interface EC2SecurityGroup {
   EC2SecurityGroupOwnerId?: string;
 
   /**
-   * <p>Provides the status of the EC2 security group. Status can be "authorizing", "authorized", "revoking", and "revoked".</p>
+   * <p>Specifies the id of the EC2 security group.</p>
    */
-  Status?: string;
+  EC2SecurityGroupId?: string;
+
+  /**
+   * <p>Specifies the name of the EC2 security group.</p>
+   */
+  EC2SecurityGroupName?: string;
 }
 
 export namespace EC2SecurityGroup {
@@ -11134,14 +11332,14 @@ export namespace EC2SecurityGroup {
 export interface Endpoint {
   __type?: "Endpoint";
   /**
-   * <p>Specifies the DNS address of the DB instance.</p>
-   */
-  Address?: string;
-
-  /**
    * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
    */
   HostedZoneId?: string;
+
+  /**
+   * <p>Specifies the DNS address of the DB instance.</p>
+   */
+  Address?: string;
 
   /**
    * <p>Specifies the port that the database engine is listening on.</p>
@@ -11164,6 +11362,11 @@ export namespace Endpoint {
 export interface EngineDefaults {
   __type?: "EngineDefaults";
   /**
+   * <p>Contains a list of engine default parameters.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
    * <p>Specifies the name of the DB parameter group family that the engine default parameters apply to.</p>
    */
   DBParameterGroupFamily?: string;
@@ -11178,11 +11381,6 @@ export interface EngineDefaults {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>Contains a list of engine default parameters.</p>
-   */
-  Parameters?: Parameter[];
 }
 
 export namespace EngineDefaults {
@@ -11194,6 +11392,7 @@ export namespace EngineDefaults {
 
 export enum EngineFamily {
   MYSQL = "MYSQL",
+  POSTGRESQL = "POSTGRESQL",
 }
 
 /**
@@ -11214,24 +11413,24 @@ export interface Event {
   EventCategories?: string[];
 
   /**
-   * <p>Provides the text of this event.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the event.</p>
-   */
-  SourceArn?: string;
-
-  /**
    * <p>Provides the identifier for the source of the event.</p>
    */
   SourceIdentifier?: string;
 
   /**
+   * <p>Provides the text of this event.</p>
+   */
+  Message?: string;
+
+  /**
    * <p>Specifies the source type for this event.</p>
    */
   SourceType?: SourceType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the event.</p>
+   */
+  SourceArn?: string;
 }
 
 export namespace Event {
@@ -11247,14 +11446,14 @@ export namespace Event {
 export interface EventCategoriesMap {
   __type?: "EventCategoriesMap";
   /**
-   * <p>The event categories for the specified source type</p>
-   */
-  EventCategories?: string[];
-
-  /**
    * <p>The source type that the returned categories belong to</p>
    */
   SourceType?: string;
+
+  /**
+   * <p>The event categories for the specified source type</p>
+   */
+  EventCategories?: string[];
 }
 
 export namespace EventCategoriesMap {
@@ -11326,14 +11525,14 @@ export interface EventSubscription {
   CustSubscriptionId?: string;
 
   /**
-   * <p>The AWS customer account associated with the RDS event notification subscription.</p>
+   * <p>A list of source IDs for the RDS event notification subscription.</p>
    */
-  CustomerAwsId?: string;
+  SourceIdsList?: string[];
 
   /**
-   * <p>A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.</p>
+   * <p>The source type for the RDS event notification subscription.</p>
    */
-  Enabled?: boolean;
+  SourceType?: string;
 
   /**
    * <p>A list of event categories for the RDS event notification subscription.</p>
@@ -11351,16 +11550,6 @@ export interface EventSubscription {
   SnsTopicArn?: string;
 
   /**
-   * <p>A list of source IDs for the RDS event notification subscription.</p>
-   */
-  SourceIdsList?: string[];
-
-  /**
-   * <p>The source type for the RDS event notification subscription.</p>
-   */
-  SourceType?: string;
-
-  /**
    * <p>The status of the RDS event notification subscription.</p>
    *          <p>Constraints:</p>
    *          <p>Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist</p>
@@ -11372,6 +11561,16 @@ export interface EventSubscription {
    * <p>The time the RDS event notification subscription was created.</p>
    */
   SubscriptionCreationTime?: string;
+
+  /**
+   * <p>The AWS customer account associated with the RDS event notification subscription.</p>
+   */
+  CustomerAwsId?: string;
+
+  /**
+   * <p>A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.</p>
+   */
+  Enabled?: boolean;
 }
 
 export namespace EventSubscription {
@@ -11404,11 +11603,6 @@ export namespace EventSubscriptionQuotaExceededFault {
 export interface EventSubscriptionsMessage {
   __type?: "EventSubscriptionsMessage";
   /**
-   * <p>A list of EventSubscriptions data types.</p>
-   */
-  EventSubscriptionsList?: EventSubscription[];
-
-  /**
    * <p>
    *             An optional pagination token provided by a previous
    *             DescribeOrderableDBInstanceOptions request.
@@ -11418,6 +11612,11 @@ export interface EventSubscriptionsMessage {
    *         </p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of EventSubscriptions data types.</p>
+   */
+  EventSubscriptionsList?: EventSubscription[];
 }
 
 export namespace EventSubscriptionsMessage {
@@ -11428,10 +11627,190 @@ export namespace EventSubscriptionsMessage {
 }
 
 /**
+ * <p>Contains the details of a snapshot export to Amazon S3.
+ *         </p>
+ *         <p>This data type is used as a response element in the <code>DescribeExportTasks</code> action.
+ *         </p>
+ */
+export interface ExportTask {
+  __type?: "ExportTask";
+  /**
+   * <p>The name of the IAM role that is used to write to Amazon S3 when exporting a snapshot. </p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>The total amount of data exported, in gigabytes.</p>
+   */
+  TotalExtractedDataInGB?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>The Amazon S3 bucket that the snapshot is exported to.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The time that the snapshot was created.</p>
+   */
+  SnapshotTime?: Date;
+
+  /**
+   * <p>The progress status of the export task.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>A unique identifier for the snapshot export task. This ID isn't an identifier for
+   *             the Amazon S3 bucket where the snapshot is exported to. </p>
+   */
+  ExportTaskIdentifier?: string;
+
+  /**
+   * <p>The reason the export failed, if it failed.</p>
+   */
+  FailureCause?: string;
+
+  /**
+   * <p>The progress of the snapshot export task as a percentage.</p>
+   */
+  PercentProgress?: number;
+
+  /**
+   * <p>The Amazon S3 bucket prefix that is the file name and path of the exported snapshot.</p>
+   */
+  S3Prefix?: string;
+
+  /**
+   * <p>The ID of the AWS KMS key that is used to encrypt the snapshot when it's exported to
+   *             Amazon S3. The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or
+   *             the KMS key alias for the KMS encryption key. The IAM role used for the snapshot export
+   *             must have encryption and decryption permissions to use this KMS key. </p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The time that the snapshot export task completed.</p>
+   */
+  TaskEndTime?: Date;
+
+  /**
+   * <p>The data exported from the snapshot. Valid values are the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>database</code> - Export all the data from a specified database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database.table</code>
+   *                   <i>table-name</i> -
+   *                 Export a table of the snapshot. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database.schema</code>
+   *                   <i>schema-name</i> - Export a database schema of the snapshot.
+   *                 This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database.schema.table</code>
+   *                   <i>table-name</i> - Export a table of the database schema.
+   *                 This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p>
+   *             </li>
+   *          </ul>
+   */
+  ExportOnly?: string[];
+
+  /**
+   * <p>A warning about the snapshot export task.</p>
+   */
+  WarningMessage?: string;
+
+  /**
+   * <p>The time that the snapshot export task started.</p>
+   */
+  TaskStartTime?: Date;
+}
+
+export namespace ExportTask {
+  export const filterSensitiveLog = (obj: ExportTask): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ExportTask => __isa(o, "ExportTask");
+}
+
+/**
+ * <p>You can't start an export task that's already running.</p>
+ */
+export interface ExportTaskAlreadyExistsFault extends __SmithyException, $MetadataBearer {
+  name: "ExportTaskAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ExportTaskAlreadyExistsFault {
+  export const filterSensitiveLog = (obj: ExportTaskAlreadyExistsFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ExportTaskAlreadyExistsFault => __isa(o, "ExportTaskAlreadyExistsFault");
+}
+
+/**
+ * <p>The export task doesn't exist.</p>
+ */
+export interface ExportTaskNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "ExportTaskNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ExportTaskNotFoundFault {
+  export const filterSensitiveLog = (obj: ExportTaskNotFoundFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ExportTaskNotFoundFault => __isa(o, "ExportTaskNotFoundFault");
+}
+
+export interface ExportTasksMessage {
+  __type?: "ExportTasksMessage";
+  /**
+   * <p>A pagination token that can be used in a later <code>DescribeExportTasks</code>
+   *             request. A marker is used for pagination to identify the location to begin output for
+   *             the next response of <code>DescribeExportTasks</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Information about an export of a snapshot to Amazon S3.</p>
+   */
+  ExportTasks?: ExportTask[];
+}
+
+export namespace ExportTasksMessage {
+  export const filterSensitiveLog = (obj: ExportTasksMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ExportTasksMessage => __isa(o, "ExportTasksMessage");
+}
+
+/**
  * <p></p>
  */
 export interface FailoverDBClusterMessage {
   __type?: "FailoverDBClusterMessage";
+  /**
+   * <p>The name of the instance to promote to the primary instance.</p>
+   *         <p>You must specify the instance identifier for an Aurora Replica in the DB cluster.
+   *         For example, <code>mydbcluster-replica1</code>.</p>
+   */
+  TargetDBInstanceIdentifier?: string;
+
   /**
    * <p>A DB cluster identifier to force a failover for. This parameter isn't case-sensitive.</p>
    *          <p>Constraints:</p>
@@ -11442,13 +11821,6 @@ export interface FailoverDBClusterMessage {
    *          </ul>
    */
   DBClusterIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the instance to promote to the primary instance.</p>
-   *         <p>You must specify the instance identifier for an Aurora Replica in the DB cluster.
-   *         For example, <code>mydbcluster-replica1</code>.</p>
-   */
-  TargetDBInstanceIdentifier?: string;
 }
 
 export namespace FailoverDBClusterMessage {
@@ -11541,34 +11913,23 @@ export interface GlobalCluster {
   __type?: "GlobalCluster";
   /**
    * <p>
-   *         The default database name within the new global database cluster.
-   *       </p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>
-   *         The deletion protection setting for the new global database cluster.
-   *       </p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>
    *         The Aurora database engine used by the global database cluster.
    *       </p>
    */
   Engine?: string;
 
   /**
+   * <p>
+   *         The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in
+   *         AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+   *       </p>
+   */
+  GlobalClusterResourceId?: string;
+
+  /**
    * <p>Indicates the database engine version.</p>
    */
   EngineVersion?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the global database cluster.</p>
-   */
-  GlobalClusterArn?: string;
 
   /**
    * <p>
@@ -11577,6 +11938,18 @@ export interface GlobalCluster {
    *       </p>
    */
   GlobalClusterIdentifier?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the global database cluster.</p>
+   */
+  GlobalClusterArn?: string;
+
+  /**
+   * <p>
+   *         The storage encryption setting for the global database cluster.
+   *       </p>
+   */
+  StorageEncrypted?: boolean;
 
   /**
    * <p>
@@ -11588,23 +11961,22 @@ export interface GlobalCluster {
 
   /**
    * <p>
-   *         The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in
-   *         AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+   *         The deletion protection setting for the new global database cluster.
    *       </p>
    */
-  GlobalClusterResourceId?: string;
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>
+   *         The default database name within the new global database cluster.
+   *       </p>
+   */
+  DatabaseName?: string;
 
   /**
    * <p>Specifies the current state of this global database cluster.</p>
    */
   Status?: string;
-
-  /**
-   * <p>
-   *         The storage encryption setting for the global database cluster.
-   *       </p>
-   */
-  StorageEncrypted?: boolean;
 }
 
 export namespace GlobalCluster {
@@ -11639,11 +12011,10 @@ export namespace GlobalClusterAlreadyExistsFault {
 export interface GlobalClusterMember {
   __type?: "GlobalClusterMember";
   /**
-   * <p>
-   *        The Amazon Resource Name (ARN) for each Aurora cluster.
-   *       </p>
+   * <p>Specifies whether a secondary cluster in an Aurora global database has
+   *         write forwarding enabled, not enabled, or is in the process of enabling it.</p>
    */
-  DBClusterArn?: string;
+  GlobalWriteForwardingStatus?: WriteForwardingStatus | string;
 
   /**
    * <p>
@@ -11661,6 +12032,13 @@ export interface GlobalClusterMember {
    *       </p>
    */
   Readers?: string[];
+
+  /**
+   * <p>
+   *        The Amazon Resource Name (ARN) for each Aurora cluster.
+   *       </p>
+   */
+  DBClusterArn?: string;
 }
 
 export namespace GlobalClusterMember {
@@ -11706,19 +12084,19 @@ export interface GlobalClustersMessage {
   __type?: "GlobalClustersMessage";
   /**
    * <p>
-   *         The list of global clusters returned by this request.
-   *       </p>
-   */
-  GlobalClusters?: GlobalCluster[];
-
-  /**
-   * <p>
    *         An optional pagination token provided by a previous <code>DescribeGlobalClusters</code> request.
    *         If this parameter is specified, the response includes
    *         only records beyond the marker, up to the value specified by <code>MaxRecords</code>.
    *       </p>
    */
   Marker?: string;
+
+  /**
+   * <p>
+   *         The list of global clusters returned by this request.
+   *       </p>
+   */
+  GlobalClusters?: GlobalCluster[];
 }
 
 export namespace GlobalClustersMessage {
@@ -11733,12 +12111,56 @@ export enum IAMAuthMode {
   REQUIRED = "REQUIRED",
 }
 
+/**
+ * <p>The IAM role requires additional permissions to export to an Amazon S3 bucket.</p>
+ */
+export interface IamRoleMissingPermissionsFault extends __SmithyException, $MetadataBearer {
+  name: "IamRoleMissingPermissionsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace IamRoleMissingPermissionsFault {
+  export const filterSensitiveLog = (obj: IamRoleMissingPermissionsFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is IamRoleMissingPermissionsFault => __isa(o, "IamRoleMissingPermissionsFault");
+}
+
+/**
+ * <p>The IAM role is missing for exporting to an Amazon S3 bucket.</p>
+ */
+export interface IamRoleNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "IamRoleNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace IamRoleNotFoundFault {
+  export const filterSensitiveLog = (obj: IamRoleNotFoundFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is IamRoleNotFoundFault => __isa(o, "IamRoleNotFoundFault");
+}
+
 export interface ImportInstallationMediaMessage {
   __type?: "ImportInstallationMediaMessage";
   /**
-   * <p>The identifier of the custom Availability Zone (AZ) to import the installation media to.</p>
+   * <p>The version number of the database engine to use.</p>
+   *          <p>For a list of valid engine versions, call <a>DescribeDBEngineVersions</a>.</p>
+   *          <p>The following are the database engines and links to information about the major and minor
+   *           versions. The list only includes DB engines that require an on-premises
+   *           customer provided license.</p>
+   *
+   *          <p>
+   *             <b>Microsoft SQL Server</b>
+   *          </p>
+   *
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport">Version and Feature Support on Amazon RDS</a> in the
+   *           <i>Amazon RDS User Guide.</i>
+   *          </p>
    */
-  CustomAvailabilityZoneId: string | undefined;
+  EngineVersion: string | undefined;
 
   /**
    * <p>The name of the database engine to be used for this instance.
@@ -11776,35 +12198,23 @@ export interface ImportInstallationMediaMessage {
   Engine: string | undefined;
 
   /**
-   * <p>The path to the installation medium for the specified DB engine.</p>
-   *          <p>Example: <code>SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso</code>
-   *          </p>
-   */
-  EngineInstallationMediaPath: string | undefined;
-
-  /**
-   * <p>The version number of the database engine to use.</p>
-   *          <p>For a list of valid engine versions, call <a>DescribeDBEngineVersions</a>.</p>
-   *          <p>The following are the database engines and links to information about the major and minor
-   *           versions. The list only includes DB engines that require an on-premises
-   *           customer provided license.</p>
-   *
-   *          <p>
-   *             <b>Microsoft SQL Server</b>
-   *          </p>
-   *
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport">Version and Feature Support on Amazon RDS</a> in the
-   *           <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
-  EngineVersion: string | undefined;
-
-  /**
    * <p>The path to the installation medium for the operating system associated with the specified DB engine.</p>
    *         <p>Example: <code>WindowsISO/en_windows_server_2016_x64_dvd_9327751.iso</code>
    *          </p>
    */
   OSInstallationMediaPath: string | undefined;
+
+  /**
+   * <p>The identifier of the custom Availability Zone (AZ) to import the installation media to.</p>
+   */
+  CustomAvailabilityZoneId: string | undefined;
+
+  /**
+   * <p>The path to the installation medium for the specified DB engine.</p>
+   *          <p>Example: <code>SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso</code>
+   *          </p>
+   */
+  EngineInstallationMediaPath: string | undefined;
 }
 
 export namespace ImportInstallationMediaMessage {
@@ -11821,24 +12231,29 @@ export namespace ImportInstallationMediaMessage {
 export interface InstallationMedia {
   __type?: "InstallationMedia";
   /**
-   * <p>The custom Availability Zone (AZ) that contains the installation media.</p>
+   * <p>The status of the installation medium.</p>
    */
-  CustomAvailabilityZoneId?: string;
-
-  /**
-   * <p>The DB engine.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The path to the installation medium for the DB engine.</p>
-   */
-  EngineInstallationMediaPath?: string;
+  Status?: string;
 
   /**
    * <p>The engine version of the DB engine.</p>
    */
   EngineVersion?: string;
+
+  /**
+   * <p>The custom Availability Zone (AZ) that contains the installation media.</p>
+   */
+  CustomAvailabilityZoneId?: string;
+
+  /**
+   * <p>The path to the installation medium for the operating system associated with the DB engine.</p>
+   */
+  OSInstallationMediaPath?: string;
+
+  /**
+   * <p>The DB engine.</p>
+   */
+  Engine?: string;
 
   /**
    * <p>If an installation media failure occurred, the cause of the failure.</p>
@@ -11851,14 +12266,9 @@ export interface InstallationMedia {
   InstallationMediaId?: string;
 
   /**
-   * <p>The path to the installation medium for the operating system associated with the DB engine.</p>
+   * <p>The path to the installation medium for the DB engine.</p>
    */
-  OSInstallationMediaPath?: string;
-
-  /**
-   * <p>The status of the installation medium.</p>
-   */
-  Status?: string;
+  EngineInstallationMediaPath?: string;
 }
 
 export namespace InstallationMedia {
@@ -11908,11 +12318,6 @@ export namespace InstallationMediaFailureCause {
 export interface InstallationMediaMessage {
   __type?: "InstallationMediaMessage";
   /**
-   * <p>The list of <a>InstallationMedia</a> objects for the AWS account.</p>
-   */
-  InstallationMedia?: InstallationMedia[];
-
-  /**
    * <p>An optional pagination token provided by a previous
    *           <a>DescribeInstallationMedia</a> request.
    *           If this parameter is specified, the response includes
@@ -11920,6 +12325,11 @@ export interface InstallationMediaMessage {
    *           up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The list of <a>InstallationMedia</a> objects for the AWS account.</p>
+   */
+  InstallationMedia?: InstallationMedia[];
 }
 
 export namespace InstallationMediaMessage {
@@ -12255,6 +12665,54 @@ export namespace InvalidEventSubscriptionStateFault {
 }
 
 /**
+ * <p>The export is invalid for exporting to an Amazon S3 bucket.</p>
+ */
+export interface InvalidExportOnlyFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidExportOnlyFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidExportOnlyFault {
+  export const filterSensitiveLog = (obj: InvalidExportOnlyFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InvalidExportOnlyFault => __isa(o, "InvalidExportOnlyFault");
+}
+
+/**
+ * <p>The state of the export snapshot is invalid for exporting to an Amazon S3 bucket.</p>
+ */
+export interface InvalidExportSourceStateFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidExportSourceStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidExportSourceStateFault {
+  export const filterSensitiveLog = (obj: InvalidExportSourceStateFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InvalidExportSourceStateFault => __isa(o, "InvalidExportSourceStateFault");
+}
+
+/**
+ * <p>You can't cancel an export task that has completed.</p>
+ */
+export interface InvalidExportTaskStateFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidExportTaskStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidExportTaskStateFault {
+  export const filterSensitiveLog = (obj: InvalidExportTaskStateFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InvalidExportTaskStateFault => __isa(o, "InvalidExportTaskStateFault");
+}
+
+/**
  * <p></p>
  */
 export interface InvalidGlobalClusterStateFault extends __SmithyException, $MetadataBearer {
@@ -12448,18 +12906,18 @@ export namespace MinimumEngineVersionPerAllowedValue {
 export interface ModifyCertificatesMessage {
   __type?: "ModifyCertificatesMessage";
   /**
-   * <p>The new default certificate identifier to override the current one with.</p>
-   *          <p>To determine the valid values, use the <code>describe-certificates</code> AWS CLI
-   *             command or the <code>DescribeCertificates</code> API operation.</p>
-   */
-  CertificateIdentifier?: string;
-
-  /**
    * <p>A value that indicates whether to remove the override for the default certificate.
    *             If the override is removed, the default certificate is the system
    *             default.</p>
    */
   RemoveCustomerOverride?: boolean;
+
+  /**
+   * <p>The new default certificate identifier to override the current one with.</p>
+   *          <p>To determine the valid values, use the <code>describe-certificates</code> AWS CLI
+   *             command or the <code>DescribeCertificates</code> API operation.</p>
+   */
+  CertificateIdentifier?: string;
 }
 
 export namespace ModifyCertificatesMessage {
@@ -12487,6 +12945,18 @@ export namespace ModifyCertificatesResult {
 export interface ModifyCurrentDBClusterCapacityMessage {
   __type?: "ModifyCurrentDBClusterCapacityMessage";
   /**
+   * <p>The amount of time, in seconds, that Aurora Serverless tries to find a scaling point
+   *             to perform seamless scaling before enforcing the timeout action. The default is
+   *             300.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Value must be from 10 through 600.</p>
+   *             </li>
+   *          </ul>
+   */
+  SecondsBeforeTimeout?: number;
+
+  /**
    * <p>The DB cluster capacity.</p>
    *         <p>When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.</p>
    *         <p>Constraints:</p>
@@ -12513,18 +12983,6 @@ export interface ModifyCurrentDBClusterCapacityMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p>The amount of time, in seconds, that Aurora Serverless tries to find a scaling point
-   *             to perform seamless scaling before enforcing the timeout action. The default is
-   *             300.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Value must be from 10 through 600.</p>
-   *             </li>
-   *          </ul>
-   */
-  SecondsBeforeTimeout?: number;
-
-  /**
    * <p>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code> or <code>RollbackCapacityChange</code>.</p>
    *         <p>
    *             <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the specified value as soon as possible.</p>
@@ -12545,11 +13003,6 @@ export namespace ModifyCurrentDBClusterCapacityMessage {
 export interface ModifyDBClusterEndpointMessage {
   __type?: "ModifyDBClusterEndpointMessage";
   /**
-   * <p>The identifier of the endpoint to modify. This parameter is stored as a lowercase string.</p>
-   */
-  DBClusterEndpointIdentifier: string | undefined;
-
-  /**
    * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</p>
    */
   EndpointType?: string;
@@ -12565,6 +13018,11 @@ export interface ModifyDBClusterEndpointMessage {
    * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
    */
   StaticMembers?: string[];
+
+  /**
+   * <p>The identifier of the endpoint to modify. This parameter is stored as a lowercase string.</p>
+   */
+  DBClusterEndpointIdentifier: string | undefined;
 }
 
 export namespace ModifyDBClusterEndpointMessage {
@@ -12580,12 +13038,23 @@ export namespace ModifyDBClusterEndpointMessage {
 export interface ModifyDBClusterMessage {
   __type?: "ModifyDBClusterMessage";
   /**
-   * <p>A value that indicates whether major version upgrades are allowed.</p>
-   *          <p>Constraints: You must allow major version upgrades when specifying a value for the
-   *                 <code>EngineVersion</code> parameter that is a different major version than the DB
-   *             cluster's current version.</p>
+   * <p>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>The first character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster2</code>
+   *          </p>
    */
-  AllowMajorVersionUpgrade?: boolean;
+  NewDBClusterIdentifier?: string;
 
   /**
    * <p>A value that indicates whether the modifications in this request and
@@ -12602,54 +13071,6 @@ export interface ModifyDBClusterMessage {
    *          <p>By default, this parameter is disabled.</p>
    */
   ApplyImmediately?: boolean;
-
-  /**
-   * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
-   *             0.</p>
-   *         <p>Default: 0</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
-   *             </li>
-   *          </ul>
-   */
-  BacktrackWindow?: number;
-
-  /**
-   * <p>The number of days for which automated backups are retained. You must specify a minimum value of 1.</p>
-   *          <p>Default: 1</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be a value from 1 to 35</p>
-   *             </li>
-   *          </ul>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster.</p>
-   */
-  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
-
-  /**
-   * <p>A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
-   *             The default is not to copy them.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints: This identifier must match the identifier of an existing DB
-   *             cluster.</p>
-   */
-  DBClusterIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the DB cluster parameter group to use for the DB cluster.</p>
-   */
-  DBClusterParameterGroupName?: string;
 
   /**
    * <p>The name of the DB parameter group to apply to all instances of the DB cluster. </p>
@@ -12673,36 +13094,6 @@ export interface ModifyDBClusterMessage {
   DBInstanceParameterGroupName?: string;
 
   /**
-   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled.
-   *         </p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint
-   *             is disabled.</p>
-   *         <p>When enabled, the HTTP endpoint provides a connectionless web service API for running
-   *             SQL queries on the Aurora Serverless DB cluster. You can also query your database
-   *             from inside the RDS console with the query editor.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API for Aurora Serverless</a> in the
-   *             <i>Amazon Aurora User Guide</i>.</p>
-   */
-  EnableHttpEndpoint?: boolean;
-
-  /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
-   *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
-   *          </p>
-   */
-  EnableIAMDatabaseAuthentication?: boolean;
-
-  /**
    * <p>The version number of the database engine to which you want to upgrade.
    *             Changing this parameter results in an outage. The change is applied during
    *             the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
@@ -12720,51 +13111,6 @@ export interface ModifyDBClusterMessage {
    *          </p>
    */
   EngineVersion?: string;
-
-  /**
-   * <p>The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
-   *             </li>
-   *             <li>
-   *                <p>The first character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>my-cluster2</code>
-   *          </p>
-   */
-  NewDBClusterIdentifier?: string;
-
-  /**
-   * <p>A value that indicates that the DB cluster should be associated with the specified option group.
-   *             Changing this parameter doesn't result in an outage except in the following case, and the change
-   *             is applied during the next maintenance window
-   *             unless the <code>ApplyImmediately</code> is enabled for this request. If the parameter change results in an option group that
-   *             enables OEM, this change can cause a brief (sub-second) period during which new connections
-   *             are rejected but existing connections are not interrupted.
-   *         </p>
-   *          <p>Permanent options can't be removed from an option group. The option group can't be removed from a DB cluster once it is associated with a DB cluster.</p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The port number on which the DB cluster accepts connections.</p>
-   *          <p>Constraints: Value must be <code>1150-65535</code>
-   *          </p>
-   *          <p>Default: The same port as the original DB cluster.</p>
-   */
-  Port?: number;
 
   /**
    * <p>The daily time range during which automated backups are created
@@ -12796,6 +13142,11 @@ export interface ModifyDBClusterMessage {
   PreferredBackupWindow?: string;
 
   /**
+   * <p>The name of the DB cluster parameter group to use for the DB cluster.</p>
+   */
+  DBClusterParameterGroupName?: string;
+
+  /**
    * <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
    *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
@@ -12816,6 +13167,138 @@ export interface ModifyDBClusterMessage {
   ScalingConfiguration?: ScalingConfiguration;
 
   /**
+   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled. By default,
+   *             deletion protection is disabled.
+   *         </p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
+   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   */
+  MasterUserPassword?: string;
+
+  /**
+   * <p>The number of days for which automated backups are retained. You must specify a minimum value of 1.</p>
+   *          <p>Default: 1</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be a value from 1 to 35</p>
+   *             </li>
+   *          </ul>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>The Active Directory directory ID to move the DB cluster to.
+   *           Specify <code>none</code> to remove the cluster from its current domain.
+   *           The domain must be created prior to this operation.
+   *       </p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
+   *             0.</p>
+   *         <note>
+   *             <p>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</p>
+   *         </note>
+   *         <p>Default: 0</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
+   *             </li>
+   *          </ul>
+   */
+  BacktrackWindow?: number;
+
+  /**
+   * <p>A value that indicates whether major version upgrades are allowed.</p>
+   *          <p>Constraints: You must allow major version upgrades when specifying a value for the
+   *                 <code>EngineVersion</code> parameter that is a different major version than the DB
+   *             cluster's current version.</p>
+   */
+  AllowMajorVersionUpgrade?: boolean;
+
+  /**
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   */
+  DomainIAMRoleName?: string;
+
+  /**
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   *
+   *         <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>The port number on which the DB cluster accepts connections.</p>
+   *          <p>Constraints: Value must be <code>1150-65535</code>
+   *          </p>
+   *          <p>Default: The same port as the original DB cluster.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint
+   *             is disabled.</p>
+   *         <p>When enabled, the HTTP endpoint provides a connectionless web service API for running
+   *             SQL queries on the Aurora Serverless DB cluster. You can also query your database
+   *             from inside the RDS console with the query editor.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API for Aurora Serverless</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  EnableHttpEndpoint?: boolean;
+
+  /**
+   * <p>A value that indicates whether to enable write operations to be forwarded
+   *       from this cluster to the primary cluster in an Aurora global database. The
+   *       resulting changes are replicated back to this cluster. This parameter only
+   *       applies to DB clusters that are secondary clusters in an Aurora global database.
+   *       By default, Aurora disallows write operations for secondary clusters.</p>
+   */
+  EnableGlobalWriteForwarding?: boolean;
+
+  /**
+   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster.</p>
+   */
+  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
+
+  /**
+   * <p>A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
+   *             The default is not to copy them.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>A value that indicates that the DB cluster should be associated with the specified option group.
+   *             Changing this parameter doesn't result in an outage except in the following case, and the change
+   *             is applied during the next maintenance window
+   *             unless the <code>ApplyImmediately</code> is enabled for this request. If the parameter change results in an option group that
+   *             enables OEM, this change can cause a brief (sub-second) period during which new connections
+   *             are rejected but existing connections are not interrupted.
+   *         </p>
+   *          <p>Permanent options can't be removed from an option group. The option group can't be removed from a DB cluster once it is associated with a DB cluster.</p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints: This identifier must match the identifier of an existing DB
+   *             cluster.</p>
+   */
+  DBClusterIdentifier: string | undefined;
+
+  /**
    * <p>A list of VPC security groups that the DB cluster will belong to.</p>
    */
   VpcSecurityGroupIds?: string[];
@@ -12834,14 +13317,14 @@ export namespace ModifyDBClusterMessage {
 export interface ModifyDBClusterParameterGroupMessage {
   __type?: "ModifyDBClusterParameterGroupMessage";
   /**
-   * <p>The name of the DB cluster parameter group to modify.</p>
-   */
-  DBClusterParameterGroupName: string | undefined;
-
-  /**
    * <p>A list of parameters in the DB cluster parameter group to modify.</p>
    */
   Parameters: Parameter[] | undefined;
+
+  /**
+   * <p>The name of the DB cluster parameter group to modify.</p>
+   */
+  DBClusterParameterGroupName: string | undefined;
 }
 
 export namespace ModifyDBClusterParameterGroupMessage {
@@ -12877,18 +13360,6 @@ export namespace ModifyDBClusterResult {
 export interface ModifyDBClusterSnapshotAttributeMessage {
   __type?: "ModifyDBClusterSnapshotAttributeMessage";
   /**
-   * <p>The name of the DB cluster snapshot attribute to modify.</p>
-   *         <p>To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot,
-   *             set this value to <code>restore</code>.</p>
-   */
-  AttributeName: string | undefined;
-
-  /**
-   * <p>The identifier for the DB cluster snapshot to modify the attributes for.</p>
-   */
-  DBClusterSnapshotIdentifier: string | undefined;
-
-  /**
    * <p>A list of DB cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p>
    *         <p>To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account
    *             IDs, or <code>all</code> to make the manual DB cluster snapshot restorable by
@@ -12908,6 +13379,22 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
    *             can still copy or restore a manual DB cluster snapshot.</p>
    */
   ValuesToRemove?: string[];
+
+  /**
+   * <p>The name of the DB cluster snapshot attribute to modify.</p>
+   *         <p>To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot,
+   *             set this value to <code>restore</code>.</p>
+   *         <note>
+   *             <p>To view the list of attributes available to modify, use the
+   *                 <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
+   *         </note>
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * <p>The identifier for the DB cluster snapshot to modify the attributes for.</p>
+   */
+  DBClusterSnapshotIdentifier: string | undefined;
 }
 
 export namespace ModifyDBClusterSnapshotAttributeMessage {
@@ -12944,56 +13431,34 @@ export namespace ModifyDBClusterSnapshotAttributeResult {
 export interface ModifyDBInstanceMessage {
   __type?: "ModifyDBInstanceMessage";
   /**
-   * <p>The new amount of storage (in gibibytes) to allocate for the DB instance.
-   *       </p>
-   *
-   *          <p>For MariaDB, MySQL, Oracle, and PostgreSQL,
-   *           the value supplied must be at least 10% greater than the current value.
-   *           Values that are not at least 10% greater than the existing value are rounded up
-   *           so that they are 10% greater than the current value.
-   *       </p>
-   *
-   *          <p>For the valid values for allocated storage for each engine,
-   *           see <code>CreateDBInstance</code>.
-   *       </p>
+   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
    */
-  AllocatedStorage?: number;
+  TdeCredentialArn?: string;
 
   /**
-   * <p>A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.</p>
-   *          <p>Constraints: Major version upgrades must be allowed when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.</p>
-   */
-  AllowMajorVersionUpgrade?: boolean;
-
-  /**
-   * <p>A value that indicates whether the modifications in this request and
-   *         any pending modifications are asynchronously applied
-   *         as soon as possible, regardless of the
-   *         <code>PreferredMaintenanceWindow</code> setting for the DB instance. By default, this parameter is
-   *           disabled.
-   *         </p>
-   *          <p>
-   *         If this parameter is disabled, changes to the
-   *         DB instance are applied during the next maintenance window. Some parameter changes can cause an outage
-   *         and are applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
-   *         Review the table of parameters in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying a DB Instance</a>
-   *           in the <i>Amazon RDS User Guide.</i> to see the impact of enabling
-   *           or disabling <code>ApplyImmediately</code> for each modified parameter and to determine when the changes are applied.
-   *         </p>
-   */
-  ApplyImmediately?: boolean;
-
-  /**
-   * <p>
-   *     A value that indicates whether minor version upgrades are applied automatically
-   *     to the DB instance during the maintenance window.
-   *     Changing this parameter doesn't result in an outage except in the following case
-   *     and the change is asynchronously applied as soon as possible.
-   *     An outage results if this parameter is enabled during the maintenance window,
-   *     and a newer minor version is available, and RDS has enabled auto patching for that engine version.
+   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.
+   *     Changing this parameter doesn't result in an outage and the change
+   *     is applied during the next maintenance window
+   *     unless the <code>ApplyImmediately</code> parameter is
+   *         enabled for this request.
    *     </p>
    */
-  AutoMinorVersionUpgrade?: boolean;
+  MultiAZ?: boolean;
+
+  /**
+   * <p>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For
+   *       example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
+   *       go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+   *           create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
+   */
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
+   */
+  DomainIAMRoleName?: string;
 
   /**
    * <p>The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p>
@@ -13013,22 +13478,89 @@ export interface ModifyDBInstanceMessage {
    *                <p>Must be a value from 0 to 35</p>
    *             </li>
    *             <li>
-   *                <p>Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6 or later</p>
+   *                <p>Can be specified for a MySQL read replica only if the source is running MySQL 5.6 or
+   *                     later</p>
    *             </li>
    *             <li>
-   *                <p>Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5</p>
+   *                <p>Can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
+   *                     9.3.5</p>
    *             </li>
    *             <li>
-   *                <p>Can't be set to 0 if the DB instance is a source to Read Replicas</p>
+   *                <p>Can't be set to 0 if the DB instance is a source to read replicas</p>
    *             </li>
    *          </ul>
    */
   BackupRetentionPeriod?: number;
 
   /**
-   * <p>Indicates the certificate that needs to be associated with the instance.</p>
+   * <p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance
+   *       after a failure of the existing primary instance. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
+   *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
+   *     </p>
+   *          <p>Default: 1</p>
+   *          <p>Valid Values: 0 - 15</p>
    */
-  CACertificateIdentifier?: string;
+  PromotionTier?: number;
+
+  /**
+   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
+   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
+   *             encryption key.</p>
+   *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
+   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
+   *             Your AWS account has a different default encryption key for each AWS Region.</p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *           Management (IAM) accounts to database accounts. By default, mapping is disabled.
+   *           For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+   *
+   *          <p>For more information about IAM database authentication, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+   *               IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>A value that indicates whether to copy all tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this
+   *           value for an Aurora DB instance has no effect on the DB cluster setting. For more
+   *           information, see <code>ModifyDBCluster</code>.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>
+   *             The new DB instance identifier for the DB instance when renaming a DB
+   *             instance. When you change the DB instance identifier, an instance
+   *             reboot occurs immediately if you enable <code>ApplyImmediately</code>, or will occur
+   *             during the next maintenance window if you disable Apply Immediately. This value is stored
+   *             as a lowercase string.
+   *         </p>
+   *
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>The first character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>mydbinstance</code>
+   *          </p>
+   */
+  NewDBInstanceIdentifier?: string;
 
   /**
    * <p>A value that indicates whether the DB instance is restarted when you rotate your
@@ -13065,32 +13597,6 @@ export interface ModifyDBInstanceMessage {
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
   /**
-   * <p>A value that indicates whether to copy all tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this
-   *           value for an Aurora DB instance has no effect on the DB cluster setting. For more
-   *           information, see <code>ModifyDBCluster</code>.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
-   *           For the full list of DB instance classes,
-   *           and availability for your engine, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *          <p>If you modify the DB instance class, an outage occurs during the change.
-   *         The change is applied during the next maintenance window,
-   *         unless <code>ApplyImmediately</code> is enabled for this request.
-   *         </p>
-   *          <p>Default: Uses existing setting</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
    * <p>The DB instance identifier. This value is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -13102,163 +13608,70 @@ export interface ModifyDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The name of the DB parameter group to apply to the DB instance. Changing this
-   *             setting doesn't result in an outage. The parameter group name itself is changed
-   *             immediately, but the actual parameter changes are not applied until you reboot the
-   *             instance without failover. In this case, the DB instance isn't rebooted automatically and the
-   *             parameter changes isn't applied during the next maintenance window.</p>
-   *          <p>Default: Uses existing setting</p>
-   *          <p>Constraints: The DB parameter group must be in the same DB parameter group family as this DB instance.</p>
+   * <p>
+   *             Indicates that the DB instance should be associated with the specified option group.
+   *             Changing this parameter doesn't result in an outage except in the following case and the change
+   *             is applied during the next maintenance window
+   *             unless the <code>ApplyImmediately</code> parameter is enabled
+   *             for this request. If the parameter change results in an option group that
+   *             enables OEM, this change can cause a brief (sub-second) period during which new connections
+   *             are rejected but existing connections are not interrupted.
+   *         </p>
+   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>
    */
-  DBParameterGroupName?: string;
+  OptionGroupName?: string;
 
   /**
-   * <p>The port number on which the database accepts connections.</p>
-   *          <p>The value of the <code>DBPortNumber</code> parameter must not match any of the port values specified for options in the option
-   *       group for the DB instance.</p>
-   *          <p>Your database will restart when you change the <code>DBPortNumber</code> value regardless of the value of the <code>ApplyImmediately</code>
-   *       parameter.</p>
-   *          <p>
-   *             <b>MySQL</b>
-   *          </p>
-   *          <p>
-   *       Default: <code>3306</code>
-   *          </p>
-   *          <p>
-   *       Valid Values: <code>1150-65535</code>
-   *          </p>
-   *          <p>
-   *             <b>MariaDB</b>
-   *          </p>
-   *          <p>
-   *       Default: <code>3306</code>
-   *          </p>
-   *          <p>
-   *       Valid Values: <code>1150-65535</code>
-   *          </p>
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *          <p>
-   *       Default: <code>5432</code>
-   *          </p>
-   *          <p>
-   *       Valid Values: <code>1150-65535</code>
-   *          </p>
-   *          <p>Type: Integer</p>
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>
-   *       Default: <code>1521</code>
-   *          </p>
-   *          <p>
-   *       Valid Values: <code>1150-65535</code>
-   *          </p>
-   *          <p>
-   *             <b>SQL Server</b>
-   *          </p>
-   *          <p>
-   *       Default: <code>1433</code>
-   *          </p>
-   *          <p>
-   *       Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>, <code>47001</code>,
-   *       <code>49152</code>, and <code>49152</code> through <code>49156</code>.
-   *     </p>
+   * <p>A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
-   *          <p>
-   *       Default: <code>3306</code>
-   *          </p>
-   *          <p>
-   *       Valid Values: <code>1150-65535</code>
-   *          </p>
-   */
-  DBPortNumber?: number;
-
-  /**
-   * <p>A list of DB security groups to authorize on this DB instance. Changing this setting doesn't result in an outage and the change is asynchronously applied as soon as possible.</p>
+   *          <p>Not applicable. The associated list of EC2 VPC security groups is managed by
+   *           the DB cluster. For more information, see <code>ModifyDBCluster</code>.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>If supplied, must match existing DBSecurityGroups.</p>
+   *                <p>If supplied, must match existing VpcSecurityGroupIds.</p>
    *             </li>
    *          </ul>
    */
-  DBSecurityGroups?: string[];
+  VpcSecurityGroupIds?: string[];
 
   /**
-   * <p>The new DB subnet group for the DB instance.
-   *           You can use this parameter to move your DB instance to a different VPC.
-   *
-   *           If your DB instance isn't in a VPC, you can also use this parameter to move your DB instance into a VPC.
-   *           For more information, see
-   *           <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating the VPC for a DB Instance</a>
-   *           in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *          <p>Changing the subnet group causes an outage during the change.
-   *         The change is applied during the next maintenance window,
-   *         unless you enable <code>ApplyImmediately</code>.
-   *     </p>
-   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetGroup</code>
-   *          </p>
+   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
    */
-  DBSubnetGroupName?: string;
+  ProcessorFeatures?: ProcessorFeature[];
 
   /**
-   * <p>A value that indicates whether the DB instance has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-   *                 Deleting a DB Instance</a>.
-   *         </p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>The Active Directory directory ID to move the DB instance to.
-   *           Specify <code>none</code> to remove the instance from its current domain.
-   *           The domain must be created prior to this operation. Currently, only Microsoft SQL Server and
-   *           Oracle DB instances can be created in an Active Directory Domain.
+   * <p>Specifies the storage type to be associated with the DB instance.
    *       </p>
-   *          <p>For Microsoft SQL Server DB instances, Amazon RDS can use
-   *           Windows Authentication to authenticate users that connect to the DB instance. For more
-   *           information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
-   *               Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server</a> in the
-   *           <i>Amazon RDS User Guide</i>.</p>
-   *          <p>For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB instance.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
-   *               Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
-   */
-  Domain?: string;
-
-  /**
-   * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
-   */
-  DomainIAMRoleName?: string;
-
-  /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *           Management (IAM) accounts to database accounts. By default, mapping is disabled.
-   *           For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
-   *
-   *          <p>For more information about IAM database authentication, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
-   *               IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
+   *          <p>If you specify Provisioned IOPS (<code>io1</code>),
+   *           you must also include a value for the <code>Iops</code> parameter.
+   *       </p>
+   *          <p>If you choose to migrate your DB instance from using standard storage to using
+   *             Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process
+   *             can take time. The duration of the migration depends on several factors such as database
+   *             load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS
+   *             provisioned (if any), and the number of prior scale storage operations. Typical
+   *             migration times are under 24 hours, but the process can take up to several days in some
+   *             cases. During the migration, the DB instance is available for use, but might experience
+   *             performance degradation. While the migration takes place, nightly backups for the
+   *             instance are suspended. No other Amazon RDS operations can take place for the instance,
+   *             including modifying the instance, rebooting the instance, deleting the instance,
+   *             creating a read replica for the instance, and creating a DB snapshot of the instance. </p>
+   *          <p>
+   *           Valid values: <code>standard | gp2 | io1</code>
+   *          </p>
+   *          <p>Default: <code>io1</code> if the <code>Iops</code> parameter
+   *           is specified, otherwise <code>gp2</code>
    *          </p>
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  StorageType?: string;
 
   /**
-   * <p>A value that indicates whether to enable Performance Insights for the DB instance.</p>
-   *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service
-   *                     User Guide</i>.
-   *         </p>
+   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
    */
-  EnablePerformanceInsights?: boolean;
+  PerformanceInsightsRetentionPeriod?: number;
 
   /**
    * <p>
@@ -13276,6 +13689,81 @@ export interface ModifyDBInstanceMessage {
   EngineVersion?: string;
 
   /**
+   * <p>The license model for the DB instance.</p>
+   *         <p>Valid values: <code>license-included</code> | <code>bring-your-own-license</code> |
+   *             <code>general-public-license</code>
+   *          </p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>A value that indicates whether the modifications in this request and
+   *         any pending modifications are asynchronously applied
+   *         as soon as possible, regardless of the
+   *         <code>PreferredMaintenanceWindow</code> setting for the DB instance. By default, this parameter is
+   *           disabled.
+   *         </p>
+   *          <p>
+   *         If this parameter is disabled, changes to the
+   *         DB instance are applied during the next maintenance window. Some parameter changes can cause an outage
+   *         and are applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
+   *         Review the table of parameters in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying a DB Instance</a>
+   *           in the <i>Amazon RDS User Guide.</i> to see the impact of enabling
+   *           or disabling <code>ApplyImmediately</code> for each modified parameter and to determine when the changes are applied.
+   *         </p>
+   */
+  ApplyImmediately?: boolean;
+
+  /**
+   * <p>The new amount of storage (in gibibytes) to allocate for the DB instance.
+   *       </p>
+   *
+   *          <p>For MariaDB, MySQL, Oracle, and PostgreSQL,
+   *           the value supplied must be at least 10% greater than the current value.
+   *           Values that are not at least 10% greater than the existing value are rounded up
+   *           so that they are 10% greater than the current value.
+   *       </p>
+   *
+   *          <p>For the valid values for allocated storage for each engine,
+   *           see <code>CreateDBInstance</code>.
+   *       </p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>The password for the given ARN from the key store in order to access the device.</p>
+   */
+  TdeCredentialPassword?: string;
+
+  /**
+   * <p>The weekly time range (in UTC) during which system maintenance can occur, which
+   *             might result in an outage. Changing this parameter doesn't result in an outage, except
+   *             in the following situation, and the change is asynchronously applied as soon as
+   *             possible. If there are pending actions that cause a reboot, and the maintenance window
+   *             is changed to include the current time, then changing this parameter will cause a reboot
+   *             of the DB instance. If moving this window to the current time, there must be at least 30
+   *             minutes between the current time and end of the window to ensure pending changes are
+   *             applied.</p>
+   *          <p>Default: Uses existing setting</p>
+   *          <p>Format: ddd:hh24:mi-ddd:hh24:mi</p>
+   *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *          <p>Constraints: Must be at least 30 minutes</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>
+   *     A value that indicates whether minor version upgrades are applied automatically
+   *     to the DB instance during the maintenance window.
+   *     Changing this parameter doesn't result in an outage except in the following case
+   *     and the change is asynchronously applied as soon as possible.
+   *     An outage results if this parameter is enabled during the maintenance window,
+   *     and a newer minor version is available, and RDS has enabled auto patching for that engine version.
+   *     </p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
    * <p>The new Provisioned IOPS (I/O operations per second) value for the RDS instance.
    *       </p>
    *          <p>Changing this setting doesn't result in an outage and
@@ -13284,11 +13772,17 @@ export interface ModifyDBInstanceMessage {
    *           If you are migrating from Provisioned IOPS to standard storage, set this value to 0.
    *           The DB instance will require a reboot for the change in storage type to take effect.
    *       </p>
-   *          <p>If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time.
-   *           The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases.
-   *           During the migration, the DB instance is available for use, but might experience performance degradation.
-   *           While the migration takes place, nightly backups for the instance are suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a Read Replica for the instance, and creating a DB snapshot of the instance.
-   *       </p>
+   *          <p>If you choose to migrate your DB instance from using standard storage to using
+   *             Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process
+   *             can take time. The duration of the migration depends on several factors such as database
+   *             load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS
+   *             provisioned (if any), and the number of prior scale storage operations. Typical
+   *             migration times are under 24 hours, but the process can take up to several days in some
+   *             cases. During the migration, the DB instance is available for use, but might experience
+   *             performance degradation. While the migration takes place, nightly backups for the
+   *             instance are suspended. No other Amazon RDS operations can take place for the instance,
+   *             including modifying the instance, rebooting the instance, deleting the instance,
+   *             creating a read replica for the instance, and creating a DB snapshot of the instance. </p>
    *          <p>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL,
    *           the value supplied must be at least 10% greater than the current value.
    *           Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value.
@@ -13298,12 +13792,124 @@ export interface ModifyDBInstanceMessage {
   Iops?: number;
 
   /**
-   * <p>The license model for the DB instance.</p>
-   *         <p>Valid values: <code>license-included</code> | <code>bring-your-own-license</code> |
-   *             <code>general-public-license</code>
+   * <p>A value that indicates whether to enable Performance Insights for the DB instance.</p>
+   *         <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service
+   *                     User Guide</i>.
+   *         </p>
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>A value that indicates whether the DB instance is publicly accessible.
+   *       </p>
+   *          <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
+   *           and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
+   *           and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
+   *          <p>
+   *             <code>PubliclyAccessible</code> only applies to DB instances in a VPC.
+   *       The DB instance must be part of a public subnet and
+   *       <code>PubliclyAccessible</code> must be enabled for it to be publicly accessible.
+   *       </p>
+   *          <p>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
+   *       of the value of the <code>ApplyImmediately</code> parameter.</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>The port number on which the database accepts connections.</p>
+   *          <p>The value of the <code>DBPortNumber</code> parameter must not match any of the port values specified for options in the option
+   *       group for the DB instance.</p>
+   *          <p>Your database will restart when you change the <code>DBPortNumber</code> value regardless of the value of the <code>ApplyImmediately</code>
+   *       parameter.</p>
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>
+   *       Default: <code>3306</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   *          <p>
+   *             <b>MariaDB</b>
+   *          </p>
+   *          <p>
+   *       Default: <code>3306</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>
+   *       Default: <code>5432</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   *          <p>Type: Integer</p>
+   *          <p>
+   *             <b>Oracle</b>
+   *          </p>
+   *          <p>
+   *       Default: <code>1521</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   *          <p>
+   *             <b>SQL Server</b>
+   *          </p>
+   *          <p>
+   *       Default: <code>1433</code>
+   *          </p>
+   *         <p> Valid values: <code>1150-65535</code> except <code>1234</code>, <code>1434</code>,
+   *                 <code>3260</code>, <code>3343</code>, <code>3389</code>, <code>47001</code>, and
+   *                 <code>49152-49156</code>.</p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>
+   *       Default: <code>3306</code>
+   *          </p>
+   *          <p> Valid values: <code>1150-65535</code>
+   *         </p>
+   */
+  DBPortNumber?: number;
+
+  /**
+   * <p>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
+   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
+   *           For the full list of DB instance classes,
+   *           and availability for your engine, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>If you modify the DB instance class, an outage occurs during the change.
+   *         The change is applied during the next maintenance window,
+   *         unless <code>ApplyImmediately</code> is enabled for this request.
+   *         </p>
+   *          <p>Default: Uses existing setting</p>
+   */
+  DBInstanceClass?: string;
+
+  /**
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+   *       to a value other than 0.</p>
+   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
    *          </p>
    */
-  LicenseModel?: string;
+  MonitoringInterval?: number;
+
+  /**
+   * <p>Indicates the certificate that needs to be associated with the instance.</p>
+   */
+  CACertificateIdentifier?: string;
+
+  /**
+   * <p>A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.</p>
+   *          <p>Constraints: Major version upgrades must be allowed when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.</p>
+   */
+  AllowMajorVersionUpgrade?: boolean;
 
   /**
    * <p>The new password for the master user. The password can include any printable ASCII character except "/", """, or "@".</p>
@@ -13358,93 +13964,43 @@ export interface ModifyDBInstanceMessage {
   MasterUserPassword?: string;
 
   /**
+   * <p>The Active Directory directory ID to move the DB instance to.
+   *           Specify <code>none</code> to remove the instance from its current domain.
+   *           The domain must be created prior to this operation. Currently, only Microsoft SQL Server and
+   *           Oracle DB instances can be created in an Active Directory Domain.
+   *       </p>
+   *          <p>For Microsoft SQL Server DB instances, Amazon RDS can use
+   *           Windows Authentication to authenticate users that connect to the DB instance. For more
+   *           information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+   *               Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server</a> in the
+   *           <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For Oracle DB instances, Amazon RDS can use Kerberos authentication to authenticate users that connect to the DB instance.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+   *               Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>A value that indicates whether the DB instance class of the DB instance uses its default
+   *             processor features.</p>
+   */
+  UseDefaultProcessorFeatures?: boolean;
+
+  /**
+   * <p>The name of the DB parameter group to apply to the DB instance. Changing this
+   *             setting doesn't result in an outage. The parameter group name itself is changed
+   *             immediately, but the actual parameter changes are not applied until you reboot the
+   *             instance without failover. In this case, the DB instance isn't rebooted automatically and the
+   *             parameter changes isn't applied during the next maintenance window.</p>
+   *          <p>Default: Uses existing setting</p>
+   *          <p>Constraints: The DB parameter group must be in the same DB parameter group family as this DB instance.</p>
+   */
+  DBParameterGroupName?: string;
+
+  /**
    * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
    */
   MaxAllocatedStorage?: number;
-
-  /**
-   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.</p>
-   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-   *       to a value other than 0.</p>
-   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
-   *          </p>
-   */
-  MonitoringInterval?: number;
-
-  /**
-   * <p>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For
-   *       example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
-   *       go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-   *           create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
-   */
-  MonitoringRoleArn?: string;
-
-  /**
-   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.
-   *     Changing this parameter doesn't result in an outage and the change
-   *     is applied during the next maintenance window
-   *     unless the <code>ApplyImmediately</code> parameter is
-   *         enabled for this request.
-   *     </p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>
-   *             The new DB instance identifier for the DB instance when renaming a DB
-   *             instance. When you change the DB instance identifier, an instance
-   *             reboot occurs immediately if you enable <code>ApplyImmediately</code>, or will occur
-   *             during the next maintenance window if you disable Apply Immediately. This value is stored
-   *             as a lowercase string.
-   *         </p>
-   *
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>The first character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>mydbinstance</code>
-   *          </p>
-   */
-  NewDBInstanceIdentifier?: string;
-
-  /**
-   * <p>
-   *             Indicates that the DB instance should be associated with the specified option group.
-   *             Changing this parameter doesn't result in an outage except in the following case and the change
-   *             is applied during the next maintenance window
-   *             unless the <code>ApplyImmediately</code> parameter is enabled
-   *             for this request. If the parameter change results in an option group that
-   *             enables OEM, this change can cause a brief (sub-second) period during which new connections
-   *             are rejected but existing connections are not interrupted.
-   *         </p>
-   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID
-   *             is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
-   *             encryption key.</p>
-   *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS Region.</p>
-   */
-  PerformanceInsightsKMSKeyId?: string;
-
-  /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
-   */
-  PerformanceInsightsRetentionPeriod?: number;
 
   /**
    * <p>
@@ -13479,104 +14035,44 @@ export interface ModifyDBInstanceMessage {
   PreferredBackupWindow?: string;
 
   /**
-   * <p>The weekly time range (in UTC) during which system maintenance can occur, which
-   *             might result in an outage. Changing this parameter doesn't result in an outage, except
-   *             in the following situation, and the change is asynchronously applied as soon as
-   *             possible. If there are pending actions that cause a reboot, and the maintenance window
-   *             is changed to include the current time, then changing this parameter will cause a reboot
-   *             of the DB instance. If moving this window to the current time, there must be at least 30
-   *             minutes between the current time and end of the window to ensure pending changes are
-   *             applied.</p>
-   *          <p>Default: Uses existing setting</p>
-   *          <p>Format: ddd:hh24:mi-ddd:hh24:mi</p>
-   *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
-   *          <p>Constraints: Must be at least 30 minutes</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
-   */
-  ProcessorFeatures?: ProcessorFeature[];
-
-  /**
-   * <p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance
-   *       after a failure of the existing primary instance. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
-   *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
-   *     </p>
-   *          <p>Default: 1</p>
-   *          <p>Valid Values: 0 - 15</p>
-   */
-  PromotionTier?: number;
-
-  /**
-   * <p>A value that indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible, it is an Internet-facing instance with a publicly resolvable DNS name,
-   *           which resolves to a public IP address. When the DB instance isn't publicly accessible, it is an internal instance with a DNS name that resolves to a private IP address.
-   *     </p>
-   *          <p>
-   *             <code>PubliclyAccessible</code> only applies to DB instances in a VPC.
-   *       The DB instance must be part of a public subnet and
-   *       <code>PubliclyAccessible</code> must be enabled for it to be publicly accessible.
-   *     </p>
-   *          <p>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
-   *       of the value of the <code>ApplyImmediately</code> parameter.</p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>Specifies the storage type to be associated with the DB instance.
-   *       </p>
-   *          <p>If you specify Provisioned IOPS (<code>io1</code>),
-   *           you must also include a value for the <code>Iops</code> parameter.
-   *       </p>
-   *          <p>If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time.
-   *           The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations.
-   *           Typical migration times are under 24 hours, but the process can take up to several days in some cases.
-   *           During the migration, the DB instance is available for use, but might experience performance degradation.
-   *           While the migration takes place, nightly backups for the instance are suspended.
-   *           No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a Read Replica for the instance, and creating a DB snapshot of the instance.
-   *       </p>
-   *          <p>
-   *           Valid values: <code>standard | gp2 | io1</code>
-   *          </p>
-   *          <p>Default: <code>io1</code> if the <code>Iops</code> parameter
-   *           is specified, otherwise <code>gp2</code>
-   *          </p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
-   */
-  TdeCredentialArn?: string;
-
-  /**
-   * <p>The password for the given ARN from the key store in order to access the device.</p>
-   */
-  TdeCredentialPassword?: string;
-
-  /**
-   * <p>A value that indicates whether the DB instance class of the DB instance uses its default
-   *             processor features.</p>
-   */
-  UseDefaultProcessorFeatures?: boolean;
-
-  /**
-   * <p>A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The associated list of EC2 VPC security groups is managed by
-   *           the DB cluster. For more information, see <code>ModifyDBCluster</code>.</p>
+   * <p>A list of DB security groups to authorize on this DB instance. Changing this setting doesn't result in an outage and the change is asynchronously applied as soon as possible.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>If supplied, must match existing VpcSecurityGroupIds.</p>
+   *                <p>If supplied, must match existing DBSecurityGroups.</p>
    *             </li>
    *          </ul>
    */
-  VpcSecurityGroupIds?: string[];
+  DBSecurityGroups?: string[];
+
+  /**
+   * <p>A value that indicates whether the DB instance has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled. By default,
+   *             deletion protection is disabled. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+   *                 Deleting a DB Instance</a>.
+   *         </p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The new DB subnet group for the DB instance.
+   *           You can use this parameter to move your DB instance to a different VPC.
+   *
+   *           If your DB instance isn't in a VPC, you can also use this parameter to move your DB instance into a VPC.
+   *           For more information, see
+   *           <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating the VPC for a DB Instance</a>
+   *           in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Changing the subnet group causes an outage during the change.
+   *         The change is applied during the next maintenance window,
+   *         unless you enable <code>ApplyImmediately</code>.
+   *     </p>
+   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *          <p>Example: <code>mySubnetGroup</code>
+   *          </p>
+   */
+  DBSubnetGroupName?: string;
 }
 
 export namespace ModifyDBInstanceMessage {
@@ -13610,6 +14106,16 @@ export namespace ModifyDBInstanceResult {
 export interface ModifyDBParameterGroupMessage {
   __type?: "ModifyDBParameterGroupMessage";
   /**
+   * <p>An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.</p>
+   *          <p>Valid Values (for the application method): <code>immediate | pending-reboot</code>
+   *          </p>
+   *          <note>
+   *             <p>You can use the immediate value with dynamic parameters only. You can use the pending-reboot value for both dynamic and static parameters, and changes are applied when you reboot the DB instance without failover.</p>
+   *          </note>
+   */
+  Parameters: Parameter[] | undefined;
+
+  /**
    * <p>The name of the DB parameter group.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -13619,16 +14125,6 @@ export interface ModifyDBParameterGroupMessage {
    *          </ul>
    */
   DBParameterGroupName: string | undefined;
-
-  /**
-   * <p>An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; subsequent arguments are optional. A maximum of 20 parameters can be modified in a single request.</p>
-   *          <p>Valid Values (for the application method): <code>immediate | pending-reboot</code>
-   *          </p>
-   *          <note>
-   *             <p>You can use the immediate value with dynamic parameters only. You can use the pending-reboot value for both dynamic and static parameters, and changes are applied when you reboot the DB instance without failover.</p>
-   *          </note>
-   */
-  Parameters: Parameter[] | undefined;
 }
 
 export namespace ModifyDBParameterGroupMessage {
@@ -13641,14 +14137,26 @@ export namespace ModifyDBParameterGroupMessage {
 export interface ModifyDBProxyRequest {
   __type?: "ModifyDBProxyRequest";
   /**
-   * <p>The new authentication settings for the <code>DBProxy</code>.</p>
+   * <p>Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+   *         By enabling this setting, you can enforce encrypted TLS connections to the proxy, even if the associated database doesn't
+   *         use TLS.</p>
    */
-  Auth?: UserAuthConfig[];
+  RequireTLS?: boolean;
 
   /**
-   * <p>The identifier for the <code>DBProxy</code> to modify.</p>
+   * <p>The new list of security groups for the <code>DBProxy</code>.</p>
    */
-  DBProxyName: string | undefined;
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The new identifier for the <code>DBProxy</code>. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
+   */
+  NewDBProxyName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.</p>
+   */
+  RoleArn?: string;
 
   /**
    * <p>Whether the proxy includes detailed information about SQL statements in its logs.
@@ -13667,26 +14175,14 @@ export interface ModifyDBProxyRequest {
   IdleClientTimeout?: number;
 
   /**
-   * <p>The new identifier for the <code>DBProxy</code>. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
+   * <p>The identifier for the <code>DBProxy</code> to modify.</p>
    */
-  NewDBProxyName?: string;
+  DBProxyName: string | undefined;
 
   /**
-   * <p>Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-   *         By enabling this setting, you can enforce encrypted TLS connections to the proxy, even if the associated database doesn't
-   *         use TLS.</p>
+   * <p>The new authentication settings for the <code>DBProxy</code>.</p>
    */
-  RequireTLS?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The new list of security groups for the <code>DBProxy</code>.</p>
-   */
-  SecurityGroups?: string[];
+  Auth?: UserAuthConfig[];
 }
 
 export namespace ModifyDBProxyRequest {
@@ -13724,14 +14220,14 @@ export interface ModifyDBProxyTargetGroupRequest {
   DBProxyName: string | undefined;
 
   /**
-   * <p>The new name for the modified <code>DBProxyTarget</code>. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
-   */
-  NewName?: string;
-
-  /**
    * <p>The name of the new target group to assign to the proxy.</p>
    */
   TargetGroupName: string | undefined;
+
+  /**
+   * <p>The new name for the modified <code>DBProxyTarget</code>. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
+   */
+  NewName?: string;
 }
 
 export namespace ModifyDBProxyTargetGroupRequest {
@@ -13762,16 +14258,20 @@ export namespace ModifyDBProxyTargetGroupResponse {
 export interface ModifyDBSnapshotAttributeMessage {
   __type?: "ModifyDBSnapshotAttributeMessage";
   /**
-   * <p>The name of the DB snapshot attribute to modify.</p>
-   *          <p>To manage authorization for other AWS accounts to copy or restore a manual DB snapshot,
-   *       set this value to <code>restore</code>.</p>
-   */
-  AttributeName: string | undefined;
-
-  /**
    * <p>The identifier for the DB snapshot to modify the attributes for.</p>
    */
   DBSnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>A list of DB snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p>
+   *          <p>To remove authorization for other AWS accounts to copy or restore a manual snapshot, set this list to include
+   *       one or more AWS account
+   *       identifiers, or <code>all</code> to remove authorization for any AWS account to copy or
+   *       restore the DB snapshot. If you specify <code>all</code>, an AWS account whose
+   *       account ID is explicitly added to the <code>restore</code> attribute
+   *       can still copy or restore the manual DB snapshot.</p>
+   */
+  ValuesToRemove?: string[];
 
   /**
    * <p>A list of DB snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p>
@@ -13784,15 +14284,15 @@ export interface ModifyDBSnapshotAttributeMessage {
   ValuesToAdd?: string[];
 
   /**
-   * <p>A list of DB snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p>
-   *          <p>To remove authorization for other AWS accounts to copy or restore a manual snapshot, set this list to include
-   *       one or more AWS account
-   *       identifiers, or <code>all</code> to remove authorization for any AWS account to copy or
-   *       restore the DB snapshot. If you specify <code>all</code>, an AWS account whose
-   *       account ID is explicitly added to the <code>restore</code> attribute
-   *       can still copy or restore the manual DB snapshot.</p>
+   * <p>The name of the DB snapshot attribute to modify.</p>
+   *          <p>To manage authorization for other AWS accounts to copy or restore a manual DB snapshot,
+   *       set this value to <code>restore</code>.</p>
+   *          <note>
+   *             <p>To view the list of attributes available to modify, use the
+   *               <a>DescribeDBSnapshotAttributes</a> API action.</p>
+   *          </note>
    */
-  ValuesToRemove?: string[];
+  AttributeName: string | undefined;
 }
 
 export namespace ModifyDBSnapshotAttributeMessage {
@@ -13921,11 +14421,6 @@ export namespace ModifyDBSnapshotResult {
 export interface ModifyDBSubnetGroupMessage {
   __type?: "ModifyDBSubnetGroupMessage";
   /**
-   * <p>The description for the DB subnet group.</p>
-   */
-  DBSubnetGroupDescription?: string;
-
-  /**
    * <p>The name for the DB subnet group. This value is stored as a lowercase string.
    *           You can't modify the default subnet group.
    *       </p>
@@ -13939,6 +14434,11 @@ export interface ModifyDBSubnetGroupMessage {
    * <p>The EC2 subnet IDs for the DB subnet group.</p>
    */
   SubnetIds: string[] | undefined;
+
+  /**
+   * <p>The description for the DB subnet group.</p>
+   */
+  DBSubnetGroupDescription?: string;
 }
 
 export namespace ModifyDBSubnetGroupMessage {
@@ -13974,13 +14474,6 @@ export interface ModifyEventSubscriptionMessage {
   __type?: "ModifyEventSubscriptionMessage";
   /**
    * <p>
-   *             A value that indicates whether to activate the subscription.
-   *       </p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>
    *             A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType
    *             in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> topic  in the <i>Amazon RDS User Guide</i>
    *             or by using the <b>DescribeEventCategories</b> action.
@@ -13989,9 +14482,16 @@ export interface ModifyEventSubscriptionMessage {
   EventCategories?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.</p>
+   * <p>The name of the RDS event notification subscription.</p>
    */
-  SnsTopicArn?: string;
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p>
+   *             A value that indicates whether to activate the subscription.
+   *       </p>
+   */
+  Enabled?: boolean;
 
   /**
    * <p>The type of source that is generating the events. For example, if you want to be notified of events generated by a DB instance, you would set this parameter to db-instance. If this value isn't specified, all events are returned.</p>
@@ -14000,9 +14500,9 @@ export interface ModifyEventSubscriptionMessage {
   SourceType?: string;
 
   /**
-   * <p>The name of the RDS event notification subscription.</p>
+   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.</p>
    */
-  SubscriptionName: string | undefined;
+  SnsTopicArn?: string;
 }
 
 export namespace ModifyEventSubscriptionMessage {
@@ -14101,15 +14601,15 @@ export namespace ModifyGlobalClusterResult {
 export interface ModifyOptionGroupMessage {
   __type?: "ModifyOptionGroupMessage";
   /**
-   * <p>A value that indicates whether to apply the change immediately or during the next maintenance window for each instance associated with the option group.</p>
-   */
-  ApplyImmediately?: boolean;
-
-  /**
    * <p>The name of the option group to be modified.</p>
    *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>
    */
   OptionGroupName: string | undefined;
+
+  /**
+   * <p>A value that indicates whether to apply the change immediately or during the next maintenance window for each instance associated with the option group.</p>
+   */
+  ApplyImmediately?: boolean;
 
   /**
    * <p>Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.</p>
@@ -14150,9 +14650,9 @@ export namespace ModifyOptionGroupResult {
 export interface Option {
   __type?: "Option";
   /**
-   * <p>If the option requires access to a port, then this DB security group allows access to the port.</p>
+   * <p>The version of the option.</p>
    */
-  DBSecurityGroupMemberships?: DBSecurityGroupMembership[];
+  OptionVersion?: string;
 
   /**
    * <p>The description of the option.</p>
@@ -14160,19 +14660,19 @@ export interface Option {
   OptionDescription?: string;
 
   /**
-   * <p>The name of the option.</p>
-   */
-  OptionName?: string;
-
-  /**
    * <p>The option settings for this option.</p>
    */
   OptionSettings?: OptionSetting[];
 
   /**
-   * <p>The version of the option.</p>
+   * <p>If required, the port configured for this option to use.</p>
    */
-  OptionVersion?: string;
+  Port?: number;
+
+  /**
+   * <p>If the option requires access to a port, then this VPC security group allows access to the port.</p>
+   */
+  VpcSecurityGroupMemberships?: VpcSecurityGroupMembership[];
 
   /**
    * <p>Indicate if this option is permanent.</p>
@@ -14185,14 +14685,14 @@ export interface Option {
   Persistent?: boolean;
 
   /**
-   * <p>If required, the port configured for this option to use.</p>
+   * <p>The name of the option.</p>
    */
-  Port?: number;
+  OptionName?: string;
 
   /**
-   * <p>If the option requires access to a port, then this VPC security group allows access to the port.</p>
+   * <p>If the option requires access to a port, then this DB security group allows access to the port.</p>
    */
-  VpcSecurityGroupMemberships?: VpcSecurityGroupMembership[];
+  DBSecurityGroupMemberships?: DBSecurityGroupMembership[];
 }
 
 export namespace Option {
@@ -14208,9 +14708,9 @@ export namespace Option {
 export interface OptionConfiguration {
   __type?: "OptionConfiguration";
   /**
-   * <p>A list of DBSecurityGroupMembership name strings used for this option.</p>
+   * <p>A list of VpcSecurityGroupMembership name strings used for this option.</p>
    */
-  DBSecurityGroupMemberships?: string[];
+  VpcSecurityGroupMemberships?: string[];
 
   /**
    * <p>The configuration of options to include in a group.</p>
@@ -14218,24 +14718,24 @@ export interface OptionConfiguration {
   OptionName: string | undefined;
 
   /**
-   * <p>The option settings to include in an option group.</p>
-   */
-  OptionSettings?: OptionSetting[];
-
-  /**
-   * <p>The version for the option.</p>
-   */
-  OptionVersion?: string;
-
-  /**
    * <p>The optional port for the option.</p>
    */
   Port?: number;
 
   /**
-   * <p>A list of VpcSecurityGroupMembership name strings used for this option.</p>
+   * <p>The option settings to include in an option group.</p>
    */
-  VpcSecurityGroupMemberships?: string[];
+  OptionSettings?: OptionSetting[];
+
+  /**
+   * <p>A list of DBSecurityGroupMembership name strings used for this option.</p>
+   */
+  DBSecurityGroupMemberships?: string[];
+
+  /**
+   * <p>The version for the option.</p>
+   */
+  OptionVersion?: string;
 }
 
 export namespace OptionConfiguration {
@@ -14251,12 +14751,19 @@ export namespace OptionConfiguration {
 export interface OptionGroup {
   __type?: "OptionGroup";
   /**
-   * <p>Indicates whether this option group can be applied to both VPC
-   *            and non-VPC instances. The value <code>true</code> indicates the option group
-   *            can be applied to both VPC and non-VPC instances.
-   *         </p>
+   * <p>Provides a description of the option group.</p>
    */
-  AllowsVpcAndNonVpcInstanceMemberships?: boolean;
+  OptionGroupDescription?: string;
+
+  /**
+   * <p>Indicates what options are available in the option group.</p>
+   */
+  Options?: Option[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the option group.</p>
+   */
+  OptionGroupArn?: string;
 
   /**
    * <p>Indicates the name of the engine that this option group can be applied to.</p>
@@ -14269,24 +14776,9 @@ export interface OptionGroup {
   MajorEngineVersion?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the option group.</p>
-   */
-  OptionGroupArn?: string;
-
-  /**
-   * <p>Provides a description of the option group.</p>
-   */
-  OptionGroupDescription?: string;
-
-  /**
    * <p>Specifies the name of the option group.</p>
    */
   OptionGroupName?: string;
-
-  /**
-   * <p>Indicates what options are available in the option group.</p>
-   */
-  Options?: Option[];
 
   /**
    * <p>If <b>AllowsVpcAndNonVpcInstanceMemberships</b> is <code>false</code>, this field is blank.
@@ -14297,6 +14789,14 @@ export interface OptionGroup {
    *         </p>
    */
   VpcId?: string;
+
+  /**
+   * <p>Indicates whether this option group can be applied to both VPC
+   *            and non-VPC instances. The value <code>true</code> indicates the option group
+   *            can be applied to both VPC and non-VPC instances.
+   *         </p>
+   */
+  AllowsVpcAndNonVpcInstanceMemberships?: boolean;
 }
 
 export namespace OptionGroup {
@@ -14328,11 +14828,6 @@ export namespace OptionGroupAlreadyExistsFault {
 export interface OptionGroupMembership {
   __type?: "OptionGroupMembership";
   /**
-   * <p>The name of the option group that the instance belongs to.</p>
-   */
-  OptionGroupName?: string;
-
-  /**
    * <p>The status of the DB instance's option group membership. Valid values are:
    *       <code>in-sync</code>,
    *       <code>pending-apply</code>,
@@ -14345,6 +14840,11 @@ export interface OptionGroupMembership {
    *         </p>
    */
   Status?: string;
+
+  /**
+   * <p>The name of the option group that the instance belongs to.</p>
+   */
+  OptionGroupName?: string;
 }
 
 export namespace OptionGroupMembership {
@@ -14376,34 +14876,9 @@ export namespace OptionGroupNotFoundFault {
 export interface OptionGroupOption {
   __type?: "OptionGroupOption";
   /**
-   * <p>If the option requires a port, specifies the default port for the option.</p>
-   */
-  DefaultPort?: number;
-
-  /**
-   * <p>The description of the option.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The name of the engine that this option can be applied to.</p>
    */
   EngineName?: string;
-
-  /**
-   * <p>Indicates the major engine version that the option is available for.</p>
-   */
-  MajorEngineVersion?: string;
-
-  /**
-   * <p>The minimum required engine version for the option to be applied.</p>
-   */
-  MinimumRequiredMinorEngineVersion?: string;
-
-  /**
-   * <p>The name of the option.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The option settings that are available (and the default value) for each option in an option group.</p>
@@ -14411,34 +14886,14 @@ export interface OptionGroupOption {
   OptionGroupOptionSettings?: OptionGroupOptionSetting[];
 
   /**
-   * <p>The versions that are available for the option.</p>
+   * <p>If the option requires a port, specifies the default port for the option.</p>
    */
-  OptionGroupOptionVersions?: OptionVersion[];
-
-  /**
-   * <p>The options that conflict with this option.</p>
-   */
-  OptionsConflictsWith?: string[];
-
-  /**
-   * <p>The options that are prerequisites for this option.</p>
-   */
-  OptionsDependedOn?: string[];
+  DefaultPort?: number;
 
   /**
    * <p>Permanent options can never be removed from an option group. An option group containing a permanent option can't be removed from a DB instance.</p>
    */
   Permanent?: boolean;
-
-  /**
-   * <p>Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.</p>
-   */
-  Persistent?: boolean;
-
-  /**
-   * <p>Specifies whether the option requires a port.</p>
-   */
-  PortRequired?: boolean;
 
   /**
    * <p>If true, you must enable the Auto Minor Version Upgrade setting for your DB instance
@@ -14450,11 +14905,56 @@ export interface OptionGroupOption {
   RequiresAutoMinorEngineVersionUpgrade?: boolean;
 
   /**
+   * <p>The options that are prerequisites for this option.</p>
+   */
+  OptionsDependedOn?: string[];
+
+  /**
+   * <p>Specifies whether the option requires a port.</p>
+   */
+  PortRequired?: boolean;
+
+  /**
    * <p>If true, you can change the option to an earlier version of the option.
    *             This only applies to options that have different versions available.
    *         </p>
    */
   SupportsOptionVersionDowngrade?: boolean;
+
+  /**
+   * <p>The name of the option.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.</p>
+   */
+  Persistent?: boolean;
+
+  /**
+   * <p>Indicates the major engine version that the option is available for.</p>
+   */
+  MajorEngineVersion?: string;
+
+  /**
+   * <p>The description of the option.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The options that conflict with this option.</p>
+   */
+  OptionsConflictsWith?: string[];
+
+  /**
+   * <p>The minimum required engine version for the option to be applied.</p>
+   */
+  MinimumRequiredMinorEngineVersion?: string;
+
+  /**
+   * <p>The versions that are available for the option.</p>
+   */
+  OptionGroupOptionVersions?: OptionVersion[];
 
   /**
    * <p>If true, you can only use this option with a DB instance that is in a VPC.
@@ -14476,29 +14976,9 @@ export namespace OptionGroupOption {
 export interface OptionGroupOptionSetting {
   __type?: "OptionGroupOptionSetting";
   /**
-   * <p>Indicates the acceptable values for the option group option.</p>
-   */
-  AllowedValues?: string;
-
-  /**
-   * <p>The DB engine specific parameter type for the option group option.</p>
-   */
-  ApplyType?: string;
-
-  /**
-   * <p>The default value for the option group option.</p>
-   */
-  DefaultValue?: string;
-
-  /**
    * <p>Boolean value where true indicates that this option group option can be changed from the default value.</p>
    */
   IsModifiable?: boolean;
-
-  /**
-   * <p>Boolean value where true indicates that a value must be specified for this option setting of the option group option.</p>
-   */
-  IsRequired?: boolean;
 
   /**
    * <p>The minimum DB engine version required for the corresponding allowed value for this option setting.</p>
@@ -14506,14 +14986,34 @@ export interface OptionGroupOptionSetting {
   MinimumEngineVersionPerAllowedValue?: MinimumEngineVersionPerAllowedValue[];
 
   /**
+   * <p>The name of the option group option.</p>
+   */
+  SettingName?: string;
+
+  /**
    * <p>The description of the option group option.</p>
    */
   SettingDescription?: string;
 
   /**
-   * <p>The name of the option group option.</p>
+   * <p>The default value for the option group option.</p>
    */
-  SettingName?: string;
+  DefaultValue?: string;
+
+  /**
+   * <p>The DB engine specific parameter type for the option group option.</p>
+   */
+  ApplyType?: string;
+
+  /**
+   * <p>Boolean value where true indicates that a value must be specified for this option setting of the option group option.</p>
+   */
+  IsRequired?: boolean;
+
+  /**
+   * <p>Indicates the acceptable values for the option group option.</p>
+   */
+  AllowedValues?: string;
 }
 
 export namespace OptionGroupOptionSetting {
@@ -14571,6 +15071,11 @@ export namespace OptionGroupQuotaExceededFault {
 export interface OptionGroups {
   __type?: "OptionGroups";
   /**
+   * <p>List of option groups.</p>
+   */
+  OptionGroupsList?: OptionGroup[];
+
+  /**
    * <p>An optional pagination token provided by a previous request.
    *             If this parameter is specified, the response includes
    *             only records beyond the marker,
@@ -14578,11 +15083,6 @@ export interface OptionGroups {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>List of option groups.</p>
-   */
-  OptionGroupsList?: OptionGroup[];
 }
 
 export namespace OptionGroups {
@@ -14598,19 +15098,9 @@ export namespace OptionGroups {
 export interface OptionSetting {
   __type?: "OptionSetting";
   /**
-   * <p>The allowed values of the option setting.</p>
+   * <p>Indicates if the option setting is part of a collection.</p>
    */
-  AllowedValues?: string;
-
-  /**
-   * <p>The DB engine specific parameter type.</p>
-   */
-  ApplyType?: string;
-
-  /**
-   * <p>The data type of the option setting.</p>
-   */
-  DataType?: string;
+  IsCollection?: boolean;
 
   /**
    * <p>The default value of the option setting.</p>
@@ -14618,14 +15108,19 @@ export interface OptionSetting {
   DefaultValue?: string;
 
   /**
+   * <p>The DB engine specific parameter type.</p>
+   */
+  ApplyType?: string;
+
+  /**
    * <p>The description of the option setting.</p>
    */
   Description?: string;
 
   /**
-   * <p>Indicates if the option setting is part of a collection.</p>
+   * <p>The data type of the option setting.</p>
    */
-  IsCollection?: boolean;
+  DataType?: string;
 
   /**
    * <p>A Boolean value that, when true, indicates the option setting can be modified from the default.</p>
@@ -14641,6 +15136,11 @@ export interface OptionSetting {
    * <p>The current value of the option setting.</p>
    */
   Value?: string;
+
+  /**
+   * <p>The allowed values of the option setting.</p>
+   */
+  AllowedValues?: string;
 }
 
 export namespace OptionSetting {
@@ -14657,14 +15157,14 @@ export namespace OptionSetting {
 export interface OptionVersion {
   __type?: "OptionVersion";
   /**
-   * <p>True if the version is the default version of the option, and otherwise false.</p>
-   */
-  IsDefault?: boolean;
-
-  /**
    * <p>The version of the option.</p>
    */
   Version?: string;
+
+  /**
+   * <p>True if the version is the default version of the option, and otherwise false.</p>
+   */
+  IsDefault?: boolean;
 }
 
 export namespace OptionVersion {
@@ -14683,64 +15183,9 @@ export namespace OptionVersion {
 export interface OrderableDBInstanceOption {
   __type?: "OrderableDBInstanceOption";
   /**
-   * <p>A list of Availability Zones for a DB instance.</p>
+   * <p>Indicates whether a DB instance is in a VPC.</p>
    */
-  AvailabilityZones?: AvailabilityZone[];
-
-  /**
-   * <p>A list of the available processor features for the DB instance class of a DB instance.</p>
-   */
-  AvailableProcessorFeatures?: AvailableProcessorFeature[];
-
-  /**
-   * <p>The DB instance class for a DB instance.</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
-   * <p>The engine type of a DB instance.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The engine version of a DB instance.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The license model for a DB instance.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>Maximum total provisioned IOPS for a DB instance.</p>
-   */
-  MaxIopsPerDbInstance?: number;
-
-  /**
-   * <p>Maximum provisioned IOPS per GiB for a DB instance.</p>
-   */
-  MaxIopsPerGib?: number;
-
-  /**
-   * <p>Maximum storage size for a DB instance.</p>
-   */
-  MaxStorageSize?: number;
-
-  /**
-   * <p>Minimum total provisioned IOPS for a DB instance.</p>
-   */
-  MinIopsPerDbInstance?: number;
-
-  /**
-   * <p>Minimum provisioned IOPS per GiB for a DB instance.</p>
-   */
-  MinIopsPerGib?: number;
-
-  /**
-   * <p>Minimum storage size for a DB instance.</p>
-   */
-  MinStorageSize?: number;
+  Vpc?: boolean;
 
   /**
    * <p>Indicates whether a DB instance is Multi-AZ capable.</p>
@@ -14748,24 +15193,31 @@ export interface OrderableDBInstanceOption {
   MultiAZCapable?: boolean;
 
   /**
-   * <p>Indicates whether a DB instance can have a Read Replica.</p>
+   * <p>Maximum storage size for a DB instance.</p>
    */
-  ReadReplicaCapable?: boolean;
-
-  /**
-   * <p>Indicates the storage type for a DB instance.</p>
-   */
-  StorageType?: string;
+  MaxStorageSize?: number;
 
   /**
    * <p>A list of the supported DB engine modes.</p>
+   *         <note>
+   *             <p>
+   *                <code>global</code> engine mode only applies for global database clusters created with Aurora MySQL version
+   *             5.6.10a. For higher Aurora MySQL versions, the clusters in a global database use <code>provisioned</code>
+   *             engine mode.
+   *           </p>
+   *         </note>
    */
   SupportedEngineModes?: string[];
 
   /**
-   * <p>Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.</p>
+   * <p>Maximum provisioned IOPS per GiB for a DB instance.</p>
    */
-  SupportsEnhancedMonitoring?: boolean;
+  MaxIopsPerGib?: number;
+
+  /**
+   * <p>Indicates whether a DB instance can have a read replica.</p>
+   */
+  ReadReplicaCapable?: boolean;
 
   /**
    * <p>Indicates whether a DB instance supports IAM database authentication.</p>
@@ -14773,22 +15225,12 @@ export interface OrderableDBInstanceOption {
   SupportsIAMDatabaseAuthentication?: boolean;
 
   /**
-   * <p>Indicates whether a DB instance supports provisioned IOPS.</p>
-   */
-  SupportsIops?: boolean;
-
-  /**
    * <p>Whether a DB instance supports Kerberos Authentication.</p>
    */
   SupportsKerberosAuthentication?: boolean;
 
   /**
-   * <p>True if a DB instance supports Performance Insights, otherwise false.</p>
-   */
-  SupportsPerformanceInsights?: boolean;
-
-  /**
-   * <p>Whether or not Amazon RDS can automatically scale storage for DB instances that use the specified instance class.</p>
+   * <p>Whether Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.</p>
    */
   SupportsStorageAutoscaling?: boolean;
 
@@ -14798,9 +15240,92 @@ export interface OrderableDBInstanceOption {
   SupportsStorageEncryption?: boolean;
 
   /**
-   * <p>Indicates whether a DB instance is in a VPC.</p>
+   * <p>Whether a DB instance supports RDS on Outposts.</p>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on AWS Outposts</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    */
-  Vpc?: boolean;
+  OutpostCapable?: boolean;
+
+  /**
+   * <p>Minimum provisioned IOPS per GiB for a DB instance.</p>
+   */
+  MinIopsPerGib?: number;
+
+  /**
+   * <p>The engine type of a DB instance.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The DB instance class for a DB instance.</p>
+   */
+  DBInstanceClass?: string;
+
+  /**
+   * <p>Minimum storage size for a DB instance.</p>
+   */
+  MinStorageSize?: number;
+
+  /**
+   * <p>Minimum total provisioned IOPS for a DB instance.</p>
+   */
+  MinIopsPerDbInstance?: number;
+
+  /**
+   * <p>Indicates the storage type for a DB instance.</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>Maximum total provisioned IOPS for a DB instance.</p>
+   */
+  MaxIopsPerDbInstance?: number;
+
+  /**
+   * <p>The engine version of a DB instance.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>A list of Availability Zones for a DB instance.</p>
+   */
+  AvailabilityZones?: AvailabilityZone[];
+
+  /**
+   * <p>Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.</p>
+   */
+  SupportsEnhancedMonitoring?: boolean;
+
+  /**
+   * <p>A list of the available processor features for the DB instance class of a DB instance.</p>
+   */
+  AvailableProcessorFeatures?: AvailableProcessorFeature[];
+
+  /**
+   * <p>Indicates whether a DB instance supports provisioned IOPS.</p>
+   */
+  SupportsIops?: boolean;
+
+  /**
+   * <p>The license model for a DB instance.</p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>True if a DB instance supports Performance Insights, otherwise false.</p>
+   */
+  SupportsPerformanceInsights?: boolean;
+
+  /**
+   * <p>The Availability Zone group for a DB instance.</p>
+   */
+  AvailabilityZoneGroup?: string;
+
+  /**
+   * <p>A value that indicates whether you can use Aurora global databases with a specific combination of other DB engine attributes.</p>
+   */
+  SupportsGlobalDatabases?: boolean;
 }
 
 export namespace OrderableDBInstanceOption {
@@ -14818,21 +15343,20 @@ export namespace OrderableDBInstanceOption {
 export interface OrderableDBInstanceOptionsMessage {
   __type?: "OrderableDBInstanceOptionsMessage";
   /**
+   * <p>An <code>OrderableDBInstanceOption</code> structure containing information about orderable options for the DB instance.</p>
+   */
+  OrderableDBInstanceOptions?: OrderableDBInstanceOption[];
+
+  /**
    * <p>
    *             An optional pagination token provided by a previous
    *             OrderableDBInstanceOptions request.
    *             If this parameter is specified, the response includes
    *             only records beyond the marker,
-   *
    *             up to the value specified by <code>MaxRecords</code> .
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>An <code>OrderableDBInstanceOption</code> structure containing information about orderable options for the DB instance.</p>
-   */
-  OrderableDBInstanceOptions?: OrderableDBInstanceOption[];
 }
 
 export namespace OrderableDBInstanceOptionsMessage {
@@ -14840,6 +15364,27 @@ export namespace OrderableDBInstanceOptionsMessage {
     ...obj,
   });
   export const isa = (o: any): o is OrderableDBInstanceOptionsMessage => __isa(o, "OrderableDBInstanceOptionsMessage");
+}
+
+/**
+ * <p>A data type that represents an Outpost.</p>
+ *          <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on AWS Outposts</a>
+ *           in the <i>Amazon RDS User Guide.</i>
+ *          </p>
+ */
+export interface Outpost {
+  __type?: "Outpost";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  Arn?: string;
+}
+
+export namespace Outpost {
+  export const filterSensitiveLog = (obj: Outpost): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Outpost => __isa(o, "Outpost");
 }
 
 /**
@@ -14853,14 +15398,33 @@ export namespace OrderableDBInstanceOptionsMessage {
 export interface Parameter {
   __type?: "Parameter";
   /**
-   * <p>Specifies the valid range of values for the parameter.</p>
+   * <p>Indicates the source of the parameter value.</p>
    */
-  AllowedValues?: string;
+  Source?: string;
+
+  /**
+   * <p>The earliest engine version to which the parameter can apply.</p>
+   */
+  MinimumEngineVersion?: string;
+
+  /**
+   * <p>Provides a description of the parameter.</p>
+   */
+  Description?: string;
 
   /**
    * <p>Indicates when to apply parameter updates.</p>
    */
   ApplyMethod?: ApplyMethod | string;
+
+  /**
+   * <p>
+   *         Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be modified.
+   *         Some parameters have security or operational implications
+   *         that prevent them from being changed.
+   *         </p>
+   */
+  IsModifiable?: boolean;
 
   /**
    * <p>Specifies the engine specific parameters type.</p>
@@ -14873,43 +15437,24 @@ export interface Parameter {
   DataType?: string;
 
   /**
-   * <p>Provides a description of the parameter.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>
-   *         Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be modified.
-   *         Some parameters have security or operational implications
-   *         that prevent them from being changed.
-   *         </p>
-   */
-  IsModifiable?: boolean;
-
-  /**
-   * <p>The earliest engine version to which the parameter can apply.</p>
-   */
-  MinimumEngineVersion?: string;
-
-  /**
    * <p>Specifies the name of the parameter.</p>
    */
   ParameterName?: string;
 
   /**
-   * <p>Specifies the value of the parameter.</p>
-   */
-  ParameterValue?: string;
-
-  /**
-   * <p>Indicates the source of the parameter value.</p>
-   */
-  Source?: string;
-
-  /**
    * <p>The valid DB engine modes.</p>
    */
   SupportedEngineModes?: string[];
+
+  /**
+   * <p>Specifies the valid range of values for the parameter.</p>
+   */
+  AllowedValues?: string;
+
+  /**
+   * <p>Specifies the value of the parameter.</p>
+   */
+  ParameterValue?: string;
 }
 
 export namespace Parameter {
@@ -14925,14 +15470,14 @@ export namespace Parameter {
 export interface PendingCloudwatchLogsExports {
   __type?: "PendingCloudwatchLogsExports";
   /**
-   * <p>Log types that are in the process of being enabled. After they are enabled, these log types are exported to CloudWatch Logs.</p>
-   */
-  LogTypesToDisable?: string[];
-
-  /**
    * <p>Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.</p>
    */
   LogTypesToEnable?: string[];
+
+  /**
+   * <p>Log types that are in the process of being enabled. After they are enabled, these log types are exported to CloudWatch Logs.</p>
+   */
+  LogTypesToDisable?: string[];
 }
 
 export namespace PendingCloudwatchLogsExports {
@@ -14955,11 +15500,11 @@ export interface PendingMaintenanceAction {
   Action?: string;
 
   /**
-   * <p>The date of the maintenance window when the action is applied.
-   *            The maintenance action is applied to the resource during
-   *            its first maintenance window after this date.</p>
+   * <p>The date when the maintenance action is automatically applied.
+   *             The maintenance action is applied to the resource on this date
+   *             regardless of the maintenance window for the resource.</p>
    */
-  AutoAppliedAfterDate?: Date;
+  ForcedApplyDate?: Date;
 
   /**
    * <p>The effective date when the pending maintenance action is applied
@@ -14977,11 +15522,11 @@ export interface PendingMaintenanceAction {
   Description?: string;
 
   /**
-   * <p>The date when the maintenance action is automatically applied.
-   *             The maintenance action is applied to the resource on this date
-   *             regardless of the maintenance window for the resource.</p>
+   * <p>The date of the maintenance window when the action is applied.
+   *            The maintenance action is applied to the resource during
+   *            its first maintenance window after this date.</p>
    */
-  ForcedApplyDate?: Date;
+  AutoAppliedAfterDate?: Date;
 
   /**
    * <p>Indicates the type of opt-in request that has been received for the resource.</p>
@@ -15033,22 +15578,9 @@ export namespace PendingMaintenanceActionsMessage {
 export interface PendingModifiedValues {
   __type?: "PendingModifiedValues";
   /**
-   * <p>
-   *         Contains the new <code>AllocatedStorage</code> size for the DB instance
-   *           that will be applied or is currently being applied.
-   *         </p>
+   * <p>Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.</p>
    */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>Specifies the pending number of days for which automated backups are retained.</p>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>Specifies the identifier of the CA certificate for the DB instance.</p>
-   */
-  CACertificateIdentifier?: string;
+  MultiAZ?: boolean;
 
   /**
    * <p>
@@ -15059,12 +15591,19 @@ export interface PendingModifiedValues {
   DBInstanceClass?: string;
 
   /**
-   * <p>
-   *             Contains the new <code>DBInstanceIdentifier</code> for the DB instance
-   *             that will be applied or is currently being applied.
-   *         </p>
+   * <p>Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.</p>
    */
-  DBInstanceIdentifier?: string;
+  Iops?: number;
+
+  /**
+   * <p>Specifies the storage type to be associated with the DB instance.</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>Indicates the database engine version.</p>
+   */
+  EngineVersion?: string;
 
   /**
    * <p>The new DB subnet group for the DB instance.
@@ -15073,14 +15612,31 @@ export interface PendingModifiedValues {
   DBSubnetGroupName?: string;
 
   /**
-   * <p>Indicates the database engine version.</p>
+   * <p>The number of CPU cores and the number of threads per core for the DB instance class
+   *             of the DB instance.</p>
    */
-  EngineVersion?: string;
+  ProcessorFeatures?: ProcessorFeature[];
 
   /**
-   * <p>Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.</p>
+   * <p>
+   *             Contains the new <code>DBInstanceIdentifier</code> for the DB instance
+   *             that will be applied or is currently being applied.
+   *         </p>
    */
-  Iops?: number;
+  DBInstanceIdentifier?: string;
+
+  /**
+   * <p>Specifies the identifier of the CA certificate for the DB instance.</p>
+   */
+  CACertificateIdentifier?: string;
+
+  /**
+   * <p>
+   *         Contains the new <code>AllocatedStorage</code> size for the DB instance
+   *           that will be applied or is currently being applied.
+   *         </p>
+   */
+  AllocatedStorage?: number;
 
   /**
    * <p>The license model for the DB instance.</p>
@@ -15089,16 +15645,6 @@ export interface PendingModifiedValues {
    *          </p>
    */
   LicenseModel?: string;
-
-  /**
-   * <p>Contains the pending or currently-in-progress change of the master credentials for the DB instance.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.</p>
-   */
-  MultiAZ?: boolean;
 
   /**
    * <p>A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.</p>
@@ -15111,15 +15657,14 @@ export interface PendingModifiedValues {
   Port?: number;
 
   /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class
-   *             of the DB instance.</p>
+   * <p>Specifies the pending number of days for which automated backups are retained.</p>
    */
-  ProcessorFeatures?: ProcessorFeature[];
+  BackupRetentionPeriod?: number;
 
   /**
-   * <p>Specifies the storage type to be associated with the DB instance.</p>
+   * <p>Contains the pending or currently-in-progress change of the master credentials for the DB instance.</p>
    */
-  StorageType?: string;
+  MasterUserPassword?: string;
 }
 
 export namespace PendingModifiedValues {
@@ -15212,14 +15757,14 @@ export namespace PointInTimeRestoreNotEnabledFault {
 export interface ProcessorFeature {
   __type?: "ProcessorFeature";
   /**
-   * <p>The name of the processor feature. Valid names are <code>coreCount</code> and <code>threadsPerCore</code>.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The value of a processor feature name.</p>
    */
   Value?: string;
+
+  /**
+   * <p>The name of the processor feature. Valid names are <code>coreCount</code> and <code>threadsPerCore</code>.</p>
+   */
+  Name?: string;
 }
 
 export namespace ProcessorFeature {
@@ -15235,13 +15780,12 @@ export namespace ProcessorFeature {
 export interface PromoteReadReplicaDBClusterMessage {
   __type?: "PromoteReadReplicaDBClusterMessage";
   /**
-   * <p>The identifier of the DB cluster Read Replica to promote.
-   *       This parameter isn't case-sensitive.
-   *     </p>
+   * <p>The identifier of the DB cluster read replica to promote. This parameter isn't
+   *             case-sensitive. </p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must match the identifier of an existing DBCluster Read Replica.</p>
+   *                <p>Must match the identifier of an existing DB cluster read replica.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>my-cluster-replica1</code>
@@ -15283,26 +15827,11 @@ export namespace PromoteReadReplicaDBClusterResult {
 export interface PromoteReadReplicaMessage {
   __type?: "PromoteReadReplicaMessage";
   /**
-   * <p>The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p>
-   *          <p>Default: 1</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be a value from 0 to 35.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be set to 0 if the DB instance is a source to Read Replicas.</p>
-   *             </li>
-   *          </ul>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
    * <p>The DB instance identifier. This value is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must match the identifier of an existing Read Replica DB instance.</p>
+   *                <p>Must match the identifier of an existing read replica DB instance.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>mydbinstance</code>
@@ -15340,6 +15869,21 @@ export interface PromoteReadReplicaMessage {
    *          </ul>
    */
   PreferredBackupWindow?: string;
+
+  /**
+   * <p>The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p>
+   *          <p>Default: 1</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be a value from 0 to 35.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be set to 0 if the DB instance is a source to read replicas.</p>
+   *             </li>
+   *          </ul>
+   */
+  BackupRetentionPeriod?: number;
 }
 
 export namespace PromoteReadReplicaMessage {
@@ -15390,23 +15934,10 @@ export namespace ProvisionedIopsNotAvailableInAZFault {
 export interface PurchaseReservedDBInstancesOfferingMessage {
   __type?: "PurchaseReservedDBInstancesOfferingMessage";
   /**
-   * <p>The number of instances to reserve.</p>
-   *          <p>Default: <code>1</code>
-   *          </p>
-   */
-  DBInstanceCount?: number;
-
-  /**
    * <p>Customer-specified identifier to track this reservation.</p>
    *          <p>Example: myreservationID</p>
    */
   ReservedDBInstanceId?: string;
-
-  /**
-   * <p>The ID of the Reserved DB instance offering to purchase.</p>
-   *          <p>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</p>
-   */
-  ReservedDBInstancesOfferingId: string | undefined;
 
   /**
    * <p>A list of tags.
@@ -15414,6 +15945,19 @@ export interface PurchaseReservedDBInstancesOfferingMessage {
    *          </p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The number of instances to reserve.</p>
+   *          <p>Default: <code>1</code>
+   *          </p>
+   */
+  DBInstanceCount?: number;
+
+  /**
+   * <p>The ID of the Reserved DB instance offering to purchase.</p>
+   *          <p>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</p>
+   */
+  ReservedDBInstancesOfferingId: string | undefined;
 }
 
 export namespace PurchaseReservedDBInstancesOfferingMessage {
@@ -15450,11 +15994,6 @@ export namespace PurchaseReservedDBInstancesOfferingResult {
 export interface Range {
   __type?: "Range";
   /**
-   * <p>The minimum value in the range.</p>
-   */
-  From?: number;
-
-  /**
    * <p>The step value for the range.
    *             For example, if you have a range of 5,000 to 10,000,
    *             with a step value of 1,000,
@@ -15470,6 +16009,11 @@ export interface Range {
    * <p>The maximum value in the range.</p>
    */
   To?: number;
+
+  /**
+   * <p>The minimum value in the range.</p>
+   */
+  From?: number;
 }
 
 export namespace Range {
@@ -15558,14 +16102,14 @@ export namespace RecurringCharge {
 export interface RegisterDBProxyTargetsRequest {
   __type?: "RegisterDBProxyTargetsRequest";
   /**
-   * <p>One or more DB cluster identifiers.</p>
-   */
-  DBClusterIdentifiers?: string[];
-
-  /**
    * <p>One or more DB instance identifiers.</p>
    */
   DBInstanceIdentifiers?: string[];
+
+  /**
+   * <p>The identifier of the <code>DBProxyTargetGroup</code>.</p>
+   */
+  TargetGroupName?: string;
 
   /**
    * <p>The identifier of the <code>DBProxy</code> that is associated with the <code>DBProxyTargetGroup</code>.</p>
@@ -15573,9 +16117,9 @@ export interface RegisterDBProxyTargetsRequest {
   DBProxyName: string | undefined;
 
   /**
-   * <p>The identifier of the <code>DBProxyTargetGroup</code>.</p>
+   * <p>One or more DB cluster identifiers.</p>
    */
-  TargetGroupName?: string;
+  DBClusterIdentifiers?: string[];
 }
 
 export namespace RegisterDBProxyTargetsRequest {
@@ -15604,17 +16148,17 @@ export interface RemoveFromGlobalClusterMessage {
   __type?: "RemoveFromGlobalClusterMessage";
   /**
    * <p>
-   *         The Amazon Resource Name (ARN) identifying the cluster that was detached from the Aurora global database cluster.
-   *       </p>
-   */
-  DbClusterIdentifier?: string;
-
-  /**
-   * <p>
    *         The cluster identifier to detach from the Aurora global database cluster.
    *       </p>
    */
   GlobalClusterIdentifier?: string;
+
+  /**
+   * <p>
+   *         The Amazon Resource Name (ARN) identifying the cluster that was detached from the Aurora global database cluster.
+   *       </p>
+   */
+  DbClusterIdentifier?: string;
 }
 
 export namespace RemoveFromGlobalClusterMessage {
@@ -15642,6 +16186,12 @@ export namespace RemoveFromGlobalClusterResult {
 export interface RemoveRoleFromDBClusterMessage {
   __type?: "RemoveRoleFromDBClusterMessage";
   /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example
+   *         <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
    * <p>The name of the DB cluster to disassociate the IAM role from.</p>
    */
   DBClusterIdentifier: string | undefined;
@@ -15651,12 +16201,6 @@ export interface RemoveRoleFromDBClusterMessage {
    *             For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
    */
   FeatureName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example
-   *         <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>
-   */
-  RoleArn: string | undefined;
 }
 
 export namespace RemoveRoleFromDBClusterMessage {
@@ -15674,17 +16218,17 @@ export interface RemoveRoleFromDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance,
+   *             for example <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
    * <p>The name of the feature for the DB instance that the IAM role is to be disassociated from.
    *             For the list of supported feature names, see <code>DBEngineVersion</code>.
    *         </p>
    */
   FeatureName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance,
-   *             for example <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>
-   */
-  RoleArn: string | undefined;
 }
 
 export namespace RemoveRoleFromDBInstanceMessage {
@@ -15743,6 +16287,11 @@ export namespace RemoveSourceIdentifierFromSubscriptionResult {
 export interface RemoveTagsFromResourceMessage {
   __type?: "RemoveTagsFromResourceMessage";
   /**
+   * <p>The tag key (name) of the tag to be removed.</p>
+   */
+  TagKeys: string[] | undefined;
+
+  /**
    * <p>The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about
    *             creating an ARN,
    *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
@@ -15750,11 +16299,6 @@ export interface RemoveTagsFromResourceMessage {
    *          </p>
    */
   ResourceName: string | undefined;
-
-  /**
-   * <p>The tag key (name) of the tag to be removed.</p>
-   */
-  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsFromResourceMessage {
@@ -15774,29 +16318,14 @@ export namespace RemoveTagsFromResourceMessage {
 export interface ReservedDBInstance {
   __type?: "ReservedDBInstance";
   /**
-   * <p>The currency code for the reserved DB instance.</p>
+   * <p>The unique identifier for the reservation.</p>
    */
-  CurrencyCode?: string;
-
-  /**
-   * <p>The DB instance class for the reserved DB instance.</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
-   * <p>The number of reserved DB instances.</p>
-   */
-  DBInstanceCount?: number;
+  ReservedDBInstanceId?: string;
 
   /**
    * <p>The duration of the reservation in seconds.</p>
    */
   Duration?: number;
-
-  /**
-   * <p>The fixed price charged for this reserved DB instance.</p>
-   */
-  FixedPrice?: number;
 
   /**
    * <p>The unique identifier for the lease associated with the reserved DB instance.</p>
@@ -15807,9 +16336,9 @@ export interface ReservedDBInstance {
   LeaseId?: string;
 
   /**
-   * <p>Indicates if the reservation applies to Multi-AZ deployments.</p>
+   * <p>The description of the reserved DB instance.</p>
    */
-  MultiAZ?: boolean;
+  ProductDescription?: string;
 
   /**
    * <p>The offering type of this reserved DB instance.</p>
@@ -15817,24 +16346,19 @@ export interface ReservedDBInstance {
   OfferingType?: string;
 
   /**
-   * <p>The description of the reserved DB instance.</p>
+   * <p>The currency code for the reserved DB instance.</p>
    */
-  ProductDescription?: string;
+  CurrencyCode?: string;
+
+  /**
+   * <p>The hourly price charged for this reserved DB instance.</p>
+   */
+  UsagePrice?: number;
 
   /**
    * <p>The recurring price charged to run this reserved DB instance.</p>
    */
   RecurringCharges?: RecurringCharge[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the reserved DB instance.</p>
-   */
-  ReservedDBInstanceArn?: string;
-
-  /**
-   * <p>The unique identifier for the reservation.</p>
-   */
-  ReservedDBInstanceId?: string;
 
   /**
    * <p>The offering identifier.</p>
@@ -15852,9 +16376,29 @@ export interface ReservedDBInstance {
   State?: string;
 
   /**
-   * <p>The hourly price charged for this reserved DB instance.</p>
+   * <p>Indicates if the reservation applies to Multi-AZ deployments.</p>
    */
-  UsagePrice?: number;
+  MultiAZ?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the reserved DB instance.</p>
+   */
+  ReservedDBInstanceArn?: string;
+
+  /**
+   * <p>The DB instance class for the reserved DB instance.</p>
+   */
+  DBInstanceClass?: string;
+
+  /**
+   * <p>The fixed price charged for this reserved DB instance.</p>
+   */
+  FixedPrice?: number;
+
+  /**
+   * <p>The number of reserved DB instances.</p>
+   */
+  DBInstanceCount?: number;
 }
 
 export namespace ReservedDBInstance {
@@ -15889,6 +16433,11 @@ export namespace ReservedDBInstanceAlreadyExistsFault {
 export interface ReservedDBInstanceMessage {
   __type?: "ReservedDBInstanceMessage";
   /**
+   * <p>A list of reserved DB instances.</p>
+   */
+  ReservedDBInstances?: ReservedDBInstance[];
+
+  /**
    * <p>
    *         An optional pagination token provided by a previous request.
    *         If this parameter is specified, the response includes
@@ -15897,11 +16446,6 @@ export interface ReservedDBInstanceMessage {
    *     </p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of reserved DB instances.</p>
-   */
-  ReservedDBInstances?: ReservedDBInstance[];
 }
 
 export namespace ReservedDBInstanceMessage {
@@ -15952,29 +16496,19 @@ export namespace ReservedDBInstanceQuotaExceededFault {
 export interface ReservedDBInstancesOffering {
   __type?: "ReservedDBInstancesOffering";
   /**
-   * <p>The currency code for the reserved DB instance offering.</p>
+   * <p>Indicates if the offering applies to Multi-AZ deployments.</p>
    */
-  CurrencyCode?: string;
+  MultiAZ?: boolean;
+
+  /**
+   * <p>The offering identifier.</p>
+   */
+  ReservedDBInstancesOfferingId?: string;
 
   /**
    * <p>The DB instance class for the reserved DB instance.</p>
    */
   DBInstanceClass?: string;
-
-  /**
-   * <p>The duration of the offering in seconds.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The fixed price charged for this offering.</p>
-   */
-  FixedPrice?: number;
-
-  /**
-   * <p>Indicates if the offering applies to Multi-AZ deployments.</p>
-   */
-  MultiAZ?: boolean;
 
   /**
    * <p>The offering type.</p>
@@ -15987,19 +16521,29 @@ export interface ReservedDBInstancesOffering {
   ProductDescription?: string;
 
   /**
-   * <p>The recurring price charged to run this reserved DB instance.</p>
+   * <p>The duration of the offering in seconds.</p>
    */
-  RecurringCharges?: RecurringCharge[];
-
-  /**
-   * <p>The offering identifier.</p>
-   */
-  ReservedDBInstancesOfferingId?: string;
+  Duration?: number;
 
   /**
    * <p>The hourly price charged for this offering.</p>
    */
   UsagePrice?: number;
+
+  /**
+   * <p>The fixed price charged for this offering.</p>
+   */
+  FixedPrice?: number;
+
+  /**
+   * <p>The currency code for the reserved DB instance offering.</p>
+   */
+  CurrencyCode?: string;
+
+  /**
+   * <p>The recurring price charged to run this reserved DB instance.</p>
+   */
+  RecurringCharges?: RecurringCharge[];
 }
 
 export namespace ReservedDBInstancesOffering {
@@ -16017,6 +16561,11 @@ export namespace ReservedDBInstancesOffering {
 export interface ReservedDBInstancesOfferingMessage {
   __type?: "ReservedDBInstancesOfferingMessage";
   /**
+   * <p>A list of reserved DB instance offerings.</p>
+   */
+  ReservedDBInstancesOfferings?: ReservedDBInstancesOffering[];
+
+  /**
    * <p>
    *         An optional pagination token provided by a previous request.
    *         If this parameter is specified, the response includes
@@ -16025,11 +16574,6 @@ export interface ReservedDBInstancesOfferingMessage {
    *     </p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of reserved DB instance offerings.</p>
-   */
-  ReservedDBInstancesOfferings?: ReservedDBInstancesOffering[];
 }
 
 export namespace ReservedDBInstancesOfferingMessage {
@@ -16063,6 +16607,13 @@ export namespace ReservedDBInstancesOfferingNotFoundFault {
 export interface ResetDBClusterParameterGroupMessage {
   __type?: "ResetDBClusterParameterGroupMessage";
   /**
+   * <p>A value that indicates whether to reset all parameters in the DB cluster parameter group
+   *         to their default values. You can't use this parameter if there
+   *         is a list of parameter names specified for the <code>Parameters</code> parameter.</p>
+   */
+  ResetAllParameters?: boolean;
+
+  /**
    * <p>The name of the DB cluster parameter group to reset.</p>
    */
   DBClusterParameterGroupName: string | undefined;
@@ -16072,13 +16623,6 @@ export interface ResetDBClusterParameterGroupMessage {
    *         parameter if the <code>ResetAllParameters</code> parameter is enabled.</p>
    */
   Parameters?: Parameter[];
-
-  /**
-   * <p>A value that indicates whether to reset all parameters in the DB cluster parameter group
-   *         to their default values. You can't use this parameter if there
-   *         is a list of parameter names specified for the <code>Parameters</code> parameter.</p>
-   */
-  ResetAllParameters?: boolean;
 }
 
 export namespace ResetDBClusterParameterGroupMessage {
@@ -16094,6 +16638,14 @@ export namespace ResetDBClusterParameterGroupMessage {
  */
 export interface ResetDBParameterGroupMessage {
   __type?: "ResetDBParameterGroupMessage";
+  /**
+   * <p>
+   *           A value that indicates whether to reset all parameters in the DB parameter group to default values.
+   *           By default, all parameters in the DB parameter group are reset to default values.
+   *         </p>
+   */
+  ResetAllParameters?: boolean;
+
   /**
    * <p>The name of the DB parameter group.</p>
    *          <p>Constraints:</p>
@@ -16134,14 +16686,6 @@ export interface ResetDBParameterGroupMessage {
    *          </p>
    */
   Parameters?: Parameter[];
-
-  /**
-   * <p>
-   *           A value that indicates whether to reset all parameters in the DB parameter group to default values.
-   *           By default, all parameters in the DB parameter group are reset to default values.
-   *         </p>
-   */
-  ResetAllParameters?: boolean;
 }
 
 export namespace ResetDBParameterGroupMessage {
@@ -16173,14 +16717,14 @@ export namespace ResourceNotFoundFault {
 export interface ResourcePendingMaintenanceActions {
   __type?: "ResourcePendingMaintenanceActions";
   /**
-   * <p>A list that provides details about the pending maintenance actions for the resource.</p>
-   */
-  PendingMaintenanceActionDetails?: PendingMaintenanceAction[];
-
-  /**
    * <p>The ARN of the resource that has pending maintenance actions.</p>
    */
   ResourceIdentifier?: string;
+
+  /**
+   * <p>A list that provides details about the pending maintenance actions for the resource.</p>
+   */
+  PendingMaintenanceActionDetails?: PendingMaintenanceAction[];
 }
 
 export namespace ResourcePendingMaintenanceActions {
@@ -16193,13 +16737,11 @@ export namespace ResourcePendingMaintenanceActions {
 export interface RestoreDBClusterFromS3Message {
   __type?: "RestoreDBClusterFromS3Message";
   /**
-   * <p>A list of Availability Zones (AZs) where instances in the restored DB cluster can be created.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
    * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
    *             0.</p>
+   *         <note>
+   *             <p>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</p>
+   *         </note>
    *         <p>Default: 0</p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -16211,60 +16753,6 @@ export interface RestoreDBClusterFromS3Message {
   BacktrackWindow?: number;
 
   /**
-   * <p>The number of days for which automated backups of the restored DB cluster are retained. You must specify a minimum value of 1.</p>
-   *         <p>Default: 1</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Must be a value from 1 to 35</p>
-   *             </li>
-   *          </ul>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>A value that indicates that the restored DB cluster should be associated with the specified CharacterSet.</p>
-   */
-  CharacterSetName?: string;
-
-  /**
-   * <p>A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The name of the DB cluster to create from the source data in the Amazon S3 bucket. This parameter is isn't case-sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   *         <p>Example: <code>my-cluster1</code>
-   *         </p>
-   */
-  DBClusterIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the DB cluster parameter group to associate
-   *             with the restored DB cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
-   *         </p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterParameterGroupName?: string;
-
-  /**
    * <p>A DB subnet group to associate with the restored DB cluster.</p>
    *         <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.
    *         </p>
@@ -16274,118 +16762,15 @@ export interface RestoreDBClusterFromS3Message {
   DBSubnetGroupName?: string;
 
   /**
-   * <p>The database name for the restored DB cluster.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes
+   *         Amazon RDS to access the Amazon S3 bucket on your behalf.</p>
    */
-  DatabaseName?: string;
+  S3IngestionRoleArn: string | undefined;
 
   /**
-   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled.
-   *         </p>
+   * <p>A list of EC2 VPC security groups to associate with the restored DB cluster.</p>
    */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
-
-  /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
-   *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
-   *          </p>
-   */
-  EnableIAMDatabaseAuthentication?: boolean;
-
-  /**
-   * <p>The name of the database engine to be used for the restored DB cluster.</p>
-   *         <p>Valid Values: <code>aurora</code>, <code>aurora-postgresql</code>
-   *         </p>
-   */
-  Engine: string | undefined;
-
-  /**
-   * <p>The version number of the database engine to use.</p>
-   *         <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p>
-   *         <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *         <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p>
-   *         <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *         <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p>
-   *         <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *         <p>
-   *             <b>Aurora MySQL</b>
-   *         </p>
-   *         <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code>
-   *         </p>
-   *         <p>
-   *             <b>Aurora PostgreSQL</b>
-   *         </p>
-   *         <p>Example: <code>9.6.3</code>, <code>10.7</code>
-   *         </p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key.</p>
-   *         <p>If the StorageEncrypted parameter is enabled, and you do
-   *             not specify a value for the <code>KmsKeyId</code> parameter, then
-   *             Amazon RDS will use your default encryption key. AWS KMS creates the
-   *             default encryption key for your AWS account. Your AWS account has a different
-   *             default encryption key for each AWS Region.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
-   *         <p>Constraints: Must contain from 8 to 41 characters.</p>
-   */
-  MasterUserPassword: string | undefined;
-
-  /**
-   * <p>The name of the master user for the restored DB cluster.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Must be 1 to 16 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a reserved word for the chosen database engine.</p>
-   *             </li>
-   *          </ul>
-   */
-  MasterUsername: string | undefined;
-
-  /**
-   * <p>A value that indicates that the restored DB cluster should be associated with the specified option group.</p>
-   *         <p>Permanent options can't be removed from an option group. An option group can't be removed from a
-   *             DB cluster once it is associated with a DB cluster.</p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The port number on which the instances in the restored DB cluster accept connections.</p>
-   *         <p>
-   *             Default: <code>3306</code>
-   *         </p>
-   */
-  Port?: number;
+  VpcSecurityGroupIds?: string[];
 
   /**
    * <p>The daily time range during which automated backups are created
@@ -16417,6 +16802,118 @@ export interface RestoreDBClusterFromS3Message {
   PreferredBackupWindow?: string;
 
   /**
+   * <p>The version number of the database engine to use.</p>
+   *         <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p>
+   *         <p>
+   *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
+   *         <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p>
+   *         <p>
+   *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
+   *         <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p>
+   *         <p>
+   *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
+   *         <p>
+   *             <b>Aurora MySQL</b>
+   *         </p>
+   *         <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code>
+   *         </p>
+   *         <p>
+   *             <b>Aurora PostgreSQL</b>
+   *         </p>
+   *         <p>Example: <code>9.6.3</code>, <code>10.7</code>
+   *         </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The name of the DB cluster to create from the source data in the Amazon S3 bucket. This parameter isn't case-sensitive.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Example: <code>my-cluster1</code>
+   *         </p>
+   */
+  DBClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for the database engine that was backed up to create the files stored in the
+   *             Amazon S3 bucket.
+   *         </p>
+   *         <p>Valid values: <code>mysql</code>
+   *          </p>
+   */
+  SourceEngine: string | undefined;
+
+  /**
+   * <p>A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>The version of the database that the backup files were created from.</p>
+   *         <p>MySQL versions 5.5, 5.6, and 5.7 are supported.
+   *         </p>
+   *         <p>Example: <code>5.6.40</code>
+   *          </p>
+   */
+  SourceEngineVersion: string | undefined;
+
+  /**
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of the database engine to be used for the restored DB cluster.</p>
+   *         <p>Valid Values: <code>aurora</code>, <code>aurora-postgresql</code>
+   *         </p>
+   */
+  Engine: string | undefined;
+
+  /**
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   */
+  DomainIAMRoleName?: string;
+
+  /**
+   * <p>Specify the Active Directory directory ID to restore the DB cluster in.
+   *           The domain must be created prior to this operation.
+   *       </p>
+   *          <p>
+   *         For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB cluster.
+   *         For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos Authentication</a>
+   *         in the <i>Amazon Aurora User Guide</i>.
+   *       </p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>A value that indicates whether the restored DB cluster is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>A value that indicates that the restored DB cluster should be associated with the specified option group.</p>
+   *         <p>Permanent options can't be removed from an option group. An option group can't be removed from a
+   *             DB cluster once it is associated with a DB cluster.</p>
+   */
+  OptionGroupName?: string;
+
+  /**
    * <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
    *         <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *         </p>
@@ -16432,15 +16929,23 @@ export interface RestoreDBClusterFromS3Message {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>The name of the Amazon S3 bucket that contains the data used to create the Amazon Aurora DB cluster.</p>
+   * <p>The port number on which the instances in the restored DB cluster accept connections.</p>
+   *         <p>
+   *             Default: <code>3306</code>
+   *         </p>
    */
-  S3BucketName: string | undefined;
+  Port?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes
-   *         Amazon RDS to access the Amazon S3 bucket on your behalf.</p>
+   * <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
+   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key.</p>
+   *         <p>If the StorageEncrypted parameter is enabled, and you do
+   *             not specify a value for the <code>KmsKeyId</code> parameter, then
+   *             Amazon RDS will use your default encryption key. AWS KMS creates the
+   *             default encryption key for your AWS account. Your AWS account has a different
+   *             default encryption key for each AWS Region.</p>
    */
-  S3IngestionRoleArn: string | undefined;
+  KmsKeyId?: string;
 
   /**
    * <p>The prefix for all of the file names that contain the data used to create the Amazon Aurora DB cluster.
@@ -16450,39 +16955,98 @@ export interface RestoreDBClusterFromS3Message {
   S3Prefix?: string;
 
   /**
-   * <p>The identifier for the database engine that was backed up to create the files stored in the
-   *             Amazon S3 bucket.
+   * <p>A value that indicates that the restored DB cluster should be associated with the specified CharacterSet.</p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled. By default,
+   *             deletion protection is disabled.
    *         </p>
-   *         <p>Valid values: <code>mysql</code>
-   *          </p>
    */
-  SourceEngine: string | undefined;
+  DeletionProtection?: boolean;
 
   /**
-   * <p>The version of the database that the backup files were created from.</p>
-   *         <p>MySQL version 5.5 and 5.6 are supported.
+   * <p>The database name for the restored DB cluster.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The name of the master user for the restored DB cluster.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Must be 1 to 16 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
+   *             </li>
+   *          </ul>
+   */
+  MasterUsername: string | undefined;
+
+  /**
+   * <p>A list of Availability Zones (AZs) where instances in the restored DB cluster can be created.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>The name of the DB cluster parameter group to associate
+   *             with the restored DB cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
    *         </p>
-   *         <p>Example: <code>5.6.22</code>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterParameterGroupName?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket that contains the data used to create the Amazon Aurora DB cluster.</p>
+   */
+  S3BucketName: string | undefined;
+
+  /**
+   * <p>The number of days for which automated backups of the restored DB cluster are retained. You must specify a minimum value of 1.</p>
+   *         <p>Default: 1</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Must be a value from 1 to 35</p>
+   *             </li>
+   *          </ul>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
+   *         <p>Constraints: Must contain from 8 to 41 characters.</p>
+   */
+  MasterUserPassword: string | undefined;
+
+  /**
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   *
+   *         <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
    */
-  SourceEngineVersion: string | undefined;
+  EnableIAMDatabaseAuthentication?: boolean;
 
   /**
-   * <p>A value that indicates whether the restored DB cluster is encrypted.</p>
+   * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values
+   *             in the list depend on the DB engine being used. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>A list of tags.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A list of EC2 VPC security groups to associate with the restored DB cluster.</p>
-   */
-  VpcSecurityGroupIds?: string[];
+  EnableCloudwatchLogsExports?: string[];
 }
 
 export namespace RestoreDBClusterFromS3Message {
@@ -16517,23 +17081,26 @@ export namespace RestoreDBClusterFromS3Result {
 export interface RestoreDBClusterFromSnapshotMessage {
   __type?: "RestoreDBClusterFromSnapshotMessage";
   /**
-   * <p>Provides the list of Availability Zones (AZs) where instances in the restored DB
-   *             cluster can be created.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
-   *             0.</p>
-   *         <p>Default: 0</p>
+   * <p>The name of the DB cluster parameter group to associate with this DB cluster. If this
+   *             argument is omitted, the default DB cluster parameter group for the specified engine is
+   *             used.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
-   *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
+   *                 <p>If supplied, must match the name of an existing default DB cluster parameter group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
    */
-  BacktrackWindow?: number;
+  DBClusterParameterGroupName?: string;
 
   /**
    * <p>A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
@@ -16561,39 +17128,17 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p>The name of the DB cluster parameter group to associate with this DB cluster. If this
-   *             argument is omitted, the default DB cluster parameter group for the specified engine is
-   *             used.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If supplied, must match the name of an existing default DB cluster parameter group.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                 <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the option group to use for the restored DB cluster.</p>
    */
-  DBClusterParameterGroupName?: string;
+  OptionGroupName?: string;
 
   /**
-   * <p>The name of the DB subnet group to use for the new DB cluster.</p>
-   *          <p>Constraints: If supplied, must match the name of an existing DB subnet group.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
-   *          </p>
+   * <p>The port number on which the new DB cluster accepts connections.</p>
+   *          <p>Constraints: This value must be <code>1150-65535</code>
+   *         </p>
+   *          <p>Default: The same port as the original DB cluster.</p>
    */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>The database name for the restored DB cluster.</p>
-   */
-  DatabaseName?: string;
+  Port?: number;
 
   /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
@@ -16604,36 +17149,39 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DeletionProtection?: boolean;
 
   /**
-   * <p>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.
-   *             The values in the list depend on the DB engine being used. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon
-   *                 Aurora User Guide</i>.</p>
+   * <p>The database name for the restored DB cluster.</p>
    */
-  EnableCloudwatchLogsExports?: string[];
+  DatabaseName?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
-   *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
-   *          </p>
+   * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB
+   *             snapshot or DB cluster snapshot.</p>
+   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
+   *             key. If you are restoring a DB cluster with the same AWS account that owns the KMS
+   *             encryption key used to encrypt the new DB cluster, then you can use the KMS key alias
+   *             instead of the ARN for the KMS encryption key.</p>
+   *         <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the
+   *             following occurs:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If the DB snapshot or DB cluster snapshot in
+   *                         <code>SnapshotIdentifier</code> is encrypted, then the restored DB cluster
+   *                     is encrypted using the KMS key that was used to encrypt the DB snapshot or DB
+   *                     cluster snapshot.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the DB snapshot or DB cluster snapshot in
+   *                     <code>SnapshotIdentifier</code> isn't encrypted, then the restored DB cluster
+   *                     isn't encrypted.</p>
+   *             </li>
+   *          </ul>
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  KmsKeyId?: string;
 
   /**
-   * <p>The database engine to use for the new DB cluster.</p>
-   *          <p>Default: The same as source</p>
-   *          <p>Constraint: Must be compatible with the engine of the source</p>
+   * <p>For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.</p>
    */
-  Engine: string | undefined;
-
-  /**
-   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-   *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
-   */
-  EngineMode?: string;
+  ScalingConfiguration?: ScalingConfiguration;
 
   /**
    * <p>The version of the database engine to use for the new DB cluster.</p>
@@ -16666,47 +17214,41 @@ export interface RestoreDBClusterFromSnapshotMessage {
   EngineVersion?: string;
 
   /**
-   * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB
-   *             snapshot or DB cluster snapshot.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
-   *             key. If you are restoring a DB cluster with the same AWS account that owns the KMS
-   *             encryption key used to encrypt the new DB cluster, then you can use the KMS key alias
-   *             instead of the ARN for the KMS encryption key.</p>
-   *         <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the
-   *             following occurs:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If the DB snapshot or DB cluster snapshot in
-   *                         <code>SnapshotIdentifier</code> is encrypted, then the restored DB cluster
-   *                     is encrypted using the KMS key that was used to encrypt the DB snapshot or DB
-   *                     cluster snapshot.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If the DB snapshot or DB cluster snapshot in
-   *                     <code>SnapshotIdentifier</code> isn't encrypted, then the restored DB cluster
-   *                     isn't encrypted.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
    */
-  KmsKeyId?: string;
+  DomainIAMRoleName?: string;
 
   /**
-   * <p>The name of the option group to use for the restored DB cluster.</p>
+   * <p>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.
+   *             The values in the list depend on the DB engine being used. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon
+   *                 Aurora User Guide</i>.</p>
    */
-  OptionGroupName?: string;
+  EnableCloudwatchLogsExports?: string[];
 
   /**
-   * <p>The port number on which the new DB cluster accepts connections.</p>
-   *          <p>Constraints: This value must be <code>1150-65535</code>
-   *         </p>
-   *          <p>Default: The same port as the original DB cluster.</p>
+   * <p>The database engine to use for the new DB cluster.</p>
+   *          <p>Default: The same as source</p>
+   *          <p>Constraint: Must be compatible with the engine of the source</p>
    */
-  Port?: number;
+  Engine: string | undefined;
 
   /**
-   * <p>For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.</p>
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   *
+   *         <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
    */
-  ScalingConfiguration?: ScalingConfiguration;
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>Provides the list of Availability Zones (AZs) where instances in the restored DB
+   *             cluster can be created.</p>
+   */
+  AvailabilityZones?: string[];
 
   /**
    * <p>The identifier for the DB snapshot or DB cluster snapshot to restore from.</p>
@@ -16722,14 +17264,51 @@ export interface RestoreDBClusterFromSnapshotMessage {
   SnapshotIdentifier: string | undefined;
 
   /**
-   * <p>The tags to be assigned to the restored DB cluster.</p>
+   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
+   *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
    */
-  Tags?: Tag[];
+  EngineMode?: string;
+
+  /**
+   * <p>The name of the DB subnet group to use for the new DB cluster.</p>
+   *          <p>Constraints: If supplied, must match the name of an existing DB subnet group.</p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
+   */
+  DBSubnetGroupName?: string;
 
   /**
    * <p>A list of VPC security groups that the new DB cluster will belong to.</p>
    */
   VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The tags to be assigned to the restored DB cluster.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Specify the Active Directory directory ID to restore the DB cluster in.
+   *            The domain must be created prior to this operation.
+   *        </p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
+   *             0.</p>
+   *         <note>
+   *             <p>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</p>
+   *         </note>
+   *         <p>Default: 0</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
+   *             </li>
+   *          </ul>
+   */
+  BacktrackWindow?: number;
 }
 
 export namespace RestoreDBClusterFromSnapshotMessage {
@@ -16766,41 +17345,6 @@ export namespace RestoreDBClusterFromSnapshotResult {
 export interface RestoreDBClusterToPointInTimeMessage {
   __type?: "RestoreDBClusterToPointInTimeMessage";
   /**
-   * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
-   *             0.</p>
-   *         <p>Default: 0</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
-   *             </li>
-   *          </ul>
-   */
-  BacktrackWindow?: number;
-
-  /**
-   * <p>A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The name of the new DB cluster to be created.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterIdentifier: string | undefined;
-
-  /**
    * <p>The name of the DB cluster parameter group to associate with this DB cluster.
    *             If this argument is omitted, the default DB cluster parameter group for the specified engine is used.</p>
    *         <p>Constraints:</p>
@@ -16822,72 +17366,53 @@ export interface RestoreDBClusterToPointInTimeMessage {
   DBClusterParameterGroupName?: string;
 
   /**
-   * <p>The DB subnet group name to use for the new DB cluster.</p>
-   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
-   *          </p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled.
-   *         </p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
-
-  /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
-   *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
-   *          </p>
-   */
-  EnableIAMDatabaseAuthentication?: boolean;
-
-  /**
-   * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.</p>
-   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
-   *          <p>You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the
-   *       KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key
-   *       identified by the <code>KmsKeyId</code> parameter.</p>
-   *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>If <code>DBClusterIdentifier</code> refers to a DB cluster that isn't encrypted, then the restore request
-   *       is rejected.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
    * <p>The name of the option group for the new DB cluster.</p>
    */
   OptionGroupName?: string;
 
   /**
-   * <p>The port number on which the new DB cluster accepts connections.</p>
-   *          <p>Constraints: A value from <code>1150-65535</code>.
-   *       </p>
-   *          <p>Default: The default port for the engine.</p>
+   * <p>The name of the new DB cluster to be created.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
    */
-  Port?: number;
+  DBClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The type of restore to be performed. You can specify one of the following values:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>full-copy</code> - The new DB cluster is restored as a full copy of the
+   *                 source DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>copy-on-write</code> - The new DB cluster is restored as a clone of the
+   *                 source DB cluster.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Constraints: You can't specify <code>copy-on-write</code> if the engine version of the source DB cluster is earlier than 1.11.</p>
+   *         <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
+   *             restored as a full copy of the source DB cluster.</p>
+   */
+  RestoreType?: string;
+
+  /**
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The date and time to restore the DB cluster to.</p>
@@ -16914,24 +17439,17 @@ export interface RestoreDBClusterToPointInTimeMessage {
   RestoreToTime?: Date;
 
   /**
-   * <p>The type of restore to be performed. You can specify one of the following values:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>full-copy</code> - The new DB cluster is restored as a full copy of the
-   *                 source DB cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>copy-on-write</code> - The new DB cluster is restored as a clone of the
-   *                 source DB cluster.</p>
-   *             </li>
-   *          </ul>
-   *         <p>Constraints: You can't specify <code>copy-on-write</code> if the engine version of the source DB cluster is earlier than 1.11.</p>
-   *         <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
-   *             restored as a full copy of the source DB cluster.</p>
+   * <p>The port number on which the new DB cluster accepts connections.</p>
+   *          <p>Constraints: A value from <code>1150-65535</code>.
+   *       </p>
+   *          <p>Default: The default port for the engine.</p>
    */
-  RestoreType?: string;
+  Port?: number;
+
+  /**
+   * <p>A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
 
   /**
    * <p>The identifier of the source DB cluster from which to restore.</p>
@@ -16945,11 +17463,34 @@ export interface RestoreDBClusterToPointInTimeMessage {
   SourceDBClusterIdentifier: string | undefined;
 
   /**
-   * <p>A list of tags.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values
+   *             in the list depend on the DB engine being used. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   */
+  EnableCloudwatchLogsExports?: string[];
+
+  /**
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   *
+   *         <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
    */
-  Tags?: Tag[];
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>Specify the Active Directory directory ID to restore the DB cluster in.
+   *           The domain must be created prior to this operation.
+   *       </p>
+   *          <p>
+   *         For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB cluster.
+   *         For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos Authentication</a>
+   *         in the <i>Amazon Aurora User Guide</i>.
+   *       </p>
+   */
+  Domain?: string;
 
   /**
    * <p>A value that indicates whether to restore the DB cluster to the latest
@@ -16961,9 +17502,67 @@ export interface RestoreDBClusterToPointInTimeMessage {
   UseLatestRestorableTime?: boolean;
 
   /**
+   * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
+   *             0.</p>
+   *         <note>
+   *             <p>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</p>
+   *         </note>
+   *         <p>Default: 0</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
+   *             </li>
+   *          </ul>
+   */
+  BacktrackWindow?: number;
+
+  /**
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   */
+  DomainIAMRoleName?: string;
+
+  /**
+   * <p>The DB subnet group name to use for the new DB cluster.</p>
+   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled. By default,
+   *             deletion protection is disabled.
+   *         </p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
    * <p>A list of VPC security groups that the new DB cluster belongs to.</p>
    */
   VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.</p>
+   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
+   *          <p>You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the
+   *       KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key
+   *       identified by the <code>KmsKeyId</code> parameter.</p>
+   *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>If <code>DBClusterIdentifier</code> refers to a DB cluster that isn't encrypted, then the restore request
+   *       is rejected.</p>
+   */
+  KmsKeyId?: string;
 }
 
 export namespace RestoreDBClusterToPointInTimeMessage {
@@ -17000,36 +17599,6 @@ export namespace RestoreDBClusterToPointInTimeResult {
 export interface RestoreDBInstanceFromDBSnapshotMessage {
   __type?: "RestoreDBInstanceFromDBSnapshotMessage";
   /**
-   * <p>A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>The Availability Zone (AZ) where the DB instance will be created.</p>
-   *          <p>Default: A random, system-chosen Availability Zone.</p>
-   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
-   *          <p>Example: <code>us-east-1a</code>
-   *          </p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
-   *           For the full list of DB instance classes,
-   *           and availability for your engine, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *          <p>Default: The same DBInstanceClass as the original DB instance.</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
    * <p>Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -17049,49 +17618,14 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The database name for the restored DB instance.</p>
-   *          <note>
-   *             <p>This parameter doesn't apply to the MySQL, PostgreSQL, or MariaDB engines.</p>
-   *          </note>
+   * <p>
+   *             A list of EC2 VPC security groups to associate with this DB instance.
+   *         </p>
+   *         <p>
+   *             Default: The default EC2 VPC security group for the DB subnet group's VPC.
+   *         </p>
    */
-  DBName?: string;
-
-  /**
-   * <p>The name of the DB parameter group to associate with this DB instance.</p>
-   *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the default <code>DBParameterGroup</code>
-   *             for the specified DB engine is used.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If supplied, must match the name of an existing DBParameterGroup.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                 <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBParameterGroupName?: string;
-
-  /**
-   * <p>The identifier for the DB snapshot to restore from.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *               <p>Must match the identifier of an existing DBSnapshot.</p>
-   *             </li>
-   *             <li>
-   *               <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
-   *               must be the ARN of the shared DB snapshot.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBSnapshotIdentifier: string | undefined;
+  VpcSecurityGroupIds?: string[];
 
   /**
    * <p>The DB subnet group name to use for the new instance.</p>
@@ -17102,54 +17636,29 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   DBSubnetGroupName?: string;
 
   /**
-   * <p>A value that indicates whether the DB instance has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-   *                 Deleting a DB Instance</a>.
-   *         </p>
+   * <p>The password for the given ARN from the key store in order to access the device.</p>
    */
-  DeletionProtection?: boolean;
+  TdeCredentialPassword?: string;
 
   /**
-   * <p>Specify the Active Directory directory ID to restore the DB instance in.
-   *            The domain must be created prior to this operation. Currently, only Microsoft SQL Server and
-   *            Oracle DB instances can be created in an Active Directory Domain.
-   *        </p>
-   *          <p>For Microsoft SQL Server DB instances, Amazon RDS can use
-   *            Windows Authentication to authenticate users that connect to the DB instance. For more
-   *            information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
-   *                Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server</a> in the
-   *            <i>Amazon RDS User Guide</i>.</p>
-   *          <p>For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB instance.
-   *            For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
-   *                Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
-   */
-  Domain?: string;
-
-  /**
-   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
-   */
-  DomainIAMRoleName?: string;
-
-  /**
-   * <p>The list of logs that the restored DB instance is to export to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
-
-  /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *           Management (IAM) accounts to database accounts. By default, mapping is disabled.
-   *           For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
-   *
-   *          <p>For more information about IAM database authentication, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
-   *               IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
+   * <p>License model information for the restored DB instance.</p>
+   *          <p>Default: Same as source.</p>
+   *          <p>
+   *             Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
    *          </p>
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  LicenseModel?: string;
+
+  /**
+   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.</p>
+   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   */
+  TdeCredentialArn?: string;
 
   /**
    * <p>The database engine to use for the new instance.</p>
@@ -17219,6 +17728,11 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   Engine?: string;
 
   /**
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   */
+  DomainIAMRoleName?: string;
+
+  /**
    * <p>Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O operations per second.
    *           If this parameter isn't specified, the IOPS value is taken from the backup.
    *           If this parameter is set to 0, the new instance is converted to a non-PIOPS instance.
@@ -17234,19 +17748,87 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   Iops?: number;
 
   /**
-   * <p>License model information for the restored DB instance.</p>
-   *          <p>Default: Same as source.</p>
-   *          <p>
-   *             Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
-   *          </p>
+   * <p>A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.</p>
    */
-  LicenseModel?: string;
+  AutoMinorVersionUpgrade?: boolean;
 
   /**
-   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.</p>
-   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
+   * <p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
+   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
+   *           For the full list of DB instance classes,
+   *           and availability for your engine, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Default: The same DBInstanceClass as the original DB instance.</p>
    */
-  MultiAZ?: boolean;
+  DBInstanceClass?: string;
+
+  /**
+   * <p>A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>The name of the DB parameter group to associate with this DB instance.</p>
+   *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the default <code>DBParameterGroup</code>
+   *             for the specified DB engine is used.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If supplied, must match the name of an existing DBParameterGroup.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBParameterGroupName?: string;
+
+  /**
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Specify the Active Directory directory ID to restore the DB instance in.
+   *            The domain must be created prior to this operation. Currently, only Microsoft SQL Server and
+   *            Oracle DB instances can be created in an Active Directory Domain.
+   *        </p>
+   *          <p>For Microsoft SQL Server DB instances, Amazon RDS can use
+   *            Windows Authentication to authenticate users that connect to the DB instance. For more
+   *            information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+   *                Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server</a> in the
+   *            <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For Oracle DB instances, Amazon RDS can use Kerberos authentication to authenticate users that connect to the DB instance.
+   *            For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+   *                Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The Availability Zone (AZ) where the DB instance will be created.</p>
+   *          <p>Default: A random, system-chosen Availability Zone.</p>
+   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
+   *          <p>Example: <code>us-east-1a</code>
+   *          </p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The database name for the restored DB instance.</p>
+   *          <note>
+   *             <p>This parameter doesn't apply to the MySQL, PostgreSQL, or MariaDB engines.</p>
+   *          </note>
+   */
+  DBName?: string;
 
   /**
    * <p>The name of the option group to be used for the restored DB instance.</p>
@@ -17256,24 +17838,19 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   OptionGroupName?: string;
 
   /**
-   * <p>The port number on which the database accepts connections.</p>
-   *          <p>Default: The same port as the original DB instance</p>
-   *          <p>Constraints: Value must be <code>1150-65535</code>
-   *          </p>
+   * <p>A value that indicates whether the DB instance has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled. By default,
+   *             deletion protection is disabled. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+   *                 Deleting a DB Instance</a>.
+   *         </p>
    */
-  Port?: number;
+  DeletionProtection?: boolean;
 
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
    */
   ProcessorFeatures?: ProcessorFeature[];
-
-  /**
-   * <p>A value that indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible, it is an Internet-facing instance with a publicly resolvable DNS name,
-   *           which resolves to a public IP address. When the DB instance isn't publicly accessible, it is an internal instance with a DNS name that resolves to a private IP address.
-   *           For more information, see <a>CreateDBInstance</a>.</p>
-   */
-  PubliclyAccessible?: boolean;
 
   /**
    * <p>Specifies the storage type to be associated with the DB instance.</p>
@@ -17292,21 +17869,11 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   StorageType?: string;
 
   /**
-   * <p>A list of tags.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
+   * <p>The list of logs that the restored DB instance is to export to CloudWatch Logs. The values
+   *             in the list depend on the DB engine being used. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
-   */
-  TdeCredentialArn?: string;
-
-  /**
-   * <p>The password for the given ARN from the key store in order to access the device.</p>
-   */
-  TdeCredentialPassword?: string;
+  EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>A value that indicates whether the DB instance class of the DB instance uses its default
@@ -17315,14 +17882,49 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   UseDefaultProcessorFeatures?: boolean;
 
   /**
-   * <p>
-   *             A list of EC2 VPC security groups to associate with this DB instance.
-   *         </p>
-   *         <p>
-   *             Default: The default EC2 VPC security group for the DB subnet group's VPC.
-   *         </p>
+   * <p>The identifier for the DB snapshot to restore from.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *               <p>Must match the identifier of an existing DBSnapshot.</p>
+   *             </li>
+   *             <li>
+   *               <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
+   *               must be the ARN of the shared DB snapshot.</p>
+   *             </li>
+   *          </ul>
    */
-  VpcSecurityGroupIds?: string[];
+  DBSnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *           Management (IAM) accounts to database accounts. By default, mapping is disabled.
+   *           For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+   *
+   *          <p>For more information about IAM database authentication, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+   *               IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>A value that indicates whether the DB instance is publicly accessible.</p>
+   *          <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
+   *           and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
+   *           and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
+   *          <p>For more information, see <a>CreateDBInstance</a>.</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>The port number on which the database accepts connections.</p>
+   *          <p>Default: The same port as the original DB instance</p>
+   *          <p>Constraints: Value must be <code>1150-65535</code>
+   *          </p>
+   */
+  Port?: number;
 }
 
 export namespace RestoreDBInstanceFromDBSnapshotMessage {
@@ -17355,26 +17957,30 @@ export namespace RestoreDBInstanceFromDBSnapshotResult {
 export interface RestoreDBInstanceFromS3Message {
   __type?: "RestoreDBInstanceFromS3Message";
   /**
-   * <p>The amount of storage (in gigabytes) to allocate initially for the DB instance.
-   *             Follow the allocation rules specified in <code>CreateDBInstance</code>.
-   *         </p>
-   *
-   *         <note>
-   *             <p>Be sure to allocate enough memory for your new DB instance
-   *                 so that the restore operation can succeed.
-   *                 You can also allocate additional memory for future growth.
-   *             </p>
-   *         </note>
+   * <p>A value that indicates whether the DB instance is publicly accessible.</p>
+   *         <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
+   *             and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
+   *             and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *         <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
+   *         <p>For more information, see <a>CreateDBInstance</a>.</p>
    */
-  AllocatedStorage?: number;
+  PubliclyAccessible?: boolean;
 
   /**
-   * <p>A value that indicates whether minor engine upgrades are applied automatically
-   *             to the DB instance during the maintenance window. By default, minor engine upgrades
-   *             are not applied automatically.
+   * <p>A list of tags to associate with this DB instance.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
    */
-  AutoMinorVersionUpgrade?: boolean;
+  Tags?: Tag[];
+
+  /**
+   * <p>The version of the database that the backup files were created from.</p>
+   *         <p>MySQL versions 5.6 and 5.7 are supported.
+   *         </p>
+   *         <p>Example: <code>5.6.40</code>
+   *          </p>
+   */
+  SourceEngineVersion: string | undefined;
 
   /**
    * <p>The Availability Zone that the DB instance is created in.
@@ -17392,81 +17998,6 @@ export interface RestoreDBInstanceFromS3Message {
   AvailabilityZone?: string;
 
   /**
-   * <p>The number of days for which automated backups are retained.
-   *             Setting this parameter to a positive number enables backups.
-   *             For more information, see <code>CreateDBInstance</code>.
-   *         </p>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>A value that indicates whether to copy all tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
-   *         </p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The compute and memory capacity of the DB instance,
-   *             for example, <code>db.m4.large</code>.
-   *             Not all DB instance classes are available in all AWS Regions,
-   *             or for all database engines.
-   *             For the full list of DB instance classes,
-   *             and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
-   *         </p>
-   *         <p>Importing from Amazon S3 isn't supported on the db.t2.micro DB instance class.
-   *         </p>
-   */
-  DBInstanceClass: string | undefined;
-
-  /**
-   * <p>The DB instance identifier. This parameter is stored as a lowercase string.
-   *         </p>
-   *
-   *         <p>Constraints:</p>
-   *
-   *         <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p>Example: <code>mydbinstance</code>
-   *         </p>
-   */
-  DBInstanceIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the database to create when the DB instance is created.
-   *             Follow the naming rules specified in <code>CreateDBInstance</code>.
-   *         </p>
-   */
-  DBName?: string;
-
-  /**
-   * <p>The name of the DB parameter group to associate with this DB instance.</p>
-   *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the default <code>DBParameterGroup</code>
-   *             for the specified DB engine is used.</p>
-   */
-  DBParameterGroupName?: string;
-
-  /**
-   * <p>A list of DB security groups to associate with this DB instance.</p>
-   *         <p>Default: The default DB security group for the database engine.</p>
-   */
-  DBSecurityGroups?: string[];
-
-  /**
-   * <p>A DB subnet group to associate with this DB instance.</p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
    * <p>A value that indicates whether the DB instance has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
    *             deletion protection is disabled. For more information, see
@@ -17477,42 +18008,25 @@ export interface RestoreDBInstanceFromS3Message {
   DeletionProtection?: boolean;
 
   /**
-   * <p>The list of logs that the restored DB instance is to export to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
+   * <p>The name of the option group to associate with this DB instance.
+   *             If this argument is omitted, the default option group for the specified engine is used.
+   *         </p>
    */
-  EnableCloudwatchLogsExports?: string[];
+  OptionGroupName?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.
-   *             For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
-   *
-   *          <p>For more information about IAM database authentication, see
-   *          <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
-   *              IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
+   * <p>The license model for this DB instance.
+   *             Use <code>general-public-license</code>.
+   *         </p>
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  LicenseModel?: string;
 
   /**
-   * <p>A value that indicates whether to enable Performance Insights for the DB instance.
-   *         </p>
-   *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service
-   *                     User Guide</i>.
-   *         </p>
+   * <p>The name of the DB parameter group to associate with this DB instance.</p>
+   *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the default <code>DBParameterGroup</code>
+   *             for the specified DB engine is used.</p>
    */
-  EnablePerformanceInsights?: boolean;
-
-  /**
-   * <p>The name of the database engine to be used for this instance.
-   *         </p>
-   *
-   *         <p>Valid Values:  <code>mysql</code>
-   *         </p>
-   */
-  Engine: string | undefined;
+  DBParameterGroupName?: string;
 
   /**
    * <p>The version number of the database engine to use.
@@ -17523,162 +18037,39 @@ export interface RestoreDBInstanceFromS3Message {
   EngineVersion?: string;
 
   /**
-   * <p>The amount of Provisioned IOPS (input/output operations per second)
-   *             to allocate initially for the DB instance.
-   *             For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a>
-   *             in the <i>Amazon RDS User Guide.</i>
-   *         </p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>The AWS KMS key identifier for an encrypted DB instance.
-   *         </p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
-   *             If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance,
-   *             then you can use the KMS key alias instead of the ARN for the KM encryption key.
-   *         </p>
-   *         <p>If the <code>StorageEncrypted</code> parameter is enabled,
-   *             and you do not specify a value for the <code>KmsKeyId</code> parameter,
-   *             then Amazon RDS will use your default encryption key.
-   *             AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS Region.
-   *         </p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The license model for this DB instance.
-   *             Use <code>general-public-license</code>.
-   *         </p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>The password for the master user.
-   *             The password can include any printable ASCII character except "/", """, or "@".
+   * <p>The amount of storage (in gigabytes) to allocate initially for the DB instance.
+   *             Follow the allocation rules specified in <code>CreateDBInstance</code>.
    *         </p>
    *
-   *         <p>Constraints: Must contain from 8 to 41 characters.</p>
+   *         <note>
+   *             <p>Be sure to allocate enough memory for your new DB instance
+   *                 so that the restore operation can succeed.
+   *                 You can also allocate additional memory for future growth.
+   *             </p>
+   *         </note>
    */
-  MasterUserPassword?: string;
+  AllocatedStorage?: number;
 
   /**
-   * <p>The name for the master user.
+   * <p>The prefix of your Amazon S3 bucket.
    *         </p>
-   *
-   *         <p>Constraints:
-   *         </p>
-   *         <ul>
-   *             <li>
-   *                <p>Must be 1 to 16 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be a reserved word for the chosen database engine.</p>
-   *             </li>
-   *          </ul>
    */
-  MasterUsername?: string;
+  S3Prefix?: string;
 
   /**
-   * <p>The interval, in seconds,
-   *             between points when Enhanced Monitoring metrics are collected for the DB instance.
-   *             To disable collecting Enhanced Monitoring metrics, specify 0.
+   * <p>Specifies the storage type to be associated with the DB instance.
    *         </p>
-   *
-   *         <p>If <code>MonitoringRoleArn</code> is specified,
-   *             then you must also set <code>MonitoringInterval</code> to a value other than 0.
+   *         <p>Valid values: <code>standard</code> | <code>gp2</code> | <code>io1</code>
    *         </p>
-   *
-   *         <p>Valid Values: 0, 1, 5, 10, 15, 30, 60
+   *         <p>If you specify <code>io1</code>,
+   *             you must also include a value for the <code>Iops</code> parameter.
    *         </p>
-   *         <p>Default: <code>0</code>
+   *         <p>Default: <code>io1</code>
+   *             if the <code>Iops</code> parameter is specified;
+   *             otherwise <code>gp2</code>
    *         </p>
    */
-  MonitoringInterval?: number;
-
-  /**
-   * <p>The ARN for the IAM role that permits RDS
-   *             to send enhanced monitoring metrics to Amazon CloudWatch Logs.
-   *             For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
-   *             For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting Up and Enabling Enhanced Monitoring</a>
-   *             in the <i>Amazon RDS User Guide.</i>
-   *         </p>
-   *         <p>If <code>MonitoringInterval</code> is set to a value other than 0,
-   *             then you must supply a <code>MonitoringRoleArn</code> value.
-   *         </p>
-   */
-  MonitoringRoleArn?: string;
-
-  /**
-   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.
-   *             If the DB instance is a Multi-AZ deployment, you can't set the <code>AvailabilityZone</code> parameter.
-   *         </p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>The name of the option group to associate with this DB instance.
-   *             If this argument is omitted, the default option group for the specified engine is used.
-   *         </p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data.
-   *             The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier,
-   *             or the KMS key alias for the KMS encryption key.
-   *         </p>
-   *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS Region.</p>
-   */
-  PerformanceInsightsKMSKeyId?: string;
-
-  /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
-   */
-  PerformanceInsightsRetentionPeriod?: number;
-
-  /**
-   * <p>The port number on which the database accepts connections.
-   *         </p>
-   *         <p>Type: Integer
-   *         </p>
-   *         <p>Valid Values: <code>1150</code>-<code>65535</code>
-   *         </p>
-   *         <p>Default: <code>3306</code>
-   *         </p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The time range each day
-   *             during which automated backups are created
-   *             if automated backups are enabled.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">The Backup Window</a> in the <i>Amazon RDS User Guide.</i>
-   *         </p>
-   *
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be in Universal Coordinated Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Must not conflict with the preferred maintenance window.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be at least 30 minutes.</p>
-   *             </li>
-   *          </ul>
-   */
-  PreferredBackupWindow?: string;
+  StorageType?: string;
 
   /**
    * <p>The time range each week during which system maintenance can occur,
@@ -17708,16 +18099,16 @@ export interface RestoreDBInstanceFromS3Message {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   * <p>The list of logs that the restored DB instance is to export to CloudWatch Logs. The values
+   *             in the list depend on the DB engine being used. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
-  ProcessorFeatures?: ProcessorFeature[];
+  EnableCloudwatchLogsExports?: string[];
 
   /**
-   * <p>A value that indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible, it is an Internet-facing instance with a publicly resolvable DNS name,
-   *             which resolves to a public IP address. When the DB instance isn't publicly accessible, it is an internal instance with a DNS name that resolves to a private IP address.
-   *             For more information, see <a>CreateDBInstance</a>.</p>
+   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
    */
-  PubliclyAccessible?: boolean;
+  PerformanceInsightsRetentionPeriod?: number;
 
   /**
    * <p>The name of your Amazon S3 bucket
@@ -17727,16 +18118,155 @@ export interface RestoreDBInstanceFromS3Message {
   S3BucketName: string | undefined;
 
   /**
-   * <p>An AWS Identity and Access Management (IAM) role to allow Amazon RDS to access your Amazon S3 bucket.
-   *         </p>
+   * <p>A DB subnet group to associate with this DB instance.</p>
    */
-  S3IngestionRoleArn: string | undefined;
+  DBSubnetGroupName?: string;
 
   /**
-   * <p>The prefix of your Amazon S3 bucket.
+   * <p>A list of DB security groups to associate with this DB instance.</p>
+   *         <p>Default: The default DB security group for the database engine.</p>
+   */
+  DBSecurityGroups?: string[];
+
+  /**
+   * <p>The AWS KMS key identifier for an encrypted DB instance.
+   *         </p>
+   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+   *             If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance,
+   *             then you can use the KMS key alias instead of the ARN for the KM encryption key.
+   *         </p>
+   *         <p>If the <code>StorageEncrypted</code> parameter is enabled,
+   *             and you do not specify a value for the <code>KmsKeyId</code> parameter,
+   *             then Amazon RDS will use your default encryption key.
+   *             AWS KMS creates the default encryption key for your AWS account.
+   *             Your AWS account has a different default encryption key for each AWS Region.
    *         </p>
    */
-  S3Prefix?: string;
+  KmsKeyId?: string;
+
+  /**
+   * <p>The password for the master user.
+   *             The password can include any printable ASCII character except "/", """, or "@".
+   *         </p>
+   *
+   *         <p>Constraints: Must contain from 8 to 41 characters.</p>
+   */
+  MasterUserPassword?: string;
+
+  /**
+   * <p>A value that indicates whether the DB instance class of the DB instance uses its default
+   *             processor features.</p>
+   */
+  UseDefaultProcessorFeatures?: boolean;
+
+  /**
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.
+   *             For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+   *
+   *          <p>For more information about IAM database authentication, see
+   *          <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+   *              IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>The name of the database to create when the DB instance is created.
+   *             Follow the naming rules specified in <code>CreateDBInstance</code>.
+   *         </p>
+   */
+  DBName?: string;
+
+  /**
+   * <p>The ARN for the IAM role that permits RDS
+   *             to send enhanced monitoring metrics to Amazon CloudWatch Logs.
+   *             For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
+   *             For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting Up and Enabling Enhanced Monitoring</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *         </p>
+   *         <p>If <code>MonitoringInterval</code> is set to a value other than 0,
+   *             then you must supply a <code>MonitoringRoleArn</code> value.
+   *         </p>
+   */
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>The time range each day
+   *             during which automated backups are created
+   *             if automated backups are enabled.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">The Backup Window</a> in the <i>Amazon RDS User Guide.</i>
+   *         </p>
+   *
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be in Universal Coordinated Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must not conflict with the preferred maintenance window.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be at least 30 minutes.</p>
+   *             </li>
+   *          </ul>
+   */
+  PreferredBackupWindow?: string;
+
+  /**
+   * <p>The name for the master user.
+   *         </p>
+   *
+   *         <p>Constraints:
+   *         </p>
+   *         <ul>
+   *             <li>
+   *                <p>Must be 1 to 16 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
+   *             </li>
+   *          </ul>
+   */
+  MasterUsername?: string;
+
+  /**
+   * <p>The number of days for which automated backups are retained.
+   *             Setting this parameter to a positive number enables backups.
+   *             For more information, see <code>CreateDBInstance</code>.
+   *         </p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>A list of VPC security groups to associate with this DB instance.
+   *         </p>
+   */
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>A value that indicates whether to copy all tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
+   *         </p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>The port number on which the database accepts connections.
+   *         </p>
+   *         <p>Type: Integer
+   *         </p>
+   *         <p>Valid Values: <code>1150</code>-<code>65535</code>
+   *         </p>
+   *         <p>Default: <code>3306</code>
+   *         </p>
+   */
+  Port?: number;
 
   /**
    * <p>The name of the engine of your source database.
@@ -17748,13 +18278,87 @@ export interface RestoreDBInstanceFromS3Message {
   SourceEngine: string | undefined;
 
   /**
-   * <p>The engine version of your source database.
+   * <p>The interval, in seconds,
+   *             between points when Enhanced Monitoring metrics are collected for the DB instance.
+   *             To disable collecting Enhanced Monitoring metrics, specify 0.
    *         </p>
    *
-   *         <p>Valid Values: <code>5.6</code>
+   *         <p>If <code>MonitoringRoleArn</code> is specified,
+   *             then you must also set <code>MonitoringInterval</code> to a value other than 0.
+   *         </p>
+   *
+   *         <p>Valid Values: 0, 1, 5, 10, 15, 30, 60
+   *         </p>
+   *         <p>Default: <code>0</code>
    *         </p>
    */
-  SourceEngineVersion: string | undefined;
+  MonitoringInterval?: number;
+
+  /**
+   * <p>A value that indicates whether minor engine upgrades are applied automatically
+   *             to the DB instance during the maintenance window. By default, minor engine upgrades
+   *             are not applied automatically.
+   *         </p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>The amount of Provisioned IOPS (input/output operations per second)
+   *             to allocate initially for the DB instance.
+   *             For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *         </p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>The DB instance identifier. This parameter is stored as a lowercase string.
+   *         </p>
+   *
+   *         <p>Constraints:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>Example: <code>mydbinstance</code>
+   *         </p>
+   */
+  DBInstanceIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the database engine to be used for this instance.
+   *         </p>
+   *
+   *         <p>Valid Values:  <code>mysql</code>
+   *         </p>
+   */
+  Engine: string | undefined;
+
+  /**
+   * <p>A value that indicates whether to enable Performance Insights for the DB instance.
+   *         </p>
+   *         <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service
+   *                     User Guide</i>.
+   *         </p>
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.
+   *             If the DB instance is a Multi-AZ deployment, you can't set the <code>AvailabilityZone</code> parameter.
+   *         </p>
+   */
+  MultiAZ?: boolean;
 
   /**
    * <p>A value that indicates whether the new DB instance is encrypted or not.
@@ -17763,38 +18367,39 @@ export interface RestoreDBInstanceFromS3Message {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>Specifies the storage type to be associated with the DB instance.
+   * <p>The compute and memory capacity of the DB instance,
+   *             for example, <code>db.m4.large</code>.
+   *             Not all DB instance classes are available in all AWS Regions,
+   *             or for all database engines.
+   *             For the full list of DB instance classes,
+   *             and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
-   *         <p>Valid values: <code>standard</code> | <code>gp2</code> | <code>io1</code>
-   *         </p>
-   *         <p>If you specify <code>io1</code>,
-   *             you must also include a value for the <code>Iops</code> parameter.
-   *         </p>
-   *         <p>Default: <code>io1</code>
-   *             if the <code>Iops</code> parameter is specified;
-   *             otherwise <code>gp2</code>
+   *         <p>Importing from Amazon S3 isn't supported on the db.t2.micro DB instance class.
    *         </p>
    */
-  StorageType?: string;
+  DBInstanceClass: string | undefined;
 
   /**
-   * <p>A list of tags to associate with this DB instance.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
-   *         </p>
+   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
    */
-  Tags?: Tag[];
+  ProcessorFeatures?: ProcessorFeature[];
 
   /**
-   * <p>A value that indicates whether the DB instance class of the DB instance uses its default
-   *             processor features.</p>
-   */
-  UseDefaultProcessorFeatures?: boolean;
-
-  /**
-   * <p>A list of VPC security groups to associate with this DB instance.
+   * <p>An AWS Identity and Access Management (IAM) role to allow Amazon RDS to access your Amazon S3 bucket.
    *         </p>
    */
-  VpcSecurityGroupIds?: string[];
+  S3IngestionRoleArn: string | undefined;
+
+  /**
+   * <p>The AWS KMS key identifier for encryption of Performance Insights data.
+   *             The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier,
+   *             or the KMS key alias for the KMS encryption key.
+   *         </p>
+   *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
+   *             uses your default encryption key. AWS KMS creates the default encryption key for your AWS account.
+   *             Your AWS account has a different default encryption key for each AWS Region.</p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
 }
 
 export namespace RestoreDBInstanceFromS3Message {
@@ -17828,122 +18433,24 @@ export namespace RestoreDBInstanceFromS3Result {
 export interface RestoreDBInstanceToPointInTimeMessage {
   __type?: "RestoreDBInstanceToPointInTimeMessage";
   /**
-   * <p>A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>The Availability Zone (AZ) where the DB instance will be created.</p>
-   *          <p>Default: A random, system-chosen Availability Zone.</p>
-   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
-   *          <p>Example: <code>us-east-1a</code>
-   *          </p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
-   *           For the full list of DB instance classes,
-   *           and availability for your engine, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *          <p>Default: The same DBInstanceClass as the original DB instance.</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
-   * <p>The database name for the restored DB instance.</p>
-   *          <note>
-   *             <p>This parameter isn't used for the MySQL or MariaDB engines.</p>
-   *          </note>
-   */
-  DBName?: string;
-
-  /**
-   * <p>The name of the DB parameter group to associate with this DB instance.</p>
-   *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the default <code>DBParameterGroup</code>
-   *                 for the specified DB engine is used.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   * <p>The identifier of the source DB instance from which to restore.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If supplied, must match the name of an existing DBParameterGroup.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                 <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Must match the identifier of an existing DB instance.</p>
    *             </li>
    *          </ul>
    */
-  DBParameterGroupName?: string;
+  SourceDBInstanceIdentifier?: string;
 
   /**
-   * <p>The DB subnet group name to use for the new instance.</p>
-   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
+   * <p>License model information for the restored DB instance.</p>
+   *          <p>Default: Same as source.</p>
+   *          <p>
+   *             Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
    *          </p>
    */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>A value that indicates whether the DB instance has deletion protection enabled.
-   *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-   *                 Deleting a DB Instance</a>.
-   *         </p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>Specify the Active Directory directory ID to restore the DB instance in.
-   *           The domain must be created prior to this operation. Currently, only Microsoft SQL Server and
-   *           Oracle DB instances can be created in an Active Directory Domain.
-   *       </p>
-   *          <p>For Microsoft SQL Server DB instances, Amazon RDS can use
-   *           Windows Authentication to authenticate users that connect to the DB instance. For more
-   *           information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
-   *               Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server</a> in the
-   *           <i>Amazon RDS User Guide</i>.</p>
-   *          <p>For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB instance.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
-   *               Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
-   */
-  Domain?: string;
-
-  /**
-   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
-   */
-  DomainIAMRoleName?: string;
-
-  /**
-   * <p>The list of logs that the restored DB instance is to export to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
-
-  /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-   *           Management (IAM) accounts to database accounts. By default, mapping is disabled.
-   *           For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
-   *
-   *          <p>For more information about IAM database authentication, see
-   *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
-   *             IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
-  EnableIAMDatabaseAuthentication?: boolean;
+  LicenseModel?: string;
 
   /**
    * <p>The database engine to use for the new instance.</p>
@@ -18023,19 +18530,59 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   Iops?: number;
 
   /**
-   * <p>License model information for the restored DB instance.</p>
-   *          <p>Default: Same as source.</p>
-   *          <p>
-   *             Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
-   *          </p>
+   * <p>The list of logs that the restored DB instance is to export to CloudWatch Logs. The values
+   *             in the list depend on the DB engine being used. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
-  LicenseModel?: string;
+  EnableCloudwatchLogsExports?: string[];
 
   /**
-   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.</p>
-   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
+   * <p>Specifies the storage type to be associated with the DB instance.</p>
+   *          <p>
+   *             Valid values: <code>standard | gp2 | io1</code>
+   *          </p>
+   *          <p>
+   *             If you specify <code>io1</code>, you must also include a value for the
+   *             <code>Iops</code> parameter.
+   *         </p>
+   *          <p>
+   *             Default: <code>io1</code> if the <code>Iops</code> parameter
+   *             is specified, otherwise <code>gp2</code>
+   *          </p>
    */
-  MultiAZ?: boolean;
+  StorageType?: string;
+
+  /**
+   * <p>The password for the given ARN from the key store in order to access the device.</p>
+   */
+  TdeCredentialPassword?: string;
+
+  /**
+   * <p>The DB subnet group name to use for the new instance.</p>
+   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>
+   *           A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance
+   *           isn't restored from the latest backup time.
+   *         </p>
+   *          <p>Constraints: Can't be specified if the <code>RestoreTime</code> parameter is provided.</p>
+   */
+  UseLatestRestorableTime?: boolean;
+
+  /**
+   * <p>A value that indicates whether the DB instance has deletion protection enabled.
+   *             The database can't be deleted when deletion protection is enabled. By default,
+   *             deletion protection is disabled. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+   *                 Deleting a DB Instance</a>.
+   *         </p>
+   */
+  DeletionProtection?: boolean;
 
   /**
    * <p>The name of the option group to be used for the restored DB instance.</p>
@@ -18043,6 +18590,81 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>
    */
   OptionGroupName?: string;
+
+  /**
+   * <p>The database name for the restored DB instance.</p>
+   *          <note>
+   *             <p>This parameter isn't used for the MySQL or MariaDB engines.</p>
+   *          </note>
+   */
+  DBName?: string;
+
+  /**
+   * <p>
+   *             A list of EC2 VPC security groups to associate with this DB instance.
+   *         </p>
+   *         <p>
+   *             Default: The default EC2 VPC security group for the DB subnet group's VPC.
+   *         </p>
+   */
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The Availability Zone (AZ) where the DB instance will be created.</p>
+   *          <p>Default: A random, system-chosen Availability Zone.</p>
+   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
+   *          <p>Example: <code>us-east-1a</code>
+   *          </p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The resource ID of the source DB instance from which to restore.</p>
+   */
+  SourceDbiResourceId?: string;
+
+  /**
+   * <p>Specify the Active Directory directory ID to restore the DB instance in.
+   *           The domain must be created prior to this operation. Currently, only Microsoft SQL Server and
+   *           Oracle DB instances can be created in an Active Directory Domain.
+   *       </p>
+   *          <p>For Microsoft SQL Server DB instances, Amazon RDS can use
+   *           Windows Authentication to authenticate users that connect to the DB instance. For more
+   *           information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+   *               Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server</a> in the
+   *           <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For Oracle DB instances, Amazon RDS can use Kerberos authentication to authenticate users that connect to the DB instance.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+   *               Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   *           Management (IAM) accounts to database accounts. By default, mapping is disabled.
+   *           For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+   *
+   *          <p>For more information about IAM database authentication, see
+   *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+   *             IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>A value that indicates whether the DB instance class of the DB instance uses its default processor features.</p>
+   */
+  UseDefaultProcessorFeatures?: boolean;
+
+  /**
+   * <p>A value that indicates whether the DB instance is publicly accessible.</p>
+   *          <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
+   *           and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
+   *           and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
+   *          <p>For more information, see <a>CreateDBInstance</a>.</p>
+   */
+  PubliclyAccessible?: boolean;
 
   /**
    * <p>The port number on which the database accepts connections.</p>
@@ -18053,17 +18675,15 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   Port?: number;
 
   /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.</p>
+   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
    */
-  ProcessorFeatures?: ProcessorFeature[];
+  MultiAZ?: boolean;
 
   /**
-   * <p>A value that indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible, it is an
-   *           Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. When the DB instance isn't
-   *           publicly accessible, it is an internal instance with a DNS name that resolves to a private IP address.
-   *           For more information, see <a>CreateDBInstance</a>.</p>
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
    */
-  PubliclyAccessible?: boolean;
+  DomainIAMRoleName?: string;
 
   /**
    * <p>The date and time to restore from.</p>
@@ -18083,43 +18703,9 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   RestoreTime?: Date;
 
   /**
-   * <p>The identifier of the source DB instance from which to restore.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match the identifier of an existing DB instance.</p>
-   *             </li>
-   *          </ul>
+   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
    */
-  SourceDBInstanceIdentifier?: string;
-
-  /**
-   * <p>The resource ID of the source DB instance from which to restore.</p>
-   */
-  SourceDbiResourceId?: string;
-
-  /**
-   * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *          <p>
-   *             Valid values: <code>standard | gp2 | io1</code>
-   *          </p>
-   *          <p>
-   *             If you specify <code>io1</code>, you must also include a value for the
-   *             <code>Iops</code> parameter.
-   *         </p>
-   *          <p>
-   *             Default: <code>io1</code> if the <code>Iops</code> parameter
-   *             is specified, otherwise <code>gp2</code>
-   *          </p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>A list of tags.
-   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   */
-  Tags?: Tag[];
+  TdeCredentialArn?: string;
 
   /**
    * <p>The name of the new DB instance to be created.</p>
@@ -18139,38 +18725,59 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   TargetDBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
    */
-  TdeCredentialArn?: string;
+  ProcessorFeatures?: ProcessorFeature[];
 
   /**
-   * <p>The password for the given ARN from the key store in order to access the device.</p>
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    */
-  TdeCredentialPassword?: string;
+  Tags?: Tag[];
 
   /**
-   * <p>A value that indicates whether the DB instance class of the DB instance uses its default processor features.</p>
+   * <p>The name of the DB parameter group to associate with this DB instance.</p>
+   *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the default <code>DBParameterGroup</code>
+   *                 for the specified DB engine is used.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If supplied, must match the name of an existing DBParameterGroup.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
    */
-  UseDefaultProcessorFeatures?: boolean;
+  DBParameterGroupName?: string;
 
   /**
-   * <p>
-   *           A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance
-   *           isn't restored from the latest backup time.
-   *         </p>
-   *          <p>Constraints: Can't be specified if the <code>RestoreTime</code> parameter is provided.</p>
+   * <p>A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.</p>
    */
-  UseLatestRestorableTime?: boolean;
+  AutoMinorVersionUpgrade?: boolean;
 
   /**
-   * <p>
-   *             A list of EC2 VPC security groups to associate with this DB instance.
-   *         </p>
-   *         <p>
-   *             Default: The default EC2 VPC security group for the DB subnet group's VPC.
-   *         </p>
+   * <p>A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
    */
-  VpcSecurityGroupIds?: string[];
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
+   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
+   *           For the full list of DB instance classes,
+   *           and availability for your engine, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Default: The same DBInstanceClass as the original DB instance.</p>
+   */
+  DBInstanceClass?: string;
 }
 
 export namespace RestoreDBInstanceToPointInTimeMessage {
@@ -18229,6 +18836,11 @@ export namespace RestoreWindow {
 export interface RevokeDBSecurityGroupIngressMessage {
   __type?: "RevokeDBSecurityGroupIngressMessage";
   /**
+   * <p>The name of the DB security group to revoke ingress from.</p>
+   */
+  DBSecurityGroupName: string | undefined;
+
+  /**
    * <p>
    *         The IP range to revoke access from.
    *         Must be a valid CIDR range. If <code>CIDRIP</code> is specified,
@@ -18237,20 +18849,6 @@ export interface RevokeDBSecurityGroupIngressMessage {
    *         </p>
    */
   CIDRIP?: string;
-
-  /**
-   * <p>The name of the DB security group to revoke ingress from.</p>
-   */
-  DBSecurityGroupName: string | undefined;
-
-  /**
-   * <p>
-   *         The id of the EC2 security group to revoke access from.
-   *         For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided.
-   *         Otherwise, EC2SecurityGroupOwnerId and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.
-   *         </p>
-   */
-  EC2SecurityGroupId?: string;
 
   /**
    * <p>
@@ -18271,6 +18869,15 @@ export interface RevokeDBSecurityGroupIngressMessage {
    *         </p>
    */
   EC2SecurityGroupOwnerId?: string;
+
+  /**
+   * <p>
+   *         The id of the EC2 security group to revoke access from.
+   *         For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided.
+   *         Otherwise, EC2SecurityGroupOwnerId and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.
+   *         </p>
+   */
+  EC2SecurityGroupId?: string;
 }
 
 export namespace RevokeDBSecurityGroupIngressMessage {
@@ -18309,32 +18916,6 @@ export namespace RevokeDBSecurityGroupIngressResult {
 export interface ScalingConfiguration {
   __type?: "ScalingConfiguration";
   /**
-   * <p>A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in <code>serverless</code> DB engine mode.
-   *             A DB cluster can be paused only when it's idle (it has no connections).</p>
-   *         <note>
-   *             <p>If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot.
-   *                 In this case, the DB cluster is restored when there is a request to connect to it. </p>
-   *         </note>
-   */
-  AutoPause?: boolean;
-
-  /**
-   * <p>The maximum capacity for an Aurora DB cluster in <code>serverless</code> DB engine mode.</p>
-   *         <p>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
-   *         <p>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</p>
-   *         <p>The maximum capacity must be greater than or equal to the minimum capacity.</p>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The minimum capacity for an Aurora DB cluster in <code>serverless</code> DB engine mode.</p>
-   *         <p>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
-   *         <p>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</p>
-   *         <p>The minimum capacity must be less than or equal to the maximum capacity.</p>
-   */
-  MinCapacity?: number;
-
-  /**
    * <p>The time, in seconds, before an Aurora DB cluster in <code>serverless</code> mode is paused.</p>
    */
   SecondsUntilAutoPause?: number;
@@ -18353,6 +18934,32 @@ export interface ScalingConfiguration {
    *                     Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
   TimeoutAction?: string;
+
+  /**
+   * <p>The minimum capacity for an Aurora DB cluster in <code>serverless</code> DB engine mode.</p>
+   *         <p>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
+   *         <p>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</p>
+   *         <p>The minimum capacity must be less than or equal to the maximum capacity.</p>
+   */
+  MinCapacity?: number;
+
+  /**
+   * <p>The maximum capacity for an Aurora DB cluster in <code>serverless</code> DB engine mode.</p>
+   *         <p>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
+   *         <p>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</p>
+   *         <p>The maximum capacity must be greater than or equal to the minimum capacity.</p>
+   */
+  MaxCapacity?: number;
+
+  /**
+   * <p>A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in <code>serverless</code> DB engine mode.
+   *             A DB cluster can be paused only when it's idle (it has no connections).</p>
+   *         <note>
+   *             <p>If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot.
+   *                 In this case, the DB cluster is restored when there is a request to connect to it. </p>
+   *         </note>
+   */
+  AutoPause?: boolean;
 }
 
 export namespace ScalingConfiguration {
@@ -18370,6 +18977,19 @@ export namespace ScalingConfiguration {
 export interface ScalingConfigurationInfo {
   __type?: "ScalingConfigurationInfo";
   /**
+   * <p>The timeout action of a call to <code>ModifyCurrentDBClusterCapacity</code>, either
+   *                 <code>ForceApplyCapacityChange</code> or <code>RollbackCapacityChange</code>.</p>
+   */
+  TimeoutAction?: string;
+
+  /**
+   * <p>The remaining amount of time, in seconds, before the Aurora DB cluster in
+   *                 <code>serverless</code> mode is paused. A DB cluster can be paused only when
+   *             it's idle (it has no connections).</p>
+   */
+  SecondsUntilAutoPause?: number;
+
+  /**
    * <p>A value that indicates whether automatic pause is allowed for the Aurora DB cluster
    *             in <code>serverless</code> DB engine mode.</p>
    *         <p>When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.</p>
@@ -18386,19 +19006,6 @@ export interface ScalingConfigurationInfo {
    *             mode.</p>
    */
   MinCapacity?: number;
-
-  /**
-   * <p>The remaining amount of time, in seconds, before the Aurora DB cluster in
-   *                 <code>serverless</code> mode is paused. A DB cluster can be paused only when
-   *             it's idle (it has no connections).</p>
-   */
-  SecondsUntilAutoPause?: number;
-
-  /**
-   * <p>The timeout action of a call to <code>ModifyCurrentDBClusterCapacity</code>, either
-   *                 <code>ForceApplyCapacityChange</code> or <code>RollbackCapacityChange</code>.</p>
-   */
-  TimeoutAction?: string;
 }
 
 export namespace ScalingConfigurationInfo {
@@ -18516,14 +19123,14 @@ export interface SourceRegion {
   Endpoint?: string;
 
   /**
-   * <p>The name of the source AWS Region.</p>
-   */
-  RegionName?: string;
-
-  /**
    * <p>The status of the source AWS Region.</p>
    */
   Status?: string;
+
+  /**
+   * <p>The name of the source AWS Region.</p>
+   */
+  RegionName?: string;
 }
 
 export namespace SourceRegion {
@@ -18539,6 +19146,12 @@ export namespace SourceRegion {
 export interface SourceRegionMessage {
   __type?: "SourceRegionMessage";
   /**
+   * <p>A list of SourceRegion instances that contains each source AWS Region that the
+   *             current AWS Region can get a read replica or a DB snapshot from.</p>
+   */
+  SourceRegions?: SourceRegion[];
+
+  /**
    * <p>
    *         An optional pagination token provided by a previous request.
    *         If this parameter is specified, the response includes
@@ -18547,11 +19160,6 @@ export interface SourceRegionMessage {
    *       </p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of SourceRegion instances that contains each source AWS Region that the current AWS Region can get a Read Replica or a DB snapshot from.</p>
-   */
-  SourceRegions?: SourceRegion[];
 }
 
 export namespace SourceRegionMessage {
@@ -18578,6 +19186,12 @@ export interface StartActivityStreamRequest {
   ApplyImmediately?: boolean;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the DB cluster,
+   *             for example <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
    * <p>The AWS KMS key identifier for encrypting messages in the database activity stream.
    *             The key identifier can be either a key ID, a key ARN, or a key alias.</p>
    */
@@ -18590,12 +19204,6 @@ export interface StartActivityStreamRequest {
    *         </p>
    */
   Mode: ActivityStreamMode | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the DB cluster,
-   *             for example <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</p>
-   */
-  ResourceArn: string | undefined;
 }
 
 export namespace StartActivityStreamRequest {
@@ -18607,12 +19215,6 @@ export namespace StartActivityStreamRequest {
 
 export interface StartActivityStreamResponse {
   __type?: "StartActivityStreamResponse";
-  /**
-   * <p>Indicates whether or not the database activity stream will start as soon as possible,
-   *             regardless of the maintenance window for the database.</p>
-   */
-  ApplyImmediately?: boolean;
-
   /**
    * <p>The name of the Amazon Kinesis data stream to be used for the database activity stream.</p>
    */
@@ -18632,6 +19234,12 @@ export interface StartActivityStreamResponse {
    * <p>The status of the database activity stream.</p>
    */
   Status?: ActivityStreamStatus | string;
+
+  /**
+   * <p>Indicates whether or not the database activity stream will start as soon as possible,
+   *             regardless of the maintenance window for the database.</p>
+   */
+  ApplyImmediately?: boolean;
 }
 
 export namespace StartActivityStreamResponse {
@@ -18711,6 +19319,82 @@ export namespace StartDBInstanceResult {
   export const isa = (o: any): o is StartDBInstanceResult => __isa(o, "StartDBInstanceResult");
 }
 
+export interface StartExportTaskMessage {
+  __type?: "StartExportTaskMessage";
+  /**
+   * <p>A unique identifier for the snapshot export task. This ID isn't an identifier for
+   *             the Amazon S3 bucket where the snapshot is to be exported to. </p>
+   */
+  ExportTaskIdentifier: string | undefined;
+
+  /**
+   * <p>The data to be exported from the snapshot.
+   *             If this parameter is not provided, all the snapshot data is exported.
+   *             Valid values are the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>database</code> - Export all the data from a specified database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database.table</code>
+   *                   <i>table-name</i> -
+   *                 Export a table of the snapshot. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database.schema</code>
+   *                   <i>schema-name</i> - Export a database schema of the snapshot.
+   *                 This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database.schema.table</code>
+   *                   <i>table-name</i> - Export a table of the database schema.
+   *                 This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p>
+   *             </li>
+   *          </ul>
+   */
+  ExportOnly?: string[];
+
+  /**
+   * <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
+   */
+  S3BucketName: string | undefined;
+
+  /**
+   * <p>The ID of the AWS KMS key to use to encrypt the snapshot exported to Amazon S3. The
+   *             KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or the KMS key
+   *             alias for the KMS encryption key. The IAM role used for the snapshot export must have
+   *             encryption and decryption permissions to use this KMS key. </p>
+   */
+  KmsKeyId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot to export to Amazon S3.</p>
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The name of the IAM role to use for writing to the Amazon S3 bucket
+   *             when exporting a snapshot. </p>
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.</p>
+   */
+  S3Prefix?: string;
+}
+
+export namespace StartExportTaskMessage {
+  export const filterSensitiveLog = (obj: StartExportTaskMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is StartExportTaskMessage => __isa(o, "StartExportTaskMessage");
+}
+
 export interface StopActivityStreamRequest {
   __type?: "StopActivityStreamRequest";
   /**
@@ -18737,11 +19421,6 @@ export namespace StopActivityStreamRequest {
 export interface StopActivityStreamResponse {
   __type?: "StopActivityStreamResponse";
   /**
-   * <p>The name of the Amazon Kinesis data stream used for the database activity stream.</p>
-   */
-  KinesisStreamName?: string;
-
-  /**
    * <p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>
    */
   KmsKeyId?: string;
@@ -18750,6 +19429,11 @@ export interface StopActivityStreamResponse {
    * <p>The status of the database activity stream.</p>
    */
   Status?: ActivityStreamStatus | string;
+
+  /**
+   * <p>The name of the Amazon Kinesis data stream used for the database activity stream.</p>
+   */
+  KinesisStreamName?: string;
 }
 
 export namespace StopActivityStreamResponse {
@@ -18872,11 +19556,21 @@ export namespace StorageTypeNotSupportedFault {
 
 /**
  * <p>
- *         This data type is used as a response element in the <code>DescribeDBSubnetGroups</code> action.
+ *         This data type is used as a response element for the <code>DescribeDBSubnetGroups</code> operation.
  *         </p>
  */
 export interface Subnet {
   __type?: "Subnet";
+  /**
+   * <p>The identifier of the subnet.</p>
+   */
+  SubnetIdentifier?: string;
+
+  /**
+   * <p>The status of the subnet.</p>
+   */
+  SubnetStatus?: string;
+
   /**
    * <p>Contains Availability Zone information.</p>
    *         <p> This data type is used as an element in the <code>OrderableDBInstanceOption</code>
@@ -18885,14 +19579,12 @@ export interface Subnet {
   SubnetAvailabilityZone?: AvailabilityZone;
 
   /**
-   * <p>Specifies the identifier of the subnet.</p>
+   * <p>If the subnet is associated with an Outpost, this value specifies the Outpost.</p>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on AWS Outposts</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    */
-  SubnetIdentifier?: string;
-
-  /**
-   * <p>Specifies the status of the subnet.</p>
-   */
-  SubnetStatus?: string;
+  SubnetOutpost?: Outpost;
 }
 
 export namespace Subnet {
@@ -18972,14 +19664,14 @@ export namespace SubscriptionNotFoundFault {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
-   */
-  Key?: string;
-
-  /**
    * <p>A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
    */
   Value?: string;
+
+  /**
+   * <p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   */
+  Key?: string;
 }
 
 export namespace Tag {
@@ -19005,6 +19697,53 @@ export namespace TagListMessage {
     ...obj,
   });
   export const isa = (o: any): o is TagListMessage => __isa(o, "TagListMessage");
+}
+
+/**
+ * <p>Information about the connection health of an RDS Proxy target.</p>
+ */
+export interface TargetHealth {
+  __type?: "TargetHealth";
+  /**
+   * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
+   */
+  Reason?: TargetHealthReason | string;
+
+  /**
+   * <p>The current state of the connection health lifecycle for the RDS Proxy target.
+   *            The following is a typical lifecycle example for the states of an RDS Proxy target:
+   *        </p>
+   *          <p>
+   *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
+   *          </p>
+   */
+  State?: TargetState | string;
+
+  /**
+   * <p>A description of the health of the RDS Proxy target.
+   *             If the <code>State</code> is <code>AVAILABLE</code>, a description is not included.</p>
+   */
+  Description?: string;
+}
+
+export namespace TargetHealth {
+  export const filterSensitiveLog = (obj: TargetHealth): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TargetHealth => __isa(o, "TargetHealth");
+}
+
+export enum TargetHealthReason {
+  AUTH_FAILURE = "AUTH_FAILURE",
+  CONNECTION_FAILED = "CONNECTION_FAILED",
+  PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY",
+  UNREACHABLE = "UNREACHABLE",
+}
+
+export enum TargetState {
+  available = "AVAILABLE",
+  registering = "REGISTERING",
+  unavailable = "UNAVAILABLE",
 }
 
 export enum TargetType {
@@ -19045,9 +19784,19 @@ export namespace Timezone {
 export interface UpgradeTarget {
   __type?: "UpgradeTarget";
   /**
+   * <p>The version number of the upgrade target database engine.</p>
+   */
+  EngineVersion?: string;
+
+  /**
    * <p>A value that indicates whether the target version is applied to any source DB instances that have <code>AutoMinorVersionUpgrade</code> set to true.</p>
    */
   AutoUpgrade?: boolean;
+
+  /**
+   * <p>A value that indicates whether a database engine is upgraded to a major version.</p>
+   */
+  IsMajorVersionUpgrade?: boolean;
 
   /**
    * <p>The version of the database engine that a DB instance can be upgraded to.</p>
@@ -19058,16 +19807,6 @@ export interface UpgradeTarget {
    * <p>The name of the upgrade target database engine.</p>
    */
   Engine?: string;
-
-  /**
-   * <p>The version number of the upgrade target database engine.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>A value that indicates whether a database engine is upgraded to a major version.</p>
-   */
-  IsMajorVersionUpgrade?: boolean;
 }
 
 export namespace UpgradeTarget {
@@ -19078,11 +19817,7 @@ export namespace UpgradeTarget {
 }
 
 /**
- * <note>
- *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
- *          </note>
- *
- *          <p>Specifies the details of authentication used by a proxy to log in as a specific database user.</p>
+ * <p>Specifies the details of authentication used by a proxy to log in as a specific database user.</p>
  */
 export interface UserAuthConfig {
   __type?: "UserAuthConfig";
@@ -19090,11 +19825,6 @@ export interface UserAuthConfig {
    * <p>The type of authentication that the proxy uses for connections from the proxy to the underlying database.</p>
    */
   AuthScheme?: AuthScheme | string;
-
-  /**
-   * <p>A user-specified description about the authentication used by a proxy to log in as a specific database user.</p>
-   */
-  Description?: string;
 
   /**
    * <p>Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.</p>
@@ -19106,6 +19836,11 @@ export interface UserAuthConfig {
    *         to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.</p>
    */
   SecretArn?: string;
+
+  /**
+   * <p>A user-specified description about the authentication used by a proxy to log in as a specific database user.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The name of the database user to which the proxy connects.</p>
@@ -19121,18 +19856,20 @@ export namespace UserAuthConfig {
 }
 
 /**
- * <note>
- *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
- *          </note>
- *
- *          <p>Returns the details of authentication used by a proxy to log in as a specific database user.</p>
+ * <p>Returns the details of authentication used by a proxy to log in as a specific database user.</p>
  */
 export interface UserAuthConfigInfo {
   __type?: "UserAuthConfigInfo";
   /**
-   * <p>The type of authentication that the proxy uses for connections from the proxy to the underlying database.</p>
+   * <p>The name of the database user to which the proxy connects.</p>
    */
-  AuthScheme?: AuthScheme | string;
+  UserName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate
+   *         to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.</p>
+   */
+  SecretArn?: string;
 
   /**
    * <p>A user-specified description about the authentication used by a proxy to log in as a specific database user.</p>
@@ -19145,15 +19882,9 @@ export interface UserAuthConfigInfo {
   IAMAuth?: IAMAuthMode | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate
-   *         to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.</p>
+   * <p>The type of authentication that the proxy uses for connections from the proxy to the underlying database.</p>
    */
-  SecretArn?: string;
-
-  /**
-   * <p>The name of the database user to which the proxy connects.</p>
-   */
-  UserName?: string;
+  AuthScheme?: AuthScheme | string;
 }
 
 export namespace UserAuthConfigInfo {
@@ -19174,16 +19905,16 @@ export namespace UserAuthConfigInfo {
 export interface ValidDBInstanceModificationsMessage {
   __type?: "ValidDBInstanceModificationsMessage";
   /**
-   * <p>Valid storage options for your DB instance.
-   *         </p>
-   */
-  Storage?: ValidStorageOptions[];
-
-  /**
    * <p>Valid processor features for your DB instance.
    *         </p>
    */
   ValidProcessorFeatures?: AvailableProcessorFeature[];
+
+  /**
+   * <p>Valid storage options for your DB instance.
+   *         </p>
+   */
+  Storage?: ValidStorageOptions[];
 }
 
 export namespace ValidDBInstanceModificationsMessage {
@@ -19203,12 +19934,11 @@ export namespace ValidDBInstanceModificationsMessage {
 export interface ValidStorageOptions {
   __type?: "ValidStorageOptions";
   /**
-   * <p>The valid range of Provisioned IOPS to gibibytes of storage multiplier.
-   *             For example, 3-10,
-   *             which means that provisioned IOPS can be between 3 and 10 times storage.
+   * <p>The valid range of storage in gibibytes.
+   *             For example, 100 to 16384.
    *         </p>
    */
-  IopsToStorageRatio?: DoubleRange[];
+  StorageSize?: Range[];
 
   /**
    * <p>The valid range of provisioned IOPS.
@@ -19216,13 +19946,6 @@ export interface ValidStorageOptions {
    *         </p>
    */
   ProvisionedIops?: Range[];
-
-  /**
-   * <p>The valid range of storage in gibibytes.
-   *             For example, 100 to 16384.
-   *         </p>
-   */
-  StorageSize?: Range[];
 
   /**
    * <p>The valid storage types for your DB instance.
@@ -19235,6 +19958,14 @@ export interface ValidStorageOptions {
    * <p>Whether or not Amazon RDS can automatically scale storage for DB instances that use the new instance class.</p>
    */
   SupportsStorageAutoscaling?: boolean;
+
+  /**
+   * <p>The valid range of Provisioned IOPS to gibibytes of storage multiplier.
+   *             For example, 3-10,
+   *             which means that provisioned IOPS can be between 3 and 10 times storage.
+   *         </p>
+   */
+  IopsToStorageRatio?: DoubleRange[];
 }
 
 export namespace ValidStorageOptions {
@@ -19278,19 +20009,9 @@ export namespace VpcSecurityGroupMembership {
 export interface VpnDetails {
   __type?: "VpnDetails";
   /**
-   * <p>The IP address of network traffic from AWS to your on-premises data center.</p>
+   * <p>The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.</p>
    */
-  VpnGatewayIp?: string;
-
-  /**
-   * <p>The ID of the VPN.</p>
-   */
-  VpnId?: string;
-
-  /**
-   * <p>The name of the VPN.</p>
-   */
-  VpnName?: string;
+  VpnTunnelOriginatorIP?: string;
 
   /**
    * <p>The preshared key (PSK) for the VPN.</p>
@@ -19298,14 +20019,24 @@ export interface VpnDetails {
   VpnPSK?: string;
 
   /**
+   * <p>The ID of the VPN.</p>
+   */
+  VpnId?: string;
+
+  /**
+   * <p>The IP address of network traffic from AWS to your on-premises data center.</p>
+   */
+  VpnGatewayIp?: string;
+
+  /**
    * <p>The state of the VPN.</p>
    */
   VpnState?: string;
 
   /**
-   * <p>The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.</p>
+   * <p>The name of the VPN.</p>
    */
-  VpnTunnelOriginatorIP?: string;
+  VpnName?: string;
 }
 
 export namespace VpnDetails {
@@ -19314,4 +20045,12 @@ export namespace VpnDetails {
     ...(obj.VpnPSK && { VpnPSK: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is VpnDetails => __isa(o, "VpnDetails");
+}
+
+export enum WriteForwardingStatus {
+  DISABLED = "disabled",
+  DISABLING = "disabling",
+  ENABLED = "enabled",
+  ENABLING = "enabling",
+  UNKNOWN = "unknown",
 }

@@ -227,6 +227,21 @@ import {
   DisassociateConnectionFromLagCommandInput,
   DisassociateConnectionFromLagCommandOutput,
 } from "./commands/DisassociateConnectionFromLagCommand";
+import {
+  ListVirtualInterfaceTestHistoryCommand,
+  ListVirtualInterfaceTestHistoryCommandInput,
+  ListVirtualInterfaceTestHistoryCommandOutput,
+} from "./commands/ListVirtualInterfaceTestHistoryCommand";
+import {
+  StartBgpFailoverTestCommand,
+  StartBgpFailoverTestCommandInput,
+  StartBgpFailoverTestCommandOutput,
+} from "./commands/StartBgpFailoverTestCommand";
+import {
+  StopBgpFailoverTestCommand,
+  StopBgpFailoverTestCommandInput,
+  StopBgpFailoverTestCommandOutput,
+} from "./commands/StopBgpFailoverTestCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -881,7 +896,7 @@ export class DirectConnect extends DirectConnectClient {
 
   /**
    * <p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>
-   *          <p>You can only associate a Direct Connect gateway and virtual private gateway or transit gateway when the account that owns the Direct Connect gateway  and the account that owns the virtual private gateway or transit gateway have the same AWS Payer ID.</p>
+   *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any AWS account. </p>
    */
   public createDirectConnectGatewayAssociationProposal(
     args: CreateDirectConnectGatewayAssociationProposalCommandInput,
@@ -1010,6 +1025,12 @@ export class DirectConnect extends DirectConnectClient {
    *       Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple
    *       VPCs, including VPCs in different AWS Regions. Connecting the private virtual interface to a VGW only
    *       provides access to a single VPC within the same Region.</p>
+   *          <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to
+   *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
+   *       the connection disrupts network connectivity for all virtual interfaces associated with
+   *       the connection for up to 30 seconds. To check whether your connection supports jumbo
+   *       frames, call <a>DescribeConnections</a>. To check whether your virtual
+   *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
    */
   public createPrivateVirtualInterface(
     args: CreatePrivateVirtualInterfaceCommandInput,
@@ -1080,6 +1101,12 @@ export class DirectConnect extends DirectConnectClient {
    *          <important>
    *             <p>If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.</p>
    *          </important>
+   *          <p>Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to
+   *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
+   *       the connection disrupts network connectivity for all virtual interfaces associated with
+   *       the connection for up to 30 seconds. To check whether your connection supports jumbo
+   *       frames, call <a>DescribeConnections</a>. To check whether your virtual
+   *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
    */
   public createTransitVirtualInterface(
     args: CreateTransitVirtualInterfaceCommandInput,
@@ -1960,6 +1987,105 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * <p>Lists the virtual interface failover test history.</p>
+   */
+  public listVirtualInterfaceTestHistory(
+    args: ListVirtualInterfaceTestHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVirtualInterfaceTestHistoryCommandOutput>;
+  public listVirtualInterfaceTestHistory(
+    args: ListVirtualInterfaceTestHistoryCommandInput,
+    cb: (err: any, data?: ListVirtualInterfaceTestHistoryCommandOutput) => void
+  ): void;
+  public listVirtualInterfaceTestHistory(
+    args: ListVirtualInterfaceTestHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVirtualInterfaceTestHistoryCommandOutput) => void
+  ): void;
+  public listVirtualInterfaceTestHistory(
+    args: ListVirtualInterfaceTestHistoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVirtualInterfaceTestHistoryCommandOutput) => void),
+    cb?: (err: any, data?: ListVirtualInterfaceTestHistoryCommandOutput) => void
+  ): Promise<ListVirtualInterfaceTestHistoryCommandOutput> | void {
+    const command = new ListVirtualInterfaceTestHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts the virtual interface failover test that verifies your configuration meets your resiliency requirements by placing the BGP peering session in the DOWN state. You can then send traffic to verify that there are no outages.</p>
+   *          <p>You can run the test on public, private, transit, and hosted virtual interfaces.</p>
+   *          <p>You can use <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.html">ListVirtualInterfaceTestHistory</a> to view the virtual interface test history.</p>
+   *          <p>If you need to stop the test before the test interval completes, use <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StopBgpFailoverTest.html">StopBgpFailoverTest</a>.</p>
+   */
+  public startBgpFailoverTest(
+    args: StartBgpFailoverTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBgpFailoverTestCommandOutput>;
+  public startBgpFailoverTest(
+    args: StartBgpFailoverTestCommandInput,
+    cb: (err: any, data?: StartBgpFailoverTestCommandOutput) => void
+  ): void;
+  public startBgpFailoverTest(
+    args: StartBgpFailoverTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartBgpFailoverTestCommandOutput) => void
+  ): void;
+  public startBgpFailoverTest(
+    args: StartBgpFailoverTestCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartBgpFailoverTestCommandOutput) => void),
+    cb?: (err: any, data?: StartBgpFailoverTestCommandOutput) => void
+  ): Promise<StartBgpFailoverTestCommandOutput> | void {
+    const command = new StartBgpFailoverTestCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops the virtual interface failover test.</p>
+   */
+  public stopBgpFailoverTest(
+    args: StopBgpFailoverTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopBgpFailoverTestCommandOutput>;
+  public stopBgpFailoverTest(
+    args: StopBgpFailoverTestCommandInput,
+    cb: (err: any, data?: StopBgpFailoverTestCommandOutput) => void
+  ): void;
+  public stopBgpFailoverTest(
+    args: StopBgpFailoverTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopBgpFailoverTestCommandOutput) => void
+  ): void;
+  public stopBgpFailoverTest(
+    args: StopBgpFailoverTestCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBgpFailoverTestCommandOutput) => void),
+    cb?: (err: any, data?: StopBgpFailoverTestCommandOutput) => void
+  ): Promise<StopBgpFailoverTestCommandOutput> | void {
+    const command = new StopBgpFailoverTestCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds the specified tags to the specified AWS Direct Connect resource. Each resource can have a maximum of 50 tags.</p>
    *          <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>
    */
@@ -2101,7 +2227,7 @@ export class DirectConnect extends DirectConnectClient {
    *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
    *       the connection disrupts network connectivity for all virtual interfaces associated with
    *       the connection for up to 30 seconds. To check whether your connection supports jumbo
-   *       frames, call <a>DescribeConnections</a>. To check whether your virtual
+   *       frames, call <a>DescribeConnections</a>. To check whether your virtual q
    *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
    */
   public updateVirtualInterfaceAttributes(

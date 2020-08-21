@@ -56,11 +56,17 @@ import {
 } from "../commands/GetSlotTypeVersionsCommand";
 import { GetSlotTypesCommandInput, GetSlotTypesCommandOutput } from "../commands/GetSlotTypesCommand";
 import { GetUtterancesViewCommandInput, GetUtterancesViewCommandOutput } from "../commands/GetUtterancesViewCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { PutBotAliasCommandInput, PutBotAliasCommandOutput } from "../commands/PutBotAliasCommand";
 import { PutBotCommandInput, PutBotCommandOutput } from "../commands/PutBotCommand";
 import { PutIntentCommandInput, PutIntentCommandOutput } from "../commands/PutIntentCommand";
 import { PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "../commands/PutSlotTypeCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   BadRequestException,
   BotAliasMetadata,
@@ -79,6 +85,7 @@ import {
   Intent,
   IntentMetadata,
   InternalFailureException,
+  KendraConfiguration,
   LimitExceededException,
   Locale,
   LogSettingsRequest,
@@ -90,8 +97,11 @@ import {
   ResourceInUseException,
   ResourceReference,
   Slot,
+  SlotTypeConfiguration,
   SlotTypeMetadata,
+  SlotTypeRegexConfiguration,
   Statement,
+  Tag,
   UtteranceData,
   UtteranceList,
 } from "../models/index";
@@ -283,15 +293,6 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
-  if (input.botAlias !== undefined) {
-    const labelValue: string = input.botAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAlias.");
-  }
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -300,6 +301,15 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
+  }
+  if (input.botAlias !== undefined) {
+    const labelValue: string = input.botAlias;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botAlias.");
+    }
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botAlias.");
   }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -331,15 +341,6 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{name}/versions/{version}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
   if (input.version !== undefined) {
     const labelValue: string = input.version;
     if (labelValue.length <= 0) {
@@ -348,6 +349,15 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
     resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: version.");
+  }
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -469,15 +479,6 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/slottypes/{name}/version/{version}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
   if (input.version !== undefined) {
     const labelValue: string = input.version;
     if (labelValue.length <= 0) {
@@ -486,6 +487,15 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
     resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: version.");
+  }
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -547,15 +557,6 @@ export const serializeAws_restJson1GetBotCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{name}/versions/{versionOrAlias}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
   if (input.versionOrAlias !== undefined) {
     const labelValue: string = input.versionOrAlias;
     if (labelValue.length <= 0) {
@@ -564,6 +565,15 @@ export const serializeAws_restJson1GetBotCommand = async (
     resolvedPath = resolvedPath.replace("{versionOrAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: versionOrAlias.");
+  }
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -635,9 +645,9 @@ export const serializeAws_restJson1GetBotAliasesCommand = async (
     throw new Error("No value provided for input HTTP label: botName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -661,6 +671,15 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
     if (labelValue.length <= 0) {
@@ -678,15 +697,6 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
-  }
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -709,15 +719,6 @@ export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels";
-  if (input.botAlias !== undefined) {
-    const labelValue: string = input.botAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAlias.");
-  }
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -727,9 +728,18 @@ export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
+  if (input.botAlias !== undefined) {
+    const labelValue: string = input.botAlias;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botAlias.");
+    }
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botAlias.");
+  }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -755,9 +765,9 @@ export const serializeAws_restJson1GetBotsCommand = async (
   };
   let resolvedPath = "/bots";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -791,8 +801,8 @@ export const serializeAws_restJson1GetBotVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -847,9 +857,9 @@ export const serializeAws_restJson1GetBuiltinIntentsCommand = async (
   };
   let resolvedPath = "/builtins/intents";
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
   };
   let body: any;
@@ -876,9 +886,9 @@ export const serializeAws_restJson1GetBuiltinSlotTypesCommand = async (
   let resolvedPath = "/builtins/slottypes";
   const query: any = {
     ...(input.locale !== undefined && { locale: input.locale }),
+    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -904,9 +914,9 @@ export const serializeAws_restJson1GetExportCommand = async (
   let resolvedPath = "/exports";
   const query: any = {
     ...(input.exportType !== undefined && { exportType: input.exportType }),
+    ...(input.version !== undefined && { version: input.version }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
-    ...(input.version !== undefined && { version: input.version }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1000,9 +1010,9 @@ export const serializeAws_restJson1GetIntentsCommand = async (
   };
   let resolvedPath = "/intents";
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1101,9 +1111,9 @@ export const serializeAws_restJson1GetSlotTypesCommand = async (
   };
   let resolvedPath = "/slottypes";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1173,8 +1183,8 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
   }
   const query: any = {
     view: "aggregation",
-    ...(input.botVersions !== undefined && { bot_versions: (input.botVersions || []).map((_entry) => _entry) }),
     ...(input.statusType !== undefined && { status_type: input.statusType }),
+    ...(input.botVersions !== undefined && { bot_versions: (input.botVersions || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1186,6 +1196,36 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: string = input.resourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1224,6 +1264,7 @@ export const serializeAws_restJson1PutBotCommand = async (
     ...(input.intents !== undefined && { intents: serializeAws_restJson1IntentList(input.intents, context) }),
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.processBehavior !== undefined && { processBehavior: input.processBehavior }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.voiceId !== undefined && { voiceId: input.voiceId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1272,6 +1313,7 @@ export const serializeAws_restJson1PutBotAliasCommand = async (
       conversationLogs: serializeAws_restJson1ConversationLogsRequest(input.conversationLogs, context),
     }),
     ...(input.description !== undefined && { description: input.description }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1322,6 +1364,9 @@ export const serializeAws_restJson1PutIntentCommand = async (
     ...(input.fulfillmentActivity !== undefined && {
       fulfillmentActivity: serializeAws_restJson1FulfillmentActivity(input.fulfillmentActivity, context),
     }),
+    ...(input.kendraConfiguration !== undefined && {
+      kendraConfiguration: serializeAws_restJson1KendraConfiguration(input.kendraConfiguration, context),
+    }),
     ...(input.parentIntentSignature !== undefined && { parentIntentSignature: input.parentIntentSignature }),
     ...(input.rejectionStatement !== undefined && {
       rejectionStatement: serializeAws_restJson1Statement(input.rejectionStatement, context),
@@ -1368,6 +1413,10 @@ export const serializeAws_restJson1PutSlotTypeCommand = async (
     ...(input.enumerationValues !== undefined && {
       enumerationValues: serializeAws_restJson1EnumerationValues(input.enumerationValues, context),
     }),
+    ...(input.parentSlotTypeSignature !== undefined && { parentSlotTypeSignature: input.parentSlotTypeSignature }),
+    ...(input.slotTypeConfigurations !== undefined && {
+      slotTypeConfigurations: serializeAws_restJson1SlotTypeConfigurations(input.slotTypeConfigurations, context),
+    }),
     ...(input.valueSelectionStrategy !== undefined && { valueSelectionStrategy: input.valueSelectionStrategy }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1395,6 +1444,7 @@ export const serializeAws_restJson1StartImportCommand = async (
     ...(input.mergeStrategy !== undefined && { mergeStrategy: input.mergeStrategy }),
     ...(input.payload !== undefined && { payload: context.base64Encoder(input.payload) }),
     ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1404,6 +1454,73 @@ export const serializeAws_restJson1StartImportCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: string = input.resourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: string = input.resourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  const query: any = {
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1582,6 +1699,7 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
     dialogCodeHook: undefined,
     followUpPrompt: undefined,
     fulfillmentActivity: undefined,
+    kendraConfiguration: undefined,
     lastUpdatedDate: undefined,
     name: undefined,
     parentIntentSignature: undefined,
@@ -1614,6 +1732,9 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
   }
   if (data.fulfillmentActivity !== undefined && data.fulfillmentActivity !== null) {
     contents.fulfillmentActivity = deserializeAws_restJson1FulfillmentActivity(data.fulfillmentActivity, context);
+  }
+  if (data.kendraConfiguration !== undefined && data.kendraConfiguration !== null) {
+    contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
@@ -1732,6 +1853,8 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
     enumerationValues: undefined,
     lastUpdatedDate: undefined,
     name: undefined,
+    parentSlotTypeSignature: undefined,
+    slotTypeConfigurations: undefined,
     valueSelectionStrategy: undefined,
     version: undefined,
   };
@@ -1753,6 +1876,15 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
+  }
+  if (data.parentSlotTypeSignature !== undefined && data.parentSlotTypeSignature !== null) {
+    contents.parentSlotTypeSignature = data.parentSlotTypeSignature;
+  }
+  if (data.slotTypeConfigurations !== undefined && data.slotTypeConfigurations !== null) {
+    contents.slotTypeConfigurations = deserializeAws_restJson1SlotTypeConfigurations(
+      data.slotTypeConfigurations,
+      context
+    );
   }
   if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
     contents.valueSelectionStrategy = data.valueSelectionStrategy;
@@ -3784,6 +3916,7 @@ export const deserializeAws_restJson1GetIntentCommand = async (
     dialogCodeHook: undefined,
     followUpPrompt: undefined,
     fulfillmentActivity: undefined,
+    kendraConfiguration: undefined,
     lastUpdatedDate: undefined,
     name: undefined,
     parentIntentSignature: undefined,
@@ -3816,6 +3949,9 @@ export const deserializeAws_restJson1GetIntentCommand = async (
   }
   if (data.fulfillmentActivity !== undefined && data.fulfillmentActivity !== null) {
     contents.fulfillmentActivity = deserializeAws_restJson1FulfillmentActivity(data.fulfillmentActivity, context);
+  }
+  if (data.kendraConfiguration !== undefined && data.kendraConfiguration !== null) {
+    contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
@@ -4086,6 +4222,8 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
     enumerationValues: undefined,
     lastUpdatedDate: undefined,
     name: undefined,
+    parentSlotTypeSignature: undefined,
+    slotTypeConfigurations: undefined,
     valueSelectionStrategy: undefined,
     version: undefined,
   };
@@ -4107,6 +4245,15 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
+  }
+  if (data.parentSlotTypeSignature !== undefined && data.parentSlotTypeSignature !== null) {
+    contents.parentSlotTypeSignature = data.parentSlotTypeSignature;
+  }
+  if (data.slotTypeConfigurations !== undefined && data.slotTypeConfigurations !== null) {
+    contents.slotTypeConfigurations = deserializeAws_restJson1SlotTypeConfigurations(
+      data.slotTypeConfigurations,
+      context
+    );
   }
   if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
     contents.valueSelectionStrategy = data.valueSelectionStrategy;
@@ -4422,6 +4569,86 @@ const deserializeAws_restJson1GetUtterancesViewCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1PutBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4447,6 +4674,7 @@ export const deserializeAws_restJson1PutBotCommand = async (
     locale: undefined,
     name: undefined,
     status: undefined,
+    tags: undefined,
     version: undefined,
     voiceId: undefined,
   };
@@ -4495,6 +4723,9 @@ export const deserializeAws_restJson1PutBotCommand = async (
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
   }
   if (data.version !== undefined && data.version !== null) {
     contents.version = data.version;
@@ -4592,6 +4823,7 @@ export const deserializeAws_restJson1PutBotAliasCommand = async (
     description: undefined,
     lastUpdatedDate: undefined,
     name: undefined,
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.botName !== undefined && data.botName !== null) {
@@ -4617,6 +4849,9 @@ export const deserializeAws_restJson1PutBotAliasCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -4709,6 +4944,7 @@ export const deserializeAws_restJson1PutIntentCommand = async (
     dialogCodeHook: undefined,
     followUpPrompt: undefined,
     fulfillmentActivity: undefined,
+    kendraConfiguration: undefined,
     lastUpdatedDate: undefined,
     name: undefined,
     parentIntentSignature: undefined,
@@ -4744,6 +4980,9 @@ export const deserializeAws_restJson1PutIntentCommand = async (
   }
   if (data.fulfillmentActivity !== undefined && data.fulfillmentActivity !== null) {
     contents.fulfillmentActivity = deserializeAws_restJson1FulfillmentActivity(data.fulfillmentActivity, context);
+  }
+  if (data.kendraConfiguration !== undefined && data.kendraConfiguration !== null) {
+    contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
@@ -4855,6 +5094,8 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
     enumerationValues: undefined,
     lastUpdatedDate: undefined,
     name: undefined,
+    parentSlotTypeSignature: undefined,
+    slotTypeConfigurations: undefined,
     valueSelectionStrategy: undefined,
     version: undefined,
   };
@@ -4879,6 +5120,15 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
+  }
+  if (data.parentSlotTypeSignature !== undefined && data.parentSlotTypeSignature !== null) {
+    contents.parentSlotTypeSignature = data.parentSlotTypeSignature;
+  }
+  if (data.slotTypeConfigurations !== undefined && data.slotTypeConfigurations !== null) {
+    contents.slotTypeConfigurations = deserializeAws_restJson1SlotTypeConfigurations(
+      data.slotTypeConfigurations,
+      context
+    );
   }
   if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
     contents.valueSelectionStrategy = data.valueSelectionStrategy;
@@ -4974,6 +5224,7 @@ export const deserializeAws_restJson1StartImportCommand = async (
     mergeStrategy: undefined,
     name: undefined,
     resourceType: undefined,
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.createdDate !== undefined && data.createdDate !== null) {
@@ -4993,6 +5244,9 @@ export const deserializeAws_restJson1StartImportCommand = async (
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
     contents.resourceType = data.resourceType;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -5029,6 +5283,174 @@ const deserializeAws_restJson1StartImportCommandError = async (
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.lexmodelbuildingservice#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.lexmodelbuildingservice#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5238,6 +5660,14 @@ const serializeAws_restJson1IntentUtteranceList = (input: string[], context: __S
   return input.map((entry) => entry);
 };
 
+const serializeAws_restJson1KendraConfiguration = (input: KendraConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.kendraIndex !== undefined && { kendraIndex: input.kendraIndex }),
+    ...(input.queryFilterString !== undefined && { queryFilterString: input.queryFilterString }),
+    ...(input.role !== undefined && { role: input.role }),
+  };
+};
+
 const serializeAws_restJson1LogSettingsRequest = (input: LogSettingsRequest, context: __SerdeContext): any => {
   return {
     ...(input.destination !== undefined && { destination: input.destination }),
@@ -5294,6 +5724,27 @@ const serializeAws_restJson1SlotList = (input: Slot[], context: __SerdeContext):
   return input.map((entry) => serializeAws_restJson1Slot(entry, context));
 };
 
+const serializeAws_restJson1SlotTypeConfiguration = (input: SlotTypeConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.regexConfiguration !== undefined && {
+      regexConfiguration: serializeAws_restJson1SlotTypeRegexConfiguration(input.regexConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SlotTypeConfigurations = (input: SlotTypeConfiguration[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1SlotTypeConfiguration(entry, context));
+};
+
+const serializeAws_restJson1SlotTypeRegexConfiguration = (
+  input: SlotTypeRegexConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.pattern !== undefined && { pattern: input.pattern }),
+  };
+};
+
 const serializeAws_restJson1SlotUtteranceList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -5307,6 +5758,17 @@ const serializeAws_restJson1Statement = (input: Statement, context: __SerdeConte
 
 const serializeAws_restJson1SynonymList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.key !== undefined && { key: input.key }),
+    ...(input.value !== undefined && { value: input.value }),
+  };
+};
+
+const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
 };
 
 const deserializeAws_restJson1BotAliasMetadata = (output: any, context: __SerdeContext): BotAliasMetadata => {
@@ -5551,6 +6013,18 @@ const deserializeAws_restJson1IntentUtteranceList = (output: any, context: __Ser
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_restJson1KendraConfiguration = (output: any, context: __SerdeContext): KendraConfiguration => {
+  return {
+    __type: "KendraConfiguration",
+    kendraIndex: output.kendraIndex !== undefined && output.kendraIndex !== null ? output.kendraIndex : undefined,
+    queryFilterString:
+      output.queryFilterString !== undefined && output.queryFilterString !== null
+        ? output.queryFilterString
+        : undefined,
+    role: output.role !== undefined && output.role !== null ? output.role : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ListOfUtterance = (output: any, context: __SerdeContext): UtteranceData[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1UtteranceData(entry, context));
 };
@@ -5646,6 +6120,23 @@ const deserializeAws_restJson1SlotList = (output: any, context: __SerdeContext):
   return (output || []).map((entry: any) => deserializeAws_restJson1Slot(entry, context));
 };
 
+const deserializeAws_restJson1SlotTypeConfiguration = (output: any, context: __SerdeContext): SlotTypeConfiguration => {
+  return {
+    __type: "SlotTypeConfiguration",
+    regexConfiguration:
+      output.regexConfiguration !== undefined && output.regexConfiguration !== null
+        ? deserializeAws_restJson1SlotTypeRegexConfiguration(output.regexConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SlotTypeConfigurations = (
+  output: any,
+  context: __SerdeContext
+): SlotTypeConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1SlotTypeConfiguration(entry, context));
+};
+
 const deserializeAws_restJson1SlotTypeMetadata = (output: any, context: __SerdeContext): SlotTypeMetadata => {
   return {
     __type: "SlotTypeMetadata",
@@ -5665,6 +6156,16 @@ const deserializeAws_restJson1SlotTypeMetadata = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SlotTypeMetadataList = (output: any, context: __SerdeContext): SlotTypeMetadata[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1SlotTypeMetadata(entry, context));
+};
+
+const deserializeAws_restJson1SlotTypeRegexConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SlotTypeRegexConfiguration => {
+  return {
+    __type: "SlotTypeRegexConfiguration",
+    pattern: output.pattern !== undefined && output.pattern !== null ? output.pattern : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1SlotUtteranceList = (output: any, context: __SerdeContext): string[] => {
@@ -5688,6 +6189,18 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SynonymList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    __type: "Tag",
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
 };
 
 const deserializeAws_restJson1UtteranceData = (output: any, context: __SerdeContext): UtteranceData => {

@@ -25,12 +25,22 @@ import {
   CreateWebACLCommandInput,
   CreateWebACLCommandOutput,
 } from "./commands/CreateWebACLCommand";
+import {
+  DeleteFirewallManagerRuleGroupsCommand,
+  DeleteFirewallManagerRuleGroupsCommandInput,
+  DeleteFirewallManagerRuleGroupsCommandOutput,
+} from "./commands/DeleteFirewallManagerRuleGroupsCommand";
 import { DeleteIPSetCommand, DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
   DeleteLoggingConfigurationCommand,
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand";
+import {
+  DeletePermissionPolicyCommand,
+  DeletePermissionPolicyCommandInput,
+  DeletePermissionPolicyCommandOutput,
+} from "./commands/DeletePermissionPolicyCommand";
 import {
   DeleteRegexPatternSetCommand,
   DeleteRegexPatternSetCommandInput,
@@ -62,6 +72,11 @@ import {
   GetLoggingConfigurationCommandInput,
   GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand";
+import {
+  GetPermissionPolicyCommand,
+  GetPermissionPolicyCommandInput,
+  GetPermissionPolicyCommandOutput,
+} from "./commands/GetPermissionPolicyCommand";
 import {
   GetRateBasedStatementManagedKeysCommand,
   GetRateBasedStatementManagedKeysCommandInput,
@@ -125,6 +140,11 @@ import {
   PutLoggingConfigurationCommandInput,
   PutLoggingConfigurationCommandOutput,
 } from "./commands/PutLoggingConfigurationCommand";
+import {
+  PutPermissionPolicyCommand,
+  PutPermissionPolicyCommandInput,
+  PutPermissionPolicyCommandOutput,
+} from "./commands/PutPermissionPolicyCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -173,7 +193,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>This API guide is for developers who need detailed information about AWS WAF API
  *          actions, data types, and errors. For detailed information about AWS WAF features and an
  *          overview of how to use AWS WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
- *          <p>You can make API calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Service Endpoints for AWS WAF</a>. </p>
+ *          <p>You can make calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Service Endpoints for AWS WAF</a>. </p>
  *          <ul>
  *             <li>
  *                <p>For regional applications, you can use any of the endpoints in the list.
@@ -196,9 +216,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                   <code>CLOUDFRONT</code> or <code>REGIONAL</code>. </p>
  *             </li>
  *             <li>
- *                <p>You can define a Web ACL or rule group with a single API call, and update it with a
+ *                <p>You can define a Web ACL or rule group with a single call, and update it with a
  *                single call. You define all rule specifications in JSON format, and pass them to your
- *                rule group or Web ACL API calls.</p>
+ *                rule group or Web ACL calls.</p>
  *             </li>
  *             <li>
  *                <p>The limits AWS WAF places on the use of rules more closely reflects the cost of
@@ -213,7 +233,7 @@ export class WAFV2 extends WAFV2Client {
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Associates a Web ACL with a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
-   *          <p>For AWS CloudFront, you can associate the Web ACL by providing the <code>Id</code> of the <a>WebACL</a> to the CloudFront API call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+   *          <p>For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To associate a Web ACL, in the CloudFront call <code>UpdateDistribution</code>, set the web ACL ID to the Amazon Resource Name (ARN) of the Web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
    */
   public associateWebACL(
     args: AssociateWebACLCommandInput,
@@ -323,7 +343,7 @@ export class WAFV2 extends WAFV2Client {
    * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
-   *          <p>Creates a <a>RegexPatternSet</a> per the specifications provided.</p>
+   *          <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have AWS WAF inspect a web request component for the specified patterns.</p>
    */
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
@@ -424,6 +444,39 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
+   * <p>Deletes all rule groups that are managed by AWS Firewall Manager for the specified web ACL. </p>
+   *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <a>WebACL</a>.  </p>
+   */
+  public deleteFirewallManagerRuleGroups(
+    args: DeleteFirewallManagerRuleGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFirewallManagerRuleGroupsCommandOutput>;
+  public deleteFirewallManagerRuleGroups(
+    args: DeleteFirewallManagerRuleGroupsCommandInput,
+    cb: (err: any, data?: DeleteFirewallManagerRuleGroupsCommandOutput) => void
+  ): void;
+  public deleteFirewallManagerRuleGroups(
+    args: DeleteFirewallManagerRuleGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFirewallManagerRuleGroupsCommandOutput) => void
+  ): void;
+  public deleteFirewallManagerRuleGroups(
+    args: DeleteFirewallManagerRuleGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFirewallManagerRuleGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFirewallManagerRuleGroupsCommandOutput) => void
+  ): Promise<DeleteFirewallManagerRuleGroupsCommandOutput> | void {
+    const command = new DeleteFirewallManagerRuleGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
@@ -478,6 +531,39 @@ export class WAFV2 extends WAFV2Client {
     cb?: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
   ): Promise<DeleteLoggingConfigurationCommandOutput> | void {
     const command = new DeleteLoggingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Permanently deletes an IAM policy from the specified rule group.</p>
+   *         <p>You must be the owner of the rule group to perform this operation.</p>
+   */
+  public deletePermissionPolicy(
+    args: DeletePermissionPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePermissionPolicyCommandOutput>;
+  public deletePermissionPolicy(
+    args: DeletePermissionPolicyCommandInput,
+    cb: (err: any, data?: DeletePermissionPolicyCommandOutput) => void
+  ): void;
+  public deletePermissionPolicy(
+    args: DeletePermissionPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePermissionPolicyCommandOutput) => void
+  ): void;
+  public deletePermissionPolicy(
+    args: DeletePermissionPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePermissionPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeletePermissionPolicyCommandOutput) => void
+  ): Promise<DeletePermissionPolicyCommandOutput> | void {
+    const command = new DeletePermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -563,6 +649,7 @@ export class WAFV2 extends WAFV2Client {
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Deletes the specified <a>WebACL</a>.</p>
+   *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <a>WebACL</a>.  </p>
    */
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
@@ -630,7 +717,7 @@ export class WAFV2 extends WAFV2Client {
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Disassociates a Web ACL from a regional application resource. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
-   *          <p>For AWS CloudFront, you can disassociate the Web ACL by providing an empty <code>WebACLId</code> in the CloudFront API call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+   *          <p>For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To disassociate a Web ACL, provide an empty web ACL ID in the CloudFront call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
    */
   public disassociateWebACL(
     args: DisassociateWebACLCommandInput,
@@ -715,6 +802,39 @@ export class WAFV2 extends WAFV2Client {
     cb?: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
   ): Promise<GetLoggingConfigurationCommandOutput> | void {
     const command = new GetLoggingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the IAM policy that is attached to the specified rule group.</p>
+   *         <p>You must be the owner of the rule group to perform this operation.</p>
+   */
+  public getPermissionPolicy(
+    args: GetPermissionPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPermissionPolicyCommandOutput>;
+  public getPermissionPolicy(
+    args: GetPermissionPolicyCommandInput,
+    cb: (err: any, data?: GetPermissionPolicyCommandOutput) => void
+  ): void;
+  public getPermissionPolicy(
+    args: GetPermissionPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPermissionPolicyCommandOutput) => void
+  ): void;
+  public getPermissionPolicy(
+    args: GetPermissionPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPermissionPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetPermissionPolicyCommandOutput) => void
+  ): Promise<GetPermissionPolicyCommandOutput> | void {
+    const command = new GetPermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -934,7 +1054,7 @@ export class WAFV2 extends WAFV2Client {
    * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
-   *          <p>Retrieves an array of managed rule groups that are available for you to use. This list includes all AWS managed rule groups and the AWS Marketplace managed rule groups that you're subscribed to.</p>
+   *          <p>Retrieves an array of managed rule groups that are available for you to use. This list includes all AWS Managed Rules rule groups and the AWS Marketplace managed rule groups that you're subscribed to.</p>
    */
   public listAvailableManagedRuleGroups(
     args: ListAvailableManagedRuleGroupsCommandInput,
@@ -1138,7 +1258,9 @@ export class WAFV2 extends WAFV2Client {
    * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
-   *         <p>Retrieves the <a>TagInfoForResource</a> for the specified resource. </p>
+   *         <p>Retrieves the <a>TagInfoForResource</a> for the specified resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+   *         <p>You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups, IP
+   *   sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1209,7 +1331,8 @@ export class WAFV2 extends WAFV2Client {
    *             <li>
    *                <p>Create an Amazon Kinesis Data
    *             Firehose. </p>
-   *                <p>Create the data firehose with a PUT source and in the region that you are operating. If you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia). </p>
+   *                <p>Create the data firehose with a PUT source and in the Region that you are operating. If you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia). </p>
+   *                <p>Give the data firehose a name that starts with the prefix <code>aws-waf-logs-</code>. For example, <code>aws-waf-logs-us-east-2-analytics</code>.</p>
    *                <note>
    *                   <p>Do not create the data firehose using a <code>Kinesis stream</code> as your source.</p>
    *                </note>
@@ -1251,10 +1374,57 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
+   * <p>Attaches an IAM policy to the specified resource. Use this to share a rule group across accounts.</p>
+   *         <p>You must be the owner of the rule group to perform this operation.</p>
+   *          <p>This action is subject to the following restrictions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p>
+   *             </li>
+   *             <li>
+   *                <p>The ARN in the request must be a valid WAF <a>RuleGroup</a> ARN and the rule group must exist in the same region.</p>
+   *             </li>
+   *             <li>
+   *                <p>The user making the request must be the owner of the rule group.</p>
+   *             </li>
+   *          </ul>
+   */
+  public putPermissionPolicy(
+    args: PutPermissionPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPermissionPolicyCommandOutput>;
+  public putPermissionPolicy(
+    args: PutPermissionPolicyCommandInput,
+    cb: (err: any, data?: PutPermissionPolicyCommandOutput) => void
+  ): void;
+  public putPermissionPolicy(
+    args: PutPermissionPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPermissionPolicyCommandOutput) => void
+  ): void;
+  public putPermissionPolicy(
+    args: PutPermissionPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPermissionPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutPermissionPolicyCommandOutput) => void
+  ): Promise<PutPermissionPolicyCommandOutput> | void {
+    const command = new PutPermissionPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
-   *         <p>Associates tags with the specified AWS resource. Tags are key:value pairs that you can associate with AWS resources. For example, the tag key might be "customer" and the tag value might be "companyA." You can specify one or more tags to add to each container. You can add up to 50 tags to each AWS resource.</p>
+   *         <p>Associates tags with the specified AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+   *         <p>You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups, IP
+   *   sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

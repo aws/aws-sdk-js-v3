@@ -12,6 +12,7 @@ import {
   Item,
   LimitExceededException,
   Result,
+  ServiceUnavailableException,
   Transcript,
   TranscriptEvent,
   TranscriptResultStream,
@@ -33,14 +34,20 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
-    ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
-    ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
-      "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
+    ...(isSerializableHeaderValue(input.VocabularyFilterName) && {
+      "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
     }),
+    ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
+    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
     ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
     ...(isSerializableHeaderValue(input.VocabularyName) && {
       "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
+    }),
+    ...(isSerializableHeaderValue(input.VocabularyFilterMethod) && {
+      "x-amzn-transcribe-vocabulary-filter-method": input.VocabularyFilterMethod!,
+    }),
+    ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
+      "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
     }),
   };
   let resolvedPath = "/stream-transcription";
@@ -78,25 +85,33 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
     RequestId: undefined,
     SessionId: undefined,
     TranscriptResultStream: undefined,
+    VocabularyFilterMethod: undefined,
+    VocabularyFilterName: undefined,
     VocabularyName: undefined,
   };
-  if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
-    contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
+  if (output.headers["x-amzn-transcribe-vocabulary-filter-name"] !== undefined) {
+    contents.VocabularyFilterName = output.headers["x-amzn-transcribe-vocabulary-filter-name"];
   }
   if (output.headers["x-amzn-transcribe-media-encoding"] !== undefined) {
     contents.MediaEncoding = output.headers["x-amzn-transcribe-media-encoding"];
   }
-  if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
-    contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
+  if (output.headers["x-amzn-transcribe-vocabulary-name"] !== undefined) {
+    contents.VocabularyName = output.headers["x-amzn-transcribe-vocabulary-name"];
+  }
+  if (output.headers["x-amzn-transcribe-vocabulary-filter-method"] !== undefined) {
+    contents.VocabularyFilterMethod = output.headers["x-amzn-transcribe-vocabulary-filter-method"];
+  }
+  if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
+    contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
   }
   if (output.headers["x-amzn-request-id"] !== undefined) {
     contents.RequestId = output.headers["x-amzn-request-id"];
   }
+  if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
+    contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
+  }
   if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
     contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
-  }
-  if (output.headers["x-amzn-transcribe-vocabulary-name"] !== undefined) {
-    contents.VocabularyName = output.headers["x-amzn-transcribe-vocabulary-name"];
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];
@@ -161,6 +176,14 @@ const deserializeAws_restJson1StartStreamTranscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transcribestreaming#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -188,17 +211,17 @@ const deserializeAws_restJson1TranscriptResultStream_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<TranscriptResultStream> => {
+  if (output["TranscriptEvent"] !== undefined) {
+    return {
+      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
+    };
+  }
   if (output["BadRequestException"] !== undefined) {
     return {
       BadRequestException: await deserializeAws_restJson1BadRequestException_event(
         output["BadRequestException"],
         context
       ),
-    };
-  }
-  if (output["ConflictException"] !== undefined) {
-    return {
-      ConflictException: await deserializeAws_restJson1ConflictException_event(output["ConflictException"], context),
     };
   }
   if (output["InternalFailureException"] !== undefined) {
@@ -209,17 +232,25 @@ const deserializeAws_restJson1TranscriptResultStream_event = async (
       ),
     };
   }
+  if (output["ConflictException"] !== undefined) {
+    return {
+      ConflictException: await deserializeAws_restJson1ConflictException_event(output["ConflictException"], context),
+    };
+  }
+  if (output["ServiceUnavailableException"] !== undefined) {
+    return {
+      ServiceUnavailableException: await deserializeAws_restJson1ServiceUnavailableException_event(
+        output["ServiceUnavailableException"],
+        context
+      ),
+    };
+  }
   if (output["LimitExceededException"] !== undefined) {
     return {
       LimitExceededException: await deserializeAws_restJson1LimitExceededException_event(
         output["LimitExceededException"],
         context
       ),
-    };
-  }
-  if (output["TranscriptEvent"] !== undefined) {
-    return {
-      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
     };
   }
   return { $unknown: output };
@@ -274,6 +305,16 @@ const deserializeAws_restJson1LimitExceededException_event = async (
     body: await parseBody(output.body, context),
   };
   return deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1ServiceUnavailableException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ServiceUnavailableException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
 };
 const deserializeAws_restJson1TranscriptEvent_event = async (
   output: any,
@@ -357,6 +398,23 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceUnavailableException> => {
+  const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
+    $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
 const serializeAws_restJson1AudioEvent = (input: AudioEvent, context: __SerdeContext): any => {
   return {
     ...(input.AudioChunk !== undefined && { AudioChunk: context.base64Encoder(input.AudioChunk) }),
@@ -392,6 +450,10 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
     StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    VocabularyFilterMatch:
+      output.VocabularyFilterMatch !== undefined && output.VocabularyFilterMatch !== null
+        ? output.VocabularyFilterMatch
+        : undefined,
   } as any;
 };
 

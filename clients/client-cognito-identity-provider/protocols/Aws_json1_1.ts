@@ -553,6 +553,7 @@ import {
   UserPoolType,
   UserType,
   UsernameAttributeType,
+  UsernameConfigurationType,
   UsernameExistsException,
   VerificationMessageTemplateType,
   VerifiedAttributeType,
@@ -3366,6 +3367,14 @@ const deserializeAws_json1_1AdminLinkProviderForUserCommandError = async (
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -14102,6 +14111,9 @@ const serializeAws_json1_1CreateUserPoolRequest = (input: CreateUserPoolRequest,
     ...(input.UsernameAttributes !== undefined && {
       UsernameAttributes: serializeAws_json1_1UsernameAttributesListType(input.UsernameAttributes, context),
     }),
+    ...(input.UsernameConfiguration !== undefined && {
+      UsernameConfiguration: serializeAws_json1_1UsernameConfigurationType(input.UsernameConfiguration, context),
+    }),
     ...(input.VerificationMessageTemplate !== undefined && {
       VerificationMessageTemplate: serializeAws_json1_1VerificationMessageTemplateType(
         input.VerificationMessageTemplate,
@@ -15177,6 +15189,15 @@ const serializeAws_json1_1UsernameAttributesListType = (
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1UsernameConfigurationType = (
+  input: UsernameConfigurationType,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CaseSensitive !== undefined && { CaseSensitive: input.CaseSensitive }),
+  };
+};
+
 const serializeAws_json1_1UserPoolAddOnsType = (input: UserPoolAddOnsType, context: __SerdeContext): any => {
   return {
     ...(input.AdvancedSecurityMode !== undefined && { AdvancedSecurityMode: input.AdvancedSecurityMode }),
@@ -16206,6 +16227,10 @@ const deserializeAws_json1_1EventFiltersType = (output: any, context: __SerdeCon
 const deserializeAws_json1_1EventRiskType = (output: any, context: __SerdeContext): EventRiskType => {
   return {
     __type: "EventRiskType",
+    CompromisedCredentialsDetected:
+      output.CompromisedCredentialsDetected !== undefined && output.CompromisedCredentialsDetected !== null
+        ? output.CompromisedCredentialsDetected
+        : undefined,
     RiskDecision: output.RiskDecision !== undefined && output.RiskDecision !== null ? output.RiskDecision : undefined,
     RiskLevel: output.RiskLevel !== undefined && output.RiskLevel !== null ? output.RiskLevel : undefined,
   } as any;
@@ -17472,6 +17497,17 @@ const deserializeAws_json1_1UsernameAttributesListType = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1UsernameConfigurationType = (
+  output: any,
+  context: __SerdeContext
+): UsernameConfigurationType => {
+  return {
+    __type: "UsernameConfigurationType",
+    CaseSensitive:
+      output.CaseSensitive !== undefined && output.CaseSensitive !== null ? output.CaseSensitive : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UsernameExistsException = (
   output: any,
   context: __SerdeContext
@@ -17764,6 +17800,10 @@ const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext
     UsernameAttributes:
       output.UsernameAttributes !== undefined && output.UsernameAttributes !== null
         ? deserializeAws_json1_1UsernameAttributesListType(output.UsernameAttributes, context)
+        : undefined,
+    UsernameConfiguration:
+      output.UsernameConfiguration !== undefined && output.UsernameConfiguration !== null
+        ? deserializeAws_json1_1UsernameConfigurationType(output.UsernameConfiguration, context)
         : undefined,
     VerificationMessageTemplate:
       output.VerificationMessageTemplate !== undefined && output.VerificationMessageTemplate !== null

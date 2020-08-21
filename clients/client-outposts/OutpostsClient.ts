@@ -1,4 +1,6 @@
 import { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
+import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "./commands/DeleteOutpostCommand";
+import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import { GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommandInput,
@@ -55,6 +57,8 @@ import {
 
 export type ServiceInputTypes =
   | CreateOutpostCommandInput
+  | DeleteOutpostCommandInput
+  | DeleteSiteCommandInput
   | GetOutpostCommandInput
   | GetOutpostInstanceTypesCommandInput
   | ListOutpostsCommandInput
@@ -62,6 +66,8 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | CreateOutpostCommandOutput
+  | DeleteOutpostCommandOutput
+  | DeleteSiteCommandOutput
   | GetOutpostCommandOutput
   | GetOutpostInstanceTypesCommandOutput
   | ListOutpostsCommandOutput

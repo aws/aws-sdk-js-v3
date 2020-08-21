@@ -146,6 +146,7 @@ import {
   S3Logs,
   Schedule,
   ServiceException,
+  ServiceQuotaExceededException,
   ServiceUnavailableException,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -171,7 +172,7 @@ export const serializeAws_restJson1CancelImageCreationCommand = async (
   let resolvedPath = "/CancelImageCreation";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.imageBuildVersionArn !== undefined && { imageBuildVersionArn: input.imageBuildVersionArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -204,6 +205,9 @@ export const serializeAws_restJson1CreateComponentCommand = async (
     ...(input.name !== undefined && { name: input.name }),
     ...(input.platform !== undefined && { platform: input.platform }),
     ...(input.semanticVersion !== undefined && { semanticVersion: input.semanticVersion }),
+    ...(input.supportedOsVersions !== undefined && {
+      supportedOsVersions: serializeAws_restJson1OsVersionList(input.supportedOsVersions, context),
+    }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.uri !== undefined && { uri: input.uri }),
   });
@@ -263,6 +267,9 @@ export const serializeAws_restJson1CreateImageCommand = async (
     ...(input.distributionConfigurationArn !== undefined && {
       distributionConfigurationArn: input.distributionConfigurationArn,
     }),
+    ...(input.enhancedImageMetadataEnabled !== undefined && {
+      enhancedImageMetadataEnabled: input.enhancedImageMetadataEnabled,
+    }),
     ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
     ...(input.imageTestsConfiguration !== undefined && {
       imageTestsConfiguration: serializeAws_restJson1ImageTestsConfiguration(input.imageTestsConfiguration, context),
@@ -298,6 +305,9 @@ export const serializeAws_restJson1CreateImagePipelineCommand = async (
     ...(input.description !== undefined && { description: input.description }),
     ...(input.distributionConfigurationArn !== undefined && {
       distributionConfigurationArn: input.distributionConfigurationArn,
+    }),
+    ...(input.enhancedImageMetadataEnabled !== undefined && {
+      enhancedImageMetadataEnabled: input.enhancedImageMetadataEnabled,
     }),
     ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
     ...(input.imageTestsConfiguration !== undefined && {
@@ -345,6 +355,7 @@ export const serializeAws_restJson1CreateImageRecipeCommand = async (
     ...(input.parentImage !== undefined && { parentImage: input.parentImage }),
     ...(input.semanticVersion !== undefined && { semanticVersion: input.semanticVersion }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.workingDirectory !== undefined && { workingDirectory: input.workingDirectory }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -377,6 +388,9 @@ export const serializeAws_restJson1CreateInfrastructureConfigurationCommand = as
     ...(input.keyPair !== undefined && { keyPair: input.keyPair }),
     ...(input.logging !== undefined && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.name !== undefined && { name: input.name }),
+    ...(input.resourceTags !== undefined && {
+      resourceTags: serializeAws_restJson1ResourceTagMap(input.resourceTags, context),
+    }),
     ...(input.securityGroupIds !== undefined && {
       securityGroupIds: serializeAws_restJson1SecurityGroupIds(input.securityGroupIds, context),
     }),
@@ -1299,6 +1313,9 @@ export const serializeAws_restJson1UpdateImagePipelineCommand = async (
     ...(input.distributionConfigurationArn !== undefined && {
       distributionConfigurationArn: input.distributionConfigurationArn,
     }),
+    ...(input.enhancedImageMetadataEnabled !== undefined && {
+      enhancedImageMetadataEnabled: input.enhancedImageMetadataEnabled,
+    }),
     ...(input.imagePipelineArn !== undefined && { imagePipelineArn: input.imagePipelineArn }),
     ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
     ...(input.imageTestsConfiguration !== undefined && {
@@ -1343,6 +1360,9 @@ export const serializeAws_restJson1UpdateInfrastructureConfigurationCommand = as
     }),
     ...(input.keyPair !== undefined && { keyPair: input.keyPair }),
     ...(input.logging !== undefined && { logging: serializeAws_restJson1Logging(input.logging, context) }),
+    ...(input.resourceTags !== undefined && {
+      resourceTags: serializeAws_restJson1ResourceTagMap(input.resourceTags, context),
+    }),
     ...(input.securityGroupIds !== undefined && {
       securityGroupIds: serializeAws_restJson1SecurityGroupIds(input.securityGroupIds, context),
     }),
@@ -1595,6 +1615,14 @@ const deserializeAws_restJson1CreateComponentCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServiceUnavailableException":
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
@@ -1731,6 +1759,14 @@ const deserializeAws_restJson1CreateDistributionConfigurationCommandError = asyn
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServiceUnavailableException":
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
@@ -1847,6 +1883,14 @@ const deserializeAws_restJson1CreateImageCommandError = async (
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1975,6 +2019,14 @@ const deserializeAws_restJson1CreateImagePipelineCommandError = async (
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2115,6 +2167,14 @@ const deserializeAws_restJson1CreateImageRecipeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServiceUnavailableException":
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = {
@@ -2239,6 +2299,14 @@ const deserializeAws_restJson1CreateInfrastructureConfigurationCommandError = as
     case "com.amazonaws.imagebuilder#ServiceException":
       response = {
         ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6293,6 +6361,23 @@ const deserializeAws_restJson1ServiceExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = data.message;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6321,6 +6406,7 @@ const serializeAws_restJson1AmiDistributionConfiguration = (
   return {
     ...(input.amiTags !== undefined && { amiTags: serializeAws_restJson1TagMap(input.amiTags, context) }),
     ...(input.description !== undefined && { description: input.description }),
+    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
     ...(input.launchPermission !== undefined && {
       launchPermission: serializeAws_restJson1LaunchPermissionConfiguration(input.launchPermission, context),
     }),
@@ -6445,6 +6531,20 @@ const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1OsVersionList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1ResourceTagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const serializeAws_restJson1S3Logs = (input: S3Logs, context: __SerdeContext): any => {
   return {
     ...(input.s3BucketName !== undefined && { s3BucketName: input.s3BucketName }),
@@ -6508,6 +6608,7 @@ const deserializeAws_restJson1AmiDistributionConfiguration = (
         ? deserializeAws_restJson1TagMap(output.amiTags, context)
         : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    kmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
     launchPermission:
       output.launchPermission !== undefined && output.launchPermission !== null
         ? deserializeAws_restJson1LaunchPermissionConfiguration(output.launchPermission, context)
@@ -6540,6 +6641,10 @@ const deserializeAws_restJson1Component = (output: any, context: __SerdeContext)
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
     platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
+    supportedOsVersions:
+      output.supportedOsVersions !== undefined && output.supportedOsVersions !== null
+        ? deserializeAws_restJson1OsVersionList(output.supportedOsVersions, context)
+        : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -6579,6 +6684,10 @@ const deserializeAws_restJson1ComponentSummary = (output: any, context: __SerdeC
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
     platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
+    supportedOsVersions:
+      output.supportedOsVersions !== undefined && output.supportedOsVersions !== null
+        ? deserializeAws_restJson1OsVersionList(output.supportedOsVersions, context)
+        : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -6601,6 +6710,10 @@ const deserializeAws_restJson1ComponentVersion = (output: any, context: __SerdeC
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
     platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
+    supportedOsVersions:
+      output.supportedOsVersions !== undefined && output.supportedOsVersions !== null
+        ? deserializeAws_restJson1OsVersionList(output.supportedOsVersions, context)
+        : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
@@ -6706,6 +6819,10 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
       output.distributionConfiguration !== undefined && output.distributionConfiguration !== null
         ? deserializeAws_restJson1DistributionConfiguration(output.distributionConfiguration, context)
         : undefined,
+    enhancedImageMetadataEnabled:
+      output.enhancedImageMetadataEnabled !== undefined && output.enhancedImageMetadataEnabled !== null
+        ? output.enhancedImageMetadataEnabled
+        : undefined,
     imageRecipe:
       output.imageRecipe !== undefined && output.imageRecipe !== null
         ? deserializeAws_restJson1ImageRecipe(output.imageRecipe, context)
@@ -6719,6 +6836,7 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
         ? deserializeAws_restJson1InfrastructureConfiguration(output.infrastructureConfiguration, context)
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    osVersion: output.osVersion !== undefined && output.osVersion !== null ? output.osVersion : undefined,
     outputResources:
       output.outputResources !== undefined && output.outputResources !== null
         ? deserializeAws_restJson1OutputResources(output.outputResources, context)
@@ -6756,6 +6874,10 @@ const deserializeAws_restJson1ImagePipeline = (output: any, context: __SerdeCont
     distributionConfigurationArn:
       output.distributionConfigurationArn !== undefined && output.distributionConfigurationArn !== null
         ? output.distributionConfigurationArn
+        : undefined,
+    enhancedImageMetadataEnabled:
+      output.enhancedImageMetadataEnabled !== undefined && output.enhancedImageMetadataEnabled !== null
+        ? output.enhancedImageMetadataEnabled
         : undefined,
     imageRecipeArn:
       output.imageRecipeArn !== undefined && output.imageRecipeArn !== null ? output.imageRecipeArn : undefined,
@@ -6808,6 +6930,8 @@ const deserializeAws_restJson1ImageRecipe = (output: any, context: __SerdeContex
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    workingDirectory:
+      output.workingDirectory !== undefined && output.workingDirectory !== null ? output.workingDirectory : undefined,
   } as any;
 };
 
@@ -6845,6 +6969,7 @@ const deserializeAws_restJson1ImageSummary = (output: any, context: __SerdeConte
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    osVersion: output.osVersion !== undefined && output.osVersion !== null ? output.osVersion : undefined,
     outputResources:
       output.outputResources !== undefined && output.outputResources !== null
         ? deserializeAws_restJson1OutputResources(output.outputResources, context)
@@ -6888,6 +7013,7 @@ const deserializeAws_restJson1ImageVersion = (output: any, context: __SerdeConte
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    osVersion: output.osVersion !== undefined && output.osVersion !== null ? output.osVersion : undefined,
     owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
     platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
@@ -6922,6 +7048,10 @@ const deserializeAws_restJson1InfrastructureConfiguration = (
         ? deserializeAws_restJson1Logging(output.logging, context)
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    resourceTags:
+      output.resourceTags !== undefined && output.resourceTags !== null
+        ? deserializeAws_restJson1ResourceTagMap(output.resourceTags, context)
+        : undefined,
     securityGroupIds:
       output.securityGroupIds !== undefined && output.securityGroupIds !== null
         ? deserializeAws_restJson1SecurityGroupIds(output.securityGroupIds, context)
@@ -6950,6 +7080,10 @@ const deserializeAws_restJson1InfrastructureConfigurationSummary = (
     dateUpdated: output.dateUpdated !== undefined && output.dateUpdated !== null ? output.dateUpdated : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    resourceTags:
+      output.resourceTags !== undefined && output.resourceTags !== null
+        ? deserializeAws_restJson1ResourceTagMap(output.resourceTags, context)
+        : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -7018,6 +7152,10 @@ const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): 
   } as any;
 };
 
+const deserializeAws_restJson1OsVersionList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_restJson1OutputResources = (output: any, context: __SerdeContext): OutputResources => {
   return {
     __type: "OutputResources",
@@ -7026,6 +7164,16 @@ const deserializeAws_restJson1OutputResources = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1AmiList(output.amis, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ResourceTagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1S3Logs = (output: any, context: __SerdeContext): S3Logs => {

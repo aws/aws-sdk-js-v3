@@ -75,14 +75,14 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   name: "BadRequestException";
   $fault: "client";
   /**
-   * Details about the error.
-   */
-  ErrorDetails?: ErrorDetail[];
-
-  /**
    * A message containing information about the error.
    */
   Message?: string;
+
+  /**
+   * Details about the error.
+   */
+  ErrorDetails?: ErrorDetail[];
 }
 
 export namespace BadRequestException {
@@ -126,11 +126,6 @@ export namespace BulkDeployment {
 export interface BulkDeploymentMetrics {
   __type?: "BulkDeploymentMetrics";
   /**
-   * The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
-   */
-  InvalidInputRecords?: number;
-
-  /**
    * The total number of group records from the input file that have been processed so far, or attempted.
    */
   RecordsProcessed?: number;
@@ -139,6 +134,11 @@ export interface BulkDeploymentMetrics {
    * The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times.
    */
   RetryAttempts?: number;
+
+  /**
+   * The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
+   */
+  InvalidInputRecords?: number;
 }
 
 export namespace BulkDeploymentMetrics {
@@ -154,6 +154,31 @@ export namespace BulkDeploymentMetrics {
 export interface BulkDeploymentResult {
   __type?: "BulkDeploymentResult";
   /**
+   * The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
+   */
+  DeploymentStatus?: string;
+
+  /**
+   * The error message for a failed deployment
+   */
+  ErrorMessage?: string;
+
+  /**
+   * The ID of the group deployment.
+   */
+  DeploymentId?: string;
+
+  /**
+   * Details about the error.
+   */
+  ErrorDetails?: ErrorDetail[];
+
+  /**
+   * The type of the deployment.
+   */
+  DeploymentType?: DeploymentType | string;
+
+  /**
    * The time, in ISO format, when the deployment was created.
    */
   CreatedAt?: string;
@@ -162,31 +187,6 @@ export interface BulkDeploymentResult {
    * The ARN of the group deployment.
    */
   DeploymentArn?: string;
-
-  /**
-   * The ID of the group deployment.
-   */
-  DeploymentId?: string;
-
-  /**
-   * The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
-   */
-  DeploymentStatus?: string;
-
-  /**
-   * The type of the deployment.
-   */
-  DeploymentType?: DeploymentType | string;
-
-  /**
-   * Details about the error.
-   */
-  ErrorDetails?: ErrorDetail[];
-
-  /**
-   * The error message for a failed deployment
-   */
-  ErrorMessage?: string;
 
   /**
    * The ARN of the Greengrass group.
@@ -226,14 +226,14 @@ export interface ConnectivityInfo {
   Id?: string;
 
   /**
-   * Metadata for this endpoint.
-   */
-  Metadata?: string;
-
-  /**
    * The port of the Greengrass core. Usually 8883.
    */
   PortNumber?: number;
+
+  /**
+   * Metadata for this endpoint.
+   */
+  Metadata?: string;
 }
 
 export namespace ConnectivityInfo {
@@ -249,6 +249,11 @@ export namespace ConnectivityInfo {
 export interface Connector {
   __type?: "Connector";
   /**
+   * The parameters or configuration that the connector uses.
+   */
+  Parameters?: { [key: string]: string };
+
+  /**
    * The ARN of the connector.
    */
   ConnectorArn: string | undefined;
@@ -257,11 +262,6 @@ export interface Connector {
    * A descriptive or arbitrary ID for the connector. This value must be unique within the connector definition version. Max length is 128 characters with pattern [a-zA-Z0-9:_-]+.
    */
   Id: string | undefined;
-
-  /**
-   * The parameters or configuration that the connector uses.
-   */
-  Parameters?: { [key: string]: string };
 }
 
 export namespace Connector {
@@ -343,16 +343,6 @@ export namespace CoreDefinitionVersion {
 export interface CreateConnectorDefinitionRequest {
   __type?: "CreateConnectorDefinitionRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
-   * Information about the initial version of the connector definition.
-   */
-  InitialVersion?: ConnectorDefinitionVersion;
-
-  /**
    * The name of the connector definition.
    */
   Name?: string;
@@ -361,6 +351,16 @@ export interface CreateConnectorDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: { [key: string]: string };
+
+  /**
+   * Information about the initial version of the connector definition.
+   */
+  InitialVersion?: ConnectorDefinitionVersion;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 }
 
 export namespace CreateConnectorDefinitionRequest {
@@ -373,16 +373,6 @@ export namespace CreateConnectorDefinitionRequest {
 export interface CreateConnectorDefinitionResponse {
   __type?: "CreateConnectorDefinitionResponse";
   /**
-   * The ARN of the definition.
-   */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
-
-  /**
    * The ID of the definition.
    */
   Id?: string;
@@ -393,6 +383,21 @@ export interface CreateConnectorDefinitionResponse {
   LastUpdatedTimestamp?: string;
 
   /**
+   * The name of the definition.
+   */
+  Name?: string;
+
+  /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was created.
+   */
+  CreationTimestamp?: string;
+
+  /**
    * The ID of the latest version associated with the definition.
    */
   LatestVersion?: string;
@@ -401,11 +406,6 @@ export interface CreateConnectorDefinitionResponse {
    * The ARN of the latest version associated with the definition.
    */
   LatestVersionArn?: string;
-
-  /**
-   * The name of the definition.
-   */
-  Name?: string;
 }
 
 export namespace CreateConnectorDefinitionResponse {
@@ -418,6 +418,11 @@ export namespace CreateConnectorDefinitionResponse {
 export interface CreateConnectorDefinitionVersionRequest {
   __type?: "CreateConnectorDefinitionVersionRequest";
   /**
+   * A list of references to connectors in this version, with their corresponding configuration settings.
+   */
+  Connectors?: Connector[];
+
+  /**
    * A client token used to correlate requests and responses.
    */
   AmznClientToken?: string;
@@ -426,11 +431,6 @@ export interface CreateConnectorDefinitionVersionRequest {
    * The ID of the connector definition.
    */
   ConnectorDefinitionId: string | undefined;
-
-  /**
-   * A list of references to connectors in this version, with their corresponding configuration settings.
-   */
-  Connectors?: Connector[];
 }
 
 export namespace CreateConnectorDefinitionVersionRequest {
@@ -444,14 +444,14 @@ export namespace CreateConnectorDefinitionVersionRequest {
 export interface CreateConnectorDefinitionVersionResponse {
   __type?: "CreateConnectorDefinitionVersionResponse";
   /**
-   * The ARN of the version.
-   */
-  Arn?: string;
-
-  /**
    * The time, in milliseconds since the epoch, when the version was created.
    */
   CreationTimestamp?: string;
+
+  /**
+   * The ID of the version.
+   */
+  Version?: string;
 
   /**
    * The ID of the parent definition that the version is associated with.
@@ -459,9 +459,9 @@ export interface CreateConnectorDefinitionVersionResponse {
   Id?: string;
 
   /**
-   * The ID of the version.
+   * The ARN of the version.
    */
-  Version?: string;
+  Arn?: string;
 }
 
 export namespace CreateConnectorDefinitionVersionResponse {
@@ -478,14 +478,14 @@ export namespace CreateConnectorDefinitionVersionResponse {
 export interface CreateCoreDefinitionRequest {
   __type?: "CreateCoreDefinitionRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
    * Information about the initial version of the core definition.
    */
   InitialVersion?: CoreDefinitionVersion;
+
+  /**
+   * Tag(s) to add to the new resource.
+   */
+  tags?: { [key: string]: string };
 
   /**
    * The name of the core definition.
@@ -493,9 +493,9 @@ export interface CreateCoreDefinitionRequest {
   Name?: string;
 
   /**
-   * Tag(s) to add to the new resource.
+   * A client token used to correlate requests and responses.
    */
-  tags?: { [key: string]: string };
+  AmznClientToken?: string;
 }
 
 export namespace CreateCoreDefinitionRequest {
@@ -507,6 +507,26 @@ export namespace CreateCoreDefinitionRequest {
 
 export interface CreateCoreDefinitionResponse {
   __type?: "CreateCoreDefinitionResponse";
+  /**
+   * The ARN of the latest version associated with the definition.
+   */
+  LatestVersionArn?: string;
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was last updated.
+   */
+  LastUpdatedTimestamp?: string;
+
+  /**
+   * The ID of the latest version associated with the definition.
+   */
+  LatestVersion?: string;
+
+  /**
+   * The name of the definition.
+   */
+  Name?: string;
+
   /**
    * The ARN of the definition.
    */
@@ -521,26 +541,6 @@ export interface CreateCoreDefinitionResponse {
    * The ID of the definition.
    */
   Id?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was last updated.
-   */
-  LastUpdatedTimestamp?: string;
-
-  /**
-   * The ID of the latest version associated with the definition.
-   */
-  LatestVersion?: string;
-
-  /**
-   * The ARN of the latest version associated with the definition.
-   */
-  LatestVersionArn?: string;
-
-  /**
-   * The name of the definition.
-   */
-  Name?: string;
 }
 
 export namespace CreateCoreDefinitionResponse {
@@ -558,14 +558,14 @@ export interface CreateCoreDefinitionVersionRequest {
   AmznClientToken?: string;
 
   /**
-   * The ID of the core definition.
-   */
-  CoreDefinitionId: string | undefined;
-
-  /**
    * A list of cores in the core definition version.
    */
   Cores?: Core[];
+
+  /**
+   * The ID of the core definition.
+   */
+  CoreDefinitionId: string | undefined;
 }
 
 export namespace CreateCoreDefinitionVersionRequest {
@@ -579,6 +579,11 @@ export namespace CreateCoreDefinitionVersionRequest {
 export interface CreateCoreDefinitionVersionResponse {
   __type?: "CreateCoreDefinitionVersionResponse";
   /**
+   * The ID of the parent definition that the version is associated with.
+   */
+  Id?: string;
+
+  /**
    * The ARN of the version.
    */
   Arn?: string;
@@ -587,11 +592,6 @@ export interface CreateCoreDefinitionVersionResponse {
    * The time, in milliseconds since the epoch, when the version was created.
    */
   CreationTimestamp?: string;
-
-  /**
-   * The ID of the parent definition that the version is associated with.
-   */
-  Id?: string;
 
   /**
    * The ID of the version.
@@ -610,9 +610,14 @@ export namespace CreateCoreDefinitionVersionResponse {
 export interface CreateDeploymentRequest {
   __type?: "CreateDeploymentRequest";
   /**
-   * A client token used to correlate requests and responses.
+   * The ID of the Greengrass group.
    */
-  AmznClientToken?: string;
+  GroupId: string | undefined;
+
+  /**
+   * The ID of the group version to be deployed.
+   */
+  GroupVersionId?: string;
 
   /**
    * The ID of the deployment if you wish to redeploy a previous deployment.
@@ -625,14 +630,9 @@ export interface CreateDeploymentRequest {
   DeploymentType: DeploymentType | string | undefined;
 
   /**
-   * The ID of the Greengrass group.
+   * A client token used to correlate requests and responses.
    */
-  GroupId: string | undefined;
-
-  /**
-   * The ID of the group version to be deployed.
-   */
-  GroupVersionId?: string;
+  AmznClientToken?: string;
 }
 
 export namespace CreateDeploymentRequest {
@@ -665,6 +665,11 @@ export namespace CreateDeploymentResponse {
 export interface CreateDeviceDefinitionRequest {
   __type?: "CreateDeviceDefinitionRequest";
   /**
+   * The name of the device definition.
+   */
+  Name?: string;
+
+  /**
    * A client token used to correlate requests and responses.
    */
   AmznClientToken?: string;
@@ -673,11 +678,6 @@ export interface CreateDeviceDefinitionRequest {
    * Information about the initial version of the device definition.
    */
   InitialVersion?: DeviceDefinitionVersion;
-
-  /**
-   * The name of the device definition.
-   */
-  Name?: string;
 
   /**
    * Tag(s) to add to the new resource.
@@ -695,19 +695,9 @@ export namespace CreateDeviceDefinitionRequest {
 export interface CreateDeviceDefinitionResponse {
   __type?: "CreateDeviceDefinitionResponse";
   /**
-   * The ARN of the definition.
+   * The ID of the latest version associated with the definition.
    */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
-
-  /**
-   * The ID of the definition.
-   */
-  Id?: string;
+  LatestVersion?: string;
 
   /**
    * The time, in milliseconds since the epoch, when the definition was last updated.
@@ -715,14 +705,24 @@ export interface CreateDeviceDefinitionResponse {
   LastUpdatedTimestamp?: string;
 
   /**
-   * The ID of the latest version associated with the definition.
+   * The ID of the definition.
    */
-  LatestVersion?: string;
+  Id?: string;
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was created.
+   */
+  CreationTimestamp?: string;
 
   /**
    * The ARN of the latest version associated with the definition.
    */
   LatestVersionArn?: string;
+
+  /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
 
   /**
    * The name of the definition.
@@ -740,14 +740,14 @@ export namespace CreateDeviceDefinitionResponse {
 export interface CreateDeviceDefinitionVersionRequest {
   __type?: "CreateDeviceDefinitionVersionRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
    * The ID of the device definition.
    */
   DeviceDefinitionId: string | undefined;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 
   /**
    * A list of devices in the definition version.
@@ -766,9 +766,9 @@ export namespace CreateDeviceDefinitionVersionRequest {
 export interface CreateDeviceDefinitionVersionResponse {
   __type?: "CreateDeviceDefinitionVersionResponse";
   /**
-   * The ARN of the version.
+   * The ID of the version.
    */
-  Arn?: string;
+  Version?: string;
 
   /**
    * The time, in milliseconds since the epoch, when the version was created.
@@ -781,9 +781,9 @@ export interface CreateDeviceDefinitionVersionResponse {
   Id?: string;
 
   /**
-   * The ID of the version.
+   * The ARN of the version.
    */
-  Version?: string;
+  Arn?: string;
 }
 
 export namespace CreateDeviceDefinitionVersionResponse {
@@ -797,11 +797,6 @@ export namespace CreateDeviceDefinitionVersionResponse {
 export interface CreateFunctionDefinitionRequest {
   __type?: "CreateFunctionDefinitionRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
    * Information about the initial version of the function definition.
    */
   InitialVersion?: FunctionDefinitionVersion;
@@ -810,6 +805,11 @@ export interface CreateFunctionDefinitionRequest {
    * The name of the function definition.
    */
   Name?: string;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 
   /**
    * Tag(s) to add to the new resource.
@@ -827,19 +827,9 @@ export namespace CreateFunctionDefinitionRequest {
 export interface CreateFunctionDefinitionResponse {
   __type?: "CreateFunctionDefinitionResponse";
   /**
-   * The ARN of the definition.
+   * The ARN of the latest version associated with the definition.
    */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
-
-  /**
-   * The ID of the definition.
-   */
-  Id?: string;
+  LatestVersionArn?: string;
 
   /**
    * The time, in milliseconds since the epoch, when the definition was last updated.
@@ -852,14 +842,24 @@ export interface CreateFunctionDefinitionResponse {
   LatestVersion?: string;
 
   /**
-   * The ARN of the latest version associated with the definition.
-   */
-  LatestVersionArn?: string;
-
-  /**
    * The name of the definition.
    */
   Name?: string;
+
+  /**
+   * The ID of the definition.
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was created.
+   */
+  CreationTimestamp?: string;
 }
 
 export namespace CreateFunctionDefinitionResponse {
@@ -875,11 +875,6 @@ export namespace CreateFunctionDefinitionResponse {
 export interface CreateFunctionDefinitionVersionRequest {
   __type?: "CreateFunctionDefinitionVersionRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
    * The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
    */
   DefaultConfig?: FunctionDefaultConfig;
@@ -888,6 +883,11 @@ export interface CreateFunctionDefinitionVersionRequest {
    * The ID of the Lambda function definition.
    */
   FunctionDefinitionId: string | undefined;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 
   /**
    * A list of Lambda functions in this function definition version.
@@ -906,14 +906,14 @@ export namespace CreateFunctionDefinitionVersionRequest {
 export interface CreateFunctionDefinitionVersionResponse {
   __type?: "CreateFunctionDefinitionVersionResponse";
   /**
-   * The ARN of the version.
-   */
-  Arn?: string;
-
-  /**
    * The time, in milliseconds since the epoch, when the version was created.
    */
   CreationTimestamp?: string;
+
+  /**
+   * The ARN of the version.
+   */
+  Arn?: string;
 
   /**
    * The ID of the parent definition that the version is associated with.
@@ -937,14 +937,14 @@ export namespace CreateFunctionDefinitionVersionResponse {
 export interface CreateGroupCertificateAuthorityRequest {
   __type?: "CreateGroupCertificateAuthorityRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
    * The ID of the Greengrass group.
    */
   GroupId: string | undefined;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 }
 
 export namespace CreateGroupCertificateAuthorityRequest {
@@ -974,9 +974,9 @@ export namespace CreateGroupCertificateAuthorityResponse {
 export interface CreateGroupRequest {
   __type?: "CreateGroupRequest";
   /**
-   * A client token used to correlate requests and responses.
+   * The name of the group.
    */
-  AmznClientToken?: string;
+  Name?: string;
 
   /**
    * Information about the initial version of the group.
@@ -984,14 +984,14 @@ export interface CreateGroupRequest {
   InitialVersion?: GroupVersion;
 
   /**
-   * The name of the group.
-   */
-  Name?: string;
-
-  /**
    * Tag(s) to add to the new resource.
    */
   tags?: { [key: string]: string };
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 }
 
 export namespace CreateGroupRequest {
@@ -1004,14 +1004,9 @@ export namespace CreateGroupRequest {
 export interface CreateGroupResponse {
   __type?: "CreateGroupResponse";
   /**
-   * The ARN of the definition.
+   * The time, in milliseconds since the epoch, when the definition was last updated.
    */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
+  LastUpdatedTimestamp?: string;
 
   /**
    * The ID of the definition.
@@ -1019,9 +1014,9 @@ export interface CreateGroupResponse {
   Id?: string;
 
   /**
-   * The time, in milliseconds since the epoch, when the definition was last updated.
+   * The ARN of the definition.
    */
-  LastUpdatedTimestamp?: string;
+  Arn?: string;
 
   /**
    * The ID of the latest version associated with the definition.
@@ -1029,14 +1024,19 @@ export interface CreateGroupResponse {
   LatestVersion?: string;
 
   /**
+   * The name of the definition.
+   */
+  Name?: string;
+
+  /**
    * The ARN of the latest version associated with the definition.
    */
   LatestVersionArn?: string;
 
   /**
-   * The name of the definition.
+   * The time, in milliseconds since the epoch, when the definition was created.
    */
-  Name?: string;
+  CreationTimestamp?: string;
 }
 
 export namespace CreateGroupResponse {
@@ -1049,19 +1049,9 @@ export namespace CreateGroupResponse {
 export interface CreateGroupVersionRequest {
   __type?: "CreateGroupVersionRequest";
   /**
-   * A client token used to correlate requests and responses.
+   * The ID of the Greengrass group.
    */
-  AmznClientToken?: string;
-
-  /**
-   * The ARN of the connector definition version for this group.
-   */
-  ConnectorDefinitionVersionArn?: string;
-
-  /**
-   * The ARN of the core definition version for this group.
-   */
-  CoreDefinitionVersionArn?: string;
+  GroupId: string | undefined;
 
   /**
    * The ARN of the device definition version for this group.
@@ -1069,19 +1059,24 @@ export interface CreateGroupVersionRequest {
   DeviceDefinitionVersionArn?: string;
 
   /**
+   * The ARN of the core definition version for this group.
+   */
+  CoreDefinitionVersionArn?: string;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
+
+  /**
    * The ARN of the function definition version for this group.
    */
   FunctionDefinitionVersionArn?: string;
 
   /**
-   * The ID of the Greengrass group.
+   * The ARN of the connector definition version for this group.
    */
-  GroupId: string | undefined;
-
-  /**
-   * The ARN of the logger definition version for this group.
-   */
-  LoggerDefinitionVersionArn?: string;
+  ConnectorDefinitionVersionArn?: string;
 
   /**
    * The ARN of the resource definition version for this group.
@@ -1092,6 +1087,11 @@ export interface CreateGroupVersionRequest {
    * The ARN of the subscription definition version for this group.
    */
   SubscriptionDefinitionVersionArn?: string;
+
+  /**
+   * The ARN of the logger definition version for this group.
+   */
+  LoggerDefinitionVersionArn?: string;
 }
 
 export namespace CreateGroupVersionRequest {
@@ -1109,9 +1109,9 @@ export interface CreateGroupVersionResponse {
   Arn?: string;
 
   /**
-   * The time, in milliseconds since the epoch, when the version was created.
+   * The ID of the version.
    */
-  CreationTimestamp?: string;
+  Version?: string;
 
   /**
    * The ID of the parent definition that the version is associated with.
@@ -1119,9 +1119,9 @@ export interface CreateGroupVersionResponse {
   Id?: string;
 
   /**
-   * The ID of the version.
+   * The time, in milliseconds since the epoch, when the version was created.
    */
-  Version?: string;
+  CreationTimestamp?: string;
 }
 
 export namespace CreateGroupVersionResponse {
@@ -1134,11 +1134,6 @@ export namespace CreateGroupVersionResponse {
 export interface CreateLoggerDefinitionRequest {
   __type?: "CreateLoggerDefinitionRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
    * Information about the initial version of the logger definition.
    */
   InitialVersion?: LoggerDefinitionVersion;
@@ -1147,6 +1142,11 @@ export interface CreateLoggerDefinitionRequest {
    * The name of the logger definition.
    */
   Name?: string;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 
   /**
    * Tag(s) to add to the new resource.
@@ -1164,6 +1164,16 @@ export namespace CreateLoggerDefinitionRequest {
 export interface CreateLoggerDefinitionResponse {
   __type?: "CreateLoggerDefinitionResponse";
   /**
+   * The name of the definition.
+   */
+  Name?: string;
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was last updated.
+   */
+  LastUpdatedTimestamp?: string;
+
+  /**
    * The ARN of the definition.
    */
   Arn?: string;
@@ -1179,24 +1189,14 @@ export interface CreateLoggerDefinitionResponse {
   Id?: string;
 
   /**
-   * The time, in milliseconds since the epoch, when the definition was last updated.
-   */
-  LastUpdatedTimestamp?: string;
-
-  /**
-   * The ID of the latest version associated with the definition.
-   */
-  LatestVersion?: string;
-
-  /**
    * The ARN of the latest version associated with the definition.
    */
   LatestVersionArn?: string;
 
   /**
-   * The name of the definition.
+   * The ID of the latest version associated with the definition.
    */
-  Name?: string;
+  LatestVersion?: string;
 }
 
 export namespace CreateLoggerDefinitionResponse {
@@ -1209,11 +1209,6 @@ export namespace CreateLoggerDefinitionResponse {
 export interface CreateLoggerDefinitionVersionRequest {
   __type?: "CreateLoggerDefinitionVersionRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
    * The ID of the logger definition.
    */
   LoggerDefinitionId: string | undefined;
@@ -1222,6 +1217,11 @@ export interface CreateLoggerDefinitionVersionRequest {
    * A list of loggers.
    */
   Loggers?: Logger[];
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 }
 
 export namespace CreateLoggerDefinitionVersionRequest {
@@ -1240,9 +1240,9 @@ export interface CreateLoggerDefinitionVersionResponse {
   Arn?: string;
 
   /**
-   * The time, in milliseconds since the epoch, when the version was created.
+   * The ID of the version.
    */
-  CreationTimestamp?: string;
+  Version?: string;
 
   /**
    * The ID of the parent definition that the version is associated with.
@@ -1250,9 +1250,9 @@ export interface CreateLoggerDefinitionVersionResponse {
   Id?: string;
 
   /**
-   * The ID of the version.
+   * The time, in milliseconds since the epoch, when the version was created.
    */
-  Version?: string;
+  CreationTimestamp?: string;
 }
 
 export namespace CreateLoggerDefinitionVersionResponse {
@@ -1266,16 +1266,6 @@ export namespace CreateLoggerDefinitionVersionResponse {
 export interface CreateResourceDefinitionRequest {
   __type?: "CreateResourceDefinitionRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
-   * Information about the initial version of the resource definition.
-   */
-  InitialVersion?: ResourceDefinitionVersion;
-
-  /**
    * The name of the resource definition.
    */
   Name?: string;
@@ -1284,6 +1274,16 @@ export interface CreateResourceDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: { [key: string]: string };
+
+  /**
+   * Information about the initial version of the resource definition.
+   */
+  InitialVersion?: ResourceDefinitionVersion;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 }
 
 export namespace CreateResourceDefinitionRequest {
@@ -1296,24 +1296,9 @@ export namespace CreateResourceDefinitionRequest {
 export interface CreateResourceDefinitionResponse {
   __type?: "CreateResourceDefinitionResponse";
   /**
-   * The ARN of the definition.
-   */
-  Arn?: string;
-
-  /**
    * The time, in milliseconds since the epoch, when the definition was created.
    */
   CreationTimestamp?: string;
-
-  /**
-   * The ID of the definition.
-   */
-  Id?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was last updated.
-   */
-  LastUpdatedTimestamp?: string;
 
   /**
    * The ID of the latest version associated with the definition.
@@ -1321,14 +1306,29 @@ export interface CreateResourceDefinitionResponse {
   LatestVersion?: string;
 
   /**
+   * The time, in milliseconds since the epoch, when the definition was last updated.
+   */
+  LastUpdatedTimestamp?: string;
+
+  /**
    * The ARN of the latest version associated with the definition.
    */
   LatestVersionArn?: string;
 
   /**
+   * The ID of the definition.
+   */
+  Id?: string;
+
+  /**
    * The name of the definition.
    */
   Name?: string;
+
+  /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
 }
 
 export namespace CreateResourceDefinitionResponse {
@@ -1398,6 +1398,16 @@ export namespace CreateResourceDefinitionVersionResponse {
 export interface CreateSoftwareUpdateJobRequest {
   __type?: "CreateSoftwareUpdateJobRequest";
   /**
+   * The operating system of the cores which are the targets of an update.
+   */
+  UpdateTargetsOperatingSystem: UpdateTargetsOperatingSystem | string | undefined;
+
+  /**
+   * The minimum level of log statements that should be logged by the OTA Agent during an update.
+   */
+  UpdateAgentLogLevel?: UpdateAgentLogLevel | string;
+
+  /**
    * A client token used to correlate requests and responses.
    */
   AmznClientToken?: string;
@@ -1406,16 +1416,6 @@ export interface CreateSoftwareUpdateJobRequest {
    * The IAM Role that Greengrass will use to create pre-signed URLs pointing towards the update artifact.
    */
   S3UrlSignerRole: string | undefined;
-
-  /**
-   * The piece of software on the Greengrass core that will be updated.
-   */
-  SoftwareToUpdate: SoftwareToUpdate | string | undefined;
-
-  /**
-   * The minimum level of log statements that should be logged by the OTA Agent during an update.
-   */
-  UpdateAgentLogLevel?: UpdateAgentLogLevel | string;
 
   /**
    * The ARNs of the targets (IoT things or IoT thing groups) that this update will be applied to.
@@ -1428,9 +1428,9 @@ export interface CreateSoftwareUpdateJobRequest {
   UpdateTargetsArchitecture: UpdateTargetsArchitecture | string | undefined;
 
   /**
-   * The operating system of the cores which are the targets of an update.
+   * The piece of software on the Greengrass core that will be updated.
    */
-  UpdateTargetsOperatingSystem: UpdateTargetsOperatingSystem | string | undefined;
+  SoftwareToUpdate: SoftwareToUpdate | string | undefined;
 }
 
 export namespace CreateSoftwareUpdateJobRequest {
@@ -1443,6 +1443,11 @@ export namespace CreateSoftwareUpdateJobRequest {
 export interface CreateSoftwareUpdateJobResponse {
   __type?: "CreateSoftwareUpdateJobResponse";
   /**
+   * The software version installed on the device or devices after the update.
+   */
+  PlatformSoftwareVersion?: string;
+
+  /**
    * The IoT Job ARN corresponding to this update.
    */
   IotJobArn?: string;
@@ -1451,11 +1456,6 @@ export interface CreateSoftwareUpdateJobResponse {
    * The IoT Job Id corresponding to this update.
    */
   IotJobId?: string;
-
-  /**
-   * The software version installed on the device or devices after the update.
-   */
-  PlatformSoftwareVersion?: string;
 }
 
 export namespace CreateSoftwareUpdateJobResponse {
@@ -1468,16 +1468,6 @@ export namespace CreateSoftwareUpdateJobResponse {
 export interface CreateSubscriptionDefinitionRequest {
   __type?: "CreateSubscriptionDefinitionRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
-   * Information about the initial version of the subscription definition.
-   */
-  InitialVersion?: SubscriptionDefinitionVersion;
-
-  /**
    * The name of the subscription definition.
    */
   Name?: string;
@@ -1486,6 +1476,16 @@ export interface CreateSubscriptionDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: { [key: string]: string };
+
+  /**
+   * Information about the initial version of the subscription definition.
+   */
+  InitialVersion?: SubscriptionDefinitionVersion;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 }
 
 export namespace CreateSubscriptionDefinitionRequest {
@@ -1499,14 +1499,29 @@ export namespace CreateSubscriptionDefinitionRequest {
 export interface CreateSubscriptionDefinitionResponse {
   __type?: "CreateSubscriptionDefinitionResponse";
   /**
-   * The ARN of the definition.
-   */
-  Arn?: string;
-
-  /**
    * The time, in milliseconds since the epoch, when the definition was created.
    */
   CreationTimestamp?: string;
+
+  /**
+   * The name of the definition.
+   */
+  Name?: string;
+
+  /**
+   * The ARN of the latest version associated with the definition.
+   */
+  LatestVersionArn?: string;
+
+  /**
+   * The ID of the latest version associated with the definition.
+   */
+  LatestVersion?: string;
+
+  /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
 
   /**
    * The ID of the definition.
@@ -1517,21 +1532,6 @@ export interface CreateSubscriptionDefinitionResponse {
    * The time, in milliseconds since the epoch, when the definition was last updated.
    */
   LastUpdatedTimestamp?: string;
-
-  /**
-   * The ID of the latest version associated with the definition.
-   */
-  LatestVersion?: string;
-
-  /**
-   * The ARN of the latest version associated with the definition.
-   */
-  LatestVersionArn?: string;
-
-  /**
-   * The name of the definition.
-   */
-  Name?: string;
 }
 
 export namespace CreateSubscriptionDefinitionResponse {
@@ -1545,9 +1545,9 @@ export namespace CreateSubscriptionDefinitionResponse {
 export interface CreateSubscriptionDefinitionVersionRequest {
   __type?: "CreateSubscriptionDefinitionVersionRequest";
   /**
-   * A client token used to correlate requests and responses.
+   * A list of subscriptions.
    */
-  AmznClientToken?: string;
+  Subscriptions?: Subscription[];
 
   /**
    * The ID of the subscription definition.
@@ -1555,9 +1555,9 @@ export interface CreateSubscriptionDefinitionVersionRequest {
   SubscriptionDefinitionId: string | undefined;
 
   /**
-   * A list of subscriptions.
+   * A client token used to correlate requests and responses.
    */
-  Subscriptions?: Subscription[];
+  AmznClientToken?: string;
 }
 
 export namespace CreateSubscriptionDefinitionVersionRequest {
@@ -1605,14 +1605,9 @@ export namespace CreateSubscriptionDefinitionVersionResponse {
 export interface DefinitionInformation {
   __type?: "DefinitionInformation";
   /**
-   * The ARN of the definition.
+   * The name of the definition.
    */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
+  Name?: string;
 
   /**
    * The ID of the definition.
@@ -1620,9 +1615,9 @@ export interface DefinitionInformation {
   Id?: string;
 
   /**
-   * The time, in milliseconds since the epoch, when the definition was last updated.
+   * The time, in milliseconds since the epoch, when the definition was created.
    */
-  LastUpdatedTimestamp?: string;
+  CreationTimestamp?: string;
 
   /**
    * The ID of the latest version associated with the definition.
@@ -1630,19 +1625,24 @@ export interface DefinitionInformation {
   LatestVersion?: string;
 
   /**
-   * The ARN of the latest version associated with the definition.
+   * The ARN of the definition.
    */
-  LatestVersionArn?: string;
+  Arn?: string;
 
   /**
-   * The name of the definition.
+   * The time, in milliseconds since the epoch, when the definition was last updated.
    */
-  Name?: string;
+  LastUpdatedTimestamp?: string;
 
   /**
    * Tag(s) attached to the resource arn.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * The ARN of the latest version associated with the definition.
+   */
+  LatestVersionArn?: string;
 }
 
 export namespace DefinitionInformation {
@@ -1868,9 +1868,14 @@ export namespace DeleteSubscriptionDefinitionResponse {
 export interface Deployment {
   __type?: "Deployment";
   /**
-   * The time, in milliseconds since the epoch, when the deployment was created.
+   * The ARN of the group for this deployment.
    */
-  CreatedAt?: string;
+  GroupArn?: string;
+
+  /**
+   * The type of the deployment.
+   */
+  DeploymentType?: DeploymentType | string;
 
   /**
    * The ARN of the deployment.
@@ -1883,14 +1888,9 @@ export interface Deployment {
   DeploymentId?: string;
 
   /**
-   * The type of the deployment.
+   * The time, in milliseconds since the epoch, when the deployment was created.
    */
-  DeploymentType?: DeploymentType | string;
-
-  /**
-   * The ARN of the group for this deployment.
-   */
-  GroupArn?: string;
+  CreatedAt?: string;
 }
 
 export namespace Deployment {
@@ -1913,16 +1913,6 @@ export enum DeploymentType {
 export interface Device {
   __type?: "Device";
   /**
-   * The ARN of the certificate associated with the device.
-   */
-  CertificateArn: string | undefined;
-
-  /**
-   * A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-   */
-  Id: string | undefined;
-
-  /**
    * If true, the device's local shadow will be automatically synced with the cloud.
    */
   SyncShadow?: boolean;
@@ -1931,6 +1921,16 @@ export interface Device {
    * The thing ARN of the device.
    */
   ThingArn: string | undefined;
+
+  /**
+   * A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+   */
+  Id: string | undefined;
+
+  /**
+   * The ARN of the certificate associated with the device.
+   */
+  CertificateArn: string | undefined;
 }
 
 export namespace Device {
@@ -2050,11 +2050,6 @@ export namespace ErrorDetail {
 export interface Function {
   __type?: "Function";
   /**
-   * The ARN of the Lambda function.
-   */
-  FunctionArn?: string;
-
-  /**
    * The configuration of the Lambda function.
    */
   FunctionConfiguration?: FunctionConfiguration;
@@ -2063,6 +2058,11 @@ export interface Function {
    * A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
    */
   Id: string | undefined;
+
+  /**
+   * The ARN of the Lambda function.
+   */
+  FunctionArn?: string;
 }
 
 export namespace Function {
@@ -2078,29 +2078,9 @@ export namespace Function {
 export interface FunctionConfiguration {
   __type?: "FunctionConfiguration";
   /**
-   * The expected encoding type of the input payload for the function. The default is ''json''.
+   * The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.
    */
-  EncodingType?: EncodingType | string;
-
-  /**
-   * The environment configuration of the function.
-   */
-  Environment?: FunctionConfigurationEnvironment;
-
-  /**
-   * The execution arguments.
-   */
-  ExecArgs?: string;
-
-  /**
-   * The name of the function executable.
-   */
-  Executable?: string;
-
-  /**
-   * The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization.
-   */
-  MemorySize?: number;
+  Timeout?: number;
 
   /**
    * True if the function is pinned. Pinned means the function is long-lived and starts when the core starts.
@@ -2108,9 +2088,29 @@ export interface FunctionConfiguration {
   Pinned?: boolean;
 
   /**
-   * The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.
+   * The expected encoding type of the input payload for the function. The default is ''json''.
    */
-  Timeout?: number;
+  EncodingType?: EncodingType | string;
+
+  /**
+   * The name of the function executable.
+   */
+  Executable?: string;
+
+  /**
+   * The environment configuration of the function.
+   */
+  Environment?: FunctionConfigurationEnvironment;
+
+  /**
+   * The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization.
+   */
+  MemorySize?: number;
+
+  /**
+   * The execution arguments.
+   */
+  ExecArgs?: string;
 }
 
 export namespace FunctionConfiguration {
@@ -2126,6 +2126,16 @@ export namespace FunctionConfiguration {
 export interface FunctionConfigurationEnvironment {
   __type?: "FunctionConfigurationEnvironment";
   /**
+   * Environment variables for the Lambda function's configuration.
+   */
+  Variables?: { [key: string]: string };
+
+  /**
+   * A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
+   */
+  ResourceAccessPolicies?: ResourceAccessPolicy[];
+
+  /**
    * If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
    */
   AccessSysfs?: boolean;
@@ -2134,16 +2144,6 @@ export interface FunctionConfigurationEnvironment {
    * Configuration related to executing the Lambda function
    */
   Execution?: FunctionExecutionConfig;
-
-  /**
-   * A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
-   */
-  ResourceAccessPolicies?: ResourceAccessPolicy[];
-
-  /**
-   * Environment variables for the Lambda function's configuration.
-   */
-  Variables?: { [key: string]: string };
 }
 
 export namespace FunctionConfigurationEnvironment {
@@ -2177,14 +2177,14 @@ export namespace FunctionDefaultConfig {
 export interface FunctionDefaultExecutionConfig {
   __type?: "FunctionDefaultExecutionConfig";
   /**
-   * Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
-   */
-  IsolationMode?: FunctionIsolationMode | string;
-
-  /**
    * Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
    */
   RunAs?: FunctionRunAsConfig;
+
+  /**
+   * Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
+   */
+  IsolationMode?: FunctionIsolationMode | string;
 }
 
 export namespace FunctionDefaultExecutionConfig {
@@ -2200,14 +2200,14 @@ export namespace FunctionDefaultExecutionConfig {
 export interface FunctionDefinitionVersion {
   __type?: "FunctionDefinitionVersion";
   /**
-   * The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
-   */
-  DefaultConfig?: FunctionDefaultConfig;
-
-  /**
    * A list of Lambda functions in this function definition version.
    */
   Functions?: Function[];
+
+  /**
+   * The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
+   */
+  DefaultConfig?: FunctionDefaultConfig;
 }
 
 export namespace FunctionDefinitionVersion {
@@ -2286,14 +2286,14 @@ export namespace GetAssociatedRoleRequest {
 export interface GetAssociatedRoleResponse {
   __type?: "GetAssociatedRoleResponse";
   /**
-   * The time when the role was associated with the group.
-   */
-  AssociatedAt?: string;
-
-  /**
    * The ARN of the role that is associated with the group.
    */
   RoleArn?: string;
+
+  /**
+   * The time when the role was associated with the group.
+   */
+  AssociatedAt?: string;
 }
 
 export namespace GetAssociatedRoleResponse {
@@ -2321,14 +2321,9 @@ export namespace GetBulkDeploymentStatusRequest {
 export interface GetBulkDeploymentStatusResponse {
   __type?: "GetBulkDeploymentStatusResponse";
   /**
-   * Relevant metrics on input records processed during bulk deployment.
+   * Tag(s) attached to the resource arn.
    */
-  BulkDeploymentMetrics?: BulkDeploymentMetrics;
-
-  /**
-   * The status of the bulk deployment.
-   */
-  BulkDeploymentStatus?: BulkDeploymentStatus | string;
+  tags?: { [key: string]: string };
 
   /**
    * The time, in ISO format, when the deployment was created.
@@ -2336,19 +2331,24 @@ export interface GetBulkDeploymentStatusResponse {
   CreatedAt?: string;
 
   /**
-   * Error details
-   */
-  ErrorDetails?: ErrorDetail[];
-
-  /**
    * Error message
    */
   ErrorMessage?: string;
 
   /**
-   * Tag(s) attached to the resource arn.
+   * The status of the bulk deployment.
    */
-  tags?: { [key: string]: string };
+  BulkDeploymentStatus?: BulkDeploymentStatus | string;
+
+  /**
+   * Relevant metrics on input records processed during bulk deployment.
+   */
+  BulkDeploymentMetrics?: BulkDeploymentMetrics;
+
+  /**
+   * Error details
+   */
+  ErrorDetails?: ErrorDetail[];
 }
 
 export namespace GetBulkDeploymentStatusResponse {
@@ -2376,14 +2376,14 @@ export namespace GetConnectivityInfoRequest {
 export interface GetConnectivityInfoResponse {
   __type?: "GetConnectivityInfoResponse";
   /**
-   * Connectivity info list.
-   */
-  ConnectivityInfo?: ConnectivityInfo[];
-
-  /**
    * A message about the connectivity info request.
    */
   Message?: string;
+
+  /**
+   * Connectivity info list.
+   */
+  ConnectivityInfo?: ConnectivityInfo[];
 }
 
 export namespace GetConnectivityInfoResponse {
@@ -2411,9 +2411,14 @@ export namespace GetConnectorDefinitionRequest {
 export interface GetConnectorDefinitionResponse {
   __type?: "GetConnectorDefinitionResponse";
   /**
-   * The ARN of the definition.
+   * Tag(s) attached to the resource arn.
    */
-  Arn?: string;
+  tags?: { [key: string]: string };
+
+  /**
+   * The ARN of the latest version associated with the definition.
+   */
+  LatestVersionArn?: string;
 
   /**
    * The time, in milliseconds since the epoch, when the definition was created.
@@ -2426,19 +2431,14 @@ export interface GetConnectorDefinitionResponse {
   Id?: string;
 
   /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
+
+  /**
    * The time, in milliseconds since the epoch, when the definition was last updated.
    */
   LastUpdatedTimestamp?: string;
-
-  /**
-   * The ID of the latest version associated with the definition.
-   */
-  LatestVersion?: string;
-
-  /**
-   * The ARN of the latest version associated with the definition.
-   */
-  LatestVersionArn?: string;
 
   /**
    * The name of the definition.
@@ -2446,9 +2446,9 @@ export interface GetConnectorDefinitionResponse {
   Name?: string;
 
   /**
-   * Tag(s) attached to the resource arn.
+   * The ID of the latest version associated with the definition.
    */
-  tags?: { [key: string]: string };
+  LatestVersion?: string;
 }
 
 export namespace GetConnectorDefinitionResponse {
@@ -2461,11 +2461,6 @@ export namespace GetConnectorDefinitionResponse {
 export interface GetConnectorDefinitionVersionRequest {
   __type?: "GetConnectorDefinitionVersionRequest";
   /**
-   * The ID of the connector definition.
-   */
-  ConnectorDefinitionId: string | undefined;
-
-  /**
    * The ID of the connector definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListConnectorDefinitionVersions'' requests. If the version is the last one that was associated with a connector definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
   ConnectorDefinitionVersionId: string | undefined;
@@ -2474,6 +2469,11 @@ export interface GetConnectorDefinitionVersionRequest {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The ID of the connector definition.
+   */
+  ConnectorDefinitionId: string | undefined;
 }
 
 export namespace GetConnectorDefinitionVersionRequest {
@@ -2487,19 +2487,9 @@ export namespace GetConnectorDefinitionVersionRequest {
 export interface GetConnectorDefinitionVersionResponse {
   __type?: "GetConnectorDefinitionVersionResponse";
   /**
-   * The ARN of the connector definition version.
-   */
-  Arn?: string;
-
-  /**
    * The time, in milliseconds since the epoch, when the connector definition version was created.
    */
   CreationTimestamp?: string;
-
-  /**
-   * Information about the connector definition version.
-   */
-  Definition?: ConnectorDefinitionVersion;
 
   /**
    * The ID of the connector definition version.
@@ -2507,14 +2497,24 @@ export interface GetConnectorDefinitionVersionResponse {
   Id?: string;
 
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
+   * The ARN of the connector definition version.
    */
-  NextToken?: string;
+  Arn?: string;
+
+  /**
+   * Information about the connector definition version.
+   */
+  Definition?: ConnectorDefinitionVersion;
 
   /**
    * The version of the connector definition version.
    */
   Version?: string;
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
 }
 
 export namespace GetConnectorDefinitionVersionResponse {
@@ -2548,11 +2548,6 @@ export interface GetCoreDefinitionResponse {
   Arn?: string;
 
   /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
-
-  /**
    * The ID of the definition.
    */
   Id?: string;
@@ -2563,14 +2558,19 @@ export interface GetCoreDefinitionResponse {
   LastUpdatedTimestamp?: string;
 
   /**
+   * The ARN of the latest version associated with the definition.
+   */
+  LatestVersionArn?: string;
+
+  /**
    * The ID of the latest version associated with the definition.
    */
   LatestVersion?: string;
 
   /**
-   * The ARN of the latest version associated with the definition.
+   * The time, in milliseconds since the epoch, when the definition was created.
    */
-  LatestVersionArn?: string;
+  CreationTimestamp?: string;
 
   /**
    * The name of the definition.
@@ -2613,19 +2613,24 @@ export namespace GetCoreDefinitionVersionRequest {
 export interface GetCoreDefinitionVersionResponse {
   __type?: "GetCoreDefinitionVersionResponse";
   /**
-   * The ARN of the core definition version.
-   */
-  Arn?: string;
-
-  /**
    * The time, in milliseconds since the epoch, when the core definition version was created.
    */
   CreationTimestamp?: string;
 
   /**
+   * The ARN of the core definition version.
+   */
+  Arn?: string;
+
+  /**
    * Information about the core definition version.
    */
   Definition?: CoreDefinitionVersion;
+
+  /**
+   * The version of the core definition version.
+   */
+  Version?: string;
 
   /**
    * The ID of the core definition version.
@@ -2636,11 +2641,6 @@ export interface GetCoreDefinitionVersionResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-
-  /**
-   * The version of the core definition version.
-   */
-  Version?: string;
 }
 
 export namespace GetCoreDefinitionVersionResponse {
@@ -2673,11 +2673,6 @@ export namespace GetDeploymentStatusRequest {
 export interface GetDeploymentStatusResponse {
   __type?: "GetDeploymentStatusResponse";
   /**
-   * The status of the deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
-   */
-  DeploymentStatus?: string;
-
-  /**
    * The type of the deployment.
    */
   DeploymentType?: DeploymentType | string;
@@ -2696,6 +2691,11 @@ export interface GetDeploymentStatusResponse {
    * The time, in milliseconds since the epoch, when the deployment status was updated.
    */
   UpdatedAt?: string;
+
+  /**
+   * The status of the deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
+   */
+  DeploymentStatus?: string;
 }
 
 export namespace GetDeploymentStatusResponse {
@@ -2723,16 +2723,6 @@ export namespace GetDeviceDefinitionRequest {
 export interface GetDeviceDefinitionResponse {
   __type?: "GetDeviceDefinitionResponse";
   /**
-   * The ARN of the definition.
-   */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
-
-  /**
    * The ID of the definition.
    */
   Id?: string;
@@ -2741,6 +2731,11 @@ export interface GetDeviceDefinitionResponse {
    * The time, in milliseconds since the epoch, when the definition was last updated.
    */
   LastUpdatedTimestamp?: string;
+
+  /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
 
   /**
    * The ID of the latest version associated with the definition.
@@ -2753,14 +2748,19 @@ export interface GetDeviceDefinitionResponse {
   LatestVersionArn?: string;
 
   /**
-   * The name of the definition.
-   */
-  Name?: string;
-
-  /**
    * Tag(s) attached to the resource arn.
    */
   tags?: { [key: string]: string };
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was created.
+   */
+  CreationTimestamp?: string;
+
+  /**
+   * The name of the definition.
+   */
+  Name?: string;
 }
 
 export namespace GetDeviceDefinitionResponse {
@@ -2773,11 +2773,6 @@ export namespace GetDeviceDefinitionResponse {
 export interface GetDeviceDefinitionVersionRequest {
   __type?: "GetDeviceDefinitionVersionRequest";
   /**
-   * The ID of the device definition.
-   */
-  DeviceDefinitionId: string | undefined;
-
-  /**
    * The ID of the device definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListDeviceDefinitionVersions'' requests. If the version is the last one that was associated with a device definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
   DeviceDefinitionVersionId: string | undefined;
@@ -2786,6 +2781,11 @@ export interface GetDeviceDefinitionVersionRequest {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The ID of the device definition.
+   */
+  DeviceDefinitionId: string | undefined;
 }
 
 export namespace GetDeviceDefinitionVersionRequest {
@@ -2798,19 +2798,9 @@ export namespace GetDeviceDefinitionVersionRequest {
 export interface GetDeviceDefinitionVersionResponse {
   __type?: "GetDeviceDefinitionVersionResponse";
   /**
-   * The ARN of the device definition version.
+   * The version of the device definition version.
    */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the device definition version was created.
-   */
-  CreationTimestamp?: string;
-
-  /**
-   * Information about the device definition version.
-   */
-  Definition?: DeviceDefinitionVersion;
+  Version?: string;
 
   /**
    * The ID of the device definition version.
@@ -2818,14 +2808,24 @@ export interface GetDeviceDefinitionVersionResponse {
   Id?: string;
 
   /**
+   * The time, in milliseconds since the epoch, when the device definition version was created.
+   */
+  CreationTimestamp?: string;
+
+  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
 
   /**
-   * The version of the device definition version.
+   * Information about the device definition version.
    */
-  Version?: string;
+  Definition?: DeviceDefinitionVersion;
+
+  /**
+   * The ARN of the device definition version.
+   */
+  Arn?: string;
 }
 
 export namespace GetDeviceDefinitionVersionResponse {
@@ -2854,16 +2854,6 @@ export namespace GetFunctionDefinitionRequest {
 export interface GetFunctionDefinitionResponse {
   __type?: "GetFunctionDefinitionResponse";
   /**
-   * The ARN of the definition.
-   */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
-
-  /**
    * The ID of the definition.
    */
   Id?: string;
@@ -2879,6 +2869,16 @@ export interface GetFunctionDefinitionResponse {
   LatestVersion?: string;
 
   /**
+   * Tag(s) attached to the resource arn.
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was created.
+   */
+  CreationTimestamp?: string;
+
+  /**
    * The ARN of the latest version associated with the definition.
    */
   LatestVersionArn?: string;
@@ -2889,9 +2889,9 @@ export interface GetFunctionDefinitionResponse {
   Name?: string;
 
   /**
-   * Tag(s) attached to the resource arn.
+   * The ARN of the definition.
    */
-  tags?: { [key: string]: string };
+  Arn?: string;
 }
 
 export namespace GetFunctionDefinitionResponse {
@@ -2904,11 +2904,6 @@ export namespace GetFunctionDefinitionResponse {
 export interface GetFunctionDefinitionVersionRequest {
   __type?: "GetFunctionDefinitionVersionRequest";
   /**
-   * The ID of the Lambda function definition.
-   */
-  FunctionDefinitionId: string | undefined;
-
-  /**
    * The ID of the function definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListFunctionDefinitionVersions'' requests. If the version is the last one that was associated with a function definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
   FunctionDefinitionVersionId: string | undefined;
@@ -2917,6 +2912,11 @@ export interface GetFunctionDefinitionVersionRequest {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The ID of the Lambda function definition.
+   */
+  FunctionDefinitionId: string | undefined;
 }
 
 export namespace GetFunctionDefinitionVersionRequest {
@@ -2930,14 +2930,9 @@ export namespace GetFunctionDefinitionVersionRequest {
 export interface GetFunctionDefinitionVersionResponse {
   __type?: "GetFunctionDefinitionVersionResponse";
   /**
-   * The ARN of the function definition version.
+   * The ID of the function definition version.
    */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the function definition version was created.
-   */
-  CreationTimestamp?: string;
+  Id?: string;
 
   /**
    * Information on the definition.
@@ -2945,9 +2940,14 @@ export interface GetFunctionDefinitionVersionResponse {
   Definition?: FunctionDefinitionVersion;
 
   /**
-   * The ID of the function definition version.
+   * The ARN of the function definition version.
    */
-  Id?: string;
+  Arn?: string;
+
+  /**
+   * The version of the function definition version.
+   */
+  Version?: string;
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -2955,9 +2955,9 @@ export interface GetFunctionDefinitionVersionResponse {
   NextToken?: string;
 
   /**
-   * The version of the function definition version.
+   * The time, in milliseconds since the epoch, when the function definition version was created.
    */
-  Version?: string;
+  CreationTimestamp?: string;
 }
 
 export namespace GetFunctionDefinitionVersionResponse {
@@ -2997,14 +2997,14 @@ export interface GetGroupCertificateAuthorityResponse {
   GroupCertificateAuthorityArn?: string;
 
   /**
-   * The ID of the certificate authority for the group.
-   */
-  GroupCertificateAuthorityId?: string;
-
-  /**
    * The PEM encoded certificate for the group.
    */
   PemEncodedCertificate?: string;
+
+  /**
+   * The ID of the certificate authority for the group.
+   */
+  GroupCertificateAuthorityId?: string;
 }
 
 export namespace GetGroupCertificateAuthorityResponse {
@@ -3034,14 +3034,14 @@ export namespace GetGroupCertificateConfigurationRequest {
 export interface GetGroupCertificateConfigurationResponse {
   __type?: "GetGroupCertificateConfigurationResponse";
   /**
-   * The amount of time remaining before the certificate authority expires, in milliseconds.
-   */
-  CertificateAuthorityExpiryInMilliseconds?: string;
-
-  /**
    * The amount of time remaining before the certificate expires, in milliseconds.
    */
   CertificateExpiryInMilliseconds?: string;
+
+  /**
+   * The amount of time remaining before the certificate authority expires, in milliseconds.
+   */
+  CertificateAuthorityExpiryInMilliseconds?: string;
 
   /**
    * The ID of the group certificate configuration.
@@ -3075,14 +3075,9 @@ export namespace GetGroupRequest {
 export interface GetGroupResponse {
   __type?: "GetGroupResponse";
   /**
-   * The ARN of the definition.
+   * The time, in milliseconds since the epoch, when the definition was last updated.
    */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
+  LastUpdatedTimestamp?: string;
 
   /**
    * The ID of the definition.
@@ -3090,14 +3085,9 @@ export interface GetGroupResponse {
   Id?: string;
 
   /**
-   * The time, in milliseconds since the epoch, when the definition was last updated.
+   * The time, in milliseconds since the epoch, when the definition was created.
    */
-  LastUpdatedTimestamp?: string;
-
-  /**
-   * The ID of the latest version associated with the definition.
-   */
-  LatestVersion?: string;
+  CreationTimestamp?: string;
 
   /**
    * The ARN of the latest version associated with the definition.
@@ -3105,14 +3095,24 @@ export interface GetGroupResponse {
   LatestVersionArn?: string;
 
   /**
-   * The name of the definition.
+   * The ID of the latest version associated with the definition.
    */
-  Name?: string;
+  LatestVersion?: string;
 
   /**
    * Tag(s) attached to the resource arn.
    */
   tags?: { [key: string]: string };
+
+  /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
+
+  /**
+   * The name of the definition.
+   */
+  Name?: string;
 }
 
 export namespace GetGroupResponse {
@@ -3145,6 +3145,16 @@ export namespace GetGroupVersionRequest {
 export interface GetGroupVersionResponse {
   __type?: "GetGroupVersionResponse";
   /**
+   * The ID of the group version.
+   */
+  Version?: string;
+
+  /**
+   * Information about the group version definition.
+   */
+  Definition?: GroupVersion;
+
+  /**
    * The ARN of the group version.
    */
   Arn?: string;
@@ -3155,19 +3165,9 @@ export interface GetGroupVersionResponse {
   CreationTimestamp?: string;
 
   /**
-   * Information about the group version definition.
-   */
-  Definition?: GroupVersion;
-
-  /**
    * The ID of the group that the version is associated with.
    */
   Id?: string;
-
-  /**
-   * The ID of the group version.
-   */
-  Version?: string;
 }
 
 export namespace GetGroupVersionResponse {
@@ -3195,34 +3195,9 @@ export namespace GetLoggerDefinitionRequest {
 export interface GetLoggerDefinitionResponse {
   __type?: "GetLoggerDefinitionResponse";
   /**
-   * The ARN of the definition.
-   */
-  Arn?: string;
-
-  /**
    * The time, in milliseconds since the epoch, when the definition was created.
    */
   CreationTimestamp?: string;
-
-  /**
-   * The ID of the definition.
-   */
-  Id?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was last updated.
-   */
-  LastUpdatedTimestamp?: string;
-
-  /**
-   * The ID of the latest version associated with the definition.
-   */
-  LatestVersion?: string;
-
-  /**
-   * The ARN of the latest version associated with the definition.
-   */
-  LatestVersionArn?: string;
 
   /**
    * The name of the definition.
@@ -3230,9 +3205,34 @@ export interface GetLoggerDefinitionResponse {
   Name?: string;
 
   /**
+   * The ARN of the latest version associated with the definition.
+   */
+  LatestVersionArn?: string;
+
+  /**
    * Tag(s) attached to the resource arn.
    */
   tags?: { [key: string]: string };
+
+  /**
+   * The ID of the definition.
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
+
+  /**
+   * The ID of the latest version associated with the definition.
+   */
+  LatestVersion?: string;
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was last updated.
+   */
+  LastUpdatedTimestamp?: string;
 }
 
 export namespace GetLoggerDefinitionResponse {
@@ -3250,14 +3250,14 @@ export interface GetLoggerDefinitionVersionRequest {
   LoggerDefinitionId: string | undefined;
 
   /**
-   * The ID of the logger definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListLoggerDefinitionVersions'' requests. If the version is the last one that was associated with a logger definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
-   */
-  LoggerDefinitionVersionId: string | undefined;
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The ID of the logger definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListLoggerDefinitionVersions'' requests. If the version is the last one that was associated with a logger definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+   */
+  LoggerDefinitionVersionId: string | undefined;
 }
 
 export namespace GetLoggerDefinitionVersionRequest {
@@ -3270,19 +3270,9 @@ export namespace GetLoggerDefinitionVersionRequest {
 export interface GetLoggerDefinitionVersionResponse {
   __type?: "GetLoggerDefinitionVersionResponse";
   /**
-   * The ARN of the logger definition version.
+   * The version of the logger definition version.
    */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the logger definition version was created.
-   */
-  CreationTimestamp?: string;
-
-  /**
-   * Information about the logger definition version.
-   */
-  Definition?: LoggerDefinitionVersion;
+  Version?: string;
 
   /**
    * The ID of the logger definition version.
@@ -3290,9 +3280,19 @@ export interface GetLoggerDefinitionVersionResponse {
   Id?: string;
 
   /**
-   * The version of the logger definition version.
+   * The ARN of the logger definition version.
    */
-  Version?: string;
+  Arn?: string;
+
+  /**
+   * Information about the logger definition version.
+   */
+  Definition?: LoggerDefinitionVersion;
+
+  /**
+   * The time, in milliseconds since the epoch, when the logger definition version was created.
+   */
+  CreationTimestamp?: string;
 }
 
 export namespace GetLoggerDefinitionVersionResponse {
@@ -3326,9 +3326,9 @@ export interface GetResourceDefinitionResponse {
   Arn?: string;
 
   /**
-   * The time, in milliseconds since the epoch, when the definition was created.
+   * The ID of the latest version associated with the definition.
    */
-  CreationTimestamp?: string;
+  LatestVersion?: string;
 
   /**
    * The ID of the definition.
@@ -3341,14 +3341,14 @@ export interface GetResourceDefinitionResponse {
   LastUpdatedTimestamp?: string;
 
   /**
-   * The ID of the latest version associated with the definition.
-   */
-  LatestVersion?: string;
-
-  /**
    * The ARN of the latest version associated with the definition.
    */
   LatestVersionArn?: string;
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was created.
+   */
+  CreationTimestamp?: string;
 
   /**
    * The name of the definition.
@@ -3371,14 +3371,14 @@ export namespace GetResourceDefinitionResponse {
 export interface GetResourceDefinitionVersionRequest {
   __type?: "GetResourceDefinitionVersionRequest";
   /**
-   * The ID of the resource definition.
-   */
-  ResourceDefinitionId: string | undefined;
-
-  /**
    * The ID of the resource definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListResourceDefinitionVersions'' requests. If the version is the last one that was associated with a resource definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
   ResourceDefinitionVersionId: string | undefined;
+
+  /**
+   * The ID of the resource definition.
+   */
+  ResourceDefinitionId: string | undefined;
 }
 
 export namespace GetResourceDefinitionVersionRequest {
@@ -3392,14 +3392,14 @@ export namespace GetResourceDefinitionVersionRequest {
 export interface GetResourceDefinitionVersionResponse {
   __type?: "GetResourceDefinitionVersionResponse";
   /**
-   * Arn of the resource definition version.
-   */
-  Arn?: string;
-
-  /**
    * The time, in milliseconds since the epoch, when the resource definition version was created.
    */
   CreationTimestamp?: string;
+
+  /**
+   * Arn of the resource definition version.
+   */
+  Arn?: string;
 
   /**
    * Information about the definition.
@@ -3439,14 +3439,14 @@ export namespace GetServiceRoleForAccountRequest {
 export interface GetServiceRoleForAccountResponse {
   __type?: "GetServiceRoleForAccountResponse";
   /**
-   * The time when the service role was associated with the account.
-   */
-  AssociatedAt?: string;
-
-  /**
    * The ARN of the role which is associated with the account.
    */
   RoleArn?: string;
+
+  /**
+   * The time when the service role was associated with the account.
+   */
+  AssociatedAt?: string;
 }
 
 export namespace GetServiceRoleForAccountResponse {
@@ -3474,14 +3474,9 @@ export namespace GetSubscriptionDefinitionRequest {
 export interface GetSubscriptionDefinitionResponse {
   __type?: "GetSubscriptionDefinitionResponse";
   /**
-   * The ARN of the definition.
+   * The ID of the latest version associated with the definition.
    */
-  Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the definition was created.
-   */
-  CreationTimestamp?: string;
+  LatestVersion?: string;
 
   /**
    * The ID of the definition.
@@ -3489,24 +3484,29 @@ export interface GetSubscriptionDefinitionResponse {
   Id?: string;
 
   /**
-   * The time, in milliseconds since the epoch, when the definition was last updated.
-   */
-  LastUpdatedTimestamp?: string;
-
-  /**
-   * The ID of the latest version associated with the definition.
-   */
-  LatestVersion?: string;
-
-  /**
    * The ARN of the latest version associated with the definition.
    */
   LatestVersionArn?: string;
 
   /**
+   * The time, in milliseconds since the epoch, when the definition was last updated.
+   */
+  LastUpdatedTimestamp?: string;
+
+  /**
    * The name of the definition.
    */
   Name?: string;
+
+  /**
+   * The time, in milliseconds since the epoch, when the definition was created.
+   */
+  CreationTimestamp?: string;
+
+  /**
+   * The ARN of the definition.
+   */
+  Arn?: string;
 
   /**
    * Tag(s) attached to the resource arn.
@@ -3550,14 +3550,14 @@ export namespace GetSubscriptionDefinitionVersionRequest {
 export interface GetSubscriptionDefinitionVersionResponse {
   __type?: "GetSubscriptionDefinitionVersionResponse";
   /**
+   * The ID of the subscription definition version.
+   */
+  Id?: string;
+
+  /**
    * The ARN of the subscription definition version.
    */
   Arn?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the subscription definition version was created.
-   */
-  CreationTimestamp?: string;
 
   /**
    * Information about the subscription definition version.
@@ -3565,9 +3565,9 @@ export interface GetSubscriptionDefinitionVersionResponse {
   Definition?: SubscriptionDefinitionVersion;
 
   /**
-   * The ID of the subscription definition version.
+   * The time, in milliseconds since the epoch, when the subscription definition version was created.
    */
-  Id?: string;
+  CreationTimestamp?: string;
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3594,14 +3594,14 @@ export namespace GetSubscriptionDefinitionVersionResponse {
 export interface GroupCertificateAuthorityProperties {
   __type?: "GroupCertificateAuthorityProperties";
   /**
-   * The ARN of the certificate authority for the group.
-   */
-  GroupCertificateAuthorityArn?: string;
-
-  /**
    * The ID of the certificate authority for the group.
    */
   GroupCertificateAuthorityId?: string;
+
+  /**
+   * The ARN of the certificate authority for the group.
+   */
+  GroupCertificateAuthorityArn?: string;
 }
 
 export namespace GroupCertificateAuthorityProperties {
@@ -3618,24 +3618,9 @@ export namespace GroupCertificateAuthorityProperties {
 export interface GroupInformation {
   __type?: "GroupInformation";
   /**
-   * The ARN of the group.
-   */
-  Arn?: string;
-
-  /**
    * The time, in milliseconds since the epoch, when the group was created.
    */
   CreationTimestamp?: string;
-
-  /**
-   * The ID of the group.
-   */
-  Id?: string;
-
-  /**
-   * The time, in milliseconds since the epoch, when the group was last updated.
-   */
-  LastUpdatedTimestamp?: string;
 
   /**
    * The ID of the latest version associated with the group.
@@ -3648,9 +3633,24 @@ export interface GroupInformation {
   LatestVersionArn?: string;
 
   /**
+   * The time, in milliseconds since the epoch, when the group was last updated.
+   */
+  LastUpdatedTimestamp?: string;
+
+  /**
+   * The ID of the group.
+   */
+  Id?: string;
+
+  /**
    * The name of the group.
    */
   Name?: string;
+
+  /**
+   * The ARN of the group.
+   */
+  Arn?: string;
 }
 
 export namespace GroupInformation {
@@ -3689,6 +3689,16 @@ export namespace GroupOwnerSetting {
 export interface GroupVersion {
   __type?: "GroupVersion";
   /**
+   * The ARN of the subscription definition version for this group.
+   */
+  SubscriptionDefinitionVersionArn?: string;
+
+  /**
+   * The ARN of the logger definition version for this group.
+   */
+  LoggerDefinitionVersionArn?: string;
+
+  /**
    * The ARN of the connector definition version for this group.
    */
   ConnectorDefinitionVersionArn?: string;
@@ -3699,6 +3709,11 @@ export interface GroupVersion {
   CoreDefinitionVersionArn?: string;
 
   /**
+   * The ARN of the resource definition version for this group.
+   */
+  ResourceDefinitionVersionArn?: string;
+
+  /**
    * The ARN of the device definition version for this group.
    */
   DeviceDefinitionVersionArn?: string;
@@ -3707,21 +3722,6 @@ export interface GroupVersion {
    * The ARN of the function definition version for this group.
    */
   FunctionDefinitionVersionArn?: string;
-
-  /**
-   * The ARN of the logger definition version for this group.
-   */
-  LoggerDefinitionVersionArn?: string;
-
-  /**
-   * The ARN of the resource definition version for this group.
-   */
-  ResourceDefinitionVersionArn?: string;
-
-  /**
-   * The ARN of the subscription definition version for this group.
-   */
-  SubscriptionDefinitionVersionArn?: string;
 }
 
 export namespace GroupVersion {
@@ -3758,9 +3758,9 @@ export namespace InternalServerErrorException {
 export interface ListBulkDeploymentDetailedReportsRequest {
   __type?: "ListBulkDeploymentDetailedReportsRequest";
   /**
-   * The ID of the bulk deployment.
+   * The token for the next set of results, or ''null'' if there are no additional results.
    */
-  BulkDeploymentId: string | undefined;
+  NextToken?: string;
 
   /**
    * The maximum number of results to be returned per request.
@@ -3768,9 +3768,9 @@ export interface ListBulkDeploymentDetailedReportsRequest {
   MaxResults?: string;
 
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
+   * The ID of the bulk deployment.
    */
-  NextToken?: string;
+  BulkDeploymentId: string | undefined;
 }
 
 export namespace ListBulkDeploymentDetailedReportsRequest {
@@ -3805,14 +3805,14 @@ export namespace ListBulkDeploymentDetailedReportsResponse {
 export interface ListBulkDeploymentsRequest {
   __type?: "ListBulkDeploymentsRequest";
   /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
 }
 
 export namespace ListBulkDeploymentsRequest {
@@ -3845,14 +3845,14 @@ export namespace ListBulkDeploymentsResponse {
 export interface ListConnectorDefinitionsRequest {
   __type?: "ListConnectorDefinitionsRequest";
   /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
 }
 
 export namespace ListConnectorDefinitionsRequest {
@@ -3885,6 +3885,11 @@ export namespace ListConnectorDefinitionsResponse {
 export interface ListConnectorDefinitionVersionsRequest {
   __type?: "ListConnectorDefinitionVersionsRequest";
   /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
+
+  /**
    * The ID of the connector definition.
    */
   ConnectorDefinitionId: string | undefined;
@@ -3893,11 +3898,6 @@ export interface ListConnectorDefinitionVersionsRequest {
    * The maximum number of results to be returned per request.
    */
   MaxResults?: string;
-
-  /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
 }
 
 export namespace ListConnectorDefinitionVersionsRequest {
@@ -3972,9 +3972,9 @@ export namespace ListCoreDefinitionsResponse {
 export interface ListCoreDefinitionVersionsRequest {
   __type?: "ListCoreDefinitionVersionsRequest";
   /**
-   * The ID of the core definition.
+   * The token for the next set of results, or ''null'' if there are no additional results.
    */
-  CoreDefinitionId: string | undefined;
+  NextToken?: string;
 
   /**
    * The maximum number of results to be returned per request.
@@ -3982,9 +3982,9 @@ export interface ListCoreDefinitionVersionsRequest {
   MaxResults?: string;
 
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
+   * The ID of the core definition.
    */
-  NextToken?: string;
+  CoreDefinitionId: string | undefined;
 }
 
 export namespace ListCoreDefinitionVersionsRequest {
@@ -4018,9 +4018,9 @@ export namespace ListCoreDefinitionVersionsResponse {
 export interface ListDeploymentsRequest {
   __type?: "ListDeploymentsRequest";
   /**
-   * The ID of the Greengrass group.
+   * The token for the next set of results, or ''null'' if there are no additional results.
    */
-  GroupId: string | undefined;
+  NextToken?: string;
 
   /**
    * The maximum number of results to be returned per request.
@@ -4028,9 +4028,9 @@ export interface ListDeploymentsRequest {
   MaxResults?: string;
 
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
+   * The ID of the Greengrass group.
    */
-  NextToken?: string;
+  GroupId: string | undefined;
 }
 
 export namespace ListDeploymentsRequest {
@@ -4043,14 +4043,14 @@ export namespace ListDeploymentsRequest {
 export interface ListDeploymentsResponse {
   __type?: "ListDeploymentsResponse";
   /**
-   * A list of deployments for the requested groups.
-   */
-  Deployments?: Deployment[];
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * A list of deployments for the requested groups.
+   */
+  Deployments?: Deployment[];
 }
 
 export namespace ListDeploymentsResponse {
@@ -4083,14 +4083,14 @@ export namespace ListDeviceDefinitionsRequest {
 export interface ListDeviceDefinitionsResponse {
   __type?: "ListDeviceDefinitionsResponse";
   /**
-   * Information about a definition.
-   */
-  Definitions?: DefinitionInformation[];
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * Information about a definition.
+   */
+  Definitions?: DefinitionInformation[];
 }
 
 export namespace ListDeviceDefinitionsResponse {
@@ -4108,14 +4108,14 @@ export interface ListDeviceDefinitionVersionsRequest {
   DeviceDefinitionId: string | undefined;
 
   /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
 }
 
 export namespace ListDeviceDefinitionVersionsRequest {
@@ -4129,14 +4129,14 @@ export namespace ListDeviceDefinitionVersionsRequest {
 export interface ListDeviceDefinitionVersionsResponse {
   __type?: "ListDeviceDefinitionVersionsResponse";
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-
-  /**
    * Information about a version.
    */
   Versions?: VersionInformation[];
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
 }
 
 export namespace ListDeviceDefinitionVersionsResponse {
@@ -4216,14 +4216,14 @@ export namespace ListFunctionDefinitionVersionsRequest {
 export interface ListFunctionDefinitionVersionsResponse {
   __type?: "ListFunctionDefinitionVersionsResponse";
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-
-  /**
    * Information about a version.
    */
   Versions?: VersionInformation[];
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
 }
 
 export namespace ListFunctionDefinitionVersionsResponse {
@@ -4269,14 +4269,14 @@ export namespace ListGroupCertificateAuthoritiesResponse {
 export interface ListGroupsRequest {
   __type?: "ListGroupsRequest";
   /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
 }
 
 export namespace ListGroupsRequest {
@@ -4289,14 +4289,14 @@ export namespace ListGroupsRequest {
 export interface ListGroupsResponse {
   __type?: "ListGroupsResponse";
   /**
-   * Information about a group.
-   */
-  Groups?: GroupInformation[];
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * Information about a group.
+   */
+  Groups?: GroupInformation[];
 }
 
 export namespace ListGroupsResponse {
@@ -4314,14 +4314,14 @@ export interface ListGroupVersionsRequest {
   GroupId: string | undefined;
 
   /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
 }
 
 export namespace ListGroupVersionsRequest {
@@ -4354,14 +4354,14 @@ export namespace ListGroupVersionsResponse {
 export interface ListLoggerDefinitionsRequest {
   __type?: "ListLoggerDefinitionsRequest";
   /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
 }
 
 export namespace ListLoggerDefinitionsRequest {
@@ -4374,14 +4374,14 @@ export namespace ListLoggerDefinitionsRequest {
 export interface ListLoggerDefinitionsResponse {
   __type?: "ListLoggerDefinitionsResponse";
   /**
-   * Information about a definition.
-   */
-  Definitions?: DefinitionInformation[];
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * Information about a definition.
+   */
+  Definitions?: DefinitionInformation[];
 }
 
 export namespace ListLoggerDefinitionsResponse {
@@ -4394,6 +4394,11 @@ export namespace ListLoggerDefinitionsResponse {
 export interface ListLoggerDefinitionVersionsRequest {
   __type?: "ListLoggerDefinitionVersionsRequest";
   /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
+
+  /**
    * The ID of the logger definition.
    */
   LoggerDefinitionId: string | undefined;
@@ -4402,11 +4407,6 @@ export interface ListLoggerDefinitionVersionsRequest {
    * The maximum number of results to be returned per request.
    */
   MaxResults?: string;
-
-  /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
 }
 
 export namespace ListLoggerDefinitionVersionsRequest {
@@ -4420,14 +4420,14 @@ export namespace ListLoggerDefinitionVersionsRequest {
 export interface ListLoggerDefinitionVersionsResponse {
   __type?: "ListLoggerDefinitionVersionsResponse";
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-
-  /**
    * Information about a version.
    */
   Versions?: VersionInformation[];
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
 }
 
 export namespace ListLoggerDefinitionVersionsResponse {
@@ -4441,14 +4441,14 @@ export namespace ListLoggerDefinitionVersionsResponse {
 export interface ListResourceDefinitionsRequest {
   __type?: "ListResourceDefinitionsRequest";
   /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
 }
 
 export namespace ListResourceDefinitionsRequest {
@@ -4461,14 +4461,14 @@ export namespace ListResourceDefinitionsRequest {
 export interface ListResourceDefinitionsResponse {
   __type?: "ListResourceDefinitionsResponse";
   /**
-   * Information about a definition.
-   */
-  Definitions?: DefinitionInformation[];
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * Information about a definition.
+   */
+  Definitions?: DefinitionInformation[];
 }
 
 export namespace ListResourceDefinitionsResponse {
@@ -4486,14 +4486,14 @@ export interface ListResourceDefinitionVersionsRequest {
   MaxResults?: string;
 
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-
-  /**
    * The ID of the resource definition.
    */
   ResourceDefinitionId: string | undefined;
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
 }
 
 export namespace ListResourceDefinitionVersionsRequest {
@@ -4528,14 +4528,14 @@ export namespace ListResourceDefinitionVersionsResponse {
 export interface ListSubscriptionDefinitionsRequest {
   __type?: "ListSubscriptionDefinitionsRequest";
   /**
-   * The maximum number of results to be returned per request.
-   */
-  MaxResults?: string;
-
-  /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
+
+  /**
+   * The maximum number of results to be returned per request.
+   */
+  MaxResults?: string;
 }
 
 export namespace ListSubscriptionDefinitionsRequest {
@@ -4575,14 +4575,14 @@ export interface ListSubscriptionDefinitionVersionsRequest {
   MaxResults?: string;
 
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-
-  /**
    * The ID of the subscription definition.
    */
   SubscriptionDefinitionId: string | undefined;
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
 }
 
 export namespace ListSubscriptionDefinitionVersionsRequest {
@@ -4596,14 +4596,14 @@ export namespace ListSubscriptionDefinitionVersionsRequest {
 export interface ListSubscriptionDefinitionVersionsResponse {
   __type?: "ListSubscriptionDefinitionVersionsResponse";
   /**
-   * The token for the next set of results, or ''null'' if there are no additional results.
-   */
-  NextToken?: string;
-
-  /**
    * Information about a version.
    */
   Versions?: VersionInformation[];
+
+  /**
+   * The token for the next set of results, or ''null'' if there are no additional results.
+   */
+  NextToken?: string;
 }
 
 export namespace ListSubscriptionDefinitionVersionsResponse {
@@ -4678,14 +4678,14 @@ export interface LocalVolumeResourceData {
   DestinationPath?: string;
 
   /**
-   * Allows you to configure additional group privileges for the Lambda process. This field is optional.
-   */
-  GroupOwnerSetting?: GroupOwnerSetting;
-
-  /**
    * The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/sys''.
    */
   SourcePath?: string;
+
+  /**
+   * Allows you to configure additional group privileges for the Lambda process. This field is optional.
+   */
+  GroupOwnerSetting?: GroupOwnerSetting;
 }
 
 export namespace LocalVolumeResourceData {
@@ -4701,21 +4701,6 @@ export namespace LocalVolumeResourceData {
 export interface Logger {
   __type?: "Logger";
   /**
-   * The component that will be subject to logging.
-   */
-  Component: LoggerComponent | string | undefined;
-
-  /**
-   * A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-   */
-  Id: string | undefined;
-
-  /**
-   * The level of the logs.
-   */
-  Level: LoggerLevel | string | undefined;
-
-  /**
    * The amount of file space, in KB, to use if the local file system is used for logging purposes.
    */
   Space?: number;
@@ -4724,6 +4709,21 @@ export interface Logger {
    * The type of log output which will be used.
    */
   Type: LoggerType | string | undefined;
+
+  /**
+   * The level of the logs.
+   */
+  Level: LoggerLevel | string | undefined;
+
+  /**
+   * The component that will be subject to logging.
+   */
+  Component: LoggerComponent | string | undefined;
+
+  /**
+   * A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+   */
+  Id: string | undefined;
 }
 
 export namespace Logger {
@@ -4785,14 +4785,14 @@ export interface ResetDeploymentsRequest {
   AmznClientToken?: string;
 
   /**
-   * If true, performs a best-effort only core reset.
-   */
-  Force?: boolean;
-
-  /**
    * The ID of the Greengrass group.
    */
   GroupId: string | undefined;
+
+  /**
+   * If true, performs a best-effort only core reset.
+   */
+  Force?: boolean;
 }
 
 export namespace ResetDeploymentsRequest {
@@ -4805,14 +4805,14 @@ export namespace ResetDeploymentsRequest {
 export interface ResetDeploymentsResponse {
   __type?: "ResetDeploymentsResponse";
   /**
-   * The ARN of the deployment.
-   */
-  DeploymentArn?: string;
-
-  /**
    * The ID of the deployment.
    */
   DeploymentId?: string;
+
+  /**
+   * The ARN of the deployment.
+   */
+  DeploymentArn?: string;
 }
 
 export namespace ResetDeploymentsResponse {
@@ -4828,6 +4828,11 @@ export namespace ResetDeploymentsResponse {
 export interface Resource {
   __type?: "Resource";
   /**
+   * A container of data for all resource types.
+   */
+  ResourceDataContainer: ResourceDataContainer | undefined;
+
+  /**
    * The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
    */
   Id: string | undefined;
@@ -4836,11 +4841,6 @@ export interface Resource {
    * The descriptive resource name, which is displayed on the AWS IoT Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
    */
   Name: string | undefined;
-
-  /**
-   * A container of data for all resource types.
-   */
-  ResourceDataContainer: ResourceDataContainer | undefined;
 }
 
 export namespace Resource {
@@ -4879,21 +4879,6 @@ export namespace ResourceAccessPolicy {
 export interface ResourceDataContainer {
   __type?: "ResourceDataContainer";
   /**
-   * Attributes that define the local device resource.
-   */
-  LocalDeviceResourceData?: LocalDeviceResourceData;
-
-  /**
-   * Attributes that define the local volume resource.
-   */
-  LocalVolumeResourceData?: LocalVolumeResourceData;
-
-  /**
-   * Attributes that define an Amazon S3 machine learning resource.
-   */
-  S3MachineLearningModelResourceData?: S3MachineLearningModelResourceData;
-
-  /**
    * Attributes that define an Amazon SageMaker machine learning resource.
    */
   SageMakerMachineLearningModelResourceData?: SageMakerMachineLearningModelResourceData;
@@ -4902,6 +4887,21 @@ export interface ResourceDataContainer {
    * Attributes that define a secret resource, which references a secret from AWS Secrets Manager.
    */
   SecretsManagerSecretResourceData?: SecretsManagerSecretResourceData;
+
+  /**
+   * Attributes that define an Amazon S3 machine learning resource.
+   */
+  S3MachineLearningModelResourceData?: S3MachineLearningModelResourceData;
+
+  /**
+   * Attributes that define the local volume resource.
+   */
+  LocalVolumeResourceData?: LocalVolumeResourceData;
+
+  /**
+   * Attributes that define the local device resource.
+   */
+  LocalDeviceResourceData?: LocalDeviceResourceData;
 }
 
 export namespace ResourceDataContainer {
@@ -4935,14 +4935,14 @@ export namespace ResourceDefinitionVersion {
 export interface ResourceDownloadOwnerSetting {
   __type?: "ResourceDownloadOwnerSetting";
   /**
-   * The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.
-   */
-  GroupOwner: string | undefined;
-
-  /**
    * The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
    */
   GroupPermission: Permission | string | undefined;
+
+  /**
+   * The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.
+   */
+  GroupOwner: string | undefined;
 }
 
 export namespace ResourceDownloadOwnerSetting {
@@ -4958,6 +4958,11 @@ export namespace ResourceDownloadOwnerSetting {
 export interface S3MachineLearningModelResourceData {
   __type?: "S3MachineLearningModelResourceData";
   /**
+   * The URI of the source model in an S3 bucket. The model package must be in tar.gz or .zip format.
+   */
+  S3Uri?: string;
+
+  /**
    * The absolute local path of the resource inside the Lambda environment.
    */
   DestinationPath?: string;
@@ -4966,11 +4971,6 @@ export interface S3MachineLearningModelResourceData {
    * The owner setting for downloaded machine learning resources.
    */
   OwnerSetting?: ResourceDownloadOwnerSetting;
-
-  /**
-   * The URI of the source model in an S3 bucket. The model package must be in tar.gz or .zip format.
-   */
-  S3Uri?: string;
 }
 
 export namespace S3MachineLearningModelResourceData {
@@ -4987,9 +4987,9 @@ export namespace S3MachineLearningModelResourceData {
 export interface SageMakerMachineLearningModelResourceData {
   __type?: "SageMakerMachineLearningModelResourceData";
   /**
-   * The absolute local path of the resource inside the Lambda environment.
+   * The ARN of the Amazon SageMaker training job that represents the source model.
    */
-  DestinationPath?: string;
+  SageMakerJobArn?: string;
 
   /**
    * The owner setting for downloaded machine learning resources.
@@ -4997,9 +4997,9 @@ export interface SageMakerMachineLearningModelResourceData {
   OwnerSetting?: ResourceDownloadOwnerSetting;
 
   /**
-   * The ARN of the Amazon SageMaker training job that represents the source model.
+   * The absolute local path of the resource inside the Lambda environment.
    */
-  SageMakerJobArn?: string;
+  DestinationPath?: string;
 }
 
 export namespace SageMakerMachineLearningModelResourceData {
@@ -5041,16 +5041,6 @@ export enum SoftwareToUpdate {
 export interface StartBulkDeploymentRequest {
   __type?: "StartBulkDeploymentRequest";
   /**
-   * A client token used to correlate requests and responses.
-   */
-  AmznClientToken?: string;
-
-  /**
-   * The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
-   */
-  ExecutionRoleArn: string | undefined;
-
-  /**
    * The URI of the input file contained in the S3 bucket. The execution role must have ''getObject'' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100 MB. Currently, AWS IoT Greengrass supports only ''NewDeployment'' deployment types.
    */
   InputFileUri: string | undefined;
@@ -5059,6 +5049,16 @@ export interface StartBulkDeploymentRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: { [key: string]: string };
+
+  /**
+   * The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
+   */
+  ExecutionRoleArn: string | undefined;
+
+  /**
+   * A client token used to correlate requests and responses.
+   */
+  AmznClientToken?: string;
 }
 
 export namespace StartBulkDeploymentRequest {
@@ -5071,14 +5071,14 @@ export namespace StartBulkDeploymentRequest {
 export interface StartBulkDeploymentResponse {
   __type?: "StartBulkDeploymentResponse";
   /**
-   * The ARN of the bulk deployment.
-   */
-  BulkDeploymentArn?: string;
-
-  /**
    * The ID of the bulk deployment.
    */
   BulkDeploymentId?: string;
+
+  /**
+   * The ARN of the bulk deployment.
+   */
+  BulkDeploymentArn?: string;
 }
 
 export namespace StartBulkDeploymentResponse {
@@ -5120,14 +5120,14 @@ export namespace StopBulkDeploymentResponse {
 export interface Subscription {
   __type?: "Subscription";
   /**
-   * A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-   */
-  Id: string | undefined;
-
-  /**
    * The source of the subscription. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
    */
   Source: string | undefined;
+
+  /**
+   * Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
+   */
+  Target: string | undefined;
 
   /**
    * The MQTT topic used to route the message.
@@ -5135,9 +5135,9 @@ export interface Subscription {
   Subject: string | undefined;
 
   /**
-   * Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
+   * A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
    */
-  Target: string | undefined;
+  Id: string | undefined;
 }
 
 export namespace Subscription {
@@ -5245,14 +5245,14 @@ export namespace UpdateConnectivityInfoRequest {
 export interface UpdateConnectivityInfoResponse {
   __type?: "UpdateConnectivityInfoResponse";
   /**
-   * A message about the connectivity info update request.
-   */
-  Message?: string;
-
-  /**
    * The new version of the connectivity info.
    */
   Version?: string;
+
+  /**
+   * A message about the connectivity info update request.
+   */
+  Message?: string;
 }
 
 export namespace UpdateConnectivityInfoResponse {
@@ -5327,14 +5327,14 @@ export namespace UpdateCoreDefinitionResponse {
 export interface UpdateDeviceDefinitionRequest {
   __type?: "UpdateDeviceDefinitionRequest";
   /**
-   * The ID of the device definition.
-   */
-  DeviceDefinitionId: string | undefined;
-
-  /**
    * The name of the definition.
    */
   Name?: string;
+
+  /**
+   * The ID of the device definition.
+   */
+  DeviceDefinitionId: string | undefined;
 }
 
 export namespace UpdateDeviceDefinitionRequest {
@@ -5410,6 +5410,11 @@ export namespace UpdateGroupCertificateConfigurationRequest {
 export interface UpdateGroupCertificateConfigurationResponse {
   __type?: "UpdateGroupCertificateConfigurationResponse";
   /**
+   * The ID of the group certificate configuration.
+   */
+  GroupId?: string;
+
+  /**
    * The amount of time remaining before the certificate authority expires, in milliseconds.
    */
   CertificateAuthorityExpiryInMilliseconds?: string;
@@ -5418,11 +5423,6 @@ export interface UpdateGroupCertificateConfigurationResponse {
    * The amount of time remaining before the certificate expires, in milliseconds.
    */
   CertificateExpiryInMilliseconds?: string;
-
-  /**
-   * The ID of the group certificate configuration.
-   */
-  GroupId?: string;
 }
 
 export namespace UpdateGroupCertificateConfigurationResponse {
@@ -5436,14 +5436,14 @@ export namespace UpdateGroupCertificateConfigurationResponse {
 export interface UpdateGroupRequest {
   __type?: "UpdateGroupRequest";
   /**
-   * The ID of the Greengrass group.
-   */
-  GroupId: string | undefined;
-
-  /**
    * The name of the definition.
    */
   Name?: string;
+
+  /**
+   * The ID of the Greengrass group.
+   */
+  GroupId: string | undefined;
 }
 
 export namespace UpdateGroupRequest {
@@ -5498,14 +5498,14 @@ export namespace UpdateLoggerDefinitionResponse {
 export interface UpdateResourceDefinitionRequest {
   __type?: "UpdateResourceDefinitionRequest";
   /**
-   * The name of the definition.
-   */
-  Name?: string;
-
-  /**
    * The ID of the resource definition.
    */
   ResourceDefinitionId: string | undefined;
+
+  /**
+   * The name of the definition.
+   */
+  Name?: string;
 }
 
 export namespace UpdateResourceDefinitionRequest {
@@ -5529,14 +5529,14 @@ export namespace UpdateResourceDefinitionResponse {
 export interface UpdateSubscriptionDefinitionRequest {
   __type?: "UpdateSubscriptionDefinitionRequest";
   /**
-   * The name of the definition.
-   */
-  Name?: string;
-
-  /**
    * The ID of the subscription definition.
    */
   SubscriptionDefinitionId: string | undefined;
+
+  /**
+   * The name of the definition.
+   */
+  Name?: string;
 }
 
 export namespace UpdateSubscriptionDefinitionRequest {
@@ -5579,9 +5579,9 @@ export enum UpdateTargetsOperatingSystem {
 export interface VersionInformation {
   __type?: "VersionInformation";
   /**
-   * The ARN of the version.
+   * The ID of the version.
    */
-  Arn?: string;
+  Version?: string;
 
   /**
    * The time, in milliseconds since the epoch, when the version was created.
@@ -5594,9 +5594,9 @@ export interface VersionInformation {
   Id?: string;
 
   /**
-   * The ID of the version.
+   * The ARN of the version.
    */
-  Version?: string;
+  Arn?: string;
 }
 
 export namespace VersionInformation {

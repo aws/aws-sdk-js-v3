@@ -30,13 +30,14 @@ export namespace AbortTransactionResult {
 }
 
 /**
- * <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ * <p>Returned if the request is malformed or contains an error such as an invalid parameter
+ *          value or a missing required parameter.</p>
  */
 export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace BadRequestException {
@@ -52,17 +53,17 @@ export namespace BadRequestException {
 export interface CommitTransactionRequest {
   __type?: "CommitTransactionRequest";
   /**
-   * <p>Specifies the commit digest for the transaction to commit. For every active
-   * 	    transaction, the commit digest must be passed. QLDB validates
-   * 	    <code>CommitDigest</code> and rejects the commit with an error if the
-   * 	    digest computed on the client does not match the digest computed by QLDB.</p>
-   */
-  CommitDigest: Uint8Array | undefined;
-
-  /**
-   * <p>Specifies the transaction id of the transaction to commit.</p>
+   * <p>Specifies the transaction ID of the transaction to commit.</p>
    */
   TransactionId: string | undefined;
+
+  /**
+   * <p>Specifies the commit digest for the transaction to commit. For every active transaction,
+   *          the commit digest must be passed. QLDB validates <code>CommitDigest</code> and rejects
+   *          the commit with an error if the digest computed on the client does not match the digest
+   *          computed by QLDB.</p>
+   */
+  CommitDigest: Uint8Array | undefined;
 }
 
 export namespace CommitTransactionRequest {
@@ -78,14 +79,14 @@ export namespace CommitTransactionRequest {
 export interface CommitTransactionResult {
   __type?: "CommitTransactionResult";
   /**
+   * <p>The transaction ID of the committed transaction.</p>
+   */
+  TransactionId?: string;
+
+  /**
    * <p>The commit digest of the committed transaction.</p>
    */
   CommitDigest?: Uint8Array;
-
-  /**
-   * <p>The transaction id of the committed transaction.</p>
-   */
-  TransactionId?: string;
 }
 
 export namespace CommitTransactionResult {
@@ -134,14 +135,14 @@ export interface ExecuteStatementRequest {
   Parameters?: ValueHolder[];
 
   /**
+   * <p>Specifies the transaction ID of the request.</p>
+   */
+  TransactionId: string | undefined;
+
+  /**
    * <p>Specifies the statement of the request.</p>
    */
   Statement: string | undefined;
-
-  /**
-   * <p>Specifies the transaction id of the request.</p>
-   */
-  TransactionId: string | undefined;
 }
 
 export namespace ExecuteStatementRequest {
@@ -180,7 +181,7 @@ export interface FetchPageRequest {
   NextPageToken: string | undefined;
 
   /**
-   * <p>Specifies the transaction id of the page to be fetched.</p>
+   * <p>Specifies the transaction ID of the page to be fetched.</p>
    */
   TransactionId: string | undefined;
 }
@@ -211,7 +212,7 @@ export namespace FetchPageResult {
 }
 
 /**
- * <p>Returned if the session doesn't exist anymore because it timed-out or expired.</p>
+ * <p>Returned if the session doesn't exist anymore because it timed out or expired.</p>
  */
 export interface InvalidSessionException extends __SmithyException, $MetadataBearer {
   name: "InvalidSessionException";
@@ -244,7 +245,8 @@ export namespace LimitExceededException {
 }
 
 /**
- * <p>Returned when a transaction cannot be written to the journal due to a failure in the verification phase of Optimistic Concurrency Control.</p>
+ * <p>Returned when a transaction cannot be written to the journal due to a failure in the
+ *          verification phase of <i>optimistic concurrency control</i> (OCC).</p>
  */
 export interface OccConflictException extends __SmithyException, $MetadataBearer {
   name: "OccConflictException";
@@ -301,9 +303,10 @@ export namespace RateExceededException {
 export interface SendCommandRequest {
   __type?: "SendCommandRequest";
   /**
-   * <p>Command to abort the current transaction.</p>
+   * <p>Command to start a new session. A session token is obtained as part of the
+   *          response.</p>
    */
-  AbortTransaction?: AbortTransactionRequest;
+  StartSession?: StartSessionRequest;
 
   /**
    * <p>Command to commit the specified transaction.</p>
@@ -316,9 +319,14 @@ export interface SendCommandRequest {
   EndSession?: EndSessionRequest;
 
   /**
-   * <p>Command to execute a statement in the specified transaction.</p>
+   * <p>Command to start a new transaction.</p>
    */
-  ExecuteStatement?: ExecuteStatementRequest;
+  StartTransaction?: StartTransactionRequest;
+
+  /**
+   * <p>Command to abort the current transaction.</p>
+   */
+  AbortTransaction?: AbortTransactionRequest;
 
   /**
    * <p>Command to fetch a page.</p>
@@ -326,22 +334,18 @@ export interface SendCommandRequest {
   FetchPage?: FetchPageRequest;
 
   /**
-   * <p>Specifies the session token for the current command. A session token is constant throughout the life of the session.</p>
-   *          <p>To obtain a session token, run the <code>StartSession</code> command. This <code>SessionToken</code> is
-   * 	    required for every subsequent command that is issued during the current session.</p>
+   * <p>Specifies the session token for the current command. A session token is constant
+   *          throughout the life of the session.</p>
+   *          <p>To obtain a session token, run the <code>StartSession</code> command. This
+   *             <code>SessionToken</code> is required for every subsequent command that is issued during
+   *          the current session.</p>
    */
   SessionToken?: string;
 
   /**
-   * <p>Command to start a new session. A session token is obtained as part of the
-   * 	    response.</p>
+   * <p>Command to execute a statement in the specified transaction.</p>
    */
-  StartSession?: StartSessionRequest;
-
-  /**
-   * <p>Command to start a new transaction.</p>
-   */
-  StartTransaction?: StartTransactionRequest;
+  ExecuteStatement?: ExecuteStatementRequest;
 }
 
 export namespace SendCommandRequest {
@@ -354,24 +358,9 @@ export namespace SendCommandRequest {
 export interface SendCommandResult {
   __type?: "SendCommandResult";
   /**
-   * <p>Contains the details of the aborted transaction.</p>
-   */
-  AbortTransaction?: AbortTransactionResult;
-
-  /**
-   * <p>Contains the details of the committed transaction.</p>
-   */
-  CommitTransaction?: CommitTransactionResult;
-
-  /**
    * <p>Contains the details of the ended session.</p>
    */
   EndSession?: EndSessionResult;
-
-  /**
-   * <p>Contains the details of the executed statement.</p>
-   */
-  ExecuteStatement?: ExecuteStatementResult;
 
   /**
    * <p>Contains the details of the fetched page.</p>
@@ -379,8 +368,14 @@ export interface SendCommandResult {
   FetchPage?: FetchPageResult;
 
   /**
-   * <p>Contains the details of the started session that includes a session token. This <code>SessionToken</code> is
-   * 	    required for every subsequent command that is issued during the current session.</p>
+   * <p>Contains the details of the aborted transaction.</p>
+   */
+  AbortTransaction?: AbortTransactionResult;
+
+  /**
+   * <p>Contains the details of the started session that includes a session token. This
+   *             <code>SessionToken</code> is required for every subsequent command that is issued during
+   *          the current session.</p>
    */
   StartSession?: StartSessionResult;
 
@@ -388,6 +383,16 @@ export interface SendCommandResult {
    * <p>Contains the details of the started transaction.</p>
    */
   StartTransaction?: StartTransactionResult;
+
+  /**
+   * <p>Contains the details of the committed transaction.</p>
+   */
+  CommitTransaction?: CommitTransactionResult;
+
+  /**
+   * <p>Contains the details of the executed statement.</p>
+   */
+  ExecuteStatement?: ExecuteStatementResult;
 }
 
 export namespace SendCommandResult {
@@ -398,7 +403,7 @@ export namespace SendCommandResult {
 }
 
 /**
- * <p>Specifies a request to start a a new session.</p>
+ * <p>Specifies a request to start a new session.</p>
  */
 export interface StartSessionRequest {
   __type?: "StartSessionRequest";
@@ -421,8 +426,8 @@ export namespace StartSessionRequest {
 export interface StartSessionResult {
   __type?: "StartSessionResult";
   /**
-   * <p>Session token of the started session. This <code>SessionToken</code> is
-   * 	    required for every subsequent command that is issued during the current session.</p>
+   * <p>Session token of the started session. This <code>SessionToken</code> is required for
+   *          every subsequent command that is issued during the current session.</p>
    */
   SessionToken?: string;
 }
@@ -454,7 +459,7 @@ export namespace StartTransactionRequest {
 export interface StartTransactionResult {
   __type?: "StartTransactionResult";
   /**
-   * <p>The transaction id of the started transaction.</p>
+   * <p>The transaction ID of the started transaction.</p>
    */
   TransactionId?: string;
 }
@@ -467,17 +472,17 @@ export namespace StartTransactionResult {
 }
 
 /**
- * <p>A structure that can contains values in multiple encoding formats.</p>
+ * <p>A structure that can contain an Amazon Ion value in multiple encoding formats.</p>
  */
 export interface ValueHolder {
   __type?: "ValueHolder";
   /**
-   * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure. </p>
+   * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonBinary?: Uint8Array;
 
   /**
-   * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure. </p>
+   * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonText?: string;
 }

@@ -18,10 +18,8 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>The request
- * 			contains invalid parameters for the ARN or tags. This exception also occurs when you
- * 			call a tagging API on a cancelled signing
- * 			profile.</p>
+ * <p>The request contains invalid parameters for the ARN or tags. This exception also
+ * 			occurs when you call a tagging API on a cancelled signing profile.</p>
  */
 export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
@@ -71,14 +69,9 @@ export namespace DescribeSigningJobRequest {
 export interface DescribeSigningJobResponse {
   __type?: "DescribeSigningJobResponse";
   /**
-   * <p>Date and time that the signing job was completed.</p>
+   * <p>The object that contains the name of your S3 bucket or your raw code.</p>
    */
-  completedAt?: Date;
-
-  /**
-   * <p>Date and time that the signing job was created.</p>
-   */
-  createdAt?: Date;
+  source?: Source;
 
   /**
    * <p>The ID of the signing job on output.</p>
@@ -86,9 +79,9 @@ export interface DescribeSigningJobResponse {
   jobId?: string;
 
   /**
-   * <p>A list of any overrides that were applied to the signing operation.</p>
+   * <p>The Amazon Resource Name (ARN) of your code signing certificate.</p>
    */
-  overrides?: SigningPlatformOverrides;
+  signingMaterial?: SigningMaterial;
 
   /**
    * <p>The microcontroller platform to which your signed code image will be
@@ -97,14 +90,9 @@ export interface DescribeSigningJobResponse {
   platformId?: string;
 
   /**
-   * <p>The name of the profile that initiated the signing operation.</p>
+   * <p>Status of the signing job.</p>
    */
-  profileName?: string;
-
-  /**
-   * <p>The IAM principal that requested the signing job.</p>
-   */
-  requestedBy?: string;
+  status?: SigningStatus | string;
 
   /**
    * <p>Name of the S3 bucket where the signed code image is saved by code signing.</p>
@@ -112,9 +100,24 @@ export interface DescribeSigningJobResponse {
   signedObject?: SignedObject;
 
   /**
-   * <p>Amazon Resource Name (ARN) of your code signing certificate.</p>
+   * <p>String value that contains the status reason.</p>
    */
-  signingMaterial?: SigningMaterial;
+  statusReason?: string;
+
+  /**
+   * <p>The IAM principal that requested the signing job.</p>
+   */
+  requestedBy?: string;
+
+  /**
+   * <p>Date and time that the signing job was completed.</p>
+   */
+  completedAt?: Date;
+
+  /**
+   * <p>A list of any overrides that were applied to the signing operation.</p>
+   */
+  overrides?: SigningPlatformOverrides;
 
   /**
    * <p>Map of user-assigned key-value pairs used during signing. These values contain any
@@ -123,19 +126,14 @@ export interface DescribeSigningJobResponse {
   signingParameters?: { [key: string]: string };
 
   /**
-   * <p>The object that contains the name of your S3 bucket or your raw code.</p>
+   * <p>Date and time that the signing job was created.</p>
    */
-  source?: Source;
+  createdAt?: Date;
 
   /**
-   * <p>Status of the signing job.</p>
+   * <p>The name of the profile that initiated the signing operation.</p>
    */
-  status?: SigningStatus | string;
-
-  /**
-   * <p>String value that contains the status reason.</p>
-   */
-  statusReason?: string;
+  profileName?: string;
 }
 
 export namespace DescribeSigningJobResponse {
@@ -172,14 +170,14 @@ export type EncryptionAlgorithm = "ECDSA" | "RSA";
 export interface EncryptionAlgorithmOptions {
   __type?: "EncryptionAlgorithmOptions";
   /**
-   * <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>
-   */
-  allowedValues: (EncryptionAlgorithm | string)[] | undefined;
-
-  /**
    * <p>The default encryption algorithm that is used by a code signing job.</p>
    */
   defaultValue: EncryptionAlgorithm | string | undefined;
+
+  /**
+   * <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>
+   */
+  allowedValues: (EncryptionAlgorithm | string)[] | undefined;
 }
 
 export namespace EncryptionAlgorithmOptions {
@@ -207,22 +205,6 @@ export namespace GetSigningPlatformRequest {
 export interface GetSigningPlatformResponse {
   __type?: "GetSigningPlatformResponse";
   /**
-   * <p>The category type of the target signing platform.</p>
-   */
-  category?: Category | string;
-
-  /**
-   * <p>The display name of the target signing platform.</p>
-   */
-  displayName?: string;
-
-  /**
-   * <p>The maximum size (in MB) of the payload that can be signed by the target
-   * 			platform.</p>
-   */
-  maxSizeInMB?: number;
-
-  /**
    * <p>A list of partner entities that use the target signing platform.</p>
    */
   partner?: string;
@@ -238,14 +220,30 @@ export interface GetSigningPlatformResponse {
   signingConfiguration?: SigningConfiguration;
 
   /**
+   * <p>The category type of the target signing platform.</p>
+   */
+  category?: Category | string;
+
+  /**
    * <p>The format of the target platform's signing image.</p>
    */
   signingImageFormat?: SigningImageFormat;
 
   /**
+   * <p>The maximum size (in MB) of the payload that can be signed by the target
+   * 			platform.</p>
+   */
+  maxSizeInMB?: number;
+
+  /**
    * <p>The validation template that is used by the target signing platform.</p>
    */
   target?: string;
+
+  /**
+   * <p>The display name of the target signing platform.</p>
+   */
+  displayName?: string;
 }
 
 export namespace GetSigningPlatformResponse {
@@ -273,32 +271,15 @@ export namespace GetSigningProfileRequest {
 export interface GetSigningProfileResponse {
   __type?: "GetSigningProfileResponse";
   /**
-   * <p>The Amazon
-   * 			Resource Name (ARN) for the signing
-   * 			profile.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>A list of overrides applied by the target signing profile for signing
    * 			operations.</p>
    */
   overrides?: SigningPlatformOverrides;
 
   /**
-   * <p>The ID of the platform that is used by the target signing profile.</p>
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    */
-  platformId?: string;
-
-  /**
-   * <p>The name of the target signing profile.</p>
-   */
-  profileName?: string;
-
-  /**
-   * <p>The ARN of the certificate that the target profile uses for signing operations.</p>
-   */
-  signingMaterial?: SigningMaterial;
+  arn?: string;
 
   /**
    * <p>A map of key-value pairs for signing operations that is attached to the target signing
@@ -307,16 +288,29 @@ export interface GetSigningProfileResponse {
   signingParameters?: { [key: string]: string };
 
   /**
+   * <p>The ARN of the certificate that the target profile uses for signing operations.</p>
+   */
+  signingMaterial?: SigningMaterial;
+
+  /**
+   * <p>The ID of the platform that is used by the target signing profile.</p>
+   */
+  platformId?: string;
+
+  /**
+   * <p>A list of tags associated with the signing profile.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
    * <p>The status of the target signing profile.</p>
    */
   status?: SigningProfileStatus | string;
 
   /**
-   * <p>A list of tags
-   * 			associated with the signing
-   * 			profile.</p>
+   * <p>The name of the target signing profile.</p>
    */
-  tags?: { [key: string]: string };
+  profileName?: string;
 }
 
 export namespace GetSigningProfileResponse {
@@ -351,7 +345,7 @@ export namespace HashAlgorithmOptions {
   export const isa = (o: any): o is HashAlgorithmOptions => __isa(o, "HashAlgorithmOptions");
 }
 
-export type ImageFormat = "JSON";
+export type ImageFormat = "JSON" | "JSONDetached" | "JSONEmbedded";
 
 /**
  * <p>An internal error occurred.</p>
@@ -372,6 +366,12 @@ export namespace InternalServiceErrorException {
 export interface ListSigningJobsRequest {
   __type?: "ListSigningJobsRequest";
   /**
+   * <p>The ID of microcontroller platform that you specified for the distribution of your
+   * 			code image.</p>
+   */
+  platformId?: string;
+
+  /**
    * <p>Specifies the maximum number of items to return in the response. Use this parameter
    * 			when paginating results. If additional items exist beyond the number you specify, the
    * 				<code>nextToken</code> element is set in the response. Use the
@@ -386,12 +386,6 @@ export interface ListSigningJobsRequest {
    * 			the value of <code>nextToken</code> from the response that you just received.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The ID of microcontroller platform that you specified for the distribution of your
-   * 			code image.</p>
-   */
-  platformId?: string;
 
   /**
    * <p>The IAM principal that requested the signing job.</p>
@@ -414,14 +408,14 @@ export namespace ListSigningJobsRequest {
 export interface ListSigningJobsResponse {
   __type?: "ListSigningJobsResponse";
   /**
-   * <p>A list of your signing jobs.</p>
-   */
-  jobs?: SigningJob[];
-
-  /**
    * <p>String for specifying the next set of paginated results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of your signing jobs.</p>
+   */
+  jobs?: SigningJob[];
 }
 
 export namespace ListSigningJobsResponse {
@@ -434,21 +428,16 @@ export namespace ListSigningJobsResponse {
 export interface ListSigningPlatformsRequest {
   __type?: "ListSigningPlatformsRequest";
   /**
-   * <p>The category type of a signing platform.</p>
-   */
-  category?: string;
-
-  /**
-   * <p>The maximum number of results to be returned by this operation.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>Value for specifying the next set of paginated results to return. After you receive a
    * 			response with truncated results, use this parameter in a subsequent request. Set it to
    * 			the value of <code>nextToken</code> from the response that you just received.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned by this operation.</p>
+   */
+  maxResults?: number;
 
   /**
    * <p>Any partner entities connected to a signing platform.</p>
@@ -459,6 +448,11 @@ export interface ListSigningPlatformsRequest {
    * <p>The validation template that is used by the target signing platform.</p>
    */
   target?: string;
+
+  /**
+   * <p>The category type of a signing platform.</p>
+   */
+  category?: string;
 }
 
 export namespace ListSigningPlatformsRequest {
@@ -497,16 +491,16 @@ export interface ListSigningProfilesRequest {
   includeCanceled?: boolean;
 
   /**
-   * <p>The maximum number of profiles to be returned.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>Value for specifying the next set of paginated results to return. After you receive a
    * 			response with truncated results, use this parameter in a subsequent request. Set it to
    * 			the value of <code>nextToken</code> from the response that you just received.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of profiles to be returned.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListSigningProfilesRequest {
@@ -519,16 +513,16 @@ export namespace ListSigningProfilesRequest {
 export interface ListSigningProfilesResponse {
   __type?: "ListSigningProfilesResponse";
   /**
-   * <p>Value for specifying the next set of paginated results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A list of profiles that are available in the AWS account. This includes profiles with
    * 			the status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set
    * 			to <code>true</code>.</p>
    */
   profiles?: SigningProfile[];
+
+  /**
+   * <p>Value for specifying the next set of paginated results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListSigningProfilesResponse {
@@ -541,9 +535,7 @@ export namespace ListSigningProfilesResponse {
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   * <p>The Amazon
-   * 			Resource Name (ARN) for the signing
-   * 			profile.</p>
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    */
   resourceArn: string | undefined;
 }
@@ -558,9 +550,7 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
-   * <p>A list of tags
-   * 			associated with the signing
-   * 			profile.</p>
+   * <p>A list of tags associated with the signing profile.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -573,9 +563,7 @@ export namespace ListTagsForResourceResponse {
 }
 
 /**
- * <p>The signing
- * 			profile was not
- * 			found.</p>
+ * <p>The signing profile was not found.</p>
  */
 export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
@@ -593,16 +581,9 @@ export namespace NotFoundException {
 export interface PutSigningProfileRequest {
   __type?: "PutSigningProfileRequest";
   /**
-   * <p>A subfield of <code>platform</code>. This specifies any different configuration
-   * 			options that you want to apply to the chosen platform (such as a different
-   * 				<code>hash-algorithm</code> or <code>signing-algorithm</code>).</p>
+   * <p>Tags to be associated with the signing profile that is being created.</p>
    */
-  overrides?: SigningPlatformOverrides;
-
-  /**
-   * <p>The ID of the signing profile to be created.</p>
-   */
-  platformId: string | undefined;
+  tags?: { [key: string]: string };
 
   /**
    * <p>The name of the signing profile to be created.</p>
@@ -610,10 +591,11 @@ export interface PutSigningProfileRequest {
   profileName: string | undefined;
 
   /**
-   * <p>The AWS Certificate Manager certificate that will be used to sign code with the new signing
-   * 			profile.</p>
+   * <p>A subfield of <code>platform</code>. This specifies any different configuration
+   * 			options that you want to apply to the chosen platform (such as a different
+   * 				<code>hash-algorithm</code> or <code>signing-algorithm</code>).</p>
    */
-  signingMaterial: SigningMaterial | undefined;
+  overrides?: SigningPlatformOverrides;
 
   /**
    * <p>Map of key-value pairs for signing. These can include any information that you want to
@@ -622,11 +604,15 @@ export interface PutSigningProfileRequest {
   signingParameters?: { [key: string]: string };
 
   /**
-   * <p>Tags to be
-   * 			associated with the signing profile being
-   * 			created.</p>
+   * <p>The ID of the signing platform to be created.</p>
    */
-  tags?: { [key: string]: string };
+  platformId: string | undefined;
+
+  /**
+   * <p>The AWS Certificate Manager certificate that will be used to sign code with the new signing
+   * 			profile.</p>
+   */
+  signingMaterial: SigningMaterial | undefined;
 }
 
 export namespace PutSigningProfileRequest {
@@ -725,14 +711,14 @@ export interface S3Source {
   bucketName: string | undefined;
 
   /**
-   * <p>Key name of the bucket object that contains your unsigned code.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>Version of your source image in your version enabled S3 bucket.</p>
    */
   version: string | undefined;
+
+  /**
+   * <p>Key name of the bucket object that contains your unsigned code.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace S3Source {
@@ -772,7 +758,7 @@ export interface SigningConfiguration {
   encryptionAlgorithmOptions: EncryptionAlgorithmOptions | undefined;
 
   /**
-   * <p>The hash algorithm options that are available for a a code signing job.</p>
+   * <p>The hash algorithm options that are available for a code signing job.</p>
    */
   hashAlgorithmOptions: HashAlgorithmOptions | undefined;
 }
@@ -816,12 +802,12 @@ export namespace SigningConfigurationOverrides {
 export interface SigningImageFormat {
   __type?: "SigningImageFormat";
   /**
-   * <p>The default format of a code signing signing image.</p>
+   * <p>The default format of a code signing image.</p>
    */
   defaultFormat: ImageFormat | string | undefined;
 
   /**
-   * <p>The supported formats of a code signing signing image.</p>
+   * <p>The supported formats of a code signing image.</p>
    */
   supportedFormats: (ImageFormat | string)[] | undefined;
 }
@@ -839,26 +825,9 @@ export namespace SigningImageFormat {
 export interface SigningJob {
   __type?: "SigningJob";
   /**
-   * <p>The date and time that the signing job was created.</p>
+   * <p>The status of the signing job.</p>
    */
-  createdAt?: Date;
-
-  /**
-   * <p>The ID of the signing job.</p>
-   */
-  jobId?: string;
-
-  /**
-   * <p>A <code>SignedObject</code> structure that contains information about a signing job's
-   * 			signed code image.</p>
-   */
-  signedObject?: SignedObject;
-
-  /**
-   * <p>A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of
-   * 			the certificate used for the signing job.</p>
-   */
-  signingMaterial?: SigningMaterial;
+  status?: SigningStatus | string;
 
   /**
    * <p>A <code>Source</code> that contains information about a signing job's code image
@@ -867,9 +836,26 @@ export interface SigningJob {
   source?: Source;
 
   /**
-   * <p>The status of the signing job.</p>
+   * <p>The ID of the signing job.</p>
    */
-  status?: SigningStatus | string;
+  jobId?: string;
+
+  /**
+   * <p>A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of
+   * 			the certificate used for the signing job.</p>
+   */
+  signingMaterial?: SigningMaterial;
+
+  /**
+   * <p>The date and time that the signing job was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>A <code>SignedObject</code> structure that contains information about a signing job's
+   * 			signed code image.</p>
+   */
+  signedObject?: SignedObject;
 }
 
 export namespace SigningJob {
@@ -899,35 +885,20 @@ export namespace SigningMaterial {
 }
 
 /**
- * <p>Contains information about the signing configurations and parameters that is used to
+ * <p>Contains information about the signing configurations and parameters that are used to
  * 			perform a code signing job.</p>
  */
 export interface SigningPlatform {
   __type?: "SigningPlatform";
   /**
-   * <p>The category of a code signing platform.</p>
+   * <p>The types of targets that can be signed by a code signing platform.</p>
    */
-  category?: Category | string;
+  target?: string;
 
   /**
    * <p>The display name of a code signing platform.</p>
    */
   displayName?: string;
-
-  /**
-   * <p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>
-   */
-  maxSizeInMB?: number;
-
-  /**
-   * <p>Any partner entities linked to a code signing platform.</p>
-   */
-  partner?: string;
-
-  /**
-   * <p>The ID of a code signing; platform.</p>
-   */
-  platformId?: string;
 
   /**
    * <p>The configuration of a code signing platform. This includes the designated hash algorithm
@@ -941,9 +912,24 @@ export interface SigningPlatform {
   signingImageFormat?: SigningImageFormat;
 
   /**
-   * <p>The types of targets that can be signed by a code signing platform.</p>
+   * <p>The ID of a code signing; platform.</p>
    */
-  target?: string;
+  platformId?: string;
+
+  /**
+   * <p>The category of a code signing platform.</p>
+   */
+  category?: Category | string;
+
+  /**
+   * <p>Any partner entities linked to a code signing platform.</p>
+   */
+  partner?: string;
+
+  /**
+   * <p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>
+   */
+  maxSizeInMB?: number;
 }
 
 export namespace SigningPlatform {
@@ -964,6 +950,16 @@ export interface SigningPlatformOverrides {
    * 			signing job.</p>
    */
   signingConfiguration?: SigningConfigurationOverrides;
+
+  /**
+   * <p>A signed image is a JSON object. When overriding the default signing platform configuration,
+   * 			a customer can select either of two signing formats, <code>JSONEmbedded</code> or
+   * 				<code>JSONDetached</code>.  (A third format value, <code>JSON</code>, is reserved
+   * 			for future use.) With <code>JSONEmbedded</code>, the signing image has the payload
+   * 			embedded in it. With <code>JSONDetached</code>, the payload is not be embedded in the
+   * 			signing image.</p>
+   */
+  signingImageFormat?: ImageFormat | string;
 }
 
 export namespace SigningPlatformOverrides {
@@ -974,30 +970,11 @@ export namespace SigningPlatformOverrides {
 }
 
 /**
- * <p>Contains information about the ACM certificates and code signing configuration parameters
- * 			that can be used by a given code signing user.</p>
+ * <p>Contains information about the ACM certificates and code signing configuration parameters that
+ * 			can be used by a given code signing user.</p>
  */
 export interface SigningProfile {
   __type?: "SigningProfile";
-  /**
-   * <p>Amazon Resource
-   * 			Name (ARN) for the signing
-   * 			profile.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The ID of a platform that is available for use by a signing profile.</p>
-   */
-  platformId?: string;
-
-  /**
-   * <p>The name of the
-   * 			signing
-   * 			profile.</p>
-   */
-  profileName?: string;
-
   /**
    * <p>The ACM certificate that is available for use by a signing profile.</p>
    */
@@ -1009,16 +986,29 @@ export interface SigningProfile {
   signingParameters?: { [key: string]: string };
 
   /**
+   * <p>The name of the signing profile.</p>
+   */
+  profileName?: string;
+
+  /**
+   * <p>The ID of a platform that is available for use by a signing profile.</p>
+   */
+  platformId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>A list of tags associated with the signing profile.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
    * <p>The status of a code signing profile.</p>
    */
   status?: SigningProfileStatus | string;
-
-  /**
-   * <p>A list of tags
-   * 			associated with the signing
-   * 			profile.</p>
-   */
-  tags?: { [key: string]: string };
 }
 
 export namespace SigningProfile {
@@ -1054,27 +1044,27 @@ export namespace Source {
 export interface StartSigningJobRequest {
   __type?: "StartSigningJobRequest";
   /**
+   * <p>The name of the signing profile.</p>
+   */
+  profileName?: string;
+
+  /**
    * <p>String that identifies the signing request. All calls after the first that use this
    * 			token return the same response as the first call.</p>
    */
   clientRequestToken?: string;
 
   /**
-   * <p>The S3 bucket in which to save your signed object. The destination contains the name
-   * 			of your bucket and an optional prefix.</p>
-   */
-  destination: Destination | undefined;
-
-  /**
-   * <p>The name of the signing profile.</p>
-   */
-  profileName?: string;
-
-  /**
    * <p>The S3 bucket that contains the object to sign or a BLOB that contains your raw
    * 			code.</p>
    */
   source: Source | undefined;
+
+  /**
+   * <p>The S3 bucket in which to save your signed object. The destination contains the name
+   * 			of your bucket and an optional prefix.</p>
+   */
+  destination: Destination | undefined;
 }
 
 export namespace StartSigningJobRequest {
@@ -1102,18 +1092,14 @@ export namespace StartSigningJobResponse {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>Amazon Resource
-   * 			Name (ARN) for the signing
-   * 			profile.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>One or more tags
-   * 			to be associated with the signing
-   * 			profile.</p>
+   * <p>One or more tags to be associated with the signing profile.</p>
    */
   tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1153,16 +1139,12 @@ export namespace ThrottlingException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>Amazon Resource
-   * 			Name (ARN) for the signing profile
-   * 			.</p>
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tag keys
-   * 			to be removed from the signing profile
-   * 			.</p>
+   * <p>A list of tag keys to be removed from the signing profile.</p>
    */
   tagKeys: string[] | undefined;
 }

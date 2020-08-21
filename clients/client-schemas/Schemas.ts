@@ -25,6 +25,11 @@ import {
   DeleteRegistryCommandOutput,
 } from "./commands/DeleteRegistryCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteSchemaCommand,
   DeleteSchemaCommandInput,
   DeleteSchemaCommandOutput,
@@ -65,6 +70,11 @@ import {
   GetDiscoveredSchemaCommandOutput,
 } from "./commands/GetDiscoveredSchemaCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   ListDiscoverersCommand,
   ListDiscoverersCommandInput,
   ListDiscoverersCommandOutput,
@@ -86,15 +96,15 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
-  LockServiceLinkedRoleCommand,
-  LockServiceLinkedRoleCommandInput,
-  LockServiceLinkedRoleCommandOutput,
-} from "./commands/LockServiceLinkedRoleCommand";
-import {
   PutCodeBindingCommand,
   PutCodeBindingCommandInput,
   PutCodeBindingCommandOutput,
 } from "./commands/PutCodeBindingCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   SearchSchemasCommand,
   SearchSchemasCommandInput,
@@ -111,11 +121,6 @@ import {
   StopDiscovererCommandOutput,
 } from "./commands/StopDiscovererCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
-  UnlockServiceLinkedRoleCommand,
-  UnlockServiceLinkedRoleCommandInput,
-  UnlockServiceLinkedRoleCommandOutput,
-} from "./commands/UnlockServiceLinkedRoleCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -139,7 +144,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS EventBridge Schemas</p>
+ * <p>Amazon EventBridge Schema Registry</p>
  */
 export class Schemas extends SchemasClient {
   /**
@@ -207,7 +212,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
-   * <p>Creates a schema definition.</p>
+   * <p>Creates a schema definition.</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
    */
   public createSchema(
     args: CreateSchemaCommandInput,
@@ -289,6 +294,38 @@ export class Schemas extends SchemasClient {
     cb?: (err: any, data?: DeleteRegistryCommandOutput) => void
   ): Promise<DeleteRegistryCommandOutput> | void {
     const command = new DeleteRegistryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete the resource-based policy attached to the specified registry.</p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -553,6 +590,38 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * <p>Retrieves the resource-based policy attached to a given registry.</p>
+   */
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): Promise<GetResourcePolicyCommandOutput> | void {
+    const command = new GetResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List the discoverers.</p>
    */
   public listDiscoverers(
@@ -706,35 +775,6 @@ export class Schemas extends SchemasClient {
     }
   }
 
-  public lockServiceLinkedRole(
-    args: LockServiceLinkedRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<LockServiceLinkedRoleCommandOutput>;
-  public lockServiceLinkedRole(
-    args: LockServiceLinkedRoleCommandInput,
-    cb: (err: any, data?: LockServiceLinkedRoleCommandOutput) => void
-  ): void;
-  public lockServiceLinkedRole(
-    args: LockServiceLinkedRoleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: LockServiceLinkedRoleCommandOutput) => void
-  ): void;
-  public lockServiceLinkedRole(
-    args: LockServiceLinkedRoleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LockServiceLinkedRoleCommandOutput) => void),
-    cb?: (err: any, data?: LockServiceLinkedRoleCommandOutput) => void
-  ): Promise<LockServiceLinkedRoleCommandOutput> | void {
-    const command = new LockServiceLinkedRoleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
   /**
    * <p>Put code binding URI</p>
    */
@@ -757,6 +797,38 @@ export class Schemas extends SchemasClient {
     cb?: (err: any, data?: PutCodeBindingCommandOutput) => void
   ): Promise<PutCodeBindingCommandOutput> | void {
     const command = new PutCodeBindingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The name of the policy.</p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -889,35 +961,6 @@ export class Schemas extends SchemasClient {
     }
   }
 
-  public unlockServiceLinkedRole(
-    args: UnlockServiceLinkedRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UnlockServiceLinkedRoleCommandOutput>;
-  public unlockServiceLinkedRole(
-    args: UnlockServiceLinkedRoleCommandInput,
-    cb: (err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void
-  ): void;
-  public unlockServiceLinkedRole(
-    args: UnlockServiceLinkedRoleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void
-  ): void;
-  public unlockServiceLinkedRole(
-    args: UnlockServiceLinkedRoleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void),
-    cb?: (err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void
-  ): Promise<UnlockServiceLinkedRoleCommandOutput> | void {
-    const command = new UnlockServiceLinkedRoleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
   /**
    * <p>Removes tags from a resource.</p>
    */
@@ -1015,7 +1058,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
-   * <p>Updates the schema definition</p>
+   * <p>Updates the schema definition</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
    */
   public updateSchema(
     args: UpdateSchemaCommandInput,

@@ -8,6 +8,10 @@ import {
   CreateDeploymentStrategyCommandOutput,
 } from "../commands/CreateDeploymentStrategyCommand";
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "../commands/CreateEnvironmentCommand";
+import {
+  CreateHostedConfigurationVersionCommandInput,
+  CreateHostedConfigurationVersionCommandOutput,
+} from "../commands/CreateHostedConfigurationVersionCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import {
   DeleteConfigurationProfileCommandInput,
@@ -18,6 +22,10 @@ import {
   DeleteDeploymentStrategyCommandOutput,
 } from "../commands/DeleteDeploymentStrategyCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "../commands/DeleteEnvironmentCommand";
+import {
+  DeleteHostedConfigurationVersionCommandInput,
+  DeleteHostedConfigurationVersionCommandOutput,
+} from "../commands/DeleteHostedConfigurationVersionCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "../commands/GetApplicationCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "../commands/GetConfigurationCommand";
 import {
@@ -30,6 +38,10 @@ import {
   GetDeploymentStrategyCommandOutput,
 } from "../commands/GetDeploymentStrategyCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "../commands/GetEnvironmentCommand";
+import {
+  GetHostedConfigurationVersionCommandInput,
+  GetHostedConfigurationVersionCommandOutput,
+} from "../commands/GetHostedConfigurationVersionCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import {
   ListConfigurationProfilesCommandInput,
@@ -41,6 +53,10 @@ import {
 } from "../commands/ListDeploymentStrategiesCommand";
 import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "../commands/ListDeploymentsCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "../commands/ListEnvironmentsCommand";
+import {
+  ListHostedConfigurationVersionsCommandInput,
+  ListHostedConfigurationVersionsCommandOutput,
+} from "../commands/ListHostedConfigurationVersionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -68,12 +84,16 @@ import {
   BadRequestException,
   ConfigurationProfileSummary,
   ConflictException,
+  DeploymentEvent,
   DeploymentStrategy,
   DeploymentSummary,
   Environment,
+  HostedConfigurationVersionSummary,
   InternalServerException,
   Monitor,
+  PayloadTooLargeException,
   ResourceNotFoundException,
+  ServiceQuotaExceededException,
   Validator,
   ValidatorType,
 } from "../models/index";
@@ -224,6 +244,54 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateHostedConfigurationVersionCommand = async (
+  input: CreateHostedConfigurationVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.LatestVersionNumber) && {
+      "Latest-Version-Number": input.LatestVersionNumber!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.Description) && { Description: input.Description! }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
+  };
+  let resolvedPath =
+    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions";
+  if (input.ConfigurationProfileId !== undefined) {
+    const labelValue: string = input.ConfigurationProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  let body: any;
+  if (input.Content !== undefined) {
+    body = input.Content;
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
@@ -331,6 +399,15 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/applications/{ApplicationId}/environments/{EnvironmentId}";
+  if (input.EnvironmentId !== undefined) {
+    const labelValue: string = input.EnvironmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EnvironmentId.");
+  }
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -340,14 +417,54 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteHostedConfigurationVersionCommand = async (
+  input: DeleteHostedConfigurationVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath =
+    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}";
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
     }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  if (input.VersionNumber !== undefined) {
+    const labelValue: string = input.VersionNumber.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+    }
+    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VersionNumber.");
+  }
+  if (input.ConfigurationProfileId !== undefined) {
+    const labelValue: string = input.ConfigurationProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -400,14 +517,14 @@ export const serializeAws_restJson1GetConfigurationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/applications/{Application}/environments/{Environment}/configurations/{Configuration}";
-  if (input.Application !== undefined) {
-    const labelValue: string = input.Application;
+  if (input.Environment !== undefined) {
+    const labelValue: string = input.Environment;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Application.");
+      throw new Error("Empty value provided for input HTTP label: Environment.");
     }
-    resolvedPath = resolvedPath.replace("{Application}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{Environment}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: Application.");
+    throw new Error("No value provided for input HTTP label: Environment.");
   }
   if (input.Configuration !== undefined) {
     const labelValue: string = input.Configuration;
@@ -418,20 +535,20 @@ export const serializeAws_restJson1GetConfigurationCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Configuration.");
   }
-  if (input.Environment !== undefined) {
-    const labelValue: string = input.Environment;
+  if (input.Application !== undefined) {
+    const labelValue: string = input.Application;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Environment.");
+      throw new Error("Empty value provided for input HTTP label: Application.");
     }
-    resolvedPath = resolvedPath.replace("{Environment}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{Application}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: Environment.");
+    throw new Error("No value provided for input HTTP label: Application.");
   }
   const query: any = {
+    ...(input.ClientId !== undefined && { client_id: input.ClientId }),
     ...(input.ClientConfigurationVersion !== undefined && {
       client_configuration_version: input.ClientConfigurationVersion,
     }),
-    ...(input.ClientId !== undefined && { client_id: input.ClientId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -455,15 +572,6 @@ export const serializeAws_restJson1GetConfigurationProfileCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.ConfigurationProfileId !== undefined) {
     const labelValue: string = input.ConfigurationProfileId;
     if (labelValue.length <= 0) {
@@ -472,6 +580,15 @@ export const serializeAws_restJson1GetConfigurationProfileCommand = async (
     resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -494,6 +611,15 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
+  if (input.EnvironmentId !== undefined) {
+    const labelValue: string = input.EnvironmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EnvironmentId.");
+  }
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -511,15 +637,6 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
     resolvedPath = resolvedPath.replace("{DeploymentNumber}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentNumber.");
-  }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -572,6 +689,15 @@ export const serializeAws_restJson1GetEnvironmentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/applications/{ApplicationId}/environments/{EnvironmentId}";
+  if (input.EnvironmentId !== undefined) {
+    const labelValue: string = input.EnvironmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EnvironmentId.");
+  }
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -581,14 +707,54 @@ export const serializeAws_restJson1GetEnvironmentCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetHostedConfigurationVersionCommand = async (
+  input: GetHostedConfigurationVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath =
+    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}";
+  if (input.ConfigurationProfileId !== undefined) {
+    const labelValue: string = input.ConfigurationProfileId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
+      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
     }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
+    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  if (input.VersionNumber !== undefined) {
+    const labelValue: string = input.VersionNumber.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+    }
+    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -717,8 +883,8 @@ export const serializeAws_restJson1ListDeploymentStrategiesCommand = async (
   };
   let resolvedPath = "/deploymentstrategies";
   const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -754,6 +920,51 @@ export const serializeAws_restJson1ListEnvironmentsCommand = async (
   const query: any = {
     ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListHostedConfigurationVersionsCommand = async (
+  input: ListHostedConfigurationVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath =
+    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions";
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  if (input.ConfigurationProfileId !== undefined) {
+    const labelValue: string = input.ConfigurationProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -853,14 +1064,14 @@ export const serializeAws_restJson1StopDeploymentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
+  if (input.EnvironmentId !== undefined) {
+    const labelValue: string = input.EnvironmentId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error("No value provided for input HTTP label: EnvironmentId.");
   }
   if (input.DeploymentNumber !== undefined) {
     const labelValue: string = input.DeploymentNumber.toString();
@@ -871,14 +1082,14 @@ export const serializeAws_restJson1StopDeploymentCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentNumber.");
   }
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
     }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1088,15 +1299,6 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/applications/{ApplicationId}/environments/{EnvironmentId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.EnvironmentId !== undefined) {
     const labelValue: string = input.EnvironmentId;
     if (labelValue.length <= 0) {
@@ -1105,6 +1307,15 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
     resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1519,6 +1730,120 @@ const deserializeAws_restJson1CreateEnvironmentCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateHostedConfigurationVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHostedConfigurationVersionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreateHostedConfigurationVersionCommandError(output, context);
+  }
+  const contents: CreateHostedConfigurationVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "HostedConfigurationVersion",
+    ApplicationId: undefined,
+    ConfigurationProfileId: undefined,
+    Content: undefined,
+    ContentType: undefined,
+    Description: undefined,
+    VersionNumber: undefined,
+  };
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
+  }
+  if (output.headers["description"] !== undefined) {
+    contents.Description = output.headers["description"];
+  }
+  if (output.headers["configuration-profile-id"] !== undefined) {
+    contents.ConfigurationProfileId = output.headers["configuration-profile-id"];
+  }
+  if (output.headers["version-number"] !== undefined) {
+    contents.VersionNumber = parseInt(output.headers["version-number"], 10);
+  }
+  if (output.headers["application-id"] !== undefined) {
+    contents.ApplicationId = output.headers["application-id"];
+  }
+  const data: any = await collectBody(output.body, context);
+  contents.Content = data;
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateHostedConfigurationVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHostedConfigurationVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.appconfig#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.appconfig#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1803,6 +2128,73 @@ const deserializeAws_restJson1DeleteEnvironmentCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteHostedConfigurationVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHostedConfigurationVersionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteHostedConfigurationVersionCommandError(output, context);
+  }
+  const contents: DeleteHostedConfigurationVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteHostedConfigurationVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHostedConfigurationVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1897,11 +2289,11 @@ export const deserializeAws_restJson1GetConfigurationCommand = async (
     Content: undefined,
     ContentType: undefined,
   };
-  if (output.headers["configuration-version"] !== undefined) {
-    contents.ConfigurationVersion = output.headers["configuration-version"];
-  }
   if (output.headers["content-type"] !== undefined) {
     contents.ContentType = output.headers["content-type"];
+  }
+  if (output.headers["configuration-version"] !== undefined) {
+    contents.ConfigurationVersion = output.headers["configuration-version"];
   }
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -2078,6 +2470,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     DeploymentStrategyId: undefined,
     Description: undefined,
     EnvironmentId: undefined,
+    EventLog: undefined,
     FinalBakeTimeInMinutes: undefined,
     GrowthFactor: undefined,
     GrowthType: undefined,
@@ -2118,6 +2511,9 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   }
   if (data.EnvironmentId !== undefined && data.EnvironmentId !== null) {
     contents.EnvironmentId = data.EnvironmentId;
+  }
+  if (data.EventLog !== undefined && data.EventLog !== null) {
+    contents.EventLog = deserializeAws_restJson1DeploymentEvents(data.EventLog, context);
   }
   if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
     contents.FinalBakeTimeInMinutes = data.FinalBakeTimeInMinutes;
@@ -2336,6 +2732,96 @@ const deserializeAws_restJson1GetEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEnvironmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetHostedConfigurationVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHostedConfigurationVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetHostedConfigurationVersionCommandError(output, context);
+  }
+  const contents: GetHostedConfigurationVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "HostedConfigurationVersion",
+    ApplicationId: undefined,
+    ConfigurationProfileId: undefined,
+    Content: undefined,
+    ContentType: undefined,
+    Description: undefined,
+    VersionNumber: undefined,
+  };
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
+  }
+  if (output.headers["description"] !== undefined) {
+    contents.Description = output.headers["description"];
+  }
+  if (output.headers["configuration-profile-id"] !== undefined) {
+    contents.ConfigurationProfileId = output.headers["configuration-profile-id"];
+  }
+  if (output.headers["version-number"] !== undefined) {
+    contents.VersionNumber = parseInt(output.headers["version-number"], 10);
+  }
+  if (output.headers["application-id"] !== undefined) {
+    contents.ApplicationId = output.headers["application-id"];
+  }
+  const data: any = await collectBody(output.body, context);
+  contents.Content = data;
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetHostedConfigurationVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHostedConfigurationVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2749,6 +3235,82 @@ const deserializeAws_restJson1ListEnvironmentsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListHostedConfigurationVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostedConfigurationVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListHostedConfigurationVersionsCommandError(output, context);
+  }
+  const contents: ListHostedConfigurationVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "HostedConfigurationVersions",
+    Items: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Items !== undefined && data.Items !== null) {
+    contents.Items = deserializeAws_restJson1HostedConfigurationVersionSummaryList(data.Items, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListHostedConfigurationVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostedConfigurationVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appconfig#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.appconfig#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appconfig#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2842,6 +3404,7 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
     DeploymentStrategyId: undefined,
     Description: undefined,
     EnvironmentId: undefined,
+    EventLog: undefined,
     FinalBakeTimeInMinutes: undefined,
     GrowthFactor: undefined,
     GrowthType: undefined,
@@ -2882,6 +3445,9 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
   }
   if (data.EnvironmentId !== undefined && data.EnvironmentId !== null) {
     contents.EnvironmentId = data.EnvironmentId;
+  }
+  if (data.EventLog !== undefined && data.EventLog !== null) {
+    contents.EventLog = deserializeAws_restJson1DeploymentEvents(data.EventLog, context);
   }
   if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
     contents.FinalBakeTimeInMinutes = data.FinalBakeTimeInMinutes;
@@ -2986,6 +3552,7 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
     DeploymentStrategyId: undefined,
     Description: undefined,
     EnvironmentId: undefined,
+    EventLog: undefined,
     FinalBakeTimeInMinutes: undefined,
     GrowthFactor: undefined,
     GrowthType: undefined,
@@ -3026,6 +3593,9 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
   }
   if (data.EnvironmentId !== undefined && data.EnvironmentId !== null) {
     contents.EnvironmentId = data.EnvironmentId;
+  }
+  if (data.EventLog !== undefined && data.EventLog !== null) {
+    contents.EventLog = deserializeAws_restJson1DeploymentEvents(data.EventLog, context);
   }
   if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
     contents.FinalBakeTimeInMinutes = data.FinalBakeTimeInMinutes;
@@ -3721,6 +4291,35 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PayloadTooLargeException> => {
+  const contents: PayloadTooLargeException = {
+    name: "PayloadTooLargeException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Limit: undefined,
+    Measure: undefined,
+    Message: undefined,
+    Size: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Limit !== undefined && data.Limit !== null) {
+    contents.Limit = data.Limit;
+  }
+  if (data.Measure !== undefined && data.Measure !== null) {
+    contents.Measure = data.Measure;
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.Size !== undefined && data.Size !== null) {
+    contents.Size = data.Size;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3738,6 +4337,23 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   }
   if (data.ResourceName !== undefined && data.ResourceName !== null) {
     contents.ResourceName = data.ResourceName;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
   }
   return contents;
 };
@@ -3810,6 +4426,20 @@ const deserializeAws_restJson1ConfigurationProfileSummaryList = (
   context: __SerdeContext
 ): ConfigurationProfileSummary[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1ConfigurationProfileSummary(entry, context));
+};
+
+const deserializeAws_restJson1DeploymentEvent = (output: any, context: __SerdeContext): DeploymentEvent => {
+  return {
+    __type: "DeploymentEvent",
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    EventType: output.EventType !== undefined && output.EventType !== null ? output.EventType : undefined,
+    OccurredAt: output.OccurredAt !== undefined && output.OccurredAt !== null ? new Date(output.OccurredAt) : undefined,
+    TriggeredBy: output.TriggeredBy !== undefined && output.TriggeredBy !== null ? output.TriggeredBy : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DeploymentEvents = (output: any, context: __SerdeContext): DeploymentEvent[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DeploymentEvent(entry, context));
 };
 
 const deserializeAws_restJson1DeploymentList = (output: any, context: __SerdeContext): DeploymentSummary[] => {
@@ -3892,6 +4522,32 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Environment(entry, context));
+};
+
+const deserializeAws_restJson1HostedConfigurationVersionSummary = (
+  output: any,
+  context: __SerdeContext
+): HostedConfigurationVersionSummary => {
+  return {
+    __type: "HostedConfigurationVersionSummary",
+    ApplicationId:
+      output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
+    ConfigurationProfileId:
+      output.ConfigurationProfileId !== undefined && output.ConfigurationProfileId !== null
+        ? output.ConfigurationProfileId
+        : undefined,
+    ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    VersionNumber:
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HostedConfigurationVersionSummaryList = (
+  output: any,
+  context: __SerdeContext
+): HostedConfigurationVersionSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1HostedConfigurationVersionSummary(entry, context));
 };
 
 const deserializeAws_restJson1Monitor = (output: any, context: __SerdeContext): Monitor => {

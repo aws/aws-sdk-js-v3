@@ -31,6 +31,14 @@ import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/Dele
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
 import { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand";
 import {
+  DescribeInputDeviceCommandInput,
+  DescribeInputDeviceCommandOutput,
+} from "./commands/DescribeInputDeviceCommand";
+import {
+  DescribeInputDeviceThumbnailCommandInput,
+  DescribeInputDeviceThumbnailCommandOutput,
+} from "./commands/DescribeInputDeviceThumbnailCommand";
+import {
   DescribeInputSecurityGroupCommandInput,
   DescribeInputSecurityGroupCommandOutput,
 } from "./commands/DescribeInputSecurityGroupCommand";
@@ -46,6 +54,7 @@ import {
 } from "./commands/DescribeReservationCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "./commands/ListInputDevicesCommand";
 import {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput,
@@ -70,6 +79,7 @@ import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./command
 import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "./commands/UpdateChannelClassCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
+import { UpdateInputDeviceCommandInput, UpdateInputDeviceCommandOutput } from "./commands/UpdateInputDeviceCommand";
 import {
   UpdateInputSecurityGroupCommandInput,
   UpdateInputSecurityGroupCommandOutput,
@@ -145,6 +155,8 @@ export type ServiceInputTypes =
   | DeleteTagsCommandInput
   | DescribeChannelCommandInput
   | DescribeInputCommandInput
+  | DescribeInputDeviceCommandInput
+  | DescribeInputDeviceThumbnailCommandInput
   | DescribeInputSecurityGroupCommandInput
   | DescribeMultiplexCommandInput
   | DescribeMultiplexProgramCommandInput
@@ -152,6 +164,7 @@ export type ServiceInputTypes =
   | DescribeReservationCommandInput
   | DescribeScheduleCommandInput
   | ListChannelsCommandInput
+  | ListInputDevicesCommandInput
   | ListInputSecurityGroupsCommandInput
   | ListInputsCommandInput
   | ListMultiplexProgramsCommandInput
@@ -167,6 +180,7 @@ export type ServiceInputTypes =
   | UpdateChannelClassCommandInput
   | UpdateChannelCommandInput
   | UpdateInputCommandInput
+  | UpdateInputDeviceCommandInput
   | UpdateInputSecurityGroupCommandInput
   | UpdateMultiplexCommandInput
   | UpdateMultiplexProgramCommandInput
@@ -190,6 +204,8 @@ export type ServiceOutputTypes =
   | DeleteTagsCommandOutput
   | DescribeChannelCommandOutput
   | DescribeInputCommandOutput
+  | DescribeInputDeviceCommandOutput
+  | DescribeInputDeviceThumbnailCommandOutput
   | DescribeInputSecurityGroupCommandOutput
   | DescribeMultiplexCommandOutput
   | DescribeMultiplexProgramCommandOutput
@@ -197,6 +213,7 @@ export type ServiceOutputTypes =
   | DescribeReservationCommandOutput
   | DescribeScheduleCommandOutput
   | ListChannelsCommandOutput
+  | ListInputDevicesCommandOutput
   | ListInputSecurityGroupsCommandOutput
   | ListInputsCommandOutput
   | ListMultiplexProgramsCommandOutput
@@ -212,6 +229,7 @@ export type ServiceOutputTypes =
   | UpdateChannelClassCommandOutput
   | UpdateChannelCommandOutput
   | UpdateInputCommandOutput
+  | UpdateInputDeviceCommandOutput
   | UpdateInputSecurityGroupCommandOutput
   | UpdateMultiplexCommandOutput
   | UpdateMultiplexProgramCommandOutput

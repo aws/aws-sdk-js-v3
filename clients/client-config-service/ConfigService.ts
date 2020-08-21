@@ -355,6 +355,11 @@ import {
   PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
 import {
+  SelectAggregateResourceConfigCommand,
+  SelectAggregateResourceConfigCommandInput,
+  SelectAggregateResourceConfigCommandOutput,
+} from "./commands/SelectAggregateResourceConfigCommand";
+import {
   SelectResourceConfigCommand,
   SelectResourceConfigCommandInput,
   SelectResourceConfigCommandOutput,
@@ -656,8 +661,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Deletes the specified conformance pack and all the AWS Config rules, remediation actions, and all evaluation results within that conformance pack.</p>
-   * 		       <p>AWS Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete. You cannot update a conformance pack while it is in this state.</p>
+   * <p>Deletes the specified conformance pack and all the AWS Config rules, remediation actions, and all evaluation results within that
+   * 			conformance pack.</p>
+   * 		       <p>AWS Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
+   * 			You cannot update a conformance pack while it is in this state.</p>
    */
   public deleteConformancePack(
     args: DeleteConformancePackCommandInput,
@@ -758,7 +765,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. Only a master account can delete an organization config rule.</p>
+   * <p>Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. </p>
+   * 	        <p>Only a master account and a delegated administrator account can delete an organization config rule.
+   * 		When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 		       <p>AWS Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
    * 			You cannot update a rule while it is in this state.</p>
    */
@@ -792,8 +802,11 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Deletes the specified organization conformance pack and all of the config rules and remediation actions from all member accounts in that organization.
-   * 			Only a master account can delete an organization conformance pack.</p>
+   * <p>Deletes the specified organization conformance pack and all of the config rules and remediation actions from
+   * 			all member accounts in that organization. </p>
+   *          <p> Only a master account or a delegated administrator account can delete an organization conformance pack.
+   * 	When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 		<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 			      <p>AWS Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
    * 				You cannot update a conformance pack while it is in this state. </p>
    */
@@ -893,6 +906,10 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>
+   * 		       <note>
+   *             <p>AWS Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
+   * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
+   *          </note>
    */
   public deleteRemediationExceptions(
     args: DeleteRemediationExceptionsCommandInput,
@@ -1634,12 +1651,14 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns a list of organization config rules.</p>
+   * <p>Returns a list of organization config rules. </p>
+   * 			      <p>Only a master account and a delegated administrator account can call this API.
+   * 				When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 			<code>ListDelegatedAdministrator</code> permissions are added. </p>
    * 		       <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response.
    * 			Limit and next token are not applicable if you specify organization config rule names.
    * 			It is only applicable, when you request all the organization config rules.</p>
-   * 			         <p>Only a master account can call this API.</p>
    *          </note>
    */
   public describeOrganizationConfigRules(
@@ -1673,13 +1692,16 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Provides organization config rule deployment status for an organization.</p>
+   * 		       <p>Only a master account and a delegated administrator account can call this API.
+   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 		       <note>
-   *             <p>The status is not considered successful until organization config rule is successfully deployed in all the member accounts with an exception of excluded accounts.</p>
+   *             <p>The status is not considered successful until organization config rule is successfully deployed in all the member
+   * 			accounts with an exception of excluded accounts.</p>
    * 			         <p>When you specify the limit and the next token, you receive a paginated response.
    * 			Limit and next token are not applicable if you specify organization config rule names.
    * 			It is only applicable, when you request all the organization config rules.</p>
-   * 			         <p>Only a master account can call this API.</p>
-   *          </note>
+   * 			      </note>
    */
   public describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
@@ -1713,12 +1735,14 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns a list of organization conformance packs.</p>
+   * <p>Returns a list of organization conformance packs. </p>
+   * 		       <p>Only a master account and a delegated administrator account can call this API.
+   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 				<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 		       <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
    * 			         <p>Limit and next token are not applicable if you specify organization conformance packs names. They are only applicable,
    * 			when you request all the organization conformance packs. </p>
-   * 			         <p>Only a master account can call this API.</p>
    *          </note>
    */
   public describeOrganizationConformancePacks(
@@ -1751,14 +1775,16 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Provides organization conformance pack deployment status for an organization.</p>
+   * <p>Provides organization conformance pack deployment status for an organization. </p>
+   * 		       <p> Only a master account and a delegated administrator account can call this API.
+   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 				<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 		       <note>
    * 			         <p>The status is not considered successful until organization conformance pack is successfully
    * 				deployed in all the member accounts with an exception of excluded accounts.</p>
    * 			         <p>When you specify the limit and the next token, you receive a paginated response.
    * 				Limit and next token are not applicable if you specify organization conformance pack names.
    * 				They are only applicable, when you request all the organization conformance packs.</p>
-   * 			         <p>Only a master account can call this API.</p>
    *          </note>
    */
   public describeOrganizationConformancePackStatuses(
@@ -1860,7 +1886,9 @@ export class ConfigService extends ConfigServiceClient {
    * <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
    * 			When you specify the limit and the next token, you receive a paginated response. </p>
    * 		       <note>
-   *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
+   *             <p>AWS Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
+   * 				Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
+   * 			         <p>When you specify the limit and the next token, you receive a paginated response. </p>
    * 			         <p>Limit and next token are not applicable if you request resources in batch. It is only applicable, when you request all resources.</p>
    *          </note>
    */
@@ -2412,9 +2440,9 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Returns detailed status for each member account within an organization for a given organization config rule.</p>
-   * 		       <note>
-   *             <p>Only a master account can call this API.</p>
-   *          </note>
+   * 		       <p>Only a master account and a delegated administrator account can call this API.
+   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
    */
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
@@ -2449,7 +2477,9 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>
-   * 		       <p>Only a master account can call this API.</p>
+   * 		       <p>Only a master account and a delegated administrator account can call this API.
+   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
    */
   public getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
@@ -2839,7 +2869,7 @@ export class ConfigService extends ConfigServiceClient {
   /**
    * <p>Creates or updates a conformance pack. A conformance pack is a collection of AWS Config rules that can be easily deployed in an account and a region and across AWS Organization.</p>
    * 		       <p>This API creates a service linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
-   * 		The service linked role is created only when the role does not exist in your account. AWS Config verifies the existence of role with <code>GetRole</code> action.</p>
+   * 		The service linked role is created only when the role does not exist in your account. </p>
    * 		       <note>
    *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
    * 			If you provide both AWS Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
@@ -2957,18 +2987,28 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Adds or updates organization config rule for your entire organization evaluating whether your AWS resources comply with your desired configurations. Only a master account can create or update an organization config rule.</p>
-   * 		       <p>This API enables organization service access through the <code>EnableAWSServiceAccess</code> action and creates a service linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code>
-   * 			in the master account of your organization. The service linked role is created only when the role does not exist in the master account. AWS Config verifies the existence of role with <code>GetRole</code> action.</p>
+   * <p>Adds or updates organization config rule for your entire organization evaluating whether your AWS resources comply with your
+   * 			desired configurations.</p>
+   * 	        <p> Only a master account and a delegated administrator can create or update an organization config rule.
+   * 		When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 		<code>ListDelegatedAdministrator</code> permissions are added. </p>
+   * 		       <p>This API enables organization service access through the <code>EnableAWSServiceAccess</code> action and creates a service linked
+   * 			role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master or delegated administrator account of your organization.
+   * 			The service linked role is created only when the role does not exist in the caller account.
+   * 			AWS Config verifies the existence of role with <code>GetRole</code> action.</p>
+   * 		       <p>To use this API with delegated administrator, register a delegated administrator by calling AWS Organization
+   * 			<code>register-delegated-administrator</code> for <code>config-multiaccountsetup.amazonaws.com</code>. </p>
    * 		       <p>You can use this action to create both custom AWS Config rules and AWS managed Config rules.
-   * 			If you are adding a new custom AWS Config rule, you must first create AWS Lambda function in the master account that the rule invokes to evaluate your resources.
-   * 			When you use the <code>PutOrganizationConfigRule</code> action to add the rule to AWS Config, you must specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the function.
+   * 			If you are adding a new custom AWS Config rule, you must first create AWS Lambda function in the master account or a delegated
+   * 			administrator that the rule invokes to evaluate your resources.
+   * 			When you use the <code>PutOrganizationConfigRule</code> action to add the rule to AWS Config, you must
+   * 			specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the function.
    * 			If you are adding an AWS managed Config rule, specify the rule's identifier for the <code>RuleIdentifier</code> key.</p>
-   * 		       <p>The maximum number of organization config rules that AWS Config supports is 150.</p>
-   *
+   * 		       <p>The maximum number of organization config rules that AWS Config supports is 150 and 3 delegated administrator per organization. </p>
    * 		       <note>
-   *             <p>Specify either <code>OrganizationCustomRuleMetadata</code> or <code>OrganizationManagedRuleMetadata</code>.</p>
-   *          </note>
+   *             <p>Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features in an organization.</p>
+   * 			         <p>Specify either <code>OrganizationCustomRuleMetadata</code> or <code>OrganizationManagedRuleMetadata</code>.</p>
+   * 			      </note>
    */
   public putOrganizationConfigRule(
     args: PutOrganizationConfigRuleCommandInput,
@@ -3001,17 +3041,25 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Deploys conformance packs across member accounts in an AWS Organization.</p>
+   * 		       <p>Only a master account and a delegated administrator can call this API.
+   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
+   * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 		       <p>This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
    * 			through the <code>EnableAWSServiceAccess</code> action and creates a
-   * 			service linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master account of your organization.
-   * 			The service linked role is created only when the role does not exist in the master account.
-   * 			AWS Config verifies the existence of role with GetRole action.</p>
+   * 			service linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master or delegated administrator account of your organization.
+   * 			The service linked role is created only when the role does not exist in the caller account.
+   * 			To use this API with delegated administrator, register a delegated administrator by calling AWS Organization
+   * 			<code>register-delegate-admin</code> for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
+   *
+   *
+   *
    * 		       <note>
-   *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
+   * 			         <p>Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features in an organization.</p>
+   * 			         <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
    * 			If you provide both AWS Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
-   * 			         <p>AWS Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the confomance pack is created or updated.
+   * 			         <p>AWS Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the conformance pack is created or updated.
    * 				You cannot update a conformance pack while it is in this state.</p>
-   * 			         <p>You can create 6 conformance packs with 25 AWS Config rules in each pack.</p>
+   * 			         <p>You can create 6 conformance packs with 25 AWS Config rules in each pack and 3 delegated administrator per organization. </p>
    *          </note>
    */
   public putOrganizationConformancePack(
@@ -3044,8 +3092,15 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Adds or updates the remediation configuration with a specific AWS Config rule with the selected target or action. The API creates the <code>RemediationConfiguration</code> object for the AWS Config rule.
-   * 		The AWS Config rule must already exist for you to add a remediation configuration. The target (SSM document) must exist and have permissions to use the target. </p>
+   * <p>Adds or updates the remediation configuration with a specific AWS Config rule with the
+   * 			selected target or action.
+   * 			The API creates the <code>RemediationConfiguration</code> object for the AWS Config rule.
+   * 		The AWS Config rule must already exist for you to add a remediation configuration.
+   * 		The target (SSM document) must exist and have permissions to use the target. </p>
+   * 		       <note>
+   *             <p>If you make backward incompatible changes to the SSM document,
+   * 			you must call this again to ensure the remediations can run.</p>
+   *          </note>
    */
   public putRemediationConfigurations(
     args: PutRemediationConfigurationsCommandInput,
@@ -3079,6 +3134,10 @@ export class ConfigService extends ConfigServiceClient {
   /**
    * <p>A remediation exception is when a specific resource is no longer considered for auto-remediation.
    * 			This API adds a new exception or updates an exisiting exception for a specific resource with a specific AWS Config rule. </p>
+   * 		       <note>
+   *             <p>AWS Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
+   * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
+   *          </note>
    */
   public putRemediationExceptions(
     args: PutRemediationExceptionsCommandInput,
@@ -3118,6 +3177,7 @@ export class ConfigService extends ConfigServiceClient {
    *             <p>The custom resource type must be registered with AWS CloudFormation. This API accepts the configuration item registered with AWS CloudFormation.</p>
    * 			         <p>When you call this API, AWS Config only stores configuration state of the resource provided in the request. This API does not change or remediate the configuration of the resource.
    * 				</p>
+   * 		          <p>Write-only schema properites are not recorded as part of the published configuration item.</p>
    *          </note>
    */
   public putResourceConfig(
@@ -3181,6 +3241,43 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: PutRetentionConfigurationCommandOutput) => void
   ): Promise<PutRetentionConfigurationCommandOutput> | void {
     const command = new PutRetentionConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of AWS resources across multiple accounts and regions,
+   * 			performs the corresponding search, and returns resource configurations matching the properties.</p>
+   * 		       <p>For more information about query components, see the
+   * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
+   *                <b>Query Components</b>
+   *             </a> section in the AWS Config Developer Guide.</p>
+   */
+  public selectAggregateResourceConfig(
+    args: SelectAggregateResourceConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SelectAggregateResourceConfigCommandOutput>;
+  public selectAggregateResourceConfig(
+    args: SelectAggregateResourceConfigCommandInput,
+    cb: (err: any, data?: SelectAggregateResourceConfigCommandOutput) => void
+  ): void;
+  public selectAggregateResourceConfig(
+    args: SelectAggregateResourceConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SelectAggregateResourceConfigCommandOutput) => void
+  ): void;
+  public selectAggregateResourceConfig(
+    args: SelectAggregateResourceConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SelectAggregateResourceConfigCommandOutput) => void),
+    cb?: (err: any, data?: SelectAggregateResourceConfigCommandOutput) => void
+  ): Promise<SelectAggregateResourceConfigCommandOutput> | void {
+    const command = new SelectAggregateResourceConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

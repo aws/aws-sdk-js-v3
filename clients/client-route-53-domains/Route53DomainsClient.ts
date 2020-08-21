@@ -1,4 +1,12 @@
 import {
+  AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+  AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
+} from "./commands/AcceptDomainTransferFromAnotherAwsAccountCommand";
+import {
+  CancelDomainTransferToAnotherAwsAccountCommandInput,
+  CancelDomainTransferToAnotherAwsAccountCommandOutput,
+} from "./commands/CancelDomainTransferToAnotherAwsAccountCommand";
+import {
   CheckDomainAvailabilityCommandInput,
   CheckDomainAvailabilityCommandOutput,
 } from "./commands/CheckDomainAvailabilityCommand";
@@ -40,6 +48,10 @@ import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/Li
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
 import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "./commands/ListTagsForDomainCommand";
 import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
+import {
+  RejectDomainTransferFromAnotherAwsAccountCommandInput,
+  RejectDomainTransferFromAnotherAwsAccountCommandOutput,
+} from "./commands/RejectDomainTransferFromAnotherAwsAccountCommand";
 import { RenewDomainCommandInput, RenewDomainCommandOutput } from "./commands/RenewDomainCommand";
 import {
   ResendContactReachabilityEmailCommandInput,
@@ -50,6 +62,10 @@ import {
   RetrieveDomainAuthCodeCommandOutput,
 } from "./commands/RetrieveDomainAuthCodeCommand";
 import { TransferDomainCommandInput, TransferDomainCommandOutput } from "./commands/TransferDomainCommand";
+import {
+  TransferDomainToAnotherAwsAccountCommandInput,
+  TransferDomainToAnotherAwsAccountCommandOutput,
+} from "./commands/TransferDomainToAnotherAwsAccountCommand";
 import {
   UpdateDomainContactCommandInput,
   UpdateDomainContactCommandOutput,
@@ -115,6 +131,8 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AcceptDomainTransferFromAnotherAwsAccountCommandInput
+  | CancelDomainTransferToAnotherAwsAccountCommandInput
   | CheckDomainAvailabilityCommandInput
   | CheckDomainTransferabilityCommandInput
   | DeleteTagsForDomainCommandInput
@@ -130,10 +148,12 @@ export type ServiceInputTypes =
   | ListOperationsCommandInput
   | ListTagsForDomainCommandInput
   | RegisterDomainCommandInput
+  | RejectDomainTransferFromAnotherAwsAccountCommandInput
   | RenewDomainCommandInput
   | ResendContactReachabilityEmailCommandInput
   | RetrieveDomainAuthCodeCommandInput
   | TransferDomainCommandInput
+  | TransferDomainToAnotherAwsAccountCommandInput
   | UpdateDomainContactCommandInput
   | UpdateDomainContactPrivacyCommandInput
   | UpdateDomainNameserversCommandInput
@@ -141,6 +161,8 @@ export type ServiceInputTypes =
   | ViewBillingCommandInput;
 
 export type ServiceOutputTypes =
+  | AcceptDomainTransferFromAnotherAwsAccountCommandOutput
+  | CancelDomainTransferToAnotherAwsAccountCommandOutput
   | CheckDomainAvailabilityCommandOutput
   | CheckDomainTransferabilityCommandOutput
   | DeleteTagsForDomainCommandOutput
@@ -156,10 +178,12 @@ export type ServiceOutputTypes =
   | ListOperationsCommandOutput
   | ListTagsForDomainCommandOutput
   | RegisterDomainCommandOutput
+  | RejectDomainTransferFromAnotherAwsAccountCommandOutput
   | RenewDomainCommandOutput
   | ResendContactReachabilityEmailCommandOutput
   | RetrieveDomainAuthCodeCommandOutput
   | TransferDomainCommandOutput
+  | TransferDomainToAnotherAwsAccountCommandOutput
   | UpdateDomainContactCommandOutput
   | UpdateDomainContactPrivacyCommandOutput
   | UpdateDomainNameserversCommandOutput

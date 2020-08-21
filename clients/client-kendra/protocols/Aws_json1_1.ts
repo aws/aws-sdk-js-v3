@@ -6,6 +6,7 @@ import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "../
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "../commands/CreateFaqCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "../commands/CreateIndexCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "../commands/DeleteFaqCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "../commands/DeleteIndexCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "../commands/DescribeDataSourceCommand";
@@ -18,6 +19,10 @@ import {
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "../commands/ListFaqsCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "../commands/ListIndicesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommandInput,
@@ -28,6 +33,8 @@ import {
   StopDataSourceSyncJobCommandOutput,
 } from "../commands/StopDataSourceSyncJobCommand";
 import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "../commands/SubmitFeedbackCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "../commands/UpdateIndexCommand";
 import {
@@ -43,6 +50,7 @@ import {
   BatchPutDocumentRequest,
   BatchPutDocumentResponse,
   BatchPutDocumentResponseFailedDocument,
+  CapacityUnitsConfiguration,
   ClickFeedback,
   ColumnConfiguration,
   ConflictException,
@@ -56,9 +64,12 @@ import {
   DataSourceConfiguration,
   DataSourceSummary,
   DataSourceSyncJob,
+  DataSourceSyncJobMetricTarget,
+  DataSourceSyncJobMetrics,
   DataSourceToIndexFieldMapping,
   DataSourceVpcConfiguration,
   DatabaseConfiguration,
+  DeleteDataSourceRequest,
   DeleteFaqRequest,
   DeleteIndexRequest,
   DescribeDataSourceRequest,
@@ -89,6 +100,10 @@ import {
   ListFaqsResponse,
   ListIndicesRequest,
   ListIndicesResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
+  OneDriveConfiguration,
+  OneDriveUsers,
   Principal,
   QueryRequest,
   QueryResult,
@@ -101,18 +116,37 @@ import {
   ResourceUnavailableException,
   S3DataSourceConfiguration,
   S3Path,
+  SalesforceChatterFeedConfiguration,
+  SalesforceChatterFeedIncludeFilterType,
+  SalesforceConfiguration,
+  SalesforceCustomKnowledgeArticleTypeConfiguration,
+  SalesforceKnowledgeArticleConfiguration,
+  SalesforceKnowledgeArticleState,
+  SalesforceStandardKnowledgeArticleTypeConfiguration,
+  SalesforceStandardObjectAttachmentConfiguration,
+  SalesforceStandardObjectConfiguration,
   Search,
   ServerSideEncryptionConfiguration,
+  ServiceNowConfiguration,
+  ServiceNowKnowledgeArticleConfiguration,
+  ServiceNowServiceCatalogConfiguration,
   ServiceQuotaExceededException,
   SharePointConfiguration,
+  SortingConfiguration,
+  SqlConfiguration,
   StartDataSourceSyncJobRequest,
   StartDataSourceSyncJobResponse,
   StopDataSourceSyncJobRequest,
   SubmitFeedbackRequest,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
   TextDocumentStatistics,
   TextWithHighlights,
   ThrottlingException,
   TimeRange,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateDataSourceRequest,
   UpdateIndexRequest,
   ValidationException,
@@ -126,6 +160,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_json1_1BatchDeleteDocumentCommand = async (
   input: BatchDeleteDocumentCommandInput,
@@ -189,6 +224,19 @@ export const serializeAws_json1_1CreateIndexCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateIndexRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteDataSourceCommand = async (
+  input: DeleteDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.DeleteDataSource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteDataSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -309,6 +357,19 @@ export const serializeAws_json1_1ListIndicesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1QueryCommand = async (
   input: QueryCommandInput,
   context: __SerdeContext
@@ -358,6 +419,32 @@ export const serializeAws_json1_1SubmitFeedbackCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SubmitFeedbackRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -842,6 +929,14 @@ const deserializeAws_json1_1CreateIndexCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
       response = {
@@ -862,6 +957,98 @@ const deserializeAws_json1_1CreateIndexCommandError = async (
     case "com.amazonaws.kendra#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataSourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteDataSourceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDataSourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteDataSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1699,6 +1886,94 @@ const deserializeAws_json1_1ListIndicesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.kendra#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1QueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1758,6 +2033,14 @@ const deserializeAws_json1_1QueryCommandError = async (
     case "com.amazonaws.kendra#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.kendra#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2075,6 +2358,182 @@ const deserializeAws_json1_1SubmitFeedbackCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.kendra#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.kendra#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateDataSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2222,6 +2681,14 @@ const deserializeAws_json1_1UpdateIndexCommandError = async (
     case "com.amazonaws.kendra#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.kendra#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2462,6 +2929,12 @@ const serializeAws_json1_1BatchDeleteDocumentRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.DataSourceSyncJobMetricTarget !== undefined && {
+      DataSourceSyncJobMetricTarget: serializeAws_json1_1DataSourceSyncJobMetricTarget(
+        input.DataSourceSyncJobMetricTarget,
+        context
+      ),
+    }),
     ...(input.DocumentIdList !== undefined && {
       DocumentIdList: serializeAws_json1_1DocumentIdList(input.DocumentIdList, context),
     }),
@@ -2474,6 +2947,16 @@ const serializeAws_json1_1BatchPutDocumentRequest = (input: BatchPutDocumentRequ
     ...(input.Documents !== undefined && { Documents: serializeAws_json1_1DocumentList(input.Documents, context) }),
     ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+  };
+};
+
+const serializeAws_json1_1CapacityUnitsConfiguration = (
+  input: CapacityUnitsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.QueryCapacityUnits !== undefined && { QueryCapacityUnits: input.QueryCapacityUnits }),
+    ...(input.StorageCapacityUnits !== undefined && { StorageCapacityUnits: input.StorageCapacityUnits }),
   };
 };
 
@@ -2526,6 +3009,7 @@ const serializeAws_json1_1CreateDataSourceRequest = (input: CreateDataSourceRequ
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
     ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
@@ -2537,12 +3021,15 @@ const serializeAws_json1_1CreateFaqRequest = (input: CreateFaqRequest, context: 
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
     ...(input.S3Path !== undefined && { S3Path: serializeAws_json1_1S3Path(input.S3Path, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateIndexRequest = (input: CreateIndexRequest, context: __SerdeContext): any => {
   return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Edition !== undefined && { Edition: input.Edition }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
     ...(input.ServerSideEncryptionConfiguration !== undefined && {
@@ -2551,6 +3038,7 @@ const serializeAws_json1_1CreateIndexRequest = (input: CreateIndexRequest, conte
         context
       ),
     }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2566,6 +3054,9 @@ const serializeAws_json1_1DatabaseConfiguration = (input: DatabaseConfiguration,
       ConnectionConfiguration: serializeAws_json1_1ConnectionConfiguration(input.ConnectionConfiguration, context),
     }),
     ...(input.DatabaseEngineType !== undefined && { DatabaseEngineType: input.DatabaseEngineType }),
+    ...(input.SqlConfiguration !== undefined && {
+      SqlConfiguration: serializeAws_json1_1SqlConfiguration(input.SqlConfiguration, context),
+    }),
     ...(input.VpcConfiguration !== undefined && {
       VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
     }),
@@ -2577,8 +3068,17 @@ const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfigurat
     ...(input.DatabaseConfiguration !== undefined && {
       DatabaseConfiguration: serializeAws_json1_1DatabaseConfiguration(input.DatabaseConfiguration, context),
     }),
+    ...(input.OneDriveConfiguration !== undefined && {
+      OneDriveConfiguration: serializeAws_json1_1OneDriveConfiguration(input.OneDriveConfiguration, context),
+    }),
     ...(input.S3Configuration !== undefined && {
       S3Configuration: serializeAws_json1_1S3DataSourceConfiguration(input.S3Configuration, context),
+    }),
+    ...(input.SalesforceConfiguration !== undefined && {
+      SalesforceConfiguration: serializeAws_json1_1SalesforceConfiguration(input.SalesforceConfiguration, context),
+    }),
+    ...(input.ServiceNowConfiguration !== undefined && {
+      ServiceNowConfiguration: serializeAws_json1_1ServiceNowConfiguration(input.ServiceNowConfiguration, context),
     }),
     ...(input.SharePointConfiguration !== undefined && {
       SharePointConfiguration: serializeAws_json1_1SharePointConfiguration(input.SharePointConfiguration, context),
@@ -2588,6 +3088,16 @@ const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfigurat
 
 const serializeAws_json1_1DataSourceInclusionsExclusionsStrings = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1DataSourceSyncJobMetricTarget = (
+  input: DataSourceSyncJobMetricTarget,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceSyncJobId !== undefined && { DataSourceSyncJobId: input.DataSourceSyncJobId }),
+  };
 };
 
 const serializeAws_json1_1DataSourceToIndexFieldMapping = (
@@ -2617,6 +3127,13 @@ const serializeAws_json1_1DataSourceVpcConfiguration = (
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context),
     }),
     ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
+  };
+};
+
+const serializeAws_json1_1DeleteDataSourceRequest = (input: DeleteDataSourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
   };
 };
 
@@ -2787,6 +3304,49 @@ const serializeAws_json1_1ListIndicesRequest = (input: ListIndicesRequest, conte
   };
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+  };
+};
+
+const serializeAws_json1_1OneDriveConfiguration = (input: OneDriveConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ExclusionPatterns !== undefined && {
+      ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+    }),
+    ...(input.FieldMappings !== undefined && {
+      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+    ...(input.InclusionPatterns !== undefined && {
+      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+    }),
+    ...(input.OneDriveUsers !== undefined && {
+      OneDriveUsers: serializeAws_json1_1OneDriveUsers(input.OneDriveUsers, context),
+    }),
+    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
+    ...(input.TenantDomain !== undefined && { TenantDomain: input.TenantDomain }),
+  };
+};
+
+const serializeAws_json1_1OneDriveUserList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1OneDriveUsers = (input: OneDriveUsers, context: __SerdeContext): any => {
+  return {
+    ...(input.OneDriveUserList !== undefined && {
+      OneDriveUserList: serializeAws_json1_1OneDriveUserList(input.OneDriveUserList, context),
+    }),
+    ...(input.OneDriveUserS3Path !== undefined && {
+      OneDriveUserS3Path: serializeAws_json1_1S3Path(input.OneDriveUserS3Path, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1Principal = (input: Principal, context: __SerdeContext): any => {
   return {
     ...(input.Access !== undefined && { Access: input.Access }),
@@ -2815,6 +3375,9 @@ const serializeAws_json1_1QueryRequest = (input: QueryRequest, context: __SerdeC
         input.RequestedDocumentAttributes,
         context
       ),
+    }),
+    ...(input.SortingConfiguration !== undefined && {
+      SortingConfiguration: serializeAws_json1_1SortingConfiguration(input.SortingConfiguration, context),
     }),
   };
 };
@@ -2876,11 +3439,179 @@ const serializeAws_json1_1S3Path = (input: S3Path, context: __SerdeContext): any
   };
 };
 
+const serializeAws_json1_1SalesforceChatterFeedConfiguration = (
+  input: SalesforceChatterFeedConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined && {
+      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+    ...(input.IncludeFilterTypes !== undefined && {
+      IncludeFilterTypes: serializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes(
+        input.IncludeFilterTypes,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes = (
+  input: (SalesforceChatterFeedIncludeFilterType | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1SalesforceConfiguration = (input: SalesforceConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ChatterFeedConfiguration !== undefined && {
+      ChatterFeedConfiguration: serializeAws_json1_1SalesforceChatterFeedConfiguration(
+        input.ChatterFeedConfiguration,
+        context
+      ),
+    }),
+    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.ExcludeAttachmentFilePatterns !== undefined && {
+      ExcludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+        input.ExcludeAttachmentFilePatterns,
+        context
+      ),
+    }),
+    ...(input.IncludeAttachmentFilePatterns !== undefined && {
+      IncludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+        input.IncludeAttachmentFilePatterns,
+        context
+      ),
+    }),
+    ...(input.KnowledgeArticleConfiguration !== undefined && {
+      KnowledgeArticleConfiguration: serializeAws_json1_1SalesforceKnowledgeArticleConfiguration(
+        input.KnowledgeArticleConfiguration,
+        context
+      ),
+    }),
+    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
+    ...(input.ServerUrl !== undefined && { ServerUrl: input.ServerUrl }),
+    ...(input.StandardObjectAttachmentConfiguration !== undefined && {
+      StandardObjectAttachmentConfiguration: serializeAws_json1_1SalesforceStandardObjectAttachmentConfiguration(
+        input.StandardObjectAttachmentConfiguration,
+        context
+      ),
+    }),
+    ...(input.StandardObjectConfigurations !== undefined && {
+      StandardObjectConfigurations: serializeAws_json1_1SalesforceStandardObjectConfigurationList(
+        input.StandardObjectConfigurations,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfiguration = (
+  input: SalesforceCustomKnowledgeArticleTypeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined && {
+      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationList = (
+  input: SalesforceCustomKnowledgeArticleTypeConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfiguration(entry, context));
+};
+
+const serializeAws_json1_1SalesforceKnowledgeArticleConfiguration = (
+  input: SalesforceKnowledgeArticleConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomKnowledgeArticleTypeConfigurations !== undefined && {
+      CustomKnowledgeArticleTypeConfigurations: serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationList(
+        input.CustomKnowledgeArticleTypeConfigurations,
+        context
+      ),
+    }),
+    ...(input.IncludedStates !== undefined && {
+      IncludedStates: serializeAws_json1_1SalesforceKnowledgeArticleStateList(input.IncludedStates, context),
+    }),
+    ...(input.StandardKnowledgeArticleTypeConfiguration !== undefined && {
+      StandardKnowledgeArticleTypeConfiguration: serializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration(
+        input.StandardKnowledgeArticleTypeConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_json1_1SalesforceKnowledgeArticleStateList = (
+  input: (SalesforceKnowledgeArticleState | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration = (
+  input: SalesforceStandardKnowledgeArticleTypeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined && {
+      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1SalesforceStandardObjectAttachmentConfiguration = (
+  input: SalesforceStandardObjectAttachmentConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined && {
+      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1SalesforceStandardObjectConfiguration = (
+  input: SalesforceStandardObjectConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined && {
+      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1SalesforceStandardObjectConfigurationList = (
+  input: SalesforceStandardObjectConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1SalesforceStandardObjectConfiguration(entry, context));
+};
+
 const serializeAws_json1_1Search = (input: Search, context: __SerdeContext): any => {
   return {
     ...(input.Displayable !== undefined && { Displayable: input.Displayable }),
     ...(input.Facetable !== undefined && { Facetable: input.Facetable }),
     ...(input.Searchable !== undefined && { Searchable: input.Searchable }),
+    ...(input.Sortable !== undefined && { Sortable: input.Sortable }),
   };
 };
 
@@ -2897,16 +3628,95 @@ const serializeAws_json1_1ServerSideEncryptionConfiguration = (
   };
 };
 
+const serializeAws_json1_1ServiceNowConfiguration = (input: ServiceNowConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.HostUrl !== undefined && { HostUrl: input.HostUrl }),
+    ...(input.KnowledgeArticleConfiguration !== undefined && {
+      KnowledgeArticleConfiguration: serializeAws_json1_1ServiceNowKnowledgeArticleConfiguration(
+        input.KnowledgeArticleConfiguration,
+        context
+      ),
+    }),
+    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
+    ...(input.ServiceCatalogConfiguration !== undefined && {
+      ServiceCatalogConfiguration: serializeAws_json1_1ServiceNowServiceCatalogConfiguration(
+        input.ServiceCatalogConfiguration,
+        context
+      ),
+    }),
+    ...(input.ServiceNowBuildVersion !== undefined && { ServiceNowBuildVersion: input.ServiceNowBuildVersion }),
+  };
+};
+
+const serializeAws_json1_1ServiceNowKnowledgeArticleConfiguration = (
+  input: ServiceNowKnowledgeArticleConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.ExcludeAttachmentFilePatterns !== undefined && {
+      ExcludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+        input.ExcludeAttachmentFilePatterns,
+        context
+      ),
+    }),
+    ...(input.FieldMappings !== undefined && {
+      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+    ...(input.IncludeAttachmentFilePatterns !== undefined && {
+      IncludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+        input.IncludeAttachmentFilePatterns,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_json1_1ServiceNowServiceCatalogConfiguration = (
+  input: ServiceNowServiceCatalogConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.ExcludeAttachmentFilePatterns !== undefined && {
+      ExcludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+        input.ExcludeAttachmentFilePatterns,
+        context
+      ),
+    }),
+    ...(input.FieldMappings !== undefined && {
+      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+    ...(input.IncludeAttachmentFilePatterns !== undefined && {
+      IncludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+        input.IncludeAttachmentFilePatterns,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_json1_1SharePointConfiguration = (input: SharePointConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
     ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.ExclusionPatterns !== undefined && {
+      ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+    }),
     ...(input.FieldMappings !== undefined && {
       FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+    }),
+    ...(input.InclusionPatterns !== undefined && {
+      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
     }),
     ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
     ...(input.SharePointVersion !== undefined && { SharePointVersion: input.SharePointVersion }),
     ...(input.Urls !== undefined && { Urls: serializeAws_json1_1SharePointUrlList(input.Urls, context) }),
+    ...(input.UseChangeLog !== undefined && { UseChangeLog: input.UseChangeLog }),
     ...(input.VpcConfiguration !== undefined && {
       VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
     }),
@@ -2915,6 +3725,21 @@ const serializeAws_json1_1SharePointConfiguration = (input: SharePointConfigurat
 
 const serializeAws_json1_1SharePointUrlList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1SortingConfiguration = (input: SortingConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.DocumentAttributeKey !== undefined && { DocumentAttributeKey: input.DocumentAttributeKey }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1SqlConfiguration = (input: SqlConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.QueryIdentifiersEnclosingOption !== undefined && {
+      QueryIdentifiersEnclosingOption: input.QueryIdentifiersEnclosingOption,
+    }),
+  };
 };
 
 const serializeAws_json1_1StartDataSourceSyncJobRequest = (
@@ -2954,10 +3779,39 @@ const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeConte
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+};
+
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
     ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2977,6 +3831,9 @@ const serializeAws_json1_1UpdateDataSourceRequest = (input: UpdateDataSourceRequ
 
 const serializeAws_json1_1UpdateIndexRequest = (input: UpdateIndexRequest, context: __SerdeContext): any => {
   return {
+    ...(input.CapacityUnits !== undefined && {
+      CapacityUnits: serializeAws_json1_1CapacityUnitsConfiguration(input.CapacityUnits, context),
+    }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DocumentMetadataConfigurationUpdates !== undefined && {
       DocumentMetadataConfigurationUpdates: serializeAws_json1_1DocumentMetadataConfigurationList(
@@ -3130,6 +3987,23 @@ const deserializeAws_json1_1BatchPutDocumentResponseFailedDocuments = (
   );
 };
 
+const deserializeAws_json1_1CapacityUnitsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): CapacityUnitsConfiguration => {
+  return {
+    __type: "CapacityUnitsConfiguration",
+    QueryCapacityUnits:
+      output.QueryCapacityUnits !== undefined && output.QueryCapacityUnits !== null
+        ? output.QueryCapacityUnits
+        : undefined,
+    StorageCapacityUnits:
+      output.StorageCapacityUnits !== undefined && output.StorageCapacityUnits !== null
+        ? output.StorageCapacityUnits
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ChangeDetectingColumns = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -3224,6 +4098,10 @@ const deserializeAws_json1_1DatabaseConfiguration = (output: any, context: __Ser
       output.DatabaseEngineType !== undefined && output.DatabaseEngineType !== null
         ? output.DatabaseEngineType
         : undefined,
+    SqlConfiguration:
+      output.SqlConfiguration !== undefined && output.SqlConfiguration !== null
+        ? deserializeAws_json1_1SqlConfiguration(output.SqlConfiguration, context)
+        : undefined,
     VpcConfiguration:
       output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
         ? deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context)
@@ -3241,9 +4119,21 @@ const deserializeAws_json1_1DataSourceConfiguration = (
       output.DatabaseConfiguration !== undefined && output.DatabaseConfiguration !== null
         ? deserializeAws_json1_1DatabaseConfiguration(output.DatabaseConfiguration, context)
         : undefined,
+    OneDriveConfiguration:
+      output.OneDriveConfiguration !== undefined && output.OneDriveConfiguration !== null
+        ? deserializeAws_json1_1OneDriveConfiguration(output.OneDriveConfiguration, context)
+        : undefined,
     S3Configuration:
       output.S3Configuration !== undefined && output.S3Configuration !== null
         ? deserializeAws_json1_1S3DataSourceConfiguration(output.S3Configuration, context)
+        : undefined,
+    SalesforceConfiguration:
+      output.SalesforceConfiguration !== undefined && output.SalesforceConfiguration !== null
+        ? deserializeAws_json1_1SalesforceConfiguration(output.SalesforceConfiguration, context)
+        : undefined,
+    ServiceNowConfiguration:
+      output.ServiceNowConfiguration !== undefined && output.ServiceNowConfiguration !== null
+        ? deserializeAws_json1_1ServiceNowConfiguration(output.ServiceNowConfiguration, context)
         : undefined,
     SharePointConfiguration:
       output.SharePointConfiguration !== undefined && output.SharePointConfiguration !== null
@@ -3293,6 +4183,10 @@ const deserializeAws_json1_1DataSourceSyncJob = (output: any, context: __SerdeCo
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     ExecutionId: output.ExecutionId !== undefined && output.ExecutionId !== null ? output.ExecutionId : undefined,
+    Metrics:
+      output.Metrics !== undefined && output.Metrics !== null
+        ? deserializeAws_json1_1DataSourceSyncJobMetrics(output.Metrics, context)
+        : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
@@ -3306,6 +4200,27 @@ const deserializeAws_json1_1DataSourceSyncJobHistoryList = (
   context: __SerdeContext
 ): DataSourceSyncJob[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1DataSourceSyncJob(entry, context));
+};
+
+const deserializeAws_json1_1DataSourceSyncJobMetrics = (
+  output: any,
+  context: __SerdeContext
+): DataSourceSyncJobMetrics => {
+  return {
+    __type: "DataSourceSyncJobMetrics",
+    DocumentsAdded:
+      output.DocumentsAdded !== undefined && output.DocumentsAdded !== null ? output.DocumentsAdded : undefined,
+    DocumentsDeleted:
+      output.DocumentsDeleted !== undefined && output.DocumentsDeleted !== null ? output.DocumentsDeleted : undefined,
+    DocumentsFailed:
+      output.DocumentsFailed !== undefined && output.DocumentsFailed !== null ? output.DocumentsFailed : undefined,
+    DocumentsModified:
+      output.DocumentsModified !== undefined && output.DocumentsModified !== null
+        ? output.DocumentsModified
+        : undefined,
+    DocumentsScanned:
+      output.DocumentsScanned !== undefined && output.DocumentsScanned !== null ? output.DocumentsScanned : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1DataSourceToIndexFieldMapping = (
@@ -3407,6 +4322,10 @@ const deserializeAws_json1_1DescribeFaqResponse = (output: any, context: __Serde
 const deserializeAws_json1_1DescribeIndexResponse = (output: any, context: __SerdeContext): DescribeIndexResponse => {
   return {
     __type: "DescribeIndexResponse",
+    CapacityUnits:
+      output.CapacityUnits !== undefined && output.CapacityUnits !== null
+        ? deserializeAws_json1_1CapacityUnitsConfiguration(output.CapacityUnits, context)
+        : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -3416,6 +4335,7 @@ const deserializeAws_json1_1DescribeIndexResponse = (output: any, context: __Ser
       output.DocumentMetadataConfigurations !== undefined && output.DocumentMetadataConfigurations !== null
         ? deserializeAws_json1_1DocumentMetadataConfigurationList(output.DocumentMetadataConfigurations, context)
         : undefined,
+    Edition: output.Edition !== undefined && output.Edition !== null ? output.Edition : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     IndexStatistics:
@@ -3600,6 +4520,7 @@ const deserializeAws_json1_1IndexConfigurationSummary = (
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
+    Edition: output.Edition !== undefined && output.Edition !== null ? output.Edition : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -3688,6 +4609,61 @@ const deserializeAws_json1_1ListIndicesResponse = (output: any, context: __Serde
         ? deserializeAws_json1_1IndexConfigurationSummaryList(output.IndexConfigurationSummaryItems, context)
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    __type: "ListTagsForResourceResponse",
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OneDriveConfiguration = (output: any, context: __SerdeContext): OneDriveConfiguration => {
+  return {
+    __type: "OneDriveConfiguration",
+    ExclusionPatterns:
+      output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
+        : undefined,
+    OneDriveUsers:
+      output.OneDriveUsers !== undefined && output.OneDriveUsers !== null
+        ? deserializeAws_json1_1OneDriveUsers(output.OneDriveUsers, context)
+        : undefined,
+    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
+    TenantDomain: output.TenantDomain !== undefined && output.TenantDomain !== null ? output.TenantDomain : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OneDriveUserList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1OneDriveUsers = (output: any, context: __SerdeContext): OneDriveUsers => {
+  return {
+    __type: "OneDriveUsers",
+    OneDriveUserList:
+      output.OneDriveUserList !== undefined && output.OneDriveUserList !== null
+        ? deserializeAws_json1_1OneDriveUserList(output.OneDriveUserList, context)
+        : undefined,
+    OneDriveUserS3Path:
+      output.OneDriveUserS3Path !== undefined && output.OneDriveUserS3Path !== null
+        ? deserializeAws_json1_1S3Path(output.OneDriveUserS3Path, context)
+        : undefined,
   } as any;
 };
 
@@ -3825,12 +4801,222 @@ const deserializeAws_json1_1S3Path = (output: any, context: __SerdeContext): S3P
   } as any;
 };
 
+const deserializeAws_json1_1SalesforceChatterFeedConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SalesforceChatterFeedConfiguration => {
+  return {
+    __type: "SalesforceChatterFeedConfiguration",
+    DocumentDataFieldName:
+      output.DocumentDataFieldName !== undefined && output.DocumentDataFieldName !== null
+        ? output.DocumentDataFieldName
+        : undefined,
+    DocumentTitleFieldName:
+      output.DocumentTitleFieldName !== undefined && output.DocumentTitleFieldName !== null
+        ? output.DocumentTitleFieldName
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    IncludeFilterTypes:
+      output.IncludeFilterTypes !== undefined && output.IncludeFilterTypes !== null
+        ? deserializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes(output.IncludeFilterTypes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes = (
+  output: any,
+  context: __SerdeContext
+): (SalesforceChatterFeedIncludeFilterType | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1SalesforceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SalesforceConfiguration => {
+  return {
+    __type: "SalesforceConfiguration",
+    ChatterFeedConfiguration:
+      output.ChatterFeedConfiguration !== undefined && output.ChatterFeedConfiguration !== null
+        ? deserializeAws_json1_1SalesforceChatterFeedConfiguration(output.ChatterFeedConfiguration, context)
+        : undefined,
+    CrawlAttachments:
+      output.CrawlAttachments !== undefined && output.CrawlAttachments !== null ? output.CrawlAttachments : undefined,
+    ExcludeAttachmentFilePatterns:
+      output.ExcludeAttachmentFilePatterns !== undefined && output.ExcludeAttachmentFilePatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExcludeAttachmentFilePatterns, context)
+        : undefined,
+    IncludeAttachmentFilePatterns:
+      output.IncludeAttachmentFilePatterns !== undefined && output.IncludeAttachmentFilePatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.IncludeAttachmentFilePatterns, context)
+        : undefined,
+    KnowledgeArticleConfiguration:
+      output.KnowledgeArticleConfiguration !== undefined && output.KnowledgeArticleConfiguration !== null
+        ? deserializeAws_json1_1SalesforceKnowledgeArticleConfiguration(output.KnowledgeArticleConfiguration, context)
+        : undefined,
+    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
+    ServerUrl: output.ServerUrl !== undefined && output.ServerUrl !== null ? output.ServerUrl : undefined,
+    StandardObjectAttachmentConfiguration:
+      output.StandardObjectAttachmentConfiguration !== undefined &&
+      output.StandardObjectAttachmentConfiguration !== null
+        ? deserializeAws_json1_1SalesforceStandardObjectAttachmentConfiguration(
+            output.StandardObjectAttachmentConfiguration,
+            context
+          )
+        : undefined,
+    StandardObjectConfigurations:
+      output.StandardObjectConfigurations !== undefined && output.StandardObjectConfigurations !== null
+        ? deserializeAws_json1_1SalesforceStandardObjectConfigurationList(output.StandardObjectConfigurations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SalesforceCustomKnowledgeArticleTypeConfiguration => {
+  return {
+    __type: "SalesforceCustomKnowledgeArticleTypeConfiguration",
+    DocumentDataFieldName:
+      output.DocumentDataFieldName !== undefined && output.DocumentDataFieldName !== null
+        ? output.DocumentDataFieldName
+        : undefined,
+    DocumentTitleFieldName:
+      output.DocumentTitleFieldName !== undefined && output.DocumentTitleFieldName !== null
+        ? output.DocumentTitleFieldName
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): SalesforceCustomKnowledgeArticleTypeConfiguration[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfiguration(entry, context)
+  );
+};
+
+const deserializeAws_json1_1SalesforceKnowledgeArticleConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SalesforceKnowledgeArticleConfiguration => {
+  return {
+    __type: "SalesforceKnowledgeArticleConfiguration",
+    CustomKnowledgeArticleTypeConfigurations:
+      output.CustomKnowledgeArticleTypeConfigurations !== undefined &&
+      output.CustomKnowledgeArticleTypeConfigurations !== null
+        ? deserializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationList(
+            output.CustomKnowledgeArticleTypeConfigurations,
+            context
+          )
+        : undefined,
+    IncludedStates:
+      output.IncludedStates !== undefined && output.IncludedStates !== null
+        ? deserializeAws_json1_1SalesforceKnowledgeArticleStateList(output.IncludedStates, context)
+        : undefined,
+    StandardKnowledgeArticleTypeConfiguration:
+      output.StandardKnowledgeArticleTypeConfiguration !== undefined &&
+      output.StandardKnowledgeArticleTypeConfiguration !== null
+        ? deserializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration(
+            output.StandardKnowledgeArticleTypeConfiguration,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SalesforceKnowledgeArticleStateList = (
+  output: any,
+  context: __SerdeContext
+): (SalesforceKnowledgeArticleState | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SalesforceStandardKnowledgeArticleTypeConfiguration => {
+  return {
+    __type: "SalesforceStandardKnowledgeArticleTypeConfiguration",
+    DocumentDataFieldName:
+      output.DocumentDataFieldName !== undefined && output.DocumentDataFieldName !== null
+        ? output.DocumentDataFieldName
+        : undefined,
+    DocumentTitleFieldName:
+      output.DocumentTitleFieldName !== undefined && output.DocumentTitleFieldName !== null
+        ? output.DocumentTitleFieldName
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SalesforceStandardObjectAttachmentConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SalesforceStandardObjectAttachmentConfiguration => {
+  return {
+    __type: "SalesforceStandardObjectAttachmentConfiguration",
+    DocumentTitleFieldName:
+      output.DocumentTitleFieldName !== undefined && output.DocumentTitleFieldName !== null
+        ? output.DocumentTitleFieldName
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SalesforceStandardObjectConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SalesforceStandardObjectConfiguration => {
+  return {
+    __type: "SalesforceStandardObjectConfiguration",
+    DocumentDataFieldName:
+      output.DocumentDataFieldName !== undefined && output.DocumentDataFieldName !== null
+        ? output.DocumentDataFieldName
+        : undefined,
+    DocumentTitleFieldName:
+      output.DocumentTitleFieldName !== undefined && output.DocumentTitleFieldName !== null
+        ? output.DocumentTitleFieldName
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SalesforceStandardObjectConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): SalesforceStandardObjectConfiguration[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1SalesforceStandardObjectConfiguration(entry, context)
+  );
+};
+
 const deserializeAws_json1_1Search = (output: any, context: __SerdeContext): Search => {
   return {
     __type: "Search",
     Displayable: output.Displayable !== undefined && output.Displayable !== null ? output.Displayable : undefined,
     Facetable: output.Facetable !== undefined && output.Facetable !== null ? output.Facetable : undefined,
     Searchable: output.Searchable !== undefined && output.Searchable !== null ? output.Searchable : undefined,
+    Sortable: output.Sortable !== undefined && output.Sortable !== null ? output.Sortable : undefined,
   } as any;
 };
 
@@ -3845,6 +5031,91 @@ const deserializeAws_json1_1ServerSideEncryptionConfiguration = (
   return {
     __type: "ServerSideEncryptionConfiguration",
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ServiceNowConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ServiceNowConfiguration => {
+  return {
+    __type: "ServiceNowConfiguration",
+    HostUrl: output.HostUrl !== undefined && output.HostUrl !== null ? output.HostUrl : undefined,
+    KnowledgeArticleConfiguration:
+      output.KnowledgeArticleConfiguration !== undefined && output.KnowledgeArticleConfiguration !== null
+        ? deserializeAws_json1_1ServiceNowKnowledgeArticleConfiguration(output.KnowledgeArticleConfiguration, context)
+        : undefined,
+    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
+    ServiceCatalogConfiguration:
+      output.ServiceCatalogConfiguration !== undefined && output.ServiceCatalogConfiguration !== null
+        ? deserializeAws_json1_1ServiceNowServiceCatalogConfiguration(output.ServiceCatalogConfiguration, context)
+        : undefined,
+    ServiceNowBuildVersion:
+      output.ServiceNowBuildVersion !== undefined && output.ServiceNowBuildVersion !== null
+        ? output.ServiceNowBuildVersion
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ServiceNowKnowledgeArticleConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ServiceNowKnowledgeArticleConfiguration => {
+  return {
+    __type: "ServiceNowKnowledgeArticleConfiguration",
+    CrawlAttachments:
+      output.CrawlAttachments !== undefined && output.CrawlAttachments !== null ? output.CrawlAttachments : undefined,
+    DocumentDataFieldName:
+      output.DocumentDataFieldName !== undefined && output.DocumentDataFieldName !== null
+        ? output.DocumentDataFieldName
+        : undefined,
+    DocumentTitleFieldName:
+      output.DocumentTitleFieldName !== undefined && output.DocumentTitleFieldName !== null
+        ? output.DocumentTitleFieldName
+        : undefined,
+    ExcludeAttachmentFilePatterns:
+      output.ExcludeAttachmentFilePatterns !== undefined && output.ExcludeAttachmentFilePatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExcludeAttachmentFilePatterns, context)
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    IncludeAttachmentFilePatterns:
+      output.IncludeAttachmentFilePatterns !== undefined && output.IncludeAttachmentFilePatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.IncludeAttachmentFilePatterns, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ServiceNowServiceCatalogConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ServiceNowServiceCatalogConfiguration => {
+  return {
+    __type: "ServiceNowServiceCatalogConfiguration",
+    CrawlAttachments:
+      output.CrawlAttachments !== undefined && output.CrawlAttachments !== null ? output.CrawlAttachments : undefined,
+    DocumentDataFieldName:
+      output.DocumentDataFieldName !== undefined && output.DocumentDataFieldName !== null
+        ? output.DocumentDataFieldName
+        : undefined,
+    DocumentTitleFieldName:
+      output.DocumentTitleFieldName !== undefined && output.DocumentTitleFieldName !== null
+        ? output.DocumentTitleFieldName
+        : undefined,
+    ExcludeAttachmentFilePatterns:
+      output.ExcludeAttachmentFilePatterns !== undefined && output.ExcludeAttachmentFilePatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExcludeAttachmentFilePatterns, context)
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    IncludeAttachmentFilePatterns:
+      output.IncludeAttachmentFilePatterns !== undefined && output.IncludeAttachmentFilePatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.IncludeAttachmentFilePatterns, context)
+        : undefined,
   } as any;
 };
 
@@ -3870,9 +5141,17 @@ const deserializeAws_json1_1SharePointConfiguration = (
       output.DocumentTitleFieldName !== undefined && output.DocumentTitleFieldName !== null
         ? output.DocumentTitleFieldName
         : undefined,
+    ExclusionPatterns:
+      output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
     FieldMappings:
       output.FieldMappings !== undefined && output.FieldMappings !== null
         ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
         : undefined,
     SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
     SharePointVersion:
@@ -3883,6 +5162,7 @@ const deserializeAws_json1_1SharePointConfiguration = (
       output.Urls !== undefined && output.Urls !== null
         ? deserializeAws_json1_1SharePointUrlList(output.Urls, context)
         : undefined,
+    UseChangeLog: output.UseChangeLog !== undefined && output.UseChangeLog !== null ? output.UseChangeLog : undefined,
     VpcConfiguration:
       output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
         ? deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context)
@@ -3892,6 +5172,16 @@ const deserializeAws_json1_1SharePointConfiguration = (
 
 const deserializeAws_json1_1SharePointUrlList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1SqlConfiguration = (output: any, context: __SerdeContext): SqlConfiguration => {
+  return {
+    __type: "SqlConfiguration",
+    QueryIdentifiersEnclosingOption:
+      output.QueryIdentifiersEnclosingOption !== undefined && output.QueryIdentifiersEnclosingOption !== null
+        ? output.QueryIdentifiersEnclosingOption
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1StartDataSourceSyncJobResponse = (
@@ -3908,9 +5198,29 @@ const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    __type: "Tag",
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+};
+
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {
+    __type: "TagResourceResponse",
+  } as any;
+};
+
 const deserializeAws_json1_1TextDocumentStatistics = (output: any, context: __SerdeContext): TextDocumentStatistics => {
   return {
     __type: "TextDocumentStatistics",
+    IndexedTextBytes:
+      output.IndexedTextBytes !== undefined && output.IndexedTextBytes !== null ? output.IndexedTextBytes : undefined,
     IndexedTextDocumentsCount:
       output.IndexedTextDocumentsCount !== undefined && output.IndexedTextDocumentsCount !== null
         ? output.IndexedTextDocumentsCount
@@ -3933,6 +5243,12 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
   return {
     __type: "ThrottlingException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {
+    __type: "UntagResourceResponse",
   } as any;
 };
 

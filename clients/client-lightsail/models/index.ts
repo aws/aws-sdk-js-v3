@@ -8,10 +8,10 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
+  tip?: string;
+  message?: string;
   code?: string;
   docs?: string;
-  message?: string;
-  tip?: string;
 }
 
 export namespace AccessDeniedException {
@@ -33,10 +33,10 @@ export enum AccessDirection {
 export interface AccountSetupInProgressException extends __SmithyException, $MetadataBearer {
   name: "AccountSetupInProgressException";
   $fault: "client";
-  code?: string;
   docs?: string;
-  message?: string;
+  code?: string;
   tip?: string;
+  message?: string;
 }
 
 export namespace AccountSetupInProgressException {
@@ -52,11 +52,6 @@ export namespace AccountSetupInProgressException {
 export interface AddOn {
   __type?: "AddOn";
   /**
-   * <p>The name of the add-on.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The next daily time an automatic snapshot will be created.</p>
    *          <p>The time shown is in <code>HH:00</code> format, and in Coordinated Universal Time
    *       (UTC).</p>
@@ -64,6 +59,11 @@ export interface AddOn {
    *       after.</p>
    */
   nextSnapshotTimeOfDay?: string;
+
+  /**
+   * <p>The name of the add-on.</p>
+   */
+  name?: string;
 
   /**
    * <p>The daily time when an automatic snapshot is created.</p>
@@ -121,6 +121,202 @@ export enum AddOnType {
   AutoSnapshot = "AutoSnapshot",
 }
 
+/**
+ * <p>Describes an alarm.</p>
+ *          <p>An alarm is a way to monitor your Amazon Lightsail resource metrics. For more information,
+ *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
+ *         in Amazon Lightsail</a>.</p>
+ */
+export interface Alarm {
+  __type?: "Alarm";
+  /**
+   * <p>The current state of the alarm.</p>
+   *          <p>An alarm has the following possible states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALARM</code> - The metric is outside of the defined threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_DATA</code> - The alarm has just started, the metric is not
+   *           available, or not enough data is available for the metric to determine the alarm
+   *           state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OK</code> - The metric is within the defined threshold.</p>
+   *             </li>
+   *          </ul>
+   */
+  state?: AlarmState | string;
+
+  /**
+   * <p>An object that lists information about the location of the alarm.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The value against which the specified statistic is compared.</p>
+   */
+  threshold?: number;
+
+  /**
+   * <p>The alarm states that trigger a notification.</p>
+   */
+  notificationTriggers?: (AlarmState | string)[];
+
+  /**
+   * <p>The unit of the metric associated with the alarm.</p>
+   */
+  unit?: MetricUnit | string;
+
+  /**
+   * <p>The name of the metric associated with the alarm.</p>
+   */
+  metricName?: MetricName | string;
+
+  /**
+   * <p>The contact protocols for the alarm, such as <code>Email</code>, <code>SMS</code> (text
+   *       messaging), or both.</p>
+   */
+  contactProtocols?: (ContactProtocol | string)[];
+
+  /**
+   * <p>The arithmetic operation used when comparing the specified statistic and threshold.</p>
+   */
+  comparisonOperator?: ComparisonOperator | string;
+
+  /**
+   * <p>The number of data points that must not within the specified threshold to trigger the
+   *       alarm.</p>
+   */
+  datapointsToAlarm?: number;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       your Lightsail alarm. This code enables our support team to look up your Lightsail
+   *       information more easily.</p>
+   */
+  supportCode?: string;
+
+  /**
+   * <p>The Lightsail resource type (e.g., <code>Alarm</code>).</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>The name of the alarm.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The number of periods over which data is compared to the specified threshold.</p>
+   */
+  evaluationPeriods?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the alarm.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Indicates whether the alarm is enabled.</p>
+   */
+  notificationEnabled?: boolean;
+
+  /**
+   * <p>The period, in seconds, over which the statistic is applied.</p>
+   */
+  period?: number;
+
+  /**
+   * <p>The statistic for the metric associated with the alarm.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
+   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
+   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: MetricStatistic | string;
+
+  /**
+   * <p>The timestamp when the alarm was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>Specifies how the alarm handles missing data points.</p>
+   *          <p>An alarm can treat missing data in the following ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>breaching</code> - Assume the missing data is not within the threshold. Missing
+   *           data counts towards the number of times the metric is not within the threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>notBreaching</code> - Assume the missing data is within the threshold. Missing
+   *           data does not count towards the number of times the metric is not within the
+   *           threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ignore</code> - Ignore the missing data. Maintains the current alarm
+   *           state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>missing</code> - Missing data is treated as missing.</p>
+   *             </li>
+   *          </ul>
+   */
+  treatMissingData?: TreatMissingData | string;
+
+  /**
+   * <p>An object that lists information about the resource monitored by the alarm.</p>
+   */
+  monitoredResourceInfo?: MonitoredResourceInfo;
+}
+
+export namespace Alarm {
+  export const filterSensitiveLog = (obj: Alarm): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Alarm => __isa(o, "Alarm");
+}
+
+export enum AlarmState {
+  ALARM = "ALARM",
+  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
+  OK = "OK",
+}
+
 export interface AllocateStaticIpRequest {
   __type?: "AllocateStaticIpRequest";
   /**
@@ -139,8 +335,8 @@ export namespace AllocateStaticIpRequest {
 export interface AllocateStaticIpResult {
   __type?: "AllocateStaticIpResult";
   /**
-   * <p>An array of key-value pairs containing information about the static IP address you
-   *       allocated.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -152,23 +348,77 @@ export namespace AllocateStaticIpResult {
   export const isa = (o: any): o is AllocateStaticIpResult => __isa(o, "AllocateStaticIpResult");
 }
 
+export interface AttachCertificateToDistributionRequest {
+  __type?: "AttachCertificateToDistributionRequest";
+  /**
+   * <p>The name of the certificate to attach to a distribution.</p>
+   *
+   *          <p>Only certificates with a status of <code>ISSUED</code> can be attached to a
+   *       distribution.</p>
+   *
+   *          <p>Use the <code>GetCertificates</code> action to get a list of certificate names that you
+   *       can specify.</p>
+   *
+   *          <note>
+   *             <p>This is the name of the certificate resource type and is used only to reference the
+   *         certificate in other API actions. It can be different than the domain name of the
+   *         certificate. For example, your certificate name might be
+   *           <code>WordPress-Blog-Certificate</code> and the domain name of the certificate might be
+   *           <code>example.com</code>.</p>
+   *          </note>
+   */
+  certificateName: string | undefined;
+
+  /**
+   * <p>The name of the distribution that the certificate will be attached to.</p>
+   *
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   */
+  distributionName: string | undefined;
+}
+
+export namespace AttachCertificateToDistributionRequest {
+  export const filterSensitiveLog = (obj: AttachCertificateToDistributionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AttachCertificateToDistributionRequest =>
+    __isa(o, "AttachCertificateToDistributionRequest");
+}
+
+export interface AttachCertificateToDistributionResult {
+  __type?: "AttachCertificateToDistributionResult";
+  /**
+   * <p>An object that describes the result of the action, such as the status of the request, the
+   *       timestamp of the request, and the resources affected by the request.</p>
+   */
+  operation?: Operation;
+}
+
+export namespace AttachCertificateToDistributionResult {
+  export const filterSensitiveLog = (obj: AttachCertificateToDistributionResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AttachCertificateToDistributionResult =>
+    __isa(o, "AttachCertificateToDistributionResult");
+}
+
 export interface AttachDiskRequest {
   __type?: "AttachDiskRequest";
-  /**
-   * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
-   */
-  diskName: string | undefined;
-
   /**
    * <p>The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).</p>
    */
   diskPath: string | undefined;
 
   /**
-   * <p>The name of the Lightsail instance where you want to utilize the storage
-   *       disk.</p>
+   * <p>The name of the Lightsail instance where you want to utilize the storage disk.</p>
    */
   instanceName: string | undefined;
+
+  /**
+   * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
+   */
+  diskName: string | undefined;
 }
 
 export namespace AttachDiskRequest {
@@ -181,7 +431,8 @@ export namespace AttachDiskRequest {
 export interface AttachDiskResult {
   __type?: "AttachDiskResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -247,7 +498,8 @@ export namespace AttachInstancesToLoadBalancerRequest {
 export interface AttachInstancesToLoadBalancerResult {
   __type?: "AttachInstancesToLoadBalancerResult";
   /**
-   * <p>An object representing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -263,15 +515,15 @@ export namespace AttachInstancesToLoadBalancerResult {
 export interface AttachLoadBalancerTlsCertificateRequest {
   __type?: "AttachLoadBalancerTlsCertificateRequest";
   /**
-   * <p>The name of your SSL/TLS certificate.</p>
-   */
-  certificateName: string | undefined;
-
-  /**
    * <p>The name of the load balancer to which you want to associate the SSL/TLS
    *       certificate.</p>
    */
   loadBalancerName: string | undefined;
+
+  /**
+   * <p>The name of your SSL/TLS certificate.</p>
+   */
+  certificateName: string | undefined;
 }
 
 export namespace AttachLoadBalancerTlsCertificateRequest {
@@ -285,7 +537,8 @@ export namespace AttachLoadBalancerTlsCertificateRequest {
 export interface AttachLoadBalancerTlsCertificateResult {
   __type?: "AttachLoadBalancerTlsCertificateResult";
   /**
-   * <p>An object representing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    *          <p>These SSL/TLS certificates are only usable by Lightsail load balancers. You can't get
    *       the certificate and use it for another purpose.</p>
    */
@@ -303,14 +556,14 @@ export namespace AttachLoadBalancerTlsCertificateResult {
 export interface AttachStaticIpRequest {
   __type?: "AttachStaticIpRequest";
   /**
-   * <p>The instance name to which you want to attach the static IP address.</p>
-   */
-  instanceName: string | undefined;
-
-  /**
    * <p>The name of the static IP.</p>
    */
   staticIpName: string | undefined;
+
+  /**
+   * <p>The instance name to which you want to attach the static IP address.</p>
+   */
+  instanceName: string | undefined;
 }
 
 export namespace AttachStaticIpRequest {
@@ -323,7 +576,8 @@ export namespace AttachStaticIpRequest {
 export interface AttachStaticIpResult {
   __type?: "AttachStaticIpResult";
   /**
-   * <p>An array of key-value pairs containing information about your API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -404,14 +658,9 @@ export namespace AutoSnapshotAddOnRequest {
 export interface AutoSnapshotDetails {
   __type?: "AutoSnapshotDetails";
   /**
-   * <p>The timestamp when the automatic snapshot was created.</p>
+   * <p>The status of the automatic snapshot.</p>
    */
-  createdAt?: Date;
-
-  /**
-   * <p>The date of the automatic snapshot in <code>YYYY-MM-DD</code> format.</p>
-   */
-  date?: string;
+  status?: AutoSnapshotStatus | string;
 
   /**
    * <p>An array of objects that describe the block storage disks attached to the instance when
@@ -420,9 +669,14 @@ export interface AutoSnapshotDetails {
   fromAttachedDisks?: AttachedDisk[];
 
   /**
-   * <p>The status of the automatic snapshot.</p>
+   * <p>The timestamp when the automatic snapshot was created.</p>
    */
-  status?: AutoSnapshotStatus | string;
+  createdAt?: Date;
+
+  /**
+   * <p>The date of the automatic snapshot in <code>YYYY-MM-DD</code> format.</p>
+   */
+  date?: string;
 }
 
 export namespace AutoSnapshotDetails {
@@ -463,32 +717,26 @@ export namespace AvailabilityZone {
   export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
+export enum BehaviorEnum {
+  CacheSetting = "cache",
+  DontCacheSetting = "dont-cache",
+}
+
 /**
  * <p>Describes a blueprint (a virtual private server image).</p>
  */
 export interface Blueprint {
   __type?: "Blueprint";
   /**
-   * <p>The ID for the virtual private server image (e.g., <code>app_wordpress_4_4</code> or
-   *         <code>app_lamp_7_0</code>).</p>
+   * <p>The friendly name of the blueprint (e.g., <code>Amazon Linux</code>).</p>
    */
-  blueprintId?: string;
+  name?: string;
 
   /**
-   * <p>The description of the blueprint.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The group name of the blueprint (e.g., <code>amazon-linux</code>).</p>
-   */
-  group?: string;
-
-  /**
-   * <p>A Boolean value indicating whether the blueprint is active. Inactive blueprints are
-   *       listed to support customers with existing instances but are not necessarily available for
-   *       launch of new instances. Blueprints are marked inactive when they become outdated due to
-   *       operating system updates or new application releases.</p>
+   * <p>A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed
+   *       to support customers with existing instances but are not necessarily available for launch of
+   *       new instances. Blueprints are marked inactive when they become outdated due to operating
+   *       system updates or new application releases.</p>
    */
   isActive?: boolean;
 
@@ -498,23 +746,10 @@ export interface Blueprint {
   licenseUrl?: string;
 
   /**
-   * <p>The minimum bundle power required to run this blueprint. For example, you need a bundle
-   *       with a power value of 500 or more to create an instance that uses a blueprint with a minimum
-   *       power value of 500. <code>0</code> indicates that the blueprint runs on all instance sizes.
-   *     </p>
+   * <p>The version number of the operating system, application, or stack (e.g.,
+   *         <code>2016.03.0</code>).</p>
    */
-  minPower?: number;
-
-  /**
-   * <p>The friendly name of the blueprint (e.g., <code>Amazon Linux</code>).</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The operating system platform (either Linux/Unix-based or Windows Server-based) of the
-   *       blueprint.</p>
-   */
-  platform?: InstancePlatform | string;
+  version?: string;
 
   /**
    * <p>The product URL to learn more about the image or blueprint.</p>
@@ -527,15 +762,39 @@ export interface Blueprint {
   type?: BlueprintType | string;
 
   /**
-   * <p>The version number of the operating system, application, or stack (e.g.,
-   *         <code>2016.03.0</code>).</p>
+   * <p>The minimum bundle power required to run this blueprint. For example, you need a bundle
+   *       with a power value of 500 or more to create an instance that uses a blueprint with a minimum
+   *       power value of 500. <code>0</code> indicates that the blueprint runs on all instance sizes.
+   *     </p>
    */
-  version?: string;
+  minPower?: number;
+
+  /**
+   * <p>The group name of the blueprint (e.g., <code>amazon-linux</code>).</p>
+   */
+  group?: string;
 
   /**
    * <p>The version code.</p>
    */
   versionCode?: string;
+
+  /**
+   * <p>The operating system platform (either Linux/Unix-based or Windows Server-based) of the
+   *       blueprint.</p>
+   */
+  platform?: InstancePlatform | string;
+
+  /**
+   * <p>The description of the blueprint.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The ID for the virtual private server image (e.g., <code>app_wordpress_4_4</code> or
+   *         <code>app_lamp_7_0</code>).</p>
+   */
+  blueprintId?: string;
 }
 
 export namespace Blueprint {
@@ -557,19 +816,14 @@ export enum BlueprintType {
 export interface Bundle {
   __type?: "Bundle";
   /**
-   * <p>The bundle ID (e.g., <code>micro_1_0</code>).</p>
-   */
-  bundleId?: string;
-
-  /**
    * <p>The number of vCPUs included in the bundle (e.g., <code>2</code>).</p>
    */
   cpuCount?: number;
 
   /**
-   * <p>The size of the SSD (e.g., <code>30</code>).</p>
+   * <p>The price in US dollars (e.g., <code>5.0</code>) of the bundle.</p>
    */
-  diskSizeInGb?: number;
+  price?: number;
 
   /**
    * <p>The Amazon EC2 instance type (e.g., <code>t2.micro</code>).</p>
@@ -582,13 +836,13 @@ export interface Bundle {
   isActive?: boolean;
 
   /**
-   * <p>A friendly name for the bundle (e.g., <code>Micro</code>).</p>
+   * <p>The data transfer rate per month in GB (e.g., <code>2000</code>).</p>
    */
-  name?: string;
+  transferPerMonthInGb?: number;
 
   /**
-   * <p>A numeric value that represents the power of the bundle (e.g., <code>500</code>). You
-   *       can use the bundle's power value in conjunction with a blueprint's minimum power value to
+   * <p>A numeric value that represents the power of the bundle (e.g., <code>500</code>). You can
+   *       use the bundle's power value in conjunction with a blueprint's minimum power value to
    *       determine whether the blueprint will run on the bundle. For example, you need a bundle with a
    *       power value of 500 or more to create an instance that uses a blueprint with a minimum power
    *       value of 500.</p>
@@ -596,27 +850,32 @@ export interface Bundle {
   power?: number;
 
   /**
-   * <p>The price in US dollars (e.g., <code>5.0</code>).</p>
+   * <p>The size of the SSD (e.g., <code>30</code>).</p>
    */
-  price?: number;
+  diskSizeInGb?: number;
 
   /**
-   * <p>The amount of RAM in GB (e.g., <code>2.0</code>).</p>
+   * <p>The bundle ID (e.g., <code>micro_1_0</code>).</p>
    */
-  ramSizeInGb?: number;
+  bundleId?: string;
 
   /**
-   * <p>The operating system platform (Linux/Unix-based or Windows Server-based) that the
-   *       bundle supports. You can only launch a <code>WINDOWS</code> bundle on a blueprint that
-   *       supports the <code>WINDOWS</code> platform. <code>LINUX_UNIX</code> blueprints require a
+   * <p>The operating system platform (Linux/Unix-based or Windows Server-based) that the bundle
+   *       supports. You can only launch a <code>WINDOWS</code> bundle on a blueprint that supports the
+   *         <code>WINDOWS</code> platform. <code>LINUX_UNIX</code> blueprints require a
    *         <code>LINUX_UNIX</code> bundle.</p>
    */
   supportedPlatforms?: (InstancePlatform | string)[];
 
   /**
-   * <p>The data transfer rate per month in GB (e.g., <code>2000</code>).</p>
+   * <p>A friendly name for the bundle (e.g., <code>Micro</code>).</p>
    */
-  transferPerMonthInGb?: number;
+  name?: string;
+
+  /**
+   * <p>The amount of RAM in GB (e.g., <code>2.0</code>).</p>
+   */
+  ramSizeInGb?: number;
 }
 
 export namespace Bundle {
@@ -626,18 +885,530 @@ export namespace Bundle {
   export const isa = (o: any): o is Bundle => __isa(o, "Bundle");
 }
 
+/**
+ * <p>Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN)
+ *       distribution.</p>
+ */
+export interface CacheBehavior {
+  __type?: "CacheBehavior";
+  /**
+   * <p>The cache behavior of the distribution.</p>
+   *
+   *          <p>The following cache behaviors can be specified:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>cache</code>
+   *                   </b> - This option is best for static
+   *           sites. When specified, your distribution caches and serves your entire website as static
+   *           content. This behavior is ideal for websites with static content that doesn't change
+   *           depending on who views it, or for websites that don't use cookies, headers, or query
+   *           strings to personalize content.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>dont-cache</code>
+   *                   </b> - This option is best for
+   *           sites that serve a mix of static and dynamic content. When specified, your distribution
+   *           caches and serve only the content that is specified in the distribution's
+   *             <code>CacheBehaviorPerPath</code> parameter. This behavior is ideal for websites or web
+   *           applications that use cookies, headers, and query strings to personalize content for
+   *           individual users.</p>
+   *             </li>
+   *          </ul>
+   */
+  behavior?: BehaviorEnum | string;
+}
+
+export namespace CacheBehavior {
+  export const filterSensitiveLog = (obj: CacheBehavior): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CacheBehavior => __isa(o, "CacheBehavior");
+}
+
+/**
+ * <p>Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN)
+ *       distribution.</p>
+ *
+ *          <p>A per-path cache behavior is used to override, or add an exception to, the default cache
+ *       behavior of a distribution. For example, if the <code>cacheBehavior</code> is set to
+ *         <code>cache</code>, then a per-path cache behavior can be used to specify a directory, file,
+ *       or file type that your distribution will cache. Alternately, if the distribution's
+ *         <code>cacheBehavior</code> is <code>dont-cache</code>, then a per-path cache behavior can be
+ *       used to specify a directory, file, or file type that your distribution will not cache.</p>
+ *
+ *
+ *          <p>if the cacheBehavior's behavior is set to 'cache', then</p>
+ */
+export interface CacheBehaviorPerPath {
+  __type?: "CacheBehaviorPerPath";
+  /**
+   * <p>The cache behavior for the specified path.</p>
+   *
+   *          <p>You can specify one of the following per-path cache behaviors:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>cache</code>
+   *                   </b> - This behavior caches the
+   *           specified path.
+   *           </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>dont-cache</code>
+   *                   </b> - This behavior doesn't cache
+   *           the specified path.
+   *           </p>
+   *             </li>
+   *          </ul>
+   */
+  behavior?: BehaviorEnum | string;
+
+  /**
+   * <p>The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify
+   *       wildcard directories (<code>path/to/assets/*</code>), and file types (<code>*.html, *jpg,
+   *         *js</code>). Directories and file paths are case-sensitive.</p>
+   *
+   *          <p>Examples:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>Specify the following to cache all files in the document root of an Apache web server
+   *           running on a Lightsail instance.</p>
+   *                <p>
+   *                   <code>var/www/html/</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Specify the following file to cache only the index page in the document root of an
+   *           Apache web server.</p>
+   *                <p>
+   *                   <code>var/www/html/index.html</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Specify the following to cache only the .html files in the document root of an Apache
+   *           web server.</p>
+   *                <p>
+   *                   <code>var/www/html/*.html</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Specify the following to cache only the .jpg, .png, and .gif files in the images
+   *           sub-directory of the document root of an Apache web server.</p>
+   *                <p>
+   *                   <code>var/www/html/images/*.jpg</code>
+   *                </p>
+   *                <p>
+   *                   <code>var/www/html/images/*.png</code>
+   *                </p>
+   *                <p>
+   *                   <code>var/www/html/images/*.gif</code>
+   *                </p>
+   *
+   *                <p>Specify the following to cache all files in the images sub-directory of the document
+   *           root of an Apache web server.</p>
+   *                <p>
+   *                   <code>var/www/html/images/</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  path?: string;
+}
+
+export namespace CacheBehaviorPerPath {
+  export const filterSensitiveLog = (obj: CacheBehaviorPerPath): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CacheBehaviorPerPath => __isa(o, "CacheBehaviorPerPath");
+}
+
+/**
+ * <p>Describes the cache settings of an Amazon Lightsail content delivery network (CDN)
+ *       distribution.</p>
+ *
+ *          <p>These settings apply only to your distribution's <code>cacheBehaviors</code> (including
+ *       the <code>defaultCacheBehavior</code>) that have a <code>behavior</code> of
+ *       <code>cache</code>.</p>
+ */
+export interface CacheSettings {
+  __type?: "CacheSettings";
+  /**
+   * <p>An object that describes the headers that are forwarded to the origin. Your content is
+   *       cached based on the headers that are forwarded.</p>
+   */
+  forwardedHeaders?: HeaderObject;
+
+  /**
+   * <p>The default amount of time that objects stay in the distribution's cache before the
+   *       distribution forwards another request to the origin to determine whether the content has been
+   *       updated.</p>
+   *
+   *          <note>
+   *             <p>The value specified applies only when the origin does not add HTTP headers such as
+   *           <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
+   *           <code>Expires</code> to objects.</p>
+   *          </note>
+   */
+  defaultTTL?: number;
+
+  /**
+   * <p>An object that describes the cookies that are forwarded to the origin. Your content is
+   *       cached based on the cookies that are forwarded.</p>
+   */
+  forwardedCookies?: CookieObject;
+
+  /**
+   * <p>The minimum amount of time that objects stay in the distribution's cache before the
+   *       distribution forwards another request to the origin to determine whether the object has been
+   *       updated.</p>
+   *
+   *          <p>A value of <code>0</code> must be specified for <code>minimumTTL</code> if the
+   *       distribution is configured to forward all headers to the origin.</p>
+   */
+  minimumTTL?: number;
+
+  /**
+   * <p>The HTTP methods that are processed and forwarded to the distribution's origin.</p>
+   *
+   *          <p>You can specify the following options:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GET,HEAD</code> - The distribution forwards the <code>GET</code> and
+   *             <code>HEAD</code> methods.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GET,HEAD,OPTIONS</code> - The distribution forwards the <code>GET</code>,
+   *             <code>HEAD</code>, and <code>OPTIONS</code> methods.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE</code> - The distribution forwards the
+   *             <code>GET</code>, <code>HEAD</code>, <code>OPTIONS</code>, <code>PUT</code>,
+   *             <code>PATCH</code>, <code>POST</code>, and <code>DELETE</code> methods.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>If you specify the third option, you might need to restrict access to your distribution's
+   *       origin so users can't perform operations that you don't want them to. For example, you might
+   *       not want users to have permission to delete objects from your origin.</p>
+   */
+  allowedHTTPMethods?: string;
+
+  /**
+   * <p>The HTTP method responses that are cached by your distribution.</p>
+   *
+   *          <p>You can specify the following options:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GET,HEAD</code> - The distribution caches responses to the <code>GET</code> and
+   *             <code>HEAD</code> methods.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GET,HEAD,OPTIONS</code> - The distribution caches responses to the
+   *             <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code> methods.</p>
+   *             </li>
+   *          </ul>
+   */
+  cachedHTTPMethods?: string;
+
+  /**
+   * <p>The maximum amount of time that objects stay in the distribution's cache before the
+   *       distribution forwards another request to the origin to determine whether the object has been
+   *       updated.</p>
+   *
+   *          <p>The value specified applies only when the origin adds HTTP headers such as
+   *         <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
+   *         <code>Expires</code> to objects.</p>
+   */
+  maximumTTL?: number;
+
+  /**
+   * <p>An object that describes the query strings that are forwarded to the origin. Your content
+   *       is cached based on the query strings that are forwarded.</p>
+   */
+  forwardedQueryStrings?: QueryStringObject;
+}
+
+export namespace CacheSettings {
+  export const filterSensitiveLog = (obj: CacheSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CacheSettings => __isa(o, "CacheSettings");
+}
+
+/**
+ * <p>Describes the full details of an Amazon Lightsail SSL/TLS certificate.</p>
+ *
+ *          <note>
+ *             <p>To get a summary of a certificate, use the <code>GetCertificates</code> action and ommit
+ *           <code>includeCertificateDetails</code> from your request. The response will include only
+ *         the certificate Amazon Resource Name (ARN), certificate name, domain name, and tags.</p>
+ *          </note>
+ */
+export interface Certificate {
+  __type?: "Certificate";
+  /**
+   * <p>The timestamp when the certificate was revoked. This value is present only when the
+   *       certificate status is <code>REVOKED</code>.</p>
+   */
+  revokedAt?: Date;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
+   *         Dev Guide</a>.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The validation status of the certificate.</p>
+   */
+  status?: CertificateStatus | string;
+
+  /**
+   * <p>The reason the certificate was revoked. This value is present only when the certificate
+   *       status is <code>REVOKED</code>.</p>
+   */
+  revocationReason?: string;
+
+  /**
+   * <p>The timestamp when the certificate was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>An array of strings that specify the alternate domains (e.g., <code>example2.com</code>)
+   *       and subdomains (e.g., <code>blog.example.com</code>) of the certificate.</p>
+   */
+  subjectAlternativeNames?: string[];
+
+  /**
+   * <p>The domain name of the certificate.</p>
+   */
+  domainName?: string;
+
+  /**
+   * <p>The number of Lightsail resources that the certificate is attached to.</p>
+   */
+  inUseResourceCount?: number;
+
+  /**
+   * <p>The timestamp when the certificate was issued.</p>
+   */
+  issuedAt?: Date;
+
+  /**
+   * <p>The renewal eligibility of the certificate.</p>
+   */
+  eligibleToRenew?: string;
+
+  /**
+   * <p>An object that describes the status of the certificate renewal managed by
+   *       Lightsail.</p>
+   */
+  renewalSummary?: RenewalSummary;
+
+  /**
+   * <p>The validation failure reason, if any, of the certificate.</p>
+   *
+   *          <p>The following failure reasons are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>NO_AVAILABLE_CONTACTS</code>
+   *                   </b> - This failure
+   *           applies to email validation, which is not available for Lightsail certificates.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>ADDITIONAL_VERIFICATION_REQUIRED</code>
+   *                   </b> -
+   *           Lightsail requires additional information to process this certificate request. This can
+   *           happen as a fraud-protection measure, such as when the domain ranks within the Alexa top
+   *           1000 websites. To provide the required information, use the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a> to contact
+   *           AWS Support.</p>
+   *                <note>
+   *                   <p>You cannot request a certificate for Amazon-owned domain names such as those ending
+   *             in amazonaws.com, cloudfront.net, or elasticbeanstalk.com.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>DOMAIN_NOT_ALLOWED</code>
+   *                   </b> - One or more of the
+   *           domain names in the certificate request was reported as an unsafe domain by <a href="https://www.virustotal.com/gui/home/url">VirusTotal</a>. To correct the
+   *           problem, search for your domain name on the <a href="https://www.virustotal.com/gui/home/url">VirusTotal</a> website. If your domain
+   *           is reported as suspicious, see <a href="https://www.google.com/webmasters/hacked/?hl=en">Google Help for Hacked
+   *             Websites</a> to learn what you can do.</p>
+   *                <p>If you believe that the result is a false positive, notify the organization that is
+   *           reporting the domain. VirusTotal is an aggregate of several antivirus and URL scanners and
+   *           cannot remove your domain from a block list itself. After you correct the problem and the
+   *           VirusTotal registry has been updated, request a new certificate.</p>
+   *                <p>If you see this error and your domain is not included in the VirusTotal list, visit
+   *           the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a>
+   *           and create a case.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>INVALID_PUBLIC_DOMAIN</code>
+   *                   </b> - One or more of
+   *           the domain names in the certificate request is not valid. Typically, this is because a
+   *           domain name in the request is not a valid top-level domain. Try to request a certificate
+   *           again, correcting any spelling errors or typos that were in the failed request, and ensure
+   *           that all domain names in the request are for valid top-level domains. For example, you
+   *           cannot request a certificate for <code>example.invalidpublicdomain</code> because
+   *             <code>invalidpublicdomain</code> is not a valid top-level domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>OTHER</code>
+   *                   </b> - Typically, this failure occurs
+   *           when there is a typographical error in one or more of the domain names in the certificate
+   *           request. Try to request a certificate again, correcting any spelling errors or typos that
+   *           were in the failed request. </p>
+   *             </li>
+   *          </ul>
+   */
+  requestFailureReason?: string;
+
+  /**
+   * <p>The name of the certificate (e.g., <code>my-certificate</code>).</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The algorithm used to generate the key pair (the public and private key) of the
+   *       certificate.</p>
+   */
+  keyAlgorithm?: string;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       your Lightsail certificate. This code enables our support team to look up your Lightsail
+   *       information more easily.</p>
+   */
+  supportCode?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The timestamp when the certificate is first valid.</p>
+   */
+  notBefore?: Date;
+
+  /**
+   * <p>An array of objects that describe the domain validation records of the certificate.</p>
+   */
+  domainValidationRecords?: DomainValidationRecord[];
+
+  /**
+   * <p>The certificate authority that issued the certificate.</p>
+   */
+  issuerCA?: string;
+
+  /**
+   * <p>The serial number of the certificate.</p>
+   */
+  serialNumber?: string;
+
+  /**
+   * <p>The timestamp when the certificate expires.</p>
+   */
+  notAfter?: Date;
+}
+
+export namespace Certificate {
+  export const filterSensitiveLog = (obj: Certificate): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Certificate => __isa(o, "Certificate");
+}
+
+export enum CertificateStatus {
+  Expired = "EXPIRED",
+  Failed = "FAILED",
+  Inactive = "INACTIVE",
+  Issued = "ISSUED",
+  PendingValidation = "PENDING_VALIDATION",
+  Revoked = "REVOKED",
+  ValidationTimedOut = "VALIDATION_TIMED_OUT",
+}
+
+/**
+ * <p>Describes an Amazon Lightsail SSL/TLS certificate.</p>
+ */
+export interface CertificateSummary {
+  __type?: "CertificateSummary";
+  /**
+   * <p>The domain name of the certificate.</p>
+   */
+  domainName?: string;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
+   *         Dev Guide</a>.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * <p>An object that describes a certificate in detail.</p>
+   */
+  certificateDetail?: Certificate;
+
+  /**
+   * <p>The name of the certificate.</p>
+   */
+  certificateName?: string;
+}
+
+export namespace CertificateSummary {
+  export const filterSensitiveLog = (obj: CertificateSummary): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CertificateSummary => __isa(o, "CertificateSummary");
+}
+
 export interface CloseInstancePublicPortsRequest {
   __type?: "CloseInstancePublicPortsRequest";
   /**
-   * <p>The name of the instance on which you're attempting to close the public
-   *       ports.</p>
-   */
-  instanceName: string | undefined;
-
-  /**
-   * <p>Information about the public port you are trying to close.</p>
+   * <p>An object to describe the ports to close for the specified instance.</p>
    */
   portInfo: PortInfo | undefined;
+
+  /**
+   * <p>The name of the instance for which to close ports.</p>
+   */
+  instanceName: string | undefined;
 }
 
 export namespace CloseInstancePublicPortsRequest {
@@ -650,7 +1421,8 @@ export namespace CloseInstancePublicPortsRequest {
 export interface CloseInstancePublicPortsResult {
   __type?: "CloseInstancePublicPortsResult";
   /**
-   * <p>An array of key-value pairs that contains information about the operation.</p>
+   * <p>An object that describes the result of the action, such as the status of the request, the
+   *       timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -671,9 +1443,15 @@ export namespace CloseInstancePublicPortsResult {
 export interface CloudFormationStackRecord {
   __type?: "CloudFormationStackRecord";
   /**
-   * <p>The Amazon Resource Name (ARN) of the CloudFormation stack record.</p>
+   * <p>The Lightsail resource type (e.g., <code>CloudFormationStackRecord</code>).</p>
    */
-  arn?: string;
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>A list of objects describing the Availability Zone and AWS Region of the CloudFormation
+   *       stack record.</p>
+   */
+  location?: ResourceLocation;
 
   /**
    * <p>The date when the CloudFormation stack record was created.</p>
@@ -687,21 +1465,14 @@ export interface CloudFormationStackRecord {
   destinationInfo?: DestinationInfo;
 
   /**
-   * <p>A list of objects describing the Availability Zone and AWS Region of the CloudFormation
-   *       stack record.</p>
+   * <p>The current state of the CloudFormation stack record.</p>
    */
-  location?: ResourceLocation;
+  state?: RecordState | string;
 
   /**
-   * <p>The name of the CloudFormation stack record. It starts with
-   *         <code>CloudFormationStackRecord</code> followed by a GUID.</p>
+   * <p>The Amazon Resource Name (ARN) of the CloudFormation stack record.</p>
    */
-  name?: string;
-
-  /**
-   * <p>The Lightsail resource type (e.g., <code>CloudFormationStackRecord</code>).</p>
-   */
-  resourceType?: ResourceType | string;
+  arn?: string;
 
   /**
    * <p>A list of objects describing the source of the CloudFormation stack record.</p>
@@ -709,9 +1480,10 @@ export interface CloudFormationStackRecord {
   sourceInfo?: CloudFormationStackRecordSourceInfo[];
 
   /**
-   * <p>The current state of the CloudFormation stack record.</p>
+   * <p>The name of the CloudFormation stack record. It starts with
+   *         <code>CloudFormationStackRecord</code> followed by a GUID.</p>
    */
-  state?: RecordState | string;
+  name?: string;
 }
 
 export namespace CloudFormationStackRecord {
@@ -728,9 +1500,9 @@ export namespace CloudFormationStackRecord {
 export interface CloudFormationStackRecordSourceInfo {
   __type?: "CloudFormationStackRecordSourceInfo";
   /**
-   * <p>The Amazon Resource Name (ARN) of the export snapshot record.</p>
+   * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
    */
-  arn?: string;
+  resourceType?: CloudFormationStackRecordSourceType | string;
 
   /**
    * <p>The name of the record.</p>
@@ -738,9 +1510,9 @@ export interface CloudFormationStackRecordSourceInfo {
   name?: string;
 
   /**
-   * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the export snapshot record.</p>
    */
-  resourceType?: CloudFormationStackRecordSourceType | string;
+  arn?: string;
 }
 
 export namespace CloudFormationStackRecordSourceInfo {
@@ -755,8 +1527,144 @@ export enum CloudFormationStackRecordSourceType {
   ExportSnapshotRecord = "ExportSnapshotRecord",
 }
 
+export enum ComparisonOperator {
+  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold = "GreaterThanThreshold",
+  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
+  LessThanThreshold = "LessThanThreshold",
+}
+
+/**
+ * <p>Describes a contact method.</p>
+ *          <p>A contact method is a way to send you notifications. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+ */
+export interface ContactMethod {
+  __type?: "ContactMethod";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contact method.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The protocol of the contact method, such as email or SMS (text messaging).</p>
+   */
+  protocol?: ContactProtocol | string;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       your Lightsail contact method. This code enables our support team to look up your
+   *       Lightsail information more easily.</p>
+   */
+  supportCode?: string;
+
+  /**
+   * <p>The timestamp when the contact method was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The destination of the contact method, such as an email address or a mobile phone
+   *       number.</p>
+   */
+  contactEndpoint?: string;
+
+  /**
+   * <p>The current status of the contact method.</p>
+   *          <p>A contact method has the following possible status:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PendingVerification</code> - The contact method has not yet been verified, and
+   *           the verification has not yet expired.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Valid</code> - The contact method has been verified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InValid</code> - An attempt was made to verify the contact method, but the
+   *           verification has expired.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: ContactMethodStatus | string;
+
+  /**
+   * <p>Describes the resource location.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The Lightsail resource type (e.g., <code>ContactMethod</code>).</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>The name of the contact method.</p>
+   */
+  name?: string;
+}
+
+export namespace ContactMethod {
+  export const filterSensitiveLog = (obj: ContactMethod): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ContactMethod => __isa(o, "ContactMethod");
+}
+
+export enum ContactMethodStatus {
+  Invalid = "Invalid",
+  PendingVerification = "PendingVerification",
+  Valid = "Valid",
+}
+
+export enum ContactMethodVerificationProtocol {
+  Email = "Email",
+}
+
+export enum ContactProtocol {
+  Email = "Email",
+  SMS = "SMS",
+}
+
+/**
+ * <p>Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards
+ *       cookies to the origin and, if so, which ones.</p>
+ *
+ *          <p>For the cookies that you specify, your distribution caches separate versions of the
+ *       specified content based on the cookie values in viewer
+ *       requests.</p>
+ */
+export interface CookieObject {
+  __type?: "CookieObject";
+  /**
+   * <p>Specifies which cookies to forward to the distribution's origin for a cache behavior:
+   *         <code>all</code>, <code>none</code>, or <code>allow-list</code> to forward only the cookies
+   *       specified in the <code>cookiesAllowList</code> parameter.</p>
+   */
+  option?: ForwardValues | string;
+
+  /**
+   * <p>The specific cookies to forward to your distribution's origin.</p>
+   */
+  cookiesAllowList?: string[];
+}
+
+export namespace CookieObject {
+  export const filterSensitiveLog = (obj: CookieObject): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CookieObject => __isa(o, "CookieObject");
+}
+
 export interface CopySnapshotRequest {
   __type?: "CopySnapshotRequest";
+  /**
+   * <p>The AWS Region where the source manual or automatic snapshot is located.</p>
+   */
+  sourceRegion: RegionName | string | undefined;
+
   /**
    * <p>The date of the source automatic snapshot to copy. Use the <code>get auto snapshots</code>
    *       operation to identify the dates of the available automatic snapshots.</p>
@@ -779,41 +1687,6 @@ export interface CopySnapshotRequest {
   restoreDate?: string;
 
   /**
-   * <p>The AWS Region where the source manual or automatic snapshot is located.</p>
-   */
-  sourceRegion: RegionName | string | undefined;
-
-  /**
-   * <p>The name of the source instance or disk from which the source automatic snapshot was
-   *       created.</p>
-   *          <p>Constraint:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Define this parameter only when copying an automatic snapshot as a manual snapshot.
-   *           For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots">Lightsail Dev Guide</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  sourceResourceName?: string;
-
-  /**
-   * <p>The name of the source manual snapshot to copy.</p>
-   *          <p>Constraint:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Define this parameter only when copying a manual snapshot as another manual
-   *           snapshot.</p>
-   *             </li>
-   *          </ul>
-   */
-  sourceSnapshotName?: string;
-
-  /**
-   * <p>The name of the new manual snapshot to be created as a copy.</p>
-   */
-  targetSnapshotName: string | undefined;
-
-  /**
    * <p>A Boolean value to indicate whether to use the latest available automatic snapshot of the
    *       specified source instance or disk.</p>
    *          <p>Constraints:</p>
@@ -830,6 +1703,36 @@ export interface CopySnapshotRequest {
    *          </ul>
    */
   useLatestRestorableAutoSnapshot?: boolean;
+
+  /**
+   * <p>The name of the new manual snapshot to be created as a copy.</p>
+   */
+  targetSnapshotName: string | undefined;
+
+  /**
+   * <p>The name of the source manual snapshot to copy.</p>
+   *          <p>Constraint:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Define this parameter only when copying a manual snapshot as another manual
+   *           snapshot.</p>
+   *             </li>
+   *          </ul>
+   */
+  sourceSnapshotName?: string;
+
+  /**
+   * <p>The name of the source instance or disk from which the source automatic snapshot was
+   *       created.</p>
+   *          <p>Constraint:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Define this parameter only when copying an automatic snapshot as a manual snapshot.
+   *           For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  sourceResourceName?: string;
 }
 
 export namespace CopySnapshotRequest {
@@ -842,7 +1745,8 @@ export namespace CopySnapshotRequest {
 export interface CopySnapshotResult {
   __type?: "CopySnapshotResult";
   /**
-   * <p>A list of objects describing the API operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -852,6 +1756,65 @@ export namespace CopySnapshotResult {
     ...obj,
   });
   export const isa = (o: any): o is CopySnapshotResult => __isa(o, "CopySnapshotResult");
+}
+
+export interface CreateCertificateRequest {
+  __type?: "CreateCertificateRequest";
+  /**
+   * <p>The tag keys and optional values to add to the certificate during create.</p>
+   *
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The name for the certificate.</p>
+   */
+  certificateName: string | undefined;
+
+  /**
+   * <p>An array of strings that specify the alternate domains (e.g., <code>example2.com</code>)
+   *       and subdomains (e.g., <code>blog.example.com</code>) for the certificate.</p>
+   *
+   *          <p>You can specify a maximum of nine alternate domains (in addition to the primary domain
+   *       name).</p>
+   *
+   *          <p>Wildcard domain entries (e.g., <code>*.example.com</code>) are not supported.</p>
+   */
+  subjectAlternativeNames?: string[];
+
+  /**
+   * <p>The domain name (e.g., <code>example.com</code>) for the certificate.</p>
+   */
+  domainName: string | undefined;
+}
+
+export namespace CreateCertificateRequest {
+  export const filterSensitiveLog = (obj: CreateCertificateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateCertificateRequest => __isa(o, "CreateCertificateRequest");
+}
+
+export interface CreateCertificateResult {
+  __type?: "CreateCertificateResult";
+  /**
+   * <p>An object that describes the certificate created.</p>
+   */
+  certificate?: CertificateSummary;
+
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+export namespace CreateCertificateResult {
+  export const filterSensitiveLog = (obj: CreateCertificateResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateCertificateResult => __isa(o, "CreateCertificateResult");
 }
 
 export interface CreateCloudFormationStackRequest {
@@ -874,7 +1837,8 @@ export namespace CreateCloudFormationStackRequest {
 export interface CreateCloudFormationStackResult {
   __type?: "CreateCloudFormationStackResult";
   /**
-   * <p>A list of objects describing the API operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -886,26 +1850,107 @@ export namespace CreateCloudFormationStackResult {
   export const isa = (o: any): o is CreateCloudFormationStackResult => __isa(o, "CreateCloudFormationStackResult");
 }
 
+export interface CreateContactMethodRequest {
+  __type?: "CreateContactMethodRequest";
+  /**
+   * <p>The protocol of the contact method, such as <code>Email</code> or <code>SMS</code> (text
+   *       messaging).</p>
+   *          <p>The <code>SMS</code> protocol is supported only in the following AWS Regions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>US East (N. Virginia) (<code>us-east-1</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>US West (Oregon) (<code>us-west-2</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>Europe (Ireland) (<code>eu-west-1</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>Asia Pacific (Tokyo) (<code>ap-northeast-1</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>Asia Pacific (Singapore) (<code>ap-southeast-1</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>Asia Pacific (Sydney) (<code>ap-southeast-2</code>)</p>
+   *             </li>
+   *          </ul>
+   *          <p>For a list of countries/regions where SMS text messages can be sent, and the latest AWS
+   *       Regions where SMS text messaging is supported, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html">Supported Regions and Countries</a> in the <i>Amazon SNS Developer
+   *         Guide</i>.</p>
+   *          <p>For more information about notifications in Amazon Lightsail, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+   */
+  protocol: ContactProtocol | string | undefined;
+
+  /**
+   * <p>The destination of the contact method, such as an email address or a mobile phone
+   *       number.</p>
+   *          <p>Use the E.164 format when specifying a mobile phone number. E.164 is a standard for the
+   *       phone number structure used for international telecommunication. Phone numbers that follow
+   *       this format can have a maximum of 15 digits, and they are prefixed with the plus character (+)
+   *       and the country code. For example, a U.S. phone number in E.164 format would be specified as
+   *       +1XXX5550100. For more information, see <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> on <i>Wikipedia</i>.</p>
+   */
+  contactEndpoint: string | undefined;
+}
+
+export namespace CreateContactMethodRequest {
+  export const filterSensitiveLog = (obj: CreateContactMethodRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateContactMethodRequest => __isa(o, "CreateContactMethodRequest");
+}
+
+export interface CreateContactMethodResult {
+  __type?: "CreateContactMethodResult";
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+export namespace CreateContactMethodResult {
+  export const filterSensitiveLog = (obj: CreateContactMethodResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateContactMethodResult => __isa(o, "CreateContactMethodResult");
+}
+
 export interface CreateDiskFromSnapshotRequest {
   __type?: "CreateDiskFromSnapshotRequest";
   /**
-   * <p>An array of objects that represent the add-ons to enable for the new disk.</p>
+   * <p>The name of the source disk from which the source automatic snapshot was created.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>This parameter cannot be defined together with the <code>disk snapshot name</code>
+   *           parameter. The <code>source disk name</code> and <code>disk snapshot name</code>
+   *           parameters are mutually exclusive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Define this parameter only when creating a new disk from an automatic snapshot. For
+   *           more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+   *             </li>
+   *          </ul>
    */
-  addOns?: AddOnRequest[];
-
-  /**
-   * <p>The Availability Zone where you want to create the disk (e.g.,
-   *       <code>us-east-2a</code>). Choose the same Availability Zone as the Lightsail instance where
-   *       you want to create the disk.</p>
-   *          <p>Use the GetRegions operation to list the Availability Zones where Lightsail is
-   *       currently available.</p>
-   */
-  availabilityZone: string | undefined;
+  sourceDiskName?: string;
 
   /**
    * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
    */
   diskName: string | undefined;
+
+  /**
+   * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
+   */
+  sizeInGb: number | undefined;
+
+  /**
+   * <p>An array of objects that represent the add-ons to enable for the new disk.</p>
+   */
+  addOns?: AddOnRequest[];
 
   /**
    * <p>The name of the disk snapshot (e.g., <code>my-snapshot</code>) from which to create the
@@ -920,6 +1965,38 @@ export interface CreateDiskFromSnapshotRequest {
    *          </ul>
    */
   diskSnapshotName?: string;
+
+  /**
+   * <p>A Boolean value to indicate whether to use the latest available automatic snapshot.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>This parameter cannot be defined together with the <code>restore date</code>
+   *           parameter. The <code>use latest restorable auto snapshot</code> and <code>restore
+   *             date</code> parameters are mutually exclusive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Define this parameter only when creating a new disk from an automatic snapshot. For
+   *           more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  useLatestRestorableAutoSnapshot?: boolean;
+
+  /**
+   * <p>The tag keys and optional values to add to the resource during create.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The Availability Zone where you want to create the disk (e.g., <code>us-east-2a</code>).
+   *       Choose the same Availability Zone as the Lightsail instance where you want to create the
+   *       disk.</p>
+   *          <p>Use the GetRegions operation to list the Availability Zones where Lightsail is currently
+   *       available.</p>
+   */
+  availabilityZone: string | undefined;
 
   /**
    * <p>The date of the automatic snapshot to use for the new disk. Use the <code>get auto
@@ -942,52 +2019,6 @@ export interface CreateDiskFromSnapshotRequest {
    *          </ul>
    */
   restoreDate?: string;
-
-  /**
-   * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
-   */
-  sizeInGb: number | undefined;
-
-  /**
-   * <p>The name of the source disk from which the source automatic snapshot was created.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>This parameter cannot be defined together with the <code>disk snapshot name</code>
-   *           parameter. The <code>source disk name</code> and <code>disk snapshot name</code>
-   *           parameters are mutually exclusive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Define this parameter only when creating a new disk from an automatic snapshot. For
-   *           more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  sourceDiskName?: string;
-
-  /**
-   * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>A Boolean value to indicate whether to use the latest available automatic snapshot.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>This parameter cannot be defined together with the <code>restore date</code>
-   *           parameter. The <code>use latest restorable auto snapshot</code> and <code>restore
-   *             date</code> parameters are mutually exclusive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Define this parameter only when creating a new disk from an automatic snapshot. For
-   *           more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  useLatestRestorableAutoSnapshot?: boolean;
 }
 
 export namespace CreateDiskFromSnapshotRequest {
@@ -1000,7 +2031,8 @@ export namespace CreateDiskFromSnapshotRequest {
 export interface CreateDiskFromSnapshotResult {
   __type?: "CreateDiskFromSnapshotResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1015,18 +2047,14 @@ export namespace CreateDiskFromSnapshotResult {
 export interface CreateDiskRequest {
   __type?: "CreateDiskRequest";
   /**
+   * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
+   */
+  sizeInGb: number | undefined;
+
+  /**
    * <p>An array of objects that represent the add-ons to enable for the new disk.</p>
    */
   addOns?: AddOnRequest[];
-
-  /**
-   * <p>The Availability Zone where you want to create the disk (e.g.,
-   *       <code>us-east-2a</code>). Use the same Availability Zone as the Lightsail instance to which
-   *       you want to attach the disk.</p>
-   *          <p>Use the <code>get regions</code> operation to list the Availability Zones where
-   *       Lightsail is currently available.</p>
-   */
-  availabilityZone: string | undefined;
 
   /**
    * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
@@ -1034,14 +2062,17 @@ export interface CreateDiskRequest {
   diskName: string | undefined;
 
   /**
-   * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
+   * <p>The Availability Zone where you want to create the disk (e.g., <code>us-east-2a</code>).
+   *       Use the same Availability Zone as the Lightsail instance to which you want to attach the
+   *       disk.</p>
+   *          <p>Use the <code>get regions</code> operation to list the Availability Zones where
+   *       Lightsail is currently available.</p>
    */
-  sizeInGb: number | undefined;
+  availabilityZone: string | undefined;
 
   /**
    * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
   tags?: Tag[];
 }
@@ -1056,7 +2087,8 @@ export namespace CreateDiskRequest {
 export interface CreateDiskResult {
   __type?: "CreateDiskResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1081,12 +2113,6 @@ export interface CreateDiskSnapshotRequest {
   diskName?: string;
 
   /**
-   * <p>The name of the destination disk snapshot (e.g., <code>my-disk-snapshot</code>) based
-   *       on the source disk.</p>
-   */
-  diskSnapshotName: string | undefined;
-
-  /**
    * <p>The unique name of the source instance (e.g., <code>Amazon_Linux-512MB-Virginia-1</code>).
    *       When this is defined, a snapshot of the instance's system volume is created.</p>
    *          <note>
@@ -1099,10 +2125,15 @@ export interface CreateDiskSnapshotRequest {
 
   /**
    * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The name of the destination disk snapshot (e.g., <code>my-disk-snapshot</code>) based on
+   *       the source disk.</p>
+   */
+  diskSnapshotName: string | undefined;
 }
 
 export namespace CreateDiskSnapshotRequest {
@@ -1115,7 +2146,8 @@ export namespace CreateDiskSnapshotRequest {
 export interface CreateDiskSnapshotResult {
   __type?: "CreateDiskSnapshotResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1127,17 +2159,93 @@ export namespace CreateDiskSnapshotResult {
   export const isa = (o: any): o is CreateDiskSnapshotResult => __isa(o, "CreateDiskSnapshotResult");
 }
 
+export interface CreateDistributionRequest {
+  __type?: "CreateDistributionRequest";
+  /**
+   * <p>The tag keys and optional values to add to the distribution during create.</p>
+   *
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The name for the distribution.</p>
+   */
+  distributionName: string | undefined;
+
+  /**
+   * <p>An array of objects that describe the per-path cache behavior for the distribution.</p>
+   */
+  cacheBehaviors?: CacheBehaviorPerPath[];
+
+  /**
+   * <p>An object that describes the cache behavior settings for the distribution.</p>
+   */
+  cacheBehaviorSettings?: CacheSettings;
+
+  /**
+   * <p>An object that describes the default cache behavior for the distribution.</p>
+   */
+  defaultCacheBehavior: CacheBehavior | undefined;
+
+  /**
+   * <p>An object that describes the origin resource for the distribution, such as a Lightsail
+   *       instance or load balancer.</p>
+   *
+   *          <p>The distribution pulls, caches, and serves content from the origin.</p>
+   */
+  origin: InputOrigin | undefined;
+
+  /**
+   * <p>The bundle ID to use for the distribution.</p>
+   *
+   *          <p>A distribution bundle describes the specifications of your distribution, such as the
+   *       monthly cost and monthly network transfer quota.</p>
+   *
+   *          <p>Use the <code>GetDistributionBundles</code> action to get a list of distribution bundle
+   *       IDs that you can specify.</p>
+   */
+  bundleId: string | undefined;
+}
+
+export namespace CreateDistributionRequest {
+  export const filterSensitiveLog = (obj: CreateDistributionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateDistributionRequest => __isa(o, "CreateDistributionRequest");
+}
+
+export interface CreateDistributionResult {
+  __type?: "CreateDistributionResult";
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operation?: Operation;
+
+  /**
+   * <p>An object that describes the distribution created.</p>
+   */
+  distribution?: LightsailDistribution;
+}
+
+export namespace CreateDistributionResult {
+  export const filterSensitiveLog = (obj: CreateDistributionResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateDistributionResult => __isa(o, "CreateDistributionResult");
+}
+
 export interface CreateDomainEntryRequest {
   __type?: "CreateDomainEntryRequest";
   /**
-   * <p>An array of key-value pairs containing information about the domain entry
-   *       request.</p>
+   * <p>An array of key-value pairs containing information about the domain entry request.</p>
    */
   domainEntry: DomainEntry | undefined;
 
   /**
-   * <p>The domain name (e.g., <code>example.com</code>) for which you want to create the
-   *       domain entry.</p>
+   * <p>The domain name (e.g., <code>example.com</code>) for which you want to create the domain
+   *       entry.</p>
    */
   domainName: string | undefined;
 }
@@ -1152,7 +2260,8 @@ export namespace CreateDomainEntryRequest {
 export interface CreateDomainEntryResult {
   __type?: "CreateDomainEntryResult";
   /**
-   * <p>An array of key-value pairs containing information about the operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -1169,9 +2278,9 @@ export interface CreateDomainRequest {
   /**
    * <p>The domain name to manage (e.g., <code>example.com</code>).</p>
    *          <note>
-   *             <p>You cannot register a new domain name using Lightsail. You must register a domain
-   *         name using Amazon Route 53 or another domain name registrar. If you have already registered
-   *         your domain, you can enter its name in this parameter to manage the DNS records for that
+   *             <p>You cannot register a new domain name using Lightsail. You must register a domain name
+   *         using Amazon Route 53 or another domain name registrar. If you have already registered your
+   *         domain, you can enter its name in this parameter to manage the DNS records for that
    *         domain.</p>
    *          </note>
    */
@@ -1179,8 +2288,7 @@ export interface CreateDomainRequest {
 
   /**
    * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
   tags?: Tag[];
 }
@@ -1195,8 +2303,8 @@ export namespace CreateDomainRequest {
 export interface CreateDomainResult {
   __type?: "CreateDomainResult";
   /**
-   * <p>An array of key-value pairs containing information about the domain resource you
-   *       created.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -1210,52 +2318,6 @@ export namespace CreateDomainResult {
 
 export interface CreateInstancesFromSnapshotRequest {
   __type?: "CreateInstancesFromSnapshotRequest";
-  /**
-   * <p>An array of objects representing the add-ons to enable for the new instance.</p>
-   */
-  addOns?: AddOnRequest[];
-
-  /**
-   * <p>An object containing information about one or more disk mappings.</p>
-   */
-  attachedDiskMapping?: { [key: string]: DiskMap[] };
-
-  /**
-   * <p>The Availability Zone where you want to create your instances. Use the following
-   *       formatting: <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones
-   *       by using the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
-   *         regions</a> operation. Be sure to add the <code>include Availability Zones</code>
-   *       parameter to your request.</p>
-   */
-  availabilityZone: string | undefined;
-
-  /**
-   * <p>The bundle of specification information for your virtual private server (or
-   *         <i>instance</i>), including the pricing plan (e.g.,
-   *       <code>micro_1_0</code>).</p>
-   */
-  bundleId: string | undefined;
-
-  /**
-   * <p>The names for your new instances.</p>
-   */
-  instanceNames: string[] | undefined;
-
-  /**
-   * <p>The name of the instance snapshot on which you are basing your new instances. Use the
-   *       get instance snapshots operation to return information about your existing
-   *       snapshots.</p>
-   *          <p>Constraint:</p>
-   *          <ul>
-   *             <li>
-   *                <p>This parameter cannot be defined together with the <code>source instance name</code>
-   *           parameter. The <code>instance snapshot name</code> and <code>source instance name</code>
-   *           parameters are mutually exclusive.</p>
-   *             </li>
-   *          </ul>
-   */
-  instanceSnapshotName?: string;
-
   /**
    * <p>The name for your key pair.</p>
    */
@@ -1284,6 +2346,13 @@ export interface CreateInstancesFromSnapshotRequest {
   restoreDate?: string;
 
   /**
+   * <p>The bundle of specification information for your virtual private server (or
+   *         <i>instance</i>), including the pricing plan (e.g.,
+   *       <code>micro_1_0</code>).</p>
+   */
+  bundleId: string | undefined;
+
+  /**
    * <p>The name of the source instance from which the source automatic snapshot was
    *       created.</p>
    *          <p>Constraints:</p>
@@ -1302,9 +2371,36 @@ export interface CreateInstancesFromSnapshotRequest {
   sourceInstanceName?: string;
 
   /**
+   * <p>The Availability Zone where you want to create your instances. Use the following
+   *       formatting: <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones
+   *       by using the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
+   *         regions</a> operation. Be sure to add the <code>include Availability Zones</code>
+   *       parameter to your request.</p>
+   */
+  availabilityZone: string | undefined;
+
+  /**
+   * <p>An object containing information about one or more disk mappings.</p>
+   */
+  attachedDiskMapping?: { [key: string]: DiskMap[] };
+
+  /**
+   * <p>The name of the instance snapshot on which you are basing your new instances. Use the get
+   *       instance snapshots operation to return information about your existing snapshots.</p>
+   *          <p>Constraint:</p>
+   *          <ul>
+   *             <li>
+   *                <p>This parameter cannot be defined together with the <code>source instance name</code>
+   *           parameter. The <code>instance snapshot name</code> and <code>source instance name</code>
+   *           parameters are mutually exclusive.</p>
+   *             </li>
+   *          </ul>
+   */
+  instanceSnapshotName?: string;
+
+  /**
    * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
   tags?: Tag[];
 
@@ -1329,13 +2425,23 @@ export interface CreateInstancesFromSnapshotRequest {
    * <p>You can create a launch script that configures a server with additional user data. For
    *       example, <code>apt-get -y update</code>.</p>
    *          <note>
-   *             <p>Depending on the machine image you choose, the command to get software on your
-   *         instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use
+   *             <p>Depending on the machine image you choose, the command to get software on your instance
+   *         varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use
    *           <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the
    *           <a href="https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image">Dev Guide</a>.</p>
    *          </note>
    */
   userData?: string;
+
+  /**
+   * <p>The names for your new instances.</p>
+   */
+  instanceNames: string[] | undefined;
+
+  /**
+   * <p>An array of objects representing the add-ons to enable for the new instance.</p>
+   */
+  addOns?: AddOnRequest[];
 }
 
 export namespace CreateInstancesFromSnapshotRequest {
@@ -1349,8 +2455,8 @@ export namespace CreateInstancesFromSnapshotRequest {
 export interface CreateInstancesFromSnapshotResult {
   __type?: "CreateInstancesFromSnapshotResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your create
-   *       instances from snapshot request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1365,21 +2471,20 @@ export namespace CreateInstancesFromSnapshotResult {
 export interface CreateInstanceSnapshotRequest {
   __type?: "CreateInstanceSnapshotRequest";
   /**
-   * <p>The Lightsail instance on which to base your snapshot.</p>
-   */
-  instanceName: string | undefined;
-
-  /**
    * <p>The name for your new snapshot.</p>
    */
   instanceSnapshotName: string | undefined;
 
   /**
    * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The Lightsail instance on which to base your snapshot.</p>
+   */
+  instanceName: string | undefined;
 }
 
 export namespace CreateInstanceSnapshotRequest {
@@ -1392,8 +2497,8 @@ export namespace CreateInstanceSnapshotRequest {
 export interface CreateInstanceSnapshotResult {
   __type?: "CreateInstanceSnapshotResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your create
-   *       instances snapshot request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1408,20 +2513,6 @@ export namespace CreateInstanceSnapshotResult {
 export interface CreateInstancesRequest {
   __type?: "CreateInstancesRequest";
   /**
-   * <p>An array of objects representing the add-ons to enable for the new instance.</p>
-   */
-  addOns?: AddOnRequest[];
-
-  /**
-   * <p>The Availability Zone in which to create your instance. Use the following format:
-   *         <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones by using
-   *       the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
-   *         regions</a> operation. Be sure to add the <code>include Availability Zones</code>
-   *       parameter to your request.</p>
-   */
-  availabilityZone: string | undefined;
-
-  /**
    * <p>The ID for a virtual private server image (e.g., <code>app_wordpress_4_4</code> or
    *         <code>app_lamp_7_0</code>). Use the <code>get blueprints</code> operation to return a list
    *       of available images (or <i>blueprints</i>).</p>
@@ -1435,6 +2526,11 @@ export interface CreateInstancesRequest {
   blueprintId: string | undefined;
 
   /**
+   * <p>The name of your key pair.</p>
+   */
+  keyPairName?: string;
+
+  /**
    * <p>The bundle of specification information for your virtual private server (or
    *         <i>instance</i>), including the pricing plan (e.g.,
    *       <code>micro_1_0</code>).</p>
@@ -1442,13 +2538,13 @@ export interface CreateInstancesRequest {
   bundleId: string | undefined;
 
   /**
-   * <p>(Deprecated) The name for your custom image.</p>
-   *          <note>
-   *             <p>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
-   *         deprecated.</p>
-   *          </note>
+   * <p>The Availability Zone in which to create your instance. Use the following format:
+   *         <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones by using
+   *       the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
+   *         regions</a> operation. Be sure to add the <code>include Availability Zones</code>
+   *       parameter to your request.</p>
    */
-  customImageName?: string;
+  availabilityZone: string | undefined;
 
   /**
    * <p>The names to use for your new Lightsail instances. Separate multiple values using
@@ -1459,14 +2555,8 @@ export interface CreateInstancesRequest {
   instanceNames: string[] | undefined;
 
   /**
-   * <p>The name of your key pair.</p>
-   */
-  keyPairName?: string;
-
-  /**
    * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
   tags?: Tag[];
 
@@ -1474,13 +2564,27 @@ export interface CreateInstancesRequest {
    * <p>A launch script you can create that configures a server with additional user data. For
    *       example, you might want to run <code>apt-get -y update</code>.</p>
    *          <note>
-   *             <p>Depending on the machine image you choose, the command to get software on your
-   *         instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use
+   *             <p>Depending on the machine image you choose, the command to get software on your instance
+   *         varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use
    *           <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the
    *           <a href="https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image">Dev Guide</a>.</p>
    *          </note>
    */
   userData?: string;
+
+  /**
+   * <p>An array of objects representing the add-ons to enable for the new instance.</p>
+   */
+  addOns?: AddOnRequest[];
+
+  /**
+   * <p>(Deprecated) The name for your custom image.</p>
+   *          <note>
+   *             <p>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
+   *         deprecated.</p>
+   *          </note>
+   */
+  customImageName?: string;
 }
 
 export namespace CreateInstancesRequest {
@@ -1493,8 +2597,8 @@ export namespace CreateInstancesRequest {
 export interface CreateInstancesResult {
   __type?: "CreateInstancesResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your create
-   *       instances request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1509,16 +2613,15 @@ export namespace CreateInstancesResult {
 export interface CreateKeyPairRequest {
   __type?: "CreateKeyPairRequest";
   /**
+   * <p>The tag keys and optional values to add to the resource during create.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   */
+  tags?: Tag[];
+
+  /**
    * <p>The name for your new key pair.</p>
    */
   keyPairName: string | undefined;
-
-  /**
-   * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreateKeyPairRequest {
@@ -1531,14 +2634,8 @@ export namespace CreateKeyPairRequest {
 export interface CreateKeyPairResult {
   __type?: "CreateKeyPairResult";
   /**
-   * <p>An array of key-value pairs containing information about the new key pair you just
-   *       created.</p>
-   */
-  keyPair?: KeyPair;
-
-  /**
-   * <p>An array of key-value pairs containing information about the results of your create key
-   *       pair request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 
@@ -1546,6 +2643,12 @@ export interface CreateKeyPairResult {
    * <p>A base64-encoded RSA private key.</p>
    */
   privateKeyBase64?: string;
+
+  /**
+   * <p>An array of key-value pairs containing information about the new key pair you just
+   *       created.</p>
+   */
+  keyPair?: KeyPair;
 
   /**
    * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
@@ -1563,19 +2666,31 @@ export namespace CreateKeyPairResult {
 export interface CreateLoadBalancerRequest {
   __type?: "CreateLoadBalancerRequest";
   /**
-   * <p>The optional alternative domains and subdomains to use with your SSL/TLS certificate
-   *       (e.g., <code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
-   *         <code>blog.example.com</code>).</p>
+   * <p>The instance port where you're creating your load balancer.</p>
    */
-  certificateAlternativeNames?: string[];
+  instancePort: number | undefined;
+
+  /**
+   * <p>The path you provided to perform the load balancer health check. If you didn't specify a
+   *       health check path, Lightsail uses the root path of your website (e.g.,
+   *       <code>"/"</code>).</p>
+   *          <p>You may want to specify a custom health check path other than the root of your application
+   *       if your home page loads slowly or has a lot of media or scripting on it.</p>
+   */
+  healthCheckPath?: string;
 
   /**
    * <p>The domain name with which your certificate is associated (e.g.,
-   *         <code>example.com</code>).</p>
+   *       <code>example.com</code>).</p>
    *          <p>If you specify <code>certificateDomainName</code>, then <code>certificateName</code> is
    *       required (and vice-versa).</p>
    */
   certificateDomainName?: string;
+
+  /**
+   * <p>The name of your load balancer.</p>
+   */
+  loadBalancerName: string | undefined;
 
   /**
    * <p>The name of the SSL/TLS certificate.</p>
@@ -1585,28 +2700,15 @@ export interface CreateLoadBalancerRequest {
   certificateName?: string;
 
   /**
-   * <p>The path you provided to perform the load balancer health check. If you didn't specify
-   *       a health check path, Lightsail uses the root path of your website (e.g.,
-   *       <code>"/"</code>).</p>
-   *          <p>You may want to specify a custom health check path other than the root of your
-   *       application if your home page loads slowly or has a lot of media or scripting on it.</p>
+   * <p>The optional alternative domains and subdomains to use with your SSL/TLS certificate
+   *       (e.g., <code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
+   *         <code>blog.example.com</code>).</p>
    */
-  healthCheckPath?: string;
-
-  /**
-   * <p>The instance port where you're creating your load balancer.</p>
-   */
-  instancePort: number | undefined;
-
-  /**
-   * <p>The name of your load balancer.</p>
-   */
-  loadBalancerName: string | undefined;
+  certificateAlternativeNames?: string[];
 
   /**
    * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
   tags?: Tag[];
 }
@@ -1621,7 +2723,8 @@ export namespace CreateLoadBalancerRequest {
 export interface CreateLoadBalancerResult {
   __type?: "CreateLoadBalancerResult";
   /**
-   * <p>An object containing information about the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1644,10 +2747,20 @@ export interface CreateLoadBalancerTlsCertificateRequest {
   certificateAlternativeNames?: string[];
 
   /**
-   * <p>The domain name (e.g., <code>example.com</code>) for your SSL/TLS
-   *       certificate.</p>
+   * <p>The domain name (e.g., <code>example.com</code>) for your SSL/TLS certificate.</p>
    */
   certificateDomainName: string | undefined;
+
+  /**
+   * <p>The tag keys and optional values to add to the resource during create.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The load balancer name where you want to create the SSL/TLS certificate.</p>
+   */
+  loadBalancerName: string | undefined;
 
   /**
    * <p>The SSL/TLS certificate name.</p>
@@ -1657,18 +2770,6 @@ export interface CreateLoadBalancerTlsCertificateRequest {
    *       information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>.</p>
    */
   certificateName: string | undefined;
-
-  /**
-   * <p>The load balancer name where you want to create the SSL/TLS certificate.</p>
-   */
-  loadBalancerName: string | undefined;
-
-  /**
-   * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreateLoadBalancerTlsCertificateRequest {
@@ -1682,7 +2783,8 @@ export namespace CreateLoadBalancerTlsCertificateRequest {
 export interface CreateLoadBalancerTlsCertificateResult {
   __type?: "CreateLoadBalancerTlsCertificateResult";
   /**
-   * <p>An object containing information about the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1698,31 +2800,12 @@ export namespace CreateLoadBalancerTlsCertificateResult {
 export interface CreateRelationalDatabaseFromSnapshotRequest {
   __type?: "CreateRelationalDatabaseFromSnapshotRequest";
   /**
-   * <p>The Availability Zone in which to create your new database. Use the
-   *         <code>us-east-2a</code> case-sensitive format.</p>
-   *          <p>You can get a list of Availability Zones by using the <code>get regions</code>
-   *       operation. Be sure to add the <code>include relational database Availability Zones</code>
-   *       parameter to your request.</p>
-   */
-  availabilityZone?: string;
-
-  /**
    * <p>Specifies the accessibility options for your new database. A value of <code>true</code>
    *       specifies a database that is available to resources outside of your Lightsail account. A
    *       value of <code>false</code> specifies a database that is available only to your Lightsail
    *       resources in the same region as your database.</p>
    */
   publiclyAccessible?: boolean;
-
-  /**
-   * <p>The bundle ID for your new database. A bundle describes the performance specifications
-   *       for your database.</p>
-   *          <p>You can get a list of database bundle IDs by using the <code>get relational database
-   *         bundles</code> operation.</p>
-   *          <p>When creating a new database from a snapshot, you cannot choose a bundle that is
-   *       smaller than the bundle of the source database.</p>
-   */
-  relationalDatabaseBundleId?: string;
 
   /**
    * <p>The name to use for your new database.</p>
@@ -1744,6 +2827,16 @@ export interface CreateRelationalDatabaseFromSnapshotRequest {
   relationalDatabaseSnapshotName?: string;
 
   /**
+   * <p>The bundle ID for your new database. A bundle describes the performance specifications for
+   *       your database.</p>
+   *          <p>You can get a list of database bundle IDs by using the <code>get relational database
+   *         bundles</code> operation.</p>
+   *          <p>When creating a new database from a snapshot, you cannot choose a bundle that is smaller
+   *       than the bundle of the source database.</p>
+   */
+  relationalDatabaseBundleId?: string;
+
+  /**
    * <p>The date and time to restore your database from.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -1759,13 +2852,18 @@ export interface CreateRelationalDatabaseFromSnapshotRequest {
    *             </li>
    *             <li>
    *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use a restore time of October 1, 2018, at 8 PM UTC,
-   *           then you input <code>1538424000</code> as the restore time.</p>
-   *
+   *                <p>For example, if you wish to use a restore time of October 1, 2018, at 8 PM UTC, then
+   *           you input <code>1538424000</code> as the restore time.</p>
    *             </li>
    *          </ul>
    */
   restoreTime?: Date;
+
+  /**
+   * <p>The tag keys and optional values to add to the resource during create.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The name of the source database.</p>
@@ -1773,11 +2871,13 @@ export interface CreateRelationalDatabaseFromSnapshotRequest {
   sourceRelationalDatabaseName?: string;
 
   /**
-   * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
+   * <p>The Availability Zone in which to create your new database. Use the
+   *         <code>us-east-2a</code> case-sensitive format.</p>
+   *          <p>You can get a list of Availability Zones by using the <code>get regions</code> operation.
+   *       Be sure to add the <code>include relational database Availability Zones</code> parameter to
+   *       your request.</p>
    */
-  tags?: Tag[];
+  availabilityZone?: string;
 
   /**
    * <p>Specifies whether your database is restored from the latest backup time. A value of
@@ -1801,8 +2901,8 @@ export namespace CreateRelationalDatabaseFromSnapshotRequest {
 export interface CreateRelationalDatabaseFromSnapshotResult {
   __type?: "CreateRelationalDatabaseFromSnapshotResult";
   /**
-   * <p>An object describing the result of your create relational database from snapshot
-   *       request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1818,13 +2918,51 @@ export namespace CreateRelationalDatabaseFromSnapshotResult {
 export interface CreateRelationalDatabaseRequest {
   __type?: "CreateRelationalDatabaseRequest";
   /**
-   * <p>The Availability Zone in which to create your new database. Use the
-   *         <code>us-east-2a</code> case-sensitive format.</p>
-   *          <p>You can get a list of Availability Zones by using the <code>get regions</code>
-   *       operation. Be sure to add the <code>include relational database Availability Zones</code>
-   *       parameter to your request.</p>
+   * <p>The daily time range during which automated backups are created for your new database if
+   *       automated backups are enabled.</p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
+   *       AWS Region. For more information about the preferred backup window time blocks for each
+   *       region, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Working With Backups</a> guide in the Amazon Relational Database Service (Amazon RDS) documentation.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p>
+   *                <p>Example: <code>16:00-16:30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must not conflict with the preferred maintenance window.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be at least 30 minutes.</p>
+   *             </li>
+   *          </ul>
    */
-  availabilityZone?: string;
+  preferredBackupWindow?: string;
+
+  /**
+   * <p>The name to use for your new database.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 2 to 255 alphanumeric characters, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>The first and last character must be a letter or number.</p>
+   *             </li>
+   *          </ul>
+   */
+  relationalDatabaseName: string | undefined;
+
+  /**
+   * <p>The password for the master user of your new database. The password can include any
+   *       printable ASCII character except "/", """, or "@".</p>
+   *          <p>Constraints: Must contain 8 to 41 characters.</p>
+   */
+  masterUserPassword?: string;
 
   /**
    * <p>The name of the master database created when the Lightsail database resource is
@@ -1842,11 +2980,26 @@ export interface CreateRelationalDatabaseRequest {
   masterDatabaseName: string | undefined;
 
   /**
-   * <p>The password for the master user of your new database. The password can include any
-   *       printable ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain 8 to 41 characters.</p>
+   * <p>The bundle ID for your new database. A bundle describes the performance specifications for
+   *       your database.</p>
+   *          <p>You can get a list of database bundle IDs by using the <code>get relational database
+   *         bundles</code> operation.</p>
    */
-  masterUserPassword?: string;
+  relationalDatabaseBundleId: string | undefined;
+
+  /**
+   * <p>Specifies the accessibility options for your new database. A value of <code>true</code>
+   *       specifies a database that is available to resources outside of your Lightsail account. A
+   *       value of <code>false</code> specifies a database that is available only to your Lightsail
+   *       resources in the same region as your database.</p>
+   */
+  publiclyAccessible?: boolean;
+
+  /**
+   * <p>The tag keys and optional values to add to the resource during create.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The master user name for your new database.</p>
@@ -1872,36 +3025,27 @@ export interface CreateRelationalDatabaseRequest {
   masterUsername: string | undefined;
 
   /**
-   * <p>The daily time range during which automated backups are created for your new database
-   *       if automated backups are enabled.</p>
-   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for
-   *       each AWS Region. For more information about the preferred backup window time blocks for each
-   *       region, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Working With Backups</a> guide in the Amazon Relational Database Service (Amazon RDS) documentation.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p>
-   *                <p>Example: <code>16:00-16:30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Specified in Coordinated Universal Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Must not conflict with the preferred maintenance window.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be at least 30 minutes.</p>
-   *             </li>
-   *          </ul>
+   * <p>The blueprint ID for your new database. A blueprint describes the major engine version of
+   *       a database.</p>
+   *          <p>You can get a list of database blueprints IDs by using the <code>get relational database
+   *         blueprints</code> operation.</p>
    */
-  preferredBackupWindow?: string;
+  relationalDatabaseBlueprintId: string | undefined;
+
+  /**
+   * <p>The Availability Zone in which to create your new database. Use the
+   *         <code>us-east-2a</code> case-sensitive format.</p>
+   *          <p>You can get a list of Availability Zones by using the <code>get regions</code> operation.
+   *       Be sure to add the <code>include relational database Availability Zones</code> parameter to
+   *       your request.</p>
+   */
+  availabilityZone?: string;
 
   /**
    * <p>The weekly time range during which system maintenance can occur on your new
    *       database.</p>
-   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for
-   *       each AWS Region, occurring on a random day of the week.</p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
+   *       AWS Region, occurring on a random day of the week.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -1923,51 +3067,6 @@ export interface CreateRelationalDatabaseRequest {
    *          </ul>
    */
   preferredMaintenanceWindow?: string;
-
-  /**
-   * <p>Specifies the accessibility options for your new database. A value of <code>true</code>
-   *       specifies a database that is available to resources outside of your Lightsail account. A
-   *       value of <code>false</code> specifies a database that is available only to your Lightsail
-   *       resources in the same region as your database.</p>
-   */
-  publiclyAccessible?: boolean;
-
-  /**
-   * <p>The blueprint ID for your new database. A blueprint describes the major engine version
-   *       of a database.</p>
-   *          <p>You can get a list of database blueprints IDs by using the <code>get relational
-   *         database blueprints</code> operation.</p>
-   */
-  relationalDatabaseBlueprintId: string | undefined;
-
-  /**
-   * <p>The bundle ID for your new database. A bundle describes the performance specifications
-   *       for your database.</p>
-   *          <p>You can get a list of database bundle IDs by using the <code>get relational database
-   *         bundles</code> operation.</p>
-   */
-  relationalDatabaseBundleId: string | undefined;
-
-  /**
-   * <p>The name to use for your new database.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 2 to 255 alphanumeric characters, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>The first and last character must be a letter or number.</p>
-   *             </li>
-   *          </ul>
-   */
-  relationalDatabaseName: string | undefined;
-
-  /**
-   * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreateRelationalDatabaseRequest {
@@ -1981,7 +3080,8 @@ export namespace CreateRelationalDatabaseRequest {
 export interface CreateRelationalDatabaseResult {
   __type?: "CreateRelationalDatabaseResult";
   /**
-   * <p>An object describing the result of your create relational database request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -1996,9 +3096,10 @@ export namespace CreateRelationalDatabaseResult {
 export interface CreateRelationalDatabaseSnapshotRequest {
   __type?: "CreateRelationalDatabaseSnapshotRequest";
   /**
-   * <p>The name of the database on which to base your new snapshot.</p>
+   * <p>The tag keys and optional values to add to the resource during create.</p>
+   *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
-  relationalDatabaseName: string | undefined;
+  tags?: Tag[];
 
   /**
    * <p>The name for your new database snapshot.</p>
@@ -2015,11 +3116,9 @@ export interface CreateRelationalDatabaseSnapshotRequest {
   relationalDatabaseSnapshotName: string | undefined;
 
   /**
-   * <p>The tag keys and optional values to add to the resource during create.</p>
-   *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
-   *       operation.</p>
+   * <p>The name of the database on which to base your new snapshot.</p>
    */
-  tags?: Tag[];
+  relationalDatabaseName: string | undefined;
 }
 
 export namespace CreateRelationalDatabaseSnapshotRequest {
@@ -2033,8 +3132,8 @@ export namespace CreateRelationalDatabaseSnapshotRequest {
 export interface CreateRelationalDatabaseSnapshotResult {
   __type?: "CreateRelationalDatabaseSnapshotResult";
   /**
-   * <p>An object describing the result of your create relational database snapshot
-   *       request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2047,20 +3146,51 @@ export namespace CreateRelationalDatabaseSnapshotResult {
     __isa(o, "CreateRelationalDatabaseSnapshotResult");
 }
 
+export interface DeleteAlarmRequest {
+  __type?: "DeleteAlarmRequest";
+  /**
+   * <p>The name of the alarm to delete.</p>
+   */
+  alarmName: string | undefined;
+}
+
+export namespace DeleteAlarmRequest {
+  export const filterSensitiveLog = (obj: DeleteAlarmRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteAlarmRequest => __isa(o, "DeleteAlarmRequest");
+}
+
+export interface DeleteAlarmResult {
+  __type?: "DeleteAlarmResult";
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+export namespace DeleteAlarmResult {
+  export const filterSensitiveLog = (obj: DeleteAlarmResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteAlarmResult => __isa(o, "DeleteAlarmResult");
+}
+
 export interface DeleteAutoSnapshotRequest {
   __type?: "DeleteAutoSnapshotRequest";
+  /**
+   * <p>The name of the source instance or disk from which to delete the automatic
+   *       snapshot.</p>
+   */
+  resourceName: string | undefined;
+
   /**
    * <p>The date of the automatic snapshot to delete in <code>YYYY-MM-DD</code> format. Use the
    *         <code>get auto snapshots</code> operation to get the available automatic snapshots for a
    *       resource.</p>
    */
   date: string | undefined;
-
-  /**
-   * <p>The name of the source instance or disk from which to delete the automatic
-   *       snapshot.</p>
-   */
-  resourceName: string | undefined;
 }
 
 export namespace DeleteAutoSnapshotRequest {
@@ -2073,7 +3203,8 @@ export namespace DeleteAutoSnapshotRequest {
 export interface DeleteAutoSnapshotResult {
   __type?: "DeleteAutoSnapshotResult";
   /**
-   * <p>An array of objects that describe the result of your request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2085,17 +3216,88 @@ export namespace DeleteAutoSnapshotResult {
   export const isa = (o: any): o is DeleteAutoSnapshotResult => __isa(o, "DeleteAutoSnapshotResult");
 }
 
+export interface DeleteCertificateRequest {
+  __type?: "DeleteCertificateRequest";
+  /**
+   * <p>The name of the certificate to delete.</p>
+   *
+   *          <p>Use the <code>GetCertificates</code> action to get a list of certificate names that you
+   *       can specify.</p>
+   */
+  certificateName: string | undefined;
+}
+
+export namespace DeleteCertificateRequest {
+  export const filterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteCertificateRequest => __isa(o, "DeleteCertificateRequest");
+}
+
+export interface DeleteCertificateResult {
+  __type?: "DeleteCertificateResult";
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+export namespace DeleteCertificateResult {
+  export const filterSensitiveLog = (obj: DeleteCertificateResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteCertificateResult => __isa(o, "DeleteCertificateResult");
+}
+
+export interface DeleteContactMethodRequest {
+  __type?: "DeleteContactMethodRequest";
+  /**
+   * <p>The protocol that will be deleted, such as <code>Email</code> or <code>SMS</code> (text
+   *       messaging).</p>
+   *          <note>
+   *             <p>To delete an <code>Email</code> and an <code>SMS</code> contact method if you added
+   *         both, you must run separate <code>DeleteContactMethod</code> actions to delete each
+   *         protocol.</p>
+   *          </note>
+   */
+  protocol: ContactProtocol | string | undefined;
+}
+
+export namespace DeleteContactMethodRequest {
+  export const filterSensitiveLog = (obj: DeleteContactMethodRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteContactMethodRequest => __isa(o, "DeleteContactMethodRequest");
+}
+
+export interface DeleteContactMethodResult {
+  __type?: "DeleteContactMethodResult";
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+export namespace DeleteContactMethodResult {
+  export const filterSensitiveLog = (obj: DeleteContactMethodResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteContactMethodResult => __isa(o, "DeleteContactMethodResult");
+}
+
 export interface DeleteDiskRequest {
   __type?: "DeleteDiskRequest";
-  /**
-   * <p>The unique name of the disk you want to delete (e.g., <code>my-disk</code>).</p>
-   */
-  diskName: string | undefined;
-
   /**
    * <p>A Boolean value to indicate whether to delete the enabled add-ons for the disk.</p>
    */
   forceDeleteAddOns?: boolean;
+
+  /**
+   * <p>The unique name of the disk you want to delete (e.g., <code>my-disk</code>).</p>
+   */
+  diskName: string | undefined;
 }
 
 export namespace DeleteDiskRequest {
@@ -2108,7 +3310,8 @@ export namespace DeleteDiskRequest {
 export interface DeleteDiskResult {
   __type?: "DeleteDiskResult";
   /**
-   * <p>An array of objects that describe the result of your request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2139,7 +3342,8 @@ export namespace DeleteDiskSnapshotRequest {
 export interface DeleteDiskSnapshotResult {
   __type?: "DeleteDiskSnapshotResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2151,17 +3355,51 @@ export namespace DeleteDiskSnapshotResult {
   export const isa = (o: any): o is DeleteDiskSnapshotResult => __isa(o, "DeleteDiskSnapshotResult");
 }
 
+export interface DeleteDistributionRequest {
+  __type?: "DeleteDistributionRequest";
+  /**
+   * <p>The name of the distribution to delete.</p>
+   *
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   */
+  distributionName?: string;
+}
+
+export namespace DeleteDistributionRequest {
+  export const filterSensitiveLog = (obj: DeleteDistributionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteDistributionRequest => __isa(o, "DeleteDistributionRequest");
+}
+
+export interface DeleteDistributionResult {
+  __type?: "DeleteDistributionResult";
+  /**
+   * <p>An object that describes the result of the action, such as the status of the request, the
+   *       timestamp of the request, and the resources affected by the request.</p>
+   */
+  operation?: Operation;
+}
+
+export namespace DeleteDistributionResult {
+  export const filterSensitiveLog = (obj: DeleteDistributionResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteDistributionResult => __isa(o, "DeleteDistributionResult");
+}
+
 export interface DeleteDomainEntryRequest {
   __type?: "DeleteDomainEntryRequest";
-  /**
-   * <p>An array of key-value pairs containing information about your domain entries.</p>
-   */
-  domainEntry: DomainEntry | undefined;
-
   /**
    * <p>The name of the domain entry to delete.</p>
    */
   domainName: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs containing information about your domain entries.</p>
+   */
+  domainEntry: DomainEntry | undefined;
 }
 
 export namespace DeleteDomainEntryRequest {
@@ -2174,8 +3412,8 @@ export namespace DeleteDomainEntryRequest {
 export interface DeleteDomainEntryResult {
   __type?: "DeleteDomainEntryResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your delete
-   *       domain entry request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -2205,8 +3443,8 @@ export namespace DeleteDomainRequest {
 export interface DeleteDomainResult {
   __type?: "DeleteDomainResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your delete
-   *       domain request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -2221,14 +3459,14 @@ export namespace DeleteDomainResult {
 export interface DeleteInstanceRequest {
   __type?: "DeleteInstanceRequest";
   /**
-   * <p>A Boolean value to indicate whether to delete the enabled add-ons for the disk.</p>
-   */
-  forceDeleteAddOns?: boolean;
-
-  /**
    * <p>The name of the instance to delete.</p>
    */
   instanceName: string | undefined;
+
+  /**
+   * <p>A Boolean value to indicate whether to delete the enabled add-ons for the disk.</p>
+   */
+  forceDeleteAddOns?: boolean;
 }
 
 export namespace DeleteInstanceRequest {
@@ -2241,8 +3479,8 @@ export namespace DeleteInstanceRequest {
 export interface DeleteInstanceResult {
   __type?: "DeleteInstanceResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your delete
-   *       instance request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2272,8 +3510,8 @@ export namespace DeleteInstanceSnapshotRequest {
 export interface DeleteInstanceSnapshotResult {
   __type?: "DeleteInstanceSnapshotResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your delete
-   *       instance snapshot request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2303,8 +3541,8 @@ export namespace DeleteKeyPairRequest {
 export interface DeleteKeyPairResult {
   __type?: "DeleteKeyPairResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your delete key
-   *       pair request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -2334,7 +3572,8 @@ export namespace DeleteKnownHostKeysRequest {
 export interface DeleteKnownHostKeysResult {
   __type?: "DeleteKnownHostKeysResult";
   /**
-   * <p>A list of objects describing the API operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2364,7 +3603,8 @@ export namespace DeleteLoadBalancerRequest {
 export interface DeleteLoadBalancerResult {
   __type?: "DeleteLoadBalancerResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2379,15 +3619,10 @@ export namespace DeleteLoadBalancerResult {
 export interface DeleteLoadBalancerTlsCertificateRequest {
   __type?: "DeleteLoadBalancerTlsCertificateRequest";
   /**
-   * <p>The SSL/TLS certificate name.</p>
-   */
-  certificateName: string | undefined;
-
-  /**
    * <p>When <code>true</code>, forces the deletion of an SSL/TLS certificate.</p>
-   *          <p>There can be two certificates associated with a Lightsail load balancer: the primary
-   *       and the backup. The <code>force</code> parameter is required when the primary SSL/TLS
-   *       certificate is in use by an instance attached to the load balancer.</p>
+   *          <p>There can be two certificates associated with a Lightsail load balancer: the primary and
+   *       the backup. The <code>force</code> parameter is required when the primary SSL/TLS certificate
+   *       is in use by an instance attached to the load balancer.</p>
    */
   force?: boolean;
 
@@ -2395,6 +3630,11 @@ export interface DeleteLoadBalancerTlsCertificateRequest {
    * <p>The load balancer name.</p>
    */
   loadBalancerName: string | undefined;
+
+  /**
+   * <p>The SSL/TLS certificate name.</p>
+   */
+  certificateName: string | undefined;
 }
 
 export namespace DeleteLoadBalancerTlsCertificateRequest {
@@ -2408,7 +3648,8 @@ export namespace DeleteLoadBalancerTlsCertificateRequest {
 export interface DeleteLoadBalancerTlsCertificateResult {
   __type?: "DeleteLoadBalancerTlsCertificateResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2423,6 +3664,11 @@ export namespace DeleteLoadBalancerTlsCertificateResult {
 
 export interface DeleteRelationalDatabaseRequest {
   __type?: "DeleteRelationalDatabaseRequest";
+  /**
+   * <p>The name of the database that you are deleting.</p>
+   */
+  relationalDatabaseName: string | undefined;
+
   /**
    * <p>The name of the database snapshot created if <code>skip final snapshot</code> is
    *         <code>false</code>, which is the default value for that parameter.</p>
@@ -2443,17 +3689,11 @@ export interface DeleteRelationalDatabaseRequest {
   finalRelationalDatabaseSnapshotName?: string;
 
   /**
-   * <p>The name of the database that you are deleting.</p>
-   */
-  relationalDatabaseName: string | undefined;
-
-  /**
-   * <p>Determines whether a final database snapshot is created before your database is
-   *       deleted. If <code>true</code> is specified, no database snapshot is created. If
-   *         <code>false</code> is specified, a database snapshot is created before your database is
-   *       deleted.</p>
-   *          <p>You must specify the <code>final relational database snapshot name</code> parameter if
-   *       the <code>skip final snapshot</code> parameter is <code>false</code>.</p>
+   * <p>Determines whether a final database snapshot is created before your database is deleted.
+   *       If <code>true</code> is specified, no database snapshot is created. If <code>false</code> is
+   *       specified, a database snapshot is created before your database is deleted.</p>
+   *          <p>You must specify the <code>final relational database snapshot name</code> parameter if the
+   *         <code>skip final snapshot</code> parameter is <code>false</code>.</p>
    *          <p>Default: <code>false</code>
    *          </p>
    */
@@ -2470,7 +3710,8 @@ export namespace DeleteRelationalDatabaseRequest {
 export interface DeleteRelationalDatabaseResult {
   __type?: "DeleteRelationalDatabaseResult";
   /**
-   * <p>An object describing the result of your delete relational database request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2501,8 +3742,8 @@ export namespace DeleteRelationalDatabaseSnapshotRequest {
 export interface DeleteRelationalDatabaseSnapshotResult {
   __type?: "DeleteRelationalDatabaseSnapshotResult";
   /**
-   * <p>An object describing the result of your delete relational database snapshot
-   *       request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2521,14 +3762,14 @@ export namespace DeleteRelationalDatabaseSnapshotResult {
 export interface DestinationInfo {
   __type?: "DestinationInfo";
   /**
-   * <p>The ID of the resource created at the destination.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The destination service of the record.</p>
    */
   service?: string;
+
+  /**
+   * <p>The ID of the resource created at the destination.</p>
+   */
+  id?: string;
 }
 
 export namespace DestinationInfo {
@@ -2536,6 +3777,42 @@ export namespace DestinationInfo {
     ...obj,
   });
   export const isa = (o: any): o is DestinationInfo => __isa(o, "DestinationInfo");
+}
+
+export interface DetachCertificateFromDistributionRequest {
+  __type?: "DetachCertificateFromDistributionRequest";
+  /**
+   * <p>The name of the distribution from which to detach the certificate.</p>
+   *
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   */
+  distributionName: string | undefined;
+}
+
+export namespace DetachCertificateFromDistributionRequest {
+  export const filterSensitiveLog = (obj: DetachCertificateFromDistributionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DetachCertificateFromDistributionRequest =>
+    __isa(o, "DetachCertificateFromDistributionRequest");
+}
+
+export interface DetachCertificateFromDistributionResult {
+  __type?: "DetachCertificateFromDistributionResult";
+  /**
+   * <p>An object that describes the result of the action, such as the status of the request, the
+   *       timestamp of the request, and the resources affected by the request.</p>
+   */
+  operation?: Operation;
+}
+
+export namespace DetachCertificateFromDistributionResult {
+  export const filterSensitiveLog = (obj: DetachCertificateFromDistributionResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DetachCertificateFromDistributionResult =>
+    __isa(o, "DetachCertificateFromDistributionResult");
 }
 
 export interface DetachDiskRequest {
@@ -2557,7 +3834,8 @@ export namespace DetachDiskRequest {
 export interface DetachDiskResult {
   __type?: "DetachDiskResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2572,8 +3850,8 @@ export namespace DetachDiskResult {
 export interface DetachInstancesFromLoadBalancerRequest {
   __type?: "DetachInstancesFromLoadBalancerRequest";
   /**
-   * <p>An array of strings containing the names of the instances you want to detach from the
-   *       load balancer.</p>
+   * <p>An array of strings containing the names of the instances you want to detach from the load
+   *       balancer.</p>
    */
   instanceNames: string[] | undefined;
 
@@ -2594,7 +3872,8 @@ export namespace DetachInstancesFromLoadBalancerRequest {
 export interface DetachInstancesFromLoadBalancerResult {
   __type?: "DetachInstancesFromLoadBalancerResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2625,8 +3904,8 @@ export namespace DetachStaticIpRequest {
 export interface DetachStaticIpResult {
   __type?: "DetachStaticIpResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your detach
-   *       static IP request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2661,7 +3940,8 @@ export namespace DisableAddOnRequest {
 export interface DisableAddOnResult {
   __type?: "DisableAddOnResult";
   /**
-   * <p>An array of objects that describe the result of your request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -2679,21 +3959,6 @@ export namespace DisableAddOnResult {
 export interface Disk {
   __type?: "Disk";
   /**
-   * <p>An array of objects representing the add-ons enabled on the disk.</p>
-   */
-  addOns?: AddOn[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the disk.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The resources to which the disk is attached.</p>
-   */
-  attachedTo?: string;
-
-  /**
    * <p>(Deprecated) The attachment state of the disk.</p>
    *          <note>
    *             <p>In releases prior to November 14, 2017, this parameter returned <code>attached</code>
@@ -2702,11 +3967,6 @@ export interface Disk {
    *          </note>
    */
   attachmentState?: string;
-
-  /**
-   * <p>The date when the disk was created.</p>
-   */
-  createdAt?: Date;
 
   /**
    * <p>(Deprecated) The number of GB in use by the disk.</p>
@@ -2718,14 +3978,41 @@ export interface Disk {
   gbInUse?: number;
 
   /**
+   * <p>The date when the disk was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
    * <p>The input/output operations per second (IOPS) of the disk.</p>
    */
   iops?: number;
 
   /**
-   * <p>A Boolean value indicating whether the disk is attached.</p>
+   * <p>The disk path.</p>
    */
-  isAttached?: boolean;
+  path?: string;
+
+  /**
+   * <p>The resources to which the disk is attached.</p>
+   */
+  attachedTo?: string;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
+   *         Dev Guide</a>.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>Describes the status of the disk.</p>
+   */
+  state?: DiskState | string;
+
+  /**
+   * <p>The AWS Region and Availability Zone where the disk is located.</p>
+   */
+  location?: ResourceLocation;
 
   /**
    * <p>A Boolean value indicating whether this disk is a system disk (has an operating system
@@ -2734,19 +4021,26 @@ export interface Disk {
   isSystemDisk?: boolean;
 
   /**
-   * <p>The AWS Region and Availability Zone where the disk is located.</p>
+   * <p>The size of the disk in GB.</p>
    */
-  location?: ResourceLocation;
+  sizeInGb?: number;
 
   /**
-   * <p>The unique name of the disk.</p>
+   * <p>An array of objects representing the add-ons enabled on the disk.</p>
    */
-  name?: string;
+  addOns?: AddOn[];
 
   /**
-   * <p>The disk path.</p>
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
    */
-  path?: string;
+  supportCode?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the disk.</p>
+   */
+  arn?: string;
 
   /**
    * <p>The Lightsail resource type (e.g., <code>Disk</code>).</p>
@@ -2754,28 +4048,14 @@ export interface Disk {
   resourceType?: ResourceType | string;
 
   /**
-   * <p>The size of the disk in GB.</p>
+   * <p>The unique name of the disk.</p>
    */
-  sizeInGb?: number;
+  name?: string;
 
   /**
-   * <p>Describes the status of the disk.</p>
+   * <p>A Boolean value indicating whether the disk is attached.</p>
    */
-  state?: DiskState | string;
-
-  /**
-   * <p>The support code. Include this code in your email to support when you have questions
-   *       about an instance or another resource in Lightsail. This code enables our support team to
-   *       look up your Lightsail information more easily.</p>
-   */
-  supportCode?: string;
-
-  /**
-   * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
-   *         Dev Guide</a>.</p>
-   */
-  tags?: Tag[];
+  isAttached?: boolean;
 }
 
 export namespace Disk {
@@ -2797,14 +4077,14 @@ export interface DiskInfo {
   isSystemDisk?: boolean;
 
   /**
-   * <p>The disk name.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The disk path.</p>
    */
   path?: string;
+
+  /**
+   * <p>The disk name.</p>
+   */
+  name?: string;
 
   /**
    * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
@@ -2825,15 +4105,15 @@ export namespace DiskInfo {
 export interface DiskMap {
   __type?: "DiskMap";
   /**
-   * <p>The new disk name (e.g., <code>my-new-disk</code>).</p>
-   */
-  newDiskName?: string;
-
-  /**
    * <p>The original disk path exposed to the instance (for example,
    *       <code>/dev/sdh</code>).</p>
    */
   originalDiskPath?: string;
+
+  /**
+   * <p>The new disk name (e.g., <code>my-new-disk</code>).</p>
+   */
+  newDiskName?: string;
 }
 
 export namespace DiskMap {
@@ -2849,31 +4129,26 @@ export namespace DiskMap {
 export interface DiskSnapshot {
   __type?: "DiskSnapshot";
   /**
-   * <p>The Amazon Resource Name (ARN) of the disk snapshot.</p>
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
    */
-  arn?: string;
+  supportCode?: string;
 
   /**
-   * <p>The date when the disk snapshot was created.</p>
+   * <p>The AWS Region and Availability Zone where the disk snapshot was created.</p>
    */
-  createdAt?: Date;
+  location?: ResourceLocation;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was
-   *       created.</p>
+   * <p>The status of the disk snapshot operation.</p>
    */
-  fromDiskArn?: string;
+  state?: DiskSnapshotState | string;
 
   /**
-   * <p>The unique name of the source disk from which the disk snapshot was created.</p>
+   * <p>The Lightsail resource type (e.g., <code>DiskSnapshot</code>).</p>
    */
-  fromDiskName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source instance from which the disk (system volume)
-   *       snapshot was created.</p>
-   */
-  fromInstanceArn?: string;
+  resourceType?: ResourceType | string;
 
   /**
    * <p>The unique name of the source instance from which the disk (system volume) snapshot was
@@ -2882,15 +4157,15 @@ export interface DiskSnapshot {
   fromInstanceName?: string;
 
   /**
-   * <p>A Boolean value indicating whether the snapshot was created from an automatic
-   *       snapshot.</p>
+   * <p>The progress of the disk snapshot operation.</p>
    */
-  isFromAutoSnapshot?: boolean;
+  progress?: string;
 
   /**
-   * <p>The AWS Region and Availability Zone where the disk snapshot was created.</p>
+   * <p>The Amazon Resource Name (ARN) of the source instance from which the disk (system volume)
+   *       snapshot was created.</p>
    */
-  location?: ResourceLocation;
+  fromInstanceArn?: string;
 
   /**
    * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
@@ -2898,14 +4173,20 @@ export interface DiskSnapshot {
   name?: string;
 
   /**
-   * <p>The progress of the disk snapshot operation.</p>
+   * <p>The Amazon Resource Name (ARN) of the disk snapshot.</p>
    */
-  progress?: string;
+  arn?: string;
 
   /**
-   * <p>The Lightsail resource type (e.g., <code>DiskSnapshot</code>).</p>
+   * <p>A Boolean value indicating whether the snapshot was created from an automatic
+   *       snapshot.</p>
    */
-  resourceType?: ResourceType | string;
+  isFromAutoSnapshot?: boolean;
+
+  /**
+   * <p>The date when the disk snapshot was created.</p>
+   */
+  createdAt?: Date;
 
   /**
    * <p>The size of the disk in GB.</p>
@@ -2913,16 +4194,10 @@ export interface DiskSnapshot {
   sizeInGb?: number;
 
   /**
-   * <p>The status of the disk snapshot operation.</p>
+   * <p>The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was
+   *       created.</p>
    */
-  state?: DiskSnapshotState | string;
-
-  /**
-   * <p>The support code. Include this code in your email to support when you have questions
-   *       about an instance or another resource in Lightsail. This code enables our support team to
-   *       look up your Lightsail information more easily.</p>
-   */
-  supportCode?: string;
+  fromDiskArn?: string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -2930,6 +4205,11 @@ export interface DiskSnapshot {
    *         Dev Guide</a>.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The unique name of the source disk from which the disk snapshot was created.</p>
+   */
+  fromDiskName?: string;
 }
 
 export namespace DiskSnapshot {
@@ -2973,20 +4253,62 @@ export enum DiskState {
 }
 
 /**
+ * <p>Describes the specifications of a distribution bundle.</p>
+ */
+export interface DistributionBundle {
+  __type?: "DistributionBundle";
+  /**
+   * <p>The name of the distribution bundle.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The ID of the bundle.</p>
+   */
+  bundleId?: string;
+
+  /**
+   * <p>The monthly network transfer quota of the bundle.</p>
+   */
+  transferPerMonthInGb?: number;
+
+  /**
+   * <p>Indicates whether the bundle is active, and can be specified for a new
+   *       distribution.</p>
+   */
+  isActive?: boolean;
+
+  /**
+   * <p>The monthly price, in US dollars, of the bundle.</p>
+   */
+  price?: number;
+}
+
+export namespace DistributionBundle {
+  export const filterSensitiveLog = (obj: DistributionBundle): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DistributionBundle => __isa(o, "DistributionBundle");
+}
+
+export enum DistributionMetricName {
+  BytesDownloaded = "BytesDownloaded",
+  BytesUploaded = "BytesUploaded",
+  Http4xxErrorRate = "Http4xxErrorRate",
+  Http5xxErrorRate = "Http5xxErrorRate",
+  Requests = "Requests",
+  TotalErrorRate = "TotalErrorRate",
+}
+
+/**
  * <p>Describes a domain where you are storing recordsets in Lightsail.</p>
  */
 export interface Domain {
   __type?: "Domain";
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain recordset (e.g.,
-   *         <code>arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE</code>).</p>
+   * <p>The AWS Region and Availability Zones where the domain recordset was created.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The date when the domain recordset was created.</p>
-   */
-  createdAt?: Date;
+  location?: ResourceLocation;
 
   /**
    * <p>An array of key-value pairs containing information about the domain entries.</p>
@@ -2994,14 +4316,9 @@ export interface Domain {
   domainEntries?: DomainEntry[];
 
   /**
-   * <p>The AWS Region and Availability Zones where the domain recordset was created.</p>
+   * <p>The date when the domain recordset was created.</p>
    */
-  location?: ResourceLocation;
-
-  /**
-   * <p>The name of the domain.</p>
-   */
-  name?: string;
+  createdAt?: Date;
 
   /**
    * <p>The resource type. </p>
@@ -3009,11 +4326,16 @@ export interface Domain {
   resourceType?: ResourceType | string;
 
   /**
-   * <p>The support code. Include this code in your email to support when you have questions
-   *       about an instance or another resource in Lightsail. This code enables our support team to
-   *       look up your Lightsail information more easily.</p>
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
    */
   supportCode?: string;
+
+  /**
+   * <p>The name of the domain.</p>
+   */
+  name?: string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -3021,6 +4343,12 @@ export interface Domain {
    *         Dev Guide</a>.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain recordset (e.g.,
+   *         <code>arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE</code>).</p>
+   */
+  arn?: string;
 }
 
 export namespace Domain {
@@ -3036,16 +4364,18 @@ export namespace Domain {
 export interface DomainEntry {
   __type?: "DomainEntry";
   /**
+   * <p>The target AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</p>
+   *          <p>For Lightsail load balancers, the value looks like
+   *         <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>. Be sure
+   *       to also set <code>isAlias</code> to <code>true</code> when setting up an A record for a load
+   *       balancer.</p>
+   */
+  target?: string;
+
+  /**
    * <p>The ID of the domain recordset entry.</p>
    */
   id?: string;
-
-  /**
-   * <p>When <code>true</code>, specifies whether the domain entry is an alias used by the
-   *       Lightsail load balancer. You can include an alias (A type) record in your request, which
-   *       points to a load balancer DNS name and routes traffic to your load balancer</p>
-   */
-  isAlias?: boolean;
 
   /**
    * <p>The name of the domain.</p>
@@ -3062,18 +4392,15 @@ export interface DomainEntry {
   options?: { [key: string]: string };
 
   /**
-   * <p>The target AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</p>
-   *          <p>For Lightsail load balancers, the value looks like
-   *         <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>. Be sure
-   *       to also set <code>isAlias</code> to <code>true</code> when setting up an A record for a load
-   *       balancer.</p>
+   * <p>When <code>true</code>, specifies whether the domain entry is an alias used by the
+   *       Lightsail load balancer. You can include an alias (A type) record in your request, which
+   *       points to a load balancer DNS name and routes traffic to your load balancer</p>
    */
-  target?: string;
+  isAlias?: boolean;
 
   /**
    * <p>The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger
-   *       (MX), name server (NS), start of authority (SOA), service locator (SRV), or text
-   *       (TXT).</p>
+   *       (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).</p>
    *          <p>The following domain entry types can be used:</p>
    *          <ul>
    *             <li>
@@ -3123,6 +4450,31 @@ export namespace DomainEntry {
   export const isa = (o: any): o is DomainEntry => __isa(o, "DomainEntry");
 }
 
+/**
+ * <p>Describes the domain validation records of an Amazon Lightsail SSL/TLS certificate.</p>
+ */
+export interface DomainValidationRecord {
+  __type?: "DomainValidationRecord";
+  /**
+   * <p>The domain name of the certificate validation record. For example,
+   *         <code>example.com</code> or <code>www.example.com</code>.</p>
+   */
+  domainName?: string;
+
+  /**
+   * <p>An object that describes the DNS records to add to your domain's DNS to validate it for
+   *       the certificate.</p>
+   */
+  resourceRecord?: ResourceRecord;
+}
+
+export namespace DomainValidationRecord {
+  export const filterSensitiveLog = (obj: DomainValidationRecord): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DomainValidationRecord => __isa(o, "DomainValidationRecord");
+}
+
 export interface DownloadDefaultKeyPairRequest {
   __type?: "DownloadDefaultKeyPairRequest";
 }
@@ -3137,14 +4489,14 @@ export namespace DownloadDefaultKeyPairRequest {
 export interface DownloadDefaultKeyPairResult {
   __type?: "DownloadDefaultKeyPairResult";
   /**
-   * <p>A base64-encoded RSA private key.</p>
-   */
-  privateKeyBase64?: string;
-
-  /**
    * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
    */
   publicKeyBase64?: string;
+
+  /**
+   * <p>A base64-encoded RSA private key.</p>
+   */
+  privateKeyBase64?: string;
 }
 
 export namespace DownloadDefaultKeyPairResult {
@@ -3177,7 +4529,8 @@ export namespace EnableAddOnRequest {
 export interface EnableAddOnResult {
   __type?: "EnableAddOnResult";
   /**
-   * <p>An array of objects that describe the result of your request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -3200,14 +4553,29 @@ export interface ExportSnapshotRecord {
   arn?: string;
 
   /**
-   * <p>The date when the export snapshot record was created.</p>
+   * <p>A list of objects describing the source of the export snapshot record.</p>
    */
-  createdAt?: Date;
+  sourceInfo?: ExportSnapshotRecordSourceInfo;
+
+  /**
+   * <p>The state of the export snapshot record.</p>
+   */
+  state?: RecordState | string;
 
   /**
    * <p>A list of objects describing the destination of the export snapshot record.</p>
    */
   destinationInfo?: DestinationInfo;
+
+  /**
+   * <p>The date when the export snapshot record was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
+   */
+  resourceType?: ResourceType | string;
 
   /**
    * <p>The AWS Region and Availability Zone where the export snapshot record is located.</p>
@@ -3218,21 +4586,6 @@ export interface ExportSnapshotRecord {
    * <p>The export snapshot record name.</p>
    */
   name?: string;
-
-  /**
-   * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
-   */
-  resourceType?: ResourceType | string;
-
-  /**
-   * <p>A list of objects describing the source of the export snapshot record.</p>
-   */
-  sourceInfo?: ExportSnapshotRecordSourceInfo;
-
-  /**
-   * <p>The state of the export snapshot record.</p>
-   */
-  state?: RecordState | string;
 }
 
 export namespace ExportSnapshotRecord {
@@ -3248,24 +4601,14 @@ export namespace ExportSnapshotRecord {
 export interface ExportSnapshotRecordSourceInfo {
   __type?: "ExportSnapshotRecordSourceInfo";
   /**
+   * <p>A list of objects describing an instance snapshot.</p>
+   */
+  instanceSnapshotInfo?: InstanceSnapshotInfo;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the source instance or disk snapshot.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The date when the source instance or disk snapshot was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>A list of objects describing a disk snapshot.</p>
-   */
-  diskSnapshotInfo?: DiskSnapshotInfo;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot's source instance or disk.</p>
-   */
-  fromResourceArn?: string;
 
   /**
    * <p>The name of the snapshot's source instance or disk.</p>
@@ -3273,14 +4616,24 @@ export interface ExportSnapshotRecordSourceInfo {
   fromResourceName?: string;
 
   /**
-   * <p>A list of objects describing an instance snapshot.</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot's source instance or disk.</p>
    */
-  instanceSnapshotInfo?: InstanceSnapshotInfo;
+  fromResourceArn?: string;
+
+  /**
+   * <p>The date when the source instance or disk snapshot was created.</p>
+   */
+  createdAt?: Date;
 
   /**
    * <p>The name of the source instance or disk snapshot.</p>
    */
   name?: string;
+
+  /**
+   * <p>A list of objects describing a disk snapshot.</p>
+   */
+  diskSnapshotInfo?: DiskSnapshotInfo;
 
   /**
    * <p>The Lightsail resource type (e.g., <code>InstanceSnapshot</code> or
@@ -3319,7 +4672,8 @@ export namespace ExportSnapshotRequest {
 export interface ExportSnapshotResult {
   __type?: "ExportSnapshotResult";
   /**
-   * <p>A list of objects describing the API operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -3331,10 +4685,19 @@ export namespace ExportSnapshotResult {
   export const isa = (o: any): o is ExportSnapshotResult => __isa(o, "ExportSnapshotResult");
 }
 
+export enum ForwardValues {
+  all = "all",
+  allowList = "allow-list",
+  none = "none",
+}
+
 export interface GetActiveNamesRequest {
   __type?: "GetActiveNamesRequest";
   /**
-   * <p>A token used for paginating results from your get active names request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetActiveNames</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -3349,15 +4712,17 @@ export namespace GetActiveNamesRequest {
 export interface GetActiveNamesResult {
   __type?: "GetActiveNamesResult";
   /**
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetActiveNames</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+
+  /**
    * <p>The list of active names returned by the get active names request.</p>
    */
   activeNames?: string[];
-
-  /**
-   * <p>A token used for advancing to the next page of results from your get active names
-   *       request.</p>
-   */
-  nextPageToken?: string;
 }
 
 export namespace GetActiveNamesResult {
@@ -3365,6 +4730,60 @@ export namespace GetActiveNamesResult {
     ...obj,
   });
   export const isa = (o: any): o is GetActiveNamesResult => __isa(o, "GetActiveNamesResult");
+}
+
+export interface GetAlarmsRequest {
+  __type?: "GetAlarmsRequest";
+  /**
+   * <p>The name of the Lightsail resource being monitored by the alarm.</p>
+   *          <p>Specify a monitored resource name to return information about all alarms for a specific
+   *       resource.</p>
+   */
+  monitoredResourceName?: string;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetAlarms</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   */
+  pageToken?: string;
+
+  /**
+   * <p>The name of the alarm.</p>
+   *          <p>Specify an alarm name to return information about a specific alarm.</p>
+   */
+  alarmName?: string;
+}
+
+export namespace GetAlarmsRequest {
+  export const filterSensitiveLog = (obj: GetAlarmsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetAlarmsRequest => __isa(o, "GetAlarmsRequest");
+}
+
+export interface GetAlarmsResult {
+  __type?: "GetAlarmsResult";
+  /**
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetAlarms</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+
+  /**
+   * <p>An array of objects that describe the alarms.</p>
+   */
+  alarms?: Alarm[];
+}
+
+export namespace GetAlarmsResult {
+  export const filterSensitiveLog = (obj: GetAlarmsResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetAlarmsResult => __isa(o, "GetAlarmsResult");
 }
 
 export interface GetAutoSnapshotsRequest {
@@ -3392,14 +4811,14 @@ export interface GetAutoSnapshotsResult {
   autoSnapshots?: AutoSnapshotDetails[];
 
   /**
-   * <p>The name of the source instance or disk for the automatic snapshots.</p>
-   */
-  resourceName?: string;
-
-  /**
    * <p>The resource type (e.g., <code>Instance</code> or <code>Disk</code>).</p>
    */
   resourceType?: ResourceType | string;
+
+  /**
+   * <p>The name of the source instance or disk for the automatic snapshots.</p>
+   */
+  resourceName?: string;
 }
 
 export namespace GetAutoSnapshotsResult {
@@ -3412,16 +4831,17 @@ export namespace GetAutoSnapshotsResult {
 export interface GetBlueprintsRequest {
   __type?: "GetBlueprintsRequest";
   /**
-   * <p>A Boolean value indicating whether to include inactive results in your
-   *       request.</p>
-   */
-  includeInactive?: boolean;
-
-  /**
-   * <p>A token used for advancing to the next page of results from your get blueprints
-   *       request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetBlueprints</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
    */
   pageToken?: string;
+
+  /**
+   * <p>A Boolean value indicating whether to include inactive results in your request.</p>
+   */
+  includeInactive?: boolean;
 }
 
 export namespace GetBlueprintsRequest {
@@ -3440,8 +4860,10 @@ export interface GetBlueprintsResult {
   blueprints?: Blueprint[];
 
   /**
-   * <p>A token used for advancing to the next page of results from your get blueprints
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetBlueprints</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -3456,16 +4878,18 @@ export namespace GetBlueprintsResult {
 export interface GetBundlesRequest {
   __type?: "GetBundlesRequest";
   /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetBundles</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   */
+  pageToken?: string;
+
+  /**
    * <p>A Boolean value that indicates whether to include inactive bundle results in your
    *       request.</p>
    */
   includeInactive?: boolean;
-
-  /**
-   * <p>A token used for advancing to the next page of results from your get bundles
-   *       request.</p>
-   */
-  pageToken?: string;
 }
 
 export namespace GetBundlesRequest {
@@ -3478,14 +4902,15 @@ export namespace GetBundlesRequest {
 export interface GetBundlesResult {
   __type?: "GetBundlesResult";
   /**
-   * <p>An array of key-value pairs that contains information about the available
-   *       bundles.</p>
+   * <p>An array of key-value pairs that contains information about the available bundles.</p>
    */
   bundles?: Bundle[];
 
   /**
-   * <p>A token used for advancing to the next page of results from your get active names
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetBundles</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -3497,11 +4922,66 @@ export namespace GetBundlesResult {
   export const isa = (o: any): o is GetBundlesResult => __isa(o, "GetBundlesResult");
 }
 
+export interface GetCertificatesRequest {
+  __type?: "GetCertificatesRequest";
+  /**
+   * <p>Indicates whether to include detailed information about the certificates in the
+   *       response.</p>
+   *
+   *          <p>When omitted, the response includes only the certificate names, Amazon Resource Names
+   *       (ARNs), domain names, and tags.</p>
+   */
+  includeCertificateDetails?: boolean;
+
+  /**
+   * <p>The name for the certificate for which to return information.</p>
+   *
+   *          <p>When omitted, the response includes all of your certificates in the AWS region where the
+   *       request is made.</p>
+   */
+  certificateName?: string;
+
+  /**
+   * <p>The status of the certificates for which to return information.</p>
+   *
+   *          <p>For example, specify <code>ISSUED</code> to return only certificates with an
+   *         <code>ISSUED</code> status.</p>
+   *
+   *          <p>When omitted, the response includes all of your certificates in the AWS region where the
+   *       request is made, regardless of their current status.</p>
+   */
+  certificateStatuses?: (CertificateStatus | string)[];
+}
+
+export namespace GetCertificatesRequest {
+  export const filterSensitiveLog = (obj: GetCertificatesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetCertificatesRequest => __isa(o, "GetCertificatesRequest");
+}
+
+export interface GetCertificatesResult {
+  __type?: "GetCertificatesResult";
+  /**
+   * <p>An object that describes certificates.</p>
+   */
+  certificates?: CertificateSummary[];
+}
+
+export namespace GetCertificatesResult {
+  export const filterSensitiveLog = (obj: GetCertificatesResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetCertificatesResult => __isa(o, "GetCertificatesResult");
+}
+
 export interface GetCloudFormationStackRecordsRequest {
   __type?: "GetCloudFormationStackRecordsRequest";
   /**
-   * <p>A token used for advancing to a specific page of results for your <code>get cloud
-   *         formation stack records</code> request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetClouFormationStackRecords</code> request.
+   *       If your results are paginated, the response will return a next page token that you can specify
+   *       as the page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -3522,8 +5002,11 @@ export interface GetCloudFormationStackRecordsResult {
   cloudFormationStackRecords?: CloudFormationStackRecord[];
 
   /**
-   * <p>A token used for advancing to the next page of results of your get relational database
-   *       bundles request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another
+   *         <code>GetCloudFormationStackRecords</code> request and specify the next page token using the
+   *         <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -3534,6 +5017,39 @@ export namespace GetCloudFormationStackRecordsResult {
   });
   export const isa = (o: any): o is GetCloudFormationStackRecordsResult =>
     __isa(o, "GetCloudFormationStackRecordsResult");
+}
+
+export interface GetContactMethodsRequest {
+  __type?: "GetContactMethodsRequest";
+  /**
+   * <p>The protocols used to send notifications, such as <code>Email</code>, or <code>SMS</code>
+   *       (text messaging).</p>
+   *          <p>Specify a protocol in your request to return information about a specific contact method
+   *       protocol.</p>
+   */
+  protocols?: (ContactProtocol | string)[];
+}
+
+export namespace GetContactMethodsRequest {
+  export const filterSensitiveLog = (obj: GetContactMethodsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetContactMethodsRequest => __isa(o, "GetContactMethodsRequest");
+}
+
+export interface GetContactMethodsResult {
+  __type?: "GetContactMethodsResult";
+  /**
+   * <p>An array of objects that describe the contact methods.</p>
+   */
+  contactMethods?: ContactMethod[];
+}
+
+export namespace GetContactMethodsResult {
+  export const filterSensitiveLog = (obj: GetContactMethodsResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetContactMethodsResult => __isa(o, "GetContactMethodsResult");
 }
 
 export interface GetDiskRequest {
@@ -3599,8 +5115,10 @@ export namespace GetDiskSnapshotResult {
 export interface GetDiskSnapshotsRequest {
   __type?: "GetDiskSnapshotsRequest";
   /**
-   * <p>A token used for advancing to the next page of results from your GetDiskSnapshots
-   *       request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDiskSnapshots</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -3615,14 +5133,15 @@ export namespace GetDiskSnapshotsRequest {
 export interface GetDiskSnapshotsResult {
   __type?: "GetDiskSnapshotsResult";
   /**
-   * <p>An array of objects containing information about all block storage disk
-   *       snapshots.</p>
+   * <p>An array of objects containing information about all block storage disk snapshots.</p>
    */
   diskSnapshots?: DiskSnapshot[];
 
   /**
-   * <p>A token used for advancing to the next page of results from your GetDiskSnapshots
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDiskSnapshots</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -3637,8 +5156,10 @@ export namespace GetDiskSnapshotsResult {
 export interface GetDisksRequest {
   __type?: "GetDisksRequest";
   /**
-   * <p>A token used for advancing to the next page of results from your GetDisks
-   *       request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDisks</code> request. If your results are
+   *       paginated, the response will return a next page token that you can specify as the page token
+   *       in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -3658,8 +5179,10 @@ export interface GetDisksResult {
   disks?: Disk[];
 
   /**
-   * <p>A token used for advancing to the next page of results from your GetDisks
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDisks</code> request and specify
+   *       the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -3669,6 +5192,335 @@ export namespace GetDisksResult {
     ...obj,
   });
   export const isa = (o: any): o is GetDisksResult => __isa(o, "GetDisksResult");
+}
+
+export interface GetDistributionBundlesRequest {
+  __type?: "GetDistributionBundlesRequest";
+}
+
+export namespace GetDistributionBundlesRequest {
+  export const filterSensitiveLog = (obj: GetDistributionBundlesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetDistributionBundlesRequest => __isa(o, "GetDistributionBundlesRequest");
+}
+
+export interface GetDistributionBundlesResult {
+  __type?: "GetDistributionBundlesResult";
+  /**
+   * <p>An object that describes a distribution bundle.</p>
+   */
+  bundles?: DistributionBundle[];
+}
+
+export namespace GetDistributionBundlesResult {
+  export const filterSensitiveLog = (obj: GetDistributionBundlesResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetDistributionBundlesResult => __isa(o, "GetDistributionBundlesResult");
+}
+
+export interface GetDistributionLatestCacheResetRequest {
+  __type?: "GetDistributionLatestCacheResetRequest";
+  /**
+   * <p>The name of the distribution for which to return the timestamp of the last cache
+   *       reset.</p>
+   *
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   *
+   *          <p>When omitted, the response includes the latest cache reset timestamp of all your
+   *       distributions.</p>
+   */
+  distributionName?: string;
+}
+
+export namespace GetDistributionLatestCacheResetRequest {
+  export const filterSensitiveLog = (obj: GetDistributionLatestCacheResetRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetDistributionLatestCacheResetRequest =>
+    __isa(o, "GetDistributionLatestCacheResetRequest");
+}
+
+export interface GetDistributionLatestCacheResetResult {
+  __type?: "GetDistributionLatestCacheResetResult";
+  /**
+   * <p>The status of the last cache reset.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The timestamp of the last cache reset (e.g., <code>1479734909.17</code>) in Unix time
+   *       format.</p>
+   */
+  createTime?: Date;
+}
+
+export namespace GetDistributionLatestCacheResetResult {
+  export const filterSensitiveLog = (obj: GetDistributionLatestCacheResetResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetDistributionLatestCacheResetResult =>
+    __isa(o, "GetDistributionLatestCacheResetResult");
+}
+
+export interface GetDistributionMetricDataRequest {
+  __type?: "GetDistributionMetricDataRequest";
+  /**
+   * <p>The metric for which you want to return information.</p>
+   *
+   *          <p>Valid distribution metric names are listed below, along with the most useful
+   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
+   *       value.</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Requests</code>
+   *                   </b> - The total number of viewer
+   *           requests received by your Lightsail distribution, for all HTTP methods, and for both
+   *           HTTP and HTTPS requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BytesDownloaded</code>
+   *                   </b> - The number of bytes
+   *           downloaded by viewers for GET, HEAD, and OPTIONS requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BytesUploaded </code>
+   *                   </b> - The number of bytes
+   *           uploaded to your origin by your Lightsail distribution, using POST and PUT
+   *           requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>TotalErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status code was 4xx or 5xx.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>4xxErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status cod was 4xx. In these cases, the
+   *           client or client viewer may have made an error. For example, a status code of 404 (Not
+   *           Found) means that the client requested an object that could not be found.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>5xxErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status code was 5xx. In these cases, the
+   *           origin server did not satisfy the requests. For example, a status code of 503 (Service
+   *           Unavailable) means that the origin server is currently unavailable.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  metricName: DistributionMetricName | string | undefined;
+
+  /**
+   * <p>The end of the time interval for which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
+   *             <code>1538427600</code> as the end time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
+   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
+   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistics: (MetricStatistic | string)[] | undefined;
+
+  /**
+   * <p>The start of the time interval for which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
+   *             <code>1538424000</code> as the start time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The unit for the metric data request.</p>
+   *
+   *          <p>Valid units depend on the metric data being requested. For the valid units with each
+   *       available metric, see the <code>metricName</code> parameter.</p>
+   */
+  unit: MetricUnit | string | undefined;
+
+  /**
+   * <p>The granularity, in seconds, for the metric data points that will be returned.</p>
+   */
+  period: number | undefined;
+
+  /**
+   * <p>The name of the distribution for which to get metric data.</p>
+   *
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   */
+  distributionName: string | undefined;
+}
+
+export namespace GetDistributionMetricDataRequest {
+  export const filterSensitiveLog = (obj: GetDistributionMetricDataRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetDistributionMetricDataRequest => __isa(o, "GetDistributionMetricDataRequest");
+}
+
+export interface GetDistributionMetricDataResult {
+  __type?: "GetDistributionMetricDataResult";
+  /**
+   * <p>An array of objects that describe the metric data returned.</p>
+   */
+  metricData?: MetricDatapoint[];
+
+  /**
+   * <p>The name of the metric returned.</p>
+   */
+  metricName?: DistributionMetricName | string;
+}
+
+export namespace GetDistributionMetricDataResult {
+  export const filterSensitiveLog = (obj: GetDistributionMetricDataResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetDistributionMetricDataResult => __isa(o, "GetDistributionMetricDataResult");
+}
+
+export interface GetDistributionsRequest {
+  __type?: "GetDistributionsRequest";
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *
+   *          <p>To get a page token, perform an initial <code>GetDistributions</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+
+  /**
+   * <p>The name of the distribution for which to return information.</p>
+   *
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   *
+   *          <p>When omitted, the response includes all of your distributions in the AWS Region where
+   *       the request is made.</p>
+   */
+  distributionName?: string;
+}
+
+export namespace GetDistributionsRequest {
+  export const filterSensitiveLog = (obj: GetDistributionsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetDistributionsRequest => __isa(o, "GetDistributionsRequest");
+}
+
+export interface GetDistributionsResult {
+  __type?: "GetDistributionsResult";
+  /**
+   * <p>An array of objects that describe your distributions.</p>
+   */
+  distributions?: LightsailDistribution[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDistributions</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+export namespace GetDistributionsResult {
+  export const filterSensitiveLog = (obj: GetDistributionsResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetDistributionsResult => __isa(o, "GetDistributionsResult");
 }
 
 export interface GetDomainRequest {
@@ -3689,8 +5541,7 @@ export namespace GetDomainRequest {
 export interface GetDomainResult {
   __type?: "GetDomainResult";
   /**
-   * <p>An array of key-value pairs containing information about your get domain
-   *       request.</p>
+   * <p>An array of key-value pairs containing information about your get domain request.</p>
    */
   domain?: Domain;
 }
@@ -3705,8 +5556,10 @@ export namespace GetDomainResult {
 export interface GetDomainsRequest {
   __type?: "GetDomainsRequest";
   /**
-   * <p>A token used for advancing to the next page of results from your get domains
-   *       request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDomains</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -3721,14 +5574,16 @@ export namespace GetDomainsRequest {
 export interface GetDomainsResult {
   __type?: "GetDomainsResult";
   /**
-   * <p>An array of key-value pairs containing information about each of the domain entries in
-   *       the user's account.</p>
+   * <p>An array of key-value pairs containing information about each of the domain entries in the
+   *       user's account.</p>
    */
   domains?: Domain[];
 
   /**
-   * <p>A token used for advancing to the next page of results from your get active names
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDomains</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -3743,8 +5598,10 @@ export namespace GetDomainsResult {
 export interface GetExportSnapshotRecordsRequest {
   __type?: "GetExportSnapshotRecordsRequest";
   /**
-   * <p>A token used for advancing to a specific page of results for your <code>get export
-   *         snapshot records</code> request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetExportSnapshotRecords</code> request. If
+   *       your results are paginated, the response will return a next page token that you can specify as
+   *       the page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -3764,8 +5621,10 @@ export interface GetExportSnapshotRecordsResult {
   exportSnapshotRecords?: ExportSnapshotRecord[];
 
   /**
-   * <p>A token used for advancing to the next page of results of your get relational database
-   *       bundles request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetExportSnapshotRecords</code>
+   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -3780,15 +5639,14 @@ export namespace GetExportSnapshotRecordsResult {
 export interface GetInstanceAccessDetailsRequest {
   __type?: "GetInstanceAccessDetailsRequest";
   /**
+   * <p>The protocol to use to connect to your instance. Defaults to <code>ssh</code>.</p>
+   */
+  protocol?: InstanceAccessProtocol | string;
+
+  /**
    * <p>The name of the instance to access.</p>
    */
   instanceName: string | undefined;
-
-  /**
-   * <p>The protocol to use to connect to your instance. Defaults to
-   *       <code>ssh</code>.</p>
-   */
-  protocol?: InstanceAccessProtocol | string;
 }
 
 export namespace GetInstanceAccessDetailsRequest {
@@ -3817,9 +5675,56 @@ export namespace GetInstanceAccessDetailsResult {
 export interface GetInstanceMetricDataRequest {
   __type?: "GetInstanceMetricDataRequest";
   /**
+   * <p>The start time of the time period.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
+   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
+   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistics: (MetricStatistic | string)[] | undefined;
+
+  /**
    * <p>The end time of the time period.</p>
    */
   endTime: Date | undefined;
+
+  /**
+   * <p>The unit for the metric data request. Valid units depend on the metric data being
+   *       requested. For the valid units to specify with each available metric, see the
+   *         <code>metricName</code> parameter.</p>
+   */
+  unit: MetricUnit | string | undefined;
 
   /**
    * <p>The name of the instance for which you want to get metrics data.</p>
@@ -3827,29 +5732,139 @@ export interface GetInstanceMetricDataRequest {
   instanceName: string | undefined;
 
   /**
-   * <p>The metric name to get data about. </p>
-   */
-  metricName: InstanceMetricName | string | undefined;
-
-  /**
    * <p>The granularity, in seconds, of the returned data points.</p>
+   *          <p>The <code>StatusCheckFailed</code>, <code>StatusCheckFailed_Instance</code>, and
+   *         <code>StatusCheckFailed_System</code> instance metric data is available in 1-minute (60
+   *       seconds) granularity. All other instance metric data is available in 5-minute (300 seconds)
+   *       granularity.</p>
    */
   period: number | undefined;
 
   /**
-   * <p>The start time of the time period.</p>
+   * <p>The metric for which you want to return information.</p>
+   *          <p>Valid instance metric names are listed below, along with the most useful
+   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
+   *       value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BurstCapacityPercentage</code>
+   *                   </b> - The percentage
+   *           of CPU performance available for your instance to burst above its baseline. Your instance
+   *           continuously accrues and consumes burst capacity. Burst capacity stops accruing when your
+   *           instance's <code>BurstCapacityPercentage</code> reaches 100%. For more information, see
+   *             <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity">Viewing instance burst capacity in Amazon Lightsail</a>.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BurstCapacityTime</code>
+   *                   </b> - The available amount
+   *           of time for your instance to burst at 100% CPU utilization. Your instance continuously
+   *           accrues and consumes burst capacity. Burst capacity time stops accruing when your
+   *           instance's <code>BurstCapacityPercentage</code> metric reaches 100%.</p>
+   *                <p>Burst capacity time is consumed at the full rate only when your instance operates at
+   *           100% CPU utilization. For example, if your instance operates at 50% CPU utilization in the
+   *           burstable zone for a 5-minute period, then it consumes CPU burst capacity minutes at a 50%
+   *           rate in that period. Your instance consumed 2 minutes and 30 seconds of CPU burst capacity
+   *           minutes in the 5-minute period. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity">Viewing instance burst capacity in Amazon Lightsail</a>.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Seconds</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>CPUUtilization</code>
+   *                   </b> - The percentage of
+   *           allocated compute units that are currently in use on the instance. This metric identifies
+   *           the processing power to run the applications on the instance. Tools in your operating
+   *           system can show a lower percentage than Lightsail when the instance is not allocated a
+   *           full processor core.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>NetworkIn</code>
+   *                   </b> - The number of bytes received
+   *           on all network interfaces by the instance. This metric identifies the volume of incoming
+   *           network traffic to the instance. The number reported is the number of bytes received
+   *           during the period. Because this metric is reported in 5-minute intervals, divide the
+   *           reported number by 300 to find Bytes/second.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Bytes</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>NetworkOut</code>
+   *                   </b> - The number of bytes sent
+   *           out on all network interfaces by the instance. This metric identifies the volume of
+   *           outgoing network traffic from the instance. The number reported is the number of bytes
+   *           sent during the period. Because this metric is reported in 5-minute intervals, divide the
+   *           reported number by 300 to find Bytes/second.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Bytes</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>StatusCheckFailed</code>
+   *                   </b> - Reports whether the
+   *           instance passed or failed both the instance status check and the system status check. This
+   *           metric can be either 0 (passed) or 1 (failed). This metric data is available in 1-minute
+   *           (60 seconds) granularity.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>StatusCheckFailed_Instance</code>
+   *                   </b> - Reports
+   *           whether the instance passed or failed the instance status check. This metric can be either
+   *           0 (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds)
+   *           granularity.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>StatusCheckFailed_System</code>
+   *                   </b> - Reports
+   *           whether the instance passed or failed the system status check. This metric can be either 0
+   *           (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds)
+   *           granularity.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *          </ul>
    */
-  startTime: Date | undefined;
-
-  /**
-   * <p>The instance statistics. </p>
-   */
-  statistics: (MetricStatistic | string)[] | undefined;
-
-  /**
-   * <p>The unit. The list of valid values is below.</p>
-   */
-  unit: MetricUnit | string | undefined;
+  metricName: InstanceMetricName | string | undefined;
 }
 
 export namespace GetInstanceMetricDataRequest {
@@ -3862,13 +5877,12 @@ export namespace GetInstanceMetricDataRequest {
 export interface GetInstanceMetricDataResult {
   __type?: "GetInstanceMetricDataResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your get
-   *       instance metric data request.</p>
+   * <p>An array of objects that describe the metric data returned.</p>
    */
   metricData?: MetricDatapoint[];
 
   /**
-   * <p>The metric name to return data for.</p>
+   * <p>The name of the metric returned.</p>
    */
   metricName?: InstanceMetricName | string;
 }
@@ -3883,7 +5897,7 @@ export namespace GetInstanceMetricDataResult {
 export interface GetInstancePortStatesRequest {
   __type?: "GetInstancePortStatesRequest";
   /**
-   * <p>The name of the instance.</p>
+   * <p>The name of the instance for which to return firewall port states.</p>
    */
   instanceName: string | undefined;
 }
@@ -3898,7 +5912,8 @@ export namespace GetInstancePortStatesRequest {
 export interface GetInstancePortStatesResult {
   __type?: "GetInstancePortStatesResult";
   /**
-   * <p>Information about the port states resulting from your request.</p>
+   * <p>An array of objects that describe the firewall port states for the specified
+   *       instance.</p>
    */
   portStates?: InstancePortState[];
 }
@@ -3928,8 +5943,7 @@ export namespace GetInstanceRequest {
 export interface GetInstanceResult {
   __type?: "GetInstanceResult";
   /**
-   * <p>An array of key-value pairs containing information about the specified
-   *       instance.</p>
+   * <p>An array of key-value pairs containing information about the specified instance.</p>
    */
   instance?: Instance;
 }
@@ -3959,8 +5973,8 @@ export namespace GetInstanceSnapshotRequest {
 export interface GetInstanceSnapshotResult {
   __type?: "GetInstanceSnapshotResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your get
-   *       instance snapshot request.</p>
+   * <p>An array of key-value pairs containing information about the results of your get instance
+   *       snapshot request.</p>
    */
   instanceSnapshot?: InstanceSnapshot;
 }
@@ -3975,8 +5989,10 @@ export namespace GetInstanceSnapshotResult {
 export interface GetInstanceSnapshotsRequest {
   __type?: "GetInstanceSnapshotsRequest";
   /**
-   * <p>A token used for advancing to the next page of results from your get instance snapshots
-   *       request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetInstanceSnapshots</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -3991,16 +6007,18 @@ export namespace GetInstanceSnapshotsRequest {
 export interface GetInstanceSnapshotsResult {
   __type?: "GetInstanceSnapshotsResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your get
-   *       instance snapshots request.</p>
-   */
-  instanceSnapshots?: InstanceSnapshot[];
-
-  /**
-   * <p>A token used for advancing to the next page of results from your get instance snapshots
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetInstanceSnapshots</code> request
+   *       and specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
+
+  /**
+   * <p>An array of key-value pairs containing information about the results of your get instance
+   *       snapshots request.</p>
+   */
+  instanceSnapshots?: InstanceSnapshot[];
 }
 
 export namespace GetInstanceSnapshotsResult {
@@ -4013,8 +6031,10 @@ export namespace GetInstanceSnapshotsResult {
 export interface GetInstancesRequest {
   __type?: "GetInstancesRequest";
   /**
-   * <p>A token used for advancing to the next page of results from your get instances
-   *       request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetInstances</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -4034,8 +6054,10 @@ export interface GetInstancesResult {
   instances?: Instance[];
 
   /**
-   * <p>A token used for advancing to the next page of results from your get instances
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetInstances</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -4110,8 +6132,10 @@ export namespace GetKeyPairResult {
 export interface GetKeyPairsRequest {
   __type?: "GetKeyPairsRequest";
   /**
-   * <p>A token used for advancing to the next page of results from your get key pairs
-   *       request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetKeyPairs</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -4131,8 +6155,10 @@ export interface GetKeyPairsResult {
   keyPairs?: KeyPair[];
 
   /**
-   * <p>A token used for advancing to the next page of results from your get key pairs
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetKeyPairs</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -4147,18 +6173,15 @@ export namespace GetKeyPairsResult {
 export interface GetLoadBalancerMetricDataRequest {
   __type?: "GetLoadBalancerMetricDataRequest";
   /**
-   * <p>The end time of the period.</p>
+   * <p>The granularity, in seconds, of the returned data points.</p>
    */
-  endTime: Date | undefined;
+  period: number | undefined;
 
   /**
-   * <p>The name of the load balancer.</p>
-   */
-  loadBalancerName: string | undefined;
-
-  /**
-   * <p>The metric about which you want to return information. Valid values are listed below,
-   *       along with the most useful <code>statistics</code> to include in your request.</p>
+   * <p>The metric for which you want to return information.</p>
+   *          <p>Valid load balancer metric names are listed below, along with the most useful
+   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
+   *       value.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4166,125 +6189,136 @@ export interface GetLoadBalancerMetricDataRequest {
    *                      <code>ClientTLSNegotiationErrorCount</code>
    *                   </b> - The
    *           number of TLS connections initiated by the client that did not establish a session with
-   *           the load balancer. Possible causes include a mismatch of ciphers or protocols.</p>
+   *           the load balancer due to a TLS error generated by the load balancer. Possible causes
+   *           include a mismatch of ciphers or protocols.</p>
    *                <p>
    *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>HealthyHostCount</code>
-   *                   </b> - The number of
-   *           target instances that are considered healthy.</p>
+   *                   </b> - The number of target
+   *           instances that are considered healthy.</p>
    *                <p>
    *                   <code>Statistics</code>: The most useful statistic are <code>Average</code>,
    *             <code>Minimum</code>, and <code>Maximum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>UnhealthyHostCount</code>
-   *                   </b> - The number of
-   *           target instances that are considered unhealthy.</p>
+   *                      <code>HTTPCode_Instance_2XX_Count</code>
+   *                   </b> - The number
+   *           of HTTP 2XX response codes generated by the target instances. This does not include any
+   *           response codes generated by the load balancer.</p>
    *                <p>
-   *                   <code>Statistics</code>: The most useful statistic are <code>Average</code>,
-   *             <code>Minimum</code>, and <code>Maximum</code>.</p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
+   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
+   *             <code>1</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>HTTPCode_Instance_3XX_Count</code>
+   *                   </b> - The number
+   *           of HTTP 3XX response codes generated by the target instances. This does not include any
+   *           response codes generated by the load balancer.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
+   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
+   *             <code>1</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>HTTPCode_Instance_4XX_Count</code>
+   *                   </b> - The number
+   *           of HTTP 4XX response codes generated by the target instances. This does not include any
+   *           response codes generated by the load balancer.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
+   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
+   *             <code>1</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>HTTPCode_Instance_5XX_Count</code>
+   *                   </b> - The number
+   *           of HTTP 5XX response codes generated by the target instances. This does not include any
+   *           response codes generated by the load balancer.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
+   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
+   *             <code>1</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>HTTPCode_LB_4XX_Count</code>
    *                   </b> - The number of
-   *           HTTP 4XX client error codes that originate from the load balancer. Client errors are
-   *           generated when requests are malformed or incomplete. These requests have not been received
-   *           by the target instance. This count does not include any response codes generated by the
-   *           target instances.</p>
+   *           HTTP 4XX client error codes that originated from the load balancer. Client errors are
+   *           generated when requests are malformed or incomplete. These requests were not received by
+   *           the target instance. This count does not include response codes generated by the target
+   *           instances.</p>
    *                <p>
    *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
    *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
    *             <code>1</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>HTTPCode_LB_5XX_Count</code>
    *                   </b> - The number of
-   *           HTTP 5XX server error codes that originate from the load balancer. This count does not
-   *           include any response codes generated by the target instances.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and
-   *             <code>Average</code> all return <code>1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_Instance_2XX_Count</code>
-   *                   </b> - The
-   *           number of HTTP response codes generated by the target instances. This does not include any
-   *           response codes generated by the load balancer.</p>
+   *           HTTP 5XX server error codes that originated from the load balancer. This does not include
+   *           any response codes generated by the target instance. This metric is reported if there are
+   *           no healthy instances attached to the load balancer, or if the request rate exceeds the
+   *           capacity of the instances (spillover) or the load balancer.</p>
    *                <p>
    *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
    *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
    *             <code>1</code>.</p>
-   *             </li>
-   *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_Instance_3XX_Count</code>
-   *                   </b> - The
-   *           number of HTTP response codes generated by the target instances. This does not include any
-   *           response codes generated by the load balancer. </p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_Instance_4XX_Count</code>
-   *                   </b> - The
-   *           number of HTTP response codes generated by the target instances. This does not include any
-   *           response codes generated by the load balancer.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_Instance_5XX_Count</code>
-   *                   </b> - The
-   *           number of HTTP response codes generated by the target instances. This does not include any
-   *           response codes generated by the load balancer.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>.</p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>InstanceResponseTime</code>
-   *                   </b> - The time
-   *           elapsed, in seconds, after the request leaves the load balancer until a response from the
-   *           target instance is received.</p>
+   *                   </b> - The time elapsed,
+   *           in seconds, after the request leaves the load balancer until a response from the target
+   *           instance is received.</p>
    *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is
-   *           <code>Average</code>.</p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Seconds</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>RejectedConnectionCount</code>
-   *                   </b> - The number
-   *           of connections that were rejected because the load balancer had reached its maximum number
-   *           of connections.</p>
+   *                   </b> - The number of
+   *           connections that were rejected because the load balancer had reached its maximum number of
+   *           connections.</p>
    *                <p>
    *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4297,15 +6331,24 @@ export interface GetLoadBalancerMetricDataRequest {
    *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
    *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
    *             <code>1</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>UnhealthyHostCount</code>
+   *                   </b> - The number of
+   *           target instances that are considered unhealthy.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic are <code>Average</code>,
+   *             <code>Minimum</code>, and <code>Maximum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
    *             </li>
    *          </ul>
    */
   metricName: LoadBalancerMetricName | string | undefined;
-
-  /**
-   * <p>The granularity, in seconds, of the returned data points.</p>
-   */
-  period: number | undefined;
 
   /**
    * <p>The start time of the period.</p>
@@ -4313,56 +6356,54 @@ export interface GetLoadBalancerMetricDataRequest {
   startTime: Date | undefined;
 
   /**
-   * <p>An array of statistics that you want to request metrics for. Valid values are listed
-   *       below.</p>
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>SampleCount</code>
-   *                   </b> - The count (number) of
-   *           data points used for the statistical calculation.</p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>Average</code>
-   *                   </b> - The value of Sum /
-   *           SampleCount during the specified period. By comparing this statistic with the Minimum and
-   *           Maximum, you can determine the full scope of a metric and how close the average use is to
-   *           the Minimum and Maximum. This comparison helps you to know when to increase or decrease
-   *           your resources as needed.</p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>Sum</code>
-   *                   </b> - All values submitted for the
-   *           matching metric added together. This statistic can be useful for determining the total
-   *           volume of a metric.</p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>Minimum</code>
-   *                   </b> - The lowest value observed
-   *           during the specified period. You can use this value to determine low volumes of activity
-   *           for your application.</p>
+   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
+   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
+   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>Maximum</code>
-   *                   </b> - The highest value observed
-   *           during the specified period. You can use this value to determine high volumes of activity
-   *           for your application.</p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
    *             </li>
    *          </ul>
    */
   statistics: (MetricStatistic | string)[] | undefined;
 
   /**
-   * <p>The unit for the time period request. Valid values are listed below.</p>
+   * <p>The name of the load balancer.</p>
+   */
+  loadBalancerName: string | undefined;
+
+  /**
+   * <p>The end time of the period.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The unit for the metric data request. Valid units depend on the metric data being
+   *       requested. For the valid units with each available metric, see the <code>metricName</code>
+   *       parameter.</p>
    */
   unit: MetricUnit | string | undefined;
 }
@@ -4377,153 +6418,12 @@ export namespace GetLoadBalancerMetricDataRequest {
 export interface GetLoadBalancerMetricDataResult {
   __type?: "GetLoadBalancerMetricDataResult";
   /**
-   * <p>An array of metric datapoint objects.</p>
+   * <p>An array of objects that describe the metric data returned.</p>
    */
   metricData?: MetricDatapoint[];
 
   /**
-   * <p>The metric about which you are receiving information. Valid values are listed below,
-   *       along with the most useful <code>statistics</code> to include in your request.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>ClientTLSNegotiationErrorCount</code>
-   *                   </b> - The
-   *           number of TLS connections initiated by the client that did not establish a session with
-   *           the load balancer. Possible causes include a mismatch of ciphers or protocols.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HealthyHostCount</code>
-   *                   </b> - The number of
-   *           target instances that are considered healthy.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic are <code>Average</code>,
-   *             <code>Minimum</code>, and <code>Maximum</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>UnhealthyHostCount</code>
-   *                   </b> - The number of
-   *           target instances that are considered unhealthy.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic are <code>Average</code>,
-   *             <code>Minimum</code>, and <code>Maximum</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_LB_4XX_Count</code>
-   *                   </b> - The number of
-   *           HTTP 4XX client error codes that originate from the load balancer. Client errors are
-   *           generated when requests are malformed or incomplete. These requests have not been received
-   *           by the target instance. This count does not include any response codes generated by the
-   *           target instances.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_LB_5XX_Count</code>
-   *                   </b> - The number of
-   *           HTTP 5XX server error codes that originate from the load balancer. This count does not
-   *           include any response codes generated by the target instances.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and
-   *             <code>Average</code> all return <code>1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_Instance_2XX_Count</code>
-   *                   </b> - The
-   *           number of HTTP response codes generated by the target instances. This does not include any
-   *           response codes generated by the load balancer.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_Instance_3XX_Count</code>
-   *                   </b> - The
-   *           number of HTTP response codes generated by the target instances. This does not include any
-   *           response codes generated by the load balancer. </p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_Instance_4XX_Count</code>
-   *                   </b> - The
-   *           number of HTTP response codes generated by the target instances. This does not include any
-   *           response codes generated by the load balancer.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>HTTPCode_Instance_5XX_Count</code>
-   *                   </b> - The
-   *           number of HTTP response codes generated by the target instances. This does not include any
-   *           response codes generated by the load balancer.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>InstanceResponseTime</code>
-   *                   </b> - The time
-   *           elapsed, in seconds, after the request leaves the load balancer until a response from the
-   *           target instance is received.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is
-   *           <code>Average</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>RejectedConnectionCount</code>
-   *                   </b> - The number
-   *           of connections that were rejected because the load balancer had reached its maximum number
-   *           of connections.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>RequestCount</code>
-   *                   </b> - The number of requests
-   *           processed over IPv4. This count includes only the requests with a response generated by a
-   *           target instance of the load balancer.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that
-   *             <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return
-   *             <code>1</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the metric returned.</p>
    */
   metricName?: LoadBalancerMetricName | string;
 }
@@ -4568,7 +6468,10 @@ export namespace GetLoadBalancerResult {
 export interface GetLoadBalancersRequest {
   __type?: "GetLoadBalancersRequest";
   /**
-   * <p>A token used for paginating the results from your GetLoadBalancers request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetLoadBalancers</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -4588,8 +6491,10 @@ export interface GetLoadBalancersResult {
   loadBalancers?: LoadBalancer[];
 
   /**
-   * <p>A token used for advancing to the next page of results from your GetLoadBalancers
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetLoadBalancers</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -4652,8 +6557,8 @@ export namespace GetOperationRequest {
 export interface GetOperationResult {
   __type?: "GetOperationResult";
   /**
-   * <p>An array of key-value pairs containing information about the results of your get
-   *       operation request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -4668,8 +6573,10 @@ export namespace GetOperationResult {
 export interface GetOperationsForResourceRequest {
   __type?: "GetOperationsForResourceRequest";
   /**
-   * <p>A token used for advancing to the next page of results from your get operations for
-   *       resource request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetOperationsForResource</code> request. If
+   *       your results are paginated, the response will return a next page token that you can specify as
+   *       the page token in a subsequent request.</p>
    */
   pageToken?: string;
 
@@ -4689,6 +6596,14 @@ export namespace GetOperationsForResourceRequest {
 export interface GetOperationsForResourceResult {
   __type?: "GetOperationsForResourceResult";
   /**
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetOperationsForResource</code>
+   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+
+  /**
    * <p>(Deprecated) Returns the number of pages of results that remain.</p>
    *          <note>
    *             <p>In releases prior to June 12, 2017, this parameter returned <code>null</code> by the
@@ -4699,14 +6614,8 @@ export interface GetOperationsForResourceResult {
   nextPageCount?: string;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *       used to return the next set of items in the list.</p>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>An array of key-value pairs containing information about the results of your get
-   *       operations for resource request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -4721,8 +6630,10 @@ export namespace GetOperationsForResourceResult {
 export interface GetOperationsRequest {
   __type?: "GetOperationsRequest";
   /**
-   * <p>A token used for advancing to the next page of results from your get operations
-   *       request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetOperations</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -4737,16 +6648,18 @@ export namespace GetOperationsRequest {
 export interface GetOperationsResult {
   __type?: "GetOperationsResult";
   /**
-   * <p>A token used for advancing to the next page of results from your get operations
-   *       request.</p>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>An array of key-value pairs containing information about the results of your get
-   *       operations request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
+
+  /**
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetOperations</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
 }
 
 export namespace GetOperationsResult {
@@ -4759,9 +6672,8 @@ export namespace GetOperationsResult {
 export interface GetRegionsRequest {
   __type?: "GetRegionsRequest";
   /**
-   * <p>A Boolean value indicating whether to also include Availability Zones in your get
-   *       regions request. Availability Zones are indicated with a letter: e.g.,
-   *       <code>us-east-2a</code>.</p>
+   * <p>A Boolean value indicating whether to also include Availability Zones in your get regions
+   *       request. Availability Zones are indicated with a letter: e.g., <code>us-east-2a</code>.</p>
    */
   includeAvailabilityZones?: boolean;
 
@@ -4783,8 +6695,7 @@ export namespace GetRegionsRequest {
 export interface GetRegionsResult {
   __type?: "GetRegionsResult";
   /**
-   * <p>An array of key-value pairs containing information about your get regions
-   *       request.</p>
+   * <p>An array of key-value pairs containing information about your get regions request.</p>
    */
   regions?: Region[];
 }
@@ -4799,8 +6710,10 @@ export namespace GetRegionsResult {
 export interface GetRelationalDatabaseBlueprintsRequest {
   __type?: "GetRelationalDatabaseBlueprintsRequest";
   /**
-   * <p>A token used for advancing to a specific page of results for your <code>get relational
-   *         database blueprints</code> request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseBlueprints</code>
+   *       request. If your results are paginated, the response will return a next page token that you
+   *       can specify as the page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -4816,14 +6729,16 @@ export namespace GetRelationalDatabaseBlueprintsRequest {
 export interface GetRelationalDatabaseBlueprintsResult {
   __type?: "GetRelationalDatabaseBlueprintsResult";
   /**
-   * <p>An object describing the result of your get relational database blueprints
-   *       request.</p>
+   * <p>An object describing the result of your get relational database blueprints request.</p>
    */
   blueprints?: RelationalDatabaseBlueprint[];
 
   /**
-   * <p>A token used for advancing to the next page of results of your get relational database
-   *       blueprints request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another
+   *         <code>GetRelationalDatabaseBlueprints</code> request and specify the next page token using
+   *       the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 }
@@ -4839,8 +6754,10 @@ export namespace GetRelationalDatabaseBlueprintsResult {
 export interface GetRelationalDatabaseBundlesRequest {
   __type?: "GetRelationalDatabaseBundlesRequest";
   /**
-   * <p>A token used for advancing to a specific page of results for your <code>get relational
-   *         database bundles</code> request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseBundles</code> request.
+   *       If your results are paginated, the response will return a next page token that you can specify
+   *       as the page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -4856,16 +6773,17 @@ export namespace GetRelationalDatabaseBundlesRequest {
 export interface GetRelationalDatabaseBundlesResult {
   __type?: "GetRelationalDatabaseBundlesResult";
   /**
-   * <p>An object describing the result of your get relational database bundles
-   *       request.</p>
-   */
-  bundles?: RelationalDatabaseBundle[];
-
-  /**
-   * <p>A token used for advancing to the next page of results of your get relational database
-   *       bundles request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetRelationalDatabaseBundles</code>
+   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
+
+  /**
+   * <p>An object describing the result of your get relational database bundles request.</p>
+   */
+  bundles?: RelationalDatabaseBundle[];
 }
 
 export namespace GetRelationalDatabaseBundlesResult {
@@ -4879,19 +6797,21 @@ export namespace GetRelationalDatabaseBundlesResult {
 export interface GetRelationalDatabaseEventsRequest {
   __type?: "GetRelationalDatabaseEventsRequest";
   /**
-   * <p>The number of minutes in the past from which to retrieve events. For example, to get
-   *       all events from the past 2 hours, enter 120.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseEvents</code> request.
+   *       If your results are paginated, the response will return a next page token that you can specify
+   *       as the page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+
+  /**
+   * <p>The number of minutes in the past from which to retrieve events. For example, to get all
+   *       events from the past 2 hours, enter 120.</p>
    *          <p>Default: <code>60</code>
    *          </p>
    *          <p>The minimum is 1 and the maximum is 14 days (20160 minutes).</p>
    */
   durationInMinutes?: number;
-
-  /**
-   * <p>A token used for advancing to a specific page of results from for get relational
-   *       database events request.</p>
-   */
-  pageToken?: string;
 
   /**
    * <p>The name of the database from which to get events.</p>
@@ -4910,16 +6830,17 @@ export namespace GetRelationalDatabaseEventsRequest {
 export interface GetRelationalDatabaseEventsResult {
   __type?: "GetRelationalDatabaseEventsResult";
   /**
-   * <p>A token used for advancing to the next page of results from your get relational
-   *       database events request.</p>
-   */
-  nextPageToken?: string;
-
-  /**
-   * <p>An object describing the result of your get relational database events
-   *       request.</p>
+   * <p>An object describing the result of your get relational database events request.</p>
    */
   relationalDatabaseEvents?: RelationalDatabaseEvent[];
+
+  /**
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetRelationalDatabaseEvents</code>
+   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
 }
 
 export namespace GetRelationalDatabaseEventsResult {
@@ -4940,8 +6861,8 @@ export interface GetRelationalDatabaseLogEventsRequest {
    *             </li>
    *             <li>
    *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then
-   *           you input <code>1538424000</code> as the end time.</p>
+   *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you
+   *           input <code>1538424000</code> as the end time.</p>
    *
    *             </li>
    *          </ul>
@@ -4949,22 +6870,33 @@ export interface GetRelationalDatabaseLogEventsRequest {
   endTime?: Date;
 
   /**
-   * <p>The name of the log stream.</p>
-   *          <p>Use the <code>get relational database log streams</code> operation to get a list of
-   *       available log streams.</p>
-   */
-  logStreamName: string | undefined;
-
-  /**
-   * <p>A token used for advancing to a specific page of results for your <code>get relational
-   *         database log events</code> request.</p>
-   */
-  pageToken?: string;
-
-  /**
    * <p>The name of your database for which to get log events.</p>
    */
   relationalDatabaseName: string | undefined;
+
+  /**
+   * <p>The start of the time interval from which to get log events.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you
+   *           input <code>1538424000</code> as the start time.</p>
+   *             </li>
+   *          </ul>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The token to advance to the next or previous page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseLogEvents</code>
+   *       request. If your results are paginated, the response will return a next forward token and/or
+   *       next backward token that you can specify as the page token in a subsequent request.</p>
+   */
+  pageToken?: string;
 
   /**
    * <p>Parameter to specify if the log should start from head or tail. If <code>true</code> is
@@ -4978,20 +6910,11 @@ export interface GetRelationalDatabaseLogEventsRequest {
   startFromHead?: boolean;
 
   /**
-   * <p>The start of the time interval from which to get log events.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specified in Coordinated Universal Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then
-   *           you input <code>1538424000</code> as the start time.</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the log stream.</p>
+   *          <p>Use the <code>get relational database log streams</code> operation to get a list of
+   *       available log streams.</p>
    */
-  startTime?: Date;
+  logStreamName: string | undefined;
 }
 
 export namespace GetRelationalDatabaseLogEventsRequest {
@@ -5005,22 +6928,21 @@ export namespace GetRelationalDatabaseLogEventsRequest {
 export interface GetRelationalDatabaseLogEventsResult {
   __type?: "GetRelationalDatabaseLogEventsResult";
   /**
+   * <p>An object describing the result of your get relational database log events request.</p>
+   */
+  resourceLogEvents?: LogEvent[];
+
+  /**
    * <p>A token used for advancing to the previous page of results from your get relational
    *       database log events request.</p>
    */
   nextBackwardToken?: string;
 
   /**
-   * <p>A token used for advancing to the next page of results from your get relational
-   *       database log events request.</p>
+   * <p>A token used for advancing to the next page of results from your get relational database
+   *       log events request.</p>
    */
   nextForwardToken?: string;
-
-  /**
-   * <p>An object describing the result of your get relational database log events
-   *       request.</p>
-   */
-  resourceLogEvents?: LogEvent[];
 }
 
 export namespace GetRelationalDatabaseLogEventsResult {
@@ -5068,9 +6990,9 @@ export interface GetRelationalDatabaseMasterUserPasswordRequest {
   __type?: "GetRelationalDatabaseMasterUserPasswordRequest";
   /**
    * <p>The password version to return.</p>
-   *          <p>Specifying <code>CURRENT</code> or <code>PREVIOUS</code> returns the current or
-   *       previous passwords respectively. Specifying <code>PENDING</code> returns the newest version of
-   *       the password that will rotate to <code>CURRENT</code>. After the <code>PENDING</code> password
+   *          <p>Specifying <code>CURRENT</code> or <code>PREVIOUS</code> returns the current or previous
+   *       passwords respectively. Specifying <code>PENDING</code> returns the newest version of the
+   *       password that will rotate to <code>CURRENT</code>. After the <code>PENDING</code> password
    *       rotates to <code>CURRENT</code>, the <code>PENDING</code> password is no longer
    *       available.</p>
    *          <p>Default: <code>CURRENT</code>
@@ -5095,8 +7017,7 @@ export namespace GetRelationalDatabaseMasterUserPasswordRequest {
 export interface GetRelationalDatabaseMasterUserPasswordResult {
   __type?: "GetRelationalDatabaseMasterUserPasswordResult";
   /**
-   * <p>The timestamp when the specified version of the master user password was
-   *       created.</p>
+   * <p>The timestamp when the specified version of the master user password was created.</p>
    */
   createdAt?: Date;
 
@@ -5118,6 +7039,87 @@ export namespace GetRelationalDatabaseMasterUserPasswordResult {
 export interface GetRelationalDatabaseMetricDataRequest {
   __type?: "GetRelationalDatabaseMetricDataRequest";
   /**
+   * <p>The metric for which you want to return information.</p>
+   *          <p>Valid relational database metric names are listed below, along with the most useful
+   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
+   *       value. All relational database metric data is available in 1-minute (60 seconds)
+   *       granularity.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>CPUUtilization</code>
+   *                   </b> - The percentage of CPU
+   *           utilization currently in use on the database.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>DatabaseConnections</code>
+   *                   </b> - The number of
+   *           database connections in use.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+   *             <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>DiskQueueDepth</code>
+   *                   </b> - The number of
+   *           outstanding IOs (read/write requests) that are waiting to access the disk.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>FreeStorageSpace</code>
+   *                   </b> - The amount of
+   *           available storage space.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Bytes</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>NetworkReceiveThroughput</code>
+   *                   </b> - The incoming
+   *           (Receive) network traffic on the database, including both customer database traffic and
+   *           AWS traffic used for monitoring and replication.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Bytes/Second</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>NetworkTransmitThroughput</code>
+   *                   </b> - The outgoing
+   *           (Transmit) network traffic on the database, including both customer database traffic and
+   *           AWS traffic used for monitoring and replication.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Bytes/Second</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  metricName: RelationalDatabaseMetricName | string | undefined;
+
+  /**
    * <p>The end of the time interval from which to get metric data.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -5126,8 +7128,8 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *             </li>
    *             <li>
    *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then
-   *           you input <code>1538424000</code> as the end time.</p>
+   *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you
+   *           input <code>1538424000</code> as the end time.</p>
    *
    *             </li>
    *          </ul>
@@ -5135,19 +7137,11 @@ export interface GetRelationalDatabaseMetricDataRequest {
   endTime: Date | undefined;
 
   /**
-   * <p>The name of the metric data to return.</p>
+   * <p>The unit for the metric data request. Valid units depend on the metric data being
+   *       requested. For the valid units with each available metric, see the <code>metricName</code>
+   *       parameter.</p>
    */
-  metricName: RelationalDatabaseMetricName | string | undefined;
-
-  /**
-   * <p>The granularity, in seconds, of the returned data points.</p>
-   */
-  period: number | undefined;
-
-  /**
-   * <p>The name of your database from which to get metric data.</p>
-   */
-  relationalDatabaseName: string | undefined;
+  unit: MetricUnit | string | undefined;
 
   /**
    * <p>The start of the time interval from which to get metric data.</p>
@@ -5158,8 +7152,8 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *             </li>
    *             <li>
    *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then
-   *           you input <code>1538424000</code> as the start time.</p>
+   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you
+   *           input <code>1538424000</code> as the start time.</p>
    *
    *             </li>
    *          </ul>
@@ -5167,14 +7161,51 @@ export interface GetRelationalDatabaseMetricDataRequest {
   startTime: Date | undefined;
 
   /**
-   * <p>The array of statistics for your metric data request.</p>
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
+   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
+   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
    */
   statistics: (MetricStatistic | string)[] | undefined;
 
   /**
-   * <p>The unit for the metric data request.</p>
+   * <p>The name of your database from which to get metric data.</p>
    */
-  unit: MetricUnit | string | undefined;
+  relationalDatabaseName: string | undefined;
+
+  /**
+   * <p>The granularity, in seconds, of the returned data points.</p>
+   *          <p>All relational database metric data is available in 1-minute (60 seconds)
+   *       granularity.</p>
+   */
+  period: number | undefined;
 }
 
 export namespace GetRelationalDatabaseMetricDataRequest {
@@ -5188,13 +7219,12 @@ export namespace GetRelationalDatabaseMetricDataRequest {
 export interface GetRelationalDatabaseMetricDataResult {
   __type?: "GetRelationalDatabaseMetricDataResult";
   /**
-   * <p>An object describing the result of your get relational database metric data
-   *       request.</p>
+   * <p>An array of objects that describe the metric data returned.</p>
    */
   metricData?: MetricDatapoint[];
 
   /**
-   * <p>The name of the metric.</p>
+   * <p>The name of the metric returned.</p>
    */
   metricName?: RelationalDatabaseMetricName | string;
 }
@@ -5210,8 +7240,10 @@ export namespace GetRelationalDatabaseMetricDataResult {
 export interface GetRelationalDatabaseParametersRequest {
   __type?: "GetRelationalDatabaseParametersRequest";
   /**
-   * <p>A token used for advancing to a specific page of results for your <code>get relational
-   *         database parameters</code> request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseParameters</code>
+   *       request. If your results are paginated, the response will return a next page token that you
+   *       can specify as the page token in a subsequent request.</p>
    */
   pageToken?: string;
 
@@ -5232,14 +7264,16 @@ export namespace GetRelationalDatabaseParametersRequest {
 export interface GetRelationalDatabaseParametersResult {
   __type?: "GetRelationalDatabaseParametersResult";
   /**
-   * <p>A token used for advancing to the next page of results from your get static IPs
-   *       request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another
+   *         <code>GetRelationalDatabaseParameters</code> request and specify the next page token using
+   *       the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 
   /**
-   * <p>An object describing the result of your get relational database parameters
-   *       request.</p>
+   * <p>An object describing the result of your get relational database parameters request.</p>
    */
   parameters?: RelationalDatabaseParameter[];
 }
@@ -5317,8 +7351,10 @@ export namespace GetRelationalDatabaseSnapshotResult {
 export interface GetRelationalDatabaseSnapshotsRequest {
   __type?: "GetRelationalDatabaseSnapshotsRequest";
   /**
-   * <p>A token used for advancing to a specific page of results for your <code>get relational
-   *         database snapshots</code> request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseSnapshots</code>
+   *       request. If your results are paginated, the response will return a next page token that you
+   *       can specify as the page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -5334,14 +7370,16 @@ export namespace GetRelationalDatabaseSnapshotsRequest {
 export interface GetRelationalDatabaseSnapshotsResult {
   __type?: "GetRelationalDatabaseSnapshotsResult";
   /**
-   * <p>A token used for advancing to the next page of results from your get relational
-   *       database snapshots request.</p>
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another
+   *         <code>GetRelationalDatabaseSnapshots</code> request and specify the next page token using
+   *       the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
 
   /**
-   * <p>An object describing the result of your get relational database snapshots
-   *       request.</p>
+   * <p>An object describing the result of your get relational database snapshots request.</p>
    */
   relationalDatabaseSnapshots?: RelationalDatabaseSnapshot[];
 }
@@ -5357,8 +7395,10 @@ export namespace GetRelationalDatabaseSnapshotsResult {
 export interface GetRelationalDatabasesRequest {
   __type?: "GetRelationalDatabasesRequest";
   /**
-   * <p>A token used for advancing to a specific page of results for your <code>get relational
-   *         database</code> request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetRelationalDatabases</code> request. If
+   *       your results are paginated, the response will return a next page token that you can specify as
+   *       the page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -5373,15 +7413,17 @@ export namespace GetRelationalDatabasesRequest {
 export interface GetRelationalDatabasesResult {
   __type?: "GetRelationalDatabasesResult";
   /**
-   * <p>A token used for advancing to the next page of results from your get relational
-   *       databases request.</p>
-   */
-  nextPageToken?: string;
-
-  /**
    * <p>An object describing the result of your get relational databases request.</p>
    */
   relationalDatabases?: RelationalDatabase[];
+
+  /**
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetRelationalDatabases</code>
+   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
 }
 
 export namespace GetRelationalDatabasesResult {
@@ -5409,8 +7451,7 @@ export namespace GetStaticIpRequest {
 export interface GetStaticIpResult {
   __type?: "GetStaticIpResult";
   /**
-   * <p>An array of key-value pairs containing information about the requested static
-   *       IP.</p>
+   * <p>An array of key-value pairs containing information about the requested static IP.</p>
    */
   staticIp?: StaticIp;
 }
@@ -5425,8 +7466,10 @@ export namespace GetStaticIpResult {
 export interface GetStaticIpsRequest {
   __type?: "GetStaticIpsRequest";
   /**
-   * <p>A token used for advancing to the next page of results from your get static IPs
-   *       request.</p>
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetStaticIps</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -5441,16 +7484,18 @@ export namespace GetStaticIpsRequest {
 export interface GetStaticIpsResult {
   __type?: "GetStaticIpsResult";
   /**
-   * <p>A token used for advancing to the next page of results from your get static IPs
-   *       request.</p>
-   */
-  nextPageToken?: string;
-
-  /**
    * <p>An array of key-value pairs containing information about your get static IPs
    *       request.</p>
    */
   staticIps?: StaticIp[];
+
+  /**
+   * <p>The token to advance to the next page of resutls from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetStaticIps</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
 }
 
 export namespace GetStaticIpsResult {
@@ -5458,6 +7503,84 @@ export namespace GetStaticIpsResult {
     ...obj,
   });
   export const isa = (o: any): o is GetStaticIpsResult => __isa(o, "GetStaticIpsResult");
+}
+
+export enum HeaderEnum {
+  accept = "Accept",
+  acceptCharset = "Accept-Charset",
+  acceptDatetime = "Accept-Datetime",
+  acceptEncoding = "Accept-Encoding",
+  acceptLanguage = "Accept-Language",
+  authorization = "Authorization",
+  cloudFrontForwardedProto = "CloudFront-Forwarded-Proto",
+  cloudFrontIsDesktopViewer = "CloudFront-Is-Desktop-Viewer",
+  cloudFrontIsMobileViewer = "CloudFront-Is-Mobile-Viewer",
+  cloudFrontIsSmartTVViewer = "CloudFront-Is-SmartTV-Viewer",
+  cloudFrontIsTabletViewer = "CloudFront-Is-Tablet-Viewer",
+  cloudFrontViewerCountry = "CloudFront-Viewer-Country",
+  host = "Host",
+  origin = "Origin",
+  referer = "Referer",
+}
+
+/**
+ * <p>Describes the request headers that a Lightsail distribution bases caching on.</p>
+ *
+ *
+ *
+ *          <p>For the headers that you specify, your distribution caches separate versions of the
+ *       specified content based on the header values in viewer requests. For example, suppose viewer
+ *       requests for <code>logo.jpg</code> contain a custom <code>product</code> header that has a
+ *       value of either <code>acme</code> or <code>apex</code>, and you configure your distribution to
+ *       cache your content based on values in the <code>product</code> header. Your distribution
+ *       forwards the <code>product</code> header to the origin and caches the response from the origin
+ *       once for each header value.
+ *       </p>
+ */
+export interface HeaderObject {
+  __type?: "HeaderObject";
+  /**
+   * <p>The specific headers to forward to your distribution's origin.</p>
+   */
+  headersAllowList?: (HeaderEnum | string)[];
+
+  /**
+   * <p>The headers that you want your distribution to forward to your origin and base caching
+   *       on.</p>
+   *
+   *          <p>You can configure your distribution to do one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>all</code>
+   *                   </b> - Forward all headers to your
+   *           origin.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>none</code>
+   *                   </b> - Forward only the default
+   *           headers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>allow-list</code>
+   *                   </b> - Forward only the headers
+   *           you specify using the <code>headersAllowList</code> parameter.</p>
+   *             </li>
+   *          </ul>
+   */
+  option?: ForwardValues | string;
+}
+
+export namespace HeaderObject {
+  export const filterSensitiveLog = (obj: HeaderObject): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is HeaderObject => __isa(o, "HeaderObject");
 }
 
 /**
@@ -5474,23 +7597,15 @@ export interface HostKeyAttributes {
   algorithm?: string;
 
   /**
-   * <p>The SHA-1 fingerprint of the returned SSH host key or RDP certificate.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Example of an SHA-1 SSH fingerprint:</p>
-   *                <p>
-   *                   <code>SHA1:1CHH6FaAaXjtFOsR/t83vf91SR0</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Example of an SHA-1 RDP fingerprint:</p>
-   *                <p>
-   *                   <code>af:34:51:fe:09:f0:e0:da:b8:4e:56:ca:60:c2:10:ff:38:06:db:45</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>The returned RDP certificate is not valid after this point in time.</p>
+   *          <p>This value is listed only for RDP certificates.</p>
    */
-  fingerprintSHA1?: string;
+  notValidAfter?: Date;
+
+  /**
+   * <p>The public SSH host key or the RDP certificate.</p>
+   */
+  publicKey?: string;
 
   /**
    * <p>The SHA-256 fingerprint of the returned SSH host key or RDP certificate.</p>
@@ -5512,21 +7627,29 @@ export interface HostKeyAttributes {
   fingerprintSHA256?: string;
 
   /**
-   * <p>The returned RDP certificate is not valid after this point in time.</p>
-   *          <p>This value is listed only for RDP certificates.</p>
+   * <p>The SHA-1 fingerprint of the returned SSH host key or RDP certificate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Example of an SHA-1 SSH fingerprint:</p>
+   *                <p>
+   *                   <code>SHA1:1CHH6FaAaXjtFOsR/t83vf91SR0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Example of an SHA-1 RDP fingerprint:</p>
+   *                <p>
+   *                   <code>af:34:51:fe:09:f0:e0:da:b8:4e:56:ca:60:c2:10:ff:38:06:db:45</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  notValidAfter?: Date;
+  fingerprintSHA1?: string;
 
   /**
    * <p>The returned RDP certificate is valid after this point in time.</p>
    *          <p>This value is listed only for RDP certificates.</p>
    */
   notValidBefore?: Date;
-
-  /**
-   * <p>The public SSH host key or the RDP certificate.</p>
-   */
-  publicKey?: string;
 
   /**
    * <p>The time that the SSH host key or RDP certificate was recorded by Lightsail.</p>
@@ -5544,14 +7667,14 @@ export namespace HostKeyAttributes {
 export interface ImportKeyPairRequest {
   __type?: "ImportKeyPairRequest";
   /**
-   * <p>The name of the key pair for which you want to import the public key.</p>
-   */
-  keyPairName: string | undefined;
-
-  /**
    * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
    */
   publicKeyBase64: string | undefined;
+
+  /**
+   * <p>The name of the key pair for which you want to import the public key.</p>
+   */
+  keyPairName: string | undefined;
 }
 
 export namespace ImportKeyPairRequest {
@@ -5564,8 +7687,8 @@ export namespace ImportKeyPairRequest {
 export interface ImportKeyPairResult {
   __type?: "ImportKeyPairResult";
   /**
-   * <p>An array of key-value pairs containing information about the request
-   *       operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -5578,68 +7701,48 @@ export namespace ImportKeyPairResult {
 }
 
 /**
+ * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
+ *       distribution.</p>
+ *
+ *          <p>An origin can be a Lightsail instance or load balancer. A distribution pulls content
+ *       from an origin, caches it, and serves it to viewers via a worldwide network of edge
+ *       servers.</p>
+ */
+export interface InputOrigin {
+  __type?: "InputOrigin";
+  /**
+   * <p>The AWS Region name of the origin resource.</p>
+   */
+  regionName?: RegionName | string;
+
+  /**
+   * <p>The protocol that your Amazon Lightsail distribution uses when establishing a connection
+   *       with your origin to pull content.</p>
+   */
+  protocolPolicy?: OriginProtocolPolicyEnum | string;
+
+  /**
+   * <p>The name of the origin resource.</p>
+   */
+  name?: string;
+}
+
+export namespace InputOrigin {
+  export const filterSensitiveLog = (obj: InputOrigin): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InputOrigin => __isa(o, "InputOrigin");
+}
+
+/**
  * <p>Describes an instance (a virtual private server).</p>
  */
 export interface Instance {
   __type?: "Instance";
   /**
-   * <p>An array of objects representing the add-ons enabled on the instance.</p>
-   */
-  addOns?: AddOn[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>).</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The blueprint ID (e.g., <code>os_amlinux_2016_03</code>).</p>
-   */
-  blueprintId?: string;
-
-  /**
-   * <p>The friendly name of the blueprint (e.g., <code>Amazon Linux</code>).</p>
-   */
-  blueprintName?: string;
-
-  /**
-   * <p>The bundle for the instance (e.g., <code>micro_1_0</code>).</p>
-   */
-  bundleId?: string;
-
-  /**
-   * <p>The timestamp when the instance was created (e.g.,
-   *       <code>1479734909.17</code>).</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The size of the vCPU and the amount of RAM for the instance.</p>
-   */
-  hardware?: InstanceHardware;
-
-  /**
-   * <p>The IPv6 address of the instance.</p>
-   */
-  ipv6Address?: string;
-
-  /**
-   * <p>A Boolean value indicating whether this instance has a static IP assigned to
-   *       it.</p>
+   * <p>A Boolean value indicating whether this instance has a static IP assigned to it.</p>
    */
   isStaticIp?: boolean;
-
-  /**
-   * <p>The region name and Availability Zone where the instance is located.</p>
-   */
-  location?: ResourceLocation;
-
-  /**
-   * <p>The name the user gave the instance (e.g.,
-   *       <code>Amazon_Linux-1GB-Ohio-1</code>).</p>
-   */
-  name?: string;
 
   /**
    * <p>Information about the public ports and monthly data transfer rates for the
@@ -5648,14 +7751,38 @@ export interface Instance {
   networking?: InstanceNetworking;
 
   /**
-   * <p>The private IP address of the instance.</p>
+   * <p>The timestamp when the instance was created (e.g., <code>1479734909.17</code>) in Unix
+   *       time format.</p>
    */
-  privateIpAddress?: string;
+  createdAt?: Date;
 
   /**
-   * <p>The public IP address of the instance.</p>
+   * <p>The Amazon Resource Name (ARN) of the instance (e.g.,
+   *         <code>arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>).</p>
    */
-  publicIpAddress?: string;
+  arn?: string;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
+   */
+  supportCode?: string;
+
+  /**
+   * <p>The user name for connecting to the instance (e.g., <code>ec2-user</code>).</p>
+   */
+  username?: string;
+
+  /**
+   * <p>The size of the vCPU and the amount of RAM for the instance.</p>
+   */
+  hardware?: InstanceHardware;
+
+  /**
+   * <p>The name the user gave the instance (e.g., <code>Amazon_Linux-1GB-Ohio-1</code>).</p>
+   */
+  name?: string;
 
   /**
    * <p>The type of resource (usually <code>Instance</code>).</p>
@@ -5663,22 +7790,9 @@ export interface Instance {
   resourceType?: ResourceType | string;
 
   /**
-   * <p>The name of the SSH key being used to connect to the instance (e.g.,
-   *         <code>LightsailDefaultKeyPair</code>).</p>
+   * <p>The IPv6 address of the instance.</p>
    */
-  sshKeyName?: string;
-
-  /**
-   * <p>The status code and the state (e.g., <code>running</code>) for the instance.</p>
-   */
-  state?: InstanceState;
-
-  /**
-   * <p>The support code. Include this code in your email to support when you have questions
-   *       about an instance or another resource in Lightsail. This code enables our support team to
-   *       look up your Lightsail information more easily.</p>
-   */
-  supportCode?: string;
+  ipv6Address?: string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -5688,9 +7802,50 @@ export interface Instance {
   tags?: Tag[];
 
   /**
-   * <p>The user name for connecting to the instance (e.g., <code>ec2-user</code>).</p>
+   * <p>The private IP address of the instance.</p>
    */
-  username?: string;
+  privateIpAddress?: string;
+
+  /**
+   * <p>The status code and the state (e.g., <code>running</code>) for the instance.</p>
+   */
+  state?: InstanceState;
+
+  /**
+   * <p>The region name and Availability Zone where the instance is located.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The public IP address of the instance.</p>
+   */
+  publicIpAddress?: string;
+
+  /**
+   * <p>The friendly name of the blueprint (e.g., <code>Amazon Linux</code>).</p>
+   */
+  blueprintName?: string;
+
+  /**
+   * <p>An array of objects representing the add-ons enabled on the instance.</p>
+   */
+  addOns?: AddOn[];
+
+  /**
+   * <p>The bundle for the instance (e.g., <code>micro_1_0</code>).</p>
+   */
+  bundleId?: string;
+
+  /**
+   * <p>The name of the SSH key being used to connect to the instance (e.g.,
+   *         <code>LightsailDefaultKeyPair</code>).</p>
+   */
+  sshKeyName?: string;
+
+  /**
+   * <p>The blueprint ID (e.g., <code>os_amlinux_2016_03</code>).</p>
+   */
+  blueprintId?: string;
 }
 
 export namespace Instance {
@@ -5707,16 +7862,34 @@ export namespace Instance {
 export interface InstanceAccessDetails {
   __type?: "InstanceAccessDetails";
   /**
-   * <p>For SSH access, the public key to use when accessing your instance For OpenSSH clients
-   *       (e.g., command line SSH), you should save this value to
-   *       <code>tempkey-cert.pub</code>.</p>
+   * <p>For RDP access, the password for your Amazon Lightsail instance. Password will be an empty
+   *       string if the password for your new instance is not ready yet. When you create an instance, it
+   *       can take up to 15 minutes for the instance to be ready.</p>
+   *          <note>
+   *             <p>If you create an instance using any key pair other than the default
+   *           (<code>LightsailDefaultKeyPair</code>), <code>password</code> will always be an empty
+   *         string.</p>
+   *             <p>If you change the Administrator password on the instance, Lightsail will continue to
+   *         return the original password value. When accessing the instance using RDP, you need to
+   *         manually enter the Administrator password after changing it from the default.</p>
+   *          </note>
    */
-  certKey?: string;
+  password?: string;
 
   /**
    * <p>For SSH access, the date on which the temporary keys expire.</p>
    */
   expiresAt?: Date;
+
+  /**
+   * <p>The public IP address of the Amazon Lightsail instance.</p>
+   */
+  ipAddress?: string;
+
+  /**
+   * <p>The protocol for these Amazon Lightsail instance access details.</p>
+   */
+  protocol?: InstanceAccessProtocol | string;
 
   /**
    * <p>Describes the public SSH host keys or the RDP certificate.</p>
@@ -5729,48 +7902,29 @@ export interface InstanceAccessDetails {
   instanceName?: string;
 
   /**
-   * <p>The public IP address of the Amazon Lightsail instance.</p>
+   * <p>The user name to use when logging in to the Amazon Lightsail instance.</p>
    */
-  ipAddress?: string;
+  username?: string;
 
   /**
-   * <p>For RDP access, the password for your Amazon Lightsail instance. Password will be an
-   *       empty string if the password for your new instance is not ready yet. When you create an
-   *       instance, it can take up to 15 minutes for the instance to be ready.</p>
-   *          <note>
-   *             <p>If you create an instance using any key pair other than the default
-   *           (<code>LightsailDefaultKeyPair</code>), <code>password</code> will always be an empty
-   *         string.</p>
-   *             <p>If you change the Administrator password on the instance, Lightsail will continue
-   *         to return the original password value. When accessing the instance using RDP, you need to
-   *         manually enter the Administrator password after changing it from the default.</p>
-   *          </note>
-   */
-  password?: string;
-
-  /**
-   * <p>For a Windows Server-based instance, an object with the data you can use to retrieve
-   *       your password. This is only needed if <code>password</code> is empty and the instance is not
-   *       new (and therefore the password is not ready yet). When you create an instance, it can take up
-   *       to 15 minutes for the instance to be ready.</p>
-   */
-  passwordData?: PasswordData;
-
-  /**
-   * <p>For SSH access, the temporary private key. For OpenSSH clients (e.g., command line
-   *       SSH), you should save this value to <code>tempkey</code>).</p>
+   * <p>For SSH access, the temporary private key. For OpenSSH clients (e.g., command line SSH),
+   *       you should save this value to <code>tempkey</code>).</p>
    */
   privateKey?: string;
 
   /**
-   * <p>The protocol for these Amazon Lightsail instance access details.</p>
+   * <p>For a Windows Server-based instance, an object with the data you can use to retrieve your
+   *       password. This is only needed if <code>password</code> is empty and the instance is not new
+   *       (and therefore the password is not ready yet). When you create an instance, it can take up to
+   *       15 minutes for the instance to be ready.</p>
    */
-  protocol?: InstanceAccessProtocol | string;
+  passwordData?: PasswordData;
 
   /**
-   * <p>The user name to use when logging in to the Amazon Lightsail instance.</p>
+   * <p>For SSH access, the public key to use when accessing your instance For OpenSSH clients
+   *       (e.g., command line SSH), you should save this value to <code>tempkey-cert.pub</code>.</p>
    */
-  username?: string;
+  certKey?: string;
 }
 
 export namespace InstanceAccessDetails {
@@ -5792,9 +7946,12 @@ export enum InstanceAccessProtocol {
 export interface InstanceEntry {
   __type?: "InstanceEntry";
   /**
-   * <p>The Availability Zone for the new Amazon EC2 instance.</p>
+   * <p>The name of the export snapshot record, which contains the exported Lightsail instance
+   *       snapshot that will be used as the source of the new Amazon EC2 instance.</p>
+   *          <p>Use the <code>get export snapshot records</code> operation to get a list of export
+   *       snapshot records that you can use to create a CloudFormation stack.</p>
    */
-  availabilityZone: string | undefined;
+  sourceName: string | undefined;
 
   /**
    * <p>The instance type (e.g., <code>t2.micro</code>) to use for the new Amazon EC2 instance.</p>
@@ -5806,39 +7963,48 @@ export interface InstanceEntry {
    *          <p>The following configuration options are available:</p>
    *          <ul>
    *             <li>
-   *                <p>DEFAULT — Use the default firewall settings from the image.</p>
+   *                <p>
+   *                   <code>DEFAULT</code> - Use the default firewall settings from the Lightsail instance
+   *           blueprint.</p>
    *             </li>
    *             <li>
-   *                <p>INSTANCE — Use the firewall settings from the source Lightsail instance.</p>
+   *                <p>
+   *                   <code>INSTANCE</code> - Use the configured firewall settings from the source
+   *           Lightsail instance.</p>
    *             </li>
    *             <li>
-   *                <p>NONE — Default to Amazon EC2.</p>
+   *                <p>
+   *                   <code>NONE</code> - Use the default Amazon EC2 security group.</p>
    *             </li>
    *             <li>
-   *                <p>CLOSED — All ports closed.</p>
+   *                <p>
+   *                   <code>CLOSED</code> - All ports closed.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>If you configured <code>lightsail-connect</code> as a <code>cidrListAliases</code> on
+   *         your instance, or if you chose to allow the Lightsail browser-based SSH or RDP clients to
+   *         connect to your instance, that configuration is not carried over to your new Amazon EC2
+   *         instance.</p>
+   *          </note>
    */
   portInfoSource: PortInfoSourceType | string | undefined;
-
-  /**
-   * <p>The name of the export snapshot record, which contains the exported Lightsail instance
-   *       snapshot that will be used as the source of the new Amazon EC2 instance.</p>
-   *          <p>Use the <code>get export snapshot records</code> operation to get a list of export
-   *       snapshot records that you can use to create a CloudFormation stack.</p>
-   */
-  sourceName: string | undefined;
 
   /**
    * <p>A launch script you can create that configures a server with additional user data. For
    *       example, you might want to run <code>apt-get -y update</code>.</p>
    *          <note>
-   *             <p>Depending on the machine image you choose, the command to get software on your
-   *         instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use
+   *             <p>Depending on the machine image you choose, the command to get software on your instance
+   *         varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use
    *           <code>apt-get</code>, and FreeBSD uses <code>pkg</code>.</p>
    *          </note>
    */
   userData?: string;
+
+  /**
+   * <p>The Availability Zone for the new Amazon EC2 instance.</p>
+   */
+  availabilityZone: string | undefined;
 }
 
 export namespace InstanceEntry {
@@ -5854,14 +8020,14 @@ export namespace InstanceEntry {
 export interface InstanceHardware {
   __type?: "InstanceHardware";
   /**
-   * <p>The number of vCPUs the instance has.</p>
-   */
-  cpuCount?: number;
-
-  /**
    * <p>The disks attached to the instance.</p>
    */
   disks?: Disk[];
+
+  /**
+   * <p>The number of vCPUs the instance has.</p>
+   */
+  cpuCount?: number;
 
   /**
    * <p>The amount of RAM in GB on the instance (e.g., <code>1.0</code>).</p>
@@ -5905,9 +8071,10 @@ export enum InstanceHealthState {
 export interface InstanceHealthSummary {
   __type?: "InstanceHealthSummary";
   /**
-   * <p>Describes the overall instance health. Valid values are below.</p>
+   * <p>The name of the Lightsail instance for which you are requesting health check
+   *       data.</p>
    */
-  instanceHealth?: InstanceHealthState | string;
+  instanceName?: string;
 
   /**
    * <p>More information about the instance health. If the <code>instanceHealth</code> is
@@ -5915,11 +8082,11 @@ export interface InstanceHealthSummary {
    *       provided.</p>
    *          <p>If <b>
    *                <code>instanceHealth</code>
-   *             </b> is
-   *       <code>initial</code>, the <b>
+   *             </b> is <code>initial</code>,
+   *       the <b>
    *                <code>instanceHealthReason</code>
-   *             </b>
-   *       value can be one of the following:</p>
+   *             </b> value can be one of the
+   *       following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5939,10 +8106,11 @@ export interface InstanceHealthSummary {
    *          </ul>
    *          <p>If <b>
    *                <code>instanceHealth</code>
-   *             </b> is
-   *         <code>unhealthy</code>, the <b>
+   *             </b> is <code>unhealthy</code>,
+   *       the <b>
    *                <code>instanceHealthReason</code>
-   *             </b> value can be one of the following:</p>
+   *             </b> value can be one of the
+   *       following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6015,10 +8183,11 @@ export interface InstanceHealthSummary {
    *          </ul>
    *          <p>If <b>
    *                <code>instanceHealth</code>
-   *             </b> is
-   *         <code>draining</code>, the <b>
+   *             </b> is <code>draining</code>,
+   *       the <b>
    *                <code>instanceHealthReason</code>
-   *             </b> value can be one of the following:</p>
+   *             </b> value can be one of the
+   *       following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6033,10 +8202,9 @@ export interface InstanceHealthSummary {
   instanceHealthReason?: InstanceHealthReason | string;
 
   /**
-   * <p>The name of the Lightsail instance for which you are requesting health check
-   *       data.</p>
+   * <p>Describes the overall instance health. Valid values are below.</p>
    */
-  instanceName?: string;
+  instanceHealth?: InstanceHealthState | string;
 }
 
 export namespace InstanceHealthSummary {
@@ -6047,6 +8215,8 @@ export namespace InstanceHealthSummary {
 }
 
 export enum InstanceMetricName {
+  BurstCapacityPercentage = "BurstCapacityPercentage",
+  BurstCapacityTime = "BurstCapacityTime",
   CPUUtilization = "CPUUtilization",
   NetworkIn = "NetworkIn",
   NetworkOut = "NetworkOut",
@@ -6066,8 +8236,7 @@ export interface InstanceNetworking {
   monthlyTransfer?: MonthlyTransfer;
 
   /**
-   * <p>An array of key-value pairs containing information about the ports on the
-   *       instance.</p>
+   * <p>An array of key-value pairs containing information about the ports on the instance.</p>
    */
   ports?: InstancePortInfo[];
 }
@@ -6085,20 +8254,25 @@ export enum InstancePlatform {
 }
 
 /**
- * <p>Describes information about the instance ports.</p>
+ * <p>Describes information about ports for an Amazon Lightsail instance.</p>
  */
 export interface InstancePortInfo {
   __type?: "InstancePortInfo";
   /**
-   * <p>The access direction (<code>inbound</code> or <code>outbound</code>).</p>
+   * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
+   *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
+   *       addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your
+   *       instance.</p>
    */
-  accessDirection?: AccessDirection | string;
+  cidrListAliases?: string[];
 
   /**
-   * <p>The location from which access is allowed (e.g., <code>Anywhere
-   *       (0.0.0.0/0)</code>).</p>
+   * <p>The access direction (<code>inbound</code> or <code>outbound</code>).</p>
+   *          <note>
+   *             <p>Lightsail currently supports only <code>inbound</code> access direction.</p>
+   *          </note>
    */
-  accessFrom?: string;
+  accessDirection?: AccessDirection | string;
 
   /**
    * <p>The type of access (<code>Public</code> or <code>Private</code>).</p>
@@ -6106,48 +8280,96 @@ export interface InstancePortInfo {
   accessType?: PortAccessType | string;
 
   /**
-   * <p>The common name.</p>
+   * <p>The common name of the port information.</p>
    */
   commonName?: string;
 
   /**
-   * <p>The first port in the range.</p>
+   * <p>The IP address, or range of IP addresses in CIDR notation, that are allowed to connect to
+   *       an instance through the ports, and the protocol. Lightsail supports IPv4 addresses.</p>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   */
+  cidrs?: string[];
+
+  /**
+   * <p>The last port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP code. For example, specify <code>8</code> as the <code>fromPort</code>
+   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
+   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *          </ul>
+   */
+  toPort?: number;
+
+  /**
+   * <p>The first port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP type. For example, specify <code>8</code> as the <code>fromPort</code>
+   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
+   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *          </ul>
    */
   fromPort?: number;
 
   /**
-   * <p>The protocol being used. Can be one of the following.</p>
+   * <p>The location from which access is allowed. For example, <code>Anywhere (0.0.0.0/0)</code>,
+   *       or <code>Custom</code> if a specific IP address or range of IP addresses is allowed.</p>
+   */
+  accessFrom?: string;
+
+  /**
+   * <p>The IP protocol name.</p>
+   *          <p>The name can be one of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered,
-   *           and error-checked delivery of streamed data between applications running on hosts
+   *                   <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered, and
+   *           error-checked delivery of streamed data between applications running on hosts
    *           communicating by an IP network. If you have an application that doesn't require reliable
    *           data stream service, use UDP instead.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>all</code> - All transport layer protocol types. For more general
-   *           information, see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport
-   *             layer</a> on Wikipedia.</p>
+   *                   <code>all</code> - All transport layer protocol types. For more general information,
+   *           see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport layer</a> on
+   *             <i>Wikipedia</i>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>udp</code> - With User Datagram Protocol (UDP), computer applications can
-   *           send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
+   *                   <code>udp</code> - With User Datagram Protocol (UDP), computer applications can send
+   *           messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
    *           communications are not required to set up transmission channels or data paths.
    *           Applications that don't require reliable data stream service can use UDP, which provides a
    *           connectionless datagram service that emphasizes reduced latency over reliability. If you
    *           do require reliable data stream service, use TCP instead.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp</code> - Internet Control Message Protocol (ICMP) is used to send error
+   *           messages and operational information indicating success or failure when communicating with
+   *           an instance. For example, an error is indicated when an instance could not be reached.
+   *           When you specify <code>icmp</code> as the <code>protocol</code>, you must specify the ICMP
+   *           type using the <code>fromPort</code> parameter, and ICMP code using the
+   *             <code>toPort</code> parameter.</p>
+   *             </li>
    *          </ul>
    */
   protocol?: NetworkProtocol | string;
-
-  /**
-   * <p>The last port in the range.</p>
-   */
-  toPort?: number;
 }
 
 export namespace InstancePortInfo {
@@ -6158,54 +8380,107 @@ export namespace InstancePortInfo {
 }
 
 /**
- * <p>Describes the port state.</p>
+ * <p>Describes open ports on an instance, the IP addresses allowed to connect to the instance
+ *       through the ports, and the protocol.</p>
  */
 export interface InstancePortState {
   __type?: "InstancePortState";
   /**
-   * <p>The first port in the range.</p>
+   * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
+   *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
+   *       addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your
+   *       instance.</p>
    */
-  fromPort?: number;
+  cidrListAliases?: string[];
 
   /**
-   * <p>The protocol being used. Can be one of the following.</p>
+   * <p>The IP address, or range of IP addresses in CIDR notation, that are allowed to connect to
+   *       an instance through the ports, and the protocol. Lightsail supports IPv4 addresses.</p>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   */
+  cidrs?: string[];
+
+  /**
+   * <p>The IP protocol name.</p>
+   *          <p>The name can be one of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered,
-   *           and error-checked delivery of streamed data between applications running on hosts
+   *                   <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered, and
+   *           error-checked delivery of streamed data between applications running on hosts
    *           communicating by an IP network. If you have an application that doesn't require reliable
    *           data stream service, use UDP instead.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>all</code> - All transport layer protocol types. For more general
-   *           information, see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport
-   *             layer</a> on Wikipedia.</p>
+   *                   <code>all</code> - All transport layer protocol types. For more general information,
+   *           see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport layer</a> on
+   *             <i>Wikipedia</i>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>udp</code> - With User Datagram Protocol (UDP), computer applications can
-   *           send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
+   *                   <code>udp</code> - With User Datagram Protocol (UDP), computer applications can send
+   *           messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
    *           communications are not required to set up transmission channels or data paths.
    *           Applications that don't require reliable data stream service can use UDP, which provides a
    *           connectionless datagram service that emphasizes reduced latency over reliability. If you
    *           do require reliable data stream service, use TCP instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp</code> - Internet Control Message Protocol (ICMP) is used to send error
+   *           messages and operational information indicating success or failure when communicating with
+   *           an instance. For example, an error is indicated when an instance could not be reached.
+   *           When you specify <code>icmp</code> as the <code>protocol</code>, you must specify the ICMP
+   *           type using the <code>fromPort</code> parameter, and ICMP code using the
+   *             <code>toPort</code> parameter.</p>
    *             </li>
    *          </ul>
    */
   protocol?: NetworkProtocol | string;
 
   /**
-   * <p>Specifies whether the instance port is <code>open</code> or
-   *       <code>closed</code>.</p>
+   * <p>Specifies whether the instance port is <code>open</code> or <code>closed</code>.</p>
+   *          <note>
+   *             <p>The port state for Lightsail instances is always <code>open</code>.</p>
+   *          </note>
    */
   state?: PortState | string;
 
   /**
-   * <p>The last port in the range.</p>
+   * <p>The last port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP code. For example, specify <code>8</code> as the <code>fromPort</code>
+   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
+   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *          </ul>
    */
   toPort?: number;
+
+  /**
+   * <p>The first port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP type. For example, specify <code>8</code> as the <code>fromPort</code>
+   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
+   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *          </ul>
+   */
+  fromPort?: number;
 }
 
 export namespace InstancePortState {
@@ -6221,75 +8496,6 @@ export namespace InstancePortState {
 export interface InstanceSnapshot {
   __type?: "InstanceSnapshot";
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>).</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The timestamp when the snapshot was created (e.g.,
-   *       <code>1479907467.024</code>).</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>An array of disk objects containing information about all block storage
-   *       disks.</p>
-   */
-  fromAttachedDisks?: Disk[];
-
-  /**
-   * <p>The blueprint ID from which you created the snapshot (e.g.,
-   *       <code>os_debian_8_3</code>). A blueprint is a virtual private server (or
-   *         <i>instance</i>) image used to create instances quickly.</p>
-   */
-  fromBlueprintId?: string;
-
-  /**
-   * <p>The bundle ID from which you created the snapshot (e.g.,
-   *       <code>micro_1_0</code>).</p>
-   */
-  fromBundleId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance from which the snapshot was created
-   *       (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>).</p>
-   */
-  fromInstanceArn?: string;
-
-  /**
-   * <p>The instance from which the snapshot was created.</p>
-   */
-  fromInstanceName?: string;
-
-  /**
-   * <p>A Boolean value indicating whether the snapshot was created from an automatic
-   *       snapshot.</p>
-   */
-  isFromAutoSnapshot?: boolean;
-
-  /**
-   * <p>The region name and Availability Zone where you created the snapshot.</p>
-   */
-  location?: ResourceLocation;
-
-  /**
-   * <p>The name of the snapshot.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The progress of the snapshot.</p>
-   */
-  progress?: string;
-
-  /**
-   * <p>The type of resource (usually <code>InstanceSnapshot</code>).</p>
-   */
-  resourceType?: ResourceType | string;
-
-  /**
    * <p>The size in GB of the SSD.</p>
    */
   sizeInGb?: number;
@@ -6300,11 +8506,59 @@ export interface InstanceSnapshot {
   state?: InstanceSnapshotState | string;
 
   /**
-   * <p>The support code. Include this code in your email to support when you have questions
-   *       about an instance or another resource in Lightsail. This code enables our support team to
-   *       look up your Lightsail information more easily.</p>
+   * <p>The timestamp when the snapshot was created (e.g., <code>1479907467.024</code>).</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The region name and Availability Zone where you created the snapshot.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The type of resource (usually <code>InstanceSnapshot</code>).</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>A Boolean value indicating whether the snapshot was created from an automatic
+   *       snapshot.</p>
+   */
+  isFromAutoSnapshot?: boolean;
+
+  /**
+   * <p>The progress of the snapshot.</p>
+   */
+  progress?: string;
+
+  /**
+   * <p>The instance from which the snapshot was created.</p>
+   */
+  fromInstanceName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance from which the snapshot was created (e.g.,
+   *         <code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>).</p>
+   */
+  fromInstanceArn?: string;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
    */
   supportCode?: string;
+
+  /**
+   * <p>The name of the snapshot.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot (e.g.,
+   *         <code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>).</p>
+   */
+  arn?: string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -6312,6 +8566,23 @@ export interface InstanceSnapshot {
    *         Dev Guide</a>.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The blueprint ID from which you created the snapshot (e.g., <code>os_debian_8_3</code>). A
+   *       blueprint is a virtual private server (or <i>instance</i>) image used to create
+   *       instances quickly.</p>
+   */
+  fromBlueprintId?: string;
+
+  /**
+   * <p>An array of disk objects containing information about all block storage disks.</p>
+   */
+  fromAttachedDisks?: Disk[];
+
+  /**
+   * <p>The bundle ID from which you created the snapshot (e.g., <code>micro_1_0</code>).</p>
+   */
+  fromBundleId?: string;
 }
 
 export namespace InstanceSnapshot {
@@ -6327,21 +8598,20 @@ export namespace InstanceSnapshot {
 export interface InstanceSnapshotInfo {
   __type?: "InstanceSnapshotInfo";
   /**
-   * <p>The blueprint ID from which the source instance (e.g.,
-   *       <code>os_debian_8_3</code>).</p>
+   * <p>The blueprint ID from which the source instance (e.g., <code>os_debian_8_3</code>).</p>
    */
   fromBlueprintId?: string;
+
+  /**
+   * <p>A list of objects describing the disks that were attached to the source instance.</p>
+   */
+  fromDiskInfo?: DiskInfo[];
 
   /**
    * <p>The bundle ID from which the source instance was created (e.g.,
    *       <code>micro_1_0</code>).</p>
    */
   fromBundleId?: string;
-
-  /**
-   * <p>A list of objects describing the disks that were attached to the source instance.</p>
-   */
-  fromDiskInfo?: DiskInfo[];
 }
 
 export namespace InstanceSnapshotInfo {
@@ -6358,21 +8628,19 @@ export enum InstanceSnapshotState {
 }
 
 /**
- * <p>Describes the virtual private server (or <i>instance</i>)
- *       status.</p>
+ * <p>Describes the virtual private server (or <i>instance</i>) status.</p>
  */
 export interface InstanceState {
   __type?: "InstanceState";
   /**
+   * <p>The state of the instance (e.g., <code>running</code> or <code>pending</code>).</p>
+   */
+  name?: string;
+
+  /**
    * <p>The status code for the instance.</p>
    */
   code?: number;
-
-  /**
-   * <p>The state of the instance (e.g., <code>running</code> or
-   *       <code>pending</code>).</p>
-   */
-  name?: string;
 }
 
 export namespace InstanceState {
@@ -6383,21 +8651,20 @@ export namespace InstanceState {
 }
 
 /**
- * <p>Lightsail throws this exception when user input does not conform to the validation
- *       rules of an input field.</p>
+ * <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
  *          <note>
- *             <p>Domain-related APIs are only available in the N. Virginia (us-east-1) Region. Please
- *         set your AWS Region configuration to us-east-1 to create, view, or edit these
- *         resources.</p>
+ *             <p>Domain-related APIs are only available in the N. Virginia (us-east-1) Region. Please set
+ *         your AWS Region configuration to us-east-1 to create, view, or edit these resources.</p>
  *          </note>
  */
 export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
+  tip?: string;
   code?: string;
   docs?: string;
   message?: string;
-  tip?: string;
 }
 
 export namespace InvalidInputException {
@@ -6422,7 +8689,7 @@ export interface IsVpcPeeredResult {
   __type?: "IsVpcPeeredResult";
   /**
    * <p>Returns <code>true</code> if the Lightsail VPC is peered; otherwise,
-   *         <code>false</code>.</p>
+   *       <code>false</code>.</p>
    */
   isPeered?: boolean;
 }
@@ -6440,16 +8707,9 @@ export namespace IsVpcPeeredResult {
 export interface KeyPair {
   __type?: "KeyPair";
   /**
-   * <p>The Amazon Resource Name (ARN) of the key pair (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE</code>).</p>
+   * <p>The friendly name of the SSH key pair.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The timestamp when the key pair was created (e.g.,
-   *       <code>1479816991.349</code>).</p>
-   */
-  createdAt?: Date;
+  name?: string;
 
   /**
    * <p>The RSA fingerprint of the key pair.</p>
@@ -6457,24 +8717,15 @@ export interface KeyPair {
   fingerprint?: string;
 
   /**
-   * <p>The region name and Availability Zone where the key pair was created.</p>
+   * <p>The Amazon Resource Name (ARN) of the key pair (e.g.,
+   *         <code>arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE</code>).</p>
    */
-  location?: ResourceLocation;
+  arn?: string;
 
   /**
-   * <p>The friendly name of the SSH key pair.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The resource type (usually <code>KeyPair</code>).</p>
-   */
-  resourceType?: ResourceType | string;
-
-  /**
-   * <p>The support code. Include this code in your email to support when you have questions
-   *       about an instance or another resource in Lightsail. This code enables our support team to
-   *       look up your Lightsail information more easily.</p>
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
    */
   supportCode?: string;
 
@@ -6484,6 +8735,21 @@ export interface KeyPair {
    *         Dev Guide</a>.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The resource type (usually <code>KeyPair</code>).</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>The region name and Availability Zone where the key pair was created.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The timestamp when the key pair was created (e.g., <code>1479816991.349</code>).</p>
+   */
+  createdAt?: Date;
 }
 
 export namespace KeyPair {
@@ -6494,89 +8760,109 @@ export namespace KeyPair {
 }
 
 /**
- * <p>Describes the Lightsail load balancer.</p>
+ * <p>Describes an Amazon Lightsail content delivery network (CDN) distribution.</p>
  */
-export interface LoadBalancer {
-  __type?: "LoadBalancer";
+export interface LightsailDistribution {
+  __type?: "LightsailDistribution";
   /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * <p>An array of objects that describe the per-path cache behavior of the distribution.</p>
    */
-  arn?: string;
+  cacheBehaviors?: CacheBehaviorPerPath[];
 
   /**
-   * <p>A string to string map of the configuration options for your load balancer. Valid
-   *       values are listed below.</p>
-   */
-  configurationOptions?: { [key: string]: string };
-
-  /**
-   * <p>The date when your load balancer was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The DNS name of your Lightsail load balancer.</p>
-   */
-  dnsName?: string;
-
-  /**
-   * <p>The path you specified to perform your health checks. If no path is specified, the load
-   *       balancer tries to make a request to the default (root) page.</p>
-   */
-  healthCheckPath?: string;
-
-  /**
-   * <p>An array of InstanceHealthSummary objects describing the health of the load
-   *       balancer.</p>
-   */
-  instanceHealthSummary?: InstanceHealthSummary[];
-
-  /**
-   * <p>The port where the load balancer will direct traffic to your Lightsail instances. For
-   *       HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.</p>
-   */
-  instancePort?: number;
-
-  /**
-   * <p>The AWS Region where your load balancer was created (e.g., <code>us-east-2a</code>).
-   *       Lightsail automatically creates your load balancer across Availability Zones.</p>
+   * <p>An object that describes the location of the distribution, such as the AWS Region and
+   *       Availability Zone.</p>
+   *          <note>
+   *             <p>Lightsail distributions are global resources that can reference an origin in any AWS
+   *         Region, and distribute its content globally. However, all distributions are located in the
+   *           <code>us-east-1</code> Region.</p>
+   *          </note>
    */
   location?: ResourceLocation;
 
   /**
-   * <p>The name of the load balancer (e.g., <code>my-load-balancer</code>).</p>
+   * <p>The status of the distribution.</p>
    */
-  name?: string;
+  status?: string;
 
   /**
-   * <p>The protocol you have enabled for your load balancer. Valid values are below.</p>
-   *          <p>You can't just have <code>HTTP_HTTPS</code>, but you can have just
-   *       <code>HTTP</code>.</p>
+   * <p>An object that describes the origin resource of the distribution, such as a Lightsail
+   *       instance or load balancer.</p>
+   *
+   *          <p>The distribution pulls, caches, and serves content from the origin.</p>
    */
-  protocol?: LoadBalancerProtocol | string;
+  origin?: Origin;
 
   /**
-   * <p>An array of public port settings for your load balancer. For HTTP, use port 80. For
-   *       HTTPS, use port 443.</p>
+   * <p>An object that describes the cache behavior settings of the distribution.</p>
    */
-  publicPorts?: number[];
+  cacheBehaviorSettings?: CacheSettings;
 
   /**
-   * <p>The resource type (e.g., <code>LoadBalancer</code>.</p>
+   * <p>The public DNS of the origin.</p>
+   */
+  originPublicDNS?: string;
+
+  /**
+   * <p>The Lightsail resource type (e.g., <code>Distribution</code>).</p>
    */
   resourceType?: ResourceType | string;
 
   /**
-   * <p>The status of your load balancer. Valid values are below.</p>
+   * <p>An object that describes the default cache behavior of the distribution.</p>
    */
-  state?: LoadBalancerState | string;
+  defaultCacheBehavior?: CacheBehavior;
 
   /**
-   * <p>The support code. Include this code in your email to support when you have questions
-   *       about your Lightsail load balancer. This code enables our support team to look up your
-   *       Lightsail information more easily.</p>
+   * <p>The timestamp when the distribution was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the distribution.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Indicates whether the distribution is enabled.</p>
+   */
+  isEnabled?: boolean;
+
+  /**
+   * <p>The name of the SSL/TLS certificate attached to the distribution, if any.</p>
+   */
+  certificateName?: string;
+
+  /**
+   * <p>The domain name of the distribution.</p>
+   */
+  domainName?: string;
+
+  /**
+   * <p>Indicates whether the bundle that is currently applied to your distribution, specified
+   *       using the <code>distributionName</code> parameter, can be changed to another bundle.</p>
+   *
+   *          <p>Use the <code>UpdateDistributionBundle</code> action to change your distribution's
+   *       bundle.</p>
+   */
+  ableToUpdateBundle?: boolean;
+
+  /**
+   * <p>The name of the distribution.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       your Lightsail distribution. This code enables our support team to look up your Lightsail
+   *       information more easily.</p>
    */
   supportCode?: string;
+
+  /**
+   * <p>The alternate domain names of the distribution.</p>
+   */
+  alternativeDomainNames?: string[];
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -6586,11 +8872,116 @@ export interface LoadBalancer {
   tags?: Tag[];
 
   /**
-   * <p>An array of LoadBalancerTlsCertificateSummary objects that provide additional
-   *       information about the SSL/TLS certificates. For example, if <code>true</code>, the certificate
-   *       is attached to the load balancer.</p>
+   * <p>The ID of the bundle currently applied to the distribution.</p>
+   */
+  bundleId?: string;
+}
+
+export namespace LightsailDistribution {
+  export const filterSensitiveLog = (obj: LightsailDistribution): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is LightsailDistribution => __isa(o, "LightsailDistribution");
+}
+
+/**
+ * <p>Describes the Lightsail load balancer.</p>
+ */
+export interface LoadBalancer {
+  __type?: "LoadBalancer";
+  /**
+   * <p>The path you specified to perform your health checks. If no path is specified, the load
+   *       balancer tries to make a request to the default (root) page.</p>
+   */
+  healthCheckPath?: string;
+
+  /**
+   * <p>The date when your load balancer was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>An array of LoadBalancerTlsCertificateSummary objects that provide additional information
+   *       about the SSL/TLS certificates. For example, if <code>true</code>, the certificate is attached
+   *       to the load balancer.</p>
    */
   tlsCertificateSummaries?: LoadBalancerTlsCertificateSummary[];
+
+  /**
+   * <p>The protocol you have enabled for your load balancer. Valid values are below.</p>
+   *          <p>You can't just have <code>HTTP_HTTPS</code>, but you can have just
+   *       <code>HTTP</code>.</p>
+   */
+  protocol?: LoadBalancerProtocol | string;
+
+  /**
+   * <p>An array of InstanceHealthSummary objects describing the health of the load
+   *       balancer.</p>
+   */
+  instanceHealthSummary?: InstanceHealthSummary[];
+
+  /**
+   * <p>The resource type (e.g., <code>LoadBalancer</code>.</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>The name of the load balancer (e.g., <code>my-load-balancer</code>).</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The port where the load balancer will direct traffic to your Lightsail instances. For
+   *       HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.</p>
+   */
+  instancePort?: number;
+
+  /**
+   * <p>The status of your load balancer. Valid values are below.</p>
+   */
+  state?: LoadBalancerState | string;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       your Lightsail load balancer. This code enables our support team to look up your Lightsail
+   *       information more easily.</p>
+   */
+  supportCode?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The DNS name of your Lightsail load balancer.</p>
+   */
+  dnsName?: string;
+
+  /**
+   * <p>An array of public port settings for your load balancer. For HTTP, use port 80. For HTTPS,
+   *       use port 443.</p>
+   */
+  publicPorts?: number[];
+
+  /**
+   * <p>The AWS Region where your load balancer was created (e.g., <code>us-east-2a</code>).
+   *       Lightsail automatically creates your load balancer across Availability Zones.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
+   *         Dev Guide</a>.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>A string to string map of the configuration options for your load balancer. Valid values
+   *       are listed below.</p>
+   */
+  configurationOptions?: { [key: string]: string };
 }
 
 export namespace LoadBalancer {
@@ -6641,19 +9032,42 @@ export enum LoadBalancerState {
 export interface LoadBalancerTlsCertificate {
   __type?: "LoadBalancerTlsCertificate";
   /**
-   * <p>The Amazon Resource Name (ARN) of the SSL/TLS certificate.</p>
+   * <p>The issuer of the certificate.</p>
    */
-  arn?: string;
+  issuer?: string;
 
   /**
-   * <p>The time when you created your SSL/TLS certificate.</p>
+   * <p>The name of the entity that is associated with the public key contained in the
+   *       certificate.</p>
    */
-  createdAt?: Date;
+  subject?: string;
 
   /**
-   * <p>The domain name for your SSL/TLS certificate.</p>
+   * <p>The reason the certificate was revoked. This value is present only when the certificate
+   *       status is <code>REVOKED</code>.</p>
    */
-  domainName?: string;
+  revocationReason?: LoadBalancerTlsCertificateRevocationReason | string;
+
+  /**
+   * <p>The timestamp when the SSL/TLS certificate expires.</p>
+   */
+  notAfter?: Date;
+
+  /**
+   * <p>An array of strings that specify the alternate domains (e.g., <code>example2.com</code>)
+   *       and subdomains (e.g., <code>blog.example.com</code>) for the certificate.</p>
+   */
+  subjectAlternativeNames?: string[];
+
+  /**
+   * <p>The algorithm used to generate the key pair (the public and private key).</p>
+   */
+  keyAlgorithm?: string;
+
+  /**
+   * <p>The timestamp when the SSL/TLS certificate is first valid.</p>
+   */
+  notBefore?: Date;
 
   /**
    * <p>An array of LoadBalancerTlsCertificateDomainValidationRecord objects describing the
@@ -6662,15 +9076,20 @@ export interface LoadBalancerTlsCertificate {
   domainValidationRecords?: LoadBalancerTlsCertificateDomainValidationRecord[];
 
   /**
-   * <p>The reason for the SSL/TLS certificate validation failure.</p>
+   * <p>The load balancer name where your SSL/TLS certificate is attached.</p>
    */
-  failureReason?: LoadBalancerTlsCertificateFailureReason | string;
+  loadBalancerName?: string;
 
   /**
-   * <p>When <code>true</code>, the SSL/TLS certificate is attached to the Lightsail load
-   *       balancer.</p>
+   * <p>The time when you created your SSL/TLS certificate.</p>
    */
-  isAttached?: boolean;
+  createdAt?: Date;
+
+  /**
+   * <p>An object that describes the status of the certificate renewal managed by
+   *       Lightsail.</p>
+   */
+  renewalSummary?: LoadBalancerTlsCertificateRenewalSummary;
 
   /**
    * <p>The time when the SSL/TLS certificate was issued.</p>
@@ -6678,20 +9097,22 @@ export interface LoadBalancerTlsCertificate {
   issuedAt?: Date;
 
   /**
-   * <p>The issuer of the certificate.</p>
+   * <p>The Amazon Resource Name (ARN) of the SSL/TLS certificate.</p>
    */
-  issuer?: string;
+  arn?: string;
 
   /**
-   * <p>The algorithm that was used to generate the key pair (the public and private
-   *       key).</p>
+   * <p>The timestamp when the certificate was revoked. This value is present only when the
+   *       certificate status is <code>REVOKED</code>.</p>
    */
-  keyAlgorithm?: string;
+  revokedAt?: Date;
 
   /**
-   * <p>The load balancer name where your SSL/TLS certificate is attached.</p>
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
+   *         Dev Guide</a>.</p>
    */
-  loadBalancerName?: string;
+  tags?: Tag[];
 
   /**
    * <p>The AWS Region and Availability Zone where you created your certificate.</p>
@@ -6699,25 +9120,9 @@ export interface LoadBalancerTlsCertificate {
   location?: ResourceLocation;
 
   /**
-   * <p>The name of the SSL/TLS certificate (e.g., <code>my-certificate</code>).</p>
+   * <p>The algorithm that was used to sign the certificate.</p>
    */
-  name?: string;
-
-  /**
-   * <p>The timestamp when the SSL/TLS certificate expires.</p>
-   */
-  notAfter?: Date;
-
-  /**
-   * <p>The timestamp when the SSL/TLS certificate is first valid.</p>
-   */
-  notBefore?: Date;
-
-  /**
-   * <p>An object containing information about the status of Lightsail's managed renewal for
-   *       the certificate.</p>
-   */
-  renewalSummary?: LoadBalancerTlsCertificateRenewalSummary;
+  signatureAlgorithm?: string;
 
   /**
    * <p>The resource type (e.g., <code>LoadBalancerTlsCertificate</code>).</p>
@@ -6733,15 +9138,14 @@ export interface LoadBalancerTlsCertificate {
    *                <p>
    *                   <b>
    *                      <code>StaticIp</code>
-   *                   </b> - A static IP
-   *           address</p>
+   *                   </b> - A static IP address</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>KeyPair</code>
-   *                   </b> - The key pair used to
-   *           connect to a Lightsail instance</p>
+   *                   </b> - The key pair used to connect
+   *           to a Lightsail instance</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6773,8 +9177,8 @@ export interface LoadBalancerTlsCertificate {
    *                <p>
    *                   <b>
    *                      <code>LoadBalancerTlsCertificate</code>
-   *                   </b> - An
-   *           SSL/TLS certificate associated with a Lightsail load balancer</p>
+   *                   </b> - An SSL/TLS
+   *           certificate associated with a Lightsail load balancer</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6795,14 +9199,77 @@ export interface LoadBalancerTlsCertificate {
   resourceType?: ResourceType | string;
 
   /**
-   * <p>The reason the certificate was revoked. Valid values are below.</p>
+   * <p>The validation failure reason, if any, of the certificate.</p>
+   *
+   *          <p>The following failure reasons are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>NO_AVAILABLE_CONTACTS</code>
+   *                   </b> - This failure
+   *           applies to email validation, which is not available for Lightsail certificates.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>ADDITIONAL_VERIFICATION_REQUIRED</code>
+   *                   </b> -
+   *           Lightsail requires additional information to process this certificate request. This can
+   *           happen as a fraud-protection measure, such as when the domain ranks within the Alexa top
+   *           1000 websites. To provide the required information, use the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a> to contact
+   *           AWS Support.</p>
+   *                <note>
+   *                   <p>You cannot request a certificate for Amazon-owned domain names such as those ending
+   *             in amazonaws.com, cloudfront.net, or elasticbeanstalk.com.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>DOMAIN_NOT_ALLOWED</code>
+   *                   </b> - One or more of the
+   *           domain names in the certificate request was reported as an unsafe domain by <a href="https://www.virustotal.com/gui/home/url">VirusTotal</a>. To correct the
+   *           problem, search for your domain name on the <a href="https://www.virustotal.com/gui/home/url">VirusTotal</a> website. If your domain
+   *           is reported as suspicious, see <a href="https://www.google.com/webmasters/hacked/?hl=en">Google Help for Hacked
+   *             Websites</a> to learn what you can do.</p>
+   *                <p>If you believe that the result is a false positive, notify the organization that is
+   *           reporting the domain. VirusTotal is an aggregate of several antivirus and URL scanners and
+   *           cannot remove your domain from a block list itself. After you correct the problem and the
+   *           VirusTotal registry has been updated, request a new certificate.</p>
+   *                <p>If you see this error and your domain is not included in the VirusTotal list, visit
+   *           the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a>
+   *           and create a case.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>INVALID_PUBLIC_DOMAIN</code>
+   *                   </b> - One or more of
+   *           the domain names in the certificate request is not valid. Typically, this is because a
+   *           domain name in the request is not a valid top-level domain. Try to request a certificate
+   *           again, correcting any spelling errors or typos that were in the failed request, and ensure
+   *           that all domain names in the request are for valid top-level domains. For example, you
+   *           cannot request a certificate for <code>example.invalidpublicdomain</code> because
+   *             <code>invalidpublicdomain</code> is not a valid top-level domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>OTHER</code>
+   *                   </b> - Typically, this failure occurs
+   *           when there is a typographical error in one or more of the domain names in the certificate
+   *           request. Try to request a certificate again, correcting any spelling errors or typos that
+   *           were in the failed request. </p>
+   *             </li>
+   *          </ul>
    */
-  revocationReason?: LoadBalancerTlsCertificateRevocationReason | string;
+  failureReason?: LoadBalancerTlsCertificateFailureReason | string;
 
   /**
-   * <p>The timestamp when the SSL/TLS certificate was revoked.</p>
+   * <p>The domain name for your SSL/TLS certificate.</p>
    */
-  revokedAt?: Date;
+  domainName?: string;
 
   /**
    * <p>The serial number of the certificate.</p>
@@ -6810,44 +9277,27 @@ export interface LoadBalancerTlsCertificate {
   serial?: string;
 
   /**
-   * <p>The algorithm that was used to sign the certificate.</p>
+   * <p>When <code>true</code>, the SSL/TLS certificate is attached to the Lightsail load
+   *       balancer.</p>
    */
-  signatureAlgorithm?: string;
+  isAttached?: boolean;
 
   /**
-   * <p>The status of the SSL/TLS certificate. Valid values are below.</p>
+   * <p>The validation status of the SSL/TLS certificate. Valid values are below.</p>
    */
   status?: LoadBalancerTlsCertificateStatus | string;
 
   /**
-   * <p>The name of the entity that is associated with the public key contained in the
-   *       certificate.</p>
-   */
-  subject?: string;
-
-  /**
-   * <p>One or more domains or subdomains included in the certificate. This list contains the
-   *       domain names that are bound to the public key that is contained in the certificate. The
-   *       subject alternative names include the canonical domain name (CNAME) of the certificate and
-   *       additional domain names that can be used to connect to the website, such as
-   *         <code>example.com</code>, <code>www.example.com</code>, or
-   *       <code>m.example.com</code>.</p>
-   */
-  subjectAlternativeNames?: string[];
-
-  /**
-   * <p>The support code. Include this code in your email to support when you have questions
-   *       about your Lightsail load balancer or SSL/TLS certificate. This code enables our support
-   *       team to look up your Lightsail information more easily.</p>
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       your Lightsail load balancer or SSL/TLS certificate. This code enables our support team to
+   *       look up your Lightsail information more easily.</p>
    */
   supportCode?: string;
 
   /**
-   * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
-   *         Dev Guide</a>.</p>
+   * <p>The name of the SSL/TLS certificate (e.g., <code>my-certificate</code>).</p>
    */
-  tags?: Tag[];
+  name?: string;
 }
 
 export namespace LoadBalancerTlsCertificate {
@@ -6864,20 +9314,20 @@ export enum LoadBalancerTlsCertificateDomainStatus {
 }
 
 /**
- * <p>Contains information about the domain names on an SSL/TLS certificate that you will use
- *       to validate domain ownership.</p>
+ * <p>Contains information about the domain names on an SSL/TLS certificate that you will use to
+ *       validate domain ownership.</p>
  */
 export interface LoadBalancerTlsCertificateDomainValidationOption {
   __type?: "LoadBalancerTlsCertificateDomainValidationOption";
   /**
-   * <p>The fully qualified domain name in the certificate request.</p>
-   */
-  domainName?: string;
-
-  /**
    * <p>The status of the domain validation. Valid values are listed below.</p>
    */
   validationStatus?: LoadBalancerTlsCertificateDomainStatus | string;
+
+  /**
+   * <p>The fully qualified domain name in the certificate request.</p>
+   */
+  domainName?: string;
 }
 
 export namespace LoadBalancerTlsCertificateDomainValidationOption {
@@ -6889,21 +9339,25 @@ export namespace LoadBalancerTlsCertificateDomainValidationOption {
 }
 
 /**
- * <p>Describes the validation record of each domain name in the SSL/TLS
- *       certificate.</p>
+ * <p>Describes the validation record of each domain name in the SSL/TLS certificate.</p>
  */
 export interface LoadBalancerTlsCertificateDomainValidationRecord {
   __type?: "LoadBalancerTlsCertificateDomainValidationRecord";
   /**
-   * <p>The domain name against which your SSL/TLS certificate was validated.</p>
+   * <p>The value for that type.</p>
    */
-  domainName?: string;
+  value?: string;
 
   /**
    * <p>A fully qualified domain name in the certificate. For example,
    *       <code>example.com</code>.</p>
    */
   name?: string;
+
+  /**
+   * <p>The domain name against which your SSL/TLS certificate was validated.</p>
+   */
+  domainName?: string;
 
   /**
    * <p>The type of validation record. For example, <code>CNAME</code> for domain
@@ -6915,11 +9369,6 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
    * <p>The validation status. Valid values are listed below.</p>
    */
   validationStatus?: LoadBalancerTlsCertificateDomainStatus | string;
-
-  /**
-   * <p>The value for that type.</p>
-   */
-  value?: string;
 }
 
 export namespace LoadBalancerTlsCertificateDomainValidationRecord {
@@ -6948,6 +9397,49 @@ export enum LoadBalancerTlsCertificateRenewalStatus {
 /**
  * <p>Contains information about the status of Lightsail's managed renewal for the
  *       certificate.</p>
+ *
+ *
+ *
+ *
+ *          <p>The renewal status of the certificate.</p>
+ *          <p>The following renewal status are possible:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>
+ *                      <code>PendingAutoRenewal</code>
+ *                   </b> - Lightsail is
+ *           attempting to automatically validate the domain names in the certificate. No further
+ *           action is required. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>
+ *                      <code>PendingValidation</code>
+ *                   </b> - Lightsail couldn't
+ *           automatically validate one or more domain names in the certificate. You must take action
+ *           to validate these domain names or the certificate won't be renewed. If you used DNS
+ *           validation, check to make sure your certificate's domain validation records exist in your
+ *           domain's DNS, and that your certificate remains in use.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>
+ *                      <code>Success</code>
+ *                   </b> - All domain names in the
+ *           certificate are validated, and Lightsail renewed the certificate. No further action is
+ *           required. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>
+ *                      <code>Failed</code>
+ *                   </b> - One or more domain names were
+ *           not validated before the certificate expired, and Lightsail did not renew the
+ *           certificate. You can request a new certificate using the <code>CreateCertificate</code>
+ *           action.</p>
+ *             </li>
+ *          </ul>
  */
 export interface LoadBalancerTlsCertificateRenewalSummary {
   __type?: "LoadBalancerTlsCertificateRenewalSummary";
@@ -6959,8 +9451,45 @@ export interface LoadBalancerTlsCertificateRenewalSummary {
   domainValidationOptions?: LoadBalancerTlsCertificateDomainValidationOption[];
 
   /**
-   * <p>The status of Lightsail's managed renewal of the certificate. Valid values are listed
-   *       below.</p>
+   * <p>The renewal status of the certificate.</p>
+   *          <p>The following renewal status are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>PendingAutoRenewal</code>
+   *                   </b> - Lightsail is
+   *           attempting to automatically validate the domain names of the certificate. No further
+   *           action is required. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>PendingValidation</code>
+   *                   </b> - Lightsail couldn't
+   *           automatically validate one or more domain names of the certificate. You must take action
+   *           to validate these domain names or the certificate won't be renewed. Check to make sure
+   *           your certificate's domain validation records exist in your domain's DNS, and that your
+   *           certificate remains in use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Success</code>
+   *                   </b> - All domain names in the
+   *           certificate are validated, and Lightsail renewed the certificate. No further action is
+   *           required. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Failed</code>
+   *                   </b> - One or more domain names were
+   *           not validated before the certificate expired, and Lightsail did not renew the
+   *           certificate. You can request a new certificate using the <code>CreateCertificate</code>
+   *           action.</p>
+   *             </li>
+   *          </ul>
    */
   renewalStatus?: LoadBalancerTlsCertificateRenewalStatus | string;
 }
@@ -7003,15 +9532,15 @@ export enum LoadBalancerTlsCertificateStatus {
 export interface LoadBalancerTlsCertificateSummary {
   __type?: "LoadBalancerTlsCertificateSummary";
   /**
+   * <p>The name of the SSL/TLS certificate.</p>
+   */
+  name?: string;
+
+  /**
    * <p>When <code>true</code>, the SSL/TLS certificate is attached to the Lightsail load
    *       balancer.</p>
    */
   isAttached?: boolean;
-
-  /**
-   * <p>The name of the SSL/TLS certificate.</p>
-   */
-  name?: string;
 }
 
 export namespace LoadBalancerTlsCertificateSummary {
@@ -7050,29 +9579,14 @@ export namespace LogEvent {
 export interface MetricDatapoint {
   __type?: "MetricDatapoint";
   /**
-   * <p>The average.</p>
-   */
-  average?: number;
-
-  /**
    * <p>The maximum.</p>
    */
   maximum?: number;
 
   /**
-   * <p>The minimum.</p>
-   */
-  minimum?: number;
-
-  /**
    * <p>The sample count.</p>
    */
   sampleCount?: number;
-
-  /**
-   * <p>The sum.</p>
-   */
-  sum?: number;
 
   /**
    * <p>The timestamp (e.g., <code>1479816991.349</code>).</p>
@@ -7083,6 +9597,21 @@ export interface MetricDatapoint {
    * <p>The unit. </p>
    */
   unit?: MetricUnit | string;
+
+  /**
+   * <p>The average.</p>
+   */
+  average?: number;
+
+  /**
+   * <p>The minimum.</p>
+   */
+  minimum?: number;
+
+  /**
+   * <p>The sum.</p>
+   */
+  sum?: number;
 }
 
 export namespace MetricDatapoint {
@@ -7090,6 +9619,34 @@ export namespace MetricDatapoint {
     ...obj,
   });
   export const isa = (o: any): o is MetricDatapoint => __isa(o, "MetricDatapoint");
+}
+
+export enum MetricName {
+  BurstCapacityPercentage = "BurstCapacityPercentage",
+  BurstCapacityTime = "BurstCapacityTime",
+  CPUUtilization = "CPUUtilization",
+  ClientTLSNegotiationErrorCount = "ClientTLSNegotiationErrorCount",
+  DatabaseConnections = "DatabaseConnections",
+  DiskQueueDepth = "DiskQueueDepth",
+  FreeStorageSpace = "FreeStorageSpace",
+  HTTPCode_Instance_2XX_Count = "HTTPCode_Instance_2XX_Count",
+  HTTPCode_Instance_3XX_Count = "HTTPCode_Instance_3XX_Count",
+  HTTPCode_Instance_4XX_Count = "HTTPCode_Instance_4XX_Count",
+  HTTPCode_Instance_5XX_Count = "HTTPCode_Instance_5XX_Count",
+  HTTPCode_LB_4XX_Count = "HTTPCode_LB_4XX_Count",
+  HTTPCode_LB_5XX_Count = "HTTPCode_LB_5XX_Count",
+  HealthyHostCount = "HealthyHostCount",
+  InstanceResponseTime = "InstanceResponseTime",
+  NetworkIn = "NetworkIn",
+  NetworkOut = "NetworkOut",
+  NetworkReceiveThroughput = "NetworkReceiveThroughput",
+  NetworkTransmitThroughput = "NetworkTransmitThroughput",
+  RejectedConnectionCount = "RejectedConnectionCount",
+  RequestCount = "RequestCount",
+  StatusCheckFailed = "StatusCheckFailed",
+  StatusCheckFailed_Instance = "StatusCheckFailed_Instance",
+  StatusCheckFailed_System = "StatusCheckFailed_System",
+  UnhealthyHostCount = "UnhealthyHostCount",
 }
 
 export enum MetricStatistic {
@@ -7131,6 +9688,39 @@ export enum MetricUnit {
 }
 
 /**
+ * <p>Describes resource being monitored by an alarm.</p>
+ *          <p>An alarm is a way to monitor your Amazon Lightsail resource metrics. For more information,
+ *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
+ *         in Amazon Lightsail</a>.</p>
+ */
+export interface MonitoredResourceInfo {
+  __type?: "MonitoredResourceInfo";
+  /**
+   * <p>The name of the Lightsail resource being monitored.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource being monitored.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The Lightsail resource type of the resource being monitored.</p>
+   *          <p>Instances, load balancers, and relational databases are the only Lightsail resources
+   *       that can currently be monitored by alarms.</p>
+   */
+  resourceType?: ResourceType | string;
+}
+
+export namespace MonitoredResourceInfo {
+  export const filterSensitiveLog = (obj: MonitoredResourceInfo): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is MonitoredResourceInfo => __isa(o, "MonitoredResourceInfo");
+}
+
+/**
  * <p>Describes the monthly data transfer in and out of your virtual private server (or
  *         <i>instance</i>).</p>
  */
@@ -7151,6 +9741,7 @@ export namespace MonthlyTransfer {
 
 export enum NetworkProtocol {
   ALL = "all",
+  ICMP = "icmp",
   TCP = "tcp",
   UDP = "udp",
 }
@@ -7161,10 +9752,10 @@ export enum NetworkProtocol {
 export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
-  code?: string;
-  docs?: string;
-  message?: string;
   tip?: string;
+  message?: string;
+  docs?: string;
+  code?: string;
 }
 
 export namespace NotFoundException {
@@ -7177,12 +9768,12 @@ export namespace NotFoundException {
 export interface OpenInstancePublicPortsRequest {
   __type?: "OpenInstancePublicPortsRequest";
   /**
-   * <p>The name of the instance for which you want to open the public ports.</p>
+   * <p>The name of the instance for which to open ports.</p>
    */
   instanceName: string | undefined;
 
   /**
-   * <p>An array of key-value pairs containing information about the port mappings.</p>
+   * <p>An object to describe the ports to open for the specified instance.</p>
    */
   portInfo: PortInfo | undefined;
 }
@@ -7197,8 +9788,8 @@ export namespace OpenInstancePublicPortsRequest {
 export interface OpenInstancePublicPortsResult {
   __type?: "OpenInstancePublicPortsResult";
   /**
-   * <p>An array of key-value pairs containing information about the request
-   *       operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -7216,20 +9807,14 @@ export namespace OpenInstancePublicPortsResult {
 export interface Operation {
   __type?: "Operation";
   /**
-   * <p>The timestamp when the operation was initialized (e.g.,
-   *       <code>1479816991.349</code>).</p>
+   * <p>The timestamp when the status was changed (e.g., <code>1479816991.349</code>).</p>
    */
-  createdAt?: Date;
+  statusChangedAt?: Date;
 
   /**
-   * <p>The error code.</p>
+   * <p>The resource type. </p>
    */
-  errorCode?: string;
-
-  /**
-   * <p>The error details.</p>
-   */
-  errorDetails?: string;
+  resourceType?: ResourceType | string;
 
   /**
    * <p>The ID of the operation.</p>
@@ -7237,14 +9822,14 @@ export interface Operation {
   id?: string;
 
   /**
-   * <p>A Boolean value indicating whether the operation is terminal.</p>
-   */
-  isTerminal?: boolean;
-
-  /**
    * <p>The AWS Region and Availability Zone.</p>
    */
   location?: ResourceLocation;
+
+  /**
+   * <p>A Boolean value indicating whether the operation is terminal.</p>
+   */
+  isTerminal?: boolean;
 
   /**
    * <p>Details about the operation (e.g., <code>Debian-1GB-Ohio-1</code>).</p>
@@ -7262,20 +9847,25 @@ export interface Operation {
   resourceName?: string;
 
   /**
-   * <p>The resource type. </p>
-   */
-  resourceType?: ResourceType | string;
-
-  /**
    * <p>The status of the operation. </p>
    */
   status?: OperationStatus | string;
 
   /**
-   * <p>The timestamp when the status was changed (e.g.,
+   * <p>The error details.</p>
+   */
+  errorDetails?: string;
+
+  /**
+   * <p>The timestamp when the operation was initialized (e.g.,
    *       <code>1479816991.349</code>).</p>
    */
-  statusChangedAt?: Date;
+  createdAt?: Date;
+
+  /**
+   * <p>The error code.</p>
+   */
+  errorCode?: string;
 }
 
 export namespace Operation {
@@ -7292,9 +9882,9 @@ export interface OperationFailureException extends __SmithyException, $MetadataB
   name: "OperationFailureException";
   $fault: "client";
   code?: string;
-  docs?: string;
   message?: string;
   tip?: string;
+  docs?: string;
 }
 
 export namespace OperationFailureException {
@@ -7314,14 +9904,18 @@ export enum OperationStatus {
 
 export enum OperationType {
   AllocateStaticIp = "AllocateStaticIp",
+  AttachCertificateToDistribution = "AttachCertificateToDistribution",
   AttachDisk = "AttachDisk",
   AttachInstancesToLoadBalancer = "AttachInstancesToLoadBalancer",
   AttachLoadBalancerTlsCertificate = "AttachLoadBalancerTlsCertificate",
   AttachStaticIp = "AttachStaticIp",
   CloseInstancePublicPorts = "CloseInstancePublicPorts",
+  CreateCertificate = "CreateCertificate",
+  CreateContactMethod = "CreateContactMethod",
   CreateDisk = "CreateDisk",
   CreateDiskFromSnapshot = "CreateDiskFromSnapshot",
   CreateDiskSnapshot = "CreateDiskSnapshot",
+  CreateDistribution = "CreateDistribution",
   CreateDomain = "CreateDomain",
   CreateInstance = "CreateInstance",
   CreateInstanceSnapshot = "CreateInstanceSnapshot",
@@ -7331,8 +9925,12 @@ export enum OperationType {
   CreateRelationalDatabase = "CreateRelationalDatabase",
   CreateRelationalDatabaseFromSnapshot = "CreateRelationalDatabaseFromSnapshot",
   CreateRelationalDatabaseSnapshot = "CreateRelationalDatabaseSnapshot",
+  DeleteAlarm = "DeleteAlarm",
+  DeleteCertificate = "DeleteCertificate",
+  DeleteContactMethod = "DeleteContactMethod",
   DeleteDisk = "DeleteDisk",
   DeleteDiskSnapshot = "DeleteDiskSnapshot",
+  DeleteDistribution = "DeleteDistribution",
   DeleteDomain = "DeleteDomain",
   DeleteDomainEntry = "DeleteDomainEntry",
   DeleteInstance = "DeleteInstance",
@@ -7342,20 +9940,29 @@ export enum OperationType {
   DeleteLoadBalancerTlsCertificate = "DeleteLoadBalancerTlsCertificate",
   DeleteRelationalDatabase = "DeleteRelationalDatabase",
   DeleteRelationalDatabaseSnapshot = "DeleteRelationalDatabaseSnapshot",
+  DetachCertificateFromDistribution = "DetachCertificateFromDistribution",
   DetachDisk = "DetachDisk",
   DetachInstancesFromLoadBalancer = "DetachInstancesFromLoadBalancer",
   DetachStaticIp = "DetachStaticIp",
   DisableAddOn = "DisableAddOn",
   EnableAddOn = "EnableAddOn",
+  GetAlarms = "GetAlarms",
+  GetContactMethods = "GetContactMethods",
   OpenInstancePublicPorts = "OpenInstancePublicPorts",
+  PutAlarm = "PutAlarm",
   PutInstancePublicPorts = "PutInstancePublicPorts",
   RebootInstance = "RebootInstance",
   RebootRelationalDatabase = "RebootRelationalDatabase",
   ReleaseStaticIp = "ReleaseStaticIp",
+  ResetDistributionCache = "ResetDistributionCache",
+  SendContactMethodVerification = "SendContactMethodVerification",
   StartInstance = "StartInstance",
   StartRelationalDatabase = "StartRelationalDatabase",
   StopInstance = "StopInstance",
   StopRelationalDatabase = "StopRelationalDatabase",
+  TestAlarm = "TestAlarm",
+  UpdateDistribution = "UpdateDistribution",
+  UpdateDistributionBundle = "UpdateDistributionBundle",
   UpdateDomainEntry = "UpdateDomainEntry",
   UpdateLoadBalancerAttribute = "UpdateLoadBalancerAttribute",
   UpdateRelationalDatabase = "UpdateRelationalDatabase",
@@ -7363,22 +9970,65 @@ export enum OperationType {
 }
 
 /**
- * <p>The password data for the Windows Server-based instance, including the ciphertext and
- *       the key pair name.</p>
+ * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
+ *       distribution.</p>
+ *
+ *          <p>An origin can be a Lightsail instance or load balancer. A distribution pulls content
+ *       from an origin, caches it, and serves it to viewers via a worldwide network of edge
+ *       servers.</p>
+ */
+export interface Origin {
+  __type?: "Origin";
+  /**
+   * <p>The AWS Region name of the origin resource.</p>
+   */
+  regionName?: RegionName | string;
+
+  /**
+   * <p>The protocol that your Amazon Lightsail distribution uses when establishing a connection
+   *       with your origin to pull content.</p>
+   */
+  protocolPolicy?: OriginProtocolPolicyEnum | string;
+
+  /**
+   * <p>The name of the origin resource.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The resource type of the origin resource (e.g., <i>Instance</i>).</p>
+   */
+  resourceType?: ResourceType | string;
+}
+
+export namespace Origin {
+  export const filterSensitiveLog = (obj: Origin): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Origin => __isa(o, "Origin");
+}
+
+export enum OriginProtocolPolicyEnum {
+  HTTPOnly = "http-only",
+  HTTPSOnly = "https-only",
+}
+
+/**
+ * <p>The password data for the Windows Server-based instance, including the ciphertext and the
+ *       key pair name.</p>
  */
 export interface PasswordData {
   __type?: "PasswordData";
   /**
-   * <p>The encrypted password. Ciphertext will be an empty string if access to your new
-   *       instance is not ready yet. When you create an instance, it can take up to 15 minutes for the
-   *       instance to be ready.</p>
+   * <p>The encrypted password. Ciphertext will be an empty string if access to your new instance
+   *       is not ready yet. When you create an instance, it can take up to 15 minutes for the instance
+   *       to be ready.</p>
    *          <note>
    *             <p>If you use the default key pair (<code>LightsailDefaultKeyPair</code>), the decrypted
    *         password will be available in the password field.</p>
-   *             <p>If you are using a custom key pair, you need to use your own means of
-   *         decryption.</p>
-   *             <p>If you change the Administrator password on the instance, Lightsail will continue
-   *         to return the original ciphertext value. When accessing the instance using RDP, you need to
+   *             <p>If you are using a custom key pair, you need to use your own means of decryption.</p>
+   *             <p>If you change the Administrator password on the instance, Lightsail will continue to
+   *         return the original ciphertext value. When accessing the instance using RDP, you need to
    *         manually enter the Administrator password after changing it from the default.</p>
    *          </note>
    */
@@ -7416,8 +10066,8 @@ export namespace PeerVpcRequest {
 export interface PeerVpcResult {
   __type?: "PeerVpcResult";
   /**
-   * <p>An array of key-value pairs containing information about the request
-   *       operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -7435,14 +10085,14 @@ export namespace PeerVpcResult {
 export interface PendingMaintenanceAction {
   __type?: "PendingMaintenanceAction";
   /**
-   * <p>The type of pending database maintenance action.</p>
-   */
-  action?: string;
-
-  /**
    * <p>The effective date of the pending database maintenance action.</p>
    */
   currentApplyDate?: Date;
+
+  /**
+   * <p>The type of pending database maintenance action.</p>
+   */
+  action?: string;
 
   /**
    * <p>Additional detail about the pending database maintenance action.</p>
@@ -7463,14 +10113,14 @@ export namespace PendingMaintenanceAction {
 export interface PendingModifiedRelationalDatabaseValues {
   __type?: "PendingModifiedRelationalDatabaseValues";
   /**
-   * <p>A Boolean value indicating whether automated backup retention is enabled.</p>
-   */
-  backupRetentionEnabled?: boolean;
-
-  /**
    * <p>The database engine version.</p>
    */
   engineVersion?: string;
+
+  /**
+   * <p>A Boolean value indicating whether automated backup retention is enabled.</p>
+   */
+  backupRetentionEnabled?: boolean;
 
   /**
    * <p>The password for the master user of the database.</p>
@@ -7492,23 +10142,108 @@ export enum PortAccessType {
 }
 
 /**
- * <p>Describes information about the ports on your virtual private server (or
- *         <i>instance</i>).</p>
+ * <p>Describes ports to open on an instance, the IP addresses allowed to connect to the
+ *       instance through the ports, and the protocol.</p>
  */
 export interface PortInfo {
   __type?: "PortInfo";
   /**
-   * <p>The first port in the range.</p>
+   * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
+   *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
+   *       addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your
+   *       instance.</p>
    */
-  fromPort?: number;
+  cidrListAliases?: string[];
 
   /**
-   * <p>The protocol. </p>
+   * <p>The IP address, or range of IP addresses in CIDR notation, that are allowed to connect to
+   *       an instance through the ports, and the protocol. Lightsail supports IPv4 addresses.</p>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To allow the IP address <code>192.0.2.44</code>, specify <code>192.0.2.44</code> or
+   *             <code>192.0.2.44/32</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>To allow the IP addresses <code>192.0.2.0</code> to <code>192.0.2.255</code>, specify
+   *             <code>192.0.2.0/24</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   */
+  cidrs?: string[];
+
+  /**
+   * <p>The IP protocol name.</p>
+   *          <p>The name can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered, and
+   *           error-checked delivery of streamed data between applications running on hosts
+   *           communicating by an IP network. If you have an application that doesn't require reliable
+   *           data stream service, use UDP instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>all</code> - All transport layer protocol types. For more general information,
+   *           see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport layer</a> on
+   *             <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>udp</code> - With User Datagram Protocol (UDP), computer applications can send
+   *           messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
+   *           communications are not required to set up transmission channels or data paths.
+   *           Applications that don't require reliable data stream service can use UDP, which provides a
+   *           connectionless datagram service that emphasizes reduced latency over reliability. If you
+   *           do require reliable data stream service, use TCP instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp</code> - Internet Control Message Protocol (ICMP) is used to send error
+   *           messages and operational information indicating success or failure when communicating with
+   *           an instance. For example, an error is indicated when an instance could not be reached.
+   *           When you specify <code>icmp</code> as the <code>protocol</code>, you must specify the ICMP
+   *           type using the <code>fromPort</code> parameter, and ICMP code using the
+   *             <code>toPort</code> parameter.</p>
+   *             </li>
+   *          </ul>
    */
   protocol?: NetworkProtocol | string;
 
   /**
-   * <p>The last port in the range.</p>
+   * <p>The first port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP type. For example, specify <code>8</code> as the <code>fromPort</code>
+   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
+   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *          </ul>
+   */
+  fromPort?: number;
+
+  /**
+   * <p>The last port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP code. For example, specify <code>8</code> as the <code>fromPort</code>
+   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
+   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *          </ul>
    */
   toPort?: number;
 }
@@ -7532,15 +10267,210 @@ export enum PortState {
   Open = "open",
 }
 
+export interface PutAlarmRequest {
+  __type?: "PutAlarmRequest";
+  /**
+   * <p>The name of the Lightsail resource that will be monitored.</p>
+   *          <p>Instances, load balancers, and relational databases are the only Lightsail resources
+   *       that can currently be monitored by alarms.</p>
+   */
+  monitoredResourceName: string | undefined;
+
+  /**
+   * <p>The alarm states that trigger a notification.</p>
+   *          <p>An alarm has the following possible states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALARM</code> - The metric is outside of the defined threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_DATA</code> - The alarm has just started, the metric is not
+   *           available, or not enough data is available for the metric to determine the alarm
+   *           state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OK</code> - The metric is within the defined threshold.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When you specify a notification trigger, the <code>ALARM</code> state must be specified.
+   *       The <code>INSUFFICIENT_DATA</code> and <code>OK</code> states can be specified in addition to
+   *       the <code>ALARM</code> state.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify <code>OK</code> as an alarm trigger, a notification is sent when the
+   *           alarm switches from an <code>ALARM</code> or <code>INSUFFICIENT_DATA</code> alarm state to
+   *           an <code>OK</code> state. This can be thought of as an <i>all clear</i>
+   *           alarm notification.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>INSUFFICIENT_DATA</code> as the alarm trigger, a notification is
+   *           sent when the alarm switches from an <code>OK</code> or <code>ALARM</code> alarm state to
+   *           an <code>INSUFFICIENT_DATA</code> state.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The notification trigger defaults to <code>ALARM</code> if you don't specify this
+   *       parameter.</p>
+   */
+  notificationTriggers?: (AlarmState | string)[];
+
+  /**
+   * <p>The value against which the specified statistic is compared.</p>
+   */
+  threshold: number | undefined;
+
+  /**
+   * <p>Indicates whether the alarm is enabled.</p>
+   *          <p>Notifications are enabled by default if you don't specify this parameter.</p>
+   */
+  notificationEnabled?: boolean;
+
+  /**
+   * <p>The number of most recent periods over which data is compared to the specified threshold.
+   *       If you are setting an "M out of N" alarm, this value (<code>evaluationPeriods</code>) is the
+   *       N.</p>
+   *          <p>If you are setting an alarm that requires that a number of consecutive data points be
+   *       breaching to trigger the alarm, this value specifies the rolling period of time in which data
+   *       points are evaluated.</p>
+   *          <p>Each evaluation period is five minutes long. For example, specify an evaluation period of
+   *       24 to evaluate a metric over a rolling period of two hours.</p>
+   *          <p>You can specify a minimum valuation period of 1 (5 minutes), and a maximum evaluation
+   *       period of 288 (24 hours).</p>
+   */
+  evaluationPeriods: number | undefined;
+
+  /**
+   * <p>The name for the alarm. Specify the name of an existing alarm to update, and overwrite the
+   *       previous configuration of the alarm.</p>
+   */
+  alarmName: string | undefined;
+
+  /**
+   * <p>The contact protocols to use for the alarm, such as <code>Email</code>, <code>SMS</code>
+   *       (text messaging), or both.</p>
+   *          <p>A notification is sent via the specified contact protocol if notifications are enabled for
+   *       the alarm, and when the alarm is triggered.</p>
+   *          <p>A notification is not sent if a contact protocol is not specified, if the specified
+   *       contact protocol is not configured in the AWS Region, or if notifications are not enabled
+   *       for the alarm using the <code>notificationEnabled</code> paramater.</p>
+   *          <p>Use the <code>CreateContactMethod</code> action to configure a contact protocol in an
+   *       AWS Region.</p>
+   */
+  contactProtocols?: (ContactProtocol | string)[];
+
+  /**
+   * <p>The name of the metric to associate with the alarm.</p>
+   *          <p>You can configure up to two alarms per metric.</p>
+   *          <p>The following metrics are available for each resource type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Instances</b>: <code>BurstCapacityPercentage</code>,
+   *             <code>BurstCapacityTime</code>, <code>CPUUtilization</code>, <code>NetworkIn</code>,
+   *             <code>NetworkOut</code>, <code>StatusCheckFailed</code>,
+   *             <code>StatusCheckFailed_Instance</code>, and
+   *           <code>StatusCheckFailed_System</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Load balancers</b>:
+   *             <code>ClientTLSNegotiationErrorCount</code>, <code>HealthyHostCount</code>,
+   *             <code>UnhealthyHostCount</code>, <code>HTTPCode_LB_4XX_Count</code>,
+   *             <code>HTTPCode_LB_5XX_Count</code>, <code>HTTPCode_Instance_2XX_Count</code>,
+   *             <code>HTTPCode_Instance_3XX_Count</code>, <code>HTTPCode_Instance_4XX_Count</code>,
+   *             <code>HTTPCode_Instance_5XX_Count</code>, <code>InstanceResponseTime</code>,
+   *             <code>RejectedConnectionCount</code>, and <code>RequestCount</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Relational databases</b>: <code>CPUUtilization</code>,
+   *             <code>DatabaseConnections</code>, <code>DiskQueueDepth</code>,
+   *             <code>FreeStorageSpace</code>, <code>NetworkReceiveThroughput</code>, and
+   *             <code>NetworkTransmitThroughput</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about these metrics, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-resource-health-metrics#available-metrics">Metrics available in Lightsail</a>.</p>
+   */
+  metricName: MetricName | string | undefined;
+
+  /**
+   * <p>The arithmetic operation to use when comparing the specified statistic to the threshold.
+   *       The specified statistic value is used as the first operand.</p>
+   */
+  comparisonOperator: ComparisonOperator | string | undefined;
+
+  /**
+   * <p>The number of data points that must be not within the specified threshold to trigger the
+   *       alarm. If you are setting an "M out of N" alarm, this value (<code>datapointsToAlarm</code>)
+   *       is the M.</p>
+   */
+  datapointsToAlarm?: number;
+
+  /**
+   * <p>Sets how this alarm will handle missing data points.</p>
+   *          <p>An alarm can treat missing data in the following ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>breaching</code> - Assume the missing data is not within the threshold. Missing
+   *           data counts towards the number of times the metric is not within the threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>notBreaching</code> - Assume the missing data is within the threshold. Missing
+   *           data does not count towards the number of times the metric is not within the
+   *           threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ignore</code> - Ignore the missing data. Maintains the current alarm
+   *           state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>missing</code> - Missing data is treated as missing.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If <code>treatMissingData</code> is not specified, the default behavior of
+   *         <code>missing</code> is used.</p>
+   */
+  treatMissingData?: TreatMissingData | string;
+}
+
+export namespace PutAlarmRequest {
+  export const filterSensitiveLog = (obj: PutAlarmRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutAlarmRequest => __isa(o, "PutAlarmRequest");
+}
+
+export interface PutAlarmResult {
+  __type?: "PutAlarmResult";
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+export namespace PutAlarmResult {
+  export const filterSensitiveLog = (obj: PutAlarmResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutAlarmResult => __isa(o, "PutAlarmResult");
+}
+
 export interface PutInstancePublicPortsRequest {
   __type?: "PutInstancePublicPortsRequest";
   /**
-   * <p>The Lightsail instance name of the public port(s) you are setting.</p>
+   * <p>The name of the instance for which to open ports.</p>
    */
   instanceName: string | undefined;
 
   /**
-   * <p>Specifies information about the public port(s).</p>
+   * <p>An array of objects to describe the ports to open for the specified instance.</p>
    */
   portInfos: PortInfo[] | undefined;
 }
@@ -7555,7 +10485,8 @@ export namespace PutInstancePublicPortsRequest {
 export interface PutInstancePublicPortsResult {
   __type?: "PutInstancePublicPortsResult";
   /**
-   * <p>Describes metadata about the operation you just executed.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -7565,6 +10496,40 @@ export namespace PutInstancePublicPortsResult {
     ...obj,
   });
   export const isa = (o: any): o is PutInstancePublicPortsResult => __isa(o, "PutInstancePublicPortsResult");
+}
+
+/**
+ * <p>Describes the query string parameters that an Amazon Lightsail content delivery network
+ *       (CDN) distribution to bases caching on.</p>
+ *
+ *          <p>For the query strings that you specify, your distribution caches separate versions of the
+ *       specified content based on the query string values in viewer
+ *       requests.</p>
+ */
+export interface QueryStringObject {
+  __type?: "QueryStringObject";
+  /**
+   * <p>The specific query strings that the distribution forwards to the origin.</p>
+   *
+   *          <p>Your distribution will cache content based on the specified query strings.</p>
+   *
+   *          <p>If the <code>option</code> parameter is true, then your distribution forwards all query
+   *       strings, regardless of what you specify using the <code>queryStringsAllowList</code>
+   *       parameter.</p>
+   */
+  queryStringsAllowList?: string[];
+
+  /**
+   * <p>Indicates whether the distribution forwards and caches based on query strings.</p>
+   */
+  option?: boolean;
+}
+
+export namespace QueryStringObject {
+  export const filterSensitiveLog = (obj: QueryStringObject): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is QueryStringObject => __isa(o, "QueryStringObject");
 }
 
 export interface RebootInstanceRequest {
@@ -7585,8 +10550,8 @@ export namespace RebootInstanceRequest {
 export interface RebootInstanceResult {
   __type?: "RebootInstanceResult";
   /**
-   * <p>An array of key-value pairs containing information about the request
-   *       operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -7616,7 +10581,8 @@ export namespace RebootRelationalDatabaseRequest {
 export interface RebootRelationalDatabaseResult {
   __type?: "RebootRelationalDatabaseResult";
   /**
-   * <p>An object describing the result of your reboot relational database request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -7640,21 +10606,9 @@ export enum RecordState {
 export interface Region {
   __type?: "Region";
   /**
-   * <p>The Availability Zones. Follows the format <code>us-east-2a</code>
-   *       (case-sensitive).</p>
-   */
-  availabilityZones?: AvailabilityZone[];
-
-  /**
    * <p>The continent code (e.g., <code>NA</code>, meaning North America).</p>
    */
   continentCode?: string;
-
-  /**
-   * <p>The description of the AWS Region (e.g., <code>This region is recommended to serve
-   *         users in the eastern United States and eastern Canada</code>).</p>
-   */
-  description?: string;
 
   /**
    * <p>The display name (e.g., <code>Ohio</code>).</p>
@@ -7662,15 +10616,27 @@ export interface Region {
   displayName?: string;
 
   /**
+   * <p>The Availability Zones for databases. Follows the format <code>us-east-2a</code>
+   *       (case-sensitive).</p>
+   */
+  relationalDatabaseAvailabilityZones?: AvailabilityZone[];
+
+  /**
    * <p>The region name (e.g., <code>us-east-2</code>).</p>
    */
   name?: RegionName | string;
 
   /**
-   * <p>The Availability Zones for databases. Follows the format <code>us-east-2a</code>
+   * <p>The description of the AWS Region (e.g., <code>This region is recommended to serve users
+   *         in the eastern United States and eastern Canada</code>).</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The Availability Zones. Follows the format <code>us-east-2a</code>
    *       (case-sensitive).</p>
    */
-  relationalDatabaseAvailabilityZones?: AvailabilityZone[];
+  availabilityZones?: AvailabilityZone[];
 }
 
 export namespace Region {
@@ -7703,9 +10669,9 @@ export enum RegionName {
 export interface RelationalDatabase {
   __type?: "RelationalDatabase";
   /**
-   * <p>The Amazon Resource Name (ARN) of the database.</p>
+   * <p>The database software (for example, <code>MySQL</code>).</p>
    */
-  arn?: string;
+  engine?: string;
 
   /**
    * <p>A Boolean value indicating whether automated backup retention is enabled for the
@@ -7714,76 +10680,16 @@ export interface RelationalDatabase {
   backupRetentionEnabled?: boolean;
 
   /**
-   * <p>The certificate associated with the database.</p>
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
+   *         Dev Guide</a>.</p>
    */
-  caCertificateIdentifier?: string;
-
-  /**
-   * <p>The timestamp when the database was created. Formatted in Unix time.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The database software (for example, <code>MySQL</code>).</p>
-   */
-  engine?: string;
+  tags?: Tag[];
 
   /**
    * <p>The database engine version (for example, <code>5.7.23</code>).</p>
    */
   engineVersion?: string;
-
-  /**
-   * <p>Describes the hardware of the database.</p>
-   */
-  hardware?: RelationalDatabaseHardware;
-
-  /**
-   * <p>The latest point in time to which the database can be restored. Formatted in Unix
-   *       time.</p>
-   */
-  latestRestorableTime?: Date;
-
-  /**
-   * <p>The Region name and Availability Zone where the database is located.</p>
-   */
-  location?: ResourceLocation;
-
-  /**
-   * <p>The name of the master database created when the Lightsail database resource is
-   *       created.</p>
-   */
-  masterDatabaseName?: string;
-
-  /**
-   * <p>The master endpoint for the database.</p>
-   */
-  masterEndpoint?: RelationalDatabaseEndpoint;
-
-  /**
-   * <p>The master user name of the database.</p>
-   */
-  masterUsername?: string;
-
-  /**
-   * <p>The unique name of the database resource in Lightsail.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The status of parameter updates for the database.</p>
-   */
-  parameterApplyStatus?: string;
-
-  /**
-   * <p>Describes the pending maintenance actions for the database.</p>
-   */
-  pendingMaintenanceActions?: PendingMaintenanceAction[];
-
-  /**
-   * <p>Describes pending database value modifications.</p>
-   */
-  pendingModifiedValues?: PendingModifiedRelationalDatabaseValues;
 
   /**
    * <p>The daily time range during which automated backups are created for the database (for
@@ -7792,35 +10698,30 @@ export interface RelationalDatabase {
   preferredBackupWindow?: string;
 
   /**
-   * <p>The weekly time range during which system maintenance can occur on the
-   *       database.</p>
-   *          <p>In the format <code>ddd:hh24:mi-ddd:hh24:mi</code>. For example,
-   *         <code>Tue:17:00-Tue:17:30</code>.</p>
+   * <p>The master user name of the database.</p>
    */
-  preferredMaintenanceWindow?: string;
+  masterUsername?: string;
 
   /**
-   * <p>A Boolean value indicating whether the database is publicly accessible.</p>
+   * <p>The Amazon Resource Name (ARN) of the database.</p>
    */
-  publiclyAccessible?: boolean;
+  arn?: string;
 
   /**
-   * <p>The blueprint ID for the database. A blueprint describes the major engine version of a
-   *       database.</p>
+   * <p>The timestamp when the database was created. Formatted in Unix time.</p>
    */
-  relationalDatabaseBlueprintId?: string;
+  createdAt?: Date;
 
   /**
-   * <p>The bundle ID for the database. A bundle describes the performance specifications for
-   *       your database.</p>
+   * <p>Describes the pending maintenance actions for the database.</p>
    */
-  relationalDatabaseBundleId?: string;
+  pendingMaintenanceActions?: PendingMaintenanceAction[];
 
   /**
-   * <p>The Lightsail resource type for the database (for example,
-   *         <code>RelationalDatabase</code>).</p>
+   * <p>The name of the master database created when the Lightsail database resource is
+   *       created.</p>
    */
-  resourceType?: ResourceType | string;
+  masterDatabaseName?: string;
 
   /**
    * <p>Describes the secondary Availability Zone of a high availability database.</p>
@@ -7830,9 +10731,64 @@ export interface RelationalDatabase {
   secondaryAvailabilityZone?: string;
 
   /**
+   * <p>The certificate associated with the database.</p>
+   */
+  caCertificateIdentifier?: string;
+
+  /**
+   * <p>Describes the hardware of the database.</p>
+   */
+  hardware?: RelationalDatabaseHardware;
+
+  /**
+   * <p>A Boolean value indicating whether the database is publicly accessible.</p>
+   */
+  publiclyAccessible?: boolean;
+
+  /**
+   * <p>The latest point in time to which the database can be restored. Formatted in Unix
+   *       time.</p>
+   */
+  latestRestorableTime?: Date;
+
+  /**
+   * <p>The status of parameter updates for the database.</p>
+   */
+  parameterApplyStatus?: string;
+
+  /**
    * <p>Describes the current state of the database.</p>
    */
   state?: string;
+
+  /**
+   * <p>The blueprint ID for the database. A blueprint describes the major engine version of a
+   *       database.</p>
+   */
+  relationalDatabaseBlueprintId?: string;
+
+  /**
+   * <p>Describes pending database value modifications.</p>
+   */
+  pendingModifiedValues?: PendingModifiedRelationalDatabaseValues;
+
+  /**
+   * <p>The weekly time range during which system maintenance can occur on the database.</p>
+   *          <p>In the format <code>ddd:hh24:mi-ddd:hh24:mi</code>. For example,
+   *         <code>Tue:17:00-Tue:17:30</code>.</p>
+   */
+  preferredMaintenanceWindow?: string;
+
+  /**
+   * <p>The master endpoint for the database.</p>
+   */
+  masterEndpoint?: RelationalDatabaseEndpoint;
+
+  /**
+   * <p>The bundle ID for the database. A bundle describes the performance specifications for your
+   *       database.</p>
+   */
+  relationalDatabaseBundleId?: string;
 
   /**
    * <p>The support code for the database. Include this code in your email to support when you
@@ -7842,11 +10798,20 @@ export interface RelationalDatabase {
   supportCode?: string;
 
   /**
-   * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
-   *         Dev Guide</a>.</p>
+   * <p>The Lightsail resource type for the database (for example,
+   *         <code>RelationalDatabase</code>).</p>
    */
-  tags?: Tag[];
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>The Region name and Availability Zone where the database is located.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The unique name of the database resource in Lightsail.</p>
+   */
+  name?: string;
 }
 
 export namespace RelationalDatabase {
@@ -7857,32 +10822,22 @@ export namespace RelationalDatabase {
 }
 
 /**
- * <p>Describes a database image, or blueprint. A blueprint describes the major engine
- *       version of a database.</p>
+ * <p>Describes a database image, or blueprint. A blueprint describes the major engine version
+ *       of a database.</p>
  */
 export interface RelationalDatabaseBlueprint {
   __type?: "RelationalDatabaseBlueprint";
   /**
-   * <p>The ID for the database blueprint.</p>
-   */
-  blueprintId?: string;
-
-  /**
-   * <p>The database software of the database blueprint (for example,
-   *       <code>MySQL</code>).</p>
-   */
-  engine?: RelationalDatabaseEngine | string;
-
-  /**
-   * <p>The description of the database engine for the database blueprint.</p>
-   */
-  engineDescription?: string;
-
-  /**
    * <p>The database engine version for the database blueprint (for example,
-   *         <code>5.7.23</code>).</p>
+   *       <code>5.7.23</code>).</p>
    */
   engineVersion?: string;
+
+  /**
+   * <p>A Boolean value indicating whether the engine version is the default for the database
+   *       blueprint.</p>
+   */
+  isEngineDefault?: boolean;
 
   /**
    * <p>The description of the database engine version for the database blueprint.</p>
@@ -7890,10 +10845,19 @@ export interface RelationalDatabaseBlueprint {
   engineVersionDescription?: string;
 
   /**
-   * <p>A Boolean value indicating whether the engine version is the default for the database
-   *       blueprint.</p>
+   * <p>The database software of the database blueprint (for example, <code>MySQL</code>).</p>
    */
-  isEngineDefault?: boolean;
+  engine?: RelationalDatabaseEngine | string;
+
+  /**
+   * <p>The ID for the database blueprint.</p>
+   */
+  blueprintId?: string;
+
+  /**
+   * <p>The description of the database engine for the database blueprint.</p>
+   */
+  engineDescription?: string;
 }
 
 export namespace RelationalDatabaseBlueprint {
@@ -7915,14 +10879,9 @@ export interface RelationalDatabaseBundle {
   bundleId?: string;
 
   /**
-   * <p>The number of virtual CPUs (vCPUs) for the database bundle.</p>
+   * <p>The name for the database bundle.</p>
    */
-  cpuCount?: number;
-
-  /**
-   * <p>The size of the disk for the database bundle.</p>
-   */
-  diskSizeInGb?: number;
+  name?: string;
 
   /**
    * <p>A Boolean value indicating whether the database bundle is active.</p>
@@ -7930,14 +10889,19 @@ export interface RelationalDatabaseBundle {
   isActive?: boolean;
 
   /**
+   * <p>The size of the disk for the database bundle.</p>
+   */
+  diskSizeInGb?: number;
+
+  /**
+   * <p>The data transfer rate per month in GB for the database bundle.</p>
+   */
+  transferPerMonthInGb?: number;
+
+  /**
    * <p>A Boolean value indicating whether the database bundle is encrypted.</p>
    */
   isEncrypted?: boolean;
-
-  /**
-   * <p>The name for the database bundle.</p>
-   */
-  name?: string;
 
   /**
    * <p>The cost of the database bundle in US currency.</p>
@@ -7945,15 +10909,14 @@ export interface RelationalDatabaseBundle {
   price?: number;
 
   /**
-   * <p>The amount of RAM in GB (for example, <code>2.0</code>) for the database
-   *       bundle.</p>
+   * <p>The amount of RAM in GB (for example, <code>2.0</code>) for the database bundle.</p>
    */
   ramSizeInGb?: number;
 
   /**
-   * <p>The data transfer rate per month in GB for the database bundle.</p>
+   * <p>The number of virtual CPUs (vCPUs) for the database bundle.</p>
    */
-  transferPerMonthInGb?: number;
+  cpuCount?: number;
 }
 
 export namespace RelationalDatabaseBundle {
@@ -7969,14 +10932,14 @@ export namespace RelationalDatabaseBundle {
 export interface RelationalDatabaseEndpoint {
   __type?: "RelationalDatabaseEndpoint";
   /**
-   * <p>Specifies the DNS address of the database.</p>
-   */
-  address?: string;
-
-  /**
    * <p>Specifies the port that the database is listening on.</p>
    */
   port?: number;
+
+  /**
+   * <p>Specifies the DNS address of the database.</p>
+   */
+  address?: string;
 }
 
 export namespace RelationalDatabaseEndpoint {
@@ -8001,6 +10964,11 @@ export interface RelationalDatabaseEvent {
   createdAt?: Date;
 
   /**
+   * <p>The database that the database event relates to.</p>
+   */
+  resource?: string;
+
+  /**
    * <p>The category that the database event belongs to.</p>
    */
   eventCategories?: string[];
@@ -8009,11 +10977,6 @@ export interface RelationalDatabaseEvent {
    * <p>The message of the database event.</p>
    */
   message?: string;
-
-  /**
-   * <p>The database that the database event relates to.</p>
-   */
-  resource?: string;
 }
 
 export namespace RelationalDatabaseEvent {
@@ -8029,6 +10992,11 @@ export namespace RelationalDatabaseEvent {
 export interface RelationalDatabaseHardware {
   __type?: "RelationalDatabaseHardware";
   /**
+   * <p>The amount of RAM in GB for the database.</p>
+   */
+  ramSizeInGb?: number;
+
+  /**
    * <p>The number of vCPUs for the database.</p>
    */
   cpuCount?: number;
@@ -8037,11 +11005,6 @@ export interface RelationalDatabaseHardware {
    * <p>The size of the disk for the database.</p>
    */
   diskSizeInGb?: number;
-
-  /**
-   * <p>The amount of RAM in GB for the database.</p>
-   */
-  ramSizeInGb?: number;
 }
 
 export namespace RelationalDatabaseHardware {
@@ -8066,9 +11029,19 @@ export enum RelationalDatabaseMetricName {
 export interface RelationalDatabaseParameter {
   __type?: "RelationalDatabaseParameter";
   /**
-   * <p>Specifies the valid range of values for the parameter.</p>
+   * <p>Specifies the name of the parameter.</p>
    */
-  allowedValues?: string;
+  parameterName?: string;
+
+  /**
+   * <p>Provides a description of the parameter.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Specifies the valid data type for the parameter.</p>
+   */
+  dataType?: string;
 
   /**
    * <p>Indicates when parameter updates are applied.</p>
@@ -8077,19 +11050,9 @@ export interface RelationalDatabaseParameter {
   applyMethod?: string;
 
   /**
-   * <p>Specifies the engine-specific parameter type.</p>
+   * <p>Specifies the valid range of values for the parameter.</p>
    */
-  applyType?: string;
-
-  /**
-   * <p>Specifies the valid data type for the parameter.</p>
-   */
-  dataType?: string;
-
-  /**
-   * <p>Provides a description of the parameter.</p>
-   */
-  description?: string;
+  allowedValues?: string;
 
   /**
    * <p>A Boolean value indicating whether the parameter can be modified.</p>
@@ -8097,9 +11060,9 @@ export interface RelationalDatabaseParameter {
   isModifiable?: boolean;
 
   /**
-   * <p>Specifies the name of the parameter.</p>
+   * <p>Specifies the engine-specific parameter type.</p>
    */
-  parameterName?: string;
+  applyType?: string;
 
   /**
    * <p>Specifies the value of the parameter.</p>
@@ -8126,19 +11089,20 @@ export enum RelationalDatabasePasswordVersion {
 export interface RelationalDatabaseSnapshot {
   __type?: "RelationalDatabaseSnapshot";
   /**
-   * <p>The Amazon Resource Name (ARN) of the database snapshot.</p>
+   * <p>The size of the disk in GB (for example, <code>32</code>) for the database
+   *       snapshot.</p>
    */
-  arn?: string;
+  sizeInGb?: number;
 
   /**
-   * <p>The timestamp when the database snapshot was created.</p>
+   * <p>The Region name and Availability Zone where the database snapshot is located.</p>
    */
-  createdAt?: Date;
+  location?: ResourceLocation;
 
   /**
-   * <p>The software of the database snapshot (for example, <code>MySQL</code>)</p>
+   * <p>The bundle ID of the database from which the database snapshot was created.</p>
    */
-  engine?: string;
+  fromRelationalDatabaseBundleId?: string;
 
   /**
    * <p>The database engine version for the database snapshot (for example,
@@ -8147,31 +11111,27 @@ export interface RelationalDatabaseSnapshot {
   engineVersion?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the database from which the database snapshot was
-   *       created.</p>
+   * <p>The timestamp when the database snapshot was created.</p>
    */
-  fromRelationalDatabaseArn?: string;
+  createdAt?: Date;
 
   /**
-   * <p>The blueprint ID of the database from which the database snapshot was created. A
-   *       blueprint describes the major engine version of a database.</p>
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
+   *         Dev Guide</a>.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The blueprint ID of the database from which the database snapshot was created. A blueprint
+   *       describes the major engine version of a database.</p>
    */
   fromRelationalDatabaseBlueprintId?: string;
-
-  /**
-   * <p>The bundle ID of the database from which the database snapshot was created.</p>
-   */
-  fromRelationalDatabaseBundleId?: string;
 
   /**
    * <p>The name of the source database from which the database snapshot was created.</p>
    */
   fromRelationalDatabaseName?: string;
-
-  /**
-   * <p>The Region name and Availability Zone where the database snapshot is located.</p>
-   */
-  location?: ResourceLocation;
 
   /**
    * <p>The name of the database snapshot.</p>
@@ -8184,17 +11144,6 @@ export interface RelationalDatabaseSnapshot {
   resourceType?: ResourceType | string;
 
   /**
-   * <p>The size of the disk in GB (for example, <code>32</code>) for the database
-   *       snapshot.</p>
-   */
-  sizeInGb?: number;
-
-  /**
-   * <p>The state of the database snapshot.</p>
-   */
-  state?: string;
-
-  /**
    * <p>The support code for the database snapshot. Include this code in your email to support
    *       when you have questions about a database snapshot in Lightsail. This code enables our
    *       support team to look up your Lightsail information more easily.</p>
@@ -8202,11 +11151,25 @@ export interface RelationalDatabaseSnapshot {
   supportCode?: string;
 
   /**
-   * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
-   *         Dev Guide</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the database snapshot.</p>
    */
-  tags?: Tag[];
+  arn?: string;
+
+  /**
+   * <p>The state of the database snapshot.</p>
+   */
+  state?: string;
+
+  /**
+   * <p>The software of the database snapshot (for example, <code>MySQL</code>)</p>
+   */
+  engine?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the database from which the database snapshot was
+   *       created.</p>
+   */
+  fromRelationalDatabaseArn?: string;
 }
 
 export namespace RelationalDatabaseSnapshot {
@@ -8234,8 +11197,8 @@ export namespace ReleaseStaticIpRequest {
 export interface ReleaseStaticIpResult {
   __type?: "ReleaseStaticIpResult";
   /**
-   * <p>An array of key-value pairs containing information about the request
-   *       operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8247,14 +11210,138 @@ export namespace ReleaseStaticIpResult {
   export const isa = (o: any): o is ReleaseStaticIpResult => __isa(o, "ReleaseStaticIpResult");
 }
 
+export enum RenewalStatus {
+  Failed = "Failed",
+  PendingAutoRenewal = "PendingAutoRenewal",
+  PendingValidation = "PendingValidation",
+  Success = "Success",
+}
+
+/**
+ * <p>Describes the status of a SSL/TLS certificate renewal managed by Amazon Lightsail.</p>
+ */
+export interface RenewalSummary {
+  __type?: "RenewalSummary";
+  /**
+   * <p>The timestamp when the certificate was last updated.</p>
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>An array of objects that describe the domain validation records of the certificate.</p>
+   */
+  domainValidationRecords?: DomainValidationRecord[];
+
+  /**
+   * <p>The renewal status of the certificate.</p>
+   *
+   *          <p>The following renewal status are possible:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>PendingAutoRenewal</code>
+   *                   </b> - Lightsail is
+   *           attempting to automatically validate the domain names of the certificate. No further
+   *           action is required. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>PendingValidation</code>
+   *                   </b> - Lightsail couldn't
+   *           automatically validate one or more domain names of the certificate. You must take action
+   *           to validate these domain names or the certificate won't be renewed. Check to make sure
+   *           your certificate's domain validation records exist in your domain's DNS, and that your
+   *           certificate remains in use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Success</code>
+   *                   </b> - All domain names in the
+   *           certificate are validated, and Lightsail renewed the certificate. No further action is
+   *           required. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Failed</code>
+   *                   </b> - One or more domain names were
+   *           not validated before the certificate expired, and Lightsail did not renew the
+   *           certificate. You can request a new certificate using the <code>CreateCertificate</code>
+   *           action.</p>
+   *             </li>
+   *          </ul>
+   */
+  renewalStatus?: RenewalStatus | string;
+
+  /**
+   * <p>The reason for the renewal status of the certificate.</p>
+   */
+  renewalStatusReason?: string;
+}
+
+export namespace RenewalSummary {
+  export const filterSensitiveLog = (obj: RenewalSummary): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is RenewalSummary => __isa(o, "RenewalSummary");
+}
+
+export interface ResetDistributionCacheRequest {
+  __type?: "ResetDistributionCacheRequest";
+  /**
+   * <p>The name of the distribution for which to reset cache.</p>
+   *
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   */
+  distributionName?: string;
+}
+
+export namespace ResetDistributionCacheRequest {
+  export const filterSensitiveLog = (obj: ResetDistributionCacheRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ResetDistributionCacheRequest => __isa(o, "ResetDistributionCacheRequest");
+}
+
+export interface ResetDistributionCacheResult {
+  __type?: "ResetDistributionCacheResult";
+  /**
+   * <p>The timestamp of the reset cache request (e.g., <code>1479734909.17</code>) in Unix time
+   *       format.</p>
+   */
+  createTime?: Date;
+
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operation?: Operation;
+
+  /**
+   * <p>The status of the reset cache request.</p>
+   */
+  status?: string;
+}
+
+export namespace ResetDistributionCacheResult {
+  export const filterSensitiveLog = (obj: ResetDistributionCacheResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ResetDistributionCacheResult => __isa(o, "ResetDistributionCacheResult");
+}
+
 /**
  * <p>Describes the resource location.</p>
  */
 export interface ResourceLocation {
   __type?: "ResourceLocation";
   /**
-   * <p>The Availability Zone. Follows the format <code>us-east-2a</code>
-   *       (case-sensitive).</p>
+   * <p>The Availability Zone. Follows the format <code>us-east-2a</code> (case-sensitive).</p>
    */
   availabilityZone?: string;
 
@@ -8271,10 +11358,43 @@ export namespace ResourceLocation {
   export const isa = (o: any): o is ResourceLocation => __isa(o, "ResourceLocation");
 }
 
+/**
+ * <p>Describes the domain name system (DNS) records to add to your domain's DNS to validate it
+ *       for an Amazon Lightsail certificate.</p>
+ */
+export interface ResourceRecord {
+  __type?: "ResourceRecord";
+  /**
+   * <p>The name of the record.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The value for the DNS record.</p>
+   */
+  value?: string;
+
+  /**
+   * <p>The DNS record type.</p>
+   */
+  type?: string;
+}
+
+export namespace ResourceRecord {
+  export const filterSensitiveLog = (obj: ResourceRecord): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ResourceRecord => __isa(o, "ResourceRecord");
+}
+
 export enum ResourceType {
+  Alarm = "Alarm",
+  Certificate = "Certificate",
   CloudFormationStackRecord = "CloudFormationStackRecord",
+  ContactMethod = "ContactMethod",
   Disk = "Disk",
   DiskSnapshot = "DiskSnapshot",
+  Distribution = "Distribution",
   Domain = "Domain",
   ExportSnapshotRecord = "ExportSnapshotRecord",
   Instance = "Instance",
@@ -8288,16 +11408,50 @@ export enum ResourceType {
   StaticIp = "StaticIp",
 }
 
+export interface SendContactMethodVerificationRequest {
+  __type?: "SendContactMethodVerificationRequest";
+  /**
+   * <p>The protocol to verify, such as <code>Email</code> or <code>SMS</code> (text
+   *       messaging).</p>
+   */
+  protocol: ContactMethodVerificationProtocol | string | undefined;
+}
+
+export namespace SendContactMethodVerificationRequest {
+  export const filterSensitiveLog = (obj: SendContactMethodVerificationRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SendContactMethodVerificationRequest =>
+    __isa(o, "SendContactMethodVerificationRequest");
+}
+
+export interface SendContactMethodVerificationResult {
+  __type?: "SendContactMethodVerificationResult";
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+export namespace SendContactMethodVerificationResult {
+  export const filterSensitiveLog = (obj: SendContactMethodVerificationResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SendContactMethodVerificationResult =>
+    __isa(o, "SendContactMethodVerificationResult");
+}
+
 /**
  * <p>A general service exception.</p>
  */
 export interface ServiceException extends __SmithyException, $MetadataBearer {
   name: "ServiceException";
   $fault: "server";
-  code?: string;
-  docs?: string;
   message?: string;
+  docs?: string;
   tip?: string;
+  code?: string;
 }
 
 export namespace ServiceException {
@@ -8325,8 +11479,8 @@ export namespace StartInstanceRequest {
 export interface StartInstanceResult {
   __type?: "StartInstanceResult";
   /**
-   * <p>An array of key-value pairs containing information about the request
-   *       operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8356,7 +11510,8 @@ export namespace StartRelationalDatabaseRequest {
 export interface StartRelationalDatabaseResult {
   __type?: "StartRelationalDatabaseResult";
   /**
-   * <p>An object describing the result of your start relational database request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8374,22 +11529,9 @@ export namespace StartRelationalDatabaseResult {
 export interface StaticIp {
   __type?: "StaticIp";
   /**
-   * <p>The Amazon Resource Name (ARN) of the static IP (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE</code>).</p>
+   * <p>The name of the static IP (e.g., <code>StaticIP-Ohio-EXAMPLE</code>).</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The instance where the static IP is attached (e.g.,
-   *         <code>Amazon_Linux-1GB-Ohio-1</code>).</p>
-   */
-  attachedTo?: string;
-
-  /**
-   * <p>The timestamp when the static IP was created (e.g.,
-   *       <code>1479735304.222</code>).</p>
-   */
-  createdAt?: Date;
+  name?: string;
 
   /**
    * <p>The static IP address.</p>
@@ -8402,26 +11544,38 @@ export interface StaticIp {
   isAttached?: boolean;
 
   /**
+   * <p>The instance where the static IP is attached (e.g.,
+   *       <code>Amazon_Linux-1GB-Ohio-1</code>).</p>
+   */
+  attachedTo?: string;
+
+  /**
    * <p>The region and Availability Zone where the static IP was created.</p>
    */
   location?: ResourceLocation;
 
   /**
-   * <p>The name of the static IP (e.g., <code>StaticIP-Ohio-EXAMPLE</code>).</p>
+   * <p>The timestamp when the static IP was created (e.g., <code>1479735304.222</code>).</p>
    */
-  name?: string;
+  createdAt?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the static IP (e.g.,
+   *         <code>arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE</code>).</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
+   */
+  supportCode?: string;
 
   /**
    * <p>The resource type (usually <code>StaticIp</code>).</p>
    */
   resourceType?: ResourceType | string;
-
-  /**
-   * <p>The support code. Include this code in your email to support when you have questions
-   *       about an instance or another resource in Lightsail. This code enables our support team to
-   *       look up your Lightsail information more easily.</p>
-   */
-  supportCode?: string;
 }
 
 export namespace StaticIp {
@@ -8434,6 +11588,11 @@ export namespace StaticIp {
 export interface StopInstanceRequest {
   __type?: "StopInstanceRequest";
   /**
+   * <p>The name of the instance (a virtual private server) to stop.</p>
+   */
+  instanceName: string | undefined;
+
+  /**
    * <p>When set to <code>True</code>, forces a Lightsail instance that is stuck in a
    *         <code>stopping</code> state to stop.</p>
    *          <important>
@@ -8443,11 +11602,6 @@ export interface StopInstanceRequest {
    *          </important>
    */
   force?: boolean;
-
-  /**
-   * <p>The name of the instance (a virtual private server) to stop.</p>
-   */
-  instanceName: string | undefined;
 }
 
 export namespace StopInstanceRequest {
@@ -8460,8 +11614,8 @@ export namespace StopInstanceRequest {
 export interface StopInstanceResult {
   __type?: "StopInstanceResult";
   /**
-   * <p>An array of key-value pairs containing information about the request
-   *       operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8476,15 +11630,14 @@ export namespace StopInstanceResult {
 export interface StopRelationalDatabaseRequest {
   __type?: "StopRelationalDatabaseRequest";
   /**
+   * <p>The name of your new database snapshot to be created before stopping your database.</p>
+   */
+  relationalDatabaseSnapshotName?: string;
+
+  /**
    * <p>The name of your database to stop.</p>
    */
   relationalDatabaseName: string | undefined;
-
-  /**
-   * <p>The name of your new database snapshot to be created before stopping your
-   *       database.</p>
-   */
-  relationalDatabaseSnapshotName?: string;
 }
 
 export namespace StopRelationalDatabaseRequest {
@@ -8497,7 +11650,8 @@ export namespace StopRelationalDatabaseRequest {
 export interface StopRelationalDatabaseResult {
   __type?: "StopRelationalDatabaseResult";
   /**
-   * <p>An object describing the result of your stop relational database request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8517,18 +11671,18 @@ export namespace StopRelationalDatabaseResult {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The key of the tag.</p>
-   *          <p>Constraints: Tag keys accept a maximum of 128 letters, numbers, spaces in UTF-8, or the
-   *       following characters: + - = . _ : / @</p>
-   */
-  key?: string;
-
-  /**
    * <p>The value of the tag.</p>
    *          <p>Constraints: Tag values accept a maximum of 256 letters, numbers, spaces in UTF-8, or the
    *       following characters: + - = . _ : / @</p>
    */
   value?: string;
+
+  /**
+   * <p>The key of the tag.</p>
+   *          <p>Constraints: Tag keys accept a maximum of 128 letters, numbers, spaces in UTF-8, or the
+   *       following characters: + - = . _ : / @</p>
+   */
+  key?: string;
 }
 
 export namespace Tag {
@@ -8566,7 +11720,8 @@ export namespace TagResourceRequest {
 export interface TagResourceResult {
   __type?: "TagResourceResult";
   /**
-   * <p>A list of objects describing the API operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8578,16 +11733,76 @@ export namespace TagResourceResult {
   export const isa = (o: any): o is TagResourceResult => __isa(o, "TagResourceResult");
 }
 
+export interface TestAlarmRequest {
+  __type?: "TestAlarmRequest";
+  /**
+   * <p>The alarm state to test.</p>
+   *          <p>An alarm has the following possible states that can be tested:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALARM</code> - The metric is outside of the defined threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_DATA</code> - The alarm has just started, the metric is not
+   *           available, or not enough data is available for the metric to determine the alarm
+   *           state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OK</code> - The metric is within the defined threshold.</p>
+   *             </li>
+   *          </ul>
+   */
+  state: AlarmState | string | undefined;
+
+  /**
+   * <p>The name of the alarm to test.</p>
+   */
+  alarmName: string | undefined;
+}
+
+export namespace TestAlarmRequest {
+  export const filterSensitiveLog = (obj: TestAlarmRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TestAlarmRequest => __isa(o, "TestAlarmRequest");
+}
+
+export interface TestAlarmResult {
+  __type?: "TestAlarmResult";
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+export namespace TestAlarmResult {
+  export const filterSensitiveLog = (obj: TestAlarmResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TestAlarmResult => __isa(o, "TestAlarmResult");
+}
+
+export enum TreatMissingData {
+  Breaching = "breaching",
+  Ignore = "ignore",
+  Missing = "missing",
+  NotBreaching = "notBreaching",
+}
+
 /**
  * <p>Lightsail throws this exception when the user has not been authenticated.</p>
  */
 export interface UnauthenticatedException extends __SmithyException, $MetadataBearer {
   name: "UnauthenticatedException";
   $fault: "client";
+  tip?: string;
   code?: string;
   docs?: string;
   message?: string;
-  tip?: string;
 }
 
 export namespace UnauthenticatedException {
@@ -8611,8 +11826,8 @@ export namespace UnpeerVpcRequest {
 export interface UnpeerVpcResult {
   __type?: "UnpeerVpcResult";
   /**
-   * <p>An array of key-value pairs containing information about the request
-   *       operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -8627,11 +11842,6 @@ export namespace UnpeerVpcResult {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove a tag.</p>
-   */
-  resourceArn?: string;
-
-  /**
    * <p>The name of the resource from which you are removing a tag.</p>
    */
   resourceName: string | undefined;
@@ -8640,6 +11850,11 @@ export interface UntagResourceRequest {
    * <p>The tag keys to delete from the specified resource.</p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove a tag.</p>
+   */
+  resourceArn?: string;
 }
 
 export namespace UntagResourceRequest {
@@ -8652,7 +11867,8 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResult {
   __type?: "UntagResourceResult";
   /**
-   * <p>A list of objects describing the API operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8662,6 +11878,113 @@ export namespace UntagResourceResult {
     ...obj,
   });
   export const isa = (o: any): o is UntagResourceResult => __isa(o, "UntagResourceResult");
+}
+
+export interface UpdateDistributionBundleRequest {
+  __type?: "UpdateDistributionBundleRequest";
+  /**
+   * <p>The bundle ID of the new bundle to apply to your distribution.</p>
+   *          <p>Use the <code>GetDistributionBundles</code> action to get a list of distribution bundle
+   *       IDs that you can specify.</p>
+   */
+  bundleId?: string;
+
+  /**
+   * <p>The name of the distribution for which to update the bundle.</p>
+   *
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   */
+  distributionName?: string;
+}
+
+export namespace UpdateDistributionBundleRequest {
+  export const filterSensitiveLog = (obj: UpdateDistributionBundleRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateDistributionBundleRequest => __isa(o, "UpdateDistributionBundleRequest");
+}
+
+export interface UpdateDistributionBundleResult {
+  __type?: "UpdateDistributionBundleResult";
+  /**
+   * <p>Describes the API operation.</p>
+   */
+  operation?: Operation;
+}
+
+export namespace UpdateDistributionBundleResult {
+  export const filterSensitiveLog = (obj: UpdateDistributionBundleResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateDistributionBundleResult => __isa(o, "UpdateDistributionBundleResult");
+}
+
+export interface UpdateDistributionRequest {
+  __type?: "UpdateDistributionRequest";
+  /**
+   * <p>An object that describes the default cache behavior for the distribution.</p>
+   */
+  defaultCacheBehavior?: CacheBehavior;
+
+  /**
+   * <p>An object that describes the cache behavior settings for the distribution.</p>
+   *          <note>
+   *             <p>The <code>cacheBehaviorSettings</code> specified in your
+   *           <code>UpdateDistributionRequest</code> will replace your distribution's existing
+   *         settings.</p>
+   *          </note>
+   */
+  cacheBehaviorSettings?: CacheSettings;
+
+  /**
+   * <p>An array of objects that describe the per-path cache behavior for the distribution.</p>
+   */
+  cacheBehaviors?: CacheBehaviorPerPath[];
+
+  /**
+   * <p>Indicates whether to enable the distribution.</p>
+   */
+  isEnabled?: boolean;
+
+  /**
+   * <p>An object that describes the origin resource for the distribution, such as a Lightsail
+   *       instance or load balancer.</p>
+   *
+   *          <p>The distribution pulls, caches, and serves content from the origin.</p>
+   */
+  origin?: InputOrigin;
+
+  /**
+   * <p>The name of the distribution to update.</p>
+   *
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   */
+  distributionName: string | undefined;
+}
+
+export namespace UpdateDistributionRequest {
+  export const filterSensitiveLog = (obj: UpdateDistributionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateDistributionRequest => __isa(o, "UpdateDistributionRequest");
+}
+
+export interface UpdateDistributionResult {
+  __type?: "UpdateDistributionResult";
+  /**
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operation?: Operation;
+}
+
+export namespace UpdateDistributionResult {
+  export const filterSensitiveLog = (obj: UpdateDistributionResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateDistributionResult => __isa(o, "UpdateDistributionResult");
 }
 
 export interface UpdateDomainEntryRequest {
@@ -8687,8 +12010,8 @@ export namespace UpdateDomainEntryRequest {
 export interface UpdateDomainEntryResult {
   __type?: "UpdateDomainEntryResult";
   /**
-   * <p>An array of key-value pairs containing information about the request
-   *       operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8703,9 +12026,10 @@ export namespace UpdateDomainEntryResult {
 export interface UpdateLoadBalancerAttributeRequest {
   __type?: "UpdateLoadBalancerAttributeRequest";
   /**
-   * <p>The name of the attribute you want to update. Valid values are below.</p>
+   * <p>The name of the load balancer that you want to modify (e.g.,
+   *       <code>my-load-balancer</code>.</p>
    */
-  attributeName: LoadBalancerAttributeName | string | undefined;
+  loadBalancerName: string | undefined;
 
   /**
    * <p>The value that you want to specify for the attribute name.</p>
@@ -8713,10 +12037,9 @@ export interface UpdateLoadBalancerAttributeRequest {
   attributeValue: string | undefined;
 
   /**
-   * <p>The name of the load balancer that you want to modify (e.g.,
-   *         <code>my-load-balancer</code>.</p>
+   * <p>The name of the attribute you want to update. Valid values are below.</p>
    */
-  loadBalancerName: string | undefined;
+  attributeName: LoadBalancerAttributeName | string | undefined;
 }
 
 export namespace UpdateLoadBalancerAttributeRequest {
@@ -8730,7 +12053,8 @@ export namespace UpdateLoadBalancerAttributeRequest {
 export interface UpdateLoadBalancerAttributeResult {
   __type?: "UpdateLoadBalancerAttributeResult";
   /**
-   * <p>An object describing the API operations.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8745,14 +12069,14 @@ export namespace UpdateLoadBalancerAttributeResult {
 export interface UpdateRelationalDatabaseParametersRequest {
   __type?: "UpdateRelationalDatabaseParametersRequest";
   /**
-   * <p>The database parameters to update.</p>
-   */
-  parameters: RelationalDatabaseParameter[] | undefined;
-
-  /**
    * <p>The name of your database for which to update parameters.</p>
    */
   relationalDatabaseName: string | undefined;
+
+  /**
+   * <p>The database parameters to update.</p>
+   */
+  parameters: RelationalDatabaseParameter[] | undefined;
 }
 
 export namespace UpdateRelationalDatabaseParametersRequest {
@@ -8766,8 +12090,8 @@ export namespace UpdateRelationalDatabaseParametersRequest {
 export interface UpdateRelationalDatabaseParametersResult {
   __type?: "UpdateRelationalDatabaseParametersResult";
   /**
-   * <p>An object describing the result of your update relational database parameters
-   *       request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
@@ -8782,44 +12106,6 @@ export namespace UpdateRelationalDatabaseParametersResult {
 
 export interface UpdateRelationalDatabaseRequest {
   __type?: "UpdateRelationalDatabaseRequest";
-  /**
-   * <p>When <code>true</code>, applies changes immediately. When <code>false</code>, applies
-   *       changes during the preferred maintenance window. Some changes may cause an outage.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  applyImmediately?: boolean;
-
-  /**
-   * <p>Indicates the certificate that needs to be associated with the database.</p>
-   */
-  caCertificateIdentifier?: string;
-
-  /**
-   * <p>When <code>true</code>, disables automated backup retention for your
-   *       database.</p>
-   *          <p>Disabling backup retention deletes all automated database backups. Before disabling
-   *       this, you may want to create a snapshot of your database using the <code>create relational
-   *         database snapshot</code> operation.</p>
-   *          <p>Updates are applied during the next maintenance window because this can result in an
-   *       outage.</p>
-   */
-  disableBackupRetention?: boolean;
-
-  /**
-   * <p>When <code>true</code>, enables automated backup retention for your database.</p>
-   *          <p>Updates are applied during the next maintenance window because this can result in an
-   *       outage.</p>
-   */
-  enableBackupRetention?: boolean;
-
-  /**
-   * <p>The password for the master user of your database. The password can include any
-   *       printable ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain 8 to 41 characters.</p>
-   */
-  masterUserPassword?: string;
-
   /**
    * <p>The daily time range during which automated backups are created for your database if
    *       automated backups are enabled.</p>
@@ -8844,10 +12130,42 @@ export interface UpdateRelationalDatabaseRequest {
   preferredBackupWindow?: string;
 
   /**
-   * <p>The weekly time range during which system maintenance can occur on your
-   *       database.</p>
-   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for
-   *       each AWS Region, occurring on a random day of the week.</p>
+   * <p>The name of your database to update.</p>
+   */
+  relationalDatabaseName: string | undefined;
+
+  /**
+   * <p>Indicates the certificate that needs to be associated with the database.</p>
+   */
+  caCertificateIdentifier?: string;
+
+  /**
+   * <p>When <code>true</code>, the master user password is changed to a new strong password
+   *       generated by Lightsail.</p>
+   *          <p>Use the <code>get relational database master user password</code> operation to get the new
+   *       password.</p>
+   */
+  rotateMasterUserPassword?: boolean;
+
+  /**
+   * <p>When <code>true</code>, enables automated backup retention for your database.</p>
+   *          <p>Updates are applied during the next maintenance window because this can result in an
+   *       outage.</p>
+   */
+  enableBackupRetention?: boolean;
+
+  /**
+   * <p>When <code>true</code>, applies changes immediately. When <code>false</code>, applies
+   *       changes during the preferred maintenance window. Some changes may cause an outage.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  applyImmediately?: boolean;
+
+  /**
+   * <p>The weekly time range during which system maintenance can occur on your database.</p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
+   *       AWS Region, occurring on a random day of the week.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -8871,25 +12189,29 @@ export interface UpdateRelationalDatabaseRequest {
   preferredMaintenanceWindow?: string;
 
   /**
+   * <p>The password for the master user of your database. The password can include any printable
+   *       ASCII character except "/", """, or "@".</p>
+   *          <p>Constraints: Must contain 8 to 41 characters.</p>
+   */
+  masterUserPassword?: string;
+
+  /**
+   * <p>When <code>true</code>, disables automated backup retention for your database.</p>
+   *          <p>Disabling backup retention deletes all automated database backups. Before disabling this,
+   *       you may want to create a snapshot of your database using the <code>create relational database
+   *         snapshot</code> operation.</p>
+   *          <p>Updates are applied during the next maintenance window because this can result in an
+   *       outage.</p>
+   */
+  disableBackupRetention?: boolean;
+
+  /**
    * <p>Specifies the accessibility options for your database. A value of <code>true</code>
    *       specifies a database that is available to resources outside of your Lightsail account. A
    *       value of <code>false</code> specifies a database that is available only to your Lightsail
    *       resources in the same region as your database.</p>
    */
   publiclyAccessible?: boolean;
-
-  /**
-   * <p>The name of your database to update.</p>
-   */
-  relationalDatabaseName: string | undefined;
-
-  /**
-   * <p>When <code>true</code>, the master user password is changed to a new strong password
-   *       generated by Lightsail.</p>
-   *          <p>Use the <code>get relational database master user password</code> operation to get the
-   *       new password.</p>
-   */
-  rotateMasterUserPassword?: boolean;
 }
 
 export namespace UpdateRelationalDatabaseRequest {
@@ -8903,7 +12225,8 @@ export namespace UpdateRelationalDatabaseRequest {
 export interface UpdateRelationalDatabaseResult {
   __type?: "UpdateRelationalDatabaseResult";
   /**
-   * <p>An object describing the result of your update relational database request.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
 }
