@@ -3,7 +3,41 @@
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/s3-request-presigner/beta.svg)](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/s3-request-presigner/beta.svg)](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner)
 
-This package provides a presigner based on signature V4 that will attempt to generate signed url for S3.
+This package provides a presigner based on signature V4 that will attempt to
+generate signed url for S3.
+
+### Get Presigned URL with Client and Command
+
+You can generated presigned url from S3 client and command. Here's the example:
+
+JavaScript Example:
+
+```javascript
+const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
+const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
+const client = new S3Client(clientParams);
+const command = new GetObjectCommand(getObjectParams);
+const url = await getSignedUrl(client, command, { expiresIn: 3600 });
+```
+
+ES6 Example
+
+```javascript
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+const client = new S3Client(clientParams);
+const command = new GetObjectCommand(getObjectParams);
+const url = await getSignedUrl(client, command, { expiresIn: 3600 });
+```
+
+You can get signed URL for other S3 operations too, like `PutObjectCommand`.
+`expiresIn` config from the examples above is optional. If not set, it's default
+at `900`.
+
+If you already have a request, you can pre-sign the request following the
+section bellow.
+
+### Get Presigned URL from an Existing Request
 
 JavaScript Example:
 
