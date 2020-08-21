@@ -52,7 +52,6 @@ export const getSignedUrl = async <
     //@ts-ignore the output is faked, so it's not actually OutputType
     presigned = output.presigned;
   } finally {
-    // client middleware stack should not be altered by this function
     client.middlewareStack.remove("presignInterceptMiddleware");
   }
 
