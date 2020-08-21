@@ -317,7 +317,7 @@ export namespace ConfigTypeData {
       return { trackingConfig: TrackingConfig.filterSensitiveLog(obj.trackingConfig) };
     if (obj.uplinkEchoConfig !== undefined)
       return { uplinkEchoConfig: UplinkEchoConfig.filterSensitiveLog(obj.uplinkEchoConfig) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 

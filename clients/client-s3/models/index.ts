@@ -9738,7 +9738,7 @@ export namespace SelectObjectContentEventStream {
     if (obj.Progress !== undefined) return { Progress: ProgressEvent.filterSensitiveLog(obj.Progress) };
     if (obj.Records !== undefined) return { Records: RecordsEvent.filterSensitiveLog(obj.Records) };
     if (obj.Stats !== undefined) return { Stats: StatsEvent.filterSensitiveLog(obj.Stats) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -9753,7 +9753,7 @@ export interface SelectObjectContentOutput {
 export namespace SelectObjectContentOutput {
   export const filterSensitiveLog = (obj: SelectObjectContentOutput): any => ({
     ...obj,
-    ...(obj.Payload && { Payload: "STREAMING_TRAIT" }),
+    ...(obj.Payload && { Payload: "STREAMING_CONTENT" }),
   });
   export const isa = (o: any): o is SelectObjectContentOutput => __isa(o, "SelectObjectContentOutput");
 }

@@ -111,7 +111,7 @@ export namespace ArrayValue {
     if (obj.doubleValues !== undefined) return { doubleValues: obj.doubleValues };
     if (obj.longValues !== undefined) return { longValues: obj.longValues };
     if (obj.stringValues !== undefined) return { stringValues: obj.stringValues };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -747,7 +747,7 @@ export namespace Field {
     if (obj.isNull !== undefined) return { isNull: obj.isNull };
     if (obj.longValue !== undefined) return { longValue: obj.longValue };
     if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -1358,6 +1358,6 @@ export namespace Value {
     if (obj.realValue !== undefined) return { realValue: obj.realValue };
     if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
     if (obj.structValue !== undefined) return { structValue: StructValue.filterSensitiveLog(obj.structValue) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: obj.$unknown[1] };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
