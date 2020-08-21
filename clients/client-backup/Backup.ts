@@ -70,6 +70,11 @@ import {
   DescribeRecoveryPointCommandOutput,
 } from "./commands/DescribeRecoveryPointCommand";
 import {
+  DescribeRegionSettingsCommand,
+  DescribeRegionSettingsCommandInput,
+  DescribeRegionSettingsCommandOutput,
+} from "./commands/DescribeRegionSettingsCommand";
+import {
   DescribeRestoreJobCommand,
   DescribeRestoreJobCommandInput,
   DescribeRestoreJobCommandOutput,
@@ -221,6 +226,11 @@ import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
 } from "./commands/UpdateRecoveryPointLifecycleCommand";
+import {
+  UpdateRegionSettingsCommand,
+  UpdateRegionSettingsCommandInput,
+  UpdateRegionSettingsCommandOutput,
+} from "./commands/UpdateRegionSettingsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -667,7 +677,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns information about a saved resource, including the last time it was backed-up,
+   * <p>Returns information about a saved resource, including the last time it was backed up,
    *          its Amazon Resource Name (ARN), and the AWS service type of the saved resource.</p>
    */
   public describeProtectedResource(
@@ -722,6 +732,42 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: DescribeRecoveryPointCommandOutput) => void
   ): Promise<DescribeRecoveryPointCommandOutput> | void {
     const command = new DescribeRecoveryPointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the current service opt-in settings for the Region. If the service has a value
+   *          set to <code>true</code>, AWS Backup attempts to protect that service's resources in this
+   *          Region, when included in an on-demand backup or scheduled backup plan. If the value is set
+   *          to <code>false</code> for a service, AWS Backup does not attempt to protect that service's
+   *          resources in this Region.</p>
+   */
+  public describeRegionSettings(
+    args: DescribeRegionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegionSettingsCommandOutput>;
+  public describeRegionSettings(
+    args: DescribeRegionSettingsCommandInput,
+    cb: (err: any, data?: DescribeRegionSettingsCommandOutput) => void
+  ): void;
+  public describeRegionSettings(
+    args: DescribeRegionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegionSettingsCommandOutput) => void
+  ): void;
+  public describeRegionSettings(
+    args: DescribeRegionSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRegionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRegionSettingsCommandOutput) => void
+  ): Promise<DescribeRegionSettingsCommandOutput> | void {
+    const command = new DescribeRegionSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1416,6 +1462,10 @@ export class Backup extends BackupClient {
   /**
    * <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or
    *          backup vault.</p>
+   *          <note>
+   *             <p>
+   *                <code>ListTags</code> are currently only supported with Amazon EFS backups.</p>
+   *          </note>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
   public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
@@ -1757,6 +1807,42 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: UpdateRecoveryPointLifecycleCommandOutput) => void
   ): Promise<UpdateRecoveryPointLifecycleCommandOutput> | void {
     const command = new UpdateRecoveryPointLifecycleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the current service opt-in settings for the Region. If the service has a value
+   *          set to <code>true</code>, AWS Backup attempts to protect that service's resources in this
+   *          Region, when included in an on-demand backup or scheduled backup plan. If the value is set
+   *          to <code>false</code> for a service, AWS Backup does not attempt to protect that service's
+   *          resources in this Region.</p>
+   */
+  public updateRegionSettings(
+    args: UpdateRegionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRegionSettingsCommandOutput>;
+  public updateRegionSettings(
+    args: UpdateRegionSettingsCommandInput,
+    cb: (err: any, data?: UpdateRegionSettingsCommandOutput) => void
+  ): void;
+  public updateRegionSettings(
+    args: UpdateRegionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRegionSettingsCommandOutput) => void
+  ): void;
+  public updateRegionSettings(
+    args: UpdateRegionSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRegionSettingsCommandOutput) => void
+  ): Promise<UpdateRegionSettingsCommandOutput> | void {
+    const command = new UpdateRegionSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

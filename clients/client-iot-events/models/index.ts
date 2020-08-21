@@ -2,31 +2,71 @@ import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } 
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>An action to be performed when the <code>"condition"</code> is TRUE.</p>
+ * <p>An action to be performed when the <code>condition</code> is TRUE.</p>
  */
 export interface Action {
   __type?: "Action";
+  /**
+   * <p>Sends information about the detector model instance and the event that triggered the
+   *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
+   */
+  firehose?: FirehoseAction;
+
+  /**
+   * <p>Publishes an MQTT message with the given topic to the AWS IoT message broker.</p>
+   */
+  iotTopicPublish?: IotTopicPublishAction;
+
+  /**
+   * <p>Writes to the DynamoDB table that you created. The default action payload contains all
+   *       attribute-value pairs that have the information about the detector model instance and the
+   *       event that triggered the action. You can also customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. A separate column of
+   *       the DynamoDB table receives one attribute-value pair in the payload that you specify. For more
+   *       information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html">Actions</a> in
+   *         <i>AWS IoT Events Developer Guide</i>.</p>
+   */
+  dynamoDBv2?: DynamoDBv2Action;
+
+  /**
+   * <p>Information needed to set the timer.</p>
+   */
+  setTimer?: SetTimerAction;
+
   /**
    * <p>Information needed to clear the timer.</p>
    */
   clearTimer?: ClearTimerAction;
 
   /**
+   * <p>Writes to the DynamoDB table that you created. The default action payload contains all
+   *       attribute-value pairs that have the information about the detector model instance and the
+   *       event that triggered the action. You can also customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. One column of the
+   *       DynamoDB table receives all attribute-value pairs in the payload that you specify. For more
+   *       information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html">Actions</a> in
+   *         <i>AWS IoT Events Developer Guide</i>.</p>
+   */
+  dynamoDB?: DynamoDBAction;
+
+  /**
+   * <p>Information needed to reset the timer.</p>
+   */
+  resetTimer?: ResetTimerAction;
+
+  /**
+   * <p>Sends an Amazon SNS message.</p>
+   */
+  sns?: SNSTopicPublishAction;
+
+  /**
+   * <p>Sets a variable to a specified value.</p>
+   */
+  setVariable?: SetVariableAction;
+
+  /**
    * <p>Sends information about the detector model instance and the event that triggered the
-   *       action to a Kinesis Data Firehose delivery stream.</p>
+   *       action to an Amazon SQS queue.</p>
    */
-  firehose?: FirehoseAction;
-
-  /**
-   * <p>Sends an IoT Events input, passing in information about the detector model instance and
-   *       the event that triggered the action.</p>
-   */
-  iotEvents?: IotEventsAction;
-
-  /**
-   * <p>Publishes an MQTT message with the given topic to the AWS IoT message broker.</p>
-   */
-  iotTopicPublish?: IotTopicPublishAction;
+  sqs?: SqsAction;
 
   /**
    * <p>Calls a Lambda function, passing in information about the detector model instance and the
@@ -35,30 +75,16 @@ export interface Action {
   lambda?: LambdaAction;
 
   /**
-   * <p>Information needed to reset the timer.</p>
+   * <p>Sends AWS IoT Events input, which passes information about the detector model instance and the
+   *       event that triggered the action.</p>
    */
-  resetTimer?: ResetTimerAction;
-
-  /**
-   * <p>Information needed to set the timer.</p>
-   */
-  setTimer?: SetTimerAction;
-
-  /**
-   * <p>Sets a variable to a specified value.</p>
-   */
-  setVariable?: SetVariableAction;
-
-  /**
-   * <p>Sends an Amazon SNS message.</p>
-   */
-  sns?: SNSTopicPublishAction;
+  iotEvents?: IotEventsAction;
 
   /**
    * <p>Sends information about the detector model instance and the event that triggered the
-   *       action to an Amazon SQS queue.</p>
+   *       action to an asset property in AWS IoT SiteWise .</p>
    */
-  sqs?: SqsAction;
+  iotSiteWise?: IotSiteWiseAction;
 }
 
 export namespace Action {
@@ -69,19 +95,158 @@ export namespace Action {
 }
 
 /**
+ * <p>A structure that contains timestamp information. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html">TimeInNanos</a> in the <i>AWS IoT SiteWise API Reference</i>.</p>
+ *          <p>For parameters that are string data type, you can specify the following options:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Use a string. For example, the <code>timeInSeconds</code> value can be
+ *             <code>'1586400675'</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Use an expression. For example, the <code>timeInSeconds</code> value can be
+ *             <code>'${$input.TemperatureInput.sensorData.timestamp/1000}'</code>.</p>
+ *                <p>For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a> in
+ *           the <i>AWS IoT Events Developer Guide</i>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AssetPropertyTimestamp {
+  __type?: "AssetPropertyTimestamp";
+  /**
+   * <p>The nanosecond offset converted from <code>timeInSeconds</code>. The valid range is
+   *       between 0-999999999. You can also specify an expression.</p>
+   */
+  offsetInNanos?: string;
+
+  /**
+   * <p>The timestamp, in seconds, in the Unix epoch format. The valid range is between
+   *       1-31556889864403199. You can also specify an expression.</p>
+   */
+  timeInSeconds: string | undefined;
+}
+
+export namespace AssetPropertyTimestamp {
+  export const filterSensitiveLog = (obj: AssetPropertyTimestamp): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssetPropertyTimestamp => __isa(o, "AssetPropertyTimestamp");
+}
+
+/**
+ * <p>A structure that contains value information. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html">AssetPropertyValue</a> in the <i>AWS IoT SiteWise API
+ *       Reference</i>.</p>
+ *          <p>For parameters that are string data type, you can specify the following options: </p>
+ *          <ul>
+ *             <li>
+ *                <p>Use a string. For example, the <code>quality</code> value can be
+ *           <code>'GOOD'</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Use an expression. For example, the <code>quality</code> value can be
+ *             <code>$input.TemperatureInput.sensorData.quality</code>
+ *                .</p>
+ *                <p>For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a> in
+ *           the <i>AWS IoT Events Developer Guide</i>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AssetPropertyValue {
+  __type?: "AssetPropertyValue";
+  /**
+   * <p>The value to send to an asset property.</p>
+   */
+  value: AssetPropertyVariant | undefined;
+
+  /**
+   * <p>The timestamp associated with the asset property value. The default is the current event
+   *       time.</p>
+   */
+  timestamp?: AssetPropertyTimestamp;
+
+  /**
+   * <p>The quality of the asset property value. The value must be <code>GOOD</code>,
+   *         <code>BAD</code>, or <code>UNCERTAIN</code>. You can also specify an expression.</p>
+   */
+  quality?: string;
+}
+
+export namespace AssetPropertyValue {
+  export const filterSensitiveLog = (obj: AssetPropertyValue): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssetPropertyValue => __isa(o, "AssetPropertyValue");
+}
+
+/**
+ * <p>A structure that contains an asset property value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html">Variant</a>
+ *       in the <i>AWS IoT SiteWise API Reference</i>.</p>
+ *          <important>
+ *             <p>You must specify one of the following value types, depending on the
+ *           <code>dataType</code> of the specified asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html">AssetProperty</a> in the <i>AWS IoT SiteWise API Reference</i>.</p>
+ *          </important>
+ *          <p>For parameters that are string data type, you can specify the following options:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Use a string. For example, the <code>doubleValue</code> value can be
+ *             <code>'47.9'</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Use an expression. For example, the <code>doubleValue</code> value can be
+ *             <code>$input.TemperatureInput.sensorData.temperature</code>.</p>
+ *                <p>For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a> in
+ *           the <i>AWS IoT Events Developer Guide</i>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AssetPropertyVariant {
+  __type?: "AssetPropertyVariant";
+  /**
+   * <p>The asset property value is a Boolean value that must be <code>TRUE</code> or
+   *         <code>FALSE</code>. You can also specify an expression. If you use an expression, the
+   *       evaluated result should be a Boolean value.</p>
+   */
+  booleanValue?: string;
+
+  /**
+   * <p>The asset property value is a double. You can also specify an expression. If you use an
+   *       expression, the evaluated result should be a double.</p>
+   */
+  doubleValue?: string;
+
+  /**
+   * <p>The asset property value is a string. You can also specify an expression. If you use an
+   *       expression, the evaluated result should be a string.</p>
+   */
+  stringValue?: string;
+
+  /**
+   * <p>The asset property value is an integer. You can also specify an expression. If you use an
+   *       expression, the evaluated result should be an integer.</p>
+   */
+  integerValue?: string;
+}
+
+export namespace AssetPropertyVariant {
+  export const filterSensitiveLog = (obj: AssetPropertyVariant): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssetPropertyVariant => __isa(o, "AssetPropertyVariant");
+}
+
+/**
  * <p>The attributes from the JSON payload that are made available by the input. Inputs are
- *         derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such message
- *         contains a JSON payload, and those attributes (and their paired values) specified here are
- *         available for use in the <code>condition</code> expressions used by detectors. </p>
+ *       derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such
+ *       message contains a JSON payload. Those attributes (and their paired values) specified here are
+ *       available for use in the <code>condition</code> expressions used by detectors. </p>
  */
 export interface Attribute {
   __type?: "Attribute";
   /**
-   * <p>An expression that specifies an attribute-value pair in a JSON structure. Use this to specify
-   *         an attribute from the JSON payload that is made available by the input. Inputs are derived from
-   *         messages sent to the AWS IoT Events system (<code>BatchPutMessage</code>). Each such message
-   *         contains a JSON payload, and the attribute (and its paired value) specified here are
-   *         available for use in the <code>"condition"</code> expressions used by detectors. </p>
+   * <p>An expression that specifies an attribute-value pair in a JSON structure. Use this to
+   *       specify an attribute from the JSON payload that is made available by the input. Inputs are
+   *       derived from messages sent to AWS IoT Events (<code>BatchPutMessage</code>). Each such message contains
+   *       a JSON payload. The attribute (and its paired value) specified here are available for use in
+   *       the <code>condition</code> expressions used by detectors. </p>
    *          <p>Syntax: <code><field-name>.<field-name>...</code>
    *          </p>
    */
@@ -116,9 +281,19 @@ export namespace ClearTimerAction {
 export interface CreateDetectorModelRequest {
   __type?: "CreateDetectorModelRequest";
   /**
-   * <p>Information that defines how the detectors operate.</p>
+   * <p>Information about the order in which events are evaluated and how actions are executed.
+   *     </p>
    */
-  detectorModelDefinition: DetectorModelDefinition | undefined;
+  evaluationMethod?: EvaluationMethod | string;
+
+  /**
+   * <p>The input attribute key used to identify a device or system to create a detector (an
+   *       instance of the detector model) and then to route each input received to the appropriate
+   *       detector (instance). This parameter uses a JSON-path expression in the message payload of each
+   *       input to specify the attribute-value pair that is used to identify the device associated with
+   *       the input.</p>
+   */
+  key?: string;
 
   /**
    * <p>A brief description of the detector model.</p>
@@ -126,22 +301,14 @@ export interface CreateDetectorModelRequest {
   detectorModelDescription?: string;
 
   /**
-   * <p>The name of the detector model.</p>
+   * <p>Information that defines how the detectors operate.</p>
    */
-  detectorModelName: string | undefined;
+  detectorModelDefinition: DetectorModelDefinition | undefined;
 
   /**
-   * <p>Information about the order in which events are evaluated and how actions are executed. </p>
+   * <p>Metadata that can be used to manage the detector model.</p>
    */
-  evaluationMethod?: EvaluationMethod | string;
-
-  /**
-   * <p>The input attribute key used to identify a device or system in order to create a detector (an
-   *         instance of the detector model) and then to route each input received to the appropriate detector
-   *         (instance). This parameter uses a JSON-path expression to specify the attribute-value pair in
-   *         the message payload of each input that is used to identify the device associated with the input.</p>
-   */
-  key?: string;
+  tags?: Tag[];
 
   /**
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
@@ -149,9 +316,9 @@ export interface CreateDetectorModelRequest {
   roleArn: string | undefined;
 
   /**
-   * <p>Metadata that can be used to manage the detector model.</p>
+   * <p>The name of the detector model.</p>
    */
-  tags?: Tag[];
+  detectorModelName: string | undefined;
 }
 
 export namespace CreateDetectorModelRequest {
@@ -179,11 +346,6 @@ export namespace CreateDetectorModelResponse {
 export interface CreateInputRequest {
   __type?: "CreateInputRequest";
   /**
-   * <p>The definition of the input.</p>
-   */
-  inputDefinition: InputDefinition | undefined;
-
-  /**
    * <p>A brief description of the input.</p>
    */
   inputDescription?: string;
@@ -197,6 +359,11 @@ export interface CreateInputRequest {
    * <p>Metadata that can be used to manage the input.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The definition of the input.</p>
+   */
+  inputDefinition: InputDefinition | undefined;
 }
 
 export namespace CreateInputRequest {
@@ -276,14 +443,14 @@ export namespace DeleteInputResponse {
 export interface DescribeDetectorModelRequest {
   __type?: "DescribeDetectorModelRequest";
   /**
-   * <p>The name of the detector model.</p>
-   */
-  detectorModelName: string | undefined;
-
-  /**
    * <p>The version of the detector model.</p>
    */
   detectorModelVersion?: string;
+
+  /**
+   * <p>The name of the detector model.</p>
+   */
+  detectorModelName: string | undefined;
 }
 
 export namespace DescribeDetectorModelRequest {
@@ -365,20 +532,21 @@ export namespace DescribeLoggingOptionsResponse {
 }
 
 /**
- * <p>The detector model and the specific detectors (instances) for which the logging level is given.</p>
+ * <p>The detector model and the specific detectors (instances) for which the logging level is
+ *       given.</p>
  */
 export interface DetectorDebugOption {
   __type?: "DetectorDebugOption";
   /**
+   * <p>The value of the input attribute key used to create the detector (the instance of the
+   *       detector model).</p>
+   */
+  keyValue?: string;
+
+  /**
    * <p>The name of the detector model.</p>
    */
   detectorModelName: string | undefined;
-
-  /**
-   * <p>The value of the input attribute key used to create the detector (the instance of the detector
-   *        model).</p>
-   */
-  keyValue?: string;
 }
 
 export namespace DetectorDebugOption {
@@ -422,42 +590,10 @@ export interface DetectorModelConfiguration {
   creationTime?: Date;
 
   /**
-   * <p>The ARN of the detector model.</p>
-   */
-  detectorModelArn?: string;
-
-  /**
-   * <p>A brief description of the detector model.</p>
-   */
-  detectorModelDescription?: string;
-
-  /**
-   * <p>The name of the detector model.</p>
-   */
-  detectorModelName?: string;
-
-  /**
-   * <p>The version of the detector model.</p>
-   */
-  detectorModelVersion?: string;
-
-  /**
-   * <p>Information about the order in which events are evaluated and how actions are executed. </p>
+   * <p>Information about the order in which events are evaluated and how actions are executed.
+   *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
-
-  /**
-   * <p>The input attribute key used to identify a device or system in order to create a detector (an
-   *         instance of the detector model) and then to route each input received to the appropriate detector
-   *         (instance). This parameter uses a JSON-path expression to specify the attribute-value pair in the
-   *         message payload of each input that is used to identify the device associated with the input.</p>
-   */
-  key?: string;
-
-  /**
-   * <p>The time the detector model was last updated.</p>
-   */
-  lastUpdateTime?: Date;
 
   /**
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
@@ -465,9 +601,45 @@ export interface DetectorModelConfiguration {
   roleArn?: string;
 
   /**
+   * <p>The version of the detector model.</p>
+   */
+  detectorModelVersion?: string;
+
+  /**
+   * <p>The ARN of the detector model.</p>
+   */
+  detectorModelArn?: string;
+
+  /**
+   * <p>The name of the detector model.</p>
+   */
+  detectorModelName?: string;
+
+  /**
+   * <p>The value used to identify a detector instance. When a device or system sends input, a new
+   *       detector instance with a unique key value is created. AWS IoT Events can continue to route input to its
+   *       corresponding detector instance based on this identifying information. </p>
+   *          <p>This parameter uses a JSON-path expression to select the attribute-value pair in the
+   *       message payload that is used for identification. To route the message to the correct detector
+   *       instance, the device must send a message payload that contains the same
+   *       attribute-value.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>A brief description of the detector model.</p>
+   */
+  detectorModelDescription?: string;
+
+  /**
    * <p>The status of the detector model.</p>
    */
   status?: DetectorModelVersionStatus | string;
+
+  /**
+   * <p>The time the detector model was last updated.</p>
+   */
+  lastUpdateTime?: Date;
 }
 
 export namespace DetectorModelConfiguration {
@@ -544,9 +716,14 @@ export enum DetectorModelVersionStatus {
 export interface DetectorModelVersionSummary {
   __type?: "DetectorModelVersionSummary";
   /**
-   * <p>The time the detector model version was created.</p>
+   * <p>The last time the detector model version was updated.</p>
    */
-  creationTime?: Date;
+  lastUpdateTime?: Date;
+
+  /**
+   * <p>The status of the detector model version.</p>
+   */
+  status?: DetectorModelVersionStatus | string;
 
   /**
    * <p>The ARN of the detector model version.</p>
@@ -564,24 +741,20 @@ export interface DetectorModelVersionSummary {
   detectorModelVersion?: string;
 
   /**
-   * <p>Information about the order in which events are evaluated and how actions are executed. </p>
+   * <p>Information about the order in which events are evaluated and how actions are executed.
+   *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
 
   /**
-   * <p>The last time the detector model version was updated.</p>
+   * <p>The time the detector model version was created.</p>
    */
-  lastUpdateTime?: Date;
+  creationTime?: Date;
 
   /**
    * <p>The ARN of the role that grants the detector model permission to perform its tasks.</p>
    */
   roleArn?: string;
-
-  /**
-   * <p>The status of the detector model version.</p>
-   */
-  status?: DetectorModelVersionStatus | string;
 }
 
 export namespace DetectorModelVersionSummary {
@@ -591,33 +764,206 @@ export namespace DetectorModelVersionSummary {
   export const isa = (o: any): o is DetectorModelVersionSummary => __isa(o, "DetectorModelVersionSummary");
 }
 
+/**
+ * <p>Defines an action to write to the Amazon DynamoDB table that you created. The standard action
+ *       payload contains all attribute-value pairs that have the information about the detector model
+ *       instance and the event that triggered the action. You can also customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>.
+ *       One column of the DynamoDB table receives all attribute-value pairs in the payload that you
+ *       specify.</p>
+ *          <p>The <code>tableName</code> and <code>hashKeyField</code> values must match the table name
+ *       and the partition key of the DynamoDB table. </p>
+ *          <note>
+ *             <p>If the DynamoDB table also has a sort key, you must specify <code>rangeKeyField</code>. The
+ *           <code>rangeKeyField</code> value must match the sort key.</p>
+ *          </note>
+ *          <p></p>
+ *          <p>The <code>hashKeyValue</code> and <code>rangeKeyValue</code> use substitution templates.
+ *       These templates provide data at runtime. The syntax is <code>${sql-expression}</code>.</p>
+ *          <p>You can use expressions for parameters that are string data type. For more information,
+ *       see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a> in the
+ *         <i>AWS IoT Events Developer Guide</i>.</p>
+ *          <note>
+ *             <p>If the defined payload type is a string, <code>DynamoDBAction</code> writes non-JSON data
+ *         to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded
+ *         text. The <code>payloadField</code> is <code><payload-field>_raw</code>.</p>
+ *          </note>
+ */
+export interface DynamoDBAction {
+  __type?: "DynamoDBAction";
+  /**
+   * <p>The value of the range key (also called the sort key).</p>
+   */
+  rangeKeyValue?: string;
+
+  /**
+   * <p>The name of the DynamoDB column that receives the action payload.</p>
+   *          <p>If you don't specify this parameter, the name of the DynamoDB column is
+   *       <code>payload</code>.</p>
+   */
+  payloadField?: string;
+
+  /**
+   * <p>The name of the DynamoDB table.</p>
+   */
+  tableName: string | undefined;
+
+  /**
+   * <p>The value of the hash key (also called the partition key).</p>
+   */
+  hashKeyValue: string | undefined;
+
+  /**
+   * <p>Information needed to configure the payload.</p>
+   *          <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload
+   *       contains all attribute-value pairs that have the information about the detector model instance
+   *       and the event triggered the action. To configure the action payload, you can use
+   *         <code>contentExpression</code>.</p>
+   */
+  payload?: Payload;
+
+  /**
+   * <p>The data type for the hash key (also called the partition key). You can specify the
+   *       following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STRING</code> - The hash key is a string.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NUMBER</code> - The hash key is a number.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify <code>hashKeyType</code>, the default value is
+   *       <code>STRING</code>.</p>
+   */
+  hashKeyType?: string;
+
+  /**
+   * <p>The name of the hash key (also called the partition key).</p>
+   */
+  hashKeyField: string | undefined;
+
+  /**
+   * <p>The data type for the range key (also called the sort key), You can specify the following
+   *       values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STRING</code> - The range key is a string.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NUMBER</code> - The range key is number.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify <code>rangeKeyField</code>, the default value is
+   *       <code>STRING</code>.</p>
+   */
+  rangeKeyType?: string;
+
+  /**
+   * <p>The type of operation to perform. You can specify the following values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INSERT</code> - Insert data as a new item into the DynamoDB table. This item uses
+   *           the specified hash key as a partition key. If you specified a range key, the item uses the
+   *           range key as a sort key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE</code> - Update an existing item of the DynamoDB table with new data. This
+   *           item's partition key must match the specified hash key. If you specified a range key, the
+   *           range key must match the item's sort key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE</code> - Delete an existing item of the DynamoDB table. This item's
+   *           partition key must match the specified hash key. If you specified a range key, the range
+   *           key must match the item's sort key.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify this parameter, AWS IoT Events triggers the <code>INSERT</code>
+   *       operation.</p>
+   */
+  operation?: string;
+
+  /**
+   * <p>The name of the range key (also called the sort key).</p>
+   */
+  rangeKeyField?: string;
+}
+
+export namespace DynamoDBAction {
+  export const filterSensitiveLog = (obj: DynamoDBAction): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DynamoDBAction => __isa(o, "DynamoDBAction");
+}
+
+/**
+ * <p>Defines an action to write to the Amazon DynamoDB table that you created. The default action
+ *       payload contains all attribute-value pairs that have the information about the detector model
+ *       instance and the event that triggered the action. You can also customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. A
+ *       separate column of the DynamoDB table receives one attribute-value pair in the payload that you
+ *       specify.</p>
+ *          <important>
+ *             <p>The <code>type</code> value for <code>Payload</code> must be <code>JSON</code>.</p>
+ *          </important>
+ *          <p>You can use expressions for parameters that are strings. For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
+ */
+export interface DynamoDBv2Action {
+  __type?: "DynamoDBv2Action";
+  /**
+   * <p>The name of the DynamoDB table.</p>
+   */
+  tableName: string | undefined;
+
+  /**
+   * <p>Information needed to configure the payload.</p>
+   *          <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload
+   *       contains all attribute-value pairs that have the information about the detector model instance
+   *       and the event triggered the action. To configure the action payload, you can use
+   *         <code>contentExpression</code>.</p>
+   */
+  payload?: Payload;
+}
+
+export namespace DynamoDBv2Action {
+  export const filterSensitiveLog = (obj: DynamoDBv2Action): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DynamoDBv2Action => __isa(o, "DynamoDBv2Action");
+}
+
 export enum EvaluationMethod {
   BATCH = "BATCH",
   SERIAL = "SERIAL",
 }
 
 /**
- * <p>Specifies the <code>"actions"</code> to be performed when the <code>"condition"</code>
- *         evaluates to TRUE.</p>
+ * <p>Specifies the <code>actions</code> to be performed when the <code>condition</code>
+ *       evaluates to TRUE.</p>
  */
 export interface Event {
   __type?: "Event";
+  /**
+   * <p>The name of the event.</p>
+   */
+  eventName: string | undefined;
+
   /**
    * <p>The actions to be performed.</p>
    */
   actions?: Action[];
 
   /**
-   * <p>[Optional] The Boolean expression that when TRUE causes the <code>"actions"</code> to be performed.
-   *         If not present, the actions are performed (=TRUE); if the expression result is not a Boolean value, the
-   *         actions are NOT performed (=FALSE).</p>
+   * <p>Optional. The Boolean expression that, when TRUE, causes the <code>actions</code> to be
+   *       performed. If not present, the actions are performed (=TRUE). If the expression result is not
+   *       a Boolean value, the actions are not performed (=FALSE).</p>
    */
   condition?: string;
-
-  /**
-   * <p>The name of the event.</p>
-   */
-  eventName: string | undefined;
 }
 
 export namespace Event {
@@ -629,7 +975,7 @@ export namespace Event {
 
 /**
  * <p>Sends information about the detector model instance and the event that triggered the
- *       action to a Kinesis Data Firehose delivery stream.</p>
+ *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
  */
 export interface FirehoseAction {
   __type?: "FirehoseAction";
@@ -637,6 +983,12 @@ export interface FirehoseAction {
    * <p>The name of the Kinesis Data Firehose delivery stream where the data is written.</p>
    */
   deliveryStreamName: string | undefined;
+
+  /**
+   * <p>You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery
+   *       stream.</p>
+   */
+  payload?: Payload;
 
   /**
    * <p>A character separator that is used to separate records written to the Kinesis Data
@@ -682,19 +1034,9 @@ export namespace Input {
 export interface InputConfiguration {
   __type?: "InputConfiguration";
   /**
-   * <p>The time the input was created.</p>
-   */
-  creationTime: Date | undefined;
-
-  /**
    * <p>The ARN of the input.</p>
    */
   inputArn: string | undefined;
-
-  /**
-   * <p>A brief description of the input.</p>
-   */
-  inputDescription?: string;
 
   /**
    * <p>The name of the input.</p>
@@ -702,14 +1044,24 @@ export interface InputConfiguration {
   inputName: string | undefined;
 
   /**
+   * <p>The status of the input.</p>
+   */
+  status: InputStatus | string | undefined;
+
+  /**
    * <p>The last time the input was updated.</p>
    */
   lastUpdateTime: Date | undefined;
 
   /**
-   * <p>The status of the input.</p>
+   * <p>A brief description of the input.</p>
    */
-  status: InputStatus | string | undefined;
+  inputDescription?: string;
+
+  /**
+   * <p>The time the input was created.</p>
+   */
+  creationTime: Date | undefined;
 }
 
 export namespace InputConfiguration {
@@ -726,10 +1078,10 @@ export interface InputDefinition {
   __type?: "InputDefinition";
   /**
    * <p>The attributes from the JSON payload that are made available by the input. Inputs are
-   *           derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>.
-   *           Each such message contains a JSON payload, and those attributes (and their paired values)
-   *           specified here are available for use in the <code>"condition"</code> expressions used by
-   *           detectors that monitor this input. </p>
+   *       derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such
+   *       message contains a JSON payload, and those attributes (and their paired values) specified here
+   *       are available for use in the <code>condition</code> expressions used by detectors that monitor
+   *       this input. </p>
    */
   attributes: Attribute[] | undefined;
 }
@@ -754,19 +1106,14 @@ export enum InputStatus {
 export interface InputSummary {
   __type?: "InputSummary";
   /**
-   * <p>The time the input was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
    * <p>The ARN of the input.</p>
    */
   inputArn?: string;
 
   /**
-   * <p>A brief description of the input.</p>
+   * <p>The time the input was created.</p>
    */
-  inputDescription?: string;
+  creationTime?: Date;
 
   /**
    * <p>The name of the input.</p>
@@ -774,14 +1121,19 @@ export interface InputSummary {
   inputName?: string;
 
   /**
+   * <p>The status of the input.</p>
+   */
+  status?: InputStatus | string;
+
+  /**
    * <p>The last time the input was updated.</p>
    */
   lastUpdateTime?: Date;
 
   /**
-   * <p>The status of the input.</p>
+   * <p>A brief description of the input.</p>
    */
-  status?: InputStatus | string;
+  inputDescription?: string;
 }
 
 export namespace InputSummary {
@@ -830,11 +1182,16 @@ export namespace InvalidRequestException {
 }
 
 /**
- * <p>Sends an AWS IoT Events input, passing in information about the detector model instance
- *       and the event that triggered the action.</p>
+ * <p>Sends an AWS IoT Events input, passing in information about the detector model instance and the
+ *       event that triggered the action.</p>
  */
 export interface IotEventsAction {
   __type?: "IotEventsAction";
+  /**
+   * <p>You can configure the action payload when you send a message to an AWS IoT Events input.</p>
+   */
+  payload?: Payload;
+
   /**
    * <p>The name of the AWS IoT Events input where the data is sent.</p>
    */
@@ -849,12 +1206,79 @@ export namespace IotEventsAction {
 }
 
 /**
- * <p>Information required to publish the MQTT message via the AWS IoT message broker.</p>
+ * <p>Sends information about the detector model instance and the event that triggered the
+ *       action to a specified asset property in AWS IoT SiteWise.</p>
+ *          <important>
+ *             <p>You must specify either <code>propertyAlias</code> or both <code>assetId</code> and
+ *           <code>propertyId</code> to identify the target asset property in AWS IoT SiteWise.</p>
+ *          </important>
+ *          <p>For parameters that are string data type, you can specify the following options: </p>
+ *          <ul>
+ *             <li>
+ *                <p>Use a string. For example, the <code>propertyAlias</code> value can be
+ *             <code>'/company/windfarm/3/turbine/7/temperature'</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Use an expression. For example, the <code>propertyAlias</code> value can be
+ *             <code>'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/${$input.TemperatureInput.sensorData.turbineID}/temperature'</code>.</p>
+ *                <p>For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a> in
+ *           the <i>AWS IoT Events Developer Guide</i>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface IotSiteWiseAction {
+  __type?: "IotSiteWiseAction";
+  /**
+   * <p>The ID of the asset property. You can specify an expression.</p>
+   */
+  propertyId?: string;
+
+  /**
+   * <p>A unique identifier for this entry. You can use the entry ID to track which data entry
+   *       causes an error in case of failure. The default is a new unique identifier. You can also
+   *       specify an expression.</p>
+   */
+  entryId?: string;
+
+  /**
+   * <p>The value to send to the asset property. This value contains timestamp, quality, and value
+   *       (TQV) information. </p>
+   */
+  propertyValue: AssetPropertyValue | undefined;
+
+  /**
+   * <p>The alias of the asset property. You can also specify an expression.</p>
+   */
+  propertyAlias?: string;
+
+  /**
+   * <p>The ID of the asset that has the specified property. You can specify an expression.</p>
+   */
+  assetId?: string;
+}
+
+export namespace IotSiteWiseAction {
+  export const filterSensitiveLog = (obj: IotSiteWiseAction): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is IotSiteWiseAction => __isa(o, "IotSiteWiseAction");
+}
+
+/**
+ * <p>Information required to publish the MQTT message through the AWS IoT message broker.</p>
  */
 export interface IotTopicPublishAction {
   __type?: "IotTopicPublishAction";
   /**
-   * <p>The MQTT topic of the message.</p>
+   * <p>You can configure the action payload when you publish a message to an AWS IoT Core
+   *       topic.</p>
+   */
+  payload?: Payload;
+
+  /**
+   * <p>The MQTT topic of the message. You can use a string expression that includes variables
+   *         (<code>$variable.<variable-name></code>) and input values
+   *         (<code>$input.<input-name>.<path-to-datum></code>) as the topic string.</p>
    */
   mqttTopic: string | undefined;
 }
@@ -872,6 +1296,11 @@ export namespace IotTopicPublishAction {
  */
 export interface LambdaAction {
   __type?: "LambdaAction";
+  /**
+   * <p>You can configure the action payload when you send a message to a Lambda function.</p>
+   */
+  payload?: Payload;
+
   /**
    * <p>The ARN of the Lambda function that is executed.</p>
    */
@@ -907,14 +1336,14 @@ export namespace LimitExceededException {
 export interface ListDetectorModelsRequest {
   __type?: "ListDetectorModelsRequest";
   /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListDetectorModelsRequest {
@@ -932,8 +1361,8 @@ export interface ListDetectorModelsResponse {
   detectorModelSummaries?: DetectorModelSummary[];
 
   /**
-   * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional
-   *           results.</p>
+   * <p>A token to retrieve the next set of results, or <code>null</code> if there are no
+   *       additional results.</p>
    */
   nextToken?: string;
 }
@@ -953,14 +1382,14 @@ export interface ListDetectorModelVersionsRequest {
   detectorModelName: string | undefined;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListDetectorModelVersionsRequest {
@@ -973,15 +1402,15 @@ export namespace ListDetectorModelVersionsRequest {
 export interface ListDetectorModelVersionsResponse {
   __type?: "ListDetectorModelVersionsResponse";
   /**
+   * <p>A token to retrieve the next set of results, or <code>null</code> if there are no
+   *       additional results.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>Summary information about the detector model versions.</p>
    */
   detectorModelVersionSummaries?: DetectorModelVersionSummary[];
-
-  /**
-   * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional
-   *           results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListDetectorModelVersionsResponse {
@@ -994,14 +1423,14 @@ export namespace ListDetectorModelVersionsResponse {
 export interface ListInputsRequest {
   __type?: "ListInputsRequest";
   /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListInputsRequest {
@@ -1019,8 +1448,8 @@ export interface ListInputsResponse {
   inputSummaries?: InputSummary[];
 
   /**
-   * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional
-   *         results.</p>
+   * <p>A token to retrieve the next set of results, or <code>null</code> if there are no
+   *       additional results.</p>
    */
   nextToken?: string;
 }
@@ -1074,15 +1503,9 @@ export enum LoggingLevel {
 export interface LoggingOptions {
   __type?: "LoggingOptions";
   /**
-   * <p>Information that identifies those detector models and their detectors (instances) for which the
-   *        logging level is given.</p>
+   * <p>The ARN of the role that grants permission to AWS IoT Events to perform logging.</p>
    */
-  detectorDebugOptions?: DetectorDebugOption[];
-
-  /**
-   * <p>If TRUE, logging is enabled for AWS IoT Events.</p>
-   */
-  enabled: boolean | undefined;
+  roleArn: string | undefined;
 
   /**
    * <p>The logging level.</p>
@@ -1090,9 +1513,15 @@ export interface LoggingOptions {
   level: LoggingLevel | string | undefined;
 
   /**
-   * <p>The ARN of the role that grants permission to AWS IoT Events to perform logging.</p>
+   * <p>Information that identifies those detector models and their detectors (instances) for
+   *       which the logging level is given.</p>
    */
-  roleArn: string | undefined;
+  detectorDebugOptions?: DetectorDebugOption[];
+
+  /**
+   * <p>If TRUE, logging is enabled for AWS IoT Events.</p>
+   */
+  enabled: boolean | undefined;
 }
 
 export namespace LoggingOptions {
@@ -1103,14 +1532,14 @@ export namespace LoggingOptions {
 }
 
 /**
- * <p>When entering this state, perform these <code>actions</code> if the
- *         <code>condition</code> is TRUE.</p>
+ * <p>When entering this state, perform these <code>actions</code> if the <code>condition</code>
+ *       is TRUE.</p>
  */
 export interface OnEnterLifecycle {
   __type?: "OnEnterLifecycle";
   /**
    * <p>Specifies the actions that are performed when the state is entered and the
-   *        <code>"condition"</code> is TRUE.</p>
+   *         <code>condition</code> is <code>TRUE</code>.</p>
    */
   events?: Event[];
 }
@@ -1123,14 +1552,14 @@ export namespace OnEnterLifecycle {
 }
 
 /**
- * <p>When exiting this state, perform these <code>"actions"</code> if the specified
- *          <code>"condition"</code> is TRUE.</p>
+ * <p>When exiting this state, perform these <code>actions</code> if the specified
+ *         <code>condition</code> is <code>TRUE</code>.</p>
  */
 export interface OnExitLifecycle {
   __type?: "OnExitLifecycle";
   /**
-   * <p>Specifies the <code>"actions"</code> that are performed when the state is exited and the
-   *         <code>"condition"</code> is TRUE.</p>
+   * <p>Specifies the <code>actions</code> that are performed when the state is exited and the
+   *         <code>condition</code> is <code>TRUE</code>.</p>
    */
   events?: Event[];
 }
@@ -1143,20 +1572,20 @@ export namespace OnExitLifecycle {
 }
 
 /**
- * <p>Specifies the actions performed when the <code>"condition"</code> evaluates to TRUE.</p>
+ * <p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>
  */
 export interface OnInputLifecycle {
   __type?: "OnInputLifecycle";
   /**
-   * <p>Specifies the actions performed when the <code>"condition"</code> evaluates to TRUE.</p>
-   */
-  events?: Event[];
-
-  /**
-   * <p>Specifies the actions performed, and the next state entered, when a <code>"condition"</code>
-   *         evaluates to TRUE.</p>
+   * <p>Specifies the actions performed, and the next state entered, when a <code>condition</code>
+   *       evaluates to TRUE.</p>
    */
   transitionEvents?: TransitionEvent[];
+
+  /**
+   * <p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>
+   */
+  events?: Event[];
 }
 
 export namespace OnInputLifecycle {
@@ -1164,6 +1593,43 @@ export namespace OnInputLifecycle {
     ...obj,
   });
   export const isa = (o: any): o is OnInputLifecycle => __isa(o, "OnInputLifecycle");
+}
+
+/**
+ * <p>Information needed to configure the payload.</p>
+ *          <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload
+ *       contains all attribute-value pairs that have the information about the detector model instance
+ *       and the event triggered the action. To configure the action payload, you can use
+ *         <code>contentExpression</code>.</p>
+ */
+export interface Payload {
+  __type?: "Payload";
+  /**
+   * <p>The content of the payload. You can use a string expression that includes quoted strings
+   *         (<code>'<string>'</code>), variables (<code>$variable.<variable-name></code>),
+   *       input values (<code>$input.<input-name>.<path-to-datum></code>), string
+   *       concatenations, and quoted strings that contain <code>${}</code> as the content. The
+   *       recommended maximum size of a content expression is 1 KB.</p>
+   */
+  contentExpression: string | undefined;
+
+  /**
+   * <p>The value of the payload type can be either <code>STRING</code> or
+   *       <code>JSON</code>.</p>
+   */
+  type: PayloadType | string | undefined;
+}
+
+export namespace Payload {
+  export const filterSensitiveLog = (obj: Payload): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Payload => __isa(o, "Payload");
+}
+
+export enum PayloadType {
+  JSON = "JSON",
+  STRING = "STRING",
 }
 
 export interface PutLoggingOptionsRequest {
@@ -1182,7 +1648,9 @@ export namespace PutLoggingOptionsRequest {
 }
 
 /**
- * <p>Information needed to reset the timer.</p>
+ * <p>Information required to reset the timer. The timer is reset to the previously evaluated
+ *       result of the duration. The duration expression isn't reevaluated when you reset the
+ *       timer.</p>
  */
 export interface ResetTimerAction {
   __type?: "ResetTimerAction";
@@ -1206,11 +1674,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-
-  /**
    * <p>The ARN of the resource.</p>
    */
   resourceArn?: string;
@@ -1219,6 +1682,11 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
    * <p>The ID of the resource.</p>
    */
   resourceId?: string;
+
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
@@ -1291,14 +1759,24 @@ export namespace ServiceUnavailableException {
 export interface SetTimerAction {
   __type?: "SetTimerAction";
   /**
-   * <p>The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy.</p>
+   * <p>The number of seconds until the timer expires. The minimum value is 60 seconds to ensure
+   *       accuracy. The maximum value is 31622400 seconds. </p>
    */
-  seconds: number | undefined;
+  seconds?: number;
 
   /**
    * <p>The name of the timer.</p>
    */
   timerName: string | undefined;
+
+  /**
+   * <p>The duration of the timer, in seconds. You can use a string expression that includes
+   *       numbers, variables (<code>$variable.<variable-name></code>), and input values
+   *         (<code>$input.<input-name>.<path-to-datum></code>) as the duration. The range of
+   *       the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds.
+   *       The evaluated result of the duration is rounded down to the nearest whole number. </p>
+   */
+  durationExpression?: string;
 }
 
 export namespace SetTimerAction {
@@ -1337,6 +1815,12 @@ export namespace SetVariableAction {
 export interface SNSTopicPublishAction {
   __type?: "SNSTopicPublishAction";
   /**
+   * <p>You can configure the action payload when you send a message as an Amazon SNS push
+   *       notification.</p>
+   */
+  payload?: Payload;
+
+  /**
    * <p>The ARN of the Amazon SNS target where the message is sent.</p>
    */
   targetArn: string | undefined;
@@ -1356,15 +1840,21 @@ export namespace SNSTopicPublishAction {
 export interface SqsAction {
   __type?: "SqsAction";
   /**
+   * <p>You can configure the action payload when you send a message to an Amazon SQS
+   *       queue.</p>
+   */
+  payload?: Payload;
+
+  /**
+   * <p>Set this to TRUE if you want the data to be base-64 encoded before it is written to the
+   *       queue. Otherwise, set this to FALSE.</p>
+   */
+  useBase64?: boolean;
+
+  /**
    * <p>The URL of the SQS queue where the data is written.</p>
    */
   queueUrl: string | undefined;
-
-  /**
-   * <p>Set this to TRUE if you want the data to be Base-64 encoded before it is written to the queue.
-   *        Otherwise, set this to FALSE.</p>
-   */
-  useBase64?: boolean;
 }
 
 export namespace SqsAction {
@@ -1380,20 +1870,14 @@ export namespace SqsAction {
 export interface State {
   __type?: "State";
   /**
-   * <p>When entering this state, perform these <code>"actions"</code> if the
-   *         <code>"condition"</code> is TRUE.</p>
+   * <p>When entering this state, perform these <code>actions</code> if the <code>condition</code>
+   *       is TRUE.</p>
    */
   onEnter?: OnEnterLifecycle;
 
   /**
-   * <p>When exiting this state, perform these <code>"actions"</code> if the specified
-   *         <code>"condition"</code> is TRUE.</p>
-   */
-  onExit?: OnExitLifecycle;
-
-  /**
-   * <p>When an input is received and the <code>"condition"</code> is TRUE, perform the
-   *         specified <code>"actions"</code>.</p>
+   * <p>When an input is received and the <code>condition</code> is TRUE, perform the specified
+   *         <code>actions</code>.</p>
    */
   onInput?: OnInputLifecycle;
 
@@ -1401,6 +1885,12 @@ export interface State {
    * <p>The name of the state.</p>
    */
   stateName: string | undefined;
+
+  /**
+   * <p>When exiting this state, perform these <code>actions</code> if the specified
+   *         <code>condition</code> is <code>TRUE</code>.</p>
+   */
+  onExit?: OnExitLifecycle;
 }
 
 export namespace State {
@@ -1416,14 +1906,14 @@ export namespace State {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The tag's key.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>The tag's value.</p>
    */
   value: string | undefined;
+
+  /**
+   * <p>The tag's key.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace Tag {
@@ -1484,19 +1974,14 @@ export namespace ThrottlingException {
 }
 
 /**
- * <p>Specifies the actions performed and the next state entered when a <code>"condition"</code>
- *         evaluates to TRUE.</p>
+ * <p>Specifies the actions performed and the next state entered when a <code>condition</code>
+ *       evaluates to TRUE.</p>
  */
 export interface TransitionEvent {
   __type?: "TransitionEvent";
   /**
-   * <p>The actions to be performed.</p>
-   */
-  actions?: Action[];
-
-  /**
-   * <p>[Required] A Boolean expression that when TRUE causes the actions to be performed and
-   *         the <code>"nextState"</code> to be entered.</p>
+   * <p>Required. A Boolean expression that when TRUE causes the actions to be performed and the
+   *         <code>nextState</code> to be entered.</p>
    */
   condition: string | undefined;
 
@@ -1504,6 +1989,11 @@ export interface TransitionEvent {
    * <p>The name of the transition event.</p>
    */
   eventName: string | undefined;
+
+  /**
+   * <p>The actions to be performed.</p>
+   */
+  actions?: Action[];
 
   /**
    * <p>The next state to enter.</p>
@@ -1540,14 +2030,14 @@ export namespace UnsupportedOperationException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1571,14 +2061,14 @@ export namespace UntagResourceResponse {
 export interface UpdateDetectorModelRequest {
   __type?: "UpdateDetectorModelRequest";
   /**
-   * <p>Information that defines how a detector operates.</p>
-   */
-  detectorModelDefinition: DetectorModelDefinition | undefined;
-
-  /**
    * <p>A brief description of the detector model.</p>
    */
   detectorModelDescription?: string;
+
+  /**
+   * <p>Information that defines how a detector operates.</p>
+   */
+  detectorModelDefinition: DetectorModelDefinition | undefined;
 
   /**
    * <p>The name of the detector model that is updated.</p>
@@ -1586,8 +2076,8 @@ export interface UpdateDetectorModelRequest {
   detectorModelName: string | undefined;
 
   /**
-   * <p>Information about the order in which events are evaluated and how actions are
-   *       executed. </p>
+   * <p>Information about the order in which events are evaluated and how actions are executed.
+   *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
 
@@ -1622,9 +2112,9 @@ export namespace UpdateDetectorModelResponse {
 export interface UpdateInputRequest {
   __type?: "UpdateInputRequest";
   /**
-   * <p>The definition of the input.</p>
+   * <p>The name of the input you want to update.</p>
    */
-  inputDefinition: InputDefinition | undefined;
+  inputName: string | undefined;
 
   /**
    * <p>A brief description of the input.</p>
@@ -1632,9 +2122,9 @@ export interface UpdateInputRequest {
   inputDescription?: string;
 
   /**
-   * <p>The name of the input you want to update.</p>
+   * <p>The definition of the input.</p>
    */
-  inputName: string | undefined;
+  inputDefinition: InputDefinition | undefined;
 }
 
 export namespace UpdateInputRequest {

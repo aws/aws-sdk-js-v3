@@ -1,4 +1,9 @@
 import { AddFlowOutputsCommandInput, AddFlowOutputsCommandOutput } from "../commands/AddFlowOutputsCommand";
+import { AddFlowSourcesCommandInput, AddFlowSourcesCommandOutput } from "../commands/AddFlowSourcesCommand";
+import {
+  AddFlowVpcInterfacesCommandInput,
+  AddFlowVpcInterfacesCommandOutput,
+} from "../commands/AddFlowVpcInterfacesCommand";
 import { CreateFlowCommandInput, CreateFlowCommandOutput } from "../commands/CreateFlowCommand";
 import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "../commands/DeleteFlowCommand";
 import { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "../commands/DescribeFlowCommand";
@@ -13,6 +18,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput } from "../commands/RemoveFlowOutputCommand";
+import { RemoveFlowSourceCommandInput, RemoveFlowSourceCommandOutput } from "../commands/RemoveFlowSourceCommand";
+import {
+  RemoveFlowVpcInterfaceCommandInput,
+  RemoveFlowVpcInterfaceCommandOutput,
+} from "../commands/RemoveFlowVpcInterfaceCommand";
 import {
   RevokeFlowEntitlementCommandInput,
   RevokeFlowEntitlementCommandOutput,
@@ -21,6 +31,7 @@ import { StartFlowCommandInput, StartFlowCommandOutput } from "../commands/Start
 import { StopFlowCommandInput, StopFlowCommandOutput } from "../commands/StopFlowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "../commands/UpdateFlowCommand";
 import {
   UpdateFlowEntitlementCommandInput,
   UpdateFlowEntitlementCommandOutput,
@@ -34,6 +45,7 @@ import {
   CreateFlow420Exception,
   Encryption,
   Entitlement,
+  FailoverConfig,
   Flow,
   ForbiddenException,
   GrantEntitlementRequest,
@@ -50,6 +62,10 @@ import {
   TooManyRequestsException,
   Transport,
   UpdateEncryption,
+  UpdateFailoverConfig,
+  VpcInterface,
+  VpcInterfaceAttachment,
+  VpcInterfaceRequest,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -98,6 +114,76 @@ export const serializeAws_restJson1AddFlowOutputsCommand = async (
   });
 };
 
+export const serializeAws_restJson1AddFlowSourcesCommand = async (
+  input: AddFlowSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/flows/{FlowArn}/source";
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Sources !== undefined && {
+      sources: serializeAws_restJson1__listOfSetSourceRequest(input.Sources, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AddFlowVpcInterfacesCommand = async (
+  input: AddFlowVpcInterfacesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/flows/{FlowArn}/vpcInterfaces";
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.VpcInterfaces !== undefined && {
+      vpcInterfaces: serializeAws_restJson1__listOfVpcInterfaceRequest(input.VpcInterfaces, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateFlowCommand = async (
   input: CreateFlowCommandInput,
   context: __SerdeContext
@@ -117,6 +203,15 @@ export const serializeAws_restJson1CreateFlowCommand = async (
       outputs: serializeAws_restJson1__listOfAddOutputRequest(input.Outputs, context),
     }),
     ...(input.Source !== undefined && { source: serializeAws_restJson1SetSourceRequest(input.Source, context) }),
+    ...(input.SourceFailoverConfig !== undefined && {
+      sourceFailoverConfig: serializeAws_restJson1FailoverConfig(input.SourceFailoverConfig, context),
+    }),
+    ...(input.Sources !== undefined && {
+      sources: serializeAws_restJson1__listOfSetSourceRequest(input.Sources, context),
+    }),
+    ...(input.VpcInterfaces !== undefined && {
+      vpcInterfaces: serializeAws_restJson1__listOfVpcInterfaceRequest(input.VpcInterfaces, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -260,8 +355,8 @@ export const serializeAws_restJson1ListFlowsCommand = async (
   };
   let resolvedPath = "/v1/flows";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -332,6 +427,84 @@ export const serializeAws_restJson1RemoveFlowOutputCommand = async (
     resolvedPath = resolvedPath.replace("{OutputArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RemoveFlowSourceCommand = async (
+  input: RemoveFlowSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/flows/{FlowArn}/source/{SourceArn}";
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
+  }
+  if (input.SourceArn !== undefined) {
+    const labelValue: string = input.SourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{SourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SourceArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
+  input: RemoveFlowVpcInterfaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/flows/{FlowArn}/vpcInterfaces/{VpcInterfaceName}";
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
+  }
+  if (input.VpcInterfaceName !== undefined) {
+    const labelValue: string = input.VpcInterfaceName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VpcInterfaceName.");
+    }
+    resolvedPath = resolvedPath.replace("{VpcInterfaceName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VpcInterfaceName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -512,23 +685,14 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
-  input: UpdateFlowEntitlementCommandInput,
+export const serializeAws_restJson1UpdateFlowCommand = async (
+  input: UpdateFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
-  if (input.EntitlementArn !== undefined) {
-    const labelValue: string = input.EntitlementArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EntitlementArn.");
-    }
-    resolvedPath = resolvedPath.replace("{EntitlementArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EntitlementArn.");
-  }
+  let resolvedPath = "/v1/flows/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -540,10 +704,55 @@ export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.SourceFailoverConfig !== undefined && {
+      sourceFailoverConfig: serializeAws_restJson1UpdateFailoverConfig(input.SourceFailoverConfig, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
+  input: UpdateFlowEntitlementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
+  }
+  if (input.EntitlementArn !== undefined) {
+    const labelValue: string = input.EntitlementArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EntitlementArn.");
+    }
+    resolvedPath = resolvedPath.replace("{EntitlementArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EntitlementArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.Encryption !== undefined && {
       encryption: serializeAws_restJson1UpdateEncryption(input.Encryption, context),
     }),
+    ...(input.EntitlementStatus !== undefined && { entitlementStatus: input.EntitlementStatus }),
     ...(input.Subscribers !== undefined && {
       subscribers: serializeAws_restJson1__listOf__string(input.Subscribers, context),
     }),
@@ -568,15 +777,6 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/flows/{FlowArn}/outputs/{OutputArn}";
-  if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FlowArn.");
-    }
-    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FlowArn.");
-  }
   if (input.OutputArn !== undefined) {
     const labelValue: string = input.OutputArn;
     if (labelValue.length <= 0) {
@@ -585,6 +785,15 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
     resolvedPath = resolvedPath.replace("{OutputArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
+  }
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
   body = JSON.stringify({
@@ -602,6 +811,9 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
     ...(input.RemoteId !== undefined && { remoteId: input.RemoteId }),
     ...(input.SmoothingLatency !== undefined && { smoothingLatency: input.SmoothingLatency }),
     ...(input.StreamId !== undefined && { streamId: input.StreamId }),
+    ...(input.VpcInterfaceAttachment !== undefined && {
+      vpcInterfaceAttachment: serializeAws_restJson1VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -623,15 +835,6 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/flows/{FlowArn}/source/{SourceArn}";
-  if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FlowArn.");
-    }
-    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FlowArn.");
-  }
   if (input.SourceArn !== undefined) {
     const labelValue: string = input.SourceArn;
     if (labelValue.length <= 0) {
@@ -640,6 +843,15 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
     resolvedPath = resolvedPath.replace("{SourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SourceArn.");
+  }
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
   body = JSON.stringify({
@@ -653,6 +865,7 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
     ...(input.MaxLatency !== undefined && { maxLatency: input.MaxLatency }),
     ...(input.Protocol !== undefined && { protocol: input.Protocol }),
     ...(input.StreamId !== undefined && { streamId: input.StreamId }),
+    ...(input.VpcInterfaceName !== undefined && { vpcInterfaceName: input.VpcInterfaceName }),
     ...(input.WhitelistCidr !== undefined && { whitelistCidr: input.WhitelistCidr }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -710,6 +923,206 @@ const deserializeAws_restJson1AddFlowOutputsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AddFlowSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddFlowSourcesCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
+    return deserializeAws_restJson1AddFlowSourcesCommandError(output, context);
+  }
+  const contents: AddFlowSourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AddFlowSourcesResponse",
+    FlowArn: undefined,
+    Sources: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.flowArn !== undefined && data.flowArn !== null) {
+    contents.FlowArn = data.flowArn;
+  }
+  if (data.sources !== undefined && data.sources !== null) {
+    contents.Sources = deserializeAws_restJson1__listOfSource(data.sources, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AddFlowSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddFlowSourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AddFlowVpcInterfacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddFlowVpcInterfacesCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
+    return deserializeAws_restJson1AddFlowVpcInterfacesCommandError(output, context);
+  }
+  const contents: AddFlowVpcInterfacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AddFlowVpcInterfacesResponse",
+    FlowArn: undefined,
+    VpcInterfaces: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.flowArn !== undefined && data.flowArn !== null) {
+    contents.FlowArn = data.flowArn;
+  }
+  if (data.vpcInterfaces !== undefined && data.vpcInterfaces !== null) {
+    contents.VpcInterfaces = deserializeAws_restJson1__listOfVpcInterface(data.vpcInterfaces, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AddFlowVpcInterfacesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddFlowVpcInterfacesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
@@ -1519,6 +1932,213 @@ const deserializeAws_restJson1RemoveFlowOutputCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1RemoveFlowSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFlowSourceCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
+    return deserializeAws_restJson1RemoveFlowSourceCommandError(output, context);
+  }
+  const contents: RemoveFlowSourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RemoveFlowSourceResponse",
+    FlowArn: undefined,
+    SourceArn: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.flowArn !== undefined && data.flowArn !== null) {
+    contents.FlowArn = data.flowArn;
+  }
+  if (data.sourceArn !== undefined && data.sourceArn !== null) {
+    contents.SourceArn = data.sourceArn;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RemoveFlowSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFlowSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFlowVpcInterfaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1RemoveFlowVpcInterfaceCommandError(output, context);
+  }
+  const contents: RemoveFlowVpcInterfaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RemoveFlowVpcInterfaceResponse",
+    FlowArn: undefined,
+    NonDeletedNetworkInterfaceIds: undefined,
+    VpcInterfaceName: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.flowArn !== undefined && data.flowArn !== null) {
+    contents.FlowArn = data.flowArn;
+  }
+  if (data.nonDeletedNetworkInterfaceIds !== undefined && data.nonDeletedNetworkInterfaceIds !== null) {
+    contents.NonDeletedNetworkInterfaceIds = deserializeAws_restJson1__listOf__string(
+      data.nonDeletedNetworkInterfaceIds,
+      context
+    );
+  }
+  if (data.vpcInterfaceName !== undefined && data.vpcInterfaceName !== null) {
+    contents.VpcInterfaceName = data.vpcInterfaceName;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RemoveFlowVpcInterfaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFlowVpcInterfaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1RevokeFlowEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1932,6 +2552,102 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFlowCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateFlowCommandError(output, context);
+  }
+  const contents: UpdateFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateFlowResponse",
+    Flow: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.flow !== undefined && data.flow !== null) {
+    contents.Flow = deserializeAws_restJson1Flow(data.flow, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2421,6 +3137,17 @@ const serializeAws_restJson1__listOfGrantEntitlementRequest = (
   return input.map((entry) => serializeAws_restJson1GrantEntitlementRequest(entry, context));
 };
 
+const serializeAws_restJson1__listOfSetSourceRequest = (input: SetSourceRequest[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1SetSourceRequest(entry, context));
+};
+
+const serializeAws_restJson1__listOfVpcInterfaceRequest = (
+  input: VpcInterfaceRequest[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1VpcInterfaceRequest(entry, context));
+};
+
 const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
@@ -2446,6 +3173,9 @@ const serializeAws_restJson1AddOutputRequest = (input: AddOutputRequest, context
     ...(input.RemoteId !== undefined && { remoteId: input.RemoteId }),
     ...(input.SmoothingLatency !== undefined && { smoothingLatency: input.SmoothingLatency }),
     ...(input.StreamId !== undefined && { streamId: input.StreamId }),
+    ...(input.VpcInterfaceAttachment !== undefined && {
+      vpcInterfaceAttachment: serializeAws_restJson1VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
+    }),
   };
 };
 
@@ -2465,6 +3195,13 @@ const serializeAws_restJson1Encryption = (input: Encryption, context: __SerdeCon
   };
 };
 
+const serializeAws_restJson1FailoverConfig = (input: FailoverConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.RecoveryWindow !== undefined && { recoveryWindow: input.RecoveryWindow }),
+    ...(input.State !== undefined && { state: input.State }),
+  };
+};
+
 const serializeAws_restJson1GrantEntitlementRequest = (
   input: GrantEntitlementRequest,
   context: __SerdeContext
@@ -2475,6 +3212,7 @@ const serializeAws_restJson1GrantEntitlementRequest = (
     }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.Encryption !== undefined && { encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.EntitlementStatus !== undefined && { entitlementStatus: input.EntitlementStatus }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.Subscribers !== undefined && {
       subscribers: serializeAws_restJson1__listOf__string(input.Subscribers, context),
@@ -2493,6 +3231,7 @@ const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.Protocol !== undefined && { protocol: input.Protocol }),
     ...(input.StreamId !== undefined && { streamId: input.StreamId }),
+    ...(input.VpcInterfaceName !== undefined && { vpcInterfaceName: input.VpcInterfaceName }),
     ...(input.WhitelistCidr !== undefined && { whitelistCidr: input.WhitelistCidr }),
   };
 };
@@ -2510,6 +3249,30 @@ const serializeAws_restJson1UpdateEncryption = (input: UpdateEncryption, context
     ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
     ...(input.SecretArn !== undefined && { secretArn: input.SecretArn }),
     ...(input.Url !== undefined && { url: input.Url }),
+  };
+};
+
+const serializeAws_restJson1UpdateFailoverConfig = (input: UpdateFailoverConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.RecoveryWindow !== undefined && { recoveryWindow: input.RecoveryWindow }),
+    ...(input.State !== undefined && { state: input.State }),
+  };
+};
+
+const serializeAws_restJson1VpcInterfaceAttachment = (input: VpcInterfaceAttachment, context: __SerdeContext): any => {
+  return {
+    ...(input.VpcInterfaceName !== undefined && { vpcInterfaceName: input.VpcInterfaceName }),
+  };
+};
+
+const serializeAws_restJson1VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
+    ...(input.SecurityGroupIds !== undefined && {
+      securityGroupIds: serializeAws_restJson1__listOf__string(input.SecurityGroupIds, context),
+    }),
+    ...(input.SubnetId !== undefined && { subnetId: input.SubnetId }),
   };
 };
 
@@ -2534,6 +3297,14 @@ const deserializeAws_restJson1__listOfListedFlow = (output: any, context: __Serd
 
 const deserializeAws_restJson1__listOfOutput = (output: any, context: __SerdeContext): Output[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Output(entry, context));
+};
+
+const deserializeAws_restJson1__listOfSource = (output: any, context: __SerdeContext): Source[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Source(entry, context));
+};
+
+const deserializeAws_restJson1__listOfVpcInterface = (output: any, context: __SerdeContext): VpcInterface[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1VpcInterface(entry, context));
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -2578,11 +3349,24 @@ const deserializeAws_restJson1Entitlement = (output: any, context: __SerdeContex
         : undefined,
     EntitlementArn:
       output.entitlementArn !== undefined && output.entitlementArn !== null ? output.entitlementArn : undefined,
+    EntitlementStatus:
+      output.entitlementStatus !== undefined && output.entitlementStatus !== null
+        ? output.entitlementStatus
+        : undefined,
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     Subscribers:
       output.subscribers !== undefined && output.subscribers !== null
         ? deserializeAws_restJson1__listOf__string(output.subscribers, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FailoverConfig = (output: any, context: __SerdeContext): FailoverConfig => {
+  return {
+    __type: "FailoverConfig",
+    RecoveryWindow:
+      output.recoveryWindow !== undefined && output.recoveryWindow !== null ? output.recoveryWindow : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined,
   } as any;
 };
 
@@ -2607,7 +3391,19 @@ const deserializeAws_restJson1Flow = (output: any, context: __SerdeContext): Flo
       output.source !== undefined && output.source !== null
         ? deserializeAws_restJson1Source(output.source, context)
         : undefined,
+    SourceFailoverConfig:
+      output.sourceFailoverConfig !== undefined && output.sourceFailoverConfig !== null
+        ? deserializeAws_restJson1FailoverConfig(output.sourceFailoverConfig, context)
+        : undefined,
+    Sources:
+      output.sources !== undefined && output.sources !== null
+        ? deserializeAws_restJson1__listOfSource(output.sources, context)
+        : undefined,
     Status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    VpcInterfaces:
+      output.vpcInterfaces !== undefined && output.vpcInterfaces !== null
+        ? deserializeAws_restJson1__listOfVpcInterface(output.vpcInterfaces, context)
+        : undefined,
   } as any;
 };
 
@@ -2674,6 +3470,10 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
       output.transport !== undefined && output.transport !== null
         ? deserializeAws_restJson1Transport(output.transport, context)
         : undefined,
+    VpcInterfaceAttachment:
+      output.vpcInterfaceAttachment !== undefined && output.vpcInterfaceAttachment !== null
+        ? deserializeAws_restJson1VpcInterfaceAttachment(output.vpcInterfaceAttachment, context)
+        : undefined,
   } as any;
 };
 
@@ -2699,6 +3499,8 @@ const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): S
       output.transport !== undefined && output.transport !== null
         ? deserializeAws_restJson1Transport(output.transport, context)
         : undefined,
+    VpcInterfaceName:
+      output.vpcInterfaceName !== undefined && output.vpcInterfaceName !== null ? output.vpcInterfaceName : undefined,
     WhitelistCidr:
       output.whitelistCidr !== undefined && output.whitelistCidr !== null ? output.whitelistCidr : undefined,
   } as any;
@@ -2718,6 +3520,34 @@ const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext)
     SmoothingLatency:
       output.smoothingLatency !== undefined && output.smoothingLatency !== null ? output.smoothingLatency : undefined,
     StreamId: output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VpcInterface = (output: any, context: __SerdeContext): VpcInterface => {
+  return {
+    __type: "VpcInterface",
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    NetworkInterfaceIds:
+      output.networkInterfaceIds !== undefined && output.networkInterfaceIds !== null
+        ? deserializeAws_restJson1__listOf__string(output.networkInterfaceIds, context)
+        : undefined,
+    RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    SecurityGroupIds:
+      output.securityGroupIds !== undefined && output.securityGroupIds !== null
+        ? deserializeAws_restJson1__listOf__string(output.securityGroupIds, context)
+        : undefined,
+    SubnetId: output.subnetId !== undefined && output.subnetId !== null ? output.subnetId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VpcInterfaceAttachment = (
+  output: any,
+  context: __SerdeContext
+): VpcInterfaceAttachment => {
+  return {
+    __type: "VpcInterfaceAttachment",
+    VpcInterfaceName:
+      output.vpcInterfaceName !== undefined && output.vpcInterfaceName !== null ? output.vpcInterfaceName : undefined,
   } as any;
 };
 

@@ -840,6 +840,14 @@ const deserializeAws_restJson1DeleteSignalingChannelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisvideo#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
       response = {
@@ -920,6 +928,14 @@ const deserializeAws_restJson1DeleteStreamCommandError = async (
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
       response = {
         ...(await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisvideo#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

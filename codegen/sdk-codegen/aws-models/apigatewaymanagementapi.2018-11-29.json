@@ -157,17 +157,17 @@
     "com.amazonaws.apigatewaymanagementapi#GetConnectionResponse": {
       "type": "structure",
       "members": {
+        "Identity": {
+          "target": "com.amazonaws.apigatewaymanagementapi#Identity",
+          "traits": {
+            "smithy.api#jsonName": "identity"
+          }
+        },
         "ConnectedAt": {
           "target": "com.amazonaws.apigatewaymanagementapi#__timestampIso8601",
           "traits": {
             "smithy.api#documentation": "<p>The time in ISO 8601 format for when the connection was established.</p>",
             "smithy.api#jsonName": "connectedAt"
-          }
-        },
-        "Identity": {
-          "target": "com.amazonaws.apigatewaymanagementapi#Identity",
-          "traits": {
-            "smithy.api#jsonName": "identity"
           }
         },
         "LastActiveAt": {

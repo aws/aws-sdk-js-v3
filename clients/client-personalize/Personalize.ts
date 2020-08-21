@@ -30,6 +30,11 @@ import {
   CreateEventTrackerCommandOutput,
 } from "./commands/CreateEventTrackerCommand";
 import {
+  CreateFilterCommand,
+  CreateFilterCommandInput,
+  CreateFilterCommandOutput,
+} from "./commands/CreateFilterCommand";
+import {
   CreateSchemaCommand,
   CreateSchemaCommandInput,
   CreateSchemaCommandOutput,
@@ -64,6 +69,11 @@ import {
   DeleteEventTrackerCommandInput,
   DeleteEventTrackerCommandOutput,
 } from "./commands/DeleteEventTrackerCommand";
+import {
+  DeleteFilterCommand,
+  DeleteFilterCommandInput,
+  DeleteFilterCommandOutput,
+} from "./commands/DeleteFilterCommand";
 import {
   DeleteSchemaCommand,
   DeleteSchemaCommandInput,
@@ -114,6 +124,11 @@ import {
   DescribeFeatureTransformationCommandInput,
   DescribeFeatureTransformationCommandOutput,
 } from "./commands/DescribeFeatureTransformationCommand";
+import {
+  DescribeFilterCommand,
+  DescribeFilterCommandInput,
+  DescribeFilterCommandOutput,
+} from "./commands/DescribeFilterCommand";
 import {
   DescribeRecipeCommand,
   DescribeRecipeCommandInput,
@@ -169,6 +184,7 @@ import {
   ListEventTrackersCommandInput,
   ListEventTrackersCommandOutput,
 } from "./commands/ListEventTrackersCommand";
+import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
 import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
@@ -662,6 +678,36 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Creates a recommendation filter. For more information, see Using Filters with Amazon
+   *             Personalize.</p>
+   */
+  public createFilter(
+    args: CreateFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFilterCommandOutput>;
+  public createFilter(args: CreateFilterCommandInput, cb: (err: any, data?: CreateFilterCommandOutput) => void): void;
+  public createFilter(
+    args: CreateFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFilterCommandOutput) => void
+  ): void;
+  public createFilter(
+    args: CreateFilterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFilterCommandOutput) => void),
+    cb?: (err: any, data?: CreateFilterCommandOutput) => void
+  ): Promise<CreateFilterCommandOutput> | void {
+    const command = new CreateFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
    *       must be in Avro JSON format.</p>
    *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
@@ -1050,6 +1096,35 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Deletes a filter.</p>
+   */
+  public deleteFilter(
+    args: DeleteFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFilterCommandOutput>;
+  public deleteFilter(args: DeleteFilterCommandInput, cb: (err: any, data?: DeleteFilterCommandOutput) => void): void;
+  public deleteFilter(
+    args: DeleteFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFilterCommandOutput) => void
+  ): void;
+  public deleteFilter(
+    args: DeleteFilterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFilterCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFilterCommandOutput) => void
+  ): Promise<DeleteFilterCommandOutput> | void {
+    const command = new DeleteFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a schema. Before deleting a schema, you must delete all
    *       datasets referencing the schema. For more information on schemas, see
    *       <a>CreateSchema</a>.</p>
@@ -1383,6 +1458,38 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: DescribeFeatureTransformationCommandOutput) => void
   ): Promise<DescribeFeatureTransformationCommandOutput> | void {
     const command = new DescribeFeatureTransformationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a filter's properties.</p>
+   */
+  public describeFilter(
+    args: DescribeFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFilterCommandOutput>;
+  public describeFilter(
+    args: DescribeFilterCommandInput,
+    cb: (err: any, data?: DescribeFilterCommandOutput) => void
+  ): void;
+  public describeFilter(
+    args: DescribeFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFilterCommandOutput) => void
+  ): void;
+  public describeFilter(
+    args: DescribeFilterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFilterCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFilterCommandOutput) => void
+  ): Promise<DescribeFilterCommandOutput> | void {
+    const command = new DescribeFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1768,6 +1875,32 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: ListEventTrackersCommandOutput) => void
   ): Promise<ListEventTrackersCommandOutput> | void {
     const command = new ListEventTrackersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all filters that belong to a given dataset group.</p>
+   */
+  public listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
+  public listFilters(args: ListFiltersCommandInput, cb: (err: any, data?: ListFiltersCommandOutput) => void): void;
+  public listFilters(
+    args: ListFiltersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFiltersCommandOutput) => void
+  ): void;
+  public listFilters(
+    args: ListFiltersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFiltersCommandOutput) => void),
+    cb?: (err: any, data?: ListFiltersCommandOutput) => void
+  ): Promise<ListFiltersCommandOutput> | void {
+    const command = new ListFiltersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

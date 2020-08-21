@@ -1,4 +1,8 @@
 import { AllocateStaticIpCommandInput, AllocateStaticIpCommandOutput } from "../commands/AllocateStaticIpCommand";
+import {
+  AttachCertificateToDistributionCommandInput,
+  AttachCertificateToDistributionCommandOutput,
+} from "../commands/AttachCertificateToDistributionCommand";
 import { AttachDiskCommandInput, AttachDiskCommandOutput } from "../commands/AttachDiskCommand";
 import {
   AttachInstancesToLoadBalancerCommandInput,
@@ -14,16 +18,22 @@ import {
   CloseInstancePublicPortsCommandOutput,
 } from "../commands/CloseInstancePublicPortsCommand";
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "../commands/CopySnapshotCommand";
+import { CreateCertificateCommandInput, CreateCertificateCommandOutput } from "../commands/CreateCertificateCommand";
 import {
   CreateCloudFormationStackCommandInput,
   CreateCloudFormationStackCommandOutput,
 } from "../commands/CreateCloudFormationStackCommand";
+import {
+  CreateContactMethodCommandInput,
+  CreateContactMethodCommandOutput,
+} from "../commands/CreateContactMethodCommand";
 import { CreateDiskCommandInput, CreateDiskCommandOutput } from "../commands/CreateDiskCommand";
 import {
   CreateDiskFromSnapshotCommandInput,
   CreateDiskFromSnapshotCommandOutput,
 } from "../commands/CreateDiskFromSnapshotCommand";
 import { CreateDiskSnapshotCommandInput, CreateDiskSnapshotCommandOutput } from "../commands/CreateDiskSnapshotCommand";
+import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "../commands/CreateDistributionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
 import { CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput } from "../commands/CreateDomainEntryCommand";
 import {
@@ -53,9 +63,16 @@ import {
   CreateRelationalDatabaseSnapshotCommandInput,
   CreateRelationalDatabaseSnapshotCommandOutput,
 } from "../commands/CreateRelationalDatabaseSnapshotCommand";
+import { DeleteAlarmCommandInput, DeleteAlarmCommandOutput } from "../commands/DeleteAlarmCommand";
 import { DeleteAutoSnapshotCommandInput, DeleteAutoSnapshotCommandOutput } from "../commands/DeleteAutoSnapshotCommand";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "../commands/DeleteCertificateCommand";
+import {
+  DeleteContactMethodCommandInput,
+  DeleteContactMethodCommandOutput,
+} from "../commands/DeleteContactMethodCommand";
 import { DeleteDiskCommandInput, DeleteDiskCommandOutput } from "../commands/DeleteDiskCommand";
 import { DeleteDiskSnapshotCommandInput, DeleteDiskSnapshotCommandOutput } from "../commands/DeleteDiskSnapshotCommand";
+import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "../commands/DeleteDistributionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import { DeleteDomainEntryCommandInput, DeleteDomainEntryCommandOutput } from "../commands/DeleteDomainEntryCommand";
 import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "../commands/DeleteInstanceCommand";
@@ -81,6 +98,10 @@ import {
   DeleteRelationalDatabaseSnapshotCommandInput,
   DeleteRelationalDatabaseSnapshotCommandOutput,
 } from "../commands/DeleteRelationalDatabaseSnapshotCommand";
+import {
+  DetachCertificateFromDistributionCommandInput,
+  DetachCertificateFromDistributionCommandOutput,
+} from "../commands/DetachCertificateFromDistributionCommand";
 import { DetachDiskCommandInput, DetachDiskCommandOutput } from "../commands/DetachDiskCommand";
 import {
   DetachInstancesFromLoadBalancerCommandInput,
@@ -95,17 +116,33 @@ import {
 import { EnableAddOnCommandInput, EnableAddOnCommandOutput } from "../commands/EnableAddOnCommand";
 import { ExportSnapshotCommandInput, ExportSnapshotCommandOutput } from "../commands/ExportSnapshotCommand";
 import { GetActiveNamesCommandInput, GetActiveNamesCommandOutput } from "../commands/GetActiveNamesCommand";
+import { GetAlarmsCommandInput, GetAlarmsCommandOutput } from "../commands/GetAlarmsCommand";
 import { GetAutoSnapshotsCommandInput, GetAutoSnapshotsCommandOutput } from "../commands/GetAutoSnapshotsCommand";
 import { GetBlueprintsCommandInput, GetBlueprintsCommandOutput } from "../commands/GetBlueprintsCommand";
 import { GetBundlesCommandInput, GetBundlesCommandOutput } from "../commands/GetBundlesCommand";
+import { GetCertificatesCommandInput, GetCertificatesCommandOutput } from "../commands/GetCertificatesCommand";
 import {
   GetCloudFormationStackRecordsCommandInput,
   GetCloudFormationStackRecordsCommandOutput,
 } from "../commands/GetCloudFormationStackRecordsCommand";
+import { GetContactMethodsCommandInput, GetContactMethodsCommandOutput } from "../commands/GetContactMethodsCommand";
 import { GetDiskCommandInput, GetDiskCommandOutput } from "../commands/GetDiskCommand";
 import { GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput } from "../commands/GetDiskSnapshotCommand";
 import { GetDiskSnapshotsCommandInput, GetDiskSnapshotsCommandOutput } from "../commands/GetDiskSnapshotsCommand";
 import { GetDisksCommandInput, GetDisksCommandOutput } from "../commands/GetDisksCommand";
+import {
+  GetDistributionBundlesCommandInput,
+  GetDistributionBundlesCommandOutput,
+} from "../commands/GetDistributionBundlesCommand";
+import {
+  GetDistributionLatestCacheResetCommandInput,
+  GetDistributionLatestCacheResetCommandOutput,
+} from "../commands/GetDistributionLatestCacheResetCommand";
+import {
+  GetDistributionMetricDataCommandInput,
+  GetDistributionMetricDataCommandOutput,
+} from "../commands/GetDistributionMetricDataCommand";
+import { GetDistributionsCommandInput, GetDistributionsCommandOutput } from "../commands/GetDistributionsCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "../commands/GetDomainCommand";
 import { GetDomainsCommandInput, GetDomainsCommandOutput } from "../commands/GetDomainsCommand";
 import {
@@ -211,6 +248,7 @@ import {
   OpenInstancePublicPortsCommandOutput,
 } from "../commands/OpenInstancePublicPortsCommand";
 import { PeerVpcCommandInput, PeerVpcCommandOutput } from "../commands/PeerVpcCommand";
+import { PutAlarmCommandInput, PutAlarmCommandOutput } from "../commands/PutAlarmCommand";
 import {
   PutInstancePublicPortsCommandInput,
   PutInstancePublicPortsCommandOutput,
@@ -221,6 +259,14 @@ import {
   RebootRelationalDatabaseCommandOutput,
 } from "../commands/RebootRelationalDatabaseCommand";
 import { ReleaseStaticIpCommandInput, ReleaseStaticIpCommandOutput } from "../commands/ReleaseStaticIpCommand";
+import {
+  ResetDistributionCacheCommandInput,
+  ResetDistributionCacheCommandOutput,
+} from "../commands/ResetDistributionCacheCommand";
+import {
+  SendContactMethodVerificationCommandInput,
+  SendContactMethodVerificationCommandOutput,
+} from "../commands/SendContactMethodVerificationCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "../commands/StartInstanceCommand";
 import {
   StartRelationalDatabaseCommandInput,
@@ -232,8 +278,14 @@ import {
   StopRelationalDatabaseCommandOutput,
 } from "../commands/StopRelationalDatabaseCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TestAlarmCommandInput, TestAlarmCommandOutput } from "../commands/TestAlarmCommand";
 import { UnpeerVpcCommandInput, UnpeerVpcCommandOutput } from "../commands/UnpeerVpcCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateDistributionBundleCommandInput,
+  UpdateDistributionBundleCommandOutput,
+} from "../commands/UpdateDistributionBundleCommand";
+import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "../commands/UpdateDistributionCommand";
 import { UpdateDomainEntryCommandInput, UpdateDomainEntryCommandOutput } from "../commands/UpdateDomainEntryCommand";
 import {
   UpdateLoadBalancerAttributeCommandInput,
@@ -252,8 +304,12 @@ import {
   AccountSetupInProgressException,
   AddOn,
   AddOnRequest,
+  Alarm,
+  AlarmState,
   AllocateStaticIpRequest,
   AllocateStaticIpResult,
+  AttachCertificateToDistributionRequest,
+  AttachCertificateToDistributionResult,
   AttachDiskRequest,
   AttachDiskResult,
   AttachInstancesToLoadBalancerRequest,
@@ -268,20 +324,35 @@ import {
   AvailabilityZone,
   Blueprint,
   Bundle,
+  CacheBehavior,
+  CacheBehaviorPerPath,
+  CacheSettings,
+  Certificate,
+  CertificateStatus,
+  CertificateSummary,
   CloseInstancePublicPortsRequest,
   CloseInstancePublicPortsResult,
   CloudFormationStackRecord,
   CloudFormationStackRecordSourceInfo,
+  ContactMethod,
+  ContactProtocol,
+  CookieObject,
   CopySnapshotRequest,
   CopySnapshotResult,
+  CreateCertificateRequest,
+  CreateCertificateResult,
   CreateCloudFormationStackRequest,
   CreateCloudFormationStackResult,
+  CreateContactMethodRequest,
+  CreateContactMethodResult,
   CreateDiskFromSnapshotRequest,
   CreateDiskFromSnapshotResult,
   CreateDiskRequest,
   CreateDiskResult,
   CreateDiskSnapshotRequest,
   CreateDiskSnapshotResult,
+  CreateDistributionRequest,
+  CreateDistributionResult,
   CreateDomainEntryRequest,
   CreateDomainEntryResult,
   CreateDomainRequest,
@@ -304,12 +375,20 @@ import {
   CreateRelationalDatabaseResult,
   CreateRelationalDatabaseSnapshotRequest,
   CreateRelationalDatabaseSnapshotResult,
+  DeleteAlarmRequest,
+  DeleteAlarmResult,
   DeleteAutoSnapshotRequest,
   DeleteAutoSnapshotResult,
+  DeleteCertificateRequest,
+  DeleteCertificateResult,
+  DeleteContactMethodRequest,
+  DeleteContactMethodResult,
   DeleteDiskRequest,
   DeleteDiskResult,
   DeleteDiskSnapshotRequest,
   DeleteDiskSnapshotResult,
+  DeleteDistributionRequest,
+  DeleteDistributionResult,
   DeleteDomainEntryRequest,
   DeleteDomainEntryResult,
   DeleteDomainRequest,
@@ -331,6 +410,8 @@ import {
   DeleteRelationalDatabaseSnapshotRequest,
   DeleteRelationalDatabaseSnapshotResult,
   DestinationInfo,
+  DetachCertificateFromDistributionRequest,
+  DetachCertificateFromDistributionResult,
   DetachDiskRequest,
   DetachDiskResult,
   DetachInstancesFromLoadBalancerRequest,
@@ -344,8 +425,10 @@ import {
   DiskMap,
   DiskSnapshot,
   DiskSnapshotInfo,
+  DistributionBundle,
   Domain,
   DomainEntry,
+  DomainValidationRecord,
   DownloadDefaultKeyPairRequest,
   DownloadDefaultKeyPairResult,
   EnableAddOnRequest,
@@ -356,14 +439,20 @@ import {
   ExportSnapshotResult,
   GetActiveNamesRequest,
   GetActiveNamesResult,
+  GetAlarmsRequest,
+  GetAlarmsResult,
   GetAutoSnapshotsRequest,
   GetAutoSnapshotsResult,
   GetBlueprintsRequest,
   GetBlueprintsResult,
   GetBundlesRequest,
   GetBundlesResult,
+  GetCertificatesRequest,
+  GetCertificatesResult,
   GetCloudFormationStackRecordsRequest,
   GetCloudFormationStackRecordsResult,
+  GetContactMethodsRequest,
+  GetContactMethodsResult,
   GetDiskRequest,
   GetDiskResult,
   GetDiskSnapshotRequest,
@@ -372,6 +461,14 @@ import {
   GetDiskSnapshotsResult,
   GetDisksRequest,
   GetDisksResult,
+  GetDistributionBundlesRequest,
+  GetDistributionBundlesResult,
+  GetDistributionLatestCacheResetRequest,
+  GetDistributionLatestCacheResetResult,
+  GetDistributionMetricDataRequest,
+  GetDistributionMetricDataResult,
+  GetDistributionsRequest,
+  GetDistributionsResult,
   GetDomainRequest,
   GetDomainResult,
   GetDomainsRequest,
@@ -442,9 +539,12 @@ import {
   GetStaticIpResult,
   GetStaticIpsRequest,
   GetStaticIpsResult,
+  HeaderEnum,
+  HeaderObject,
   HostKeyAttributes,
   ImportKeyPairRequest,
   ImportKeyPairResult,
+  InputOrigin,
   Instance,
   InstanceAccessDetails,
   InstanceEntry,
@@ -461,6 +561,7 @@ import {
   IsVpcPeeredRequest,
   IsVpcPeeredResult,
   KeyPair,
+  LightsailDistribution,
   LoadBalancer,
   LoadBalancerAttributeName,
   LoadBalancerTlsCertificate,
@@ -471,20 +572,25 @@ import {
   LogEvent,
   MetricDatapoint,
   MetricStatistic,
+  MonitoredResourceInfo,
   MonthlyTransfer,
   NotFoundException,
   OpenInstancePublicPortsRequest,
   OpenInstancePublicPortsResult,
   Operation,
   OperationFailureException,
+  Origin,
   PasswordData,
   PeerVpcRequest,
   PeerVpcResult,
   PendingMaintenanceAction,
   PendingModifiedRelationalDatabaseValues,
   PortInfo,
+  PutAlarmRequest,
+  PutAlarmResult,
   PutInstancePublicPortsRequest,
   PutInstancePublicPortsResult,
+  QueryStringObject,
   RebootInstanceRequest,
   RebootInstanceResult,
   RebootRelationalDatabaseRequest,
@@ -500,7 +606,13 @@ import {
   RelationalDatabaseSnapshot,
   ReleaseStaticIpRequest,
   ReleaseStaticIpResult,
+  RenewalSummary,
+  ResetDistributionCacheRequest,
+  ResetDistributionCacheResult,
   ResourceLocation,
+  ResourceRecord,
+  SendContactMethodVerificationRequest,
+  SendContactMethodVerificationResult,
   ServiceException,
   StartInstanceRequest,
   StartInstanceResult,
@@ -514,11 +626,17 @@ import {
   Tag,
   TagResourceRequest,
   TagResourceResult,
+  TestAlarmRequest,
+  TestAlarmResult,
   UnauthenticatedException,
   UnpeerVpcRequest,
   UnpeerVpcResult,
   UntagResourceRequest,
   UntagResourceResult,
+  UpdateDistributionBundleRequest,
+  UpdateDistributionBundleResult,
+  UpdateDistributionRequest,
+  UpdateDistributionResult,
   UpdateDomainEntryRequest,
   UpdateDomainEntryResult,
   UpdateLoadBalancerAttributeRequest,
@@ -548,6 +666,19 @@ export const serializeAws_json1_1AllocateStaticIpCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AllocateStaticIpRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AttachCertificateToDistributionCommand = async (
+  input: AttachCertificateToDistributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.AttachCertificateToDistribution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AttachCertificateToDistributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -629,6 +760,19 @@ export const serializeAws_json1_1CopySnapshotCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateCertificateCommand = async (
+  input: CreateCertificateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.CreateCertificate",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateCertificateRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateCloudFormationStackCommand = async (
   input: CreateCloudFormationStackCommandInput,
   context: __SerdeContext
@@ -639,6 +783,19 @@ export const serializeAws_json1_1CreateCloudFormationStackCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCloudFormationStackRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateContactMethodCommand = async (
+  input: CreateContactMethodCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.CreateContactMethod",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateContactMethodRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -678,6 +835,19 @@ export const serializeAws_json1_1CreateDiskSnapshotCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDiskSnapshotRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateDistributionCommand = async (
+  input: CreateDistributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.CreateDistribution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateDistributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -824,6 +994,19 @@ export const serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand = async
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteAlarmCommand = async (
+  input: DeleteAlarmCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.DeleteAlarm",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteAlarmRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteAutoSnapshotCommand = async (
   input: DeleteAutoSnapshotCommandInput,
   context: __SerdeContext
@@ -834,6 +1017,32 @@ export const serializeAws_json1_1DeleteAutoSnapshotCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAutoSnapshotRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteCertificateCommand = async (
+  input: DeleteCertificateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.DeleteCertificate",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteCertificateRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteContactMethodCommand = async (
+  input: DeleteContactMethodCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.DeleteContactMethod",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteContactMethodRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -860,6 +1069,19 @@ export const serializeAws_json1_1DeleteDiskSnapshotCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDiskSnapshotRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteDistributionCommand = async (
+  input: DeleteDistributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.DeleteDistribution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteDistributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -993,6 +1215,19 @@ export const serializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand = async
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DetachCertificateFromDistributionCommand = async (
+  input: DetachCertificateFromDistributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.DetachCertificateFromDistribution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DetachCertificateFromDistributionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DetachDiskCommand = async (
   input: DetachDiskCommandInput,
   context: __SerdeContext
@@ -1097,6 +1332,19 @@ export const serializeAws_json1_1GetActiveNamesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetAlarmsCommand = async (
+  input: GetAlarmsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetAlarms",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetAlarmsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetAutoSnapshotsCommand = async (
   input: GetAutoSnapshotsCommandInput,
   context: __SerdeContext
@@ -1136,6 +1384,19 @@ export const serializeAws_json1_1GetBundlesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetCertificatesCommand = async (
+  input: GetCertificatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetCertificates",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetCertificatesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetCloudFormationStackRecordsCommand = async (
   input: GetCloudFormationStackRecordsCommandInput,
   context: __SerdeContext
@@ -1146,6 +1407,19 @@ export const serializeAws_json1_1GetCloudFormationStackRecordsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCloudFormationStackRecordsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetContactMethodsCommand = async (
+  input: GetContactMethodsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetContactMethods",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetContactMethodsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1198,6 +1472,58 @@ export const serializeAws_json1_1GetDiskSnapshotsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDiskSnapshotsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetDistributionBundlesCommand = async (
+  input: GetDistributionBundlesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetDistributionBundles",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetDistributionBundlesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetDistributionLatestCacheResetCommand = async (
+  input: GetDistributionLatestCacheResetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetDistributionLatestCacheReset",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetDistributionLatestCacheResetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetDistributionMetricDataCommand = async (
+  input: GetDistributionMetricDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetDistributionMetricData",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetDistributionMetricDataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetDistributionsCommand = async (
+  input: GetDistributionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.GetDistributions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetDistributionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1708,6 +2034,19 @@ export const serializeAws_json1_1PeerVpcCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PutAlarmCommand = async (
+  input: PutAlarmCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.PutAlarm",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutAlarmRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1PutInstancePublicPortsCommand = async (
   input: PutInstancePublicPortsCommandInput,
   context: __SerdeContext
@@ -1757,6 +2096,32 @@ export const serializeAws_json1_1ReleaseStaticIpCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ReleaseStaticIpRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ResetDistributionCacheCommand = async (
+  input: ResetDistributionCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.ResetDistributionCache",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ResetDistributionCacheRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1SendContactMethodVerificationCommand = async (
+  input: SendContactMethodVerificationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.SendContactMethodVerification",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SendContactMethodVerificationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1825,6 +2190,19 @@ export const serializeAws_json1_1TagResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1TestAlarmCommand = async (
+  input: TestAlarmCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.TestAlarm",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TestAlarmRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UnpeerVpcCommand = async (
   input: UnpeerVpcCommandInput,
   context: __SerdeContext
@@ -1848,6 +2226,32 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateDistributionCommand = async (
+  input: UpdateDistributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.UpdateDistribution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateDistributionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateDistributionBundleCommand = async (
+  input: UpdateDistributionBundleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Lightsail_20161128.UpdateDistributionBundle",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateDistributionBundleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1946,6 +2350,102 @@ const deserializeAws_json1_1AllocateStaticIpCommandError = async (
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
       response = {
         ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1AttachCertificateToDistributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachCertificateToDistributionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1AttachCertificateToDistributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AttachCertificateToDistributionResult(data, context);
+  const response: AttachCertificateToDistributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AttachCertificateToDistributionResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AttachCertificateToDistributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachCertificateToDistributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2631,6 +3131,94 @@ const deserializeAws_json1_1CopySnapshotCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateCertificateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCertificateCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateCertificateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateCertificateResult(data, context);
+  const response: CreateCertificateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateCertificateResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateCertificateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCertificateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateCloudFormationStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2674,6 +3262,102 @@ const deserializeAws_json1_1CreateCloudFormationStackCommandError = async (
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
       response = {
         ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateContactMethodCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContactMethodCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateContactMethodCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateContactMethodResult(data, context);
+  const response: CreateContactMethodCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateContactMethodResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateContactMethodCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContactMethodCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2986,6 +3670,102 @@ const deserializeAws_json1_1CreateDiskSnapshotCommandError = async (
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
       response = {
         ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateDistributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDistributionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateDistributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateDistributionResult(data, context);
+  const response: CreateDistributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateDistributionResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateDistributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDistributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4191,6 +4971,102 @@ const deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommandError = async
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteAlarmCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAlarmCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteAlarmCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteAlarmResult(data, context);
+  const response: DeleteAlarmCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteAlarmResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteAlarmCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAlarmCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteAutoSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4213,6 +5089,190 @@ const deserializeAws_json1_1DeleteAutoSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAutoSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteCertificateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCertificateCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteCertificateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteCertificateResult(data, context);
+  const response: DeleteCertificateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteCertificateResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteCertificateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCertificateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteContactMethodCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContactMethodCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteContactMethodCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteContactMethodResult(data, context);
+  const response: DeleteContactMethodCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteContactMethodResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteContactMethodCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContactMethodCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4434,6 +5494,102 @@ const deserializeAws_json1_1DeleteDiskSnapshotCommandError = async (
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
       response = {
         ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteDistributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDistributionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteDistributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteDistributionResult(data, context);
+  const response: DeleteDistributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteDistributionResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteDistributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDistributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5535,6 +6691,102 @@ const deserializeAws_json1_1DeleteRelationalDatabaseSnapshotCommandError = async
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DetachCertificateFromDistributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachCertificateFromDistributionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DetachCertificateFromDistributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DetachCertificateFromDistributionResult(data, context);
+  const response: DetachCertificateFromDistributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DetachCertificateFromDistributionResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DetachCertificateFromDistributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachCertificateFromDistributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DetachDiskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6351,6 +7603,102 @@ const deserializeAws_json1_1GetActiveNamesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetAlarmsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAlarmsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetAlarmsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAlarmsResult(data, context);
+  const response: GetAlarmsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetAlarmsResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetAlarmsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAlarmsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetAutoSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6655,6 +8003,94 @@ const deserializeAws_json1_1GetBundlesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetCertificatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCertificatesCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetCertificatesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetCertificatesResult(data, context);
+  const response: GetCertificatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetCertificatesResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetCertificatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCertificatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetCloudFormationStackRecordsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6698,6 +8134,102 @@ const deserializeAws_json1_1GetCloudFormationStackRecordsCommandError = async (
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
       response = {
         ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetContactMethodsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContactMethodsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetContactMethodsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetContactMethodsResult(data, context);
+  const response: GetContactMethodsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetContactMethodsResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetContactMethodsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContactMethodsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7114,6 +8646,390 @@ const deserializeAws_json1_1GetDiskSnapshotsCommandError = async (
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
       response = {
         ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetDistributionBundlesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionBundlesCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetDistributionBundlesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDistributionBundlesResult(data, context);
+  const response: GetDistributionBundlesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetDistributionBundlesResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetDistributionBundlesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionBundlesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetDistributionLatestCacheResetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionLatestCacheResetCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetDistributionLatestCacheResetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDistributionLatestCacheResetResult(data, context);
+  const response: GetDistributionLatestCacheResetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetDistributionLatestCacheResetResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetDistributionLatestCacheResetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionLatestCacheResetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetDistributionMetricDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionMetricDataCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetDistributionMetricDataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDistributionMetricDataResult(data, context);
+  const response: GetDistributionMetricDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetDistributionMetricDataResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetDistributionMetricDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionMetricDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetDistributionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetDistributionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDistributionsResult(data, context);
+  const response: GetDistributionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetDistributionsResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetDistributionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11231,6 +13147,102 @@ const deserializeAws_json1_1PeerVpcCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutAlarmCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAlarmCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutAlarmCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutAlarmResult(data, context);
+  const response: PutAlarmCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutAlarmResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutAlarmCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAlarmCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutInstancePublicPortsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11586,6 +13598,198 @@ const deserializeAws_json1_1ReleaseStaticIpCommandError = async (
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
       response = {
         ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ResetDistributionCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetDistributionCacheCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ResetDistributionCacheCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ResetDistributionCacheResult(data, context);
+  const response: ResetDistributionCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ResetDistributionCacheResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ResetDistributionCacheCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetDistributionCacheCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1SendContactMethodVerificationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendContactMethodVerificationCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1SendContactMethodVerificationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SendContactMethodVerificationResult(data, context);
+  const response: SendContactMethodVerificationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "SendContactMethodVerificationResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SendContactMethodVerificationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendContactMethodVerificationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12167,6 +14371,102 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1TestAlarmCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestAlarmCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1TestAlarmCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TestAlarmResult(data, context);
+  const response: TestAlarmCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TestAlarmResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TestAlarmCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestAlarmCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UnpeerVpcCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12314,6 +14614,198 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
       response = {
         ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateDistributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDistributionCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateDistributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateDistributionResult(data, context);
+  const response: UpdateDistributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateDistributionResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateDistributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDistributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateDistributionBundleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDistributionBundleCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateDistributionBundleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateDistributionBundleResult(data, context);
+  const response: UpdateDistributionBundleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateDistributionBundleResult",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateDistributionBundleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDistributionBundleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12915,6 +15407,16 @@ const serializeAws_json1_1AllocateStaticIpRequest = (input: AllocateStaticIpRequ
   };
 };
 
+const serializeAws_json1_1AttachCertificateToDistributionRequest = (
+  input: AttachCertificateToDistributionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificateName !== undefined && { certificateName: input.certificateName }),
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
+  };
+};
+
 const serializeAws_json1_1AttachDiskRequest = (input: AttachDiskRequest, context: __SerdeContext): any => {
   return {
     ...(input.diskName !== undefined && { diskName: input.diskName }),
@@ -12971,6 +15473,49 @@ const serializeAws_json1_1AutoSnapshotAddOnRequest = (
   };
 };
 
+const serializeAws_json1_1CacheBehavior = (input: CacheBehavior, context: __SerdeContext): any => {
+  return {
+    ...(input.behavior !== undefined && { behavior: input.behavior }),
+  };
+};
+
+const serializeAws_json1_1CacheBehaviorList = (input: CacheBehaviorPerPath[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1CacheBehaviorPerPath(entry, context));
+};
+
+const serializeAws_json1_1CacheBehaviorPerPath = (input: CacheBehaviorPerPath, context: __SerdeContext): any => {
+  return {
+    ...(input.behavior !== undefined && { behavior: input.behavior }),
+    ...(input.path !== undefined && { path: input.path }),
+  };
+};
+
+const serializeAws_json1_1CacheSettings = (input: CacheSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.allowedHTTPMethods !== undefined && { allowedHTTPMethods: input.allowedHTTPMethods }),
+    ...(input.cachedHTTPMethods !== undefined && { cachedHTTPMethods: input.cachedHTTPMethods }),
+    ...(input.defaultTTL !== undefined && { defaultTTL: input.defaultTTL }),
+    ...(input.forwardedCookies !== undefined && {
+      forwardedCookies: serializeAws_json1_1CookieObject(input.forwardedCookies, context),
+    }),
+    ...(input.forwardedHeaders !== undefined && {
+      forwardedHeaders: serializeAws_json1_1HeaderObject(input.forwardedHeaders, context),
+    }),
+    ...(input.forwardedQueryStrings !== undefined && {
+      forwardedQueryStrings: serializeAws_json1_1QueryStringObject(input.forwardedQueryStrings, context),
+    }),
+    ...(input.maximumTTL !== undefined && { maximumTTL: input.maximumTTL }),
+    ...(input.minimumTTL !== undefined && { minimumTTL: input.minimumTTL }),
+  };
+};
+
+const serializeAws_json1_1CertificateStatusList = (
+  input: (CertificateStatus | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1CloseInstancePublicPortsRequest = (
   input: CloseInstancePublicPortsRequest,
   context: __SerdeContext
@@ -12978,6 +15523,22 @@ const serializeAws_json1_1CloseInstancePublicPortsRequest = (
   return {
     ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
     ...(input.portInfo !== undefined && { portInfo: serializeAws_json1_1PortInfo(input.portInfo, context) }),
+  };
+};
+
+const serializeAws_json1_1ContactProtocolsList = (
+  input: (ContactProtocol | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1CookieObject = (input: CookieObject, context: __SerdeContext): any => {
+  return {
+    ...(input.cookiesAllowList !== undefined && {
+      cookiesAllowList: serializeAws_json1_1StringList(input.cookiesAllowList, context),
+    }),
+    ...(input.option !== undefined && { option: input.option }),
   };
 };
 
@@ -12994,6 +15555,20 @@ const serializeAws_json1_1CopySnapshotRequest = (input: CopySnapshotRequest, con
   };
 };
 
+const serializeAws_json1_1CreateCertificateRequest = (
+  input: CreateCertificateRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificateName !== undefined && { certificateName: input.certificateName }),
+    ...(input.domainName !== undefined && { domainName: input.domainName }),
+    ...(input.subjectAlternativeNames !== undefined && {
+      subjectAlternativeNames: serializeAws_json1_1SubjectAlternativeNameList(input.subjectAlternativeNames, context),
+    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateCloudFormationStackRequest = (
   input: CreateCloudFormationStackRequest,
   context: __SerdeContext
@@ -13002,6 +15577,16 @@ const serializeAws_json1_1CreateCloudFormationStackRequest = (
     ...(input.instances !== undefined && {
       instances: serializeAws_json1_1InstanceEntryList(input.instances, context),
     }),
+  };
+};
+
+const serializeAws_json1_1CreateContactMethodRequest = (
+  input: CreateContactMethodRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.contactEndpoint !== undefined && { contactEndpoint: input.contactEndpoint }),
+    ...(input.protocol !== undefined && { protocol: input.protocol }),
   };
 };
 
@@ -13042,6 +15627,27 @@ const serializeAws_json1_1CreateDiskSnapshotRequest = (
     ...(input.diskName !== undefined && { diskName: input.diskName }),
     ...(input.diskSnapshotName !== undefined && { diskSnapshotName: input.diskSnapshotName }),
     ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateDistributionRequest = (
+  input: CreateDistributionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bundleId !== undefined && { bundleId: input.bundleId }),
+    ...(input.cacheBehaviorSettings !== undefined && {
+      cacheBehaviorSettings: serializeAws_json1_1CacheSettings(input.cacheBehaviorSettings, context),
+    }),
+    ...(input.cacheBehaviors !== undefined && {
+      cacheBehaviors: serializeAws_json1_1CacheBehaviorList(input.cacheBehaviors, context),
+    }),
+    ...(input.defaultCacheBehavior !== undefined && {
+      defaultCacheBehavior: serializeAws_json1_1CacheBehavior(input.defaultCacheBehavior, context),
+    }),
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
+    ...(input.origin !== undefined && { origin: serializeAws_json1_1InputOrigin(input.origin, context) }),
     ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
@@ -13218,6 +15824,12 @@ const serializeAws_json1_1CreateRelationalDatabaseSnapshotRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteAlarmRequest = (input: DeleteAlarmRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.alarmName !== undefined && { alarmName: input.alarmName }),
+  };
+};
+
 const serializeAws_json1_1DeleteAutoSnapshotRequest = (
   input: DeleteAutoSnapshotRequest,
   context: __SerdeContext
@@ -13225,6 +15837,24 @@ const serializeAws_json1_1DeleteAutoSnapshotRequest = (
   return {
     ...(input.date !== undefined && { date: input.date }),
     ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
+  };
+};
+
+const serializeAws_json1_1DeleteCertificateRequest = (
+  input: DeleteCertificateRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificateName !== undefined && { certificateName: input.certificateName }),
+  };
+};
+
+const serializeAws_json1_1DeleteContactMethodRequest = (
+  input: DeleteContactMethodRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.protocol !== undefined && { protocol: input.protocol }),
   };
 };
 
@@ -13241,6 +15871,15 @@ const serializeAws_json1_1DeleteDiskSnapshotRequest = (
 ): any => {
   return {
     ...(input.diskSnapshotName !== undefined && { diskSnapshotName: input.diskSnapshotName }),
+  };
+};
+
+const serializeAws_json1_1DeleteDistributionRequest = (
+  input: DeleteDistributionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
   };
 };
 
@@ -13334,6 +15973,15 @@ const serializeAws_json1_1DeleteRelationalDatabaseSnapshotRequest = (
     ...(input.relationalDatabaseSnapshotName !== undefined && {
       relationalDatabaseSnapshotName: input.relationalDatabaseSnapshotName,
     }),
+  };
+};
+
+const serializeAws_json1_1DetachCertificateFromDistributionRequest = (
+  input: DetachCertificateFromDistributionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
   };
 };
 
@@ -13432,6 +16080,14 @@ const serializeAws_json1_1GetActiveNamesRequest = (input: GetActiveNamesRequest,
   };
 };
 
+const serializeAws_json1_1GetAlarmsRequest = (input: GetAlarmsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.alarmName !== undefined && { alarmName: input.alarmName }),
+    ...(input.monitoredResourceName !== undefined && { monitoredResourceName: input.monitoredResourceName }),
+    ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
+  };
+};
+
 const serializeAws_json1_1GetAutoSnapshotsRequest = (input: GetAutoSnapshotsRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
@@ -13452,12 +16108,35 @@ const serializeAws_json1_1GetBundlesRequest = (input: GetBundlesRequest, context
   };
 };
 
+const serializeAws_json1_1GetCertificatesRequest = (input: GetCertificatesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.certificateName !== undefined && { certificateName: input.certificateName }),
+    ...(input.certificateStatuses !== undefined && {
+      certificateStatuses: serializeAws_json1_1CertificateStatusList(input.certificateStatuses, context),
+    }),
+    ...(input.includeCertificateDetails !== undefined && {
+      includeCertificateDetails: input.includeCertificateDetails,
+    }),
+  };
+};
+
 const serializeAws_json1_1GetCloudFormationStackRecordsRequest = (
   input: GetCloudFormationStackRecordsRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
+  };
+};
+
+const serializeAws_json1_1GetContactMethodsRequest = (
+  input: GetContactMethodsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.protocols !== undefined && {
+      protocols: serializeAws_json1_1ContactProtocolsList(input.protocols, context),
+    }),
   };
 };
 
@@ -13481,6 +16160,46 @@ const serializeAws_json1_1GetDiskSnapshotsRequest = (input: GetDiskSnapshotsRequ
 
 const serializeAws_json1_1GetDisksRequest = (input: GetDisksRequest, context: __SerdeContext): any => {
   return {
+    ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
+  };
+};
+
+const serializeAws_json1_1GetDistributionBundlesRequest = (
+  input: GetDistributionBundlesRequest,
+  context: __SerdeContext
+): any => {
+  return {};
+};
+
+const serializeAws_json1_1GetDistributionLatestCacheResetRequest = (
+  input: GetDistributionLatestCacheResetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
+  };
+};
+
+const serializeAws_json1_1GetDistributionMetricDataRequest = (
+  input: GetDistributionMetricDataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.metricName !== undefined && { metricName: input.metricName }),
+    ...(input.period !== undefined && { period: input.period }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.statistics !== undefined && {
+      statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context),
+    }),
+    ...(input.unit !== undefined && { unit: input.unit }),
+  };
+};
+
+const serializeAws_json1_1GetDistributionsRequest = (input: GetDistributionsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
     ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
   };
 };
@@ -13798,10 +16517,31 @@ const serializeAws_json1_1GetStaticIpsRequest = (input: GetStaticIpsRequest, con
   };
 };
 
+const serializeAws_json1_1HeaderForwardList = (input: (HeaderEnum | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1HeaderObject = (input: HeaderObject, context: __SerdeContext): any => {
+  return {
+    ...(input.headersAllowList !== undefined && {
+      headersAllowList: serializeAws_json1_1HeaderForwardList(input.headersAllowList, context),
+    }),
+    ...(input.option !== undefined && { option: input.option }),
+  };
+};
+
 const serializeAws_json1_1ImportKeyPairRequest = (input: ImportKeyPairRequest, context: __SerdeContext): any => {
   return {
     ...(input.keyPairName !== undefined && { keyPairName: input.keyPairName }),
     ...(input.publicKeyBase64 !== undefined && { publicKeyBase64: input.publicKeyBase64 }),
+  };
+};
+
+const serializeAws_json1_1InputOrigin = (input: InputOrigin, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.protocolPolicy !== undefined && { protocolPolicy: input.protocolPolicy }),
+    ...(input.regionName !== undefined && { regionName: input.regionName }),
   };
 };
 
@@ -13827,6 +16567,10 @@ const serializeAws_json1_1MetricStatisticList = (input: (MetricStatistic | strin
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1NotificationTriggerList = (input: (AlarmState | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1OpenInstancePublicPortsRequest = (
   input: OpenInstancePublicPortsRequest,
   context: __SerdeContext
@@ -13843,6 +16587,10 @@ const serializeAws_json1_1PeerVpcRequest = (input: PeerVpcRequest, context: __Se
 
 const serializeAws_json1_1PortInfo = (input: PortInfo, context: __SerdeContext): any => {
   return {
+    ...(input.cidrListAliases !== undefined && {
+      cidrListAliases: serializeAws_json1_1StringList(input.cidrListAliases, context),
+    }),
+    ...(input.cidrs !== undefined && { cidrs: serializeAws_json1_1StringList(input.cidrs, context) }),
     ...(input.fromPort !== undefined && { fromPort: input.fromPort }),
     ...(input.protocol !== undefined && { protocol: input.protocol }),
     ...(input.toPort !== undefined && { toPort: input.toPort }),
@@ -13853,6 +16601,26 @@ const serializeAws_json1_1PortInfoList = (input: PortInfo[], context: __SerdeCon
   return input.map((entry) => serializeAws_json1_1PortInfo(entry, context));
 };
 
+const serializeAws_json1_1PutAlarmRequest = (input: PutAlarmRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.alarmName !== undefined && { alarmName: input.alarmName }),
+    ...(input.comparisonOperator !== undefined && { comparisonOperator: input.comparisonOperator }),
+    ...(input.contactProtocols !== undefined && {
+      contactProtocols: serializeAws_json1_1ContactProtocolsList(input.contactProtocols, context),
+    }),
+    ...(input.datapointsToAlarm !== undefined && { datapointsToAlarm: input.datapointsToAlarm }),
+    ...(input.evaluationPeriods !== undefined && { evaluationPeriods: input.evaluationPeriods }),
+    ...(input.metricName !== undefined && { metricName: input.metricName }),
+    ...(input.monitoredResourceName !== undefined && { monitoredResourceName: input.monitoredResourceName }),
+    ...(input.notificationEnabled !== undefined && { notificationEnabled: input.notificationEnabled }),
+    ...(input.notificationTriggers !== undefined && {
+      notificationTriggers: serializeAws_json1_1NotificationTriggerList(input.notificationTriggers, context),
+    }),
+    ...(input.threshold !== undefined && { threshold: input.threshold }),
+    ...(input.treatMissingData !== undefined && { treatMissingData: input.treatMissingData }),
+  };
+};
+
 const serializeAws_json1_1PutInstancePublicPortsRequest = (
   input: PutInstancePublicPortsRequest,
   context: __SerdeContext
@@ -13860,6 +16628,15 @@ const serializeAws_json1_1PutInstancePublicPortsRequest = (
   return {
     ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
     ...(input.portInfos !== undefined && { portInfos: serializeAws_json1_1PortInfoList(input.portInfos, context) }),
+  };
+};
+
+const serializeAws_json1_1QueryStringObject = (input: QueryStringObject, context: __SerdeContext): any => {
+  return {
+    ...(input.option !== undefined && { option: input.option }),
+    ...(input.queryStringsAllowList !== undefined && {
+      queryStringsAllowList: serializeAws_json1_1StringList(input.queryStringsAllowList, context),
+    }),
   };
 };
 
@@ -13907,8 +16684,26 @@ const serializeAws_json1_1ReleaseStaticIpRequest = (input: ReleaseStaticIpReques
   };
 };
 
+const serializeAws_json1_1ResetDistributionCacheRequest = (
+  input: ResetDistributionCacheRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
+  };
+};
+
 const serializeAws_json1_1ResourceNameList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1SendContactMethodVerificationRequest = (
+  input: SendContactMethodVerificationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.protocol !== undefined && { protocol: input.protocol }),
+  };
 };
 
 const serializeAws_json1_1StartInstanceRequest = (input: StartInstanceRequest, context: __SerdeContext): any => {
@@ -13949,6 +16744,10 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1SubjectAlternativeNameList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.key !== undefined && { key: input.key }),
@@ -13972,6 +16771,13 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
+const serializeAws_json1_1TestAlarmRequest = (input: TestAlarmRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.alarmName !== undefined && { alarmName: input.alarmName }),
+    ...(input.state !== undefined && { state: input.state }),
+  };
+};
+
 const serializeAws_json1_1UnpeerVpcRequest = (input: UnpeerVpcRequest, context: __SerdeContext): any => {
   return {};
 };
@@ -13981,6 +16787,36 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
     ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateDistributionBundleRequest = (
+  input: UpdateDistributionBundleRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bundleId !== undefined && { bundleId: input.bundleId }),
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
+  };
+};
+
+const serializeAws_json1_1UpdateDistributionRequest = (
+  input: UpdateDistributionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.cacheBehaviorSettings !== undefined && {
+      cacheBehaviorSettings: serializeAws_json1_1CacheSettings(input.cacheBehaviorSettings, context),
+    }),
+    ...(input.cacheBehaviors !== undefined && {
+      cacheBehaviors: serializeAws_json1_1CacheBehaviorList(input.cacheBehaviors, context),
+    }),
+    ...(input.defaultCacheBehavior !== undefined && {
+      defaultCacheBehavior: serializeAws_json1_1CacheBehavior(input.defaultCacheBehavior, context),
+    }),
+    ...(input.distributionName !== undefined && { distributionName: input.distributionName }),
+    ...(input.isEnabled !== undefined && { isEnabled: input.isEnabled }),
+    ...(input.origin !== undefined && { origin: serializeAws_json1_1InputOrigin(input.origin, context) }),
   };
 };
 
@@ -14082,12 +16918,83 @@ const deserializeAws_json1_1AddOnList = (output: any, context: __SerdeContext): 
   return (output || []).map((entry: any) => deserializeAws_json1_1AddOn(entry, context));
 };
 
+const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alarm => {
+  return {
+    __type: "Alarm",
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    comparisonOperator:
+      output.comparisonOperator !== undefined && output.comparisonOperator !== null
+        ? output.comparisonOperator
+        : undefined,
+    contactProtocols:
+      output.contactProtocols !== undefined && output.contactProtocols !== null
+        ? deserializeAws_json1_1ContactProtocolsList(output.contactProtocols, context)
+        : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    datapointsToAlarm:
+      output.datapointsToAlarm !== undefined && output.datapointsToAlarm !== null
+        ? output.datapointsToAlarm
+        : undefined,
+    evaluationPeriods:
+      output.evaluationPeriods !== undefined && output.evaluationPeriods !== null
+        ? output.evaluationPeriods
+        : undefined,
+    location:
+      output.location !== undefined && output.location !== null
+        ? deserializeAws_json1_1ResourceLocation(output.location, context)
+        : undefined,
+    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
+    monitoredResourceInfo:
+      output.monitoredResourceInfo !== undefined && output.monitoredResourceInfo !== null
+        ? deserializeAws_json1_1MonitoredResourceInfo(output.monitoredResourceInfo, context)
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    notificationEnabled:
+      output.notificationEnabled !== undefined && output.notificationEnabled !== null
+        ? output.notificationEnabled
+        : undefined,
+    notificationTriggers:
+      output.notificationTriggers !== undefined && output.notificationTriggers !== null
+        ? deserializeAws_json1_1NotificationTriggerList(output.notificationTriggers, context)
+        : undefined,
+    period: output.period !== undefined && output.period !== null ? output.period : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
+    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    threshold: output.threshold !== undefined && output.threshold !== null ? output.threshold : undefined,
+    treatMissingData:
+      output.treatMissingData !== undefined && output.treatMissingData !== null ? output.treatMissingData : undefined,
+    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AlarmsList = (output: any, context: __SerdeContext): Alarm[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Alarm(entry, context));
+};
+
 const deserializeAws_json1_1AllocateStaticIpResult = (output: any, context: __SerdeContext): AllocateStaticIpResult => {
   return {
     __type: "AllocateStaticIpResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AttachCertificateToDistributionResult = (
+  output: any,
+  context: __SerdeContext
+): AttachCertificateToDistributionResult => {
+  return {
+    __type: "AttachCertificateToDistributionResult",
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? deserializeAws_json1_1Operation(output.operation, context)
         : undefined,
   } as any;
 };
@@ -14231,6 +17138,139 @@ const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext):
   return (output || []).map((entry: any) => deserializeAws_json1_1Bundle(entry, context));
 };
 
+const deserializeAws_json1_1CacheBehavior = (output: any, context: __SerdeContext): CacheBehavior => {
+  return {
+    __type: "CacheBehavior",
+    behavior: output.behavior !== undefined && output.behavior !== null ? output.behavior : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CacheBehaviorList = (output: any, context: __SerdeContext): CacheBehaviorPerPath[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CacheBehaviorPerPath(entry, context));
+};
+
+const deserializeAws_json1_1CacheBehaviorPerPath = (output: any, context: __SerdeContext): CacheBehaviorPerPath => {
+  return {
+    __type: "CacheBehaviorPerPath",
+    behavior: output.behavior !== undefined && output.behavior !== null ? output.behavior : undefined,
+    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CacheSettings = (output: any, context: __SerdeContext): CacheSettings => {
+  return {
+    __type: "CacheSettings",
+    allowedHTTPMethods:
+      output.allowedHTTPMethods !== undefined && output.allowedHTTPMethods !== null
+        ? output.allowedHTTPMethods
+        : undefined,
+    cachedHTTPMethods:
+      output.cachedHTTPMethods !== undefined && output.cachedHTTPMethods !== null
+        ? output.cachedHTTPMethods
+        : undefined,
+    defaultTTL: output.defaultTTL !== undefined && output.defaultTTL !== null ? output.defaultTTL : undefined,
+    forwardedCookies:
+      output.forwardedCookies !== undefined && output.forwardedCookies !== null
+        ? deserializeAws_json1_1CookieObject(output.forwardedCookies, context)
+        : undefined,
+    forwardedHeaders:
+      output.forwardedHeaders !== undefined && output.forwardedHeaders !== null
+        ? deserializeAws_json1_1HeaderObject(output.forwardedHeaders, context)
+        : undefined,
+    forwardedQueryStrings:
+      output.forwardedQueryStrings !== undefined && output.forwardedQueryStrings !== null
+        ? deserializeAws_json1_1QueryStringObject(output.forwardedQueryStrings, context)
+        : undefined,
+    maximumTTL: output.maximumTTL !== undefined && output.maximumTTL !== null ? output.maximumTTL : undefined,
+    minimumTTL: output.minimumTTL !== undefined && output.minimumTTL !== null ? output.minimumTTL : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext): Certificate => {
+  return {
+    __type: "Certificate",
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    domainValidationRecords:
+      output.domainValidationRecords !== undefined && output.domainValidationRecords !== null
+        ? deserializeAws_json1_1DomainValidationRecordList(output.domainValidationRecords, context)
+        : undefined,
+    eligibleToRenew:
+      output.eligibleToRenew !== undefined && output.eligibleToRenew !== null ? output.eligibleToRenew : undefined,
+    inUseResourceCount:
+      output.inUseResourceCount !== undefined && output.inUseResourceCount !== null
+        ? output.inUseResourceCount
+        : undefined,
+    issuedAt:
+      output.issuedAt !== undefined && output.issuedAt !== null
+        ? new Date(Math.round(output.issuedAt * 1000))
+        : undefined,
+    issuerCA: output.issuerCA !== undefined && output.issuerCA !== null ? output.issuerCA : undefined,
+    keyAlgorithm: output.keyAlgorithm !== undefined && output.keyAlgorithm !== null ? output.keyAlgorithm : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    notAfter:
+      output.notAfter !== undefined && output.notAfter !== null
+        ? new Date(Math.round(output.notAfter * 1000))
+        : undefined,
+    notBefore:
+      output.notBefore !== undefined && output.notBefore !== null
+        ? new Date(Math.round(output.notBefore * 1000))
+        : undefined,
+    renewalSummary:
+      output.renewalSummary !== undefined && output.renewalSummary !== null
+        ? deserializeAws_json1_1RenewalSummary(output.renewalSummary, context)
+        : undefined,
+    requestFailureReason:
+      output.requestFailureReason !== undefined && output.requestFailureReason !== null
+        ? output.requestFailureReason
+        : undefined,
+    revocationReason:
+      output.revocationReason !== undefined && output.revocationReason !== null ? output.revocationReason : undefined,
+    revokedAt:
+      output.revokedAt !== undefined && output.revokedAt !== null
+        ? new Date(Math.round(output.revokedAt * 1000))
+        : undefined,
+    serialNumber: output.serialNumber !== undefined && output.serialNumber !== null ? output.serialNumber : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    subjectAlternativeNames:
+      output.subjectAlternativeNames !== undefined && output.subjectAlternativeNames !== null
+        ? deserializeAws_json1_1SubjectAlternativeNameList(output.subjectAlternativeNames, context)
+        : undefined,
+    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
+  return {
+    __type: "CertificateSummary",
+    certificateArn:
+      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
+    certificateDetail:
+      output.certificateDetail !== undefined && output.certificateDetail !== null
+        ? deserializeAws_json1_1Certificate(output.certificateDetail, context)
+        : undefined,
+    certificateName:
+      output.certificateName !== undefined && output.certificateName !== null ? output.certificateName : undefined,
+    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CertificateSummaryList = (output: any, context: __SerdeContext): CertificateSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CertificateSummary(entry, context));
+};
+
 const deserializeAws_json1_1CloseInstancePublicPortsResult = (
   output: any,
   context: __SerdeContext
@@ -14299,9 +17339,70 @@ const deserializeAws_json1_1CloudFormationStackRecordSourceInfoList = (
   return (output || []).map((entry: any) => deserializeAws_json1_1CloudFormationStackRecordSourceInfo(entry, context));
 };
 
+const deserializeAws_json1_1ContactMethod = (output: any, context: __SerdeContext): ContactMethod => {
+  return {
+    __type: "ContactMethod",
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    contactEndpoint:
+      output.contactEndpoint !== undefined && output.contactEndpoint !== null ? output.contactEndpoint : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    location:
+      output.location !== undefined && output.location !== null
+        ? deserializeAws_json1_1ResourceLocation(output.location, context)
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ContactMethodsList = (output: any, context: __SerdeContext): ContactMethod[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ContactMethod(entry, context));
+};
+
+const deserializeAws_json1_1ContactProtocolsList = (
+  output: any,
+  context: __SerdeContext
+): (ContactProtocol | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1CookieObject = (output: any, context: __SerdeContext): CookieObject => {
+  return {
+    __type: "CookieObject",
+    cookiesAllowList:
+      output.cookiesAllowList !== undefined && output.cookiesAllowList !== null
+        ? deserializeAws_json1_1StringList(output.cookiesAllowList, context)
+        : undefined,
+    option: output.option !== undefined && output.option !== null ? output.option : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
   return {
     __type: "CopySnapshotResult",
+    operations:
+      output.operations !== undefined && output.operations !== null
+        ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateCertificateResult = (
+  output: any,
+  context: __SerdeContext
+): CreateCertificateResult => {
+  return {
+    __type: "CreateCertificateResult",
+    certificate:
+      output.certificate !== undefined && output.certificate !== null
+        ? deserializeAws_json1_1CertificateSummary(output.certificate, context)
+        : undefined,
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -14315,6 +17416,19 @@ const deserializeAws_json1_1CreateCloudFormationStackResult = (
 ): CreateCloudFormationStackResult => {
   return {
     __type: "CreateCloudFormationStackResult",
+    operations:
+      output.operations !== undefined && output.operations !== null
+        ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateContactMethodResult = (
+  output: any,
+  context: __SerdeContext
+): CreateContactMethodResult => {
+  return {
+    __type: "CreateContactMethodResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -14354,6 +17468,23 @@ const deserializeAws_json1_1CreateDiskSnapshotResult = (
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateDistributionResult = (
+  output: any,
+  context: __SerdeContext
+): CreateDistributionResult => {
+  return {
+    __type: "CreateDistributionResult",
+    distribution:
+      output.distribution !== undefined && output.distribution !== null
+        ? deserializeAws_json1_1LightsailDistribution(output.distribution, context)
+        : undefined,
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? deserializeAws_json1_1Operation(output.operation, context)
         : undefined,
   } as any;
 };
@@ -14500,12 +17631,48 @@ const deserializeAws_json1_1CreateRelationalDatabaseSnapshotResult = (
   } as any;
 };
 
+const deserializeAws_json1_1DeleteAlarmResult = (output: any, context: __SerdeContext): DeleteAlarmResult => {
+  return {
+    __type: "DeleteAlarmResult",
+    operations:
+      output.operations !== undefined && output.operations !== null
+        ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteAutoSnapshotResult = (
   output: any,
   context: __SerdeContext
 ): DeleteAutoSnapshotResult => {
   return {
     __type: "DeleteAutoSnapshotResult",
+    operations:
+      output.operations !== undefined && output.operations !== null
+        ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteCertificateResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteCertificateResult => {
+  return {
+    __type: "DeleteCertificateResult",
+    operations:
+      output.operations !== undefined && output.operations !== null
+        ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteContactMethodResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteContactMethodResult => {
+  return {
+    __type: "DeleteContactMethodResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -14532,6 +17699,19 @@ const deserializeAws_json1_1DeleteDiskSnapshotResult = (
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteDistributionResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteDistributionResult => {
+  return {
+    __type: "DeleteDistributionResult",
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? deserializeAws_json1_1Operation(output.operation, context)
         : undefined,
   } as any;
 };
@@ -14662,6 +17842,19 @@ const deserializeAws_json1_1DestinationInfo = (output: any, context: __SerdeCont
     __type: "DestinationInfo",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     service: output.service !== undefined && output.service !== null ? output.service : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DetachCertificateFromDistributionResult = (
+  output: any,
+  context: __SerdeContext
+): DetachCertificateFromDistributionResult => {
+  return {
+    __type: "DetachCertificateFromDistributionResult",
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? deserializeAws_json1_1Operation(output.operation, context)
+        : undefined,
   } as any;
 };
 
@@ -14808,6 +18001,28 @@ const deserializeAws_json1_1DiskSnapshotList = (output: any, context: __SerdeCon
   return (output || []).map((entry: any) => deserializeAws_json1_1DiskSnapshot(entry, context));
 };
 
+const deserializeAws_json1_1DistributionBundle = (output: any, context: __SerdeContext): DistributionBundle => {
+  return {
+    __type: "DistributionBundle",
+    bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
+    isActive: output.isActive !== undefined && output.isActive !== null ? output.isActive : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    price: output.price !== undefined && output.price !== null ? output.price : undefined,
+    transferPerMonthInGb:
+      output.transferPerMonthInGb !== undefined && output.transferPerMonthInGb !== null
+        ? output.transferPerMonthInGb
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DistributionBundleList = (output: any, context: __SerdeContext): DistributionBundle[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DistributionBundle(entry, context));
+};
+
+const deserializeAws_json1_1DistributionList = (output: any, context: __SerdeContext): LightsailDistribution[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1LightsailDistribution(entry, context));
+};
+
 const deserializeAws_json1_1Domain = (output: any, context: __SerdeContext): Domain => {
   return {
     __type: "Domain",
@@ -14865,6 +18080,24 @@ const deserializeAws_json1_1DomainEntryOptions = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext): Domain[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Domain(entry, context));
+};
+
+const deserializeAws_json1_1DomainValidationRecord = (output: any, context: __SerdeContext): DomainValidationRecord => {
+  return {
+    __type: "DomainValidationRecord",
+    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    resourceRecord:
+      output.resourceRecord !== undefined && output.resourceRecord !== null
+        ? deserializeAws_json1_1ResourceRecord(output.resourceRecord, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DomainValidationRecordList = (
+  output: any,
+  context: __SerdeContext
+): DomainValidationRecord[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DomainValidationRecord(entry, context));
 };
 
 const deserializeAws_json1_1DownloadDefaultKeyPairResult = (
@@ -14973,6 +18206,18 @@ const deserializeAws_json1_1GetActiveNamesResult = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1GetAlarmsResult = (output: any, context: __SerdeContext): GetAlarmsResult => {
+  return {
+    __type: "GetAlarmsResult",
+    alarms:
+      output.alarms !== undefined && output.alarms !== null
+        ? deserializeAws_json1_1AlarmsList(output.alarms, context)
+        : undefined,
+    nextPageToken:
+      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetAutoSnapshotsResult = (output: any, context: __SerdeContext): GetAutoSnapshotsResult => {
   return {
     __type: "GetAutoSnapshotsResult",
@@ -15009,6 +18254,16 @@ const deserializeAws_json1_1GetBundlesResult = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1GetCertificatesResult = (output: any, context: __SerdeContext): GetCertificatesResult => {
+  return {
+    __type: "GetCertificatesResult",
+    certificates:
+      output.certificates !== undefined && output.certificates !== null
+        ? deserializeAws_json1_1CertificateSummaryList(output.certificates, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetCloudFormationStackRecordsResult = (
   output: any,
   context: __SerdeContext
@@ -15021,6 +18276,19 @@ const deserializeAws_json1_1GetCloudFormationStackRecordsResult = (
         : undefined,
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetContactMethodsResult = (
+  output: any,
+  context: __SerdeContext
+): GetContactMethodsResult => {
+  return {
+    __type: "GetContactMethodsResult",
+    contactMethods:
+      output.contactMethods !== undefined && output.contactMethods !== null
+        ? deserializeAws_json1_1ContactMethodsList(output.contactMethods, context)
+        : undefined,
   } as any;
 };
 
@@ -15060,6 +18328,59 @@ const deserializeAws_json1_1GetDisksResult = (output: any, context: __SerdeConte
     disks:
       output.disks !== undefined && output.disks !== null
         ? deserializeAws_json1_1DiskList(output.disks, context)
+        : undefined,
+    nextPageToken:
+      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetDistributionBundlesResult = (
+  output: any,
+  context: __SerdeContext
+): GetDistributionBundlesResult => {
+  return {
+    __type: "GetDistributionBundlesResult",
+    bundles:
+      output.bundles !== undefined && output.bundles !== null
+        ? deserializeAws_json1_1DistributionBundleList(output.bundles, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetDistributionLatestCacheResetResult = (
+  output: any,
+  context: __SerdeContext
+): GetDistributionLatestCacheResetResult => {
+  return {
+    __type: "GetDistributionLatestCacheResetResult",
+    createTime:
+      output.createTime !== undefined && output.createTime !== null
+        ? new Date(Math.round(output.createTime * 1000))
+        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetDistributionMetricDataResult = (
+  output: any,
+  context: __SerdeContext
+): GetDistributionMetricDataResult => {
+  return {
+    __type: "GetDistributionMetricDataResult",
+    metricData:
+      output.metricData !== undefined && output.metricData !== null
+        ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
+        : undefined,
+    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetDistributionsResult = (output: any, context: __SerdeContext): GetDistributionsResult => {
+  return {
+    __type: "GetDistributionsResult",
+    distributions:
+      output.distributions !== undefined && output.distributions !== null
+        ? deserializeAws_json1_1DistributionList(output.distributions, context)
         : undefined,
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
@@ -15524,6 +18845,21 @@ const deserializeAws_json1_1GetStaticIpsResult = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1HeaderForwardList = (output: any, context: __SerdeContext): (HeaderEnum | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1HeaderObject = (output: any, context: __SerdeContext): HeaderObject => {
+  return {
+    __type: "HeaderObject",
+    headersAllowList:
+      output.headersAllowList !== undefined && output.headersAllowList !== null
+        ? deserializeAws_json1_1HeaderForwardList(output.headersAllowList, context)
+        : undefined,
+    option: output.option !== undefined && output.option !== null ? output.option : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1HostKeyAttributes = (output: any, context: __SerdeContext): HostKeyAttributes => {
   return {
     __type: "HostKeyAttributes",
@@ -15703,6 +19039,14 @@ const deserializeAws_json1_1InstancePortInfo = (output: any, context: __SerdeCon
       output.accessDirection !== undefined && output.accessDirection !== null ? output.accessDirection : undefined,
     accessFrom: output.accessFrom !== undefined && output.accessFrom !== null ? output.accessFrom : undefined,
     accessType: output.accessType !== undefined && output.accessType !== null ? output.accessType : undefined,
+    cidrListAliases:
+      output.cidrListAliases !== undefined && output.cidrListAliases !== null
+        ? deserializeAws_json1_1StringList(output.cidrListAliases, context)
+        : undefined,
+    cidrs:
+      output.cidrs !== undefined && output.cidrs !== null
+        ? deserializeAws_json1_1StringList(output.cidrs, context)
+        : undefined,
     commonName: output.commonName !== undefined && output.commonName !== null ? output.commonName : undefined,
     fromPort: output.fromPort !== undefined && output.fromPort !== null ? output.fromPort : undefined,
     protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
@@ -15717,6 +19061,14 @@ const deserializeAws_json1_1InstancePortInfoList = (output: any, context: __Serd
 const deserializeAws_json1_1InstancePortState = (output: any, context: __SerdeContext): InstancePortState => {
   return {
     __type: "InstancePortState",
+    cidrListAliases:
+      output.cidrListAliases !== undefined && output.cidrListAliases !== null
+        ? deserializeAws_json1_1StringList(output.cidrListAliases, context)
+        : undefined,
+    cidrs:
+      output.cidrs !== undefined && output.cidrs !== null
+        ? deserializeAws_json1_1StringList(output.cidrs, context)
+        : undefined,
     fromPort: output.fromPort !== undefined && output.fromPort !== null ? output.fromPort : undefined,
     protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
     state: output.state !== undefined && output.state !== null ? output.state : undefined,
@@ -15835,6 +19187,60 @@ const deserializeAws_json1_1KeyPair = (output: any, context: __SerdeContext): Ke
 
 const deserializeAws_json1_1KeyPairList = (output: any, context: __SerdeContext): KeyPair[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1KeyPair(entry, context));
+};
+
+const deserializeAws_json1_1LightsailDistribution = (output: any, context: __SerdeContext): LightsailDistribution => {
+  return {
+    __type: "LightsailDistribution",
+    ableToUpdateBundle:
+      output.ableToUpdateBundle !== undefined && output.ableToUpdateBundle !== null
+        ? output.ableToUpdateBundle
+        : undefined,
+    alternativeDomainNames:
+      output.alternativeDomainNames !== undefined && output.alternativeDomainNames !== null
+        ? deserializeAws_json1_1StringList(output.alternativeDomainNames, context)
+        : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
+    cacheBehaviorSettings:
+      output.cacheBehaviorSettings !== undefined && output.cacheBehaviorSettings !== null
+        ? deserializeAws_json1_1CacheSettings(output.cacheBehaviorSettings, context)
+        : undefined,
+    cacheBehaviors:
+      output.cacheBehaviors !== undefined && output.cacheBehaviors !== null
+        ? deserializeAws_json1_1CacheBehaviorList(output.cacheBehaviors, context)
+        : undefined,
+    certificateName:
+      output.certificateName !== undefined && output.certificateName !== null ? output.certificateName : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    defaultCacheBehavior:
+      output.defaultCacheBehavior !== undefined && output.defaultCacheBehavior !== null
+        ? deserializeAws_json1_1CacheBehavior(output.defaultCacheBehavior, context)
+        : undefined,
+    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    isEnabled: output.isEnabled !== undefined && output.isEnabled !== null ? output.isEnabled : undefined,
+    location:
+      output.location !== undefined && output.location !== null
+        ? deserializeAws_json1_1ResourceLocation(output.location, context)
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    origin:
+      output.origin !== undefined && output.origin !== null
+        ? deserializeAws_json1_1Origin(output.origin, context)
+        : undefined,
+    originPublicDNS:
+      output.originPublicDNS !== undefined && output.originPublicDNS !== null ? output.originPublicDNS : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
@@ -16094,6 +19500,15 @@ const deserializeAws_json1_1MetricDatapointList = (output: any, context: __Serde
   return (output || []).map((entry: any) => deserializeAws_json1_1MetricDatapoint(entry, context));
 };
 
+const deserializeAws_json1_1MonitoredResourceInfo = (output: any, context: __SerdeContext): MonitoredResourceInfo => {
+  return {
+    __type: "MonitoredResourceInfo",
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1MonthlyTransfer = (output: any, context: __SerdeContext): MonthlyTransfer => {
   return {
     __type: "MonthlyTransfer",
@@ -16112,6 +19527,13 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     tip: output.tip !== undefined && output.tip !== null ? output.tip : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1NotificationTriggerList = (
+  output: any,
+  context: __SerdeContext
+): (AlarmState | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1OpenInstancePublicPortsResult = (
@@ -16171,6 +19593,17 @@ const deserializeAws_json1_1OperationFailureException = (
 
 const deserializeAws_json1_1OperationList = (output: any, context: __SerdeContext): Operation[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Operation(entry, context));
+};
+
+const deserializeAws_json1_1Origin = (output: any, context: __SerdeContext): Origin => {
+  return {
+    __type: "Origin",
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    protocolPolicy:
+      output.protocolPolicy !== undefined && output.protocolPolicy !== null ? output.protocolPolicy : undefined,
+    regionName: output.regionName !== undefined && output.regionName !== null ? output.regionName : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1PasswordData = (output: any, context: __SerdeContext): PasswordData => {
@@ -16236,6 +19669,16 @@ const deserializeAws_json1_1PortList = (output: any, context: __SerdeContext): n
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1PutAlarmResult = (output: any, context: __SerdeContext): PutAlarmResult => {
+  return {
+    __type: "PutAlarmResult",
+    operations:
+      output.operations !== undefined && output.operations !== null
+        ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1PutInstancePublicPortsResult = (
   output: any,
   context: __SerdeContext
@@ -16245,6 +19688,17 @@ const deserializeAws_json1_1PutInstancePublicPortsResult = (
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1QueryStringObject = (output: any, context: __SerdeContext): QueryStringObject => {
+  return {
+    __type: "QueryStringObject",
+    option: output.option !== undefined && output.option !== null ? output.option : undefined,
+    queryStringsAllowList:
+      output.queryStringsAllowList !== undefined && output.queryStringsAllowList !== null
+        ? deserializeAws_json1_1StringList(output.queryStringsAllowList, context)
         : undefined,
   } as any;
 };
@@ -16584,12 +20038,72 @@ const deserializeAws_json1_1ReleaseStaticIpResult = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1RenewalSummary = (output: any, context: __SerdeContext): RenewalSummary => {
+  return {
+    __type: "RenewalSummary",
+    domainValidationRecords:
+      output.domainValidationRecords !== undefined && output.domainValidationRecords !== null
+        ? deserializeAws_json1_1DomainValidationRecordList(output.domainValidationRecords, context)
+        : undefined,
+    renewalStatus:
+      output.renewalStatus !== undefined && output.renewalStatus !== null ? output.renewalStatus : undefined,
+    renewalStatusReason:
+      output.renewalStatusReason !== undefined && output.renewalStatusReason !== null
+        ? output.renewalStatusReason
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? new Date(Math.round(output.updatedAt * 1000))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResetDistributionCacheResult = (
+  output: any,
+  context: __SerdeContext
+): ResetDistributionCacheResult => {
+  return {
+    __type: "ResetDistributionCacheResult",
+    createTime:
+      output.createTime !== undefined && output.createTime !== null
+        ? new Date(Math.round(output.createTime * 1000))
+        : undefined,
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? deserializeAws_json1_1Operation(output.operation, context)
+        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceLocation = (output: any, context: __SerdeContext): ResourceLocation => {
   return {
     __type: "ResourceLocation",
     availabilityZone:
       output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
     regionName: output.regionName !== undefined && output.regionName !== null ? output.regionName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
+  return {
+    __type: "ResourceRecord",
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SendContactMethodVerificationResult = (
+  output: any,
+  context: __SerdeContext
+): SendContactMethodVerificationResult => {
+  return {
+    __type: "SendContactMethodVerificationResult",
+    operations:
+      output.operations !== undefined && output.operations !== null
+        ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
   } as any;
 };
 
@@ -16678,6 +20192,10 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1SubjectAlternativeNameList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
@@ -16693,6 +20211,16 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 const deserializeAws_json1_1TagResourceResult = (output: any, context: __SerdeContext): TagResourceResult => {
   return {
     __type: "TagResourceResult",
+    operations:
+      output.operations !== undefined && output.operations !== null
+        ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TestAlarmResult = (output: any, context: __SerdeContext): TestAlarmResult => {
+  return {
+    __type: "TestAlarmResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -16729,6 +20257,32 @@ const deserializeAws_json1_1UntagResourceResult = (output: any, context: __Serde
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateDistributionBundleResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateDistributionBundleResult => {
+  return {
+    __type: "UpdateDistributionBundleResult",
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? deserializeAws_json1_1Operation(output.operation, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateDistributionResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateDistributionResult => {
+  return {
+    __type: "UpdateDistributionResult",
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? deserializeAws_json1_1Operation(output.operation, context)
         : undefined,
   } as any;
 };

@@ -91,18 +91,11 @@
     "com.amazonaws.clouddirectory#AddFacetToObjectRequest": {
       "type": "structure",
       "members": {
-        "DirectoryArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
+        "SchemaFacet": {
+          "target": "com.amazonaws.clouddirectory#SchemaFacet",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where the object resides. For more information, see <a>arns</a>.</p>",
-            "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#documentation": "<p>Identifiers for the facet that you are adding to the object. See <a>SchemaFacet</a> for details.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "ObjectAttributeList": {
-          "target": "com.amazonaws.clouddirectory#AttributeKeyAndValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>Attributes on the facet that you are adding to the object.</p>"
           }
         },
         "ObjectReference": {
@@ -112,10 +105,17 @@
             "smithy.api#required": {}
           }
         },
-        "SchemaFacet": {
-          "target": "com.amazonaws.clouddirectory#SchemaFacet",
+        "ObjectAttributeList": {
+          "target": "com.amazonaws.clouddirectory#AttributeKeyAndValueList",
           "traits": {
-            "smithy.api#documentation": "<p>Identifiers for the facet that you are adding to the object. See <a>SchemaFacet</a> for details.</p>",
+            "smithy.api#documentation": "<p>Attributes on the facet that you are adding to the object.</p>"
+          }
+        },
+        "DirectoryArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where the object resides. For more information, see <a>arns</a>.</p>",
+            "smithy.api#httpHeader": "x-amz-data-partition",
             "smithy.api#required": {}
           }
         }
@@ -392,18 +392,18 @@
     "com.amazonaws.clouddirectory#ApplySchemaRequest": {
       "type": "structure",
       "members": {
+        "PublishedSchemaArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>Published schema Amazon Resource Name (ARN) that needs to be copied. For more\n      information, see <a>arns</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      into which the schema is copied. For more information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
-        "PublishedSchemaArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>Published schema Amazon Resource Name (ARN) that needs to be copied. For more\n      information, see <a>arns</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -490,13 +490,6 @@
     "com.amazonaws.clouddirectory#AttachObjectRequest": {
       "type": "structure",
       "members": {
-        "ChildReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>The child object reference to be attached to the object.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
@@ -509,6 +502,13 @@
           "target": "com.amazonaws.clouddirectory#LinkName",
           "traits": {
             "smithy.api#documentation": "<p>The link name with which the child object is attached to the parent.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChildReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>The child object reference to be attached to the object.</p>",
             "smithy.api#required": {}
           }
         },
@@ -589,17 +589,17 @@
             "smithy.api#required": {}
           }
         },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>The reference that identifies the object to which the policy will be\n      attached.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "PolicyReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>The reference that is associated with the policy object.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>The reference that identifies the object to which the policy will be\n      attached.</p>",
             "smithy.api#required": {}
           }
         }
@@ -675,17 +675,17 @@
             "smithy.api#required": {}
           }
         },
-        "IndexReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>A reference to the index that you are attaching the object to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "TargetReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>A reference to the object that you are attaching to the index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to the index that you are attaching the object to.</p>",
             "smithy.api#required": {}
           }
         }
@@ -754,10 +754,17 @@
     "com.amazonaws.clouddirectory#AttachTypedLinkRequest": {
       "type": "structure",
       "members": {
-        "Attributes": {
-          "target": "com.amazonaws.clouddirectory#AttributeNameAndValueList",
+        "TypedLinkFacet": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
           "traits": {
-            "smithy.api#documentation": "<p>A set of attributes that are associated with the typed link.</p>",
+            "smithy.api#documentation": "<p>Identifies the typed link facet that is associated with the typed link.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SourceObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the source object that the typed link will attach to.</p>",
             "smithy.api#required": {}
           }
         },
@@ -769,10 +776,10 @@
             "smithy.api#required": {}
           }
         },
-        "SourceObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
+        "Attributes": {
+          "target": "com.amazonaws.clouddirectory#AttributeNameAndValueList",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies the source object that the typed link will attach to.</p>",
+            "smithy.api#documentation": "<p>A set of attributes that are associated with the typed link.</p>",
             "smithy.api#required": {}
           }
         },
@@ -780,13 +787,6 @@
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the target object that the typed link will attach to.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TypedLinkFacet": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the typed link facet that is associated with the typed link.</p>",
             "smithy.api#required": {}
           }
         }
@@ -813,17 +813,17 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#AttributeName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the attribute.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the schema that contains the facet and\n      attribute.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#AttributeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the attribute.</p>",
             "smithy.api#required": {}
           }
         }
@@ -879,17 +879,17 @@
     "com.amazonaws.clouddirectory#AttributeNameAndValue": {
       "type": "structure",
       "members": {
-        "AttributeName": {
-          "target": "com.amazonaws.clouddirectory#AttributeName",
-          "traits": {
-            "smithy.api#documentation": "<p>The attribute name of the typed link.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Value": {
           "target": "com.amazonaws.clouddirectory#TypedAttributeValue",
           "traits": {
             "smithy.api#documentation": "<p>The value for the typed link.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttributeName": {
+          "target": "com.amazonaws.clouddirectory#AttributeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute name of the typed link.</p>",
             "smithy.api#required": {}
           }
         }
@@ -949,13 +949,6 @@
     "com.amazonaws.clouddirectory#BatchAttachObject": {
       "type": "structure",
       "members": {
-        "ChildReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>The child object reference that is to be attached to the object.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "LinkName": {
           "target": "com.amazonaws.clouddirectory#LinkName",
           "traits": {
@@ -967,6 +960,13 @@
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>The parent object reference.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ChildReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>The child object reference that is to be attached to the object.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1021,17 +1021,17 @@
     "com.amazonaws.clouddirectory#BatchAttachToIndex": {
       "type": "structure",
       "members": {
-        "IndexReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>A reference to the index that you are attaching the object to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "TargetReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>A reference to the object that you are attaching to the index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to the index that you are attaching the object to.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1057,13 +1057,6 @@
     "com.amazonaws.clouddirectory#BatchAttachTypedLink": {
       "type": "structure",
       "members": {
-        "Attributes": {
-          "target": "com.amazonaws.clouddirectory#AttributeNameAndValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>A set of attributes that are associated with the typed link.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SourceObjectReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
@@ -1082,6 +1075,13 @@
           "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the typed link facet that is associated with the typed link.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Attributes": {
+          "target": "com.amazonaws.clouddirectory#AttributeNameAndValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A set of attributes that are associated with the typed link.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1107,25 +1107,6 @@
     "com.amazonaws.clouddirectory#BatchCreateIndex": {
       "type": "structure",
       "members": {
-        "BatchReferenceName": {
-          "target": "com.amazonaws.clouddirectory#BatchReferenceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The batch reference name. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html\">Transaction Support</a> for more information.</p>"
-          }
-        },
-        "IsUnique": {
-          "target": "com.amazonaws.clouddirectory#Bool",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the attribute that is being indexed has unique values or\n       not.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "LinkName": {
-          "target": "com.amazonaws.clouddirectory#LinkName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the link between the parent object and the index object.</p>"
-          }
-        },
         "OrderedIndexedAttributeList": {
           "target": "com.amazonaws.clouddirectory#AttributeKeyList",
           "traits": {
@@ -1137,6 +1118,25 @@
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>A reference to the parent object that contains the index object.</p>"
+          }
+        },
+        "BatchReferenceName": {
+          "target": "com.amazonaws.clouddirectory#BatchReferenceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The batch reference name. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html\">Transaction Support</a> for more information.</p>"
+          }
+        },
+        "LinkName": {
+          "target": "com.amazonaws.clouddirectory#LinkName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the link between the parent object and the index object.</p>"
+          }
+        },
+        "IsUnique": {
+          "target": "com.amazonaws.clouddirectory#Bool",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the attribute that is being indexed has unique values or\n       not.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1161,25 +1161,6 @@
     "com.amazonaws.clouddirectory#BatchCreateObject": {
       "type": "structure",
       "members": {
-        "BatchReferenceName": {
-          "target": "com.amazonaws.clouddirectory#BatchReferenceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The batch reference name. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html\">Transaction Support</a> for more information.</p>"
-          }
-        },
-        "LinkName": {
-          "target": "com.amazonaws.clouddirectory#LinkName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the link.</p>"
-          }
-        },
-        "ObjectAttributeList": {
-          "target": "com.amazonaws.clouddirectory#AttributeKeyAndValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>An attribute map, which contains an attribute ARN as the key and attribute value as\n      the map value.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ParentReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
@@ -1190,6 +1171,25 @@
           "target": "com.amazonaws.clouddirectory#SchemaFacetList",
           "traits": {
             "smithy.api#documentation": "<p>A list of <code>FacetArns</code> that will be associated with the object. For more\n      information, see <a>arns</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LinkName": {
+          "target": "com.amazonaws.clouddirectory#LinkName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the link.</p>"
+          }
+        },
+        "BatchReferenceName": {
+          "target": "com.amazonaws.clouddirectory#BatchReferenceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The batch reference name. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html\">Transaction Support</a> for more information.</p>"
+          }
+        },
+        "ObjectAttributeList": {
+          "target": "com.amazonaws.clouddirectory#AttributeKeyAndValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>An attribute map, which contains an attribute ARN as the key and attribute value as\n      the map value.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1273,17 +1273,17 @@
     "com.amazonaws.clouddirectory#BatchDetachObject": {
       "type": "structure",
       "members": {
-        "BatchReferenceName": {
-          "target": "com.amazonaws.clouddirectory#BatchReferenceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The batch reference name. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html\">Transaction Support</a> for more information.</p>"
-          }
-        },
         "LinkName": {
           "target": "com.amazonaws.clouddirectory#LinkName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the link.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "BatchReferenceName": {
+          "target": "com.amazonaws.clouddirectory#BatchReferenceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The batch reference name. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html\">Transaction Support</a> for more information.</p>"
           }
         },
         "ParentReference": {
@@ -1402,6 +1402,13 @@
     "com.amazonaws.clouddirectory#BatchGetObjectAttributes": {
       "type": "structure",
       "members": {
+        "SchemaFacet": {
+          "target": "com.amazonaws.clouddirectory#SchemaFacet",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "AttributeNames": {
           "target": "com.amazonaws.clouddirectory#AttributeNameList",
           "traits": {
@@ -1413,13 +1420,6 @@
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>Reference that identifies the object whose attributes will be retrieved.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "SchemaFacet": {
-          "target": "com.amazonaws.clouddirectory#SchemaFacet",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1460,16 +1460,16 @@
     "com.amazonaws.clouddirectory#BatchGetObjectInformationResponse": {
       "type": "structure",
       "members": {
-        "ObjectIdentifier": {
-          "target": "com.amazonaws.clouddirectory#ObjectIdentifier",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ObjectIdentifier</code> of the specified object.</p>"
-          }
-        },
         "SchemaFacets": {
           "target": "com.amazonaws.clouddirectory#SchemaFacetList",
           "traits": {
             "smithy.api#documentation": "<p>The facets attached to the specified object.</p>"
+          }
+        },
+        "ObjectIdentifier": {
+          "target": "com.amazonaws.clouddirectory#ObjectIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ObjectIdentifier</code> of the specified object.</p>"
           }
         }
       },
@@ -1480,10 +1480,11 @@
     "com.amazonaws.clouddirectory#BatchListAttachedIndices": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
+        "TargetReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
+            "smithy.api#documentation": "<p>A reference to the object that has indices attached.</p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -1492,11 +1493,10 @@
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "TargetReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
           "traits": {
-            "smithy.api#documentation": "<p>A reference to the object that has indices attached.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         }
       },
@@ -1533,12 +1533,6 @@
             "smithy.api#documentation": "<p>Provides range filters for multiple attributes. When providing ranges to typed link\n       selection, any inexact ranges must be specified at the end. Any attributes that do not have a\n       range specified are presumed to match the entire range.</p>"
           }
         },
-        "FilterTypedLink": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters are interpreted in the order of the attributes on the typed link facet, not the\n       order in which they are supplied to any API calls.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.clouddirectory#NumberResults",
           "traits": {
@@ -1549,6 +1543,12 @@
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "FilterTypedLink": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters are interpreted in the order of the attributes on the typed link facet, not the\n       order in which they are supplied to any API calls.</p>"
           }
         },
         "ObjectReference": {
@@ -1566,16 +1566,16 @@
     "com.amazonaws.clouddirectory#BatchListIncomingTypedLinksResponse": {
       "type": "structure",
       "members": {
-        "LinkSpecifiers": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkSpecifierList",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns one or more typed link specifiers as output.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "LinkSpecifiers": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkSpecifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns one or more typed link specifiers as output.</p>"
           }
         }
       },
@@ -1586,11 +1586,10 @@
     "com.amazonaws.clouddirectory#BatchListIndex": {
       "type": "structure",
       "members": {
-        "IndexReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The reference to the index to list.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
         "MaxResults": {
@@ -1599,10 +1598,11 @@
             "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
+        "IndexReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
+            "smithy.api#documentation": "<p>The reference to the index to list.</p>",
+            "smithy.api#required": {}
           }
         },
         "RangesOnIndexedValues": {
@@ -1619,16 +1619,16 @@
     "com.amazonaws.clouddirectory#BatchListIndexResponse": {
       "type": "structure",
       "members": {
-        "IndexAttachments": {
-          "target": "com.amazonaws.clouddirectory#IndexAttachmentList",
-          "traits": {
-            "smithy.api#documentation": "<p>The objects and indexed values attached to the index.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "IndexAttachments": {
+          "target": "com.amazonaws.clouddirectory#IndexAttachmentList",
+          "traits": {
+            "smithy.api#documentation": "<p>The objects and indexed values attached to the index.</p>"
           }
         }
       },
@@ -1639,6 +1639,13 @@
     "com.amazonaws.clouddirectory#BatchListObjectAttributes": {
       "type": "structure",
       "members": {
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>Reference of the object whose attributes need to be listed.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "FacetFilter": {
           "target": "com.amazonaws.clouddirectory#SchemaFacet",
           "traits": {
@@ -1656,13 +1663,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
-        },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>Reference of the object whose attributes need to be listed.</p>",
-            "smithy.api#required": {}
-          }
         }
       },
       "traits": {
@@ -1672,16 +1672,16 @@
     "com.amazonaws.clouddirectory#BatchListObjectAttributesResponse": {
       "type": "structure",
       "members": {
-        "Attributes": {
-          "target": "com.amazonaws.clouddirectory#AttributeKeyAndValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>The attributes map that is associated with the object. <code>AttributeArn</code> is the\n      key; attribute value is the value.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "Attributes": {
+          "target": "com.amazonaws.clouddirectory#AttributeKeyAndValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>The attributes map that is associated with the object. <code>AttributeArn</code> is the\n      key; attribute value is the value.</p>"
           }
         }
       },
@@ -1766,16 +1766,16 @@
     "com.amazonaws.clouddirectory#BatchListObjectParentPathsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
         "PathToObjectIdentifiersList": {
           "target": "com.amazonaws.clouddirectory#PathToObjectIdentifiersList",
           "traits": {
             "smithy.api#documentation": "<p>Returns the path to the <code>ObjectIdentifiers</code> that are associated with the\n       directory.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         }
       },
@@ -1786,17 +1786,17 @@
     "com.amazonaws.clouddirectory#BatchListObjectParents": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults"
-        },
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken"
-        },
         "ObjectReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#required": {}
           }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults"
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken"
         }
       }
     },
@@ -1814,10 +1814,11 @@
     "com.amazonaws.clouddirectory#BatchListObjectPolicies": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
+            "smithy.api#documentation": "<p>The reference that identifies the object whose attributes will be listed.</p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -1826,11 +1827,10 @@
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
           "traits": {
-            "smithy.api#documentation": "<p>The reference that identifies the object whose attributes will be listed.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         }
       },
@@ -1841,16 +1841,16 @@
     "com.amazonaws.clouddirectory#BatchListObjectPoliciesResponse": {
       "type": "structure",
       "members": {
-        "AttachedPolicyIds": {
-          "target": "com.amazonaws.clouddirectory#ObjectIdentifierList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the\n       object.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "AttachedPolicyIds": {
+          "target": "com.amazonaws.clouddirectory#ObjectIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the\n       object.</p>"
           }
         }
       },
@@ -1861,16 +1861,17 @@
     "com.amazonaws.clouddirectory#BatchListOutgoingTypedLinks": {
       "type": "structure",
       "members": {
-        "FilterAttributeRanges": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkAttributeRangeList",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides range filters for multiple attributes. When providing ranges to typed link\n       selection, any inexact ranges must be specified at the end. Any attributes that do not have a\n       range specified are presumed to match the entire range.</p>"
-          }
-        },
         "FilterTypedLink": {
           "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
           "traits": {
             "smithy.api#documentation": "<p>Filters are interpreted in the order of the attributes defined on the typed link facet,\n       not the order they are supplied to any API calls.</p>"
+          }
+        },
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>The reference that identifies the object whose attributes will be listed.</p>",
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -1879,17 +1880,16 @@
             "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         },
+        "FilterAttributeRanges": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkAttributeRangeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides range filters for multiple attributes. When providing ranges to typed link\n       selection, any inexact ranges must be specified at the end. Any attributes that do not have a\n       range specified are presumed to match the entire range.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>The reference that identifies the object whose attributes will be listed.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -1900,16 +1900,16 @@
     "com.amazonaws.clouddirectory#BatchListOutgoingTypedLinksResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
         "TypedLinkSpecifiers": {
           "target": "com.amazonaws.clouddirectory#TypedLinkSpecifierList",
           "traits": {
             "smithy.api#documentation": "<p>Returns a typed link specifier as output.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         }
       },
@@ -1920,12 +1920,6 @@
     "com.amazonaws.clouddirectory#BatchListPolicyAttachments": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
@@ -1937,6 +1931,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The reference that identifies the policy object.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         }
       },
@@ -1973,17 +1973,17 @@
             "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
         "ObjectReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>Reference that identifies the object whose policies will be looked up.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         }
       },
@@ -1994,16 +1994,16 @@
     "com.amazonaws.clouddirectory#BatchLookupPolicyResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
         "PolicyToPathList": {
           "target": "com.amazonaws.clouddirectory#PolicyToPathList",
           "traits": {
             "smithy.api#documentation": "<p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and\n       <code>PolicyType</code>. For more\n       information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         }
       },
@@ -2057,16 +2057,16 @@
     "com.amazonaws.clouddirectory#BatchReadException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.clouddirectory#ExceptionMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>An exception message that is associated with the failure.</p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.clouddirectory#BatchReadExceptionType",
           "traits": {
             "smithy.api#documentation": "<p>A type of exception, such as <code>InvalidArnException</code>.</p>"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.clouddirectory#ExceptionMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>An exception message that is associated with the failure.</p>"
           }
         }
       },
@@ -2136,16 +2136,55 @@
     "com.amazonaws.clouddirectory#BatchReadOperation": {
       "type": "structure",
       "members": {
+        "ListOutgoingTypedLinks": {
+          "target": "com.amazonaws.clouddirectory#BatchListOutgoingTypedLinks",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>\n       information for an object. It also supports filtering by typed link facet and identity\n       attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
+          }
+        },
+        "ListObjectParents": {
+          "target": "com.amazonaws.clouddirectory#BatchListObjectParents"
+        },
+        "ListIndex": {
+          "target": "com.amazonaws.clouddirectory#BatchListIndex",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists objects attached to the specified index.</p>"
+          }
+        },
+        "ListIncomingTypedLinks": {
+          "target": "com.amazonaws.clouddirectory#BatchListIncomingTypedLinks",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>\n       information for an object. It also supports filtering by typed link facet and identity\n       attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
+          }
+        },
+        "ListObjectPolicies": {
+          "target": "com.amazonaws.clouddirectory#BatchListObjectPolicies",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns policies attached to an object in pagination fashion.</p>"
+          }
+        },
+        "ListObjectAttributes": {
+          "target": "com.amazonaws.clouddirectory#BatchListObjectAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists all attributes that are associated with an object.</p>"
+          }
+        },
         "GetLinkAttributes": {
           "target": "com.amazonaws.clouddirectory#BatchGetLinkAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Retrieves attributes that are associated with a typed link.</p>"
           }
         },
-        "GetObjectAttributes": {
-          "target": "com.amazonaws.clouddirectory#BatchGetObjectAttributes",
+        "LookupPolicy": {
+          "target": "com.amazonaws.clouddirectory#BatchLookupPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>Retrieves attributes within a facet that are associated with an object.</p>"
+            "smithy.api#documentation": "<p>Lists all policies from the root of the <a>Directory</a> to the object\n       specified. If there are no policies present, an empty list is returned. If policies are\n       present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>\n       for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and\n       <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more\n       information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"
+          }
+        },
+        "ListObjectChildren": {
+          "target": "com.amazonaws.clouddirectory#BatchListObjectChildren",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns a paginated list of child objects that are associated with a given\n      object.</p>"
           }
         },
         "GetObjectInformation": {
@@ -2160,61 +2199,22 @@
             "smithy.api#documentation": "<p>Lists indices attached to an object.</p>"
           }
         },
-        "ListIncomingTypedLinks": {
-          "target": "com.amazonaws.clouddirectory#BatchListIncomingTypedLinks",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>\n       information for an object. It also supports filtering by typed link facet and identity\n       attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
-          }
-        },
-        "ListIndex": {
-          "target": "com.amazonaws.clouddirectory#BatchListIndex",
-          "traits": {
-            "smithy.api#documentation": "<p>Lists objects attached to the specified index.</p>"
-          }
-        },
-        "ListObjectAttributes": {
-          "target": "com.amazonaws.clouddirectory#BatchListObjectAttributes",
-          "traits": {
-            "smithy.api#documentation": "<p>Lists all attributes that are associated with an object.</p>"
-          }
-        },
-        "ListObjectChildren": {
-          "target": "com.amazonaws.clouddirectory#BatchListObjectChildren",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns a paginated list of child objects that are associated with a given\n      object.</p>"
-          }
-        },
-        "ListObjectParentPaths": {
-          "target": "com.amazonaws.clouddirectory#BatchListObjectParentPaths",
-          "traits": {
-            "smithy.api#documentation": "<p>Retrieves all available parent paths for any object type such as node, leaf node,\n       policy node, and index node objects. For more information about objects, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html\">Directory Structure</a>.</p>"
-          }
-        },
-        "ListObjectParents": {
-          "target": "com.amazonaws.clouddirectory#BatchListObjectParents"
-        },
-        "ListObjectPolicies": {
-          "target": "com.amazonaws.clouddirectory#BatchListObjectPolicies",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns policies attached to an object in pagination fashion.</p>"
-          }
-        },
-        "ListOutgoingTypedLinks": {
-          "target": "com.amazonaws.clouddirectory#BatchListOutgoingTypedLinks",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>\n       information for an object. It also supports filtering by typed link facet and identity\n       attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
-          }
-        },
         "ListPolicyAttachments": {
           "target": "com.amazonaws.clouddirectory#BatchListPolicyAttachments",
           "traits": {
             "smithy.api#documentation": "<p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>"
           }
         },
-        "LookupPolicy": {
-          "target": "com.amazonaws.clouddirectory#BatchLookupPolicy",
+        "GetObjectAttributes": {
+          "target": "com.amazonaws.clouddirectory#BatchGetObjectAttributes",
           "traits": {
-            "smithy.api#documentation": "<p>Lists all policies from the root of the <a>Directory</a> to the object\n       specified. If there are no policies present, an empty list is returned. If policies are\n       present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>\n       for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and\n       <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more\n       information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"
+            "smithy.api#documentation": "<p>Retrieves attributes within a facet that are associated with an object.</p>"
+          }
+        },
+        "ListObjectParentPaths": {
+          "target": "com.amazonaws.clouddirectory#BatchListObjectParentPaths",
+          "traits": {
+            "smithy.api#documentation": "<p>Retrieves all available parent paths for any object type such as node, leaf node,\n       policy node, and index node objects. For more information about objects, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html\">Directory Structure</a>.</p>"
           }
         }
       },
@@ -2231,16 +2231,16 @@
     "com.amazonaws.clouddirectory#BatchReadOperationResponse": {
       "type": "structure",
       "members": {
-        "ExceptionResponse": {
-          "target": "com.amazonaws.clouddirectory#BatchReadException",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies which operation in a batch has failed.</p>"
-          }
-        },
         "SuccessfulResponse": {
           "target": "com.amazonaws.clouddirectory#BatchReadSuccessfulResponse",
           "traits": {
             "smithy.api#documentation": "<p>Identifies which operation in a batch has succeeded.</p>"
+          }
+        },
+        "ExceptionResponse": {
+          "target": "com.amazonaws.clouddirectory#BatchReadException",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies which operation in a batch has failed.</p>"
           }
         }
       },
@@ -2257,19 +2257,19 @@
     "com.amazonaws.clouddirectory#BatchReadRequest": {
       "type": "structure",
       "members": {
-        "ConsistencyLevel": {
-          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents the manner and timing in which the successful write or update of an object\n      is reflected in a subsequent read operation of that same object.</p>",
-            "smithy.api#httpHeader": "x-amz-consistency-level"
-          }
-        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.\n      For more information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
             "smithy.api#required": {}
+          }
+        },
+        "ConsistencyLevel": {
+          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the manner and timing in which the successful write or update of an object\n      is reflected in a subsequent read operation of that same object.</p>",
+            "smithy.api#httpHeader": "x-amz-consistency-level"
           }
         },
         "Operations": {
@@ -2295,28 +2295,10 @@
     "com.amazonaws.clouddirectory#BatchReadSuccessfulResponse": {
       "type": "structure",
       "members": {
-        "GetLinkAttributes": {
-          "target": "com.amazonaws.clouddirectory#BatchGetLinkAttributesResponse",
+        "ListObjectAttributes": {
+          "target": "com.amazonaws.clouddirectory#BatchListObjectAttributesResponse",
           "traits": {
-            "smithy.api#documentation": "<p>The list of attributes to retrieve from the typed link.</p>"
-          }
-        },
-        "GetObjectAttributes": {
-          "target": "com.amazonaws.clouddirectory#BatchGetObjectAttributesResponse",
-          "traits": {
-            "smithy.api#documentation": "<p>Retrieves attributes within a facet that are associated with an object.</p>"
-          }
-        },
-        "GetObjectInformation": {
-          "target": "com.amazonaws.clouddirectory#BatchGetObjectInformationResponse",
-          "traits": {
-            "smithy.api#documentation": "<p>Retrieves metadata about an object.</p>"
-          }
-        },
-        "ListAttachedIndices": {
-          "target": "com.amazonaws.clouddirectory#BatchListAttachedIndicesResponse",
-          "traits": {
-            "smithy.api#documentation": "<p>Lists indices attached to an object.</p>"
+            "smithy.api#documentation": "<p>Lists all attributes that are associated with an object.</p>"
           }
         },
         "ListIncomingTypedLinks": {
@@ -2325,16 +2307,28 @@
             "smithy.api#documentation": "<p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>\n       information for an object. It also supports filtering by typed link facet and identity\n       attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
           }
         },
+        "GetObjectAttributes": {
+          "target": "com.amazonaws.clouddirectory#BatchGetObjectAttributesResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>Retrieves attributes within a facet that are associated with an object.</p>"
+          }
+        },
         "ListIndex": {
           "target": "com.amazonaws.clouddirectory#BatchListIndexResponse",
           "traits": {
             "smithy.api#documentation": "<p>Lists objects attached to the specified index.</p>"
           }
         },
-        "ListObjectAttributes": {
-          "target": "com.amazonaws.clouddirectory#BatchListObjectAttributesResponse",
+        "ListObjectPolicies": {
+          "target": "com.amazonaws.clouddirectory#BatchListObjectPoliciesResponse",
           "traits": {
-            "smithy.api#documentation": "<p>Lists all attributes that are associated with an object.</p>"
+            "smithy.api#documentation": "<p>Returns policies attached to an object in pagination fashion.</p>"
+          }
+        },
+        "GetLinkAttributes": {
+          "target": "com.amazonaws.clouddirectory#BatchGetLinkAttributesResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of attributes to retrieve from the typed link.</p>"
           }
         },
         "ListObjectChildren": {
@@ -2343,25 +2337,31 @@
             "smithy.api#documentation": "<p>Returns a paginated list of child objects that are associated with a given\n      object.</p>"
           }
         },
+        "LookupPolicy": {
+          "target": "com.amazonaws.clouddirectory#BatchLookupPolicyResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists all policies from the root of the <a>Directory</a> to the object\n       specified. If there are no policies present, an empty list is returned. If policies are\n       present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>\n       for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and\n       <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more\n       information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"
+          }
+        },
+        "GetObjectInformation": {
+          "target": "com.amazonaws.clouddirectory#BatchGetObjectInformationResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>Retrieves metadata about an object.</p>"
+          }
+        },
+        "ListObjectParents": {
+          "target": "com.amazonaws.clouddirectory#BatchListObjectParentsResponse"
+        },
         "ListObjectParentPaths": {
           "target": "com.amazonaws.clouddirectory#BatchListObjectParentPathsResponse",
           "traits": {
             "smithy.api#documentation": "<p>Retrieves all available parent paths for any object type such as node, leaf node,\n       policy node, and index node objects. For more information about objects, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html\">Directory Structure</a>.</p>"
           }
         },
-        "ListObjectParents": {
-          "target": "com.amazonaws.clouddirectory#BatchListObjectParentsResponse"
-        },
-        "ListObjectPolicies": {
-          "target": "com.amazonaws.clouddirectory#BatchListObjectPoliciesResponse",
+        "ListAttachedIndices": {
+          "target": "com.amazonaws.clouddirectory#BatchListAttachedIndicesResponse",
           "traits": {
-            "smithy.api#documentation": "<p>Returns policies attached to an object in pagination fashion.</p>"
-          }
-        },
-        "ListOutgoingTypedLinks": {
-          "target": "com.amazonaws.clouddirectory#BatchListOutgoingTypedLinksResponse",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>\n       information for an object. It also supports filtering by typed link facet and identity\n       attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
+            "smithy.api#documentation": "<p>Lists indices attached to an object.</p>"
           }
         },
         "ListPolicyAttachments": {
@@ -2370,10 +2370,10 @@
             "smithy.api#documentation": "<p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>"
           }
         },
-        "LookupPolicy": {
-          "target": "com.amazonaws.clouddirectory#BatchLookupPolicyResponse",
+        "ListOutgoingTypedLinks": {
+          "target": "com.amazonaws.clouddirectory#BatchListOutgoingTypedLinksResponse",
           "traits": {
-            "smithy.api#documentation": "<p>Lists all policies from the root of the <a>Directory</a> to the object\n       specified. If there are no policies present, an empty list is returned. If policies are\n       present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>\n       for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and\n       <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more\n       information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"
+            "smithy.api#documentation": "<p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>\n       information for an object. It also supports filtering by typed link facet and identity\n       attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
           }
         }
       },
@@ -2445,17 +2445,17 @@
     "com.amazonaws.clouddirectory#BatchUpdateObjectAttributes": {
       "type": "structure",
       "members": {
-        "AttributeUpdates": {
-          "target": "com.amazonaws.clouddirectory#ObjectAttributeUpdateList",
-          "traits": {
-            "smithy.api#documentation": "<p>Attributes update structure.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ObjectReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>Reference that identifies the object.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttributeUpdates": {
+          "target": "com.amazonaws.clouddirectory#ObjectAttributeUpdateList",
+          "traits": {
+            "smithy.api#documentation": "<p>Attributes update structure.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2527,11 +2527,11 @@
         "Index": {
           "target": "com.amazonaws.clouddirectory#BatchOperationIndex"
         },
-        "Message": {
-          "target": "com.amazonaws.clouddirectory#ExceptionMessage"
-        },
         "Type": {
           "target": "com.amazonaws.clouddirectory#BatchWriteExceptionType"
+        },
+        "Message": {
+          "target": "com.amazonaws.clouddirectory#ExceptionMessage"
         }
       },
       "traits": {
@@ -2621,10 +2621,10 @@
     "com.amazonaws.clouddirectory#BatchWriteOperation": {
       "type": "structure",
       "members": {
-        "AddFacetToObject": {
-          "target": "com.amazonaws.clouddirectory#BatchAddFacetToObject",
+        "UpdateLinkAttributes": {
+          "target": "com.amazonaws.clouddirectory#BatchUpdateLinkAttributes",
           "traits": {
-            "smithy.api#documentation": "<p>A batch operation that adds a facet to an object.</p>"
+            "smithy.api#documentation": "<p>Updates a given object's attributes.</p>"
           }
         },
         "AttachObject": {
@@ -2633,40 +2633,10 @@
             "smithy.api#documentation": "<p>Attaches an object to a <a>Directory</a>.</p>"
           }
         },
-        "AttachPolicy": {
-          "target": "com.amazonaws.clouddirectory#BatchAttachPolicy",
-          "traits": {
-            "smithy.api#documentation": "<p>Attaches a policy object to a regular object. An object can have a limited number of attached\n       policies.</p>"
-          }
-        },
-        "AttachToIndex": {
-          "target": "com.amazonaws.clouddirectory#BatchAttachToIndex",
-          "traits": {
-            "smithy.api#documentation": "<p>Attaches the specified object to the specified index.</p>"
-          }
-        },
-        "AttachTypedLink": {
-          "target": "com.amazonaws.clouddirectory#BatchAttachTypedLink",
-          "traits": {
-            "smithy.api#documentation": "<p>Attaches a typed link to a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
-          }
-        },
         "CreateIndex": {
           "target": "com.amazonaws.clouddirectory#BatchCreateIndex",
           "traits": {
             "smithy.api#documentation": "<p>Creates an index object. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm\">Indexing and search</a> for more information.</p>"
-          }
-        },
-        "CreateObject": {
-          "target": "com.amazonaws.clouddirectory#BatchCreateObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Creates an object.</p>"
-          }
-        },
-        "DeleteObject": {
-          "target": "com.amazonaws.clouddirectory#BatchDeleteObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Deletes an object in a <a>Directory</a>.</p>"
           }
         },
         "DetachFromIndex": {
@@ -2675,22 +2645,16 @@
             "smithy.api#documentation": "<p>Detaches the specified object from the specified index.</p>"
           }
         },
-        "DetachObject": {
-          "target": "com.amazonaws.clouddirectory#BatchDetachObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Detaches an object from a <a>Directory</a>.</p>"
-          }
-        },
-        "DetachPolicy": {
-          "target": "com.amazonaws.clouddirectory#BatchDetachPolicy",
-          "traits": {
-            "smithy.api#documentation": "<p>Detaches a policy from a <a>Directory</a>.</p>"
-          }
-        },
         "DetachTypedLink": {
           "target": "com.amazonaws.clouddirectory#BatchDetachTypedLink",
           "traits": {
             "smithy.api#documentation": "<p>Detaches a typed link from a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
+          }
+        },
+        "AttachTypedLink": {
+          "target": "com.amazonaws.clouddirectory#BatchAttachTypedLink",
+          "traits": {
+            "smithy.api#documentation": "<p>Attaches a typed link to a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
           }
         },
         "RemoveFacetFromObject": {
@@ -2699,16 +2663,52 @@
             "smithy.api#documentation": "<p>A batch operation that removes a facet from an object.</p>"
           }
         },
-        "UpdateLinkAttributes": {
-          "target": "com.amazonaws.clouddirectory#BatchUpdateLinkAttributes",
+        "AddFacetToObject": {
+          "target": "com.amazonaws.clouddirectory#BatchAddFacetToObject",
           "traits": {
-            "smithy.api#documentation": "<p>Updates a given object's attributes.</p>"
+            "smithy.api#documentation": "<p>A batch operation that adds a facet to an object.</p>"
+          }
+        },
+        "AttachToIndex": {
+          "target": "com.amazonaws.clouddirectory#BatchAttachToIndex",
+          "traits": {
+            "smithy.api#documentation": "<p>Attaches the specified object to the specified index.</p>"
+          }
+        },
+        "CreateObject": {
+          "target": "com.amazonaws.clouddirectory#BatchCreateObject",
+          "traits": {
+            "smithy.api#documentation": "<p>Creates an object.</p>"
+          }
+        },
+        "AttachPolicy": {
+          "target": "com.amazonaws.clouddirectory#BatchAttachPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>Attaches a policy object to a regular object. An object can have a limited number of attached\n       policies.</p>"
+          }
+        },
+        "DetachPolicy": {
+          "target": "com.amazonaws.clouddirectory#BatchDetachPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>Detaches a policy from a <a>Directory</a>.</p>"
+          }
+        },
+        "DeleteObject": {
+          "target": "com.amazonaws.clouddirectory#BatchDeleteObject",
+          "traits": {
+            "smithy.api#documentation": "<p>Deletes an object in a <a>Directory</a>.</p>"
           }
         },
         "UpdateObjectAttributes": {
           "target": "com.amazonaws.clouddirectory#BatchUpdateObjectAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Updates a given object's attributes.</p>"
+          }
+        },
+        "DetachObject": {
+          "target": "com.amazonaws.clouddirectory#BatchDetachObject",
+          "traits": {
+            "smithy.api#documentation": "<p>Detaches an object from a <a>Directory</a>.</p>"
           }
         }
       },
@@ -2725,28 +2725,28 @@
     "com.amazonaws.clouddirectory#BatchWriteOperationResponse": {
       "type": "structure",
       "members": {
-        "AddFacetToObject": {
-          "target": "com.amazonaws.clouddirectory#BatchAddFacetToObjectResponse",
-          "traits": {
-            "smithy.api#documentation": "<p>The result of an add facet to object batch operation.</p>"
-          }
-        },
-        "AttachObject": {
-          "target": "com.amazonaws.clouddirectory#BatchAttachObjectResponse",
-          "traits": {
-            "smithy.api#documentation": "<p>Attaches an object to a <a>Directory</a>.</p>"
-          }
-        },
         "AttachPolicy": {
           "target": "com.amazonaws.clouddirectory#BatchAttachPolicyResponse",
           "traits": {
             "smithy.api#documentation": "<p>Attaches a policy object to a regular object. An object can have a limited number of attached\n       policies.</p>"
           }
         },
-        "AttachToIndex": {
-          "target": "com.amazonaws.clouddirectory#BatchAttachToIndexResponse",
+        "DetachTypedLink": {
+          "target": "com.amazonaws.clouddirectory#BatchDetachTypedLinkResponse",
           "traits": {
-            "smithy.api#documentation": "<p>Attaches the specified object to the specified index.</p>"
+            "smithy.api#documentation": "<p>Detaches a typed link from a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
+          }
+        },
+        "CreateObject": {
+          "target": "com.amazonaws.clouddirectory#BatchCreateObjectResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>Creates an object in a <a>Directory</a>.</p>"
+          }
+        },
+        "DetachPolicy": {
+          "target": "com.amazonaws.clouddirectory#BatchDetachPolicyResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>Detaches a policy from a <a>Directory</a>.</p>"
           }
         },
         "AttachTypedLink": {
@@ -2755,16 +2755,28 @@
             "smithy.api#documentation": "<p>Attaches a typed link to a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
           }
         },
+        "RemoveFacetFromObject": {
+          "target": "com.amazonaws.clouddirectory#BatchRemoveFacetFromObjectResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>The result of a batch remove facet from object operation.</p>"
+          }
+        },
+        "DetachObject": {
+          "target": "com.amazonaws.clouddirectory#BatchDetachObjectResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>Detaches an object from a <a>Directory</a>.</p>"
+          }
+        },
         "CreateIndex": {
           "target": "com.amazonaws.clouddirectory#BatchCreateIndexResponse",
           "traits": {
             "smithy.api#documentation": "<p>Creates an index object. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm\">Indexing and search</a> for more information.</p>"
           }
         },
-        "CreateObject": {
-          "target": "com.amazonaws.clouddirectory#BatchCreateObjectResponse",
+        "AttachObject": {
+          "target": "com.amazonaws.clouddirectory#BatchAttachObjectResponse",
           "traits": {
-            "smithy.api#documentation": "<p>Creates an object in a <a>Directory</a>.</p>"
+            "smithy.api#documentation": "<p>Attaches an object to a <a>Directory</a>.</p>"
           }
         },
         "DeleteObject": {
@@ -2779,28 +2791,16 @@
             "smithy.api#documentation": "<p>Detaches the specified object from the specified index.</p>"
           }
         },
-        "DetachObject": {
-          "target": "com.amazonaws.clouddirectory#BatchDetachObjectResponse",
+        "AddFacetToObject": {
+          "target": "com.amazonaws.clouddirectory#BatchAddFacetToObjectResponse",
           "traits": {
-            "smithy.api#documentation": "<p>Detaches an object from a <a>Directory</a>.</p>"
+            "smithy.api#documentation": "<p>The result of an add facet to object batch operation.</p>"
           }
         },
-        "DetachPolicy": {
-          "target": "com.amazonaws.clouddirectory#BatchDetachPolicyResponse",
+        "UpdateObjectAttributes": {
+          "target": "com.amazonaws.clouddirectory#BatchUpdateObjectAttributesResponse",
           "traits": {
-            "smithy.api#documentation": "<p>Detaches a policy from a <a>Directory</a>.</p>"
-          }
-        },
-        "DetachTypedLink": {
-          "target": "com.amazonaws.clouddirectory#BatchDetachTypedLinkResponse",
-          "traits": {
-            "smithy.api#documentation": "<p>Detaches a typed link from a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"
-          }
-        },
-        "RemoveFacetFromObject": {
-          "target": "com.amazonaws.clouddirectory#BatchRemoveFacetFromObjectResponse",
-          "traits": {
-            "smithy.api#documentation": "<p>The result of a batch remove facet from object operation.</p>"
+            "smithy.api#documentation": "<p>Updates a given object’s attributes.</p>"
           }
         },
         "UpdateLinkAttributes": {
@@ -2809,10 +2809,10 @@
             "smithy.api#documentation": "<p>Represents the output of a <code>BatchWrite</code> response operation.</p>"
           }
         },
-        "UpdateObjectAttributes": {
-          "target": "com.amazonaws.clouddirectory#BatchUpdateObjectAttributesResponse",
+        "AttachToIndex": {
+          "target": "com.amazonaws.clouddirectory#BatchAttachToIndexResponse",
           "traits": {
-            "smithy.api#documentation": "<p>Updates a given object’s attributes.</p>"
+            "smithy.api#documentation": "<p>Attaches the specified object to the specified index.</p>"
           }
         }
       },
@@ -2943,18 +2943,18 @@
     "com.amazonaws.clouddirectory#CreateDirectoryRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#DirectoryName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the <a>Directory</a>. Should be unique per account, per\n      region.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the published schema that will be copied into the\n      data <a>Directory</a>. For more information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#DirectoryName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the <a>Directory</a>. Should be unique per account, per\n      region.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2963,6 +2963,13 @@
     "com.amazonaws.clouddirectory#CreateDirectoryResponse": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#DirectoryName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the <a>Directory</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "AppliedSchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
@@ -2974,13 +2981,6 @@
           "target": "com.amazonaws.clouddirectory#DirectoryArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN that is associated with the <a>Directory</a>. For more information,\n      see <a>arns</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#DirectoryName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the <a>Directory</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3045,10 +3045,12 @@
     "com.amazonaws.clouddirectory#CreateFacetRequest": {
       "type": "structure",
       "members": {
-        "Attributes": {
-          "target": "com.amazonaws.clouddirectory#FacetAttributeList",
+        "SchemaArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The attributes that are associated with the <a>Facet</a>.</p>"
+            "smithy.api#documentation": "<p>The schema ARN in which the new <a>Facet</a> will be created. For more\n      information, see <a>arns</a>.</p>",
+            "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
           }
         },
         "FacetStyle": {
@@ -3064,18 +3066,16 @@
             "smithy.api#required": {}
           }
         },
+        "Attributes": {
+          "target": "com.amazonaws.clouddirectory#FacetAttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The attributes that are associated with the <a>Facet</a>.</p>"
+          }
+        },
         "ObjectType": {
           "target": "com.amazonaws.clouddirectory#ObjectType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether a given object created from this facet is of type node, leaf node,\n      policy or index.</p>\n         <ul>\n            <li>\n               <p>Node: Can have multiple children but one parent.</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>Leaf node: Cannot have children but can have multiple parents.</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>Policy: Allows you to store a policy document and policy type. For more\n        information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>Index: Can be created with the Index API.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "SchemaArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The schema ARN in which the new <a>Facet</a> will be created. For more\n      information, see <a>arns</a>.</p>",
-            "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
           }
         }
       }
@@ -3139,6 +3139,25 @@
     "com.amazonaws.clouddirectory#CreateIndexRequest": {
       "type": "structure",
       "members": {
+        "OrderedIndexedAttributeList": {
+          "target": "com.amazonaws.clouddirectory#AttributeKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the attributes that should be indexed on. Currently only a single attribute\n      is supported.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ParentReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to the parent object that contains the index object.</p>"
+          }
+        },
+        "LinkName": {
+          "target": "com.amazonaws.clouddirectory#LinkName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the link between the parent object and the index object.</p>"
+          }
+        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
@@ -3152,25 +3171,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the attribute that is being indexed has unique values or\n      not.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "LinkName": {
-          "target": "com.amazonaws.clouddirectory#LinkName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the link between the parent object and the index object.</p>"
-          }
-        },
-        "OrderedIndexedAttributeList": {
-          "target": "com.amazonaws.clouddirectory#AttributeKeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the attributes that should be indexed on. Currently only a single attribute\n      is supported.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ParentReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>A reference to the parent object that contains the index object.</p>"
           }
         }
       }
@@ -3255,12 +3255,6 @@
             "smithy.api#documentation": "<p>The name of link that is used to attach this object to a parent.</p>"
           }
         },
-        "ObjectAttributeList": {
-          "target": "com.amazonaws.clouddirectory#AttributeKeyAndValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>The attribute map whose attribute ARN contains the key and attribute value as the map\n      value.</p>"
-          }
-        },
         "ParentReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
@@ -3272,6 +3266,12 @@
           "traits": {
             "smithy.api#documentation": "<p>A list of schema facets to be associated with the object. Do not provide minor version components. See <a>SchemaFacet</a> for details.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ObjectAttributeList": {
+          "target": "com.amazonaws.clouddirectory#AttributeKeyAndValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute map whose attribute ARN contains the key and attribute value as the map\n      value.</p>"
           }
         }
       }
@@ -3834,17 +3834,17 @@
             "smithy.api#required": {}
           }
         },
-        "IndexReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>A reference to the index object.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "TargetReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>A reference to the object being detached from the index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to the index object.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3910,18 +3910,18 @@
     "com.amazonaws.clouddirectory#DetachObjectRequest": {
       "type": "structure",
       "members": {
+        "LinkName": {
+          "target": "com.amazonaws.clouddirectory#LinkName",
+          "traits": {
+            "smithy.api#documentation": "<p>The link name associated with the object that needs to be detached.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where objects reside. For more information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
-        "LinkName": {
-          "target": "com.amazonaws.clouddirectory#LinkName",
-          "traits": {
-            "smithy.api#documentation": "<p>The link name associated with the object that needs to be detached.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3994,14 +3994,6 @@
     "com.amazonaws.clouddirectory#DetachPolicyRequest": {
       "type": "structure",
       "members": {
-        "DirectoryArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where both objects reside. For more information, see <a>arns</a>.</p>",
-            "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
         "ObjectReference": {
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
@@ -4013,6 +4005,14 @@
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>Reference that identifies the policy object.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DirectoryArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where both objects reside. For more information, see <a>arns</a>.</p>",
+            "smithy.api#httpHeader": "x-amz-data-partition",
             "smithy.api#required": {}
           }
         }
@@ -4068,18 +4068,18 @@
     "com.amazonaws.clouddirectory#DetachTypedLinkRequest": {
       "type": "structure",
       "members": {
+        "TypedLinkSpecifier": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkSpecifier",
+          "traits": {
+            "smithy.api#documentation": "<p>Used to accept a typed link specifier as input.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the directory where you want to detach the typed\n      link.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
-        "TypedLinkSpecifier": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkSpecifier",
-          "traits": {
-            "smithy.api#documentation": "<p>Used to accept a typed link specifier as input.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4088,28 +4088,28 @@
     "com.amazonaws.clouddirectory#Directory": {
       "type": "structure",
       "members": {
-        "CreationDateTime": {
-          "target": "com.amazonaws.clouddirectory#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time when the directory was created.</p>"
-          }
-        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#DirectoryArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the directory. For more\n      information, see <a>arns</a>.</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#DirectoryName",
+        "CreationDateTime": {
+          "target": "com.amazonaws.clouddirectory#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the directory.</p>"
+            "smithy.api#documentation": "<p>The date and time when the directory was created.</p>"
           }
         },
         "State": {
           "target": "com.amazonaws.clouddirectory#DirectoryState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the directory. Can be either <code>Enabled</code>, <code>Disabled</code>, or <code>Deleted</code>.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#DirectoryName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the directory.</p>"
           }
         }
       },
@@ -4349,6 +4349,12 @@
     "com.amazonaws.clouddirectory#Facet": {
       "type": "structure",
       "members": {
+        "ObjectType": {
+          "target": "com.amazonaws.clouddirectory#ObjectType",
+          "traits": {
+            "smithy.api#documentation": "<p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>"
+          }
+        },
         "FacetStyle": {
           "target": "com.amazonaws.clouddirectory#FacetStyle",
           "traits": {
@@ -4359,12 +4365,6 @@
           "target": "com.amazonaws.clouddirectory#FacetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the <a>Facet</a>.</p>"
-          }
-        },
-        "ObjectType": {
-          "target": "com.amazonaws.clouddirectory#ObjectType",
-          "traits": {
-            "smithy.api#documentation": "<p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>"
           }
         }
       },
@@ -4388,6 +4388,12 @@
     "com.amazonaws.clouddirectory#FacetAttribute": {
       "type": "structure",
       "members": {
+        "RequiredBehavior": {
+          "target": "com.amazonaws.clouddirectory#RequiredAttributeBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>The required behavior of the <code>FacetAttribute</code>.</p>"
+          }
+        },
         "AttributeDefinition": {
           "target": "com.amazonaws.clouddirectory#FacetAttributeDefinition",
           "traits": {
@@ -4406,12 +4412,6 @@
             "smithy.api#documentation": "<p>The name of the facet attribute.</p>",
             "smithy.api#required": {}
           }
-        },
-        "RequiredBehavior": {
-          "target": "com.amazonaws.clouddirectory#RequiredAttributeBehavior",
-          "traits": {
-            "smithy.api#documentation": "<p>The required behavior of the <code>FacetAttribute</code>.</p>"
-          }
         }
       },
       "traits": {
@@ -4421,16 +4421,17 @@
     "com.amazonaws.clouddirectory#FacetAttributeDefinition": {
       "type": "structure",
       "members": {
+        "Type": {
+          "target": "com.amazonaws.clouddirectory#FacetAttributeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the attribute.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "DefaultValue": {
           "target": "com.amazonaws.clouddirectory#TypedAttributeValue",
           "traits": {
             "smithy.api#documentation": "<p>The default value of the attribute (if configured).</p>"
-          }
-        },
-        "IsImmutable": {
-          "target": "com.amazonaws.clouddirectory#Bool",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the attribute is mutable or not.</p>"
           }
         },
         "Rules": {
@@ -4439,11 +4440,10 @@
             "smithy.api#documentation": "<p>Validation rules attached to the attribute definition.</p>"
           }
         },
-        "Type": {
-          "target": "com.amazonaws.clouddirectory#FacetAttributeType",
+        "IsImmutable": {
+          "target": "com.amazonaws.clouddirectory#Bool",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the attribute.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Whether the attribute is mutable or not.</p>"
           }
         }
       },
@@ -4513,16 +4513,16 @@
     "com.amazonaws.clouddirectory#FacetAttributeUpdate": {
       "type": "structure",
       "members": {
-        "Action": {
-          "target": "com.amazonaws.clouddirectory#UpdateActionType",
-          "traits": {
-            "smithy.api#documentation": "<p>The action to perform when updating the attribute.</p>"
-          }
-        },
         "Attribute": {
           "target": "com.amazonaws.clouddirectory#FacetAttribute",
           "traits": {
             "smithy.api#documentation": "<p>The attribute to update.</p>"
+          }
+        },
+        "Action": {
+          "target": "com.amazonaws.clouddirectory#UpdateActionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The action to perform when updating the attribute.</p>"
           }
         }
       },
@@ -4777,18 +4777,18 @@
     "com.amazonaws.clouddirectory#GetFacetRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#FacetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the facet to retrieve.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.\n      For more information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#FacetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the facet to retrieve.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4951,13 +4951,6 @@
             "smithy.api#required": {}
           }
         },
-        "ConsistencyLevel": {
-          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>The consistency level at which to retrieve the attributes on an object.</p>",
-            "smithy.api#httpHeader": "x-amz-consistency-level"
-          }
-        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
@@ -4978,6 +4971,13 @@
           "traits": {
             "smithy.api#documentation": "<p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ConsistencyLevel": {
+          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>The consistency level at which to retrieve the attributes on an object.</p>",
+            "smithy.api#httpHeader": "x-amz-consistency-level"
           }
         }
       }
@@ -5039,6 +5039,13 @@
     "com.amazonaws.clouddirectory#GetObjectInformationRequest": {
       "type": "structure",
       "members": {
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to the object.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ConsistencyLevel": {
           "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
           "traits": {
@@ -5053,29 +5060,22 @@
             "smithy.api#httpHeader": "x-amz-data-partition",
             "smithy.api#required": {}
           }
-        },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>A reference to the object.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.clouddirectory#GetObjectInformationResponse": {
       "type": "structure",
       "members": {
-        "ObjectIdentifier": {
-          "target": "com.amazonaws.clouddirectory#ObjectIdentifier",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>ObjectIdentifier</code> of the specified object.</p>"
-          }
-        },
         "SchemaFacets": {
           "target": "com.amazonaws.clouddirectory#SchemaFacetList",
           "traits": {
             "smithy.api#documentation": "<p>The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See <a>GetAppliedSchemaVersion</a> for details.</p>"
+          }
+        },
+        "ObjectIdentifier": {
+          "target": "com.amazonaws.clouddirectory#ObjectIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ObjectIdentifier</code> of the specified object.</p>"
           }
         }
       }
@@ -5136,16 +5136,16 @@
     "com.amazonaws.clouddirectory#GetSchemaAsJsonResponse": {
       "type": "structure",
       "members": {
-        "Document": {
-          "target": "com.amazonaws.clouddirectory#SchemaJsonDocument",
-          "traits": {
-            "smithy.api#documentation": "<p>The JSON representation of the schema document.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.clouddirectory#SchemaName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the retrieved schema.</p>"
+          }
+        },
+        "Document": {
+          "target": "com.amazonaws.clouddirectory#SchemaJsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The JSON representation of the schema document.</p>"
           }
         }
       }
@@ -5199,18 +5199,18 @@
     "com.amazonaws.clouddirectory#GetTypedLinkFacetInformationRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkName",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique name of the typed link facet.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the schema. For more\n      information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkName",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique name of the typed link facet.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5399,16 +5399,16 @@
     "com.amazonaws.clouddirectory#LinkAttributeAction": {
       "type": "structure",
       "members": {
-        "AttributeActionType": {
-          "target": "com.amazonaws.clouddirectory#UpdateActionType",
-          "traits": {
-            "smithy.api#documentation": "<p>A type that can be either <code>UPDATE_OR_CREATE</code> or <code>DELETE</code>.</p>"
-          }
-        },
         "AttributeUpdateValue": {
           "target": "com.amazonaws.clouddirectory#TypedAttributeValue",
           "traits": {
             "smithy.api#documentation": "<p>The value that you want to update to.</p>"
+          }
+        },
+        "AttributeActionType": {
+          "target": "com.amazonaws.clouddirectory#UpdateActionType",
+          "traits": {
+            "smithy.api#documentation": "<p>A type that can be either <code>UPDATE_OR_CREATE</code> or <code>DELETE</code>.</p>"
           }
         }
       },
@@ -5525,11 +5525,10 @@
     "com.amazonaws.clouddirectory#ListAppliedSchemaArnsRequest": {
       "type": "structure",
       "members": {
-        "DirectoryArn": {
+        "SchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the directory you are listing.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The response for <code>ListAppliedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>"
           }
         },
         "MaxResults": {
@@ -5544,10 +5543,11 @@
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "SchemaArn": {
+        "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The response for <code>ListAppliedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>"
+            "smithy.api#documentation": "<p>The ARN of the directory you are listing.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -5555,16 +5555,16 @@
     "com.amazonaws.clouddirectory#ListAppliedSchemaArnsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
         "SchemaArns": {
           "target": "com.amazonaws.clouddirectory#Arns",
           "traits": {
             "smithy.api#documentation": "<p>The ARNs of schemas that are applied to the directory.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         }
       }
@@ -5620,27 +5620,6 @@
     "com.amazonaws.clouddirectory#ListAttachedIndicesRequest": {
       "type": "structure",
       "members": {
-        "ConsistencyLevel": {
-          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>The consistency level to use for this operation.</p>",
-            "smithy.api#httpHeader": "x-amz-consistency-level"
-          }
-        },
-        "DirectoryArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the directory.</p>",
-            "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
@@ -5653,22 +5632,43 @@
             "smithy.api#documentation": "<p>A reference to the object that has indices attached.</p>",
             "smithy.api#required": {}
           }
+        },
+        "ConsistencyLevel": {
+          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>The consistency level to use for this operation.</p>",
+            "smithy.api#httpHeader": "x-amz-consistency-level"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
+          }
+        },
+        "DirectoryArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the directory.</p>",
+            "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.clouddirectory#ListAttachedIndicesResponse": {
       "type": "structure",
       "members": {
-        "IndexAttachments": {
-          "target": "com.amazonaws.clouddirectory#IndexAttachmentList",
-          "traits": {
-            "smithy.api#documentation": "<p>The indices attached to the specified object.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "IndexAttachments": {
+          "target": "com.amazonaws.clouddirectory#IndexAttachmentList",
+          "traits": {
+            "smithy.api#documentation": "<p>The indices attached to the specified object.</p>"
           }
         }
       }
@@ -5724,16 +5724,16 @@
     "com.amazonaws.clouddirectory#ListDevelopmentSchemaArnsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         }
       }
@@ -5803,10 +5803,10 @@
     "com.amazonaws.clouddirectory#ListDirectoriesRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
+        "state": {
+          "target": "com.amazonaws.clouddirectory#DirectoryState",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
+            "smithy.api#documentation": "<p>The state of the directories in the list. Can be either Enabled, Disabled, or\n      Deleted.</p>"
           }
         },
         "NextToken": {
@@ -5815,10 +5815,10 @@
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "state": {
-          "target": "com.amazonaws.clouddirectory#DirectoryState",
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the directories in the list. Can be either Enabled, Disabled, or\n      Deleted.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         }
       }
@@ -5826,17 +5826,17 @@
     "com.amazonaws.clouddirectory#ListDirectoriesResponse": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
         "Directories": {
           "target": "com.amazonaws.clouddirectory#DirectoryList",
           "traits": {
             "smithy.api#documentation": "<p>Lists all directories that are associated with your account in pagination\n      fashion.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         }
       }
@@ -5895,16 +5895,18 @@
     "com.amazonaws.clouddirectory#ListFacetAttributesRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.clouddirectory#FacetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the facet whose attributes will be retrieved.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SchemaArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the schema where the facet resides.</p>",
+            "smithy.api#httpHeader": "x-amz-data-partition",
             "smithy.api#required": {}
           }
         },
@@ -5914,12 +5916,10 @@
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "SchemaArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the schema where the facet resides.</p>",
-            "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         }
       }
@@ -5992,16 +5992,16 @@
     "com.amazonaws.clouddirectory#ListFacetNamesRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         },
         "SchemaArn": {
@@ -6017,16 +6017,16 @@
     "com.amazonaws.clouddirectory#ListFacetNamesResponse": {
       "type": "structure",
       "members": {
-        "FacetNames": {
-          "target": "com.amazonaws.clouddirectory#FacetNameList",
-          "traits": {
-            "smithy.api#documentation": "<p>The names of facets that exist within the schema.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "FacetNames": {
+          "target": "com.amazonaws.clouddirectory#FacetNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>The names of facets that exist within the schema.</p>"
           }
         }
       }
@@ -6083,36 +6083,23 @@
     "com.amazonaws.clouddirectory#ListIncomingTypedLinksRequest": {
       "type": "structure",
       "members": {
-        "ConsistencyLevel": {
-          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>The consistency level to execute the request at.</p>"
-          }
-        },
-        "DirectoryArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the directory where you want to list the typed\n      links.</p>",
-            "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
         "FilterAttributeRanges": {
           "target": "com.amazonaws.clouddirectory#TypedLinkAttributeRangeList",
           "traits": {
             "smithy.api#documentation": "<p>Provides range filters for multiple attributes. When providing ranges to typed link\n      selection, any inexact ranges must be specified at the end. Any attributes that do not have a\n      range specified are presumed to match the entire range.</p>"
           }
         },
-        "FilterTypedLink": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
-            "smithy.api#documentation": "<p>Filters are interpreted in the order of the attributes on the typed link facet, not the\n      order in which they are supplied to any API calls.</p>"
+            "smithy.api#documentation": "<p>Reference that identifies the object whose attributes will be listed.</p>",
+            "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
+        "ConsistencyLevel": {
+          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
+            "smithy.api#documentation": "<p>The consistency level to execute the request at.</p>"
           }
         },
         "NextToken": {
@@ -6121,10 +6108,23 @@
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
           "traits": {
-            "smithy.api#documentation": "<p>Reference that identifies the object whose attributes will be listed.</p>",
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
+          }
+        },
+        "FilterTypedLink": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters are interpreted in the order of the attributes on the typed link facet, not the\n      order in which they are supplied to any API calls.</p>"
+          }
+        },
+        "DirectoryArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the directory where you want to list the typed\n      links.</p>",
+            "smithy.api#httpHeader": "x-amz-data-partition",
             "smithy.api#required": {}
           }
         }
@@ -6207,11 +6207,29 @@
     "com.amazonaws.clouddirectory#ListIndexRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "RangesOnIndexedValues": {
+          "target": "com.amazonaws.clouddirectory#ObjectAttributeRangeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the ranges of indexed values that you want to query.</p>"
+          }
+        },
         "ConsistencyLevel": {
           "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
           "traits": {
             "smithy.api#documentation": "<p>The consistency level to execute the request at.</p>",
             "smithy.api#httpHeader": "x-amz-consistency-level"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <a href=\"http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Amazon Cloud Directory Limits</a>.</p>"
           }
         },
         "DirectoryArn": {
@@ -6228,40 +6246,22 @@
             "smithy.api#documentation": "<p>The reference to the index to list.</p>",
             "smithy.api#required": {}
           }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <a href=\"http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Amazon Cloud Directory Limits</a>.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
-        "RangesOnIndexedValues": {
-          "target": "com.amazonaws.clouddirectory#ObjectAttributeRangeList",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the ranges of indexed values that you want to query.</p>"
-          }
         }
       }
     },
     "com.amazonaws.clouddirectory#ListIndexResponse": {
       "type": "structure",
       "members": {
-        "IndexAttachments": {
-          "target": "com.amazonaws.clouddirectory#IndexAttachmentList",
-          "traits": {
-            "smithy.api#documentation": "<p>The objects and indexed values attached to the index.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "IndexAttachments": {
+          "target": "com.amazonaws.clouddirectory#IndexAttachmentList",
+          "traits": {
+            "smithy.api#documentation": "<p>The objects and indexed values attached to the index.</p>"
           }
         }
       }
@@ -6311,12 +6311,6 @@
     "com.amazonaws.clouddirectory#ListManagedSchemaArnsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
@@ -6327,6 +6321,12 @@
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The response for ListManagedSchemaArns. When this parameter is used, all minor version ARNs for a major version are listed.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         }
       }
@@ -6405,13 +6405,6 @@
     "com.amazonaws.clouddirectory#ListObjectAttributesRequest": {
       "type": "structure",
       "members": {
-        "ConsistencyLevel": {
-          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents the manner and timing in which the successful write or update of an object\n      is reflected in a subsequent read operation of that same object.</p>",
-            "smithy.api#httpHeader": "x-amz-consistency-level"
-          }
-        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
@@ -6420,16 +6413,18 @@
             "smithy.api#required": {}
           }
         },
-        "FacetFilter": {
-          "target": "com.amazonaws.clouddirectory#SchemaFacet",
+        "ConsistencyLevel": {
+          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
           "traits": {
-            "smithy.api#documentation": "<p>Used to filter the list of object attributes that are associated with a certain\n      facet.</p>"
+            "smithy.api#documentation": "<p>Represents the manner and timing in which the successful write or update of an object\n      is reflected in a subsequent read operation of that same object.</p>",
+            "smithy.api#httpHeader": "x-amz-consistency-level"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to be retrieved in a single call. This is an approximate\n      number.</p>"
+            "smithy.api#documentation": "<p>The reference that identifies the object whose attributes will be listed.</p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -6438,11 +6433,16 @@
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
           "traits": {
-            "smithy.api#documentation": "<p>The reference that identifies the object whose attributes will be listed.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The maximum number of items to be retrieved in a single call. This is an approximate\n      number.</p>"
+          }
+        },
+        "FacetFilter": {
+          "target": "com.amazonaws.clouddirectory#SchemaFacet",
+          "traits": {
+            "smithy.api#documentation": "<p>Used to filter the list of object attributes that are associated with a certain\n      facet.</p>"
           }
         }
       }
@@ -6528,11 +6528,10 @@
             "smithy.api#httpHeader": "x-amz-consistency-level"
           }
         },
-        "DirectoryArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where the object resides. For more information, see <a>arns</a>.</p>",
-            "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#documentation": "<p>The reference that identifies the object for which child objects are being\n      listed.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6548,10 +6547,11 @@
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
+        "DirectoryArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The reference that identifies the object for which child objects are being\n      listed.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where the object resides. For more information, see <a>arns</a>.</p>",
+            "smithy.api#httpHeader": "x-amz-data-partition",
             "smithy.api#required": {}
           }
         }
@@ -6560,16 +6560,16 @@
     "com.amazonaws.clouddirectory#ListObjectChildrenResponse": {
       "type": "structure",
       "members": {
-        "Children": {
-          "target": "com.amazonaws.clouddirectory#LinkNameToObjectIdentifierMap",
-          "traits": {
-            "smithy.api#documentation": "<p>Children structure, which is a map with key as the <code>LinkName</code> and\n        <code>ObjectIdentifier</code> as the value.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "Children": {
+          "target": "com.amazonaws.clouddirectory#LinkNameToObjectIdentifierMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Children structure, which is a map with key as the <code>LinkName</code> and\n        <code>ObjectIdentifier</code> as the value.</p>"
           }
         }
       }
@@ -6628,6 +6628,12 @@
     "com.amazonaws.clouddirectory#ListObjectParentPathsRequest": {
       "type": "structure",
       "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to be retrieved in a single call. This is an approximate\n      number.</p>"
+          }
+        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
@@ -6636,23 +6642,17 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to be retrieved in a single call. This is an approximate\n      number.</p>"
+            "smithy.api#documentation": "<p>The reference that identifies the object whose parent paths are listed.</p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>The reference that identifies the object whose parent paths are listed.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -6738,18 +6738,11 @@
             "smithy.api#httpHeader": "x-amz-consistency-level"
           }
         },
-        "DirectoryArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where the object resides. For more information, see <a>arns</a>.</p>",
-            "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#documentation": "<p>The reference that identifies the object for which parent objects are being\n      listed.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "IncludeAllLinksToEachParent": {
-          "target": "com.amazonaws.clouddirectory#Bool",
-          "traits": {
-            "smithy.api#documentation": "<p>When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There could be multiple links between a parent-child pair.</p>"
           }
         },
         "MaxResults": {
@@ -6764,10 +6757,17 @@
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
+        "IncludeAllLinksToEachParent": {
+          "target": "com.amazonaws.clouddirectory#Bool",
           "traits": {
-            "smithy.api#documentation": "<p>The reference that identifies the object for which parent objects are being\n      listed.</p>",
+            "smithy.api#documentation": "<p>When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There could be multiple links between a parent-child pair.</p>"
+          }
+        },
+        "DirectoryArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where the object resides. For more information, see <a>arns</a>.</p>",
+            "smithy.api#httpHeader": "x-amz-data-partition",
             "smithy.api#required": {}
           }
         }
@@ -6776,16 +6776,16 @@
     "com.amazonaws.clouddirectory#ListObjectParentsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
         "ParentLinks": {
           "target": "com.amazonaws.clouddirectory#ObjectIdentifierAndLinkNameList",
           "traits": {
             "smithy.api#documentation": "<p>Returns a list of parent reference and LinkName Tuples.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
         "Parents": {
@@ -6850,18 +6850,18 @@
     "com.amazonaws.clouddirectory#ListObjectPoliciesRequest": {
       "type": "structure",
       "members": {
-        "ConsistencyLevel": {
-          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>Represents the manner and timing in which the successful write or update of an object\n      is reflected in a subsequent read operation of that same object.</p>",
-            "smithy.api#httpHeader": "x-amz-consistency-level"
-          }
-        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where objects reside. For more information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
+          }
+        },
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>Reference that identifies the object for which policies will be listed.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6871,17 +6871,17 @@
             "smithy.api#documentation": "<p>The maximum number of items to be retrieved in a single call. This is an approximate\n      number.</p>"
           }
         },
+        "ConsistencyLevel": {
+          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the manner and timing in which the successful write or update of an object\n      is reflected in a subsequent read operation of that same object.</p>",
+            "smithy.api#httpHeader": "x-amz-consistency-level"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>Reference that identifies the object for which policies will be listed.</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -6955,12 +6955,6 @@
     "com.amazonaws.clouddirectory#ListOutgoingTypedLinksRequest": {
       "type": "structure",
       "members": {
-        "ConsistencyLevel": {
-          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
-          "traits": {
-            "smithy.api#documentation": "<p>The consistency level to execute the request at.</p>"
-          }
-        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
@@ -6969,16 +6963,10 @@
             "smithy.api#required": {}
           }
         },
-        "FilterAttributeRanges": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkAttributeRangeList",
+        "ConsistencyLevel": {
+          "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
           "traits": {
-            "smithy.api#documentation": "<p>Provides range filters for multiple attributes. When providing ranges to typed link\n      selection, any inexact ranges must be specified at the end. Any attributes that do not have a\n      range specified are presumed to match the entire range.</p>"
-          }
-        },
-        "FilterTypedLink": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters are interpreted in the order of the attributes defined on the typed link facet,\n      not the order they are supplied to any API calls.</p>"
+            "smithy.api#documentation": "<p>The consistency level to execute the request at.</p>"
           }
         },
         "MaxResults": {
@@ -6987,17 +6975,29 @@
             "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         },
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference that identifies the object whose attributes will be listed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FilterTypedLink": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters are interpreted in the order of the attributes defined on the typed link facet,\n      not the order they are supplied to any API calls.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
+        "FilterAttributeRanges": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkAttributeRangeList",
           "traits": {
-            "smithy.api#documentation": "<p>A reference that identifies the object whose attributes will be listed.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Provides range filters for multiple attributes. When providing ranges to typed link\n      selection, any inexact ranges must be specified at the end. Any attributes that do not have a\n      range specified are presumed to match the entire range.</p>"
           }
         }
       }
@@ -7005,16 +7005,16 @@
     "com.amazonaws.clouddirectory#ListOutgoingTypedLinksResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
         "TypedLinkSpecifiers": {
           "target": "com.amazonaws.clouddirectory#TypedLinkSpecifierList",
           "traits": {
             "smithy.api#documentation": "<p>Returns a typed link specifier as output.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         }
       }
@@ -7076,6 +7076,25 @@
     "com.amazonaws.clouddirectory#ListPolicyAttachmentsRequest": {
       "type": "structure",
       "members": {
+        "PolicyReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>The reference that identifies the policy object.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to be retrieved in a single call. This is an approximate\n      number.</p>"
+          }
+        },
         "ConsistencyLevel": {
           "target": "com.amazonaws.clouddirectory#ConsistencyLevel",
           "traits": {
@@ -7088,25 +7107,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where objects reside. For more information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to be retrieved in a single call. This is an approximate\n      number.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
-        "PolicyReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>The reference that identifies the policy object.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7180,16 +7180,16 @@
     "com.amazonaws.clouddirectory#ListPublishedSchemaArnsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to retrieve.</p>"
           }
         },
         "SchemaArn": {
@@ -7360,6 +7360,12 @@
     "com.amazonaws.clouddirectory#ListTypedLinkFacetAttributesRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.clouddirectory#NumberResults",
           "traits": {
@@ -7371,12 +7377,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The unique name of the typed link facet.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         },
         "SchemaArn": {
@@ -7457,6 +7457,14 @@
     "com.amazonaws.clouddirectory#ListTypedLinkFacetNamesRequest": {
       "type": "structure",
       "members": {
+        "SchemaArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the schema. For more\n      information, see <a>arns</a>.</p>",
+            "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.clouddirectory#NumberResults",
           "traits": {
@@ -7467,14 +7475,6 @@
           "target": "com.amazonaws.clouddirectory#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
-        "SchemaArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the schema. For more\n      information, see <a>arns</a>.</p>",
-            "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
           }
         }
       }
@@ -7550,6 +7550,12 @@
     "com.amazonaws.clouddirectory#LookupPolicyRequest": {
       "type": "structure",
       "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.clouddirectory#NumberResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to be retrieved in a single call. This is an approximate\n      number.</p>"
+          }
+        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
@@ -7558,10 +7564,11 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.clouddirectory#NumberResults",
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to be retrieved in a single call. This is an approximate\n      number.</p>"
+            "smithy.api#documentation": "<p>Reference that identifies the object whose policies will be looked up.</p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -7569,29 +7576,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
           }
-        },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>Reference that identifies the object whose policies will be looked up.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.clouddirectory#LookupPolicyResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.clouddirectory#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token.</p>"
-          }
-        },
         "PolicyToPathList": {
           "target": "com.amazonaws.clouddirectory#PolicyToPathList",
           "traits": {
             "smithy.api#documentation": "<p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and\n      <code>PolicyType</code>. For more\n      information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.clouddirectory#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token.</p>"
           }
         }
       }
@@ -7835,16 +7835,16 @@
     "com.amazonaws.clouddirectory#PathToObjectIdentifiers": {
       "type": "structure",
       "members": {
-        "ObjectIdentifiers": {
-          "target": "com.amazonaws.clouddirectory#ObjectIdentifierList",
-          "traits": {
-            "smithy.api#documentation": "<p>Lists <code>ObjectIdentifiers</code> starting from directory root to the object in the\n      request.</p>"
-          }
-        },
         "Path": {
           "target": "com.amazonaws.clouddirectory#PathString",
           "traits": {
             "smithy.api#documentation": "<p>The path that is used to identify the object starting from directory root.</p>"
+          }
+        },
+        "ObjectIdentifiers": {
+          "target": "com.amazonaws.clouddirectory#ObjectIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists <code>ObjectIdentifiers</code> starting from directory root to the object in the\n      request.</p>"
           }
         }
       },
@@ -7861,6 +7861,12 @@
     "com.amazonaws.clouddirectory#PolicyAttachment": {
       "type": "structure",
       "members": {
+        "PolicyType": {
+          "target": "com.amazonaws.clouddirectory#PolicyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of policy that can be associated with <code>PolicyAttachment</code>.</p>"
+          }
+        },
         "ObjectIdentifier": {
           "target": "com.amazonaws.clouddirectory#ObjectIdentifier",
           "traits": {
@@ -7871,12 +7877,6 @@
           "target": "com.amazonaws.clouddirectory#ObjectIdentifier",
           "traits": {
             "smithy.api#documentation": "<p>The ID of <code>PolicyAttachment</code>.</p>"
-          }
-        },
-        "PolicyType": {
-          "target": "com.amazonaws.clouddirectory#PolicyType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of policy that can be associated with <code>PolicyAttachment</code>.</p>"
           }
         }
       },
@@ -7965,6 +7965,12 @@
     "com.amazonaws.clouddirectory#PublishSchemaRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#SchemaName",
+          "traits": {
+            "smithy.api#documentation": "<p>The new name under which the schema will be published. If this is not provided, the\n      development schema is considered.</p>"
+          }
+        },
         "DevelopmentSchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
@@ -7977,12 +7983,6 @@
           "target": "com.amazonaws.clouddirectory#Version",
           "traits": {
             "smithy.api#documentation": "<p>The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#SchemaName",
-          "traits": {
-            "smithy.api#documentation": "<p>The new name under which the schema will be published. If this is not provided, the\n      development schema is considered.</p>"
           }
         },
         "Version": {
@@ -8051,18 +8051,18 @@
     "com.amazonaws.clouddirectory#PutSchemaFromJsonRequest": {
       "type": "structure",
       "members": {
-        "Document": {
-          "target": "com.amazonaws.clouddirectory#SchemaJsonDocument",
-          "traits": {
-            "smithy.api#documentation": "<p>The replacement JSON schema.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the schema to update.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
+          }
+        },
+        "Document": {
+          "target": "com.amazonaws.clouddirectory#SchemaJsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The replacement JSON schema.</p>",
             "smithy.api#required": {}
           }
         }
@@ -8155,18 +8155,18 @@
     "com.amazonaws.clouddirectory#RemoveFacetFromObjectRequest": {
       "type": "structure",
       "members": {
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to the object to remove the facet from.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the directory in which the object resides.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>A reference to the object to remove the facet from.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8227,16 +8227,16 @@
     "com.amazonaws.clouddirectory#Rule": {
       "type": "structure",
       "members": {
-        "Parameters": {
-          "target": "com.amazonaws.clouddirectory#RuleParameterMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The minimum and maximum parameters that are associated with the rule.</p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.clouddirectory#RuleType",
           "traits": {
             "smithy.api#documentation": "<p>The type of attribute validation rule.</p>"
+          }
+        },
+        "Parameters": {
+          "target": "com.amazonaws.clouddirectory#RuleParameterMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The minimum and maximum parameters that are associated with the rule.</p>"
           }
         }
       },
@@ -8330,16 +8330,16 @@
     "com.amazonaws.clouddirectory#SchemaFacet": {
       "type": "structure",
       "members": {
-        "FacetName": {
-          "target": "com.amazonaws.clouddirectory#FacetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the facet.</p>"
-          }
-        },
         "SchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the schema that contains the facet with no minor component. See <a>arns</a> and <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html\">In-Place Schema Upgrade</a> for a description of when to provide minor versions.</p>"
+          }
+        },
+        "FacetName": {
+          "target": "com.amazonaws.clouddirectory#FacetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the facet.</p>"
           }
         }
       },
@@ -8388,16 +8388,16 @@
     "com.amazonaws.clouddirectory#Tag": {
       "type": "structure",
       "members": {
-        "Key": {
-          "target": "com.amazonaws.clouddirectory#TagKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The key that is associated with the tag.</p>"
-          }
-        },
         "Value": {
           "target": "com.amazonaws.clouddirectory#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>The value that is associated with the tag.</p>"
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.clouddirectory#TagKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The key that is associated with the tag.</p>"
           }
         }
       },
@@ -8501,22 +8501,10 @@
     "com.amazonaws.clouddirectory#TypedAttributeValue": {
       "type": "structure",
       "members": {
-        "BinaryValue": {
-          "target": "com.amazonaws.clouddirectory#BinaryAttributeValue",
+        "StringValue": {
+          "target": "com.amazonaws.clouddirectory#StringAttributeValue",
           "traits": {
-            "smithy.api#documentation": "<p>A binary data value.</p>"
-          }
-        },
-        "BooleanValue": {
-          "target": "com.amazonaws.clouddirectory#BooleanAttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>A Boolean data value.</p>"
-          }
-        },
-        "DatetimeValue": {
-          "target": "com.amazonaws.clouddirectory#DatetimeAttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>A date and time value.</p>"
+            "smithy.api#documentation": "<p>A string data value.</p>"
           }
         },
         "NumberValue": {
@@ -8525,10 +8513,22 @@
             "smithy.api#documentation": "<p>A number data value.</p>"
           }
         },
-        "StringValue": {
-          "target": "com.amazonaws.clouddirectory#StringAttributeValue",
+        "BinaryValue": {
+          "target": "com.amazonaws.clouddirectory#BinaryAttributeValue",
           "traits": {
-            "smithy.api#documentation": "<p>A string data value.</p>"
+            "smithy.api#documentation": "<p>A binary data value.</p>"
+          }
+        },
+        "DatetimeValue": {
+          "target": "com.amazonaws.clouddirectory#DatetimeAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A date and time value.</p>"
+          }
+        },
+        "BooleanValue": {
+          "target": "com.amazonaws.clouddirectory#BooleanAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A Boolean data value.</p>"
           }
         }
       },
@@ -8539,19 +8539,6 @@
     "com.amazonaws.clouddirectory#TypedAttributeValueRange": {
       "type": "structure",
       "members": {
-        "EndMode": {
-          "target": "com.amazonaws.clouddirectory#RangeMode",
-          "traits": {
-            "smithy.api#documentation": "<p>The inclusive or exclusive range end.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "EndValue": {
-          "target": "com.amazonaws.clouddirectory#TypedAttributeValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The attribute value to terminate the range at.</p>"
-          }
-        },
         "StartMode": {
           "target": "com.amazonaws.clouddirectory#RangeMode",
           "traits": {
@@ -8563,6 +8550,19 @@
           "target": "com.amazonaws.clouddirectory#TypedAttributeValue",
           "traits": {
             "smithy.api#documentation": "<p>The value to start the range at.</p>"
+          }
+        },
+        "EndValue": {
+          "target": "com.amazonaws.clouddirectory#TypedAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute value to terminate the range at.</p>"
+          }
+        },
+        "EndMode": {
+          "target": "com.amazonaws.clouddirectory#RangeMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The inclusive or exclusive range end.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -8579,23 +8579,10 @@
             "smithy.api#documentation": "<p>The default value of the attribute (if configured).</p>"
           }
         },
-        "IsImmutable": {
-          "target": "com.amazonaws.clouddirectory#Bool",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the attribute is mutable or not.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.clouddirectory#AttributeName",
           "traits": {
             "smithy.api#documentation": "<p>The unique name of the typed link attribute.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "RequiredBehavior": {
-          "target": "com.amazonaws.clouddirectory#RequiredAttributeBehavior",
-          "traits": {
-            "smithy.api#documentation": "<p>The required behavior of the <code>TypedLinkAttributeDefinition</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8605,10 +8592,23 @@
             "smithy.api#documentation": "<p>Validation rules that are attached to the attribute definition.</p>"
           }
         },
+        "IsImmutable": {
+          "target": "com.amazonaws.clouddirectory#Bool",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the attribute is mutable or not.</p>"
+          }
+        },
         "Type": {
           "target": "com.amazonaws.clouddirectory#FacetAttributeType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the attribute.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RequiredBehavior": {
+          "target": "com.amazonaws.clouddirectory#RequiredAttributeBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>The required behavior of the <code>TypedLinkAttributeDefinition</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -8660,17 +8660,17 @@
             "smithy.api#required": {}
           }
         },
-        "IdentityAttributeOrder": {
-          "target": "com.amazonaws.clouddirectory#AttributeNameList",
-          "traits": {
-            "smithy.api#documentation": "<p>The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See <a>ListOutgoingTypedLinks</a> and <a>ListIncomingTypedLinks</a> for details.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.clouddirectory#TypedLinkName",
           "traits": {
             "smithy.api#documentation": "<p>The unique name of the typed link facet.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdentityAttributeOrder": {
+          "target": "com.amazonaws.clouddirectory#AttributeNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See <a>ListOutgoingTypedLinks</a> and <a>ListIncomingTypedLinks</a> for details.</p>",
             "smithy.api#required": {}
           }
         }
@@ -8744,6 +8744,20 @@
     "com.amazonaws.clouddirectory#TypedLinkSpecifier": {
       "type": "structure",
       "members": {
+        "TypedLinkFacet": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the typed link facet that is associated with the typed link.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TargetObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the target object that the typed link will attach to.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "IdentityAttributeValues": {
           "target": "com.amazonaws.clouddirectory#AttributeNameAndValueList",
           "traits": {
@@ -8755,20 +8769,6 @@
           "target": "com.amazonaws.clouddirectory#ObjectReference",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the source object that the typed link will attach to.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TargetObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the target object that the typed link will attach to.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TypedLinkFacet": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkSchemaAndFacetName",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the typed link facet that is associated with the typed link.</p>",
             "smithy.api#required": {}
           }
         }
@@ -8932,19 +8932,6 @@
     "com.amazonaws.clouddirectory#UpdateFacetRequest": {
       "type": "structure",
       "members": {
-        "AttributeUpdates": {
-          "target": "com.amazonaws.clouddirectory#FacetAttributeUpdateList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of attributes that need to be updated in a given schema <a>Facet</a>.\n      Each attribute is followed by <code>AttributeAction</code>, which specifies the type of update\n      operation to perform. </p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#FacetName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the facet.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ObjectType": {
           "target": "com.amazonaws.clouddirectory#ObjectType",
           "traits": {
@@ -8956,6 +8943,19 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.\n      For more information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
+          }
+        },
+        "AttributeUpdates": {
+          "target": "com.amazonaws.clouddirectory#FacetAttributeUpdateList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of attributes that need to be updated in a given schema <a>Facet</a>.\n      Each attribute is followed by <code>AttributeAction</code>, which specifies the type of update\n      operation to perform. </p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#FacetName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the facet.</p>",
             "smithy.api#required": {}
           }
         }
@@ -9021,18 +9021,18 @@
             "smithy.api#required": {}
           }
         },
+        "TypedLinkSpecifier": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkSpecifier",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows a typed link specifier to be accepted as input.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "DirectoryArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
-        "TypedLinkSpecifier": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkSpecifier",
-          "traits": {
-            "smithy.api#documentation": "<p>Allows a typed link specifier to be accepted as input.</p>",
             "smithy.api#required": {}
           }
         }
@@ -9094,6 +9094,13 @@
     "com.amazonaws.clouddirectory#UpdateObjectAttributesRequest": {
       "type": "structure",
       "members": {
+        "ObjectReference": {
+          "target": "com.amazonaws.clouddirectory#ObjectReference",
+          "traits": {
+            "smithy.api#documentation": "<p>The reference that identifies the object.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "AttributeUpdates": {
           "target": "com.amazonaws.clouddirectory#ObjectAttributeUpdateList",
           "traits": {
@@ -9106,13 +9113,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>\n      where the object resides. For more information, see <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
-            "smithy.api#required": {}
-          }
-        },
-        "ObjectReference": {
-          "target": "com.amazonaws.clouddirectory#ObjectReference",
-          "traits": {
-            "smithy.api#documentation": "<p>The reference that identifies the object.</p>",
             "smithy.api#required": {}
           }
         }
@@ -9172,18 +9172,18 @@
     "com.amazonaws.clouddirectory#UpdateSchemaRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#SchemaName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the schema.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the development schema. For more information, see\n        <a>arns</a>.</p>",
             "smithy.api#httpHeader": "x-amz-data-partition",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#SchemaName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema.</p>",
             "smithy.api#required": {}
           }
         }
@@ -9255,6 +9255,13 @@
     "com.amazonaws.clouddirectory#UpdateTypedLinkFacetRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.clouddirectory#TypedLinkName",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique name of the typed link facet.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "AttributeUpdates": {
           "target": "com.amazonaws.clouddirectory#TypedLinkFacetAttributeUpdateList",
           "traits": {
@@ -9266,13 +9273,6 @@
           "target": "com.amazonaws.clouddirectory#AttributeNameList",
           "traits": {
             "smithy.api#documentation": "<p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed\n      links considers the order that the attributes are defined on the typed link facet.  When\n      providing ranges to a typed link selection, any inexact ranges must be specified at the end.\n      Any attributes that do not have a range specified are presumed to match the entire range.\n      Filters are interpreted in the order of the attributes on the typed link facet, not the order\n      in which they are supplied to any API calls. For more information about identity attributes, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.clouddirectory#TypedLinkName",
-          "traits": {
-            "smithy.api#documentation": "<p>The unique name of the typed link facet.</p>",
             "smithy.api#required": {}
           }
         },
@@ -9346,17 +9346,17 @@
             "smithy.api#required": {}
           }
         },
-        "DryRun": {
-          "target": "com.amazonaws.clouddirectory#Bool",
-          "traits": {
-            "smithy.api#documentation": "<p>Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.</p>"
-          }
-        },
         "PublishedSchemaArn": {
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The revision of the published schema to upgrade the directory to.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.clouddirectory#Bool",
+          "traits": {
+            "smithy.api#documentation": "<p>Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.</p>"
           }
         }
       }
@@ -9427,19 +9427,6 @@
     "com.amazonaws.clouddirectory#UpgradePublishedSchemaRequest": {
       "type": "structure",
       "members": {
-        "DevelopmentSchemaArn": {
-          "target": "com.amazonaws.clouddirectory#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the development schema with the changes used for the upgrade.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "DryRun": {
-          "target": "com.amazonaws.clouddirectory#Bool",
-          "traits": {
-            "smithy.api#documentation": "<p>Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.</p>"
-          }
-        },
         "MinorVersion": {
           "target": "com.amazonaws.clouddirectory#Version",
           "traits": {
@@ -9451,6 +9438,19 @@
           "target": "com.amazonaws.clouddirectory#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the published schema to be upgraded.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.clouddirectory#Bool",
+          "traits": {
+            "smithy.api#documentation": "<p>Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.</p>"
+          }
+        },
+        "DevelopmentSchemaArn": {
+          "target": "com.amazonaws.clouddirectory#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the development schema with the changes used for the upgrade.</p>",
             "smithy.api#required": {}
           }
         }

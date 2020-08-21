@@ -1,4 +1,9 @@
+import {
+  AcceptInboundCrossClusterSearchConnectionCommandInput,
+  AcceptInboundCrossClusterSearchConnectionCommandOutput,
+} from "../commands/AcceptInboundCrossClusterSearchConnectionCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
+import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "../commands/AssociatePackageCommand";
 import {
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput,
@@ -8,6 +13,11 @@ import {
   CreateElasticsearchDomainCommandOutput,
 } from "../commands/CreateElasticsearchDomainCommand";
 import {
+  CreateOutboundCrossClusterSearchConnectionCommandInput,
+  CreateOutboundCrossClusterSearchConnectionCommandOutput,
+} from "../commands/CreateOutboundCrossClusterSearchConnectionCommand";
+import { CreatePackageCommandInput, CreatePackageCommandOutput } from "../commands/CreatePackageCommand";
+import {
   DeleteElasticsearchDomainCommandInput,
   DeleteElasticsearchDomainCommandOutput,
 } from "../commands/DeleteElasticsearchDomainCommand";
@@ -15,6 +25,15 @@ import {
   DeleteElasticsearchServiceRoleCommandInput,
   DeleteElasticsearchServiceRoleCommandOutput,
 } from "../commands/DeleteElasticsearchServiceRoleCommand";
+import {
+  DeleteInboundCrossClusterSearchConnectionCommandInput,
+  DeleteInboundCrossClusterSearchConnectionCommandOutput,
+} from "../commands/DeleteInboundCrossClusterSearchConnectionCommand";
+import {
+  DeleteOutboundCrossClusterSearchConnectionCommandInput,
+  DeleteOutboundCrossClusterSearchConnectionCommandOutput,
+} from "../commands/DeleteOutboundCrossClusterSearchConnectionCommand";
+import { DeletePackageCommandInput, DeletePackageCommandOutput } from "../commands/DeletePackageCommand";
 import {
   DescribeElasticsearchDomainCommandInput,
   DescribeElasticsearchDomainCommandOutput,
@@ -32,6 +51,15 @@ import {
   DescribeElasticsearchInstanceTypeLimitsCommandOutput,
 } from "../commands/DescribeElasticsearchInstanceTypeLimitsCommand";
 import {
+  DescribeInboundCrossClusterSearchConnectionsCommandInput,
+  DescribeInboundCrossClusterSearchConnectionsCommandOutput,
+} from "../commands/DescribeInboundCrossClusterSearchConnectionsCommand";
+import {
+  DescribeOutboundCrossClusterSearchConnectionsCommandInput,
+  DescribeOutboundCrossClusterSearchConnectionsCommandOutput,
+} from "../commands/DescribeOutboundCrossClusterSearchConnectionsCommand";
+import { DescribePackagesCommandInput, DescribePackagesCommandOutput } from "../commands/DescribePackagesCommand";
+import {
   DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   DescribeReservedElasticsearchInstanceOfferingsCommandOutput,
 } from "../commands/DescribeReservedElasticsearchInstanceOfferingsCommand";
@@ -39,6 +67,7 @@ import {
   DescribeReservedElasticsearchInstancesCommandInput,
   DescribeReservedElasticsearchInstancesCommandOutput,
 } from "../commands/DescribeReservedElasticsearchInstancesCommand";
+import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "../commands/DissociatePackageCommand";
 import {
   GetCompatibleElasticsearchVersionsCommandInput,
   GetCompatibleElasticsearchVersionsCommandOutput,
@@ -47,6 +76,10 @@ import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from ".
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "../commands/GetUpgradeStatusCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "../commands/ListDomainNamesCommand";
 import {
+  ListDomainsForPackageCommandInput,
+  ListDomainsForPackageCommandOutput,
+} from "../commands/ListDomainsForPackageCommand";
+import {
   ListElasticsearchInstanceTypesCommandInput,
   ListElasticsearchInstanceTypesCommandOutput,
 } from "../commands/ListElasticsearchInstanceTypesCommand";
@@ -54,11 +87,19 @@ import {
   ListElasticsearchVersionsCommandInput,
   ListElasticsearchVersionsCommandOutput,
 } from "../commands/ListElasticsearchVersionsCommand";
+import {
+  ListPackagesForDomainCommandInput,
+  ListPackagesForDomainCommandOutput,
+} from "../commands/ListPackagesForDomainCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import {
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
 } from "../commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
+import {
+  RejectInboundCrossClusterSearchConnectionCommandInput,
+  RejectInboundCrossClusterSearchConnectionCommandOutput,
+} from "../commands/RejectInboundCrossClusterSearchConnectionCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "../commands/RemoveTagsCommand";
 import {
   StartElasticsearchServiceSoftwareUpdateCommandInput,
@@ -73,17 +114,25 @@ import {
   UpgradeElasticsearchDomainCommandOutput,
 } from "../commands/UpgradeElasticsearchDomainCommand";
 import {
+  AccessDeniedException,
   AccessPoliciesStatus,
   AdditionalLimit,
   AdvancedOptionsStatus,
+  AdvancedSecurityOptions,
+  AdvancedSecurityOptionsInput,
+  AdvancedSecurityOptionsStatus,
   BaseException,
   CognitoOptions,
   CognitoOptionsStatus,
   CompatibleVersionsMap,
+  ConflictException,
+  DescribePackagesFilter,
   DisabledOperationException,
   DomainEndpointOptions,
   DomainEndpointOptionsStatus,
   DomainInfo,
+  DomainInformation,
+  DomainPackageDetails,
   EBSOptions,
   EBSOptionsStatus,
   ESPartitionInstanceType,
@@ -94,18 +143,28 @@ import {
   ElasticsearchVersionStatus,
   EncryptionAtRestOptions,
   EncryptionAtRestOptionsStatus,
+  ErrorDetails,
+  Filter,
+  InboundCrossClusterSearchConnection,
+  InboundCrossClusterSearchConnectionStatus,
   InstanceCountLimits,
   InstanceLimits,
   InternalException,
+  InvalidPaginationTokenException,
   InvalidTypeException,
   LimitExceededException,
   Limits,
   LogPublishingOption,
   LogPublishingOptionsStatus,
   LogType,
+  MasterUserOptions,
   NodeToNodeEncryptionOptions,
   NodeToNodeEncryptionOptionsStatus,
   OptionStatus,
+  OutboundCrossClusterSearchConnection,
+  OutboundCrossClusterSearchConnectionStatus,
+  PackageDetails,
+  PackageSource,
   RecurringCharge,
   ReservedElasticsearchInstance,
   ReservedElasticsearchInstanceOffering,
@@ -137,6 +196,36 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+export const serializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand = async (
+  input: AcceptInboundCrossClusterSearchConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept";
+  if (input.CrossClusterSearchConnectionId !== undefined) {
+    const labelValue: string = input.CrossClusterSearchConnectionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CrossClusterSearchConnectionId.");
+    }
+    resolvedPath = resolvedPath.replace("{CrossClusterSearchConnectionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CrossClusterSearchConnectionId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
@@ -150,6 +239,45 @@ export const serializeAws_restJson1AddTagsCommand = async (
     ...(input.ARN !== undefined && { ARN: input.ARN }),
     ...(input.TagList !== undefined && { TagList: serializeAws_restJson1TagList(input.TagList, context) }),
   });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociatePackageCommand = async (
+  input: AssociatePackageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/packages/associate/{PackageID}/{DomainName}";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  if (input.PackageID !== undefined) {
+    const labelValue: string = input.PackageID;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PackageID.");
+    }
+    resolvedPath = resolvedPath.replace("{PackageID}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PackageID.");
+  }
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -200,6 +328,12 @@ export const serializeAws_restJson1CreateElasticsearchDomainCommand = async (
     ...(input.AdvancedOptions !== undefined && {
       AdvancedOptions: serializeAws_restJson1AdvancedOptions(input.AdvancedOptions, context),
     }),
+    ...(input.AdvancedSecurityOptions !== undefined && {
+      AdvancedSecurityOptions: serializeAws_restJson1AdvancedSecurityOptionsInput(
+        input.AdvancedSecurityOptions,
+        context
+      ),
+    }),
     ...(input.CognitoOptions !== undefined && {
       CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
     }),
@@ -231,6 +365,65 @@ export const serializeAws_restJson1CreateElasticsearchDomainCommand = async (
       SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
     }),
     ...(input.VPCOptions !== undefined && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommand = async (
+  input: CreateOutboundCrossClusterSearchConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2015-01-01/es/ccs/outboundConnection";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ConnectionAlias !== undefined && { ConnectionAlias: input.ConnectionAlias }),
+    ...(input.DestinationDomainInfo !== undefined && {
+      DestinationDomainInfo: serializeAws_restJson1DomainInformation(input.DestinationDomainInfo, context),
+    }),
+    ...(input.SourceDomainInfo !== undefined && {
+      SourceDomainInfo: serializeAws_restJson1DomainInformation(input.SourceDomainInfo, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreatePackageCommand = async (
+  input: CreatePackageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2015-01-01/packages";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.PackageDescription !== undefined && { PackageDescription: input.PackageDescription }),
+    ...(input.PackageName !== undefined && { PackageName: input.PackageName }),
+    ...(input.PackageSource !== undefined && {
+      PackageSource: serializeAws_restJson1PackageSource(input.PackageSource, context),
+    }),
+    ...(input.PackageType !== undefined && { PackageType: input.PackageType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -284,6 +477,96 @@ export const serializeAws_restJson1DeleteElasticsearchServiceRoleCommand = async
   let resolvedPath = "/2015-01-01/es/role";
   let body: any;
   body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand = async (
+  input: DeleteInboundCrossClusterSearchConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}";
+  if (input.CrossClusterSearchConnectionId !== undefined) {
+    const labelValue: string = input.CrossClusterSearchConnectionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CrossClusterSearchConnectionId.");
+    }
+    resolvedPath = resolvedPath.replace("{CrossClusterSearchConnectionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CrossClusterSearchConnectionId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommand = async (
+  input: DeleteOutboundCrossClusterSearchConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/es/ccs/outboundConnection/{CrossClusterSearchConnectionId}";
+  if (input.CrossClusterSearchConnectionId !== undefined) {
+    const labelValue: string = input.CrossClusterSearchConnectionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CrossClusterSearchConnectionId.");
+    }
+    resolvedPath = resolvedPath.replace("{CrossClusterSearchConnectionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CrossClusterSearchConnectionId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeletePackageCommand = async (
+  input: DeletePackageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/packages/{PackageID}";
+  if (input.PackageID !== undefined) {
+    const labelValue: string = input.PackageID;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PackageID.");
+    }
+    resolvedPath = resolvedPath.replace("{PackageID}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PackageID.");
+  }
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -390,15 +673,6 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
     "Content-Type": "",
   };
   let resolvedPath = "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
-  if (input.ElasticsearchVersion !== undefined) {
-    const labelValue: string = input.ElasticsearchVersion;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ElasticsearchVersion.");
-    }
-    resolvedPath = resolvedPath.replace("{ElasticsearchVersion}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
-  }
   if (input.InstanceType !== undefined) {
     const labelValue: string = input.InstanceType;
     if (labelValue.length <= 0) {
@@ -407,6 +681,15 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
     resolvedPath = resolvedPath.replace("{InstanceType}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceType.");
+  }
+  if (input.ElasticsearchVersion !== undefined) {
+    const labelValue: string = input.ElasticsearchVersion;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ElasticsearchVersion.");
+    }
+    resolvedPath = resolvedPath.replace("{ElasticsearchVersion}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
   }
   const query: any = {
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
@@ -425,6 +708,86 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
   });
 };
 
+export const serializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsCommand = async (
+  input: DescribeInboundCrossClusterSearchConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/search";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand = async (
+  input: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2015-01-01/es/ccs/outboundConnection/search";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribePackagesCommand = async (
+  input: DescribePackagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2015-01-01/packages/describe";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_restJson1DescribePackagesFilterList(input.Filters, context),
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand = async (
   input: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   context: __SerdeContext
@@ -434,8 +797,8 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstanceOffering
   };
   let resolvedPath = "/2015-01-01/es/reservedInstanceOfferings";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
       offeringId: input.ReservedElasticsearchInstanceOfferingId,
     }),
@@ -463,11 +826,11 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand
   };
   let resolvedPath = "/2015-01-01/es/reservedInstances";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.ReservedElasticsearchInstanceId !== undefined && {
       reservationId: input.ReservedElasticsearchInstanceId,
     }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -479,6 +842,45 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DissociatePackageCommand = async (
+  input: DissociatePackageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/packages/dissociate/{PackageID}/{DomainName}";
+  if (input.PackageID !== undefined) {
+    const labelValue: string = input.PackageID;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PackageID.");
+    }
+    resolvedPath = resolvedPath.replace("{PackageID}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PackageID.");
+  }
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -595,6 +997,41 @@ export const serializeAws_restJson1ListDomainNamesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListDomainsForPackageCommand = async (
+  input: ListDomainsForPackageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/packages/{PackageID}/domains";
+  if (input.PackageID !== undefined) {
+    const labelValue: string = input.PackageID;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PackageID.");
+    }
+    resolvedPath = resolvedPath.replace("{PackageID}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PackageID.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListElasticsearchInstanceTypesCommand = async (
   input: ListElasticsearchInstanceTypesCommandInput,
   context: __SerdeContext
@@ -613,9 +1050,9 @@ export const serializeAws_restJson1ListElasticsearchInstanceTypesCommand = async
     throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
   }
   const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -639,6 +1076,41 @@ export const serializeAws_restJson1ListElasticsearchVersionsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2015-01-01/es/versions";
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListPackagesForDomainCommand = async (
+  input: ListPackagesForDomainCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/domain/{DomainName}/packages";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -704,6 +1176,36 @@ export const serializeAws_restJson1PurchaseReservedElasticsearchInstanceOffering
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommand = async (
+  input: RejectInboundCrossClusterSearchConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/reject";
+  if (input.CrossClusterSearchConnectionId !== undefined) {
+    const labelValue: string = input.CrossClusterSearchConnectionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CrossClusterSearchConnectionId.");
+    }
+    resolvedPath = resolvedPath.replace("{CrossClusterSearchConnectionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CrossClusterSearchConnectionId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -782,6 +1284,12 @@ export const serializeAws_restJson1UpdateElasticsearchDomainConfigCommand = asyn
     ...(input.AdvancedOptions !== undefined && {
       AdvancedOptions: serializeAws_restJson1AdvancedOptions(input.AdvancedOptions, context),
     }),
+    ...(input.AdvancedSecurityOptions !== undefined && {
+      AdvancedSecurityOptions: serializeAws_restJson1AdvancedSecurityOptionsInput(
+        input.AdvancedSecurityOptions,
+        context
+      ),
+    }),
     ...(input.CognitoOptions !== undefined && {
       CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
     }),
@@ -841,6 +1349,81 @@ export const serializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
   });
 };
 
+export const deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptInboundCrossClusterSearchConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommandError(output, context);
+  }
+  const contents: AcceptInboundCrossClusterSearchConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AcceptInboundCrossClusterSearchConnectionResponse",
+    CrossClusterSearchConnection: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CrossClusterSearchConnection !== undefined && data.CrossClusterSearchConnection !== null) {
+    contents.CrossClusterSearchConnection = deserializeAws_restJson1InboundCrossClusterSearchConnection(
+      data.CrossClusterSearchConnection,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptInboundCrossClusterSearchConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DisabledOperationException":
+    case "com.amazonaws.elasticsearchservice#DisabledOperationException":
+      response = {
+        ...(await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.elasticsearchservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -887,6 +1470,102 @@ const deserializeAws_restJson1AddTagsCommandError = async (
     case "com.amazonaws.elasticsearchservice#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AssociatePackageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociatePackageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1AssociatePackageCommandError(output, context);
+  }
+  const contents: AssociatePackageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AssociatePackageResponse",
+    DomainPackageDetails: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.DomainPackageDetails !== undefined && data.DomainPackageDetails !== null) {
+    contents.DomainPackageDetails = deserializeAws_restJson1DomainPackageDetails(data.DomainPackageDetails, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociatePackageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociatePackageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.elasticsearchservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.elasticsearchservice#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1103,6 +1782,209 @@ const deserializeAws_restJson1CreateElasticsearchDomainCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOutboundCrossClusterSearchConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommandError(output, context);
+  }
+  const contents: CreateOutboundCrossClusterSearchConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateOutboundCrossClusterSearchConnectionResponse",
+    ConnectionAlias: undefined,
+    ConnectionStatus: undefined,
+    CrossClusterSearchConnectionId: undefined,
+    DestinationDomainInfo: undefined,
+    SourceDomainInfo: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ConnectionAlias !== undefined && data.ConnectionAlias !== null) {
+    contents.ConnectionAlias = data.ConnectionAlias;
+  }
+  if (data.ConnectionStatus !== undefined && data.ConnectionStatus !== null) {
+    contents.ConnectionStatus = deserializeAws_restJson1OutboundCrossClusterSearchConnectionStatus(
+      data.ConnectionStatus,
+      context
+    );
+  }
+  if (data.CrossClusterSearchConnectionId !== undefined && data.CrossClusterSearchConnectionId !== null) {
+    contents.CrossClusterSearchConnectionId = data.CrossClusterSearchConnectionId;
+  }
+  if (data.DestinationDomainInfo !== undefined && data.DestinationDomainInfo !== null) {
+    contents.DestinationDomainInfo = deserializeAws_restJson1DomainInformation(data.DestinationDomainInfo, context);
+  }
+  if (data.SourceDomainInfo !== undefined && data.SourceDomainInfo !== null) {
+    contents.SourceDomainInfo = deserializeAws_restJson1DomainInformation(data.SourceDomainInfo, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOutboundCrossClusterSearchConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DisabledOperationException":
+    case "com.amazonaws.elasticsearchservice#DisabledOperationException":
+      response = {
+        ...(await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.elasticsearchservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.elasticsearchservice#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreatePackageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePackageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreatePackageCommandError(output, context);
+  }
+  const contents: CreatePackageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreatePackageResponse",
+    PackageDetails: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.PackageDetails !== undefined && data.PackageDetails !== null) {
+    contents.PackageDetails = deserializeAws_restJson1PackageDetails(data.PackageDetails, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreatePackageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePackageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.elasticsearchservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidTypeException":
+    case "com.amazonaws.elasticsearchservice#InvalidTypeException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidTypeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.elasticsearchservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.elasticsearchservice#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteElasticsearchDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1221,6 +2103,236 @@ const deserializeAws_restJson1DeleteElasticsearchServiceRoleCommandError = async
     case "com.amazonaws.elasticsearchservice#InternalException":
       response = {
         ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInboundCrossClusterSearchConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommandError(output, context);
+  }
+  const contents: DeleteInboundCrossClusterSearchConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteInboundCrossClusterSearchConnectionResponse",
+    CrossClusterSearchConnection: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CrossClusterSearchConnection !== undefined && data.CrossClusterSearchConnection !== null) {
+    contents.CrossClusterSearchConnection = deserializeAws_restJson1InboundCrossClusterSearchConnection(
+      data.CrossClusterSearchConnection,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInboundCrossClusterSearchConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DisabledOperationException":
+    case "com.amazonaws.elasticsearchservice#DisabledOperationException":
+      response = {
+        ...(await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOutboundCrossClusterSearchConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommandError(output, context);
+  }
+  const contents: DeleteOutboundCrossClusterSearchConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteOutboundCrossClusterSearchConnectionResponse",
+    CrossClusterSearchConnection: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CrossClusterSearchConnection !== undefined && data.CrossClusterSearchConnection !== null) {
+    contents.CrossClusterSearchConnection = deserializeAws_restJson1OutboundCrossClusterSearchConnection(
+      data.CrossClusterSearchConnection,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOutboundCrossClusterSearchConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DisabledOperationException":
+    case "com.amazonaws.elasticsearchservice#DisabledOperationException":
+      response = {
+        ...(await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeletePackageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePackageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeletePackageCommandError(output, context);
+  }
+  const contents: DeletePackageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeletePackageResponse",
+    PackageDetails: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.PackageDetails !== undefined && data.PackageDetails !== null) {
+    contents.PackageDetails = deserializeAws_restJson1PackageDetails(data.PackageDetails, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeletePackageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePackageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.elasticsearchservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.elasticsearchservice#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1578,6 +2690,240 @@ const deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommandErro
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsCommandError(output, context);
+  }
+  const contents: DescribeInboundCrossClusterSearchConnectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeInboundCrossClusterSearchConnectionsResponse",
+    CrossClusterSearchConnections: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CrossClusterSearchConnections !== undefined && data.CrossClusterSearchConnections !== null) {
+    contents.CrossClusterSearchConnections = deserializeAws_restJson1InboundCrossClusterSearchConnections(
+      data.CrossClusterSearchConnections,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DisabledOperationException":
+    case "com.amazonaws.elasticsearchservice#DisabledOperationException":
+      response = {
+        ...(await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.elasticsearchservice#InvalidPaginationTokenException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOutboundCrossClusterSearchConnectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommandError(output, context);
+  }
+  const contents: DescribeOutboundCrossClusterSearchConnectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeOutboundCrossClusterSearchConnectionsResponse",
+    CrossClusterSearchConnections: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CrossClusterSearchConnections !== undefined && data.CrossClusterSearchConnections !== null) {
+    contents.CrossClusterSearchConnections = deserializeAws_restJson1OutboundCrossClusterSearchConnections(
+      data.CrossClusterSearchConnections,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOutboundCrossClusterSearchConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DisabledOperationException":
+    case "com.amazonaws.elasticsearchservice#DisabledOperationException":
+      response = {
+        ...(await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.elasticsearchservice#InvalidPaginationTokenException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribePackagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePackagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribePackagesCommandError(output, context);
+  }
+  const contents: DescribePackagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribePackagesResponse",
+    NextToken: undefined,
+    PackageDetailsList: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.PackageDetailsList !== undefined && data.PackageDetailsList !== null) {
+    contents.PackageDetailsList = deserializeAws_restJson1PackageDetailsList(data.PackageDetailsList, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribePackagesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePackagesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.elasticsearchservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1710,6 +3056,102 @@ const deserializeAws_restJson1DescribeReservedElasticsearchInstancesCommandError
     case "com.amazonaws.elasticsearchservice#DisabledOperationException":
       response = {
         ...(await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DissociatePackageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DissociatePackageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DissociatePackageCommandError(output, context);
+  }
+  const contents: DissociatePackageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DissociatePackageResponse",
+    DomainPackageDetails: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.DomainPackageDetails !== undefined && data.DomainPackageDetails !== null) {
+    contents.DomainPackageDetails = deserializeAws_restJson1DomainPackageDetails(data.DomainPackageDetails, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DissociatePackageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DissociatePackageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.elasticsearchservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.elasticsearchservice#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2098,6 +3540,101 @@ const deserializeAws_restJson1ListDomainNamesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListDomainsForPackageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDomainsForPackageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListDomainsForPackageCommandError(output, context);
+  }
+  const contents: ListDomainsForPackageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListDomainsForPackageResponse",
+    DomainPackageDetailsList: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.DomainPackageDetailsList !== undefined && data.DomainPackageDetailsList !== null) {
+    contents.DomainPackageDetailsList = deserializeAws_restJson1DomainPackageDetailsList(
+      data.DomainPackageDetailsList,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListDomainsForPackageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDomainsForPackageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.elasticsearchservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListElasticsearchInstanceTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2223,6 +3760,101 @@ const deserializeAws_restJson1ListElasticsearchVersionsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListPackagesForDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPackagesForDomainCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListPackagesForDomainCommandError(output, context);
+  }
+  const contents: ListPackagesForDomainCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListPackagesForDomainResponse",
+    DomainPackageDetailsList: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.DomainPackageDetailsList !== undefined && data.DomainPackageDetailsList !== null) {
+    contents.DomainPackageDetailsList = deserializeAws_restJson1DomainPackageDetailsList(
+      data.DomainPackageDetailsList,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListPackagesForDomainCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPackagesForDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.elasticsearchservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "BaseException":
     case "com.amazonaws.elasticsearchservice#BaseException":
       response = {
@@ -2431,6 +4063,73 @@ const deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingComma
     case "com.amazonaws.elasticsearchservice#ValidationException":
       response = {
         ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectInboundCrossClusterSearchConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommandError(output, context);
+  }
+  const contents: RejectInboundCrossClusterSearchConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RejectInboundCrossClusterSearchConnectionResponse",
+    CrossClusterSearchConnection: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CrossClusterSearchConnection !== undefined && data.CrossClusterSearchConnection !== null) {
+    contents.CrossClusterSearchConnection = deserializeAws_restJson1InboundCrossClusterSearchConnection(
+      data.CrossClusterSearchConnection,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectInboundCrossClusterSearchConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DisabledOperationException":
+    case "com.amazonaws.elasticsearchservice#DisabledOperationException":
+      response = {
+        ...(await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2802,12 +4501,46 @@ const deserializeAws_restJson1UpgradeElasticsearchDomainCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = data.message;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1BaseExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BaseException> => {
   const contents: BaseException = {
     name: "BaseException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = data.message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const contents: ConflictException = {
+    name: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
@@ -2843,6 +4576,23 @@ const deserializeAws_restJson1InternalExceptionResponse = async (
   const contents: InternalException = {
     name: "InternalException",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = data.message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1InvalidPaginationTokenExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidPaginationTokenException> => {
+  const contents: InvalidPaginationTokenException = {
+    name: "InvalidPaginationTokenException",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
   };
@@ -2948,6 +4698,21 @@ const serializeAws_restJson1AdvancedOptions = (input: { [key: string]: string },
   );
 };
 
+const serializeAws_restJson1AdvancedSecurityOptionsInput = (
+  input: AdvancedSecurityOptionsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.InternalUserDatabaseEnabled !== undefined && {
+      InternalUserDatabaseEnabled: input.InternalUserDatabaseEnabled,
+    }),
+    ...(input.MasterUserOptions !== undefined && {
+      MasterUserOptions: serializeAws_restJson1MasterUserOptions(input.MasterUserOptions, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1CognitoOptions = (input: CognitoOptions, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
@@ -2957,10 +4722,38 @@ const serializeAws_restJson1CognitoOptions = (input: CognitoOptions, context: __
   };
 };
 
+const serializeAws_restJson1DescribePackagesFilter = (input: DescribePackagesFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Value !== undefined && {
+      Value: serializeAws_restJson1DescribePackagesFilterValues(input.Value, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1DescribePackagesFilterList = (
+  input: DescribePackagesFilter[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1DescribePackagesFilter(entry, context));
+};
+
+const serializeAws_restJson1DescribePackagesFilterValues = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1DomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
   return {
     ...(input.EnforceHTTPS !== undefined && { EnforceHTTPS: input.EnforceHTTPS }),
     ...(input.TLSSecurityPolicy !== undefined && { TLSSecurityPolicy: input.TLSSecurityPolicy }),
+  };
+};
+
+const serializeAws_restJson1DomainInformation = (input: DomainInformation, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.OwnerId !== undefined && { OwnerId: input.OwnerId }),
+    ...(input.Region !== undefined && { Region: input.Region }),
   };
 };
 
@@ -3007,6 +4800,17 @@ const serializeAws_restJson1EncryptionAtRestOptions = (
   };
 };
 
+const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Values !== undefined && { Values: serializeAws_restJson1ValueStringList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Filter(entry, context));
+};
+
 const serializeAws_restJson1LogPublishingOption = (input: LogPublishingOption, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLogsLogGroupArn !== undefined && {
@@ -3029,12 +4833,27 @@ const serializeAws_restJson1LogPublishingOptions = (
   );
 };
 
+const serializeAws_restJson1MasterUserOptions = (input: MasterUserOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.MasterUserARN !== undefined && { MasterUserARN: input.MasterUserARN }),
+    ...(input.MasterUserName !== undefined && { MasterUserName: input.MasterUserName }),
+    ...(input.MasterUserPassword !== undefined && { MasterUserPassword: input.MasterUserPassword }),
+  };
+};
+
 const serializeAws_restJson1NodeToNodeEncryptionOptions = (
   input: NodeToNodeEncryptionOptions,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+  };
+};
+
+const serializeAws_restJson1PackageSource = (input: PackageSource, context: __SerdeContext): any => {
+  return {
+    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
+    ...(input.S3Key !== undefined && { S3Key: input.S3Key }),
   };
 };
 
@@ -3059,6 +4878,10 @@ const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => 
 
 const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+};
+
+const serializeAws_restJson1ValueStringList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_restJson1VPCOptions = (input: VPCOptions, context: __SerdeContext): any => {
@@ -3118,6 +4941,37 @@ const deserializeAws_restJson1AdvancedOptionsStatus = (output: any, context: __S
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1AdvancedOptions(output.Options, context)
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_restJson1OptionStatus(output.Status, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AdvancedSecurityOptions = (
+  output: any,
+  context: __SerdeContext
+): AdvancedSecurityOptions => {
+  return {
+    __type: "AdvancedSecurityOptions",
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    InternalUserDatabaseEnabled:
+      output.InternalUserDatabaseEnabled !== undefined && output.InternalUserDatabaseEnabled !== null
+        ? output.InternalUserDatabaseEnabled
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AdvancedSecurityOptionsStatus = (
+  output: any,
+  context: __SerdeContext
+): AdvancedSecurityOptionsStatus => {
+  return {
+    __type: "AdvancedSecurityOptionsStatus",
+    Options:
+      output.Options !== undefined && output.Options !== null
+        ? deserializeAws_restJson1AdvancedSecurityOptions(output.Options, context)
         : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -3207,6 +5061,46 @@ const deserializeAws_restJson1DomainInfo = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1DomainInfoList = (output: any, context: __SerdeContext): DomainInfo[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1DomainInfo(entry, context));
+};
+
+const deserializeAws_restJson1DomainInformation = (output: any, context: __SerdeContext): DomainInformation => {
+  return {
+    __type: "DomainInformation",
+    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
+    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DomainPackageDetails = (output: any, context: __SerdeContext): DomainPackageDetails => {
+  return {
+    __type: "DomainPackageDetails",
+    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    DomainPackageStatus:
+      output.DomainPackageStatus !== undefined && output.DomainPackageStatus !== null
+        ? output.DomainPackageStatus
+        : undefined,
+    ErrorDetails:
+      output.ErrorDetails !== undefined && output.ErrorDetails !== null
+        ? deserializeAws_restJson1ErrorDetails(output.ErrorDetails, context)
+        : undefined,
+    LastUpdated:
+      output.LastUpdated !== undefined && output.LastUpdated !== null
+        ? new Date(Math.round(output.LastUpdated * 1000))
+        : undefined,
+    PackageID: output.PackageID !== undefined && output.PackageID !== null ? output.PackageID : undefined,
+    PackageName: output.PackageName !== undefined && output.PackageName !== null ? output.PackageName : undefined,
+    PackageType: output.PackageType !== undefined && output.PackageType !== null ? output.PackageType : undefined,
+    ReferencePath:
+      output.ReferencePath !== undefined && output.ReferencePath !== null ? output.ReferencePath : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DomainPackageDetailsList = (
+  output: any,
+  context: __SerdeContext
+): DomainPackageDetails[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DomainPackageDetails(entry, context));
 };
 
 const deserializeAws_restJson1EBSOptions = (output: any, context: __SerdeContext): EBSOptions => {
@@ -3299,6 +5193,10 @@ const deserializeAws_restJson1ElasticsearchDomainConfig = (
       output.AdvancedOptions !== undefined && output.AdvancedOptions !== null
         ? deserializeAws_restJson1AdvancedOptionsStatus(output.AdvancedOptions, context)
         : undefined,
+    AdvancedSecurityOptions:
+      output.AdvancedSecurityOptions !== undefined && output.AdvancedSecurityOptions !== null
+        ? deserializeAws_restJson1AdvancedSecurityOptionsStatus(output.AdvancedSecurityOptions, context)
+        : undefined,
     CognitoOptions:
       output.CognitoOptions !== undefined && output.CognitoOptions !== null
         ? deserializeAws_restJson1CognitoOptionsStatus(output.CognitoOptions, context)
@@ -3354,6 +5252,10 @@ const deserializeAws_restJson1ElasticsearchDomainStatus = (
     AdvancedOptions:
       output.AdvancedOptions !== undefined && output.AdvancedOptions !== null
         ? deserializeAws_restJson1AdvancedOptions(output.AdvancedOptions, context)
+        : undefined,
+    AdvancedSecurityOptions:
+      output.AdvancedSecurityOptions !== undefined && output.AdvancedSecurityOptions !== null
+        ? deserializeAws_restJson1AdvancedSecurityOptions(output.AdvancedSecurityOptions, context)
         : undefined,
     CognitoOptions:
       output.CognitoOptions !== undefined && output.CognitoOptions !== null
@@ -3484,6 +5386,59 @@ const deserializeAws_restJson1EndpointsMap = (output: any, context: __SerdeConte
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
+  return {
+    __type: "ErrorDetails",
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    ErrorType: output.ErrorType !== undefined && output.ErrorType !== null ? output.ErrorType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InboundCrossClusterSearchConnection = (
+  output: any,
+  context: __SerdeContext
+): InboundCrossClusterSearchConnection => {
+  return {
+    __type: "InboundCrossClusterSearchConnection",
+    ConnectionStatus:
+      output.ConnectionStatus !== undefined && output.ConnectionStatus !== null
+        ? deserializeAws_restJson1InboundCrossClusterSearchConnectionStatus(output.ConnectionStatus, context)
+        : undefined,
+    CrossClusterSearchConnectionId:
+      output.CrossClusterSearchConnectionId !== undefined && output.CrossClusterSearchConnectionId !== null
+        ? output.CrossClusterSearchConnectionId
+        : undefined,
+    DestinationDomainInfo:
+      output.DestinationDomainInfo !== undefined && output.DestinationDomainInfo !== null
+        ? deserializeAws_restJson1DomainInformation(output.DestinationDomainInfo, context)
+        : undefined,
+    SourceDomainInfo:
+      output.SourceDomainInfo !== undefined && output.SourceDomainInfo !== null
+        ? deserializeAws_restJson1DomainInformation(output.SourceDomainInfo, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InboundCrossClusterSearchConnections = (
+  output: any,
+  context: __SerdeContext
+): InboundCrossClusterSearchConnection[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1InboundCrossClusterSearchConnection(entry, context)
+  );
+};
+
+const deserializeAws_restJson1InboundCrossClusterSearchConnectionStatus = (
+  output: any,
+  context: __SerdeContext
+): InboundCrossClusterSearchConnectionStatus => {
+  return {
+    __type: "InboundCrossClusterSearchConnectionStatus",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1InstanceCountLimits = (output: any, context: __SerdeContext): InstanceCountLimits => {
@@ -3633,6 +5588,80 @@ const deserializeAws_restJson1OptionStatus = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1OutboundCrossClusterSearchConnection = (
+  output: any,
+  context: __SerdeContext
+): OutboundCrossClusterSearchConnection => {
+  return {
+    __type: "OutboundCrossClusterSearchConnection",
+    ConnectionAlias:
+      output.ConnectionAlias !== undefined && output.ConnectionAlias !== null ? output.ConnectionAlias : undefined,
+    ConnectionStatus:
+      output.ConnectionStatus !== undefined && output.ConnectionStatus !== null
+        ? deserializeAws_restJson1OutboundCrossClusterSearchConnectionStatus(output.ConnectionStatus, context)
+        : undefined,
+    CrossClusterSearchConnectionId:
+      output.CrossClusterSearchConnectionId !== undefined && output.CrossClusterSearchConnectionId !== null
+        ? output.CrossClusterSearchConnectionId
+        : undefined,
+    DestinationDomainInfo:
+      output.DestinationDomainInfo !== undefined && output.DestinationDomainInfo !== null
+        ? deserializeAws_restJson1DomainInformation(output.DestinationDomainInfo, context)
+        : undefined,
+    SourceDomainInfo:
+      output.SourceDomainInfo !== undefined && output.SourceDomainInfo !== null
+        ? deserializeAws_restJson1DomainInformation(output.SourceDomainInfo, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OutboundCrossClusterSearchConnections = (
+  output: any,
+  context: __SerdeContext
+): OutboundCrossClusterSearchConnection[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1OutboundCrossClusterSearchConnection(entry, context)
+  );
+};
+
+const deserializeAws_restJson1OutboundCrossClusterSearchConnectionStatus = (
+  output: any,
+  context: __SerdeContext
+): OutboundCrossClusterSearchConnectionStatus => {
+  return {
+    __type: "OutboundCrossClusterSearchConnectionStatus",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PackageDetails = (output: any, context: __SerdeContext): PackageDetails => {
+  return {
+    __type: "PackageDetails",
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    ErrorDetails:
+      output.ErrorDetails !== undefined && output.ErrorDetails !== null
+        ? deserializeAws_restJson1ErrorDetails(output.ErrorDetails, context)
+        : undefined,
+    PackageDescription:
+      output.PackageDescription !== undefined && output.PackageDescription !== null
+        ? output.PackageDescription
+        : undefined,
+    PackageID: output.PackageID !== undefined && output.PackageID !== null ? output.PackageID : undefined,
+    PackageName: output.PackageName !== undefined && output.PackageName !== null ? output.PackageName : undefined,
+    PackageStatus:
+      output.PackageStatus !== undefined && output.PackageStatus !== null ? output.PackageStatus : undefined,
+    PackageType: output.PackageType !== undefined && output.PackageType !== null ? output.PackageType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PackageDetailsList = (output: any, context: __SerdeContext): PackageDetails[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1PackageDetails(entry, context));
+};
+
 const deserializeAws_restJson1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   return {
     __type: "RecurringCharge",
@@ -3753,6 +5782,10 @@ const deserializeAws_restJson1ServiceSoftwareOptions = (
       output.CurrentVersion !== undefined && output.CurrentVersion !== null ? output.CurrentVersion : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     NewVersion: output.NewVersion !== undefined && output.NewVersion !== null ? output.NewVersion : undefined,
+    OptionalDeployment:
+      output.OptionalDeployment !== undefined && output.OptionalDeployment !== null
+        ? output.OptionalDeployment
+        : undefined,
     UpdateAvailable:
       output.UpdateAvailable !== undefined && output.UpdateAvailable !== null ? output.UpdateAvailable : undefined,
     UpdateStatus: output.UpdateStatus !== undefined && output.UpdateStatus !== null ? output.UpdateStatus : undefined,

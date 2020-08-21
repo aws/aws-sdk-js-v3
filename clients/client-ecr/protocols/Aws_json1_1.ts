@@ -102,6 +102,7 @@ import {
   DescribeRepositoriesRequest,
   DescribeRepositoriesResponse,
   EmptyUploadException,
+  EncryptionConfiguration,
   FindingSeverity,
   GetAuthorizationTokenRequest,
   GetAuthorizationTokenResponse,
@@ -116,6 +117,7 @@ import {
   Image,
   ImageAlreadyExistsException,
   ImageDetail,
+  ImageDigestDoesNotMatchException,
   ImageFailure,
   ImageIdentifier,
   ImageNotFoundException,
@@ -131,6 +133,7 @@ import {
   InvalidLayerPartException,
   InvalidParameterException,
   InvalidTagParameterException,
+  KmsException,
   Layer,
   LayerAlreadyExistsException,
   LayerFailure,
@@ -158,6 +161,7 @@ import {
   PutImageTagMutabilityResponse,
   PutLifecyclePolicyRequest,
   PutLifecyclePolicyResponse,
+  ReferencedImagesNotFoundException,
   Repository,
   RepositoryAlreadyExistsException,
   RepositoryNotEmptyException,
@@ -175,6 +179,7 @@ import {
   TagResourceRequest,
   TagResourceResponse,
   TooManyTagsException,
+  UnsupportedImageTypeException,
   UntagResourceRequest,
   UntagResourceResponse,
   UploadLayerPartRequest,
@@ -839,6 +844,14 @@ const deserializeAws_json1_1CompleteLayerUploadCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "KmsException":
+    case "com.amazonaws.ecr#KmsException":
+      response = {
+        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "LayerAlreadyExistsException":
     case "com.amazonaws.ecr#LayerAlreadyExistsException":
       response = {
@@ -939,6 +952,14 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
     case "com.amazonaws.ecr#InvalidTagParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KmsException":
+    case "com.amazonaws.ecr#KmsException":
+      response = {
+        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1107,6 +1128,14 @@ const deserializeAws_json1_1DeleteRepositoryCommandError = async (
     case "com.amazonaws.ecr#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KmsException":
+    case "com.amazonaws.ecr#KmsException":
+      response = {
+        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1903,6 +1932,14 @@ const deserializeAws_json1_1InitiateLayerUploadCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "KmsException":
+    case "com.amazonaws.ecr#KmsException":
+      response = {
+        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
       response = {
@@ -2119,6 +2156,14 @@ const deserializeAws_json1_1PutImageCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ImageDigestDoesNotMatchException":
+    case "com.amazonaws.ecr#ImageDigestDoesNotMatchException":
+      response = {
+        ...(await deserializeAws_json1_1ImageDigestDoesNotMatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ImageTagAlreadyExistsException":
     case "com.amazonaws.ecr#ImageTagAlreadyExistsException":
       response = {
@@ -2135,6 +2180,14 @@ const deserializeAws_json1_1PutImageCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "KmsException":
+    case "com.amazonaws.ecr#KmsException":
+      response = {
+        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "LayersNotFoundException":
     case "com.amazonaws.ecr#LayersNotFoundException":
       response = {
@@ -2147,6 +2200,14 @@ const deserializeAws_json1_1PutImageCommandError = async (
     case "com.amazonaws.ecr#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReferencedImagesNotFoundException":
+    case "com.amazonaws.ecr#ReferencedImagesNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ReferencedImagesNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2519,6 +2580,14 @@ const deserializeAws_json1_1StartImageScanCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "LimitExceededException":
+    case "com.amazonaws.ecr#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
       response = {
@@ -2531,6 +2600,14 @@ const deserializeAws_json1_1StartImageScanCommandError = async (
     case "com.amazonaws.ecr#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedImageTypeException":
+    case "com.amazonaws.ecr#UnsupportedImageTypeException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedImageTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2863,6 +2940,14 @@ const deserializeAws_json1_1UploadLayerPartCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "KmsException":
+    case "com.amazonaws.ecr#KmsException":
+      response = {
+        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
       response = {
@@ -2935,6 +3020,21 @@ const deserializeAws_json1_1ImageAlreadyExistsExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1ImageAlreadyExistsException(body, context);
   const contents: ImageAlreadyExistsException = {
     name: "ImageAlreadyExistsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ImageDigestDoesNotMatchExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ImageDigestDoesNotMatchException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ImageDigestDoesNotMatchException(body, context);
+  const contents: ImageDigestDoesNotMatchException = {
+    name: "ImageDigestDoesNotMatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3025,6 +3125,21 @@ const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidTagParameterException(body, context);
   const contents: InvalidTagParameterException = {
     name: "InvalidTagParameterException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1KmsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KmsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1KmsException(body, context);
+  const contents: KmsException = {
+    name: "KmsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3152,6 +3267,21 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ReferencedImagesNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReferencedImagesNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ReferencedImagesNotFoundException(body, context);
+  const contents: ReferencedImagesNotFoundException = {
+    name: "ReferencedImagesNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3257,6 +3387,21 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1UnsupportedImageTypeExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedImageTypeException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnsupportedImageTypeException(body, context);
+  const contents: UnsupportedImageTypeException = {
+    name: "UnsupportedImageTypeException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1UploadNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3324,6 +3469,9 @@ const serializeAws_json1_1CompleteLayerUploadRequest = (
 
 const serializeAws_json1_1CreateRepositoryRequest = (input: CreateRepositoryRequest, context: __SerdeContext): any => {
   return {
+    ...(input.encryptionConfiguration !== undefined && {
+      encryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.encryptionConfiguration, context),
+    }),
     ...(input.imageScanningConfiguration !== undefined && {
       imageScanningConfiguration: serializeAws_json1_1ImageScanningConfiguration(
         input.imageScanningConfiguration,
@@ -3405,6 +3553,13 @@ const serializeAws_json1_1DescribeRepositoriesRequest = (
     ...(input.repositoryNames !== undefined && {
       repositoryNames: serializeAws_json1_1RepositoryNameList(input.repositoryNames, context),
     }),
+  };
+};
+
+const serializeAws_json1_1EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.encryptionType !== undefined && { encryptionType: input.encryptionType }),
+    ...(input.kmsKey !== undefined && { kmsKey: input.kmsKey }),
   };
 };
 
@@ -3544,7 +3699,9 @@ const serializeAws_json1_1MediaTypeList = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1PutImageRequest = (input: PutImageRequest, context: __SerdeContext): any => {
   return {
+    ...(input.imageDigest !== undefined && { imageDigest: input.imageDigest }),
     ...(input.imageManifest !== undefined && { imageManifest: input.imageManifest }),
+    ...(input.imageManifestMediaType !== undefined && { imageManifestMediaType: input.imageManifestMediaType }),
     ...(input.imageTag !== undefined && { imageTag: input.imageTag }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
     ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
@@ -3874,6 +4031,18 @@ const deserializeAws_json1_1EmptyUploadException = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1EncryptionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EncryptionConfiguration => {
+  return {
+    __type: "EncryptionConfiguration",
+    encryptionType:
+      output.encryptionType !== undefined && output.encryptionType !== null ? output.encryptionType : undefined,
+    kmsKey: output.kmsKey !== undefined && output.kmsKey !== null ? output.kmsKey : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1FindingSeverityCounts = (
   output: any,
   context: __SerdeContext
@@ -3979,6 +4148,10 @@ const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Imag
         : undefined,
     imageManifest:
       output.imageManifest !== undefined && output.imageManifest !== null ? output.imageManifest : undefined,
+    imageManifestMediaType:
+      output.imageManifestMediaType !== undefined && output.imageManifestMediaType !== null
+        ? output.imageManifestMediaType
+        : undefined,
     registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
     repositoryName:
       output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
@@ -4025,6 +4198,16 @@ const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ImageDetailList = (output: any, context: __SerdeContext): ImageDetail[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1ImageDetail(entry, context));
+};
+
+const deserializeAws_json1_1ImageDigestDoesNotMatchException = (
+  output: any,
+  context: __SerdeContext
+): ImageDigestDoesNotMatchException => {
+  return {
+    __type: "ImageDigestDoesNotMatchException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ImageFailure = (output: any, context: __SerdeContext): ImageFailure => {
@@ -4212,6 +4395,14 @@ const deserializeAws_json1_1InvalidTagParameterException = (
 ): InvalidTagParameterException => {
   return {
     __type: "InvalidTagParameterException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1KmsException = (output: any, context: __SerdeContext): KmsException => {
+  return {
+    __type: "KmsException",
+    kmsError: output.kmsError !== undefined && output.kmsError !== null ? output.kmsError : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4462,12 +4653,26 @@ const deserializeAws_json1_1PutLifecyclePolicyResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ReferencedImagesNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ReferencedImagesNotFoundException => {
+  return {
+    __type: "ReferencedImagesNotFoundException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Repository = (output: any, context: __SerdeContext): Repository => {
   return {
     __type: "Repository",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    encryptionConfiguration:
+      output.encryptionConfiguration !== undefined && output.encryptionConfiguration !== null
+        ? deserializeAws_json1_1EncryptionConfiguration(output.encryptionConfiguration, context)
         : undefined,
     imageScanningConfiguration:
       output.imageScanningConfiguration !== undefined && output.imageScanningConfiguration !== null
@@ -4613,6 +4818,16 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
     __type: "TooManyTagsException",
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UnsupportedImageTypeException = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedImageTypeException => {
+  return {
+    __type: "UnsupportedImageTypeException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

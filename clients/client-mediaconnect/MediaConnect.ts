@@ -4,6 +4,16 @@ import {
   AddFlowOutputsCommandInput,
   AddFlowOutputsCommandOutput,
 } from "./commands/AddFlowOutputsCommand";
+import {
+  AddFlowSourcesCommand,
+  AddFlowSourcesCommandInput,
+  AddFlowSourcesCommandOutput,
+} from "./commands/AddFlowSourcesCommand";
+import {
+  AddFlowVpcInterfacesCommand,
+  AddFlowVpcInterfacesCommandInput,
+  AddFlowVpcInterfacesCommandOutput,
+} from "./commands/AddFlowVpcInterfacesCommand";
 import { CreateFlowCommand, CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
 import { DeleteFlowCommand, DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
 import {
@@ -33,6 +43,16 @@ import {
   RemoveFlowOutputCommandOutput,
 } from "./commands/RemoveFlowOutputCommand";
 import {
+  RemoveFlowSourceCommand,
+  RemoveFlowSourceCommandInput,
+  RemoveFlowSourceCommandOutput,
+} from "./commands/RemoveFlowSourceCommand";
+import {
+  RemoveFlowVpcInterfaceCommand,
+  RemoveFlowVpcInterfaceCommandInput,
+  RemoveFlowVpcInterfaceCommandOutput,
+} from "./commands/RemoveFlowVpcInterfaceCommand";
+import {
   RevokeFlowEntitlementCommand,
   RevokeFlowEntitlementCommandInput,
   RevokeFlowEntitlementCommandOutput,
@@ -45,6 +65,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import {
   UpdateFlowEntitlementCommand,
   UpdateFlowEntitlementCommandInput,
@@ -67,7 +88,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class MediaConnect extends MediaConnectClient {
   /**
-   * Adds outputs to an existing flow. You can create up to 20 outputs per flow.
+   * Adds outputs to an existing flow. You can create up to 50 outputs per flow.
    */
   public addFlowOutputs(
     args: AddFlowOutputsCommandInput,
@@ -99,7 +120,71 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
-   * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 20) and entitlements (up to 50).
+   * Adds Sources to flow
+   */
+  public addFlowSources(
+    args: AddFlowSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddFlowSourcesCommandOutput>;
+  public addFlowSources(
+    args: AddFlowSourcesCommandInput,
+    cb: (err: any, data?: AddFlowSourcesCommandOutput) => void
+  ): void;
+  public addFlowSources(
+    args: AddFlowSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddFlowSourcesCommandOutput) => void
+  ): void;
+  public addFlowSources(
+    args: AddFlowSourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddFlowSourcesCommandOutput) => void),
+    cb?: (err: any, data?: AddFlowSourcesCommandOutput) => void
+  ): Promise<AddFlowSourcesCommandOutput> | void {
+    const command = new AddFlowSourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Adds VPC interfaces to flow
+   */
+  public addFlowVpcInterfaces(
+    args: AddFlowVpcInterfacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddFlowVpcInterfacesCommandOutput>;
+  public addFlowVpcInterfaces(
+    args: AddFlowVpcInterfacesCommandInput,
+    cb: (err: any, data?: AddFlowVpcInterfacesCommandOutput) => void
+  ): void;
+  public addFlowVpcInterfaces(
+    args: AddFlowVpcInterfacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddFlowVpcInterfacesCommandOutput) => void
+  ): void;
+  public addFlowVpcInterfaces(
+    args: AddFlowVpcInterfacesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddFlowVpcInterfacesCommandOutput) => void),
+    cb?: (err: any, data?: AddFlowVpcInterfacesCommandOutput) => void
+  ): Promise<AddFlowVpcInterfacesCommandOutput> | void {
+    const command = new AddFlowVpcInterfacesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
    */
   public createFlow(args: CreateFlowCommandInput, options?: __HttpHandlerOptions): Promise<CreateFlowCommandOutput>;
   public createFlow(args: CreateFlowCommandInput, cb: (err: any, data?: CreateFlowCommandOutput) => void): void;
@@ -334,6 +419,70 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * Removes a source from an existing flow. This request can be made only if there is more than one source on the flow.
+   */
+  public removeFlowSource(
+    args: RemoveFlowSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveFlowSourceCommandOutput>;
+  public removeFlowSource(
+    args: RemoveFlowSourceCommandInput,
+    cb: (err: any, data?: RemoveFlowSourceCommandOutput) => void
+  ): void;
+  public removeFlowSource(
+    args: RemoveFlowSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveFlowSourceCommandOutput) => void
+  ): void;
+  public removeFlowSource(
+    args: RemoveFlowSourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveFlowSourceCommandOutput) => void),
+    cb?: (err: any, data?: RemoveFlowSourceCommandOutput) => void
+  ): Promise<RemoveFlowSourceCommandOutput> | void {
+    const command = new RemoveFlowSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Removes a VPC Interface from an existing flow. This request can be made only on a VPC interface that does not have a Source or Output associated with it. If the VPC interface is referenced by a Source or Output, you must first delete or update the Source or Output to no longer reference the VPC interface.
+   */
+  public removeFlowVpcInterface(
+    args: RemoveFlowVpcInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveFlowVpcInterfaceCommandOutput>;
+  public removeFlowVpcInterface(
+    args: RemoveFlowVpcInterfaceCommandInput,
+    cb: (err: any, data?: RemoveFlowVpcInterfaceCommandOutput) => void
+  ): void;
+  public removeFlowVpcInterface(
+    args: RemoveFlowVpcInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveFlowVpcInterfaceCommandOutput) => void
+  ): void;
+  public removeFlowVpcInterface(
+    args: RemoveFlowVpcInterfaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveFlowVpcInterfaceCommandOutput) => void),
+    cb?: (err: any, data?: RemoveFlowVpcInterfaceCommandOutput) => void
+  ): Promise<RemoveFlowVpcInterfaceCommandOutput> | void {
+    const command = new RemoveFlowVpcInterfaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Revokes an entitlement from a flow. Once an entitlement is revoked, the content becomes unavailable to the subscriber and the associated output is removed.
    */
   public revokeFlowEntitlement(
@@ -465,6 +614,32 @@ export class MediaConnect extends MediaConnectClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Updates flow
+   */
+  public updateFlow(args: UpdateFlowCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFlowCommandOutput>;
+  public updateFlow(args: UpdateFlowCommandInput, cb: (err: any, data?: UpdateFlowCommandOutput) => void): void;
+  public updateFlow(
+    args: UpdateFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFlowCommandOutput) => void
+  ): void;
+  public updateFlow(
+    args: UpdateFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFlowCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFlowCommandOutput) => void
+  ): Promise<UpdateFlowCommandOutput> | void {
+    const command = new UpdateFlowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

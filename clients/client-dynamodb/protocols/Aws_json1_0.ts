@@ -5688,6 +5688,9 @@ const serializeAws_json1_0RestoreTableFromBackupInput = (
         context
       ),
     }),
+    ...(input.SSESpecificationOverride !== undefined && {
+      SSESpecificationOverride: serializeAws_json1_0SSESpecification(input.SSESpecificationOverride, context),
+    }),
     ...(input.TargetTableName !== undefined && { TargetTableName: input.TargetTableName }),
   };
 };
@@ -5717,6 +5720,10 @@ const serializeAws_json1_0RestoreTableToPointInTimeInput = (
       ),
     }),
     ...(input.RestoreDateTime !== undefined && { RestoreDateTime: Math.round(input.RestoreDateTime.getTime() / 1000) }),
+    ...(input.SSESpecificationOverride !== undefined && {
+      SSESpecificationOverride: serializeAws_json1_0SSESpecification(input.SSESpecificationOverride, context),
+    }),
+    ...(input.SourceTableArn !== undefined && { SourceTableArn: input.SourceTableArn }),
     ...(input.SourceTableName !== undefined && { SourceTableName: input.SourceTableName }),
     ...(input.TargetTableName !== undefined && { TargetTableName: input.TargetTableName }),
     ...(input.UseLatestRestorableTime !== undefined && { UseLatestRestorableTime: input.UseLatestRestorableTime }),

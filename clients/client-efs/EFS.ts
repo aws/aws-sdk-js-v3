@@ -42,6 +42,11 @@ import {
   DescribeAccessPointsCommandOutput,
 } from "./commands/DescribeAccessPointsCommand";
 import {
+  DescribeBackupPolicyCommand,
+  DescribeBackupPolicyCommandInput,
+  DescribeBackupPolicyCommandOutput,
+} from "./commands/DescribeBackupPolicyCommand";
+import {
   DescribeFileSystemPolicyCommand,
   DescribeFileSystemPolicyCommandInput,
   DescribeFileSystemPolicyCommandOutput,
@@ -81,6 +86,11 @@ import {
   ModifyMountTargetSecurityGroupsCommandInput,
   ModifyMountTargetSecurityGroupsCommandOutput,
 } from "./commands/ModifyMountTargetSecurityGroupsCommand";
+import {
+  PutBackupPolicyCommand,
+  PutBackupPolicyCommandInput,
+  PutBackupPolicyCommandOutput,
+} from "./commands/PutBackupPolicyCommand";
 import {
   PutFileSystemPolicyCommand,
   PutFileSystemPolicyCommandInput,
@@ -668,6 +678,38 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * <p>Returns the backup policy for the specified EFS file system.</p>
+   */
+  public describeBackupPolicy(
+    args: DescribeBackupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBackupPolicyCommandOutput>;
+  public describeBackupPolicy(
+    args: DescribeBackupPolicyCommandInput,
+    cb: (err: any, data?: DescribeBackupPolicyCommandOutput) => void
+  ): void;
+  public describeBackupPolicy(
+    args: DescribeBackupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBackupPolicyCommandOutput) => void
+  ): void;
+  public describeBackupPolicy(
+    args: DescribeBackupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBackupPolicyCommandOutput) => void
+  ): Promise<DescribeBackupPolicyCommandOutput> | void {
+    const command = new DescribeBackupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>
    *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
    */
@@ -996,11 +1038,44 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * <p>Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system. </p>
+   */
+  public putBackupPolicy(
+    args: PutBackupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBackupPolicyCommandOutput>;
+  public putBackupPolicy(
+    args: PutBackupPolicyCommandInput,
+    cb: (err: any, data?: PutBackupPolicyCommandOutput) => void
+  ): void;
+  public putBackupPolicy(
+    args: PutBackupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutBackupPolicyCommandOutput) => void
+  ): void;
+  public putBackupPolicy(
+    args: PutBackupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBackupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutBackupPolicyCommandOutput) => void
+  ): Promise<PutBackupPolicyCommandOutput> | void {
+    const command = new PutBackupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Applies an Amazon EFS <code>FileSystemPolicy</code> to an Amazon EFS file system.
    *       A file system policy is an IAM resource-based policy and can contain multiple policy statements.
-   *       A file system always has exactly one file system policy, which can be the default policy or an explicit policy set or updated using this API operation.
+   *       A file system always has exactly one file system policy, which can be the default policy or
+   *       an explicit policy set or updated using this API operation.
    *       When an explicit policy is set, it overrides the default policy. For more information about the default file system policy, see
-   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html">Using Resource-based Policies with EFS</a>.
+   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy">Default EFS File System Policy</a>.
    *     </p>
    *          <p>This operation requires permissions for the <code>elasticfilesystem:PutFileSystemPolicy</code> action.</p>
    */

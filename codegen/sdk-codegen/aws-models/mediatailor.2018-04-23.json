@@ -29,6 +29,26 @@
     ]
   },
   "shapes": {
+    "com.amazonaws.mediatailor#AvailSuppression": {
+      "type": "structure",
+      "members": {
+        "Value": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "The avail suppression value is a live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window."
+          }
+        },
+        "Mode": {
+          "target": "com.amazonaws.mediatailor#Mode",
+          "traits": {
+            "smithy.api#documentation": "Sets the mode for avail suppression, also known as ad suppression. By default, ad suppression is off and all ad breaks are filled by MediaTailor with ads or slate."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>"
+      }
+    },
     "com.amazonaws.mediatailor#BadRequestException": {
       "type": "structure",
       "members": {
@@ -42,19 +62,39 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.mediatailor#Bumper": {
+      "type": "structure",
+      "members": {
+        "EndUrl": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL for the end bumper asset. </p>"
+          }
+        },
+        "StartUrl": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL for the start bumper asset. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>"
+      }
+    },
     "com.amazonaws.mediatailor#CdnConfiguration": {
       "type": "structure",
       "members": {
-        "AdSegmentUrlPrefix": {
-          "target": "com.amazonaws.mediatailor#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.</p>"
-          }
-        },
         "ContentSegmentUrlPrefix": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.</p>"
+          }
+        },
+        "AdSegmentUrlPrefix": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.</p>"
           }
         }
       },
@@ -91,16 +131,16 @@
     "com.amazonaws.mediatailor#DashConfigurationForPut": {
       "type": "structure",
       "members": {
-        "MpdLocation": {
-          "target": "com.amazonaws.mediatailor#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value. </p>"
-          }
-        },
         "OriginManifestType": {
           "target": "com.amazonaws.mediatailor#OriginManifestType",
           "traits": {
             "smithy.api#documentation": "<p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD. </p>"
+          }
+        },
+        "MpdLocation": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value. </p>"
           }
         }
       },
@@ -175,40 +215,16 @@
     "com.amazonaws.mediatailor#GetPlaybackConfigurationResponse": {
       "type": "structure",
       "members": {
-        "AdDecisionServerUrl": {
-          "target": "com.amazonaws.mediatailor#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>"
-          }
-        },
-        "CdnConfiguration": {
-          "target": "com.amazonaws.mediatailor#CdnConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>"
-          }
-        },
-        "DashConfiguration": {
-          "target": "com.amazonaws.mediatailor#DashConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for DASH content. </p>"
-          }
-        },
         "HlsConfiguration": {
           "target": "com.amazonaws.mediatailor#HlsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration for HLS content. </p>"
           }
         },
-        "LivePreRollConfiguration": {
-          "target": "com.amazonaws.mediatailor#LivePreRollConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for pre-roll ad insertion.</p>"
-          }
-        },
-        "Name": {
+        "VideoContentSourceUrl": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the playback configuration.</p>"
+            "smithy.api#documentation": "<p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>"
           }
         },
         "PlaybackConfigurationArn": {
@@ -217,10 +233,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the playback configuration. </p>"
           }
         },
-        "PlaybackEndpointPrefix": {
-          "target": "com.amazonaws.mediatailor#__string",
+        "LivePreRollConfiguration": {
+          "target": "com.amazonaws.mediatailor#LivePreRollConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>"
+            "smithy.api#documentation": "<p>The configuration for pre-roll ad insertion.</p>"
           }
         },
         "SessionInitializationEndpointPrefix": {
@@ -229,10 +245,52 @@
             "smithy.api#documentation": "<p>The URL that the player uses to initialize a session that uses client-side reporting. </p>"
           }
         },
+        "Name": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the playback configuration.</p>"
+          }
+        },
+        "AvailSuppression": {
+          "target": "com.amazonaws.mediatailor#AvailSuppression",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>"
+          }
+        },
+        "PersonalizationThresholdSeconds": {
+          "target": "com.amazonaws.mediatailor#__integerMin1",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>"
+          }
+        },
+        "CdnConfiguration": {
+          "target": "com.amazonaws.mediatailor#CdnConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>"
+          }
+        },
+        "PlaybackEndpointPrefix": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>"
+          }
+        },
         "SlateAdUrl": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. </p>"
+          }
+        },
+        "TranscodeProfileName": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>"
+          }
+        },
+        "DashConfiguration": {
+          "target": "com.amazonaws.mediatailor#DashConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for DASH content. </p>"
           }
         },
         "Tags": {
@@ -242,16 +300,16 @@
             "smithy.api#jsonName": "tags"
           }
         },
-        "TranscodeProfileName": {
+        "AdDecisionServerUrl": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>"
+            "smithy.api#documentation": "<p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>"
           }
         },
-        "VideoContentSourceUrl": {
-          "target": "com.amazonaws.mediatailor#__string",
+        "Bumper": {
+          "target": "com.amazonaws.mediatailor#Bumper",
           "traits": {
-            "smithy.api#documentation": "<p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>"
+            "smithy.api#documentation": "<p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>"
           }
         }
       }
@@ -309,16 +367,16 @@
     "com.amazonaws.mediatailor#ListPlaybackConfigurationsResponse": {
       "type": "structure",
       "members": {
-        "Items": {
-          "target": "com.amazonaws.mediatailor#__listOfPlaybackConfigurations",
-          "traits": {
-            "smithy.api#documentation": "<p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored. </p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>"
+          }
+        },
+        "Items": {
+          "target": "com.amazonaws.mediatailor#__listOfPlaybackConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored. </p>"
           }
         }
       }
@@ -431,6 +489,21 @@
         "smithy.api#title": "AWS MediaTailor"
       }
     },
+    "com.amazonaws.mediatailor#Mode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "OFF",
+            "name": "OFF"
+          },
+          {
+            "value": "BEHIND_LIVE_EDGE",
+            "name": "BEHIND_LIVE_EDGE"
+          }
+        ]
+      }
+    },
     "com.amazonaws.mediatailor#OriginManifestType": {
       "type": "string",
       "traits": {
@@ -449,22 +522,10 @@
     "com.amazonaws.mediatailor#PlaybackConfiguration": {
       "type": "structure",
       "members": {
-        "AdDecisionServerUrl": {
+        "VideoContentSourceUrl": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>"
-          }
-        },
-        "CdnConfiguration": {
-          "target": "com.amazonaws.mediatailor#CdnConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>"
-          }
-        },
-        "DashConfiguration": {
-          "target": "com.amazonaws.mediatailor#DashConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for DASH content. </p>"
+            "smithy.api#documentation": "<p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>"
           }
         },
         "HlsConfiguration": {
@@ -473,10 +534,22 @@
             "smithy.api#documentation": "<p>The configuration for HLS content. </p>"
           }
         },
-        "Name": {
+        "AdDecisionServerUrl": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the playback configuration.</p>"
+            "smithy.api#documentation": "<p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>"
+          }
+        },
+        "DashConfiguration": {
+          "target": "com.amazonaws.mediatailor#DashConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for DASH content. </p>"
+          }
+        },
+        "Bumper": {
+          "target": "com.amazonaws.mediatailor#Bumper",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>"
           }
         },
         "PlaybackConfigurationArn": {
@@ -485,16 +558,34 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the playback configuration. </p>"
           }
         },
-        "PlaybackEndpointPrefix": {
-          "target": "com.amazonaws.mediatailor#__string",
+        "PersonalizationThresholdSeconds": {
+          "target": "com.amazonaws.mediatailor#__integerMin1",
           "traits": {
-            "smithy.api#documentation": "<p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>"
+            "smithy.api#documentation": "<p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>"
           }
         },
-        "SessionInitializationEndpointPrefix": {
+        "CdnConfiguration": {
+          "target": "com.amazonaws.mediatailor#CdnConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>"
+          }
+        },
+        "TranscodeProfileName": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The URL that the player uses to initialize a session that uses client-side reporting. </p>"
+            "smithy.api#documentation": "<p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>"
+          }
+        },
+        "AvailSuppression": {
+          "target": "com.amazonaws.mediatailor#AvailSuppression",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the playback configuration.</p>"
           }
         },
         "SlateAdUrl": {
@@ -510,16 +601,16 @@
             "smithy.api#jsonName": "tags"
           }
         },
-        "TranscodeProfileName": {
+        "PlaybackEndpointPrefix": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>"
+            "smithy.api#documentation": "<p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>"
           }
         },
-        "VideoContentSourceUrl": {
+        "SessionInitializationEndpointPrefix": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>"
+            "smithy.api#documentation": "<p>The URL that the player uses to initialize a session that uses client-side reporting. </p>"
           }
         }
       },
@@ -547,28 +638,16 @@
     "com.amazonaws.mediatailor#PutPlaybackConfigurationRequest": {
       "type": "structure",
       "members": {
-        "AdDecisionServerUrl": {
+        "VideoContentSourceUrl": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>"
+            "smithy.api#documentation": "<p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>"
           }
         },
-        "CdnConfiguration": {
-          "target": "com.amazonaws.mediatailor#CdnConfiguration",
+        "AvailSuppression": {
+          "target": "com.amazonaws.mediatailor#AvailSuppression",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>"
-          }
-        },
-        "DashConfiguration": {
-          "target": "com.amazonaws.mediatailor#DashConfigurationForPut",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for DASH content. </p>"
-          }
-        },
-        "LivePreRollConfiguration": {
-          "target": "com.amazonaws.mediatailor#LivePreRollConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for pre-roll ad insertion.</p>"
+            "smithy.api#documentation": "<p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>"
           }
         },
         "Name": {
@@ -583,11 +662,10 @@
             "smithy.api#documentation": "<p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. </p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.mediatailor#__mapOf__string",
+        "DashConfiguration": {
+          "target": "com.amazonaws.mediatailor#DashConfigurationForPut",
           "traits": {
-            "smithy.api#documentation": "<p>The tags to assign to the playback configuration. </p>",
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "<p>The configuration for DASH content. </p>"
           }
         },
         "TranscodeProfileName": {
@@ -596,10 +674,41 @@
             "smithy.api#documentation": "<p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>"
           }
         },
-        "VideoContentSourceUrl": {
+        "AdDecisionServerUrl": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>"
+            "smithy.api#documentation": "<p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediatailor#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to assign to the playback configuration. </p>",
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "CdnConfiguration": {
+          "target": "com.amazonaws.mediatailor#CdnConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>"
+          }
+        },
+        "Bumper": {
+          "target": "com.amazonaws.mediatailor#Bumper",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>"
+          }
+        },
+        "PersonalizationThresholdSeconds": {
+          "target": "com.amazonaws.mediatailor#__integerMin1",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>"
+          }
+        },
+        "LivePreRollConfiguration": {
+          "target": "com.amazonaws.mediatailor#LivePreRollConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for pre-roll ad insertion.</p>"
           }
         }
       }
@@ -607,6 +716,12 @@
     "com.amazonaws.mediatailor#PutPlaybackConfigurationResponse": {
       "type": "structure",
       "members": {
+        "TranscodeProfileName": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>"
+          }
+        },
         "AdDecisionServerUrl": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
@@ -617,24 +732,6 @@
           "target": "com.amazonaws.mediatailor#CdnConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>"
-          }
-        },
-        "DashConfiguration": {
-          "target": "com.amazonaws.mediatailor#DashConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for DASH content. </p>"
-          }
-        },
-        "HlsConfiguration": {
-          "target": "com.amazonaws.mediatailor#HlsConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for HLS content. </p>"
-          }
-        },
-        "LivePreRollConfiguration": {
-          "target": "com.amazonaws.mediatailor#LivePreRollConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration for pre-roll ad insertion.</p>"
           }
         },
         "Name": {
@@ -649,16 +746,58 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the playback configuration. </p>"
           }
         },
-        "PlaybackEndpointPrefix": {
-          "target": "com.amazonaws.mediatailor#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>"
-          }
-        },
         "SessionInitializationEndpointPrefix": {
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>The URL that the player uses to initialize a session that uses client-side reporting. </p>"
+          }
+        },
+        "HlsConfiguration": {
+          "target": "com.amazonaws.mediatailor#HlsConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for HLS content. </p>"
+          }
+        },
+        "VideoContentSourceUrl": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>"
+          }
+        },
+        "Bumper": {
+          "target": "com.amazonaws.mediatailor#Bumper",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>"
+          }
+        },
+        "DashConfiguration": {
+          "target": "com.amazonaws.mediatailor#DashConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for DASH content. </p>"
+          }
+        },
+        "LivePreRollConfiguration": {
+          "target": "com.amazonaws.mediatailor#LivePreRollConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for pre-roll ad insertion.</p>"
+          }
+        },
+        "PersonalizationThresholdSeconds": {
+          "target": "com.amazonaws.mediatailor#__integerMin1",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>"
+          }
+        },
+        "AvailSuppression": {
+          "target": "com.amazonaws.mediatailor#AvailSuppression",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>"
+          }
+        },
+        "PlaybackEndpointPrefix": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>"
           }
         },
         "SlateAdUrl": {
@@ -672,18 +811,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The tags assigned to the playback configuration. </p>",
             "smithy.api#jsonName": "tags"
-          }
-        },
-        "TranscodeProfileName": {
-          "target": "com.amazonaws.mediatailor#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>"
-          }
-        },
-        "VideoContentSourceUrl": {
-          "target": "com.amazonaws.mediatailor#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>"
           }
         }
       }
@@ -750,14 +877,6 @@
     "com.amazonaws.mediatailor#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "ResourceArn": {
-          "target": "com.amazonaws.mediatailor#__string",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. </p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "TagKeys": {
           "target": "com.amazonaws.mediatailor#__listOf__string",
           "traits": {
@@ -765,11 +884,27 @@
             "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": {}
           }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.mediatailor#__integer": {
       "type": "integer"
+    },
+    "com.amazonaws.mediatailor#__integerMin1": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1
+        }
+      }
     },
     "com.amazonaws.mediatailor#__integerMin1Max100": {
       "type": "integer",

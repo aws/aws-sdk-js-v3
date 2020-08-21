@@ -35,7 +35,18 @@ import {
   ListPackagingGroupsCommandOutput,
 } from "../commands/ListPackagingGroupsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdatePackagingGroupCommandInput,
+  UpdatePackagingGroupCommandOutput,
+} from "../commands/UpdatePackagingGroupCommand";
+import {
   AssetShallow,
+  Authorization,
   CmafEncryption,
   CmafPackage,
   DashEncryption,
@@ -58,6 +69,7 @@ import {
   StreamSelection,
   TooManyRequestsException,
   UnprocessableEntityException,
+  __PeriodTriggersElement,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -86,6 +98,7 @@ export const serializeAws_restJson1CreateAssetCommand = async (
     ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
     ...(input.SourceArn !== undefined && { sourceArn: input.SourceArn }),
     ...(input.SourceRoleArn !== undefined && { sourceRoleArn: input.SourceRoleArn }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -119,6 +132,7 @@ export const serializeAws_restJson1CreatePackagingConfigurationCommand = async (
     ...(input.Id !== undefined && { id: input.Id }),
     ...(input.MssPackage !== undefined && { mssPackage: serializeAws_restJson1MssPackage(input.MssPackage, context) }),
     ...(input.PackagingGroupId !== undefined && { packagingGroupId: input.PackagingGroupId }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -142,7 +156,11 @@ export const serializeAws_restJson1CreatePackagingGroupCommand = async (
   let resolvedPath = "/packaging_groups";
   let body: any;
   body = JSON.stringify({
+    ...(input.Authorization !== undefined && {
+      authorization: serializeAws_restJson1Authorization(input.Authorization, context),
+    }),
     ...(input.Id !== undefined && { id: input.Id }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -345,8 +363,8 @@ export const serializeAws_restJson1ListAssetsCommand = async (
   };
   let resolvedPath = "/assets";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.PackagingGroupId !== undefined && { packagingGroupId: input.PackagingGroupId }),
   };
   let body: any;
@@ -372,9 +390,9 @@ export const serializeAws_restJson1ListPackagingConfigurationsCommand = async (
   };
   let resolvedPath = "/packaging_configurations";
   const query: any = {
+    ...(input.PackagingGroupId !== undefined && { packagingGroupId: input.PackagingGroupId }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.PackagingGroupId !== undefined && { packagingGroupId: input.PackagingGroupId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -399,8 +417,8 @@ export const serializeAws_restJson1ListPackagingGroupsCommand = async (
   };
   let resolvedPath = "/packaging_groups";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -412,6 +430,138 @@ export const serializeAws_restJson1ListPackagingGroupsCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdatePackagingGroupCommand = async (
+  input: UpdatePackagingGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/packaging_groups/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Authorization !== undefined && {
+      authorization: serializeAws_restJson1Authorization(input.Authorization, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -434,6 +584,7 @@ export const deserializeAws_restJson1CreateAssetCommand = async (
     ResourceId: undefined,
     SourceArn: undefined,
     SourceRoleArn: undefined,
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -459,6 +610,9 @@ export const deserializeAws_restJson1CreateAssetCommand = async (
   }
   if (data.sourceRoleArn !== undefined && data.sourceRoleArn !== null) {
     contents.SourceRoleArn = data.sourceRoleArn;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -557,6 +711,7 @@ export const deserializeAws_restJson1CreatePackagingConfigurationCommand = async
     Id: undefined,
     MssPackage: undefined,
     PackagingGroupId: undefined,
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -579,6 +734,9 @@ export const deserializeAws_restJson1CreatePackagingConfigurationCommand = async
   }
   if (data.packagingGroupId !== undefined && data.packagingGroupId !== null) {
     contents.PackagingGroupId = data.packagingGroupId;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -671,18 +829,26 @@ export const deserializeAws_restJson1CreatePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "CreatePackagingGroupResponse",
     Arn: undefined,
+    Authorization: undefined,
     DomainName: undefined,
     Id: undefined,
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
     contents.Arn = data.arn;
+  }
+  if (data.authorization !== undefined && data.authorization !== null) {
+    contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
   }
   if (data.domainName !== undefined && data.domainName !== null) {
     contents.DomainName = data.domainName;
   }
   if (data.id !== undefined && data.id !== null) {
     contents.Id = data.id;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -1058,6 +1224,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
     ResourceId: undefined,
     SourceArn: undefined,
     SourceRoleArn: undefined,
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -1083,6 +1250,9 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   }
   if (data.sourceRoleArn !== undefined && data.sourceRoleArn !== null) {
     contents.SourceRoleArn = data.sourceRoleArn;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -1181,6 +1351,7 @@ export const deserializeAws_restJson1DescribePackagingConfigurationCommand = asy
     Id: undefined,
     MssPackage: undefined,
     PackagingGroupId: undefined,
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -1203,6 +1374,9 @@ export const deserializeAws_restJson1DescribePackagingConfigurationCommand = asy
   }
   if (data.packagingGroupId !== undefined && data.packagingGroupId !== null) {
     contents.PackagingGroupId = data.packagingGroupId;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -1295,18 +1469,26 @@ export const deserializeAws_restJson1DescribePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "DescribePackagingGroupResponse",
     Arn: undefined,
+    Authorization: undefined,
     DomainName: undefined,
     Id: undefined,
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
     contents.Arn = data.arn;
+  }
+  if (data.authorization !== undefined && data.authorization !== null) {
+    contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
   }
   if (data.domainName !== undefined && data.domainName !== null) {
     contents.DomainName = data.domainName;
   }
   if (data.id !== undefined && data.id !== null) {
     contents.Id = data.id;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -1691,6 +1873,252 @@ const deserializeAws_restJson1ListPackagingGroupsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdatePackagingGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePackagingGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdatePackagingGroupCommandError(output, context);
+  }
+  const contents: UpdatePackagingGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdatePackagingGroupResponse",
+    Arn: undefined,
+    Authorization: undefined,
+    DomainName: undefined,
+    Id: undefined,
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.Arn = data.arn;
+  }
+  if (data.authorization !== undefined && data.authorization !== null) {
+    contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
+  }
+  if (data.domainName !== undefined && data.domainName !== null) {
+    contents.DomainName = data.domainName;
+  }
+  if (data.id !== undefined && data.id !== null) {
+    contents.Id = data.id;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdatePackagingGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePackagingGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.mediapackagevod#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediapackagevod#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediapackagevod#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediapackagevod#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediapackagevod#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnprocessableEntityException":
+    case "com.amazonaws.mediapackagevod#UnprocessableEntityException":
+      response = {
+        ...(await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1793,6 +2221,13 @@ const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1__listOf__PeriodTriggersElement = (
+  input: (__PeriodTriggersElement | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -1807,6 +2242,23 @@ const serializeAws_restJson1__listOfHlsManifest = (input: HlsManifest[], context
 
 const serializeAws_restJson1__listOfMssManifest = (input: MssManifest[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_restJson1MssManifest(entry, context));
+};
+
+const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
+const serializeAws_restJson1Authorization = (input: Authorization, context: __SerdeContext): any => {
+  return {
+    ...(input.CdnIdentifierSecret !== undefined && { cdnIdentifierSecret: input.CdnIdentifierSecret }),
+    ...(input.SecretsRoleArn !== undefined && { secretsRoleArn: input.SecretsRoleArn }),
+  };
 };
 
 const serializeAws_restJson1CmafEncryption = (input: CmafEncryption, context: __SerdeContext): any => {
@@ -1839,6 +2291,7 @@ const serializeAws_restJson1DashEncryption = (input: DashEncryption, context: __
 
 const serializeAws_restJson1DashManifest = (input: DashManifest, context: __SerdeContext): any => {
   return {
+    ...(input.ManifestLayout !== undefined && { manifestLayout: input.ManifestLayout }),
     ...(input.ManifestName !== undefined && { manifestName: input.ManifestName }),
     ...(input.MinBufferTimeSeconds !== undefined && { minBufferTimeSeconds: input.MinBufferTimeSeconds }),
     ...(input.Profile !== undefined && { profile: input.Profile }),
@@ -1856,7 +2309,11 @@ const serializeAws_restJson1DashPackage = (input: DashPackage, context: __SerdeC
     ...(input.Encryption !== undefined && {
       encryption: serializeAws_restJson1DashEncryption(input.Encryption, context),
     }),
+    ...(input.PeriodTriggers !== undefined && {
+      periodTriggers: serializeAws_restJson1__listOf__PeriodTriggersElement(input.PeriodTriggers, context),
+    }),
     ...(input.SegmentDurationSeconds !== undefined && { segmentDurationSeconds: input.SegmentDurationSeconds }),
+    ...(input.SegmentTemplateFormat !== undefined && { segmentTemplateFormat: input.SegmentTemplateFormat }),
   };
 };
 
@@ -1947,6 +2404,23 @@ const serializeAws_restJson1StreamSelection = (input: StreamSelection, context: 
   };
 };
 
+const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
+const deserializeAws_restJson1__listOf__PeriodTriggersElement = (
+  output: any,
+  context: __SerdeContext
+): (__PeriodTriggersElement | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -1982,6 +2456,16 @@ const deserializeAws_restJson1__listOfPackagingGroup = (output: any, context: __
   return (output || []).map((entry: any) => deserializeAws_restJson1PackagingGroup(entry, context));
 };
 
+const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const deserializeAws_restJson1AssetShallow = (output: any, context: __SerdeContext): AssetShallow => {
   return {
     __type: "AssetShallow",
@@ -1994,6 +2478,22 @@ const deserializeAws_restJson1AssetShallow = (output: any, context: __SerdeConte
     SourceArn: output.sourceArn !== undefined && output.sourceArn !== null ? output.sourceArn : undefined,
     SourceRoleArn:
       output.sourceRoleArn !== undefined && output.sourceRoleArn !== null ? output.sourceRoleArn : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1Tags(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Authorization = (output: any, context: __SerdeContext): Authorization => {
+  return {
+    __type: "Authorization",
+    CdnIdentifierSecret:
+      output.cdnIdentifierSecret !== undefined && output.cdnIdentifierSecret !== null
+        ? output.cdnIdentifierSecret
+        : undefined,
+    SecretsRoleArn:
+      output.secretsRoleArn !== undefined && output.secretsRoleArn !== null ? output.secretsRoleArn : undefined,
   } as any;
 };
 
@@ -2038,6 +2538,8 @@ const deserializeAws_restJson1DashEncryption = (output: any, context: __SerdeCon
 const deserializeAws_restJson1DashManifest = (output: any, context: __SerdeContext): DashManifest => {
   return {
     __type: "DashManifest",
+    ManifestLayout:
+      output.manifestLayout !== undefined && output.manifestLayout !== null ? output.manifestLayout : undefined,
     ManifestName: output.manifestName !== undefined && output.manifestName !== null ? output.manifestName : undefined,
     MinBufferTimeSeconds:
       output.minBufferTimeSeconds !== undefined && output.minBufferTimeSeconds !== null
@@ -2062,9 +2564,17 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1DashEncryption(output.encryption, context)
         : undefined,
+    PeriodTriggers:
+      output.periodTriggers !== undefined && output.periodTriggers !== null
+        ? deserializeAws_restJson1__listOf__PeriodTriggersElement(output.periodTriggers, context)
+        : undefined,
     SegmentDurationSeconds:
       output.segmentDurationSeconds !== undefined && output.segmentDurationSeconds !== null
         ? output.segmentDurationSeconds
+        : undefined,
+    SegmentTemplateFormat:
+      output.segmentTemplateFormat !== undefined && output.segmentTemplateFormat !== null
+        ? output.segmentTemplateFormat
         : undefined,
   } as any;
 };
@@ -2205,6 +2715,10 @@ const deserializeAws_restJson1PackagingConfiguration = (
         : undefined,
     PackagingGroupId:
       output.packagingGroupId !== undefined && output.packagingGroupId !== null ? output.packagingGroupId : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1Tags(output.tags, context)
+        : undefined,
   } as any;
 };
 
@@ -2212,8 +2726,16 @@ const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeCon
   return {
     __type: "PackagingGroup",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Authorization:
+      output.authorization !== undefined && output.authorization !== null
+        ? deserializeAws_restJson1Authorization(output.authorization, context)
+        : undefined,
     DomainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1Tags(output.tags, context)
+        : undefined,
   } as any;
 };
 
@@ -2242,6 +2764,16 @@ const deserializeAws_restJson1StreamSelection = (output: any, context: __SerdeCo
         : undefined,
     StreamOrder: output.streamOrder !== undefined && output.streamOrder !== null ? output.streamOrder : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -368,10 +368,10 @@ export const serializeAws_restJson1ListHarvestJobsCommand = async (
   };
   let resolvedPath = "/harvest_jobs";
   const query: any = {
-    ...(input.IncludeChannelId !== undefined && { includeChannelId: input.IncludeChannelId }),
-    ...(input.IncludeStatus !== undefined && { includeStatus: input.IncludeStatus }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.IncludeStatus !== undefined && { includeStatus: input.IncludeStatus }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.IncludeChannelId !== undefined && { includeChannelId: input.IncludeChannelId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

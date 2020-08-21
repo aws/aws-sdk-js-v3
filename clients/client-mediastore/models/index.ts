@@ -8,6 +8,13 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface Container {
   __type?: "Container";
   /**
+   * <p>The DNS endpoint of the container. Use the endpoint to identify the specific
+   *          container when sending requests to the data plane. The service assigns this value when the
+   *          container is created. Once the value has been assigned, it does not change.</p>
+   */
+  Endpoint?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the container. The ARN has the following
    *          format:</p>
    *          <p>arn:aws:<region>:<account that owns this container>:container/<name of
@@ -15,6 +22,14 @@ export interface Container {
    *          <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>
    */
   ARN?: string;
+
+  /**
+   * <p>The status of container creation or deletion. The status is one of the following:
+   *             <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service
+   *          is creating the container, the status is <code>CREATING</code>. When the endpoint is
+   *          available, the status changes to <code>ACTIVE</code>.</p>
+   */
+  Status?: ContainerStatus | string;
 
   /**
    * <p>The state of access logging on the container. This value is <code>false</code> by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to <code>true</code>, indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.</p>
@@ -27,24 +42,9 @@ export interface Container {
   CreationTime?: Date;
 
   /**
-   * <p>The DNS endpoint of the container. Use the endpoint to identify the specific
-   *          container when sending requests to the data plane. The service assigns this value when the
-   *          container is created. Once the value has been assigned, it does not change.</p>
-   */
-  Endpoint?: string;
-
-  /**
    * <p>The name of the container.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The status of container creation or deletion. The status is one of the following:
-   *             <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service
-   *          is creating the container, the status is <code>CREATING</code>. When the endpoint is
-   *          available, the status changes to <code>ACTIVE</code>.</p>
-   */
-  Status?: ContainerStatus | string;
 }
 
 export namespace Container {
@@ -69,6 +69,11 @@ export namespace ContainerInUseException {
     ...obj,
   });
   export const isa = (o: any): o is ContainerInUseException => __isa(o, "ContainerInUseException");
+}
+
+export enum ContainerLevelMetrics {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -116,13 +121,12 @@ export namespace CorsPolicyNotFoundException {
 export interface CorsRule {
   __type?: "CorsRule";
   /**
-   * <p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request
-   *          through the <code>Access-Control-Request-Headers</code> header. Each header name that is
-   *          specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in
-   *          the rule. Only the headers that were requested are sent back. </p>
-   *          <p>This element can contain only one wildcard character (*).</p>
+   * <p>One or more headers in the response that you want users to be able to access from
+   *          their applications (for example, from a JavaScript <code>XMLHttpRequest</code>
+   *          object).</p>
+   *          <p>This element is optional for each rule.</p>
    */
-  AllowedHeaders: string[] | undefined;
+  ExposeHeaders?: string[];
 
   /**
    * <p>Identifies an HTTP method that the origin that is specified in the rule is allowed to
@@ -133,6 +137,22 @@ export interface CorsRule {
   AllowedMethods?: (MethodName | string)[];
 
   /**
+   * <p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request
+   *          through the <code>Access-Control-Request-Headers</code> header. Each header name that is
+   *          specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in
+   *          the rule. Only the headers that were requested are sent back. </p>
+   *          <p>This element can contain only one wildcard character (*).</p>
+   */
+  AllowedHeaders: string[] | undefined;
+
+  /**
+   * <p>The time in seconds that your browser caches the preflight response for the specified
+   *          resource.</p>
+   *          <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>
+   */
+  MaxAgeSeconds?: number;
+
+  /**
    * <p>One or more response headers that you want users to be able to access from their
    *          applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
    *          <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string
@@ -141,21 +161,6 @@ export interface CorsRule {
    *          all origins.</p>
    */
   AllowedOrigins: string[] | undefined;
-
-  /**
-   * <p>One or more headers in the response that you want users to be able to access from
-   *          their applications (for example, from a JavaScript <code>XMLHttpRequest</code>
-   *          object).</p>
-   *          <p>This element is optional for each rule.</p>
-   */
-  ExposeHeaders?: string[];
-
-  /**
-   * <p>The time in seconds that your browser caches the preflight response for the specified
-   *          resource.</p>
-   *          <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>
-   */
-  MaxAgeSeconds?: number;
 }
 
 export namespace CorsRule {
@@ -320,6 +325,32 @@ export namespace DeleteLifecyclePolicyOutput {
   export const isa = (o: any): o is DeleteLifecyclePolicyOutput => __isa(o, "DeleteLifecyclePolicyOutput");
 }
 
+export interface DeleteMetricPolicyInput {
+  __type?: "DeleteMetricPolicyInput";
+  /**
+   * <p>The name of the container that is associated with the metric policy that you want to delete.</p>
+   */
+  ContainerName: string | undefined;
+}
+
+export namespace DeleteMetricPolicyInput {
+  export const filterSensitiveLog = (obj: DeleteMetricPolicyInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteMetricPolicyInput => __isa(o, "DeleteMetricPolicyInput");
+}
+
+export interface DeleteMetricPolicyOutput {
+  __type?: "DeleteMetricPolicyOutput";
+}
+
+export namespace DeleteMetricPolicyOutput {
+  export const filterSensitiveLog = (obj: DeleteMetricPolicyOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteMetricPolicyOutput => __isa(o, "DeleteMetricPolicyOutput");
+}
+
 export interface DescribeContainerInput {
   __type?: "DescribeContainerInput";
   /**
@@ -440,6 +471,36 @@ export namespace GetLifecyclePolicyOutput {
   export const isa = (o: any): o is GetLifecyclePolicyOutput => __isa(o, "GetLifecyclePolicyOutput");
 }
 
+export interface GetMetricPolicyInput {
+  __type?: "GetMetricPolicyInput";
+  /**
+   * <p>The name of the container that is associated with the metric policy.</p>
+   */
+  ContainerName: string | undefined;
+}
+
+export namespace GetMetricPolicyInput {
+  export const filterSensitiveLog = (obj: GetMetricPolicyInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetMetricPolicyInput => __isa(o, "GetMetricPolicyInput");
+}
+
+export interface GetMetricPolicyOutput {
+  __type?: "GetMetricPolicyOutput";
+  /**
+   * <p>The metric policy that is associated with the specific container.</p>
+   */
+  MetricPolicy: MetricPolicy | undefined;
+}
+
+export namespace GetMetricPolicyOutput {
+  export const filterSensitiveLog = (obj: GetMetricPolicyOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetMetricPolicyOutput => __isa(o, "GetMetricPolicyOutput");
+}
+
 /**
  * <p>The service is temporarily unavailable.</p>
  */
@@ -475,17 +536,17 @@ export namespace LimitExceededException {
 export interface ListContainersInput {
   __type?: "ListContainersInput";
   /**
-   * <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.
-   *       </p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>Only if you used <code>MaxResults</code> in the first command, enter the token (which
    *          was included in the previous response) to obtain the next set of containers. This token is
    *          included in a response only if there actually are more containers to list.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.
+   *       </p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListContainersInput {
@@ -498,17 +559,17 @@ export namespace ListContainersInput {
 export interface ListContainersOutput {
   __type?: "ListContainersOutput";
   /**
-   * <p>The names of the containers.</p>
-   */
-  Containers: Container[] | undefined;
-
-  /**
    * <p>
    *             <code>NextToken</code> is the token to use in the next call to <code>ListContainers</code>.
    *          This token is returned only if you included the <code>MaxResults</code> tag in the original
    *          command, and only if there are still containers to return. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The names of the containers.</p>
+   */
+  Containers: Container[] | undefined;
 }
 
 export namespace ListContainersOutput {
@@ -556,6 +617,53 @@ export enum MethodName {
 }
 
 /**
+ * <p>The metric policy that is associated with the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include rules to define groups of objects that you want MediaStore to send object-level metrics for.</p>
+ *          <p>To view examples of how to construct a metric policy for your use case, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/policies-metric-examples.html">Example Metric Policies</a>.</p>
+ */
+export interface MetricPolicy {
+  __type?: "MetricPolicy";
+  /**
+   * <p>A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas">request a quota increase</a> to allow up to 300 rules per policy.</p>
+   */
+  MetricPolicyRules?: MetricPolicyRule[];
+
+  /**
+   * <p>A setting to enable or disable metrics at the container level.</p>
+   */
+  ContainerLevelMetrics: ContainerLevelMetrics | string | undefined;
+}
+
+export namespace MetricPolicy {
+  export const filterSensitiveLog = (obj: MetricPolicy): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is MetricPolicy => __isa(o, "MetricPolicy");
+}
+
+/**
+ * <p>A setting that enables metrics at the object level. Each rule contains an object group and an object group name. If the policy includes the MetricPolicyRules parameter, you must include at least one rule. Each metric policy can include up to five rules by default. You can also <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas">request a quota increase</a> to allow up to 300 rules per policy.</p>
+ */
+export interface MetricPolicyRule {
+  __type?: "MetricPolicyRule";
+  /**
+   * <p>A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.</p>
+   */
+  ObjectGroup: string | undefined;
+
+  /**
+   * <p>A name that allows you to refer to the object group.</p>
+   */
+  ObjectGroupName: string | undefined;
+}
+
+export namespace MetricPolicyRule {
+  export const filterSensitiveLog = (obj: MetricPolicyRule): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is MetricPolicyRule => __isa(o, "MetricPolicyRule");
+}
+
+/**
  * <p>The policy that you specified in the request does not exist.</p>
  */
 export interface PolicyNotFoundException extends __SmithyException, $MetadataBearer {
@@ -574,11 +682,6 @@ export namespace PolicyNotFoundException {
 export interface PutContainerPolicyInput {
   __type?: "PutContainerPolicyInput";
   /**
-   * <p>The name of the container.</p>
-   */
-  ContainerName: string | undefined;
-
-  /**
    * <p>The contents of the policy, which includes the following: </p>
    *          <ul>
    *             <li>
@@ -591,6 +694,11 @@ export interface PutContainerPolicyInput {
    *          </ul>
    */
   Policy: string | undefined;
+
+  /**
+   * <p>The name of the container.</p>
+   */
+  ContainerName: string | undefined;
 }
 
 export namespace PutContainerPolicyInput {
@@ -614,14 +722,14 @@ export namespace PutContainerPolicyOutput {
 export interface PutCorsPolicyInput {
   __type?: "PutCorsPolicyInput";
   /**
-   * <p>The name of the container that you want to assign the CORS policy to.</p>
-   */
-  ContainerName: string | undefined;
-
-  /**
    * <p>The CORS policy to apply to the container.  </p>
    */
   CorsPolicy: CorsRule[] | undefined;
+
+  /**
+   * <p>The name of the container that you want to assign the CORS policy to.</p>
+   */
+  ContainerName: string | undefined;
 }
 
 export namespace PutCorsPolicyInput {
@@ -671,6 +779,45 @@ export namespace PutLifecyclePolicyOutput {
     ...obj,
   });
   export const isa = (o: any): o is PutLifecyclePolicyOutput => __isa(o, "PutLifecyclePolicyOutput");
+}
+
+export interface PutMetricPolicyInput {
+  __type?: "PutMetricPolicyInput";
+  /**
+   * <p>The name of the container that you want to add the metric policy to.</p>
+   */
+  ContainerName: string | undefined;
+
+  /**
+   * <p>The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for.  If you include rules in the policy, construct each rule with both of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An object group that defines which objects to include in the group. The definition can be a path or a file name, but it can't have more than 900 characters. Valid characters are: a-z, A-Z, 0-9, _ (underscore), = (equal), : (colon), . (period), - (hyphen), ~ (tilde), / (forward slash), and * (asterisk). Wildcards (*) are acceptable.</p>
+   *             </li>
+   *             <li>
+   *                <p>An object group name that allows you to refer to the object group. The name can't have more than 30 characters. Valid characters are: a-z, A-Z, 0-9, and _ (underscore).</p>
+   *             </li>
+   *          </ul>
+   */
+  MetricPolicy: MetricPolicy | undefined;
+}
+
+export namespace PutMetricPolicyInput {
+  export const filterSensitiveLog = (obj: PutMetricPolicyInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutMetricPolicyInput => __isa(o, "PutMetricPolicyInput");
+}
+
+export interface PutMetricPolicyOutput {
+  __type?: "PutMetricPolicyOutput";
+}
+
+export namespace PutMetricPolicyOutput {
+  export const filterSensitiveLog = (obj: PutMetricPolicyOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutMetricPolicyOutput => __isa(o, "PutMetricPolicyOutput");
 }
 
 export interface StartAccessLoggingInput {
@@ -734,16 +881,16 @@ export namespace StopAccessLoggingOutput {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are
-   *             case-sensitive.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or
    *             "companyB." Tag values are case-sensitive.</p>
    */
   Value?: string;
+
+  /**
+   * <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are
+   *             case-sensitive.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {

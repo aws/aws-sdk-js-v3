@@ -81,8 +81,8 @@ import {
   EventFilter,
   EventStatusCode,
   EventType,
+  EventTypeCategory,
   EventTypeFilter,
-  EventTypeStringCategory,
   InvalidPaginationToken,
   OrganizationAffectedEntitiesErrorItem,
   OrganizationEvent,
@@ -1253,10 +1253,10 @@ const serializeAws_json1_1EventFilter = (input: EventFilter, context: __SerdeCon
       eventStatusCodes: serializeAws_json1_1eventStatusCodeList(input.eventStatusCodes, context),
     }),
     ...(input.eventTypeCategories !== undefined && {
-      eventTypeCategories: serializeAws_json1_1eventTypeStringCategoryList(input.eventTypeCategories, context),
+      eventTypeCategories: serializeAws_json1_1eventTypeCategoryList2(input.eventTypeCategories, context),
     }),
     ...(input.eventTypeCodes !== undefined && {
-      eventTypeCodes: serializeAws_json1_1eventTypeStringList(input.eventTypeCodes, context),
+      eventTypeCodes: serializeAws_json1_1eventTypeList2(input.eventTypeCodes, context),
     }),
     ...(input.lastUpdatedTimes !== undefined && {
       lastUpdatedTimes: serializeAws_json1_1dateTimeRangeList(input.lastUpdatedTimes, context),
@@ -1275,7 +1275,14 @@ const serializeAws_json1_1eventStatusCodeList = (input: (EventStatusCode | strin
 };
 
 const serializeAws_json1_1EventTypeCategoryList = (
-  input: (EventTypeStringCategory | string)[],
+  input: (EventTypeCategory | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1eventTypeCategoryList2 = (
+  input: (EventTypeCategory | string)[],
   context: __SerdeContext
 ): any => {
   return input.map((entry) => entry);
@@ -1297,14 +1304,7 @@ const serializeAws_json1_1EventTypeFilter = (input: EventTypeFilter, context: __
   };
 };
 
-const serializeAws_json1_1eventTypeStringCategoryList = (
-  input: (EventTypeStringCategory | string)[],
-  context: __SerdeContext
-): any => {
-  return input.map((entry) => entry);
-};
-
-const serializeAws_json1_1eventTypeStringList = (input: string[], context: __SerdeContext): any => {
+const serializeAws_json1_1eventTypeList2 = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
 
@@ -1336,10 +1336,10 @@ const serializeAws_json1_1OrganizationEventFilter = (input: OrganizationEventFil
       eventStatusCodes: serializeAws_json1_1eventStatusCodeList(input.eventStatusCodes, context),
     }),
     ...(input.eventTypeCategories !== undefined && {
-      eventTypeCategories: serializeAws_json1_1eventTypeStringCategoryList(input.eventTypeCategories, context),
+      eventTypeCategories: serializeAws_json1_1eventTypeCategoryList2(input.eventTypeCategories, context),
     }),
     ...(input.eventTypeCodes !== undefined && {
-      eventTypeCodes: serializeAws_json1_1eventTypeStringList(input.eventTypeCodes, context),
+      eventTypeCodes: serializeAws_json1_1eventTypeList2(input.eventTypeCodes, context),
     }),
     ...(input.lastUpdatedTime !== undefined && {
       lastUpdatedTime: serializeAws_json1_1DateTimeRange(input.lastUpdatedTime, context),
@@ -1416,6 +1416,8 @@ const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse = (
       output.affectedAccounts !== undefined && output.affectedAccounts !== null
         ? deserializeAws_json1_1affectedAccountsList(output.affectedAccounts, context)
         : undefined,
+    eventScopeCode:
+      output.eventScopeCode !== undefined && output.eventScopeCode !== null ? output.eventScopeCode : undefined,
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
   } as any;
 };
@@ -1627,6 +1629,8 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
       output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+    eventScopeCode:
+      output.eventScopeCode !== undefined && output.eventScopeCode !== null ? output.eventScopeCode : undefined,
     eventTypeCategory:
       output.eventTypeCategory !== undefined && output.eventTypeCategory !== null
         ? output.eventTypeCategory
@@ -1750,6 +1754,8 @@ const deserializeAws_json1_1OrganizationEvent = (output: any, context: __SerdeCo
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+    eventScopeCode:
+      output.eventScopeCode !== undefined && output.eventScopeCode !== null ? output.eventScopeCode : undefined,
     eventTypeCategory:
       output.eventTypeCategory !== undefined && output.eventTypeCategory !== null
         ? output.eventTypeCategory

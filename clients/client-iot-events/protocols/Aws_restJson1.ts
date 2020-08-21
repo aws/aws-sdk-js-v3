@@ -37,6 +37,9 @@ import {
 import { UpdateInputCommandInput, UpdateInputCommandOutput } from "../commands/UpdateInputCommand";
 import {
   Action,
+  AssetPropertyTimestamp,
+  AssetPropertyValue,
+  AssetPropertyVariant,
   Attribute,
   ClearTimerAction,
   DetectorDebugOption,
@@ -45,6 +48,8 @@ import {
   DetectorModelDefinition,
   DetectorModelSummary,
   DetectorModelVersionSummary,
+  DynamoDBAction,
+  DynamoDBv2Action,
   Event,
   FirehoseAction,
   Input,
@@ -54,6 +59,7 @@ import {
   InternalFailureException,
   InvalidRequestException,
   IotEventsAction,
+  IotSiteWiseAction,
   IotTopicPublishAction,
   LambdaAction,
   LimitExceededException,
@@ -61,6 +67,7 @@ import {
   OnEnterLifecycle,
   OnExitLifecycle,
   OnInputLifecycle,
+  Payload,
   ResetTimerAction,
   ResourceAlreadyExistsException,
   ResourceInUseException,
@@ -304,8 +311,8 @@ export const serializeAws_restJson1ListDetectorModelsCommand = async (
   };
   let resolvedPath = "/detector-models";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -339,8 +346,8 @@ export const serializeAws_restJson1ListDetectorModelVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -365,8 +372,8 @@ export const serializeAws_restJson1ListInputsCommand = async (
   };
   let resolvedPath = "/inputs";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -470,8 +477,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let resolvedPath = "/tags";
   const query: any = {
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2194,9 +2201,16 @@ const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): a
     ...(input.clearTimer !== undefined && {
       clearTimer: serializeAws_restJson1ClearTimerAction(input.clearTimer, context),
     }),
+    ...(input.dynamoDB !== undefined && { dynamoDB: serializeAws_restJson1DynamoDBAction(input.dynamoDB, context) }),
+    ...(input.dynamoDBv2 !== undefined && {
+      dynamoDBv2: serializeAws_restJson1DynamoDBv2Action(input.dynamoDBv2, context),
+    }),
     ...(input.firehose !== undefined && { firehose: serializeAws_restJson1FirehoseAction(input.firehose, context) }),
     ...(input.iotEvents !== undefined && {
       iotEvents: serializeAws_restJson1IotEventsAction(input.iotEvents, context),
+    }),
+    ...(input.iotSiteWise !== undefined && {
+      iotSiteWise: serializeAws_restJson1IotSiteWiseAction(input.iotSiteWise, context),
     }),
     ...(input.iotTopicPublish !== undefined && {
       iotTopicPublish: serializeAws_restJson1IotTopicPublishAction(input.iotTopicPublish, context),
@@ -2216,6 +2230,32 @@ const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): a
 
 const serializeAws_restJson1Actions = (input: Action[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_restJson1Action(entry, context));
+};
+
+const serializeAws_restJson1AssetPropertyTimestamp = (input: AssetPropertyTimestamp, context: __SerdeContext): any => {
+  return {
+    ...(input.offsetInNanos !== undefined && { offsetInNanos: input.offsetInNanos }),
+    ...(input.timeInSeconds !== undefined && { timeInSeconds: input.timeInSeconds }),
+  };
+};
+
+const serializeAws_restJson1AssetPropertyValue = (input: AssetPropertyValue, context: __SerdeContext): any => {
+  return {
+    ...(input.quality !== undefined && { quality: input.quality }),
+    ...(input.timestamp !== undefined && {
+      timestamp: serializeAws_restJson1AssetPropertyTimestamp(input.timestamp, context),
+    }),
+    ...(input.value !== undefined && { value: serializeAws_restJson1AssetPropertyVariant(input.value, context) }),
+  };
+};
+
+const serializeAws_restJson1AssetPropertyVariant = (input: AssetPropertyVariant, context: __SerdeContext): any => {
+  return {
+    ...(input.booleanValue !== undefined && { booleanValue: input.booleanValue }),
+    ...(input.doubleValue !== undefined && { doubleValue: input.doubleValue }),
+    ...(input.integerValue !== undefined && { integerValue: input.integerValue }),
+    ...(input.stringValue !== undefined && { stringValue: input.stringValue }),
+  };
 };
 
 const serializeAws_restJson1Attribute = (input: Attribute, context: __SerdeContext): any => {
@@ -2255,6 +2295,28 @@ const serializeAws_restJson1DetectorModelDefinition = (
   };
 };
 
+const serializeAws_restJson1DynamoDBAction = (input: DynamoDBAction, context: __SerdeContext): any => {
+  return {
+    ...(input.hashKeyField !== undefined && { hashKeyField: input.hashKeyField }),
+    ...(input.hashKeyType !== undefined && { hashKeyType: input.hashKeyType }),
+    ...(input.hashKeyValue !== undefined && { hashKeyValue: input.hashKeyValue }),
+    ...(input.operation !== undefined && { operation: input.operation }),
+    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.payloadField !== undefined && { payloadField: input.payloadField }),
+    ...(input.rangeKeyField !== undefined && { rangeKeyField: input.rangeKeyField }),
+    ...(input.rangeKeyType !== undefined && { rangeKeyType: input.rangeKeyType }),
+    ...(input.rangeKeyValue !== undefined && { rangeKeyValue: input.rangeKeyValue }),
+    ...(input.tableName !== undefined && { tableName: input.tableName }),
+  };
+};
+
+const serializeAws_restJson1DynamoDBv2Action = (input: DynamoDBv2Action, context: __SerdeContext): any => {
+  return {
+    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+    ...(input.tableName !== undefined && { tableName: input.tableName }),
+  };
+};
+
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
     ...(input.actions !== undefined && { actions: serializeAws_restJson1Actions(input.actions, context) }),
@@ -2270,6 +2332,7 @@ const serializeAws_restJson1Events = (input: Event[], context: __SerdeContext): 
 const serializeAws_restJson1FirehoseAction = (input: FirehoseAction, context: __SerdeContext): any => {
   return {
     ...(input.deliveryStreamName !== undefined && { deliveryStreamName: input.deliveryStreamName }),
+    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
     ...(input.separator !== undefined && { separator: input.separator }),
   };
 };
@@ -2283,18 +2346,33 @@ const serializeAws_restJson1InputDefinition = (input: InputDefinition, context: 
 const serializeAws_restJson1IotEventsAction = (input: IotEventsAction, context: __SerdeContext): any => {
   return {
     ...(input.inputName !== undefined && { inputName: input.inputName }),
+    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
+  };
+};
+
+const serializeAws_restJson1IotSiteWiseAction = (input: IotSiteWiseAction, context: __SerdeContext): any => {
+  return {
+    ...(input.assetId !== undefined && { assetId: input.assetId }),
+    ...(input.entryId !== undefined && { entryId: input.entryId }),
+    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
+    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+    ...(input.propertyValue !== undefined && {
+      propertyValue: serializeAws_restJson1AssetPropertyValue(input.propertyValue, context),
+    }),
   };
 };
 
 const serializeAws_restJson1IotTopicPublishAction = (input: IotTopicPublishAction, context: __SerdeContext): any => {
   return {
     ...(input.mqttTopic !== undefined && { mqttTopic: input.mqttTopic }),
+    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
   };
 };
 
 const serializeAws_restJson1LambdaAction = (input: LambdaAction, context: __SerdeContext): any => {
   return {
     ...(input.functionArn !== undefined && { functionArn: input.functionArn }),
+    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
   };
 };
 
@@ -2330,6 +2408,13 @@ const serializeAws_restJson1OnInputLifecycle = (input: OnInputLifecycle, context
   };
 };
 
+const serializeAws_restJson1Payload = (input: Payload, context: __SerdeContext): any => {
+  return {
+    ...(input.contentExpression !== undefined && { contentExpression: input.contentExpression }),
+    ...(input.type !== undefined && { type: input.type }),
+  };
+};
+
 const serializeAws_restJson1ResetTimerAction = (input: ResetTimerAction, context: __SerdeContext): any => {
   return {
     ...(input.timerName !== undefined && { timerName: input.timerName }),
@@ -2338,6 +2423,7 @@ const serializeAws_restJson1ResetTimerAction = (input: ResetTimerAction, context
 
 const serializeAws_restJson1SetTimerAction = (input: SetTimerAction, context: __SerdeContext): any => {
   return {
+    ...(input.durationExpression !== undefined && { durationExpression: input.durationExpression }),
     ...(input.seconds !== undefined && { seconds: input.seconds }),
     ...(input.timerName !== undefined && { timerName: input.timerName }),
   };
@@ -2352,12 +2438,14 @@ const serializeAws_restJson1SetVariableAction = (input: SetVariableAction, conte
 
 const serializeAws_restJson1SNSTopicPublishAction = (input: SNSTopicPublishAction, context: __SerdeContext): any => {
   return {
+    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
     ...(input.targetArn !== undefined && { targetArn: input.targetArn }),
   };
 };
 
 const serializeAws_restJson1SqsAction = (input: SqsAction, context: __SerdeContext): any => {
   return {
+    ...(input.payload !== undefined && { payload: serializeAws_restJson1Payload(input.payload, context) }),
     ...(input.queueUrl !== undefined && { queueUrl: input.queueUrl }),
     ...(input.useBase64 !== undefined && { useBase64: input.useBase64 }),
   };
@@ -2407,6 +2495,14 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
       output.clearTimer !== undefined && output.clearTimer !== null
         ? deserializeAws_restJson1ClearTimerAction(output.clearTimer, context)
         : undefined,
+    dynamoDB:
+      output.dynamoDB !== undefined && output.dynamoDB !== null
+        ? deserializeAws_restJson1DynamoDBAction(output.dynamoDB, context)
+        : undefined,
+    dynamoDBv2:
+      output.dynamoDBv2 !== undefined && output.dynamoDBv2 !== null
+        ? deserializeAws_restJson1DynamoDBv2Action(output.dynamoDBv2, context)
+        : undefined,
     firehose:
       output.firehose !== undefined && output.firehose !== null
         ? deserializeAws_restJson1FirehoseAction(output.firehose, context)
@@ -2414,6 +2510,10 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
     iotEvents:
       output.iotEvents !== undefined && output.iotEvents !== null
         ? deserializeAws_restJson1IotEventsAction(output.iotEvents, context)
+        : undefined,
+    iotSiteWise:
+      output.iotSiteWise !== undefined && output.iotSiteWise !== null
+        ? deserializeAws_restJson1IotSiteWiseAction(output.iotSiteWise, context)
         : undefined,
     iotTopicPublish:
       output.iotTopicPublish !== undefined && output.iotTopicPublish !== null
@@ -2448,6 +2548,44 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
 
 const deserializeAws_restJson1Actions = (output: any, context: __SerdeContext): Action[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Action(entry, context));
+};
+
+const deserializeAws_restJson1AssetPropertyTimestamp = (
+  output: any,
+  context: __SerdeContext
+): AssetPropertyTimestamp => {
+  return {
+    __type: "AssetPropertyTimestamp",
+    offsetInNanos:
+      output.offsetInNanos !== undefined && output.offsetInNanos !== null ? output.offsetInNanos : undefined,
+    timeInSeconds:
+      output.timeInSeconds !== undefined && output.timeInSeconds !== null ? output.timeInSeconds : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AssetPropertyValue = (output: any, context: __SerdeContext): AssetPropertyValue => {
+  return {
+    __type: "AssetPropertyValue",
+    quality: output.quality !== undefined && output.quality !== null ? output.quality : undefined,
+    timestamp:
+      output.timestamp !== undefined && output.timestamp !== null
+        ? deserializeAws_restJson1AssetPropertyTimestamp(output.timestamp, context)
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? deserializeAws_restJson1AssetPropertyVariant(output.value, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AssetPropertyVariant = (output: any, context: __SerdeContext): AssetPropertyVariant => {
+  return {
+    __type: "AssetPropertyVariant",
+    booleanValue: output.booleanValue !== undefined && output.booleanValue !== null ? output.booleanValue : undefined,
+    doubleValue: output.doubleValue !== undefined && output.doubleValue !== null ? output.doubleValue : undefined,
+    integerValue: output.integerValue !== undefined && output.integerValue !== null ? output.integerValue : undefined,
+    stringValue: output.stringValue !== undefined && output.stringValue !== null ? output.stringValue : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Attribute = (output: any, context: __SerdeContext): Attribute => {
@@ -2611,6 +2749,38 @@ const deserializeAws_restJson1DetectorModelVersionSummary = (
   } as any;
 };
 
+const deserializeAws_restJson1DynamoDBAction = (output: any, context: __SerdeContext): DynamoDBAction => {
+  return {
+    __type: "DynamoDBAction",
+    hashKeyField: output.hashKeyField !== undefined && output.hashKeyField !== null ? output.hashKeyField : undefined,
+    hashKeyType: output.hashKeyType !== undefined && output.hashKeyType !== null ? output.hashKeyType : undefined,
+    hashKeyValue: output.hashKeyValue !== undefined && output.hashKeyValue !== null ? output.hashKeyValue : undefined,
+    operation: output.operation !== undefined && output.operation !== null ? output.operation : undefined,
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? deserializeAws_restJson1Payload(output.payload, context)
+        : undefined,
+    payloadField: output.payloadField !== undefined && output.payloadField !== null ? output.payloadField : undefined,
+    rangeKeyField:
+      output.rangeKeyField !== undefined && output.rangeKeyField !== null ? output.rangeKeyField : undefined,
+    rangeKeyType: output.rangeKeyType !== undefined && output.rangeKeyType !== null ? output.rangeKeyType : undefined,
+    rangeKeyValue:
+      output.rangeKeyValue !== undefined && output.rangeKeyValue !== null ? output.rangeKeyValue : undefined,
+    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DynamoDBv2Action = (output: any, context: __SerdeContext): DynamoDBv2Action => {
+  return {
+    __type: "DynamoDBv2Action",
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? deserializeAws_restJson1Payload(output.payload, context)
+        : undefined,
+    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Event = (output: any, context: __SerdeContext): Event => {
   return {
     __type: "Event",
@@ -2633,6 +2803,10 @@ const deserializeAws_restJson1FirehoseAction = (output: any, context: __SerdeCon
     deliveryStreamName:
       output.deliveryStreamName !== undefined && output.deliveryStreamName !== null
         ? output.deliveryStreamName
+        : undefined,
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? deserializeAws_restJson1Payload(output.payload, context)
         : undefined,
     separator: output.separator !== undefined && output.separator !== null ? output.separator : undefined,
   } as any;
@@ -2708,6 +2882,25 @@ const deserializeAws_restJson1IotEventsAction = (output: any, context: __SerdeCo
   return {
     __type: "IotEventsAction",
     inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? deserializeAws_restJson1Payload(output.payload, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1IotSiteWiseAction = (output: any, context: __SerdeContext): IotSiteWiseAction => {
+  return {
+    __type: "IotSiteWiseAction",
+    assetId: output.assetId !== undefined && output.assetId !== null ? output.assetId : undefined,
+    entryId: output.entryId !== undefined && output.entryId !== null ? output.entryId : undefined,
+    propertyAlias:
+      output.propertyAlias !== undefined && output.propertyAlias !== null ? output.propertyAlias : undefined,
+    propertyId: output.propertyId !== undefined && output.propertyId !== null ? output.propertyId : undefined,
+    propertyValue:
+      output.propertyValue !== undefined && output.propertyValue !== null
+        ? deserializeAws_restJson1AssetPropertyValue(output.propertyValue, context)
+        : undefined,
   } as any;
 };
 
@@ -2715,6 +2908,10 @@ const deserializeAws_restJson1IotTopicPublishAction = (output: any, context: __S
   return {
     __type: "IotTopicPublishAction",
     mqttTopic: output.mqttTopic !== undefined && output.mqttTopic !== null ? output.mqttTopic : undefined,
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? deserializeAws_restJson1Payload(output.payload, context)
+        : undefined,
   } as any;
 };
 
@@ -2722,6 +2919,10 @@ const deserializeAws_restJson1LambdaAction = (output: any, context: __SerdeConte
   return {
     __type: "LambdaAction",
     functionArn: output.functionArn !== undefined && output.functionArn !== null ? output.functionArn : undefined,
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? deserializeAws_restJson1Payload(output.payload, context)
+        : undefined,
   } as any;
 };
 
@@ -2772,6 +2973,17 @@ const deserializeAws_restJson1OnInputLifecycle = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1Payload = (output: any, context: __SerdeContext): Payload => {
+  return {
+    __type: "Payload",
+    contentExpression:
+      output.contentExpression !== undefined && output.contentExpression !== null
+        ? output.contentExpression
+        : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ResetTimerAction = (output: any, context: __SerdeContext): ResetTimerAction => {
   return {
     __type: "ResetTimerAction",
@@ -2782,6 +2994,10 @@ const deserializeAws_restJson1ResetTimerAction = (output: any, context: __SerdeC
 const deserializeAws_restJson1SetTimerAction = (output: any, context: __SerdeContext): SetTimerAction => {
   return {
     __type: "SetTimerAction",
+    durationExpression:
+      output.durationExpression !== undefined && output.durationExpression !== null
+        ? output.durationExpression
+        : undefined,
     seconds: output.seconds !== undefined && output.seconds !== null ? output.seconds : undefined,
     timerName: output.timerName !== undefined && output.timerName !== null ? output.timerName : undefined,
   } as any;
@@ -2798,6 +3014,10 @@ const deserializeAws_restJson1SetVariableAction = (output: any, context: __Serde
 const deserializeAws_restJson1SNSTopicPublishAction = (output: any, context: __SerdeContext): SNSTopicPublishAction => {
   return {
     __type: "SNSTopicPublishAction",
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? deserializeAws_restJson1Payload(output.payload, context)
+        : undefined,
     targetArn: output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined,
   } as any;
 };
@@ -2805,6 +3025,10 @@ const deserializeAws_restJson1SNSTopicPublishAction = (output: any, context: __S
 const deserializeAws_restJson1SqsAction = (output: any, context: __SerdeContext): SqsAction => {
   return {
     __type: "SqsAction",
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? deserializeAws_restJson1Payload(output.payload, context)
+        : undefined,
     queueUrl: output.queueUrl !== undefined && output.queueUrl !== null ? output.queueUrl : undefined,
     useBase64: output.useBase64 !== undefined && output.useBase64 !== null ? output.useBase64 : undefined,
   } as any;

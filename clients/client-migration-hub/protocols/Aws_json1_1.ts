@@ -114,6 +114,7 @@ import {
   ResourceNotFoundException,
   ServiceUnavailableException,
   Task,
+  ThrottlingException,
   UnauthorizedOperation,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -434,6 +435,14 @@ const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnauthorizedOperation":
     case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
@@ -554,6 +563,14 @@ const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnauthorizedOperation":
     case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
@@ -654,6 +671,14 @@ const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
     case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -770,6 +795,14 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnauthorizedOperation":
     case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
@@ -882,6 +915,14 @@ const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -974,6 +1015,14 @@ const deserializeAws_json1_1DescribeMigrationTaskCommandError = async (
     case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1078,6 +1127,14 @@ const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
     case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1194,6 +1251,14 @@ const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnauthorizedOperation":
     case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
@@ -1306,6 +1371,14 @@ const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnauthorizedOperation":
     case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
@@ -1398,6 +1471,14 @@ const deserializeAws_json1_1ListApplicationStatesCommandError = async (
     case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1498,6 +1579,14 @@ const deserializeAws_json1_1ListCreatedArtifactsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1590,6 +1679,14 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
     case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1698,6 +1795,14 @@ const deserializeAws_json1_1ListMigrationTasksCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1782,6 +1887,14 @@ const deserializeAws_json1_1ListProgressUpdateStreamsCommandError = async (
     case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1898,6 +2011,14 @@ const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnauthorizedOperation":
     case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
@@ -2010,6 +2131,14 @@ const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnauthorizedOperation":
     case "com.amazonaws.migrationhub#UnauthorizedOperation":
       response = {
@@ -2118,6 +2247,14 @@ const deserializeAws_json1_1PutResourceAttributesCommandError = async (
     case "com.amazonaws.migrationhub#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2261,6 +2398,21 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const contents: ThrottlingException = {
+    name: "ThrottlingException",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   };
@@ -2914,6 +3066,17 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
       output.ProgressPercent !== undefined && output.ProgressPercent !== null ? output.ProgressPercent : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     StatusDetail: output.StatusDetail !== undefined && output.StatusDetail !== null ? output.StatusDetail : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+  return {
+    __type: "ThrottlingException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    RetryAfterSeconds:
+      output.RetryAfterSeconds !== undefined && output.RetryAfterSeconds !== null
+        ? output.RetryAfterSeconds
+        : undefined,
   } as any;
 };
 

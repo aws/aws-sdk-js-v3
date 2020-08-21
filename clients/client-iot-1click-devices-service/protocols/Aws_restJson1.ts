@@ -256,14 +256,14 @@ export const serializeAws_restJson1ListDeviceEventsCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.FromTimeStamp !== undefined && {
       fromTimeStamp: (input.FromTimeStamp.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.ToTimeStamp !== undefined && {
       toTimeStamp: (input.ToTimeStamp.toISOString().split(".")[0] + "Z").toString(),
     }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -288,9 +288,9 @@ export const serializeAws_restJson1ListDevicesCommand = async (
   };
   let resolvedPath = "/devices";
   const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.DeviceType !== undefined && { deviceType: input.DeviceType }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

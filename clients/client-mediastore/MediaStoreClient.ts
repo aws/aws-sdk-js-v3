@@ -9,10 +9,12 @@ import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
+import { DeleteMetricPolicyCommandInput, DeleteMetricPolicyCommandOutput } from "./commands/DeleteMetricPolicyCommand";
 import { DescribeContainerCommandInput, DescribeContainerCommandOutput } from "./commands/DescribeContainerCommand";
 import { GetContainerPolicyCommandInput, GetContainerPolicyCommandOutput } from "./commands/GetContainerPolicyCommand";
 import { GetCorsPolicyCommandInput, GetCorsPolicyCommandOutput } from "./commands/GetCorsPolicyCommand";
 import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "./commands/GetLifecyclePolicyCommand";
+import { GetMetricPolicyCommandInput, GetMetricPolicyCommandOutput } from "./commands/GetMetricPolicyCommand";
 import { ListContainersCommandInput, ListContainersCommandOutput } from "./commands/ListContainersCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -21,6 +23,7 @@ import {
 import { PutContainerPolicyCommandInput, PutContainerPolicyCommandOutput } from "./commands/PutContainerPolicyCommand";
 import { PutCorsPolicyCommandInput, PutCorsPolicyCommandOutput } from "./commands/PutCorsPolicyCommand";
 import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "./commands/PutLifecyclePolicyCommand";
+import { PutMetricPolicyCommandInput, PutMetricPolicyCommandOutput } from "./commands/PutMetricPolicyCommand";
 import { StartAccessLoggingCommandInput, StartAccessLoggingCommandOutput } from "./commands/StartAccessLoggingCommand";
 import { StopAccessLoggingCommandInput, StopAccessLoggingCommandOutput } from "./commands/StopAccessLoggingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -78,15 +81,18 @@ export type ServiceInputTypes =
   | DeleteContainerPolicyCommandInput
   | DeleteCorsPolicyCommandInput
   | DeleteLifecyclePolicyCommandInput
+  | DeleteMetricPolicyCommandInput
   | DescribeContainerCommandInput
   | GetContainerPolicyCommandInput
   | GetCorsPolicyCommandInput
   | GetLifecyclePolicyCommandInput
+  | GetMetricPolicyCommandInput
   | ListContainersCommandInput
   | ListTagsForResourceCommandInput
   | PutContainerPolicyCommandInput
   | PutCorsPolicyCommandInput
   | PutLifecyclePolicyCommandInput
+  | PutMetricPolicyCommandInput
   | StartAccessLoggingCommandInput
   | StopAccessLoggingCommandInput
   | TagResourceCommandInput
@@ -98,15 +104,18 @@ export type ServiceOutputTypes =
   | DeleteContainerPolicyCommandOutput
   | DeleteCorsPolicyCommandOutput
   | DeleteLifecyclePolicyCommandOutput
+  | DeleteMetricPolicyCommandOutput
   | DescribeContainerCommandOutput
   | GetContainerPolicyCommandOutput
   | GetCorsPolicyCommandOutput
   | GetLifecyclePolicyCommandOutput
+  | GetMetricPolicyCommandOutput
   | ListContainersCommandOutput
   | ListTagsForResourceCommandOutput
   | PutContainerPolicyCommandOutput
   | PutCorsPolicyCommandOutput
   | PutLifecyclePolicyCommandOutput
+  | PutMetricPolicyCommandOutput
   | StartAccessLoggingCommandOutput
   | StopAccessLoggingCommandOutput
   | TagResourceCommandOutput

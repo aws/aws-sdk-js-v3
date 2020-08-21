@@ -1,7 +1,7 @@
 import { defaultRegionInfoProvider } from "./endpoints";
 
 export const ClientSharedValues = {
-  apiVersion: "2019-03-26",
+  apiVersion: "2020-05-31",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
   signingName: "cloudfront",

@@ -312,6 +312,7 @@ export type OpsWorksCMClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
  *                <p>opsworks-cm.eu-west-1.amazonaws.com</p>
  *             </li>
  *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/opsworks-service.html">AWS OpsWorks endpoints and quotas</a> in the AWS General Reference.</p>
  *          <p>
  *             <b>Throttling limits</b>
  *          </p>

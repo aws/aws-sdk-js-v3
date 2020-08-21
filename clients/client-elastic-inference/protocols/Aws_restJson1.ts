@@ -1,10 +1,33 @@
 import {
+  DescribeAcceleratorOfferingsCommandInput,
+  DescribeAcceleratorOfferingsCommandOutput,
+} from "../commands/DescribeAcceleratorOfferingsCommand";
+import {
+  DescribeAcceleratorTypesCommandInput,
+  DescribeAcceleratorTypesCommandOutput,
+} from "../commands/DescribeAcceleratorTypesCommand";
+import {
+  DescribeAcceleratorsCommandInput,
+  DescribeAcceleratorsCommandOutput,
+} from "../commands/DescribeAcceleratorsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
-import { BadRequestException, InternalServerException, ResourceNotFoundException } from "../models/index";
+import {
+  AcceleratorType,
+  AcceleratorTypeOffering,
+  BadRequestException,
+  ElasticInferenceAccelerator,
+  ElasticInferenceAcceleratorHealth,
+  Filter,
+  InternalServerException,
+  KeyValuePair,
+  MemoryInfo,
+  ResourceNotFoundException,
+} from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
@@ -16,6 +39,84 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+export const serializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
+  input: DescribeAcceleratorOfferingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/describe-accelerator-offerings";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.acceleratorTypes !== undefined && {
+      acceleratorTypes: serializeAws_restJson1AcceleratorTypeNameList(input.acceleratorTypes, context),
+    }),
+    ...(input.locationType !== undefined && { locationType: input.locationType }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeAcceleratorsCommand = async (
+  input: DescribeAcceleratorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/describe-accelerators";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.acceleratorIds !== undefined && {
+      acceleratorIds: serializeAws_restJson1AcceleratorIdList(input.acceleratorIds, context),
+    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeAcceleratorTypesCommand = async (
+  input: DescribeAcceleratorTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/describe-accelerator-types";
+  let body: any;
+  body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
@@ -112,6 +213,213 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     query,
     body,
   });
+};
+
+export const deserializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAcceleratorOfferingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeAcceleratorOfferingsCommandError(output, context);
+  }
+  const contents: DescribeAcceleratorOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeAcceleratorOfferingsResponse",
+    acceleratorTypeOfferings: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.acceleratorTypeOfferings !== undefined && data.acceleratorTypeOfferings !== null) {
+    contents.acceleratorTypeOfferings = deserializeAws_restJson1AcceleratorTypeOfferingList(
+      data.acceleratorTypeOfferings,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAcceleratorOfferingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAcceleratorOfferingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.elasticinference#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.elasticinference#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticinference#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeAcceleratorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAcceleratorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeAcceleratorsCommandError(output, context);
+  }
+  const contents: DescribeAcceleratorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeAcceleratorsResponse",
+    acceleratorSet: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.acceleratorSet !== undefined && data.acceleratorSet !== null) {
+    contents.acceleratorSet = deserializeAws_restJson1ElasticInferenceAcceleratorSet(data.acceleratorSet, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAcceleratorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAcceleratorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.elasticinference#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.elasticinference#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticinference#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeAcceleratorTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAcceleratorTypesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeAcceleratorTypesCommandError(output, context);
+  }
+  const contents: DescribeAcceleratorTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeAcceleratorTypesResponse",
+    acceleratorTypes: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.acceleratorTypes !== undefined && data.acceleratorTypes !== null) {
+    contents.acceleratorTypes = deserializeAws_restJson1AcceleratorTypeList(data.acceleratorTypes, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAcceleratorTypesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAcceleratorTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.elasticinference#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
@@ -373,6 +681,25 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1AcceleratorIdList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1AcceleratorTypeNameList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.values !== undefined && { values: serializeAws_restJson1ValueStringList(input.values, context) }),
+  };
+};
+
+const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Filter(entry, context));
+};
+
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
@@ -383,6 +710,105 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
   );
 };
 
+const serializeAws_restJson1ValueStringList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const deserializeAws_restJson1AcceleratorType = (output: any, context: __SerdeContext): AcceleratorType => {
+  return {
+    __type: "AcceleratorType",
+    acceleratorTypeName:
+      output.acceleratorTypeName !== undefined && output.acceleratorTypeName !== null
+        ? output.acceleratorTypeName
+        : undefined,
+    memoryInfo:
+      output.memoryInfo !== undefined && output.memoryInfo !== null
+        ? deserializeAws_restJson1MemoryInfo(output.memoryInfo, context)
+        : undefined,
+    throughputInfo:
+      output.throughputInfo !== undefined && output.throughputInfo !== null
+        ? deserializeAws_restJson1ThroughputInfoList(output.throughputInfo, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AcceleratorTypeList = (output: any, context: __SerdeContext): AcceleratorType[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AcceleratorType(entry, context));
+};
+
+const deserializeAws_restJson1AcceleratorTypeOffering = (
+  output: any,
+  context: __SerdeContext
+): AcceleratorTypeOffering => {
+  return {
+    __type: "AcceleratorTypeOffering",
+    acceleratorType:
+      output.acceleratorType !== undefined && output.acceleratorType !== null ? output.acceleratorType : undefined,
+    location: output.location !== undefined && output.location !== null ? output.location : undefined,
+    locationType: output.locationType !== undefined && output.locationType !== null ? output.locationType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AcceleratorTypeOfferingList = (
+  output: any,
+  context: __SerdeContext
+): AcceleratorTypeOffering[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AcceleratorTypeOffering(entry, context));
+};
+
+const deserializeAws_restJson1ElasticInferenceAccelerator = (
+  output: any,
+  context: __SerdeContext
+): ElasticInferenceAccelerator => {
+  return {
+    __type: "ElasticInferenceAccelerator",
+    acceleratorHealth:
+      output.acceleratorHealth !== undefined && output.acceleratorHealth !== null
+        ? deserializeAws_restJson1ElasticInferenceAcceleratorHealth(output.acceleratorHealth, context)
+        : undefined,
+    acceleratorId:
+      output.acceleratorId !== undefined && output.acceleratorId !== null ? output.acceleratorId : undefined,
+    acceleratorType:
+      output.acceleratorType !== undefined && output.acceleratorType !== null ? output.acceleratorType : undefined,
+    attachedResource:
+      output.attachedResource !== undefined && output.attachedResource !== null ? output.attachedResource : undefined,
+    availabilityZone:
+      output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ElasticInferenceAcceleratorHealth = (
+  output: any,
+  context: __SerdeContext
+): ElasticInferenceAcceleratorHealth => {
+  return {
+    __type: "ElasticInferenceAcceleratorHealth",
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
+  output: any,
+  context: __SerdeContext
+): ElasticInferenceAccelerator[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ElasticInferenceAccelerator(entry, context));
+};
+
+const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
+  return {
+    __type: "KeyValuePair",
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
+  return {
+    __type: "MemoryInfo",
+    sizeInMiB: output.sizeInMiB !== undefined && output.sizeInMiB !== null ? output.sizeInMiB : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
@@ -391,6 +817,10 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1ThroughputInfoList = (output: any, context: __SerdeContext): KeyValuePair[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1KeyValuePair(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

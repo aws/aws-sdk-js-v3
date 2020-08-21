@@ -71,6 +71,7 @@ export * from "./commands/PutRemediationConfigurationsCommand";
 export * from "./commands/PutRemediationExceptionsCommand";
 export * from "./commands/PutResourceConfigCommand";
 export * from "./commands/PutRetentionConfigurationCommand";
+export * from "./commands/SelectAggregateResourceConfigCommand";
 export * from "./commands/SelectResourceConfigCommand";
 export * from "./commands/StartConfigRulesEvaluationCommand";
 export * from "./commands/StartConfigurationRecorderCommand";

@@ -60,22 +60,22 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS Transfer for SFTP is a fully managed service that enables the transfer of files
- *       directly into and out of Amazon S3 using the Secure File Transfer Protocol (SFTP)—also known
- *       as Secure Shell (SSH) File Transfer Protocol. AWS helps you seamlessly migrate your file
- *       transfer workflows to AWS Transfer for SFTP—by integrating with existing authentication
- *       systems, and providing DNS routing with Amazon Route 53—so nothing changes for your customers
- *       and partners, or their applications. With your data in S3, you can use it with AWS services
- *       for processing, analytics, machine learning, and archiving. Getting started with AWS Transfer
- *       for SFTP (AWS SFTP) is easy; there is no infrastructure to buy and set
- *       up. </p>
+ * <p>AWS Transfer Family is a fully managed service that enables the transfer of files over the
+ *       the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell
+ *       (SSH) File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service
+ *       (Amazon S3). AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer
+ *       Family by integrating with existing authentication systems, and providing DNS routing with
+ *       Amazon Route 53 so nothing changes for your customers and partners, or their applications.
+ *       With your data in Amazon S3, you can use it with AWS services for processing, analytics,
+ *       machine learning, and archiving. Getting started with AWS Transfer Family is easy since there
+ *       is no infrastructure to buy and set up.</p>
  */
 export class Transfer extends TransferClient {
   /**
-   * <p>Instantiates an autoscaling virtual server based on Secure File Transfer Protocol (SFTP)
-   *       in AWS. When you make updates to your server or when you work with users, use the
-   *       service-generated <code>ServerId</code> property that is assigned to the newly created
-   *       server.</p>
+   * <p>Instantiates an autoscaling virtual server based on the selected file transfer protocol in
+   *       AWS. When you make updates to your file transfer protocol-enabled server or when you work with
+   *       users, use the service-generated <code>ServerId</code> property that is assigned to the newly
+   *       created server.</p>
    */
   public createServer(
     args: CreateServerCommandInput,
@@ -104,12 +104,13 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Creates a user and associates them with an existing Secure File Transfer Protocol (SFTP)
-   *       server. You can only create and associate users with SFTP servers that have the <code>IdentityProviderType</code>
-   *       set to <code>SERVICE_MANAGED</code>. Using parameters for <code>CreateUser</code>, you can specify the user name, set the
-   *       home directory, store the user's public key, and assign the user's AWS Identity and Access
-   *       Management (IAM) role. You can also optionally add a scope-down policy, and assign metadata
-   *       with tags that can be used to group and search for users.</p>
+   * <p>Creates a user and associates them with an existing file transfer protocol-enabled server.
+   *       You can only create and associate users with servers that have the
+   *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
+   *         <code>CreateUser</code>, you can specify the user name, set the home directory, store the
+   *       user's public key, and assign the user's AWS Identity and Access Management (IAM)
+   *       role. You can also optionally add a scope-down policy, and assign metadata with tags that can
+   *       be used to group and search for users.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
   public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
@@ -135,8 +136,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Deletes the Secure File Transfer Protocol (SFTP) server that you specify.</p>
-   *
+   * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
    *
    *          <p>No response returns from this operation.</p>
    */
@@ -201,7 +201,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Deletes the user belonging to the server you specify.</p>
+   * <p>Deletes the user belonging to a file transfer protocol-enabled server you specify.</p>
    *
    *          <p>No response returns from this operation.</p>
    *
@@ -233,10 +233,10 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Describes the server that you specify by passing the <code>ServerId</code>
-   *       parameter.</p>
+   * <p>Describes a file transfer protocol-enabled server that you specify by passing the
+   *         <code>ServerId</code> parameter.</p>
    *
-   *          <p>The response contains a description of the server's properties. When you set
+   *          <p>The response contains a description of a server's properties. When you set
    *         <code>EndpointType</code> to VPC, the response will contain the
    *       <code>EndpointDetails</code>.</p>
    */
@@ -270,8 +270,8 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Describes the user assigned to a specific server, as identified by its
-   *         <code>ServerId</code> property.</p>
+   * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as
+   *       identified by its <code>ServerId</code> property.</p>
    *
    *          <p>The response from this call returns the properties of the user associated with the
    *         <code>ServerId</code> value that was specified.</p>
@@ -304,8 +304,8 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
-   *         <code>UserName</code> value assigned to a specific server, identified by
-   *         <code>ServerId</code>.</p>
+   *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
+   *       identified by <code>ServerId</code>.</p>
    *
    *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
    *       the name of the <code>SshPublicKeyId</code>.</p>
@@ -340,7 +340,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Lists the Secure File Transfer Protocol (SFTP) servers that are associated with your AWS
+   * <p>Lists the file transfer protocol-enabled servers that are associated with your AWS
    *       account.</p>
    */
   public listServers(args: ListServersCommandInput, options?: __HttpHandlerOptions): Promise<ListServersCommandOutput>;
@@ -400,8 +400,8 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Lists the users for the server that you specify by passing the <code>ServerId</code>
-   *       parameter.</p>
+   * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing
+   *       the <code>ServerId</code> parameter.</p>
    */
   public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
   public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
@@ -427,14 +427,13 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Changes the state of a Secure File Transfer Protocol (SFTP) server from
-   *         <code>OFFLINE</code> to <code>ONLINE</code>. It has no impact on an SFTP server that is
-   *       already <code>ONLINE</code>. An <code>ONLINE</code> server can accept and process file
-   *       transfer jobs.</p>
+   * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
+   *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
+   *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
    *
    *          <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state,
    *       either not fully able to respond, or not fully online. The values of <code>START_FAILED</code>
-   *       can indicate an error condition. </p>
+   *       can indicate an error condition.</p>
    *
    *          <p>No response is returned from this call.</p>
    */
@@ -462,11 +461,11 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Changes the state of an SFTP server from <code>ONLINE</code> to <code>OFFLINE</code>. An
-   *         <code>OFFLINE</code> server cannot accept and process file transfer jobs. Information tied
-   *       to your server such as server and user properties are not affected by stopping your server.
-   *       Stopping a server will not reduce or impact your Secure File Transfer Protocol (SFTP) endpoint
-   *       billing.</p>
+   * <p>Changes the state of a file transfer protocol-enabled server from <code>ONLINE</code> to
+   *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
+   *       jobs. Information tied to your server, such as server and user properties, are not affected by
+   *       stopping your server. Stopping the server will not reduce or impact your file transfer
+   *       protocol endpoint billing.</p>
    *
    *          <p>The state of <code>STOPPING</code> indicates that the server is in an intermediate state,
    *       either not fully able to respond, or not fully offline. The values of <code>STOP_FAILED</code>
@@ -527,11 +526,11 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>If the <code>IdentityProviderType</code> of the server is <code>API_Gateway</code>, tests
-   *       whether your API Gateway is set up successfully. We highly recommend that you call this
-   *       operation to test your authentication method as soon as you create your server. By doing so,
-   *       you can troubleshoot issues with the API Gateway integration to ensure that your users can
-   *       successfully use the service.</p>
+   * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is
+   *         <code>API_Gateway</code>, tests whether your API Gateway is set up successfully. We highly
+   *       recommend that you call this operation to test your authentication method as soon as you
+   *       create your server. By doing so, you can troubleshoot issues with the API Gateway integration
+   *       to ensure that your users can successfully use the service.</p>
    */
   public testIdentityProvider(
     args: TestIdentityProviderCommandInput,
@@ -565,6 +564,7 @@ export class Transfer extends TransferClient {
   /**
    * <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
    *       (ARN). Resources are users, servers, roles, and other entities.</p>
+   *
    *          <p>No response is returned from this call.</p>
    */
   public untagResource(
@@ -597,10 +597,11 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Updates the server properties after that server has been created.</p>
+   * <p>Updates the file transfer protocol-enabled server's properties after that server has
+   *       been created.</p>
    *
-   *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the Secure File
-   *       Transfer Protocol (SFTP) server you updated.</p>
+   *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server you
+   *       updated.</p>
    */
   public updateServer(
     args: UpdateServerCommandInput,

@@ -52,6 +52,11 @@ import {
   GetBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/GetBlockPublicAccessConfigurationCommand";
 import {
+  GetManagedScalingPolicyCommand,
+  GetManagedScalingPolicyCommandInput,
+  GetManagedScalingPolicyCommandOutput,
+} from "./commands/GetManagedScalingPolicyCommand";
+import {
   ListBootstrapActionsCommand,
   ListBootstrapActionsCommandInput,
   ListBootstrapActionsCommandOutput,
@@ -108,10 +113,20 @@ import {
   PutBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/PutBlockPublicAccessConfigurationCommand";
 import {
+  PutManagedScalingPolicyCommand,
+  PutManagedScalingPolicyCommandInput,
+  PutManagedScalingPolicyCommandOutput,
+} from "./commands/PutManagedScalingPolicyCommand";
+import {
   RemoveAutoScalingPolicyCommand,
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput,
 } from "./commands/RemoveAutoScalingPolicyCommand";
+import {
+  RemoveManagedScalingPolicyCommand,
+  RemoveManagedScalingPolicyCommandInput,
+  RemoveManagedScalingPolicyCommandOutput,
+} from "./commands/RemoveManagedScalingPolicyCommand";
 import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import { RunJobFlowCommand, RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand";
 import {
@@ -530,6 +545,40 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * <p>
+   *          Fetches the attached managed scaling policy for an Amazon EMR cluster.
+   *       </p>
+   */
+  public getManagedScalingPolicy(
+    args: GetManagedScalingPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedScalingPolicyCommandOutput>;
+  public getManagedScalingPolicy(
+    args: GetManagedScalingPolicyCommandInput,
+    cb: (err: any, data?: GetManagedScalingPolicyCommandOutput) => void
+  ): void;
+  public getManagedScalingPolicy(
+    args: GetManagedScalingPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedScalingPolicyCommandOutput) => void
+  ): void;
+  public getManagedScalingPolicy(
+    args: GetManagedScalingPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetManagedScalingPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetManagedScalingPolicyCommandOutput) => void
+  ): Promise<GetManagedScalingPolicyCommandOutput> | void {
+    const command = new GetManagedScalingPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides information about the bootstrap actions associated with a cluster.</p>
    */
   public listBootstrapActions(
@@ -911,6 +960,40 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * <p>
+   *          Creates or updates a managed scaling policy for an Amazon EMR cluster. The managed scaling policy defines the limits for resources, such as EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+   *       </p>
+   */
+  public putManagedScalingPolicy(
+    args: PutManagedScalingPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutManagedScalingPolicyCommandOutput>;
+  public putManagedScalingPolicy(
+    args: PutManagedScalingPolicyCommandInput,
+    cb: (err: any, data?: PutManagedScalingPolicyCommandOutput) => void
+  ): void;
+  public putManagedScalingPolicy(
+    args: PutManagedScalingPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutManagedScalingPolicyCommandOutput) => void
+  ): void;
+  public putManagedScalingPolicy(
+    args: PutManagedScalingPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutManagedScalingPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutManagedScalingPolicyCommandOutput) => void
+  ): Promise<PutManagedScalingPolicyCommandOutput> | void {
+    const command = new PutManagedScalingPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes an automatic scaling policy from a specified instance group within an EMR cluster.</p>
    */
   public removeAutoScalingPolicy(
@@ -932,6 +1015,40 @@ export class EMR extends EMRClient {
     cb?: (err: any, data?: RemoveAutoScalingPolicyCommandOutput) => void
   ): Promise<RemoveAutoScalingPolicyCommandOutput> | void {
     const command = new RemoveAutoScalingPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Removes a managed scaling policy from a specified EMR cluster.
+   *       </p>
+   */
+  public removeManagedScalingPolicy(
+    args: RemoveManagedScalingPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveManagedScalingPolicyCommandOutput>;
+  public removeManagedScalingPolicy(
+    args: RemoveManagedScalingPolicyCommandInput,
+    cb: (err: any, data?: RemoveManagedScalingPolicyCommandOutput) => void
+  ): void;
+  public removeManagedScalingPolicy(
+    args: RemoveManagedScalingPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveManagedScalingPolicyCommandOutput) => void
+  ): void;
+  public removeManagedScalingPolicy(
+    args: RemoveManagedScalingPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveManagedScalingPolicyCommandOutput) => void),
+    cb?: (err: any, data?: RemoveManagedScalingPolicyCommandOutput) => void
+  ): Promise<RemoveManagedScalingPolicyCommandOutput> | void {
+    const command = new RemoveManagedScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

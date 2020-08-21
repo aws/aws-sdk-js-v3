@@ -132,6 +132,16 @@ import {
   DeleteClassifierCommandOutput,
 } from "./commands/DeleteClassifierCommand";
 import {
+  DeleteColumnStatisticsForPartitionCommand,
+  DeleteColumnStatisticsForPartitionCommandInput,
+  DeleteColumnStatisticsForPartitionCommandOutput,
+} from "./commands/DeleteColumnStatisticsForPartitionCommand";
+import {
+  DeleteColumnStatisticsForTableCommand,
+  DeleteColumnStatisticsForTableCommandInput,
+  DeleteColumnStatisticsForTableCommandOutput,
+} from "./commands/DeleteColumnStatisticsForTableCommand";
+import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
   DeleteConnectionCommandOutput,
@@ -208,6 +218,16 @@ import {
   GetClassifiersCommandInput,
   GetClassifiersCommandOutput,
 } from "./commands/GetClassifiersCommand";
+import {
+  GetColumnStatisticsForPartitionCommand,
+  GetColumnStatisticsForPartitionCommandInput,
+  GetColumnStatisticsForPartitionCommandOutput,
+} from "./commands/GetColumnStatisticsForPartitionCommand";
+import {
+  GetColumnStatisticsForTableCommand,
+  GetColumnStatisticsForTableCommandInput,
+  GetColumnStatisticsForTableCommandOutput,
+} from "./commands/GetColumnStatisticsForTableCommand";
 import {
   GetConnectionCommand,
   GetConnectionCommandInput,
@@ -293,6 +313,11 @@ import {
 } from "./commands/GetPartitionsCommand";
 import { GetPlanCommand, GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
 import {
+  GetResourcePoliciesCommand,
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput,
+} from "./commands/GetResourcePoliciesCommand";
+import {
   GetResourcePolicyCommand,
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -365,6 +390,11 @@ import {
 } from "./commands/ListDevEndpointsCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
+  ListMLTransformsCommand,
+  ListMLTransformsCommandInput,
+  ListMLTransformsCommandOutput,
+} from "./commands/ListMLTransformsCommand";
+import {
   ListTriggersCommand,
   ListTriggersCommandInput,
   ListTriggersCommandOutput,
@@ -394,6 +424,11 @@ import {
   ResetJobBookmarkCommandInput,
   ResetJobBookmarkCommandOutput,
 } from "./commands/ResetJobBookmarkCommand";
+import {
+  ResumeWorkflowRunCommand,
+  ResumeWorkflowRunCommandInput,
+  ResumeWorkflowRunCommandOutput,
+} from "./commands/ResumeWorkflowRunCommand";
 import {
   SearchTablesCommand,
   SearchTablesCommandInput,
@@ -447,6 +482,11 @@ import {
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
 import { StopTriggerCommand, StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
+import {
+  StopWorkflowRunCommand,
+  StopWorkflowRunCommandInput,
+  StopWorkflowRunCommandOutput,
+} from "./commands/StopWorkflowRunCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -458,6 +498,16 @@ import {
   UpdateClassifierCommandInput,
   UpdateClassifierCommandOutput,
 } from "./commands/UpdateClassifierCommand";
+import {
+  UpdateColumnStatisticsForPartitionCommand,
+  UpdateColumnStatisticsForPartitionCommandInput,
+  UpdateColumnStatisticsForPartitionCommandOutput,
+} from "./commands/UpdateColumnStatisticsForPartitionCommand";
+import {
+  UpdateColumnStatisticsForTableCommand,
+  UpdateColumnStatisticsForTableCommandInput,
+  UpdateColumnStatisticsForTableCommandOutput,
+} from "./commands/UpdateColumnStatisticsForTableCommand";
 import {
   UpdateConnectionCommand,
   UpdateConnectionCommandInput,
@@ -1429,6 +1479,70 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Delete the partition column statistics of a column.</p>
+   */
+  public deleteColumnStatisticsForPartition(
+    args: DeleteColumnStatisticsForPartitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteColumnStatisticsForPartitionCommandOutput>;
+  public deleteColumnStatisticsForPartition(
+    args: DeleteColumnStatisticsForPartitionCommandInput,
+    cb: (err: any, data?: DeleteColumnStatisticsForPartitionCommandOutput) => void
+  ): void;
+  public deleteColumnStatisticsForPartition(
+    args: DeleteColumnStatisticsForPartitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteColumnStatisticsForPartitionCommandOutput) => void
+  ): void;
+  public deleteColumnStatisticsForPartition(
+    args: DeleteColumnStatisticsForPartitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteColumnStatisticsForPartitionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteColumnStatisticsForPartitionCommandOutput) => void
+  ): Promise<DeleteColumnStatisticsForPartitionCommandOutput> | void {
+    const command = new DeleteColumnStatisticsForPartitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves table statistics of columns.</p>
+   */
+  public deleteColumnStatisticsForTable(
+    args: DeleteColumnStatisticsForTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteColumnStatisticsForTableCommandOutput>;
+  public deleteColumnStatisticsForTable(
+    args: DeleteColumnStatisticsForTableCommandInput,
+    cb: (err: any, data?: DeleteColumnStatisticsForTableCommandOutput) => void
+  ): void;
+  public deleteColumnStatisticsForTable(
+    args: DeleteColumnStatisticsForTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteColumnStatisticsForTableCommandOutput) => void
+  ): void;
+  public deleteColumnStatisticsForTable(
+    args: DeleteColumnStatisticsForTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteColumnStatisticsForTableCommandOutput) => void),
+    cb?: (err: any, data?: DeleteColumnStatisticsForTableCommandOutput) => void
+  ): Promise<DeleteColumnStatisticsForTableCommandOutput> | void {
+    const command = new DeleteColumnStatisticsForTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a connection from the Data Catalog.</p>
    */
   public deleteConnection(
@@ -1980,6 +2094,70 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: GetClassifiersCommandOutput) => void
   ): Promise<GetClassifiersCommandOutput> | void {
     const command = new GetClassifiersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves partition statistics of columns.</p>
+   */
+  public getColumnStatisticsForPartition(
+    args: GetColumnStatisticsForPartitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetColumnStatisticsForPartitionCommandOutput>;
+  public getColumnStatisticsForPartition(
+    args: GetColumnStatisticsForPartitionCommandInput,
+    cb: (err: any, data?: GetColumnStatisticsForPartitionCommandOutput) => void
+  ): void;
+  public getColumnStatisticsForPartition(
+    args: GetColumnStatisticsForPartitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetColumnStatisticsForPartitionCommandOutput) => void
+  ): void;
+  public getColumnStatisticsForPartition(
+    args: GetColumnStatisticsForPartitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetColumnStatisticsForPartitionCommandOutput) => void),
+    cb?: (err: any, data?: GetColumnStatisticsForPartitionCommandOutput) => void
+  ): Promise<GetColumnStatisticsForPartitionCommandOutput> | void {
+    const command = new GetColumnStatisticsForPartitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves table statistics of columns.</p>
+   */
+  public getColumnStatisticsForTable(
+    args: GetColumnStatisticsForTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetColumnStatisticsForTableCommandOutput>;
+  public getColumnStatisticsForTable(
+    args: GetColumnStatisticsForTableCommandInput,
+    cb: (err: any, data?: GetColumnStatisticsForTableCommandOutput) => void
+  ): void;
+  public getColumnStatisticsForTable(
+    args: GetColumnStatisticsForTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetColumnStatisticsForTableCommandOutput) => void
+  ): void;
+  public getColumnStatisticsForTable(
+    args: GetColumnStatisticsForTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetColumnStatisticsForTableCommandOutput) => void),
+    cb?: (err: any, data?: GetColumnStatisticsForTableCommandOutput) => void
+  ): Promise<GetColumnStatisticsForTableCommandOutput> | void {
+    const command = new GetColumnStatisticsForTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2725,6 +2903,40 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Retrieves the security configurations for the resource policies set on individual resources, and also the account-level policy.</p>
+   *
+   * 	        <p>This operation also returns the Data Catalog resource policy. However, if you enabled metadata encryption in Data Catalog settings, and you do not have permission on the AWS KMS key, the operation can't return the Data Catalog resource policy.</p>
+   */
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePoliciesCommandOutput>;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePoliciesCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): Promise<GetResourcePoliciesCommandOutput> | void {
+    const command = new GetResourcePoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a specified resource policy.</p>
    */
   public getResourcePolicy(
@@ -3339,6 +3551,42 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p> Retrieves a sortable, filterable list of existing AWS Glue machine learning transforms in this AWS account,
+   *        or the resources with the specified tag. This operation takes the optional <code>Tags</code> field, which you can use as
+   *        a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag
+   *        filtering, only resources with the tags are retrieved.
+   *      </p>
+   */
+  public listMLTransforms(
+    args: ListMLTransformsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMLTransformsCommandOutput>;
+  public listMLTransforms(
+    args: ListMLTransformsCommandInput,
+    cb: (err: any, data?: ListMLTransformsCommandOutput) => void
+  ): void;
+  public listMLTransforms(
+    args: ListMLTransformsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMLTransformsCommandOutput) => void
+  ): void;
+  public listMLTransforms(
+    args: ListMLTransformsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMLTransformsCommandOutput) => void),
+    cb?: (err: any, data?: ListMLTransformsCommandOutput) => void
+  ): Promise<ListMLTransformsCommandOutput> | void {
+    const command = new ListMLTransformsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
    *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
@@ -3533,6 +3781,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Restarts any completed nodes in a workflow run and resumes the run execution.</p>
+   */
+  public resumeWorkflowRun(
+    args: ResumeWorkflowRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeWorkflowRunCommandOutput>;
+  public resumeWorkflowRun(
+    args: ResumeWorkflowRunCommandInput,
+    cb: (err: any, data?: ResumeWorkflowRunCommandOutput) => void
+  ): void;
+  public resumeWorkflowRun(
+    args: ResumeWorkflowRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResumeWorkflowRunCommandOutput) => void
+  ): void;
+  public resumeWorkflowRun(
+    args: ResumeWorkflowRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeWorkflowRunCommandOutput) => void),
+    cb?: (err: any, data?: ResumeWorkflowRunCommandOutput) => void
+  ): Promise<ResumeWorkflowRunCommandOutput> | void {
+    const command = new ResumeWorkflowRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions. </p>
    *          <p>You can only get tables that you have access to based on the security policies defined in Lake Formation. You need at least a read-only access to the table for it to be returned. If you do not have access to all the columns in the table, these columns will not be searched against when returning the list of tables back to you. If you have access to the columns but not the data in the columns, those columns and the associated metadata for those columns will be included in the search. </p>
    */
@@ -3563,8 +3843,9 @@ export class Glue extends GlueClient {
   }
 
   /**
-   * <p>Starts a crawl using the specified crawler, regardless of what is scheduled. If the
-   *       crawler is already running, returns a <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
+   * <p>Starts a crawl using the specified crawler, regardless
+   *       of what is scheduled. If the crawler is already running, returns a
+   *       <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
    */
   public startCrawler(
     args: StartCrawlerCommandInput,
@@ -3982,6 +4263,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Stops the execution of the specified workflow run.</p>
+   */
+  public stopWorkflowRun(
+    args: StopWorkflowRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopWorkflowRunCommandOutput>;
+  public stopWorkflowRun(
+    args: StopWorkflowRunCommandInput,
+    cb: (err: any, data?: StopWorkflowRunCommandOutput) => void
+  ): void;
+  public stopWorkflowRun(
+    args: StopWorkflowRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopWorkflowRunCommandOutput) => void
+  ): void;
+  public stopWorkflowRun(
+    args: StopWorkflowRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopWorkflowRunCommandOutput) => void),
+    cb?: (err: any, data?: StopWorkflowRunCommandOutput) => void
+  ): Promise<StopWorkflowRunCommandOutput> | void {
+    const command = new StopWorkflowRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds tags to a resource. A tag is a label you can assign to an AWS resource.
    *       In AWS Glue, you can tag only certain resources. For information about what
    *       resources you can tag, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a>.</p>
@@ -4065,6 +4378,70 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: UpdateClassifierCommandOutput) => void
   ): Promise<UpdateClassifierCommandOutput> | void {
     const command = new UpdateClassifierCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates partition statistics of columns.</p>
+   */
+  public updateColumnStatisticsForPartition(
+    args: UpdateColumnStatisticsForPartitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateColumnStatisticsForPartitionCommandOutput>;
+  public updateColumnStatisticsForPartition(
+    args: UpdateColumnStatisticsForPartitionCommandInput,
+    cb: (err: any, data?: UpdateColumnStatisticsForPartitionCommandOutput) => void
+  ): void;
+  public updateColumnStatisticsForPartition(
+    args: UpdateColumnStatisticsForPartitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateColumnStatisticsForPartitionCommandOutput) => void
+  ): void;
+  public updateColumnStatisticsForPartition(
+    args: UpdateColumnStatisticsForPartitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateColumnStatisticsForPartitionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateColumnStatisticsForPartitionCommandOutput) => void
+  ): Promise<UpdateColumnStatisticsForPartitionCommandOutput> | void {
+    const command = new UpdateColumnStatisticsForPartitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates table statistics of columns.</p>
+   */
+  public updateColumnStatisticsForTable(
+    args: UpdateColumnStatisticsForTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateColumnStatisticsForTableCommandOutput>;
+  public updateColumnStatisticsForTable(
+    args: UpdateColumnStatisticsForTableCommandInput,
+    cb: (err: any, data?: UpdateColumnStatisticsForTableCommandOutput) => void
+  ): void;
+  public updateColumnStatisticsForTable(
+    args: UpdateColumnStatisticsForTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateColumnStatisticsForTableCommandOutput) => void
+  ): void;
+  public updateColumnStatisticsForTable(
+    args: UpdateColumnStatisticsForTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateColumnStatisticsForTableCommandOutput) => void),
+    cb?: (err: any, data?: UpdateColumnStatisticsForTableCommandOutput) => void
+  ): Promise<UpdateColumnStatisticsForTableCommandOutput> | void {
+    const command = new UpdateColumnStatisticsForTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

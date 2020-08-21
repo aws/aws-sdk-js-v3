@@ -21,6 +21,7 @@ import {
   InvalidInputException,
   ServiceUnavailableException,
   Target,
+  ThrottlingException,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -142,6 +143,14 @@ const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhubconfig#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -222,6 +231,14 @@ const deserializeAws_json1_1DescribeHomeRegionControlsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhubconfig#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -298,6 +315,14 @@ const deserializeAws_json1_1GetHomeRegionCommandError = async (
     case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhubconfig#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -388,6 +413,21 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const contents: ThrottlingException = {
+    name: "ThrottlingException",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   };
@@ -526,6 +566,17 @@ const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Tar
     __type: "Target",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+  return {
+    __type: "ThrottlingException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    RetryAfterSeconds:
+      output.RetryAfterSeconds !== undefined && output.RetryAfterSeconds !== null
+        ? output.RetryAfterSeconds
+        : undefined,
   } as any;
 };
 

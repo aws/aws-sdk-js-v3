@@ -209,17 +209,17 @@ export namespace ConcurrentModificationException {
 export interface Content {
   __type?: "Content";
   /**
+   * <p>The content of the message itself.</p>
+   */
+  Data: string | undefined;
+
+  /**
    * <p>The character set for the content. Because of the constraints of the SMTP protocol,
    *             Amazon Pinpoint uses 7-bit ASCII by default. If the text includes characters outside of the ASCII
    *             range, you have to specify a character set. For example, you could specify
    *                 <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</p>
    */
   Charset?: string;
-
-  /**
-   * <p>The content of the message itself.</p>
-   */
-  Data: string | undefined;
 }
 
 export namespace Content {
@@ -280,9 +280,10 @@ export namespace CreateConfigurationSetEventDestinationResponse {
 export interface CreateConfigurationSetRequest {
   __type?: "CreateConfigurationSetRequest";
   /**
-   * <p>The name of the configuration set.</p>
+   * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
+   *             configuration set.</p>
    */
-  ConfigurationSetName: string | undefined;
+  SendingOptions?: SendingOptions;
 
   /**
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
@@ -291,22 +292,21 @@ export interface CreateConfigurationSetRequest {
   DeliveryOptions?: DeliveryOptions;
 
   /**
+   * <p>An array of objects that define the tags (keys and values) that you want to associate
+   *             with the configuration set.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails
    *             that you send that use the configuration set.</p>
    */
   ReputationOptions?: ReputationOptions;
 
   /**
-   * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
-   *             configuration set.</p>
+   * <p>The name of the configuration set.</p>
    */
-  SendingOptions?: SendingOptions;
-
-  /**
-   * <p>An array of objects that define the tags (keys and values) that you want to associate
-   *             with the configuration set.</p>
-   */
-  Tags?: Tag[];
+  ConfigurationSetName: string | undefined;
 
   /**
    * <p>An object that defines the open and click tracking options for emails that you send
@@ -393,11 +393,6 @@ export interface CreateDeliverabilityTestReportRequest {
   Content: EmailContent | undefined;
 
   /**
-   * <p>The email address that the predictive inbox placement test email was sent from.</p>
-   */
-  FromEmailAddress: string | undefined;
-
-  /**
    * <p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the
    *             results.</p>
    */
@@ -408,6 +403,11 @@ export interface CreateDeliverabilityTestReportRequest {
    *             with the predictive inbox placement test.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The email address that the predictive inbox placement test email was sent from.</p>
+   */
+  FromEmailAddress: string | undefined;
 }
 
 export namespace CreateDeliverabilityTestReportRequest {
@@ -479,6 +479,13 @@ export namespace CreateEmailIdentityRequest {
 export interface CreateEmailIdentityResponse {
   __type?: "CreateEmailIdentityResponse";
   /**
+   * <p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email
+   *             from verified email addresses or domains. For more information about verifying
+   *             identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
+   */
+  VerifiedForSendingStatus?: boolean;
+
+  /**
    * <p>An object that contains information about the DKIM attributes for the identity. This
    *             object includes the tokens that you use to create the CNAME records that are required to
    *             complete the DKIM verification process.</p>
@@ -489,13 +496,6 @@ export interface CreateEmailIdentityResponse {
    * <p>The email identity type.</p>
    */
   IdentityType?: IdentityType | string;
-
-  /**
-   * <p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email
-   *             from verified email addresses or domains. For more information about verifying
-   *             identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
-   */
-  VerifiedForSendingStatus?: boolean;
 }
 
 export namespace CreateEmailIdentityResponse {
@@ -544,22 +544,6 @@ export namespace DailyVolume {
 export interface DedicatedIp {
   __type?: "DedicatedIp";
   /**
-   * <p>An IP address that is reserved for use by your Amazon Pinpoint account.</p>
-   */
-  Ip: string | undefined;
-
-  /**
-   * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
-   */
-  PoolName?: string;
-
-  /**
-   * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
-   *             the address has completed the warm-up process and is ready for use.</p>
-   */
-  WarmupPercentage: number | undefined;
-
-  /**
    * <p>The warm-up status of a dedicated IP address. The status can have one of the following
    *             values:</p>
    *         <ul>
@@ -576,6 +560,22 @@ export interface DedicatedIp {
    *          </ul>
    */
   WarmupStatus: WarmupStatus | string | undefined;
+
+  /**
+   * <p>An IP address that is reserved for use by your Amazon Pinpoint account.</p>
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
+   */
+  PoolName?: string;
+
+  /**
+   * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
+   *             the address has completed the warm-up process and is ready for use.</p>
+   */
+  WarmupPercentage: number | undefined;
 }
 
 export namespace DedicatedIp {
@@ -740,11 +740,6 @@ export enum DeliverabilityDashboardAccountStatus {
 export interface DeliverabilityTestReport {
   __type?: "DeliverabilityTestReport";
   /**
-   * <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
-   */
-  CreateDate?: Date;
-
-  /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
@@ -758,11 +753,6 @@ export interface DeliverabilityTestReport {
   FromEmailAddress?: string;
 
   /**
-   * <p>A unique string that identifies the predictive inbox placement test.</p>
-   */
-  ReportId?: string;
-
-  /**
    * <p>A name that helps you identify a predictive inbox placement test report.</p>
    */
   ReportName?: string;
@@ -771,6 +761,16 @@ export interface DeliverabilityTestReport {
    * <p>The subject line for an email that you submitted in a predictive inbox placement test.</p>
    */
   Subject?: string;
+
+  /**
+   * <p>A unique string that identifies the predictive inbox placement test.</p>
+   */
+  ReportId?: string;
+
+  /**
+   * <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
+   */
+  CreateDate?: Date;
 }
 
 export namespace DeliverabilityTestReport {
@@ -818,6 +818,12 @@ export namespace DeliveryOptions {
 export interface Destination {
   __type?: "Destination";
   /**
+   * <p>An array that contains the email addresses of the "To" recipients for the
+   *             email.</p>
+   */
+  ToAddresses?: string[];
+
+  /**
    * <p>An array that contains the email addresses of the "BCC" (blind carbon copy) recipients
    *             for the email.</p>
    */
@@ -828,12 +834,6 @@ export interface Destination {
    *             the email.</p>
    */
   CcAddresses?: string[];
-
-  /**
-   * <p>An array that contains the email addresses of the "To" recipients for the
-   *             email.</p>
-   */
-  ToAddresses?: string[];
 }
 
 export namespace Destination {
@@ -856,11 +856,13 @@ export enum DimensionValueSource {
 export interface DkimAttributes {
   __type?: "DkimAttributes";
   /**
-   * <p>If the value is <code>true</code>, then the messages that Amazon Pinpoint sends from the
-   *             identity are DKIM-signed. If the value is <code>false</code>, then the messages that
-   *             Amazon Pinpoint sends from the identity aren't DKIM-signed.</p>
+   * <p>A set of unique strings that you use to create a set of CNAME records that you add to
+   *             the DNS configuration for your domain. When Amazon Pinpoint detects these records in the DNS
+   *             configuration for your domain, the DKIM authentication process is complete. Amazon Pinpoint
+   *             usually detects these records within about 72 hours of adding them to the DNS
+   *             configuration for your domain.</p>
    */
-  SigningEnabled?: boolean;
+  Tokens?: string[];
 
   /**
    * <p>Describes whether or not Amazon Pinpoint has successfully located the DKIM records in the DNS
@@ -898,13 +900,11 @@ export interface DkimAttributes {
   Status?: DkimStatus | string;
 
   /**
-   * <p>A set of unique strings that you use to create a set of CNAME records that you add to
-   *             the DNS configuration for your domain. When Amazon Pinpoint detects these records in the DNS
-   *             configuration for your domain, the DKIM authentication process is complete. Amazon Pinpoint
-   *             usually detects these records within about 72 hours of adding them to the DNS
-   *             configuration for your domain.</p>
+   * <p>If the value is <code>true</code>, then the messages that Amazon Pinpoint sends from the
+   *             identity are DKIM-signed. If the value is <code>false</code>, then the messages that
+   *             Amazon Pinpoint sends from the identity aren't DKIM-signed.</p>
    */
-  Tokens?: string[];
+  SigningEnabled?: boolean;
 }
 
 export namespace DkimAttributes {
@@ -931,59 +931,15 @@ export enum DkimStatus {
 export interface DomainDeliverabilityCampaign {
   __type?: "DomainDeliverabilityCampaign";
   /**
-   * <p>The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this
-   *             identifier to a campaign. This value is not the same as the campaign identifier that
-   *             Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the
-   *             Amazon Pinpoint console.</p>
+   * <p>The number of email messages that were delivered to recipients’ inboxes.</p>
    */
-  CampaignId?: string;
-
-  /**
-   * <p>The percentage of email messages that were deleted by recipients, without being opened
-   *             first. Due to technical limitations, this value only includes recipients who opened the
-   *             message by using an email client that supports images.</p>
-   */
-  DeleteRate?: number;
-
-  /**
-   * <p>The major email providers who handled the email message.</p>
-   */
-  Esps?: string[];
-
-  /**
-   * <p>The first time, in Unix time format, when the email message was delivered to any
-   *             recipient's inbox. This value can help you determine how long it took for a campaign to
-   *             deliver an email message.</p>
-   */
-  FirstSeenDateTime?: Date;
-
-  /**
-   * <p>The verified email address that the email message was sent from.</p>
-   */
-  FromAddress?: string;
+  InboxCount?: number;
 
   /**
    * <p>The URL of an image that contains a snapshot of the email message that was
    *             sent.</p>
    */
   ImageUrl?: string;
-
-  /**
-   * <p>The number of email messages that were delivered to recipients’ inboxes.</p>
-   */
-  InboxCount?: number;
-
-  /**
-   * <p>The last time, in Unix time format, when the email message was delivered to any
-   *             recipient's inbox. This value can help you determine how long it took for a campaign to
-   *             deliver an email message.</p>
-   */
-  LastSeenDateTime?: Date;
-
-  /**
-   * <p>The projected number of recipients that the email message was sent to.</p>
-   */
-  ProjectedVolume?: number;
 
   /**
    * <p>The percentage of email messages that were opened and then deleted by recipients. Due
@@ -993,11 +949,9 @@ export interface DomainDeliverabilityCampaign {
   ReadDeleteRate?: number;
 
   /**
-   * <p>The percentage of email messages that were opened by recipients. Due to technical
-   *             limitations, this value only includes recipients who opened the message by using an
-   *             email client that supports images.</p>
+   * <p>The projected number of recipients that the email message was sent to.</p>
    */
-  ReadRate?: number;
+  ProjectedVolume?: number;
 
   /**
    * <p>The IP addresses that were used to send the email message.</p>
@@ -1011,9 +965,55 @@ export interface DomainDeliverabilityCampaign {
   SpamCount?: number;
 
   /**
+   * <p>The percentage of email messages that were opened by recipients. Due to technical
+   *             limitations, this value only includes recipients who opened the message by using an
+   *             email client that supports images.</p>
+   */
+  ReadRate?: number;
+
+  /**
+   * <p>The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this
+   *             identifier to a campaign. This value is not the same as the campaign identifier that
+   *             Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the
+   *             Amazon Pinpoint console.</p>
+   */
+  CampaignId?: string;
+
+  /**
+   * <p>The major email providers who handled the email message.</p>
+   */
+  Esps?: string[];
+
+  /**
+   * <p>The verified email address that the email message was sent from.</p>
+   */
+  FromAddress?: string;
+
+  /**
    * <p>The subject line, or title, of the email message.</p>
    */
   Subject?: string;
+
+  /**
+   * <p>The last time, in Unix time format, when the email message was delivered to any
+   *             recipient's inbox. This value can help you determine how long it took for a campaign to
+   *             deliver an email message.</p>
+   */
+  LastSeenDateTime?: Date;
+
+  /**
+   * <p>The first time, in Unix time format, when the email message was delivered to any
+   *             recipient's inbox. This value can help you determine how long it took for a campaign to
+   *             deliver an email message.</p>
+   */
+  FirstSeenDateTime?: Date;
+
+  /**
+   * <p>The percentage of email messages that were deleted by recipients, without being opened
+   *             first. Due to technical limitations, this value only includes recipients who opened the
+   *             message by using an email client that supports images.</p>
+   */
+  DeleteRate?: number;
 }
 
 export namespace DomainDeliverabilityCampaign {
@@ -1032,16 +1032,16 @@ export namespace DomainDeliverabilityCampaign {
 export interface DomainDeliverabilityTrackingOption {
   __type?: "DomainDeliverabilityTrackingOption";
   /**
-   * <p>A verified domain that’s associated with your AWS account and currently has an
-   *             active Deliverability dashboard subscription.</p>
-   */
-  Domain?: string;
-
-  /**
    * <p>An object that contains information about the inbox placement data settings for the
    *             domain.</p>
    */
   InboxPlacementTrackingOption?: InboxPlacementTrackingOption;
+
+  /**
+   * <p>A verified domain that’s associated with your AWS account and currently has an
+   *             active Deliverability dashboard subscription.</p>
+   */
+  Domain?: string;
 
   /**
    * <p>The date, in Unix time format, when you enabled the Deliverability dashboard for the
@@ -1065,10 +1065,21 @@ export namespace DomainDeliverabilityTrackingOption {
 export interface DomainIspPlacement {
   __type?: "DomainIspPlacement";
   /**
+   * <p>The name of the email provider that the inbox placement data applies to.</p>
+   */
+  IspName?: string;
+
+  /**
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' inboxes.</p>
    */
   InboxPercentage?: number;
+
+  /**
+   * <p>The total number of messages that were sent from the selected domain to the specified
+   *             email provider that arrived in recipients' spam or junk mail folders.</p>
+   */
+  SpamRawCount?: number;
 
   /**
    * <p>The total number of messages that were sent from the selected domain to the specified
@@ -1077,21 +1088,10 @@ export interface DomainIspPlacement {
   InboxRawCount?: number;
 
   /**
-   * <p>The name of the email provider that the inbox placement data applies to.</p>
-   */
-  IspName?: string;
-
-  /**
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' spam or junk mail folders.</p>
    */
   SpamPercentage?: number;
-
-  /**
-   * <p>The total number of messages that were sent from the selected domain to the specified
-   *             email provider that arrived in recipients' spam or junk mail folders.</p>
-   */
-  SpamRawCount?: number;
 }
 
 export namespace DomainIspPlacement {
@@ -1171,6 +1171,12 @@ export namespace EmailContent {
 export interface EventDestination {
   __type?: "EventDestination";
   /**
+   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
+   *             send notification when certain email events occur.</p>
+   */
+  SnsDestination?: SnsDestination;
+
+  /**
    * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
    *             monitor and gain insights on your email sending metrics.</p>
    */
@@ -1186,10 +1192,11 @@ export interface EventDestination {
   Enabled?: boolean;
 
   /**
-   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
-   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
+   * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
+   *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
+   *             for your campaigns.</p>
    */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+  PinpointDestination?: PinpointDestination;
 
   /**
    * <p>The types of events that Amazon Pinpoint sends to the specified event destinations.</p>
@@ -1202,17 +1209,10 @@ export interface EventDestination {
   Name: string | undefined;
 
   /**
-   * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
-   *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
-   *             for your campaigns.</p>
+   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
+   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
-  PinpointDestination?: PinpointDestination;
-
-  /**
-   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
-   */
-  SnsDestination?: SnsDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination;
 }
 
 export namespace EventDestination {
@@ -1231,10 +1231,11 @@ export namespace EventDestination {
 export interface EventDestinationDefinition {
   __type?: "EventDestinationDefinition";
   /**
-   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
-   *             monitor and gain insights on your email sending metrics.</p>
+   * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
+   *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
+   *             for your campaigns.</p>
    */
-  CloudWatchDestination?: CloudWatchDestination;
+  PinpointDestination?: PinpointDestination;
 
   /**
    * <p>If <code>true</code>, the event destination is enabled. When the event destination is
@@ -1246,10 +1247,16 @@ export interface EventDestinationDefinition {
   Enabled?: boolean;
 
   /**
-   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
-   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
+   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
+   *             monitor and gain insights on your email sending metrics.</p>
    */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+  CloudWatchDestination?: CloudWatchDestination;
+
+  /**
+   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
+   *             send notification when certain email events occur.</p>
+   */
+  SnsDestination?: SnsDestination;
 
   /**
    * <p>An array that specifies which events Amazon Pinpoint should send to the destinations in this
@@ -1258,17 +1265,10 @@ export interface EventDestinationDefinition {
   MatchingEventTypes?: (EventType | string)[];
 
   /**
-   * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
-   *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
-   *             for your campaigns.</p>
+   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
+   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
-  PinpointDestination?: PinpointDestination;
-
-  /**
-   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
-   */
-  SnsDestination?: SnsDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination;
 }
 
 export namespace EventDestinationDefinition {
@@ -1311,10 +1311,30 @@ export namespace GetAccountRequest {
 export interface GetAccountResponse {
   __type?: "GetAccountResponse";
   /**
-   * <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP
-   *             addresses that are associated with your account.</p>
+   * <p>An object that contains information about the per-day and per-second sending limits
+   *             for your Amazon Pinpoint account in the current AWS Region.</p>
    */
-  DedicatedIpAutoWarmupEnabled?: boolean;
+  SendQuota?: SendQuota;
+
+  /**
+   * <p>Indicates whether or not email sending is enabled for your Amazon Pinpoint account in the
+   *             current AWS Region.</p>
+   */
+  SendingEnabled?: boolean;
+
+  /**
+   * <p>Indicates whether or not your account has production access in the current AWS
+   *             Region.</p>
+   *         <p>If the value is <code>false</code>, then your account is in the
+   *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
+   *             email to verified identities. Additionally, the maximum number of emails you can send in
+   *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
+   *             send per second (your maximum sending rate) is 1.</p>
+   *         <p>If the value is <code>true</code>, then your account has production access. When your
+   *             account has production access, you can send email to any address. The sending quota and
+   *             maximum sending rate for your account vary based on your specific use case.</p>
+   */
+  ProductionAccessEnabled?: boolean;
 
   /**
    * <p>The reputation status of your Amazon Pinpoint account. The status can be one of the
@@ -1343,30 +1363,10 @@ export interface GetAccountResponse {
   EnforcementStatus?: string;
 
   /**
-   * <p>Indicates whether or not your account has production access in the current AWS
-   *             Region.</p>
-   *         <p>If the value is <code>false</code>, then your account is in the
-   *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
-   *             email to verified identities. Additionally, the maximum number of emails you can send in
-   *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
-   *             send per second (your maximum sending rate) is 1.</p>
-   *         <p>If the value is <code>true</code>, then your account has production access. When your
-   *             account has production access, you can send email to any address. The sending quota and
-   *             maximum sending rate for your account vary based on your specific use case.</p>
+   * <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP
+   *             addresses that are associated with your account.</p>
    */
-  ProductionAccessEnabled?: boolean;
-
-  /**
-   * <p>An object that contains information about the per-day and per-second sending limits
-   *             for your Amazon Pinpoint account in the current AWS Region.</p>
-   */
-  SendQuota?: SendQuota;
-
-  /**
-   * <p>Indicates whether or not email sending is enabled for your Amazon Pinpoint account in the
-   *             current AWS Region.</p>
-   */
-  SendingEnabled?: boolean;
+  DedicatedIpAutoWarmupEnabled?: boolean;
 }
 
 export namespace GetAccountResponse {
@@ -1481,9 +1481,10 @@ export namespace GetConfigurationSetRequest {
 export interface GetConfigurationSetResponse {
   __type?: "GetConfigurationSetResponse";
   /**
-   * <p>The name of the configuration set.</p>
+   * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
+   *             configuration set.</p>
    */
-  ConfigurationSetName?: string;
+  SendingOptions?: SendingOptions;
 
   /**
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
@@ -1492,16 +1493,10 @@ export interface GetConfigurationSetResponse {
   DeliveryOptions?: DeliveryOptions;
 
   /**
-   * <p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails
-   *             that you send that use the configuration set.</p>
+   * <p>An object that defines the open and click tracking options for emails that you send
+   *             using the configuration set.</p>
    */
-  ReputationOptions?: ReputationOptions;
-
-  /**
-   * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
-   *             configuration set.</p>
-   */
-  SendingOptions?: SendingOptions;
+  TrackingOptions?: TrackingOptions;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
@@ -1510,10 +1505,15 @@ export interface GetConfigurationSetResponse {
   Tags?: Tag[];
 
   /**
-   * <p>An object that defines the open and click tracking options for emails that you send
-   *             using the configuration set.</p>
+   * <p>The name of the configuration set.</p>
    */
-  TrackingOptions?: TrackingOptions;
+  ConfigurationSetName?: string;
+
+  /**
+   * <p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails
+   *             that you send that use the configuration set.</p>
+   */
+  ReputationOptions?: ReputationOptions;
 }
 
 export namespace GetConfigurationSetResponse {
@@ -1566,18 +1566,18 @@ export namespace GetDedicatedIpResponse {
 export interface GetDedicatedIpsRequest {
   __type?: "GetDedicatedIpsRequest";
   /**
-   * <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
-   *             position of the dedicated IP pool in the list of IP pools.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
    *             additional results.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
+   *             position of the dedicated IP pool in the list of IP pools.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The name of the IP pool that the dedicated IP address is associated with.</p>
@@ -1599,17 +1599,17 @@ export namespace GetDedicatedIpsRequest {
 export interface GetDedicatedIpsResponse {
   __type?: "GetDedicatedIpsResponse";
   /**
-   * <p>A list of dedicated IP addresses that are reserved for use by your Amazon Pinpoint
-   *             account.</p>
-   */
-  DedicatedIps?: DedicatedIp[];
-
-  /**
    * <p>A token that indicates that there are additional dedicated IP addresses to list. To
    *             view additional addresses, issue another request to <code>GetDedicatedIps</code>,
    *             passing this token in the <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of dedicated IP addresses that are reserved for use by your Amazon Pinpoint
+   *             account.</p>
+   */
+  DedicatedIps?: DedicatedIp[];
 }
 
 export namespace GetDedicatedIpsResponse {
@@ -1646,24 +1646,12 @@ export namespace GetDeliverabilityDashboardOptionsRequest {
 export interface GetDeliverabilityDashboardOptionsResponse {
   __type?: "GetDeliverabilityDashboardOptionsResponse";
   /**
-   * <p>The current status of your Deliverability dashboard subscription. If this value is
-   *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
-   *             of the current calendar month.</p>
+   * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
+   *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
+   *             current calendar month. This value is null if you have an active subscription that isn’t
+   *             due to expire at the end of the month.</p>
    */
-  AccountStatus?: DeliverabilityDashboardAccountStatus | string;
-
-  /**
-   * <p>An array of objects, one for each verified domain that you use to send email and
-   *             currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at
-   *             the end of the current calendar month.</p>
-   */
-  ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[];
-
-  /**
-   * <p>Specifies whether the Deliverability dashboard is enabled for your Amazon Pinpoint account. If this value
-   *             is <code>true</code>, the dashboard is enabled.</p>
-   */
-  DashboardEnabled: boolean | undefined;
+  SubscriptionExpiryDate?: Date;
 
   /**
    * <p>An array of objects, one for each verified domain that you use to send email and
@@ -1673,12 +1661,24 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   PendingExpirationSubscribedDomains?: DomainDeliverabilityTrackingOption[];
 
   /**
-   * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
-   *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
-   *             current calendar month. This value is null if you have an active subscription that isn’t
-   *             due to expire at the end of the month.</p>
+   * <p>Specifies whether the Deliverability dashboard is enabled for your Amazon Pinpoint account. If this value
+   *             is <code>true</code>, the dashboard is enabled.</p>
    */
-  SubscriptionExpiryDate?: Date;
+  DashboardEnabled: boolean | undefined;
+
+  /**
+   * <p>An array of objects, one for each verified domain that you use to send email and
+   *             currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at
+   *             the end of the current calendar month.</p>
+   */
+  ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[];
+
+  /**
+   * <p>The current status of your Deliverability dashboard subscription. If this value is
+   *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
+   *             of the current calendar month.</p>
+   */
+  AccountStatus?: DeliverabilityDashboardAccountStatus | string;
 }
 
 export namespace GetDeliverabilityDashboardOptionsResponse {
@@ -1714,21 +1714,16 @@ export namespace GetDeliverabilityTestReportRequest {
 export interface GetDeliverabilityTestReportResponse {
   __type?: "GetDeliverabilityTestReportResponse";
   /**
-   * <p>An object that contains the results of the predictive inbox placement test.</p>
-   */
-  DeliverabilityTestReport: DeliverabilityTestReport | undefined;
-
-  /**
    * <p>An object that describes how the test email was handled by several email providers,
    *             including Gmail, Hotmail, Yahoo, AOL, and others.</p>
    */
   IspPlacements: IspPlacement[] | undefined;
 
   /**
-   * <p>An object that contains the message that you sent when you performed this
-   *             predictive inbox placement test.</p>
+   * <p>An array of objects that define the tags (keys and values) that are associated with
+   *             the predictive inbox placement test.</p>
    */
-  Message?: string;
+  Tags?: Tag[];
 
   /**
    * <p>An object that specifies how many test messages that were sent during the predictive inbox placement test were
@@ -1738,10 +1733,15 @@ export interface GetDeliverabilityTestReportResponse {
   OverallPlacement: PlacementStatistics | undefined;
 
   /**
-   * <p>An array of objects that define the tags (keys and values) that are associated with
-   *             the predictive inbox placement test.</p>
+   * <p>An object that contains the message that you sent when you performed this
+   *             predictive inbox placement test.</p>
    */
-  Tags?: Tag[];
+  Message?: string;
+
+  /**
+   * <p>An object that contains the results of the predictive inbox placement test.</p>
+   */
+  DeliverabilityTestReport: DeliverabilityTestReport | undefined;
 }
 
 export namespace GetDeliverabilityTestReportResponse {
@@ -1882,11 +1882,15 @@ export namespace GetEmailIdentityRequest {
 export interface GetEmailIdentityResponse {
   __type?: "GetEmailIdentityResponse";
   /**
-   * <p>An object that contains information about the DKIM attributes for the identity. This
-   *             object includes the tokens that you use to create the CNAME records that are required to
-   *             complete the DKIM verification process.</p>
+   * <p>The email identity type.</p>
    */
-  DkimAttributes?: DkimAttributes;
+  IdentityType?: IdentityType | string;
+
+  /**
+   * <p>An object that contains information about the Mail-From attributes for the email
+   *             identity.</p>
+   */
+  MailFromAttributes?: MailFromAttributes;
 
   /**
    * <p>The feedback forwarding configuration for the identity.</p>
@@ -1902,21 +1906,17 @@ export interface GetEmailIdentityResponse {
   FeedbackForwardingStatus?: boolean;
 
   /**
-   * <p>The email identity type.</p>
-   */
-  IdentityType?: IdentityType | string;
-
-  /**
-   * <p>An object that contains information about the Mail-From attributes for the email
-   *             identity.</p>
-   */
-  MailFromAttributes?: MailFromAttributes;
-
-  /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
    *             the email identity.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>An object that contains information about the DKIM attributes for the identity. This
+   *             object includes the tokens that you use to create the CNAME records that are required to
+   *             complete the DKIM verification process.</p>
+   */
+  DkimAttributes?: DkimAttributes;
 
   /**
    * <p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email
@@ -1938,6 +1938,14 @@ export namespace GetEmailIdentityResponse {
  */
 export interface IdentityInfo {
   __type?: "IdentityInfo";
+  /**
+   * <p>Indicates whether or not you can send email from the identity.</p>
+   *         <p>In Amazon Pinpoint, an identity is an email address or domain that you send email from. Before
+   *             you can send email from an identity, you have to demostrate that you own the identity,
+   *             and that you authorize Amazon Pinpoint to send email from that identity.</p>
+   */
+  SendingEnabled?: boolean;
+
   /**
    * <p>The address or domain of the identity.</p>
    */
@@ -1962,14 +1970,6 @@ export interface IdentityInfo {
    *          </ul>
    */
   IdentityType?: IdentityType | string;
-
-  /**
-   * <p>Indicates whether or not you can send email from the identity.</p>
-   *         <p>In Amazon Pinpoint, an identity is an email address or domain that you send email from. Before
-   *             you can send email from an identity, you have to demostrate that you own the identity,
-   *             and that you authorize Amazon Pinpoint to send email from that identity.</p>
-   */
-  SendingEnabled?: boolean;
 }
 
 export namespace IdentityInfo {
@@ -2043,16 +2043,16 @@ export namespace IspPlacement {
 export interface KinesisFirehoseDestination {
   __type?: "KinesisFirehoseDestination";
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that Amazon Pinpoint sends email events
-   *             to.</p>
-   */
-  DeliveryStreamArn: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Pinpoint uses when sending email
    *             events to the Amazon Kinesis Data Firehose stream.</p>
    */
   IamRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that Amazon Pinpoint sends email events
+   *             to.</p>
+   */
+  DeliveryStreamArn: string | undefined;
 }
 
 export namespace KinesisFirehoseDestination {
@@ -2085,18 +2085,18 @@ export namespace LimitExceededException {
 export interface ListConfigurationSetsRequest {
   __type?: "ListConfigurationSetsRequest";
   /**
-   * <p>A token returned from a previous call to <code>ListConfigurationSets</code> to
-   *             indicate the position in the list of configuration sets.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The number of results to show in a single call to <code>ListConfigurationSets</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
    *             additional results.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListConfigurationSets</code> to
+   *             indicate the position in the list of configuration sets.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListConfigurationSetsRequest {
@@ -2166,17 +2166,17 @@ export namespace ListDedicatedIpPoolsRequest {
 export interface ListDedicatedIpPoolsResponse {
   __type?: "ListDedicatedIpPoolsResponse";
   /**
-   * <p>A list of all of the dedicated IP pools that are associated with your Amazon Pinpoint
-   *             account.</p>
-   */
-  DedicatedIpPools?: string[];
-
-  /**
    * <p>A token that indicates that there are additional IP pools to list. To view additional
    *             IP pools, issue another request to <code>ListDedicatedIpPools</code>, passing this token
    *             in the <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of all of the dedicated IP pools that are associated with your Amazon Pinpoint
+   *             account.</p>
+   */
+  DedicatedIpPools?: string[];
 }
 
 export namespace ListDedicatedIpPoolsResponse {
@@ -2252,20 +2252,6 @@ export namespace ListDeliverabilityTestReportsResponse {
 export interface ListDomainDeliverabilityCampaignsRequest {
   __type?: "ListDomainDeliverabilityCampaignsRequest";
   /**
-   * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
-   *             This value has to be less than or equal to 30 days after the value of the
-   *                 <code>StartDate</code> parameter.</p>
-   */
-  EndDate: Date | undefined;
-
-  /**
-   * <p>A token that’s returned from a previous call to the
-   *                 <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
-   *             position of a campaign in the list of campaigns.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to include in response to a single call to the
    *                 <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results
    *             is larger than the number that you specify in this parameter, the response includes a
@@ -2275,15 +2261,29 @@ export interface ListDomainDeliverabilityCampaignsRequest {
   PageSize?: number;
 
   /**
+   * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
+   *             This value has to be less than or equal to 30 days after the value of the
+   *                 <code>StartDate</code> parameter.</p>
+   */
+  EndDate: Date | undefined;
+
+  /**
+   * <p>The domain to obtain deliverability data for.</p>
+   */
+  SubscribedDomain: string | undefined;
+
+  /**
    * <p>The first day, in Unix time format, that you want to obtain deliverability data
    *             for.</p>
    */
   StartDate: Date | undefined;
 
   /**
-   * <p>The domain to obtain deliverability data for.</p>
+   * <p>A token that’s returned from a previous call to the
+   *                 <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
+   *             position of a campaign in the list of campaigns.</p>
    */
-  SubscribedDomain: string | undefined;
+  NextToken?: string;
 }
 
 export namespace ListDomainDeliverabilityCampaignsRequest {
@@ -2421,23 +2421,6 @@ export namespace ListTagsForResourceResponse {
 export interface MailFromAttributes {
   __type?: "MailFromAttributes";
   /**
-   * <p>The action that Amazon Pinpoint to takes if it can't read the required MX record for a custom
-   *             MAIL FROM domain. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses
-   *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
-   *             to <code>RejectMessage</code>, Amazon Pinpoint returns a <code>MailFromDomainNotVerified</code>
-   *             error, and doesn't attempt to deliver the email.</p>
-   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
-   *             states.</p>
-   */
-  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
-
-  /**
-   * <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
-   */
-  MailFromDomain: string | undefined;
-
-  /**
    * <p>The status of the MAIL FROM domain. This status can have the following values:</p>
    *         <ul>
    *             <li>
@@ -2463,6 +2446,23 @@ export interface MailFromAttributes {
    *          </ul>
    */
   MailFromDomainStatus: MailFromDomainStatus | string | undefined;
+
+  /**
+   * <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
+   */
+  MailFromDomain: string | undefined;
+
+  /**
+   * <p>The action that Amazon Pinpoint to takes if it can't read the required MX record for a custom
+   *             MAIL FROM domain. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses
+   *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
+   *             to <code>RejectMessage</code>, Amazon Pinpoint returns a <code>MailFromDomainNotVerified</code>
+   *             error, and doesn't attempt to deliver the email.</p>
+   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
+   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
+   *             states.</p>
+   */
+  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
 }
 
 export namespace MailFromAttributes {
@@ -2547,21 +2547,6 @@ export namespace MessageRejected {
 export interface MessageTag {
   __type?: "MessageTag";
   /**
-   * <p>The name of the message tag. The message tag name has to meet the following
-   *             criteria:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
-   *                     underscores (_), or dashes (-).</p>
-   *             </li>
-   *             <li>
-   *                 <p>It can contain no more than 256 characters.</p>
-   *             </li>
-   *          </ul>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The value of the message tag. The message tag value has to meet the following
    *             criteria:</p>
    *         <ul>
@@ -2575,6 +2560,21 @@ export interface MessageTag {
    *          </ul>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The name of the message tag. The message tag name has to meet the following
+   *             criteria:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                     underscores (_), or dashes (-).</p>
+   *             </li>
+   *             <li>
+   *                 <p>It can contain no more than 256 characters.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: string | undefined;
 }
 
 export namespace MessageTag {
@@ -2613,16 +2613,16 @@ export interface OverallVolume {
   DomainIspPlacements?: DomainIspPlacement[];
 
   /**
-   * <p>The percentage of emails that were sent from the domain that were read by their
-   *             recipients.</p>
-   */
-  ReadRatePercent?: number;
-
-  /**
    * <p>An object that contains information about the numbers of messages that arrived in
    *             recipients' inboxes and junk mail folders.</p>
    */
   VolumeStatistics?: VolumeStatistics;
+
+  /**
+   * <p>The percentage of emails that were sent from the domain that were read by their
+   *             recipients.</p>
+   */
+  ReadRatePercent?: number;
 }
 
 export namespace OverallVolume {
@@ -2659,21 +2659,21 @@ export namespace PinpointDestination {
 export interface PlacementStatistics {
   __type?: "PlacementStatistics";
   /**
-   * <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail
-   *             (DKIM) during the predictive inbox placement test.</p>
-   */
-  DkimPercentage?: number;
-
-  /**
    * <p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>
    */
   InboxPercentage?: number;
 
   /**
-   * <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the
-   *             predictive inbox placement test.</p>
+   * <p>The percentage of emails that were authenticated by using Sender Policy Framework
+   *             (SPF) during the predictive inbox placement test.</p>
    */
-  MissingPercentage?: number;
+  SpfPercentage?: number;
+
+  /**
+   * <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail
+   *             (DKIM) during the predictive inbox placement test.</p>
+   */
+  DkimPercentage?: number;
 
   /**
    * <p>The percentage of emails that arrived in recipients' spam or junk mail folders during
@@ -2682,10 +2682,10 @@ export interface PlacementStatistics {
   SpamPercentage?: number;
 
   /**
-   * <p>The percentage of emails that were authenticated by using Sender Policy Framework
-   *             (SPF) during the predictive inbox placement test.</p>
+   * <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the
+   *             predictive inbox placement test.</p>
    */
-  SpfPercentage?: number;
+  MissingPercentage?: number;
 }
 
 export namespace PlacementStatistics {
@@ -2779,12 +2779,6 @@ export namespace PutAccountSendingAttributesResponse {
 export interface PutConfigurationSetDeliveryOptionsRequest {
   __type?: "PutConfigurationSetDeliveryOptionsRequest";
   /**
-   * <p>The name of the configuration set that you want to associate with a dedicated IP
-   *             pool.</p>
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
    * <p>The name of the dedicated IP pool that you want to associate with the configuration
    *             set.</p>
    */
@@ -2797,6 +2791,12 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
   TlsPolicy?: TlsPolicy | string;
+
+  /**
+   * <p>The name of the configuration set that you want to associate with a dedicated IP
+   *             pool.</p>
+   */
+  ConfigurationSetName: string | undefined;
 }
 
 export namespace PutConfigurationSetDeliveryOptionsRequest {
@@ -2917,15 +2917,15 @@ export namespace PutConfigurationSetSendingOptionsResponse {
 export interface PutConfigurationSetTrackingOptionsRequest {
   __type?: "PutConfigurationSetTrackingOptionsRequest";
   /**
+   * <p>The domain that you want to use to track open and click events.</p>
+   */
+  CustomRedirectDomain?: string;
+
+  /**
    * <p>The name of the configuration set that you want to add a custom tracking domain
    *             to.</p>
    */
   ConfigurationSetName: string | undefined;
-
-  /**
-   * <p>The domain that you want to use to track open and click events.</p>
-   */
-  CustomRedirectDomain?: string;
 }
 
 export namespace PutConfigurationSetTrackingOptionsRequest {
@@ -2958,16 +2958,16 @@ export namespace PutConfigurationSetTrackingOptionsResponse {
 export interface PutDedicatedIpInPoolRequest {
   __type?: "PutDedicatedIpInPoolRequest";
   /**
-   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
-   *             specify an IP pool that already exists.</p>
-   */
-  DestinationPoolName: string | undefined;
-
-  /**
    * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
    *             has to be a dedicated IP address that's associated with your Amazon Pinpoint account.</p>
    */
   Ip: string | undefined;
+
+  /**
+   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
+   *             specify an IP pool that already exists.</p>
+   */
+  DestinationPoolName: string | undefined;
 }
 
 export namespace PutDedicatedIpInPoolRequest {
@@ -3046,16 +3046,16 @@ export namespace PutDedicatedIpWarmupAttributesResponse {
 export interface PutDeliverabilityDashboardOptionRequest {
   __type?: "PutDeliverabilityDashboardOptionRequest";
   /**
-   * <p>Specifies whether to enable the Deliverability dashboard for your Amazon Pinpoint account. To enable the
-   *             dashboard, set this value to <code>true</code>.</p>
-   */
-  DashboardEnabled: boolean | undefined;
-
-  /**
    * <p>An array of objects, one for each verified domain that you use to send email and
    *             enabled the Deliverability dashboard for.</p>
    */
   SubscribedDomains?: DomainDeliverabilityTrackingOption[];
+
+  /**
+   * <p>Specifies whether to enable the Deliverability dashboard for your Amazon Pinpoint account. To enable the
+   *             dashboard, set this value to <code>true</code>.</p>
+   */
+  DashboardEnabled: boolean | undefined;
 }
 
 export namespace PutDeliverabilityDashboardOptionRequest {
@@ -3182,6 +3182,12 @@ export namespace PutEmailIdentityFeedbackAttributesResponse {
 export interface PutEmailIdentityMailFromAttributesRequest {
   __type?: "PutEmailIdentityMailFromAttributesRequest";
   /**
+   * <p>The verified email identity that you want to set up the custom MAIL FROM domain
+   *             for.</p>
+   */
+  EmailIdentity: string | undefined;
+
+  /**
    * <p>The action that you want Amazon Pinpoint to take if it can't read the required MX record when
    *             you send an email. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses
    *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
@@ -3192,12 +3198,6 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *             states.</p>
    */
   BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
-
-  /**
-   * <p>The verified email identity that you want to set up the custom MAIL FROM domain
-   *             for.</p>
-   */
-  EmailIdentity: string | undefined;
 
   /**
    * <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
@@ -3295,18 +3295,18 @@ export namespace RawMessage {
 export interface ReputationOptions {
   __type?: "ReputationOptions";
   /**
-   * <p>The date and time (in Unix time) when the reputation metrics were last given a fresh
-   *             start. When your account is given a fresh start, your reputation metrics are calculated
-   *             starting from the date of the fresh start.</p>
-   */
-  LastFreshStart?: Date;
-
-  /**
    * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
    *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
    *             configuration set.</p>
    */
   ReputationMetricsEnabled?: boolean;
+
+  /**
+   * <p>The date and time (in Unix time) when the reputation metrics were last given a fresh
+   *             start. When your account is given a fresh start, your reputation metrics are calculated
+   *             starting from the date of the fresh start.</p>
+   */
+  LastFreshStart?: Date;
 }
 
 export namespace ReputationOptions {
@@ -3322,27 +3322,15 @@ export namespace ReputationOptions {
 export interface SendEmailRequest {
   __type?: "SendEmailRequest";
   /**
+   * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
+   *             message, each Reply-to address receives the reply.</p>
+   */
+  ReplyToAddresses?: string[];
+
+  /**
    * <p>The name of the configuration set that you want to use when sending the email.</p>
    */
   ConfigurationSetName?: string;
-
-  /**
-   * <p>An object that contains the body of the message. You can send either a Simple message
-   *             or a Raw message.</p>
-   */
-  Content: EmailContent | undefined;
-
-  /**
-   * <p>An object that contains the recipients of the email message.</p>
-   */
-  Destination: Destination | undefined;
-
-  /**
-   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
-   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
-   *             email that you define, so that you can publish email sending events. </p>
-   */
-  EmailTags?: MessageTag[];
 
   /**
    * <p>The address that Amazon Pinpoint should send bounce and complaint notifications to.</p>
@@ -3357,10 +3345,22 @@ export interface SendEmailRequest {
   FromEmailAddress?: string;
 
   /**
-   * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
-   *             message, each Reply-to address receives the reply.</p>
+   * <p>An object that contains the recipients of the email message.</p>
    */
-  ReplyToAddresses?: string[];
+  Destination: Destination | undefined;
+
+  /**
+   * <p>An object that contains the body of the message. You can send either a Simple message
+   *             or a Raw message.</p>
+   */
+  Content: EmailContent | undefined;
+
+  /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
+   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
+   *             email that you define, so that you can publish email sending events. </p>
+   */
+  EmailTags?: MessageTag[];
 }
 
 export namespace SendEmailRequest {
@@ -3525,18 +3525,18 @@ export namespace SnsDestination {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
-   *             128 characters. The minimum length is 1 character.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
    *             value is 256 characters. The minimum length is 0 characters. If you don’t want a
    *             resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint
    *             will set the value to an empty string.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
+   *             128 characters. The minimum length is 1 character.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -3549,18 +3549,18 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags
-   *             to.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>A list of the tags that you want to add to the resource. A tag consists of a required
    *             tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum
    *             length of a tag key is 128 characters. The maximum length of a tag value is 256
    *             characters.</p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags
+   *             to.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3744,15 +3744,15 @@ export interface VolumeStatistics {
 
   /**
    * <p>An estimate of the percentage of emails sent from the current domain that will arrive
-   *             in recipients' inboxes.</p>
-   */
-  ProjectedInbox?: number;
-
-  /**
-   * <p>An estimate of the percentage of emails sent from the current domain that will arrive
    *             in recipients' spam or junk mail folders.</p>
    */
   ProjectedSpam?: number;
+
+  /**
+   * <p>An estimate of the percentage of emails sent from the current domain that will arrive
+   *             in recipients' inboxes.</p>
+   */
+  ProjectedInbox?: number;
 
   /**
    * <p>The total number of emails that arrived in recipients' spam or junk mail

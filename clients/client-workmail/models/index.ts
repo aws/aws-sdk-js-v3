@@ -4,14 +4,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AssociateDelegateToResourceRequest {
   __type?: "AssociateDelegateToResourceRequest";
   /**
-   * <p>The member (user or group) to associate to the resource.</p>
-   */
-  EntityId: string | undefined;
-
-  /**
    * <p>The organization under which the resource exists.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The member (user or group) to associate to the resource.</p>
+   */
+  EntityId: string | undefined;
 
   /**
    * <p>The resource for which members (users or groups) are associated.</p>
@@ -42,14 +42,14 @@ export namespace AssociateDelegateToResourceResponse {
 export interface AssociateMemberToGroupRequest {
   __type?: "AssociateMemberToGroupRequest";
   /**
-   * <p>The group to which the member (user or group) is associated.</p>
-   */
-  GroupId: string | undefined;
-
-  /**
    * <p>The member (user or group) to associate to the group.</p>
    */
   MemberId: string | undefined;
+
+  /**
+   * <p>The group to which the member (user or group) is associated.</p>
+   */
+  GroupId: string | undefined;
 
   /**
    * <p>The organization under which the group exists.</p>
@@ -82,6 +82,11 @@ export namespace AssociateMemberToGroupResponse {
 export interface BookingOptions {
   __type?: "BookingOptions";
   /**
+   * <p>The resource's ability to automatically decline any recurring requests.</p>
+   */
+  AutoDeclineRecurringRequests?: boolean;
+
+  /**
    * <p>The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.</p>
    */
   AutoAcceptRequests?: boolean;
@@ -90,11 +95,6 @@ export interface BookingOptions {
    * <p>The resource's ability to automatically decline any conflicting requests.</p>
    */
   AutoDeclineConflictingRequests?: boolean;
-
-  /**
-   * <p>The resource's ability to automatically decline any recurring requests.</p>
-   */
-  AutoDeclineRecurringRequests?: boolean;
 }
 
 export namespace BookingOptions {
@@ -107,9 +107,9 @@ export namespace BookingOptions {
 export interface CreateAliasRequest {
   __type?: "CreateAliasRequest";
   /**
-   * <p>The alias to add to the member set.</p>
+   * <p>The organization under which the member (user or group) exists.</p>
    */
-  Alias: string | undefined;
+  OrganizationId: string | undefined;
 
   /**
    * <p>The member (user or group) to which this alias is added.</p>
@@ -117,9 +117,9 @@ export interface CreateAliasRequest {
   EntityId: string | undefined;
 
   /**
-   * <p>The organization under which the member (user or group) exists.</p>
+   * <p>The alias to add to the member set.</p>
    */
-  OrganizationId: string | undefined;
+  Alias: string | undefined;
 }
 
 export namespace CreateAliasRequest {
@@ -178,6 +178,12 @@ export namespace CreateGroupResponse {
 export interface CreateResourceRequest {
   __type?: "CreateResourceRequest";
   /**
+   * <p>The type of the new resource. The available types are <code>equipment</code> and
+   *             <code>room</code>.</p>
+   */
+  Type: ResourceType | string | undefined;
+
+  /**
    * <p>The name of the new resource.</p>
    */
   Name: string | undefined;
@@ -187,12 +193,6 @@ export interface CreateResourceRequest {
    *          created.</p>
    */
   OrganizationId: string | undefined;
-
-  /**
-   * <p>The type of the new resource. The available types are <code>equipment</code> and
-   *             <code>room</code>.</p>
-   */
-  Type: ResourceType | string | undefined;
 }
 
 export namespace CreateResourceRequest {
@@ -220,9 +220,9 @@ export namespace CreateResourceResponse {
 export interface CreateUserRequest {
   __type?: "CreateUserRequest";
   /**
-   * <p>The display name for the new user.</p>
+   * <p>The password for the new user.</p>
    */
-  DisplayName: string | undefined;
+  Password: string | undefined;
 
   /**
    * <p>The name for the new user. Simple AD or AD Connector user names have a maximum length of 20. All others have a maximum length of 64.</p>
@@ -230,14 +230,14 @@ export interface CreateUserRequest {
   Name: string | undefined;
 
   /**
+   * <p>The display name for the new user.</p>
+   */
+  DisplayName: string | undefined;
+
+  /**
    * <p>The identifier of the organization for which the user is created.</p>
    */
   OrganizationId: string | undefined;
-
-  /**
-   * <p>The password for the new user.</p>
-   */
-  Password: string | undefined;
 }
 
 export namespace CreateUserRequest {
@@ -270,14 +270,14 @@ export namespace CreateUserResponse {
 export interface Delegate {
   __type?: "Delegate";
   /**
-   * <p>The identifier for the user or group associated as the resource's delegate.</p>
-   */
-  Id: string | undefined;
-
-  /**
    * <p>The type of the delegate: user or group.</p>
    */
   Type: MemberType | string | undefined;
+
+  /**
+   * <p>The identifier for the user or group associated as the resource's delegate.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace Delegate {
@@ -290,10 +290,9 @@ export namespace Delegate {
 export interface DeleteAliasRequest {
   __type?: "DeleteAliasRequest";
   /**
-   * <p>The aliases to be removed from the user's set of aliases. Duplicate entries in the
-   *          list are collapsed into single entries (the list is transformed into a set).</p>
+   * <p>The identifier for the organization under which the user exists.</p>
    */
-  Alias: string | undefined;
+  OrganizationId: string | undefined;
 
   /**
    * <p>The identifier for the member (user or group) from which to have the aliases
@@ -302,9 +301,10 @@ export interface DeleteAliasRequest {
   EntityId: string | undefined;
 
   /**
-   * <p>The identifier for the organization under which the user exists.</p>
+   * <p>The aliases to be removed from the user's set of aliases. Duplicate entries in the
+   *          list are collapsed into single entries (the list is transformed into a set).</p>
    */
-  OrganizationId: string | undefined;
+  Alias: string | undefined;
 }
 
 export namespace DeleteAliasRequest {
@@ -328,14 +328,14 @@ export namespace DeleteAliasResponse {
 export interface DeleteGroupRequest {
   __type?: "DeleteGroupRequest";
   /**
-   * <p>The identifier of the group to be deleted.</p>
-   */
-  GroupId: string | undefined;
-
-  /**
    * <p>The organization that contains the group.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The identifier of the group to be deleted.</p>
+   */
+  GroupId: string | undefined;
 }
 
 export namespace DeleteGroupRequest {
@@ -364,16 +364,16 @@ export interface DeleteMailboxPermissionsRequest {
   EntityId: string | undefined;
 
   /**
-   * <p>The identifier of the member (user or group) for which to delete granted
-   *          permissions.</p>
-   */
-  GranteeId: string | undefined;
-
-  /**
    * <p>The identifier of the organization under which the member (user or group)
    *          exists.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The identifier of the member (user or group) for which to delete granted
+   *          permissions.</p>
+   */
+  GranteeId: string | undefined;
 }
 
 export namespace DeleteMailboxPermissionsRequest {
@@ -397,15 +397,15 @@ export namespace DeleteMailboxPermissionsResponse {
 export interface DeleteResourceRequest {
   __type?: "DeleteResourceRequest";
   /**
+   * <p>The identifier of the resource to be deleted.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
    * <p>The identifier associated with the organization from which the resource is
    *          deleted.</p>
    */
   OrganizationId: string | undefined;
-
-  /**
-   * <p>The identifier of the resource to be deleted.</p>
-   */
-  ResourceId: string | undefined;
 }
 
 export namespace DeleteResourceRequest {
@@ -429,14 +429,14 @@ export namespace DeleteResourceResponse {
 export interface DeleteUserRequest {
   __type?: "DeleteUserRequest";
   /**
-   * <p>The organization that contains the user to be deleted.</p>
-   */
-  OrganizationId: string | undefined;
-
-  /**
    * <p>The identifier of the user to be deleted.</p>
    */
   UserId: string | undefined;
+
+  /**
+   * <p>The organization that contains the user to be deleted.</p>
+   */
+  OrganizationId: string | undefined;
 }
 
 export namespace DeleteUserRequest {
@@ -460,15 +460,15 @@ export namespace DeleteUserResponse {
 export interface DeregisterFromWorkMailRequest {
   __type?: "DeregisterFromWorkMailRequest";
   /**
-   * <p>The identifier for the member (user or group) to be updated.</p>
-   */
-  EntityId: string | undefined;
-
-  /**
    * <p>The identifier for the organization under which the Amazon WorkMail entity
    *          exists.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The identifier for the member (user or group) to be updated.</p>
+   */
+  EntityId: string | undefined;
 }
 
 export namespace DeregisterFromWorkMailRequest {
@@ -512,15 +512,20 @@ export namespace DescribeGroupRequest {
 export interface DescribeGroupResponse {
   __type?: "DescribeGroupResponse";
   /**
+   * <p>The identifier of the described group.</p>
+   */
+  GroupId?: string;
+
+  /**
    * <p>The date and time when a user was deregistered from WorkMail, in UNIX epoch time
    *          format.</p>
    */
   DisabledDate?: Date;
 
   /**
-   * <p>The email of the described group.</p>
+   * <p>The name of the described group.</p>
    */
-  Email?: string;
+  Name?: string;
 
   /**
    * <p>The date and time when a user was registered to WorkMail, in UNIX epoch time
@@ -529,14 +534,9 @@ export interface DescribeGroupResponse {
   EnabledDate?: Date;
 
   /**
-   * <p>The identifier of the described group.</p>
+   * <p>The email of the described group.</p>
    */
-  GroupId?: string;
-
-  /**
-   * <p>The name of the described group.</p>
-   */
-  Name?: string;
+  Email?: string;
 
   /**
    * <p>The state of the user: enabled (registered to Amazon WorkMail) or disabled
@@ -570,31 +570,10 @@ export namespace DescribeOrganizationRequest {
 export interface DescribeOrganizationResponse {
   __type?: "DescribeOrganizationResponse";
   /**
-   * <p>The alias for an organization.</p>
-   */
-  Alias?: string;
-
-  /**
-   * <p>The date at which the organization became usable in the WorkMail context, in UNIX epoch
-   *          time format.</p>
-   */
-  CompletedDate?: Date;
-
-  /**
-   * <p>The default mail domain associated with the organization.</p>
-   */
-  DefaultMailDomain?: string;
-
-  /**
    * <p>The identifier for the directory associated with an Amazon WorkMail
    *          organization.</p>
    */
   DirectoryId?: string;
-
-  /**
-   * <p>The type of directory associated with the WorkMail organization.</p>
-   */
-  DirectoryType?: string;
 
   /**
    * <p>(Optional) The error message indicating if unexpected behavior was encountered with
@@ -603,9 +582,30 @@ export interface DescribeOrganizationResponse {
   ErrorMessage?: string;
 
   /**
+   * <p>The default mail domain associated with the organization.</p>
+   */
+  DefaultMailDomain?: string;
+
+  /**
    * <p>The identifier of an organization.</p>
    */
   OrganizationId?: string;
+
+  /**
+   * <p>The date at which the organization became usable in the WorkMail context, in UNIX epoch
+   *          time format.</p>
+   */
+  CompletedDate?: Date;
+
+  /**
+   * <p>The type of directory associated with the WorkMail organization.</p>
+   */
+  DirectoryType?: string;
+
+  /**
+   * <p>The alias for an organization.</p>
+   */
+  Alias?: string;
 
   /**
    * <p>The state of an organization.</p>
@@ -644,31 +644,20 @@ export namespace DescribeResourceRequest {
 export interface DescribeResourceResponse {
   __type?: "DescribeResourceResponse";
   /**
-   * <p>The booking options for the described resource.</p>
+   * <p>The type of the described resource.</p>
    */
-  BookingOptions?: BookingOptions;
+  Type?: ResourceType | string;
+
+  /**
+   * <p>The name of the described resource.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The date and time when a resource was disabled from WorkMail, in UNIX epoch time
    *          format.</p>
    */
   DisabledDate?: Date;
-
-  /**
-   * <p>The email of the described resource.</p>
-   */
-  Email?: string;
-
-  /**
-   * <p>The date and time when a resource was enabled for WorkMail, in UNIX epoch time
-   *          format.</p>
-   */
-  EnabledDate?: Date;
-
-  /**
-   * <p>The name of the described resource.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The identifier of the described resource.</p>
@@ -682,9 +671,20 @@ export interface DescribeResourceResponse {
   State?: EntityState | string;
 
   /**
-   * <p>The type of the described resource.</p>
+   * <p>The booking options for the described resource.</p>
    */
-  Type?: ResourceType | string;
+  BookingOptions?: BookingOptions;
+
+  /**
+   * <p>The date and time when a resource was enabled for WorkMail, in UNIX epoch time
+   *          format.</p>
+   */
+  EnabledDate?: Date;
+
+  /**
+   * <p>The email of the described resource.</p>
+   */
+  Email?: string;
 }
 
 export namespace DescribeResourceResponse {
@@ -722,35 +722,14 @@ export interface DescribeUserResponse {
   DisabledDate?: Date;
 
   /**
-   * <p>The display name of the user.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The email of the user.</p>
-   */
-  Email?: string;
-
-  /**
    * <p>The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.</p>
    */
   EnabledDate?: Date;
 
   /**
-   * <p>The name for the user.</p>
+   * <p>The email of the user.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The state of a user: enabled (registered to Amazon WorkMail) or disabled
-   *          (deregistered or never registered to WorkMail).</p>
-   */
-  State?: EntityState | string;
-
-  /**
-   * <p>The identifier for the described user.</p>
-   */
-  UserId?: string;
+  Email?: string;
 
   /**
    * <p>In certain cases, other entities are modeled as users. If interoperability is
@@ -760,6 +739,27 @@ export interface DescribeUserResponse {
    *          administrators. The values are USER, RESOURCE, and SYSTEM_USER.</p>
    */
   UserRole?: UserRole | string;
+
+  /**
+   * <p>The state of a user: enabled (registered to Amazon WorkMail) or disabled
+   *          (deregistered or never registered to WorkMail).</p>
+   */
+  State?: EntityState | string;
+
+  /**
+   * <p>The name for the user.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier for the described user.</p>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The display name of the user.</p>
+   */
+  DisplayName?: string;
 }
 
 export namespace DescribeUserResponse {
@@ -807,11 +807,6 @@ export namespace DirectoryUnavailableException {
 export interface DisassociateDelegateFromResourceRequest {
   __type?: "DisassociateDelegateFromResourceRequest";
   /**
-   * <p>The identifier for the member (user, group) to be removed from the resource's delegates.</p>
-   */
-  EntityId: string | undefined;
-
-  /**
    * <p>The identifier for the organization under which the resource exists.</p>
    */
   OrganizationId: string | undefined;
@@ -820,6 +815,11 @@ export interface DisassociateDelegateFromResourceRequest {
    * <p>The identifier of the resource from which delegates' set members are removed. </p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>The identifier for the member (user, group) to be removed from the resource's delegates.</p>
+   */
+  EntityId: string | undefined;
 }
 
 export namespace DisassociateDelegateFromResourceRequest {
@@ -845,11 +845,6 @@ export namespace DisassociateDelegateFromResourceResponse {
 export interface DisassociateMemberFromGroupRequest {
   __type?: "DisassociateMemberFromGroupRequest";
   /**
-   * <p>The identifier for the group from which members are removed.</p>
-   */
-  GroupId: string | undefined;
-
-  /**
    * <p>The identifier for the member to be removed to the group.</p>
    */
   MemberId: string | undefined;
@@ -858,6 +853,11 @@ export interface DisassociateMemberFromGroupRequest {
    * <p>The identifier for the organization under which the group exists.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The identifier for the group from which members are removed.</p>
+   */
+  GroupId: string | undefined;
 }
 
 export namespace DisassociateMemberFromGroupRequest {
@@ -956,15 +956,15 @@ export namespace EntityStateException {
 export interface GetMailboxDetailsRequest {
   __type?: "GetMailboxDetailsRequest";
   /**
+   * <p>The identifier for the user whose mailbox details are being requested.</p>
+   */
+  UserId: string | undefined;
+
+  /**
    * <p>The identifier for the organization that contains the user whose mailbox details are
    *          being requested.</p>
    */
   OrganizationId: string | undefined;
-
-  /**
-   * <p>The identifier for the user whose mailbox details are being requested.</p>
-   */
-  UserId: string | undefined;
 }
 
 export namespace GetMailboxDetailsRequest {
@@ -977,14 +977,14 @@ export namespace GetMailboxDetailsRequest {
 export interface GetMailboxDetailsResponse {
   __type?: "GetMailboxDetailsResponse";
   /**
-   * <p>The maximum allowed mailbox size, in MB, for the specified user.</p>
-   */
-  MailboxQuota?: number;
-
-  /**
    * <p>The current mailbox size, in MB, for the specified user.</p>
    */
   MailboxSize?: number;
+
+  /**
+   * <p>The maximum allowed mailbox size, in MB, for the specified user.</p>
+   */
+  MailboxQuota?: number;
 }
 
 export namespace GetMailboxDetailsResponse {
@@ -1000,9 +1000,9 @@ export namespace GetMailboxDetailsResponse {
 export interface Group {
   __type?: "Group";
   /**
-   * <p>The date indicating when the group was disabled from Amazon WorkMail use.</p>
+   * <p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  DisabledDate?: Date;
+  State?: EntityState | string;
 
   /**
    * <p>The email of the group.</p>
@@ -1010,14 +1010,14 @@ export interface Group {
   Email?: string;
 
   /**
-   * <p>The date indicating when the group was enabled for Amazon WorkMail use.</p>
-   */
-  EnabledDate?: Date;
-
-  /**
    * <p>The identifier of the group.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The date indicating when the group was enabled for Amazon WorkMail use.</p>
+   */
+  EnabledDate?: Date;
 
   /**
    * <p>The name of the group.</p>
@@ -1025,9 +1025,9 @@ export interface Group {
   Name?: string;
 
   /**
-   * <p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>
+   * <p>The date indicating when the group was disabled from Amazon WorkMail use.</p>
    */
-  State?: EntityState | string;
+  DisabledDate?: Date;
 }
 
 export namespace Group {
@@ -1091,14 +1091,9 @@ export namespace InvalidPasswordException {
 export interface ListAliasesRequest {
   __type?: "ListAliasesRequest";
   /**
-   * <p>The identifier for the entity for which to list the aliases.</p>
+   * <p>The identifier for the organization under which the entity exists.</p>
    */
-  EntityId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
+  OrganizationId: string | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. The first call does not
@@ -1107,9 +1102,14 @@ export interface ListAliasesRequest {
   NextToken?: string;
 
   /**
-   * <p>The identifier for the organization under which the entity exists.</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
-  OrganizationId: string | undefined;
+  MaxResults?: number;
+
+  /**
+   * <p>The identifier for the entity for which to list the aliases.</p>
+   */
+  EntityId: string | undefined;
 }
 
 export namespace ListAliasesRequest {
@@ -1148,6 +1148,11 @@ export interface ListGroupMembersRequest {
   GroupId: string | undefined;
 
   /**
+   * <p>The identifier for the organization under which the group exists.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
@@ -1157,11 +1162,6 @@ export interface ListGroupMembersRequest {
    *          contain any tokens.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The identifier for the organization under which the group exists.</p>
-   */
-  OrganizationId: string | undefined;
 }
 
 export namespace ListGroupMembersRequest {
@@ -1195,15 +1195,15 @@ export namespace ListGroupMembersResponse {
 export interface ListGroupsRequest {
   __type?: "ListGroupsRequest";
   /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token to use to retrieve the next page of results. The first call does not
    *          contain any tokens.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The identifier for the organization under which the groups exist.</p>
@@ -1242,15 +1242,16 @@ export namespace ListGroupsResponse {
 export interface ListMailboxPermissionsRequest {
   __type?: "ListMailboxPermissionsRequest";
   /**
+   * <p>The identifier of the organization under which the user, group, or resource
+   *          exists.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
    * <p>The identifier of the user, group, or resource for which to list mailbox
    *          permissions.</p>
    */
   EntityId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
@@ -1258,10 +1259,9 @@ export interface ListMailboxPermissionsRequest {
   NextToken?: string;
 
   /**
-   * <p>The identifier of the organization under which the user, group, or resource
-   *          exists.</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
-  OrganizationId: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace ListMailboxPermissionsRequest {
@@ -1341,11 +1341,6 @@ export interface ListResourceDelegatesRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token used to paginate through the delegates associated with a resource.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The identifier for the organization that contains the resource for which delegates
    *          are listed.</p>
    */
@@ -1355,6 +1350,11 @@ export interface ListResourceDelegatesRequest {
    * <p>The identifier for the resource whose delegates are listed.</p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>The token used to paginate through the delegates associated with a resource.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListResourceDelegatesRequest {
@@ -1367,16 +1367,16 @@ export namespace ListResourceDelegatesRequest {
 export interface ListResourceDelegatesResponse {
   __type?: "ListResourceDelegatesResponse";
   /**
-   * <p>One page of the resource's delegates.</p>
-   */
-  Delegates?: Delegate[];
-
-  /**
    * <p>The token used to paginate through the delegates associated with a resource. While
    *          results are still available, it has an associated value. When the last page is reached, the
    *          token is empty. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>One page of the resource's delegates.</p>
+   */
+  Delegates?: Delegate[];
 }
 
 export namespace ListResourceDelegatesResponse {
@@ -1415,16 +1415,16 @@ export namespace ListResourcesRequest {
 export interface ListResourcesResponse {
   __type?: "ListResourcesResponse";
   /**
+   * <p>One page of the organization's resource representation.</p>
+   */
+  Resources?: Resource[];
+
+  /**
    * <p> The token used to paginate through all the organization's resources. While results
    *          are still available, it has an associated value. When the last page is reached, the token
    *          is empty.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>One page of the organization's resource representation.</p>
-   */
-  Resources?: Resource[];
 }
 
 export namespace ListResourcesResponse {
@@ -1437,14 +1437,14 @@ export namespace ListResourcesResponse {
 export interface ListUsersRequest {
   __type?: "ListUsersRequest";
   /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The identifier for the organization under which the users exist.</p>
@@ -1519,16 +1519,9 @@ export namespace MailDomainStateException {
 export interface Member {
   __type?: "Member";
   /**
-   * <p>The date indicating when the member was disabled from Amazon WorkMail
-   *          use.</p>
+   * <p>The state of the member, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  DisabledDate?: Date;
-
-  /**
-   * <p>The date indicating when the member was enabled for Amazon WorkMail
-   *          use.</p>
-   */
-  EnabledDate?: Date;
+  State?: EntityState | string;
 
   /**
    * <p>The identifier of the member.</p>
@@ -1541,14 +1534,21 @@ export interface Member {
   Name?: string;
 
   /**
-   * <p>The state of the member, which can be ENABLED, DISABLED, or DELETED.</p>
+   * <p>The date indicating when the member was enabled for Amazon WorkMail
+   *          use.</p>
    */
-  State?: EntityState | string;
+  EnabledDate?: Date;
 
   /**
    * <p>A member can be a user or group.</p>
    */
   Type?: MemberType | string;
+
+  /**
+   * <p>The date indicating when the member was disabled from Amazon WorkMail
+   *          use.</p>
+   */
+  DisabledDate?: Date;
 }
 
 export namespace Member {
@@ -1619,11 +1619,6 @@ export namespace OrganizationStateException {
 export interface OrganizationSummary {
   __type?: "OrganizationSummary";
   /**
-   * <p>The alias associated with the organization.</p>
-   */
-  Alias?: string;
-
-  /**
    * <p>The error message associated with the organization. It is only  present if unexpected
    *          behavior has occurred with regards to the organization. It provides insight or solutions
    *          regarding unexpected behavior.</p>
@@ -1631,14 +1626,19 @@ export interface OrganizationSummary {
   ErrorMessage?: string;
 
   /**
-   * <p>The identifier associated with the organization.</p>
-   */
-  OrganizationId?: string;
-
-  /**
    * <p>The state associated with the organization.</p>
    */
   State?: string;
+
+  /**
+   * <p>The alias associated with the organization.</p>
+   */
+  Alias?: string;
+
+  /**
+   * <p>The identifier associated with the organization.</p>
+   */
+  OrganizationId?: string;
 }
 
 export namespace OrganizationSummary {
@@ -1655,10 +1655,9 @@ export namespace OrganizationSummary {
 export interface Permission {
   __type?: "Permission";
   /**
-   * <p>The identifier of the user, group, or resource to which the permissions are
-   *          granted.</p>
+   * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
    */
-  GranteeId: string | undefined;
+  PermissionValues: (PermissionType | string)[] | undefined;
 
   /**
    * <p>The type of user, group, or resource referred to in GranteeId.</p>
@@ -1666,9 +1665,10 @@ export interface Permission {
   GranteeType: MemberType | string | undefined;
 
   /**
-   * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
+   * <p>The identifier of the user, group, or resource to which the permissions are
+   *          granted.</p>
    */
-  PermissionValues: (PermissionType | string)[] | undefined;
+  GranteeId: string | undefined;
 }
 
 export namespace Permission {
@@ -1687,27 +1687,27 @@ export enum PermissionType {
 export interface PutMailboxPermissionsRequest {
   __type?: "PutMailboxPermissionsRequest";
   /**
-   * <p>The identifier of the user, group, or resource for which to update mailbox
-   *          permissions.</p>
-   */
-  EntityId: string | undefined;
-
-  /**
    * <p>The identifier of the user, group, or resource to which to grant the
    *          permissions.</p>
    */
   GranteeId: string | undefined;
 
   /**
-   * <p>The identifier of the organization under which the user, group, or resource
-   *          exists.</p>
+   * <p>The identifier of the user, group, or resource for which to update mailbox
+   *          permissions.</p>
    */
-  OrganizationId: string | undefined;
+  EntityId: string | undefined;
 
   /**
    * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
    */
   PermissionValues: (PermissionType | string)[] | undefined;
+
+  /**
+   * <p>The identifier of the organization under which the user, group, or resource
+   *          exists.</p>
+   */
+  OrganizationId: string | undefined;
 }
 
 export namespace PutMailboxPermissionsRequest {
@@ -1736,15 +1736,15 @@ export interface RegisterToWorkMailRequest {
   Email: string | undefined;
 
   /**
-   * <p>The identifier for the user, group, or resource to be updated.</p>
-   */
-  EntityId: string | undefined;
-
-  /**
    * <p>The identifier for the organization under which the user, group, or resource
    *          exists.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The identifier for the user, group, or resource to be updated.</p>
+   */
+  EntityId: string | undefined;
 }
 
 export namespace RegisterToWorkMailRequest {
@@ -1790,14 +1790,14 @@ export interface ResetPasswordRequest {
   OrganizationId: string | undefined;
 
   /**
-   * <p>The new password for the user.</p>
-   */
-  Password: string | undefined;
-
-  /**
    * <p>The identifier of the user for whom the password is reset.</p>
    */
   UserId: string | undefined;
+
+  /**
+   * <p>The new password for the user.</p>
+   */
+  Password: string | undefined;
 }
 
 export namespace ResetPasswordRequest {
@@ -1825,10 +1825,9 @@ export namespace ResetPasswordResponse {
 export interface Resource {
   __type?: "Resource";
   /**
-   * <p>The date indicating when the resource was disabled from Amazon WorkMail
-   *          use.</p>
+   * <p>The date indicating when the resource was enabled for Amazon WorkMail use.</p>
    */
-  DisabledDate?: Date;
+  EnabledDate?: Date;
 
   /**
    * <p>The email of the resource.</p>
@@ -1836,14 +1835,15 @@ export interface Resource {
   Email?: string;
 
   /**
-   * <p>The date indicating when the resource was enabled for Amazon WorkMail use.</p>
+   * <p>The type of the resource: equipment or room.</p>
    */
-  EnabledDate?: Date;
+  Type?: ResourceType | string;
 
   /**
-   * <p>The identifier of the resource.</p>
+   * <p>The date indicating when the resource was disabled from Amazon WorkMail
+   *          use.</p>
    */
-  Id?: string;
+  DisabledDate?: Date;
 
   /**
    * <p>The name of the resource.</p>
@@ -1851,14 +1851,14 @@ export interface Resource {
   Name?: string;
 
   /**
+   * <p>The identifier of the resource.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>The state of the resource, which can be ENABLED, DISABLED, or DELETED.</p>
    */
   State?: EntityState | string;
-
-  /**
-   * <p>The type of the resource: equipment or room.</p>
-   */
-  Type?: ResourceType | string;
 }
 
 export namespace Resource {
@@ -1892,9 +1892,9 @@ export namespace UnsupportedOperationException {
 export interface UpdateMailboxQuotaRequest {
   __type?: "UpdateMailboxQuotaRequest";
   /**
-   * <p>The updated mailbox quota, in MB, for the specified user.</p>
+   * <p>The identifer for the user for whom to update the mailbox quota.</p>
    */
-  MailboxQuota: number | undefined;
+  UserId: string | undefined;
 
   /**
    * <p>The identifier for the organization that contains the user for whom to update the mailbox quota.</p>
@@ -1902,9 +1902,9 @@ export interface UpdateMailboxQuotaRequest {
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifer for the user for whom to update the mailbox quota.</p>
+   * <p>The updated mailbox quota, in MB, for the specified user.</p>
    */
-  UserId: string | undefined;
+  MailboxQuota: number | undefined;
 }
 
 export namespace UpdateMailboxQuotaRequest {
@@ -1928,6 +1928,11 @@ export namespace UpdateMailboxQuotaResponse {
 export interface UpdatePrimaryEmailAddressRequest {
   __type?: "UpdatePrimaryEmailAddressRequest";
   /**
+   * <p>The organization that contains the user, group, or resource to update.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
    * <p>The value of the email to be updated as primary.</p>
    */
   Email: string | undefined;
@@ -1936,11 +1941,6 @@ export interface UpdatePrimaryEmailAddressRequest {
    * <p>The user, group, or resource to update.</p>
    */
   EntityId: string | undefined;
-
-  /**
-   * <p>The organization that contains the user, group, or resource to update.</p>
-   */
-  OrganizationId: string | undefined;
 }
 
 export namespace UpdatePrimaryEmailAddressRequest {
@@ -1964,14 +1964,9 @@ export namespace UpdatePrimaryEmailAddressResponse {
 export interface UpdateResourceRequest {
   __type?: "UpdateResourceRequest";
   /**
-   * <p>The resource's booking options to be updated.</p>
+   * <p>The identifier of the resource to be updated.</p>
    */
-  BookingOptions?: BookingOptions;
-
-  /**
-   * <p>The name of the resource to be updated.</p>
-   */
-  Name?: string;
+  ResourceId: string | undefined;
 
   /**
    * <p>The identifier associated with the organization for which the resource is
@@ -1980,9 +1975,14 @@ export interface UpdateResourceRequest {
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the resource to be updated.</p>
+   * <p>The name of the resource to be updated.</p>
    */
-  ResourceId: string | undefined;
+  Name?: string;
+
+  /**
+   * <p>The resource's booking options to be updated.</p>
+   */
+  BookingOptions?: BookingOptions;
 }
 
 export namespace UpdateResourceRequest {
@@ -2009,14 +2009,29 @@ export namespace UpdateResourceResponse {
 export interface User {
   __type?: "User";
   /**
-   * <p>The date indicating when the user was disabled from Amazon WorkMail use.</p>
-   */
-  DisabledDate?: Date;
-
-  /**
    * <p>The display name of the user.</p>
    */
   DisplayName?: string;
+
+  /**
+   * <p>The state of the user, which can be ENABLED, DISABLED, or DELETED.</p>
+   */
+  State?: EntityState | string;
+
+  /**
+   * <p>The name of the user.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The role of the user.</p>
+   */
+  UserRole?: UserRole | string;
+
+  /**
+   * <p>The identifier of the user.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The email of the user.</p>
@@ -2029,24 +2044,9 @@ export interface User {
   EnabledDate?: Date;
 
   /**
-   * <p>The identifier of the user.</p>
+   * <p>The date indicating when the user was disabled from Amazon WorkMail use.</p>
    */
-  Id?: string;
-
-  /**
-   * <p>The name of the user.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The state of the user, which can be ENABLED, DISABLED, or DELETED.</p>
-   */
-  State?: EntityState | string;
-
-  /**
-   * <p>The role of the user.</p>
-   */
-  UserRole?: UserRole | string;
+  DisabledDate?: Date;
 }
 
 export namespace User {

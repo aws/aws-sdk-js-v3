@@ -2,6 +2,22 @@ import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } 
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ */
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
+  name: "AccessDeniedException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
+}
+
+/**
  * <p>Provides the error of the batch create variable API.</p>
  */
 export interface BatchCreateVariableError {
@@ -12,14 +28,14 @@ export interface BatchCreateVariableError {
   code?: number;
 
   /**
-   * <p>The error message.</p>
-   */
-  message?: string;
-
-  /**
    * <p>The name.</p>
    */
   name?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  message?: string;
 }
 
 export namespace BatchCreateVariableError {
@@ -31,6 +47,11 @@ export namespace BatchCreateVariableError {
 
 export interface BatchCreateVariableRequest {
   __type?: "BatchCreateVariableRequest";
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
+
   /**
    * <p>The list of variables for the batch create variable request.</p>
    */
@@ -65,6 +86,11 @@ export namespace BatchCreateVariableResult {
 export interface BatchGetVariableError {
   __type?: "BatchGetVariableError";
   /**
+   * <p>The error name. </p>
+   */
+  name?: string;
+
+  /**
    * <p>The error code. </p>
    */
   code?: number;
@@ -73,11 +99,6 @@ export interface BatchGetVariableError {
    * <p>The error message.</p>
    */
   message?: string;
-
-  /**
-   * <p>The error name. </p>
-   */
-  name?: string;
 }
 
 export namespace BatchGetVariableError {
@@ -105,14 +126,14 @@ export namespace BatchGetVariableRequest {
 export interface BatchGetVariableResult {
   __type?: "BatchGetVariableResult";
   /**
-   * <p>The errors from the request.</p>
-   */
-  errors?: BatchGetVariableError[];
-
-  /**
    * <p>The returned variables.</p>
    */
   variables?: Variable[];
+
+  /**
+   * <p>The errors from the request.</p>
+   */
+  errors?: BatchGetVariableError[];
 }
 
 export namespace BatchGetVariableResult {
@@ -120,6 +141,33 @@ export namespace BatchGetVariableResult {
     ...obj,
   });
   export const isa = (o: any): o is BatchGetVariableResult => __isa(o, "BatchGetVariableResult");
+}
+
+/**
+ * <p>An exception indicating there was a conflict during a delete operation. The following delete operations can cause a conflict exception:</p>
+ * 	        <ul>
+ *             <li>
+ *                <p>DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code> or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code> or <code>DetectorVersions</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code> status is <code>ACTIVE</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateDetectorVersionRequest {
@@ -130,9 +178,9 @@ export interface CreateDetectorVersionRequest {
   description?: string;
 
   /**
-   * <p>The ID of the detector under which you want to create a new version.</p>
+   * <p>A collection of key and value pairs.</p>
    */
-  detectorId: string | undefined;
+  tags?: Tag[];
 
   /**
    * <p>The Amazon Sagemaker model endpoints to include in the detector version.</p>
@@ -143,6 +191,20 @@ export interface CreateDetectorVersionRequest {
    * <p>The model versions to include in the detector version.</p>
    */
   modelVersions?: ModelVersion[];
+
+  /**
+   * <p>The ID of the detector under which you want to create a new version.</p>
+   */
+  detectorId: string | undefined;
+
+  /**
+   * <p>The rule execution mode for the rules included in the detector version.</p>
+   * 	        <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
+   * 	        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
+   * 	        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>
+   *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
+   */
+  ruleExecutionMode?: RuleExecutionMode | string;
 
   /**
    * <p>The rules to include in the detector version.</p>
@@ -160,6 +222,11 @@ export namespace CreateDetectorVersionRequest {
 export interface CreateDetectorVersionResult {
   __type?: "CreateDetectorVersionResult";
   /**
+   * <p>The status of the detector version.</p>
+   */
+  status?: DetectorVersionStatus | string;
+
+  /**
    * <p>The ID for the created version's parent detector.</p>
    */
   detectorId?: string;
@@ -168,11 +235,6 @@ export interface CreateDetectorVersionResult {
    * <p>The ID for the created detector. </p>
    */
   detectorVersionId?: string;
-
-  /**
-   * <p>The status of the detector version.</p>
-   */
-  status?: DetectorVersionStatus | string;
 }
 
 export namespace CreateDetectorVersionResult {
@@ -182,12 +244,68 @@ export namespace CreateDetectorVersionResult {
   export const isa = (o: any): o is CreateDetectorVersionResult => __isa(o, "CreateDetectorVersionResult");
 }
 
+export interface CreateModelRequest {
+  __type?: "CreateModelRequest";
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The name of the event type.</p>
+   */
+  eventTypeName: string | undefined;
+
+  /**
+   * <p>The model ID.</p>
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The model type. </p>
+   */
+  modelType: ModelTypeEnum | string | undefined;
+
+  /**
+   * <p>The model description. </p>
+   */
+  description?: string;
+}
+
+export namespace CreateModelRequest {
+  export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateModelRequest => __isa(o, "CreateModelRequest");
+}
+
+export interface CreateModelResult {
+  __type?: "CreateModelResult";
+}
+
+export namespace CreateModelResult {
+  export const filterSensitiveLog = (obj: CreateModelResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateModelResult => __isa(o, "CreateModelResult");
+}
+
 export interface CreateModelVersionRequest {
   __type?: "CreateModelVersionRequest";
   /**
-   * <p>The model version description.</p>
+   * <p>The model type.</p>
    */
-  description?: string;
+  modelType: ModelTypeEnum | string | undefined;
+
+  /**
+   * <p>The training data source location in Amazon S3. </p>
+   */
+  trainingDataSource: TrainingDataSourceEnum | string | undefined;
+
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The model ID. </p>
@@ -195,9 +313,14 @@ export interface CreateModelVersionRequest {
   modelId: string | undefined;
 
   /**
-   * <p>The model type.</p>
+   * <p>The training data schema.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  trainingDataSchema: TrainingDataSchema | undefined;
+
+  /**
+   * <p>Details for the external events data used for model version training. Required if <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>.</p>
+   */
+  externalEventsDetail?: ExternalEventsDetail;
 }
 
 export namespace CreateModelVersionRequest {
@@ -210,24 +333,24 @@ export namespace CreateModelVersionRequest {
 export interface CreateModelVersionResult {
   __type?: "CreateModelVersionResult";
   /**
-   * <p>The model ID. </p>
+   * <p>The model ID.</p>
    */
   modelId?: string;
-
-  /**
-   * <p>The model type.</p>
-   */
-  modelType?: ModelTypeEnum | string;
-
-  /**
-   * <p>The version of the model. </p>
-   */
-  modelVersionNumber?: string;
 
   /**
    * <p>The model version status. </p>
    */
   status?: string;
+
+  /**
+   * <p>The model version number of the model version created.</p>
+   */
+  modelVersionNumber?: string;
+
+  /**
+   * <p>The model type.</p>
+   */
+  modelType?: ModelTypeEnum | string;
 }
 
 export namespace CreateModelVersionResult {
@@ -240,24 +363,19 @@ export namespace CreateModelVersionResult {
 export interface CreateRuleRequest {
   __type?: "CreateRuleRequest";
   /**
+   * <p>The language of the rule.</p>
+   */
+  language: Language | string | undefined;
+
+  /**
    * <p>The rule description.</p>
    */
   description?: string;
 
   /**
-   * <p>The detector ID for the rule's parent detector.</p>
+   * <p>A collection of key and value pairs.</p>
    */
-  detectorId: string | undefined;
-
-  /**
-   * <p>The rule expression.</p>
-   */
-  expression: string | undefined;
-
-  /**
-   * <p>The language of the rule.</p>
-   */
-  language: Language | string | undefined;
+  tags?: Tag[];
 
   /**
    * <p>The outcome or outcomes returned when the rule expression matches.</p>
@@ -265,14 +383,25 @@ export interface CreateRuleRequest {
   outcomes: string[] | undefined;
 
   /**
+   * <p>The detector ID for the rule's parent detector.</p>
+   */
+  detectorId: string | undefined;
+
+  /**
    * <p>The rule ID.</p>
    */
   ruleId: string | undefined;
+
+  /**
+   * <p>The rule expression.</p>
+   */
+  expression: string | undefined;
 }
 
 export namespace CreateRuleRequest {
   export const filterSensitiveLog = (obj: CreateRuleRequest): any => ({
     ...obj,
+    ...(obj.expression && { expression: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is CreateRuleRequest => __isa(o, "CreateRuleRequest");
 }
@@ -295,9 +424,27 @@ export namespace CreateRuleResult {
 export interface CreateVariableRequest {
   __type?: "CreateVariableRequest";
   /**
+   * <p>The default value for the variable when no value is received.</p>
+   */
+  defaultValue: string | undefined;
+
+  /**
    * <p>The source of the data.</p>
    */
   dataSource: DataSource | string | undefined;
+
+  /**
+   * <p>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.
+   * 				</p>
+   *          <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT | SHIPPING_ZIP | USERAGENT</code>
+   *          </p>
+   */
+  variableType?: string;
+
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The data type.</p>
@@ -305,24 +452,14 @@ export interface CreateVariableRequest {
   dataType: DataType | string | undefined;
 
   /**
-   * <p>The default value for the variable when no value is received.</p>
-   */
-  defaultValue: string | undefined;
-
-  /**
-   * <p>The description.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The name of the variable.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The variable type.</p>
+   * <p>The description.</p>
    */
-  variableType?: string;
+  description?: string;
 }
 
 export namespace CreateVariableRequest {
@@ -356,17 +493,66 @@ export enum DataType {
   STRING = "STRING",
 }
 
-export interface DeleteDetectorVersionRequest {
-  __type?: "DeleteDetectorVersionRequest";
+/**
+ * <p>The model training validation messages.</p>
+ */
+export interface DataValidationMetrics {
+  __type?: "DataValidationMetrics";
   /**
-   * <p>The ID of the parent detector for the detector version to delete.</p>
+   * <p>The field-specific model training validation messages.</p>
+   */
+  fieldLevelMessages?: FieldValidationMessage[];
+
+  /**
+   * <p>The file-specific model training validation messages.</p>
+   */
+  fileLevelMessages?: FileValidationMessage[];
+}
+
+export namespace DataValidationMetrics {
+  export const filterSensitiveLog = (obj: DataValidationMetrics): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DataValidationMetrics => __isa(o, "DataValidationMetrics");
+}
+
+export interface DeleteDetectorRequest {
+  __type?: "DeleteDetectorRequest";
+  /**
+   * <p>The ID of the detector to delete.</p>
    */
   detectorId: string | undefined;
+}
 
+export namespace DeleteDetectorRequest {
+  export const filterSensitiveLog = (obj: DeleteDetectorRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteDetectorRequest => __isa(o, "DeleteDetectorRequest");
+}
+
+export interface DeleteDetectorResult {
+  __type?: "DeleteDetectorResult";
+}
+
+export namespace DeleteDetectorResult {
+  export const filterSensitiveLog = (obj: DeleteDetectorResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteDetectorResult => __isa(o, "DeleteDetectorResult");
+}
+
+export interface DeleteDetectorVersionRequest {
+  __type?: "DeleteDetectorVersionRequest";
   /**
    * <p>The ID of the detector version to delete.</p>
    */
   detectorVersionId: string | undefined;
+
+  /**
+   * <p>The ID of the parent detector for the detector version to delete.</p>
+   */
+  detectorId: string | undefined;
 }
 
 export namespace DeleteDetectorVersionRequest {
@@ -393,6 +579,11 @@ export interface DeleteEventRequest {
    * <p>The ID of the event to delete.</p>
    */
   eventId: string | undefined;
+
+  /**
+   * <p>The name of the event type.</p>
+   */
+  eventTypeName: string | undefined;
 }
 
 export namespace DeleteEventRequest {
@@ -411,6 +602,32 @@ export namespace DeleteEventResult {
     ...obj,
   });
   export const isa = (o: any): o is DeleteEventResult => __isa(o, "DeleteEventResult");
+}
+
+export interface DeleteRuleRequest {
+  __type?: "DeleteRuleRequest";
+  /**
+   * <p>A rule.</p>
+   */
+  rule: Rule | undefined;
+}
+
+export namespace DeleteRuleRequest {
+  export const filterSensitiveLog = (obj: DeleteRuleRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteRuleRequest => __isa(o, "DeleteRuleRequest");
+}
+
+export interface DeleteRuleResult {
+  __type?: "DeleteRuleResult";
+}
+
+export namespace DeleteRuleResult {
+  export const filterSensitiveLog = (obj: DeleteRuleResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteRuleResult => __isa(o, "DeleteRuleResult");
 }
 
 export interface DescribeDetectorRequest {
@@ -441,14 +658,19 @@ export namespace DescribeDetectorRequest {
 export interface DescribeDetectorResult {
   __type?: "DescribeDetectorResult";
   /**
-   * <p>The detector ID.</p>
-   */
-  detectorId?: string;
-
-  /**
    * <p>The status and description for each detector version.</p>
    */
   detectorVersionSummaries?: DetectorVersionSummary[];
+
+  /**
+   * <p>The detector ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The detector ID.</p>
+   */
+  detectorId?: string;
 
   /**
    * <p>The next token to be used for subsequent requests.</p>
@@ -471,9 +693,9 @@ export interface DescribeModelVersionsRequest {
   maxResults?: number;
 
   /**
-   * <p>The model ID.</p>
+   * <p>The model version number.</p>
    */
-  modelId?: string;
+  modelVersionNumber?: string;
 
   /**
    * <p>The model type.</p>
@@ -481,9 +703,9 @@ export interface DescribeModelVersionsRequest {
   modelType?: ModelTypeEnum | string;
 
   /**
-   * <p>The model version. </p>
+   * <p>The model ID.</p>
    */
-  modelVersionNumber?: string;
+  modelId?: string;
 
   /**
    * <p>The next token from the previous results.</p>
@@ -501,14 +723,14 @@ export namespace DescribeModelVersionsRequest {
 export interface DescribeModelVersionsResult {
   __type?: "DescribeModelVersionsResult";
   /**
-   * <p>The model version details.</p>
-   */
-  modelVersionDetails?: ModelVersionDetail[];
-
-  /**
    * <p>The next token.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The model version details.</p>
+   */
+  modelVersionDetails?: ModelVersionDetail[];
 }
 
 export namespace DescribeModelVersionsResult {
@@ -529,6 +751,11 @@ export interface Detector {
   createdTime?: string;
 
   /**
+   * <p>The name of the event type.</p>
+   */
+  eventTypeName?: string;
+
+  /**
    * <p>The detector description.</p>
    */
   description?: string;
@@ -537,6 +764,11 @@ export interface Detector {
    * <p>The detector ID.</p>
    */
   detectorId?: string;
+
+  /**
+   * <p>The detector ARN.</p>
+   */
+  arn?: string;
 
   /**
    * <p>Timestamp of when the detector was last updated.</p>
@@ -563,9 +795,9 @@ export enum DetectorVersionStatus {
 export interface DetectorVersionSummary {
   __type?: "DetectorVersionSummary";
   /**
-   * <p>The detector version description. </p>
+   * <p>The detector version status. </p>
    */
-  description?: string;
+  status?: DetectorVersionStatus | string;
 
   /**
    * <p>The detector version ID. </p>
@@ -578,9 +810,9 @@ export interface DetectorVersionSummary {
   lastUpdatedTime?: string;
 
   /**
-   * <p>The detector version status. </p>
+   * <p>The detector version description. </p>
    */
-  status?: DetectorVersionStatus | string;
+  description?: string;
 }
 
 export namespace DetectorVersionSummary {
@@ -591,14 +823,156 @@ export namespace DetectorVersionSummary {
 }
 
 /**
+ * <p>The entity details. </p>
+ */
+export interface Entity {
+  __type?: "Entity";
+  /**
+   * <p>The entity ID. If you do not know the <code>entityId</code>, you can pass <code>unknown</code>, which is areserved string literal.</p>
+   */
+  entityId: string | undefined;
+
+  /**
+   * <p>The entity type.</p>
+   */
+  entityType: string | undefined;
+}
+
+export namespace Entity {
+  export const filterSensitiveLog = (obj: Entity): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Entity => __isa(o, "Entity");
+}
+
+/**
+ * <p>The entity type details.</p>
+ */
+export interface EntityType {
+  __type?: "EntityType";
+  /**
+   * <p>The entity type ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Timestamp of when the entity type was last updated.</p>
+   */
+  lastUpdatedTime?: string;
+
+  /**
+   * <p>The entity type description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The entity type name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Timestamp of when the entity type was created.</p>
+   */
+  createdTime?: string;
+}
+
+export namespace EntityType {
+  export const filterSensitiveLog = (obj: EntityType): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EntityType => __isa(o, "EntityType");
+}
+
+/**
+ * <p>The event type details.</p>
+ */
+export interface EventType {
+  __type?: "EventType";
+  /**
+   * <p>The event type description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The event type name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Timestamp of when the event type was created.</p>
+   */
+  createdTime?: string;
+
+  /**
+   * <p>The event type entity types.</p>
+   */
+  entityTypes?: string[];
+
+  /**
+   * <p>The event type labels.</p>
+   */
+  labels?: string[];
+
+  /**
+   * <p>The entity type ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Timestamp of when the event type was last updated.</p>
+   */
+  lastUpdatedTime?: string;
+
+  /**
+   * <p>The event type event variables.</p>
+   */
+  eventVariables?: string[];
+}
+
+export namespace EventType {
+  export const filterSensitiveLog = (obj: EventType): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EventType => __isa(o, "EventType");
+}
+
+/**
+ * <p>Details for the external events data used for model version training.</p>
+ */
+export interface ExternalEventsDetail {
+  __type?: "ExternalEventsDetail";
+  /**
+   * <p>The ARN of the role that provides Amazon Fraud Detector access to the data location.</p>
+   */
+  dataAccessRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket location for the data.</p>
+   */
+  dataLocation: string | undefined;
+}
+
+export namespace ExternalEventsDetail {
+  export const filterSensitiveLog = (obj: ExternalEventsDetail): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ExternalEventsDetail => __isa(o, "ExternalEventsDetail");
+}
+
+/**
  * <p>The Amazon SageMaker model.</p>
  */
 export interface ExternalModel {
   __type?: "ExternalModel";
   /**
-   * <p>Timestamp of when the model was last created.</p>
+   * <p>The model ARN.</p>
    */
-  createdTime?: string;
+  arn?: string;
+
+  /**
+   * <p>The Amazon SageMaker model endpoints.</p>
+   */
+  modelEndpoint?: string;
 
   /**
    * <p>The input configuration.</p>
@@ -611,14 +985,9 @@ export interface ExternalModel {
   lastUpdatedTime?: string;
 
   /**
-   * <p>The Amazon SageMaker model endpoints.</p>
+   * <p>The role used to invoke the model. </p>
    */
-  modelEndpoint?: string;
-
-  /**
-   * <p>The Amazon Fraud Detector status for the external model endpoint</p>
-   */
-  modelEndpointStatus?: ModelEndpointStatus | string;
+  invokeModelEndpointRoleArn?: string;
 
   /**
    * <p>The source of the model.</p>
@@ -626,14 +995,19 @@ export interface ExternalModel {
   modelSource?: ModelSource | string;
 
   /**
+   * <p>The Amazon Fraud Detector status for the external model endpoint</p>
+   */
+  modelEndpointStatus?: ModelEndpointStatus | string;
+
+  /**
+   * <p>Timestamp of when the model was last created.</p>
+   */
+  createdTime?: string;
+
+  /**
    * <p>The output configuration.</p>
    */
   outputConfiguration?: ModelOutputConfiguration;
-
-  /**
-   * <p>The role used to invoke the model. </p>
-   */
-  role?: Role;
 }
 
 export namespace ExternalModel {
@@ -643,17 +1017,83 @@ export namespace ExternalModel {
   export const isa = (o: any): o is ExternalModel => __isa(o, "ExternalModel");
 }
 
+/**
+ * <p>The message details.</p>
+ */
+export interface FieldValidationMessage {
+  __type?: "FieldValidationMessage";
+  /**
+   * <p>The message type.</p>
+   */
+  type?: string;
+
+  /**
+   * <p>The field name.</p>
+   */
+  fieldName?: string;
+
+  /**
+   * <p>The message ID.</p>
+   */
+  identifier?: string;
+
+  /**
+   * <p>The message content.</p>
+   */
+  content?: string;
+
+  /**
+   * <p>The message title.</p>
+   */
+  title?: string;
+}
+
+export namespace FieldValidationMessage {
+  export const filterSensitiveLog = (obj: FieldValidationMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is FieldValidationMessage => __isa(o, "FieldValidationMessage");
+}
+
+/**
+ * <p>The message details.</p>
+ */
+export interface FileValidationMessage {
+  __type?: "FileValidationMessage";
+  /**
+   * <p>The message content.</p>
+   */
+  content?: string;
+
+  /**
+   * <p>The message type.</p>
+   */
+  type?: string;
+
+  /**
+   * <p>The message title.</p>
+   */
+  title?: string;
+}
+
+export namespace FileValidationMessage {
+  export const filterSensitiveLog = (obj: FileValidationMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is FileValidationMessage => __isa(o, "FileValidationMessage");
+}
+
 export interface GetDetectorsRequest {
   __type?: "GetDetectorsRequest";
-  /**
-   * <p>The detector ID.</p>
-   */
-  detectorId?: string;
-
   /**
    * <p>The maximum number of objects to return for the request.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The detector ID.</p>
+   */
+  detectorId?: string;
 
   /**
    * <p>The next token for the subsequent request.</p>
@@ -691,14 +1131,14 @@ export namespace GetDetectorsResult {
 export interface GetDetectorVersionRequest {
   __type?: "GetDetectorVersionRequest";
   /**
-   * <p>The detector ID.</p>
-   */
-  detectorId: string | undefined;
-
-  /**
    * <p>The detector version ID.</p>
    */
   detectorVersionId: string | undefined;
+
+  /**
+   * <p>The detector ID.</p>
+   */
+  detectorId: string | undefined;
 }
 
 export namespace GetDetectorVersionRequest {
@@ -711,19 +1151,18 @@ export namespace GetDetectorVersionRequest {
 export interface GetDetectorVersionResult {
   __type?: "GetDetectorVersionResult";
   /**
-   * <p>The timestamp when the detector version was created. </p>
+   * <p>The Amazon SageMaker model endpoints included in the detector version.</p>
    */
-  createdTime?: string;
+  externalModelEndpoints?: string[];
 
   /**
-   * <p>The detector version description.</p>
+   * <p>The execution mode of the rule in the dectector</p>
+   * 	        <p>
+   *             <code>FIRST_MATCHED</code> indicates that Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
+   * 	        <p>
+   *             <code>ALL_MATCHED</code> indicates that Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    */
-  description?: string;
-
-  /**
-   * <p>The detector ID.</p>
-   */
-  detectorId?: string;
+  ruleExecutionMode?: RuleExecutionMode | string;
 
   /**
    * <p>The detector version ID.</p>
@@ -731,9 +1170,24 @@ export interface GetDetectorVersionResult {
   detectorVersionId?: string;
 
   /**
-   * <p>The Amazon SageMaker model endpoints included in the detector version.</p>
+   * <p>The detector version description.</p>
    */
-  externalModelEndpoints?: string[];
+  description?: string;
+
+  /**
+   * <p>The detector version ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The status of the detector version.</p>
+   */
+  status?: DetectorVersionStatus | string;
+
+  /**
+   * <p>The rules included in the detector version.</p>
+   */
+  rules?: Rule[];
 
   /**
    * <p>The timestamp when the detector version was last updated.
@@ -742,19 +1196,19 @@ export interface GetDetectorVersionResult {
   lastUpdatedTime?: string;
 
   /**
+   * <p>The timestamp when the detector version was created. </p>
+   */
+  createdTime?: string;
+
+  /**
    * <p>The model versions included in the detector version. </p>
    */
   modelVersions?: ModelVersion[];
 
   /**
-   * <p>The rules included in the detector version.</p>
+   * <p>The detector ID.</p>
    */
-  rules?: Rule[];
-
-  /**
-   * <p>The status of the detector version.</p>
-   */
-  status?: DetectorVersionStatus | string;
+  detectorId?: string;
 }
 
 export namespace GetDetectorVersionResult {
@@ -762,6 +1216,168 @@ export namespace GetDetectorVersionResult {
     ...obj,
   });
   export const isa = (o: any): o is GetDetectorVersionResult => __isa(o, "GetDetectorVersionResult");
+}
+
+export interface GetEntityTypesRequest {
+  __type?: "GetEntityTypesRequest";
+  /**
+   * <p>The name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The next token for the subsequent request.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetEntityTypesRequest {
+  export const filterSensitiveLog = (obj: GetEntityTypesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetEntityTypesRequest => __isa(o, "GetEntityTypesRequest");
+}
+
+export interface GetEntityTypesResult {
+  __type?: "GetEntityTypesResult";
+  /**
+   * <p>The next page token.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of entity types.</p>
+   */
+  entityTypes?: EntityType[];
+}
+
+export namespace GetEntityTypesResult {
+  export const filterSensitiveLog = (obj: GetEntityTypesResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetEntityTypesResult => __isa(o, "GetEntityTypesResult");
+}
+
+export interface GetEventPredictionRequest {
+  __type?: "GetEventPredictionRequest";
+  /**
+   * <p>The unique ID used to identify the event.</p>
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.</p>
+   */
+  eventVariables: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The detector version ID.</p>
+   */
+  detectorVersionId?: string;
+
+  /**
+   * <p>The Amazon SageMaker model endpoint input data blobs.</p>
+   */
+  externalModelEndpointDataBlobs?: { [key: string]: ModelEndpointDataBlob };
+
+  /**
+   * <p>The event type associated with the detector specified for the prediction.</p>
+   */
+  eventTypeName: string | undefined;
+
+  /**
+   * <p>Timestamp that defines when the event under evaluation occurred.</p>
+   */
+  eventTimestamp: string | undefined;
+
+  /**
+   * <p>The detector ID.</p>
+   */
+  detectorId: string | undefined;
+
+  /**
+   * <p>The entity type (associated with the detector's event type) and specific entity ID representing who performed the event. If an entity id is not available, use "UNKNOWN."</p>
+   */
+  entities: Entity[] | undefined;
+}
+
+export namespace GetEventPredictionRequest {
+  export const filterSensitiveLog = (obj: GetEventPredictionRequest): any => ({
+    ...obj,
+    ...(obj.eventVariables && { eventVariables: SENSITIVE_STRING }),
+    ...(obj.externalModelEndpointDataBlobs && { externalModelEndpointDataBlobs: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is GetEventPredictionRequest => __isa(o, "GetEventPredictionRequest");
+}
+
+export interface GetEventPredictionResult {
+  __type?: "GetEventPredictionResult";
+  /**
+   * <p>The model scores. Amazon Fraud Detector generates model scores between 0 and 1000, where 0 is low fraud risk and 1000 is high fraud risk. Model scores are directly related to the false positive rate (FPR). For example, a score of 600 corresponds to an estimated 10% false positive rate whereas a score of 900 corresponds to an estimated 2% false positive rate.</p>
+   */
+  modelScores?: ModelScores[];
+
+  /**
+   * <p>The results.</p>
+   */
+  ruleResults?: RuleResult[];
+}
+
+export namespace GetEventPredictionResult {
+  export const filterSensitiveLog = (obj: GetEventPredictionResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetEventPredictionResult => __isa(o, "GetEventPredictionResult");
+}
+
+export interface GetEventTypesRequest {
+  __type?: "GetEventTypesRequest";
+  /**
+   * <p>The maximum number of objects to return for the request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The next token for the subsequent request.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The name.</p>
+   */
+  name?: string;
+}
+
+export namespace GetEventTypesRequest {
+  export const filterSensitiveLog = (obj: GetEventTypesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetEventTypesRequest => __isa(o, "GetEventTypesRequest");
+}
+
+export interface GetEventTypesResult {
+  __type?: "GetEventTypesResult";
+  /**
+   * <p>The next page token.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of event types.</p>
+   */
+  eventTypes?: EventType[];
+}
+
+export namespace GetEventTypesResult {
+  export const filterSensitiveLog = (obj: GetEventTypesResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetEventTypesResult => __isa(o, "GetEventTypesResult");
 }
 
 export interface GetExternalModelsRequest {
@@ -792,14 +1408,14 @@ export namespace GetExternalModelsRequest {
 export interface GetExternalModelsResult {
   __type?: "GetExternalModelsResult";
   /**
-   * <p>Gets the Amazon SageMaker models.</p>
-   */
-  externalModels?: ExternalModel[];
-
-  /**
    * <p>The next page token to be used in subsequent requests.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Gets the Amazon SageMaker models.</p>
+   */
+  externalModels?: ExternalModel[];
 }
 
 export namespace GetExternalModelsResult {
@@ -809,10 +1425,80 @@ export namespace GetExternalModelsResult {
   export const isa = (o: any): o is GetExternalModelsResult => __isa(o, "GetExternalModelsResult");
 }
 
+export interface GetKMSEncryptionKeyResult {
+  __type?: "GetKMSEncryptionKeyResult";
+  /**
+   * <p>The KMS encryption key.</p>
+   */
+  kmsKey?: KMSKey;
+}
+
+export namespace GetKMSEncryptionKeyResult {
+  export const filterSensitiveLog = (obj: GetKMSEncryptionKeyResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetKMSEncryptionKeyResult => __isa(o, "GetKMSEncryptionKeyResult");
+}
+
+export interface GetLabelsRequest {
+  __type?: "GetLabelsRequest";
+  /**
+   * <p>The name of the label or labels to get.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The next token for the subsequent request.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetLabelsRequest {
+  export const filterSensitiveLog = (obj: GetLabelsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetLabelsRequest => __isa(o, "GetLabelsRequest");
+}
+
+export interface GetLabelsResult {
+  __type?: "GetLabelsResult";
+  /**
+   * <p>The next page token.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of labels.</p>
+   */
+  labels?: Label[];
+}
+
+export namespace GetLabelsResult {
+  export const filterSensitiveLog = (obj: GetLabelsResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetLabelsResult => __isa(o, "GetLabelsResult");
+}
+
 export interface GetModelsRequest {
   __type?: "GetModelsRequest";
   /**
-   * <p>The maximum results to return for the request.</p>
+   * <p>The model type.</p>
+   */
+  modelType?: ModelTypeEnum | string;
+
+  /**
+   * <p>The next token for the subsequent request.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request. </p>
    */
   maxResults?: number;
 
@@ -820,16 +1506,6 @@ export interface GetModelsRequest {
    * <p>The model ID.</p>
    */
   modelId?: string;
-
-  /**
-   * <p>The model type.</p>
-   */
-  modelType?: ModelTypeEnum | string;
-
-  /**
-   * <p>The next token for the request.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace GetModelsRequest {
@@ -842,14 +1518,14 @@ export namespace GetModelsRequest {
 export interface GetModelsResult {
   __type?: "GetModelsResult";
   /**
-   * <p>The returned models. </p>
-   */
-  models?: Model[];
-
-  /**
-   * <p>The next token for subsequent requests. </p>
+   * <p>The next page token to be used in subsequent requests.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The array of models.</p>
+   */
+  models?: Model[];
 }
 
 export namespace GetModelsResult {
@@ -862,17 +1538,17 @@ export namespace GetModelsResult {
 export interface GetModelVersionRequest {
   __type?: "GetModelVersionRequest";
   /**
-   * <p>The model ID. </p>
+   * <p>The model ID.</p>
    */
   modelId: string | undefined;
 
   /**
-   * <p>The model type. </p>
+   * <p>The model type.</p>
    */
   modelType: ModelTypeEnum | string | undefined;
 
   /**
-   * <p>The model version. </p>
+   * <p>The model version number.</p>
    */
   modelVersionNumber: string | undefined;
 }
@@ -887,29 +1563,44 @@ export namespace GetModelVersionRequest {
 export interface GetModelVersionResult {
   __type?: "GetModelVersionResult";
   /**
-   * <p>The model version description.</p>
+   * <p>The model version ARN.</p>
    */
-  description?: string;
+  arn?: string;
 
   /**
-   * <p>The model ID. </p>
+   * <p>The training data source.</p>
+   */
+  trainingDataSource?: TrainingDataSourceEnum | string;
+
+  /**
+   * <p>The training data schema.</p>
+   */
+  trainingDataSchema?: TrainingDataSchema;
+
+  /**
+   * <p>The model version status.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The model ID.</p>
    */
   modelId?: string;
 
   /**
-   * <p>The model type. </p>
-   */
-  modelType?: ModelTypeEnum | string;
-
-  /**
-   * <p>The model version. </p>
+   * <p>The model version number.</p>
    */
   modelVersionNumber?: string;
 
   /**
-   * <p>The model version status. </p>
+   * <p>The event details.</p>
    */
-  status?: string;
+  externalEventsDetail?: ExternalEventsDetail;
+
+  /**
+   * <p>The model type.</p>
+   */
+  modelType?: ModelTypeEnum | string;
 }
 
 export namespace GetModelVersionResult {
@@ -922,11 +1613,6 @@ export namespace GetModelVersionResult {
 export interface GetOutcomesRequest {
   __type?: "GetOutcomesRequest";
   /**
-   * <p>The maximum number of objects to return for the request. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The name of the outcome or outcomes to get.</p>
    */
   name?: string;
@@ -935,6 +1621,11 @@ export interface GetOutcomesRequest {
    * <p>The next page token for the request. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace GetOutcomesRequest {
@@ -964,74 +1655,22 @@ export namespace GetOutcomesResult {
   export const isa = (o: any): o is GetOutcomesResult => __isa(o, "GetOutcomesResult");
 }
 
-export interface GetPredictionRequest {
-  __type?: "GetPredictionRequest";
-  /**
-   * <p>The detector ID. </p>
-   */
-  detectorId: string | undefined;
-
-  /**
-   * <p>The detector version ID.</p>
-   */
-  detectorVersionId?: string;
-
-  /**
-   * <p>Names of variables you defined in Amazon Fraud Detector to represent event data elements and their corresponding values for the event you are sending for evaluation.</p>
-   */
-  eventAttributes?: { [key: string]: string };
-
-  /**
-   * <p>The unique ID used to identify the event.</p>
-   */
-  eventId: string | undefined;
-
-  /**
-   * <p>The Amazon SageMaker model endpoint input data blobs.</p>
-   */
-  externalModelEndpointDataBlobs?: { [key: string]: ModelEndpointDataBlob };
-}
-
-export namespace GetPredictionRequest {
-  export const filterSensitiveLog = (obj: GetPredictionRequest): any => ({
-    ...obj,
-    ...(obj.eventAttributes && { eventAttributes: SENSITIVE_STRING }),
-    ...(obj.externalModelEndpointDataBlobs && { externalModelEndpointDataBlobs: SENSITIVE_STRING }),
-  });
-  export const isa = (o: any): o is GetPredictionRequest => __isa(o, "GetPredictionRequest");
-}
-
-export interface GetPredictionResult {
-  __type?: "GetPredictionResult";
-  /**
-   * <p>The model scores for models used in the detector version.</p>
-   */
-  modelScores?: ModelScores[];
-
-  /**
-   * <p>The prediction outcomes.</p>
-   */
-  outcomes?: string[];
-}
-
-export namespace GetPredictionResult {
-  export const filterSensitiveLog = (obj: GetPredictionResult): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is GetPredictionResult => __isa(o, "GetPredictionResult");
-}
-
 export interface GetRulesRequest {
   __type?: "GetRulesRequest";
+  /**
+   * <p>The maximum number of rules to return for the request.</p>
+   */
+  maxResults?: number;
+
   /**
    * <p>The detector ID.</p>
    */
   detectorId: string | undefined;
 
   /**
-   * <p>The maximum number of rules to return for the request.</p>
+   * <p>The rule version.</p>
    */
-  maxResults?: number;
+  ruleVersion?: string;
 
   /**
    * <p>The next page token.</p>
@@ -1042,11 +1681,6 @@ export interface GetRulesRequest {
    * <p>The rule ID.</p>
    */
   ruleId?: string;
-
-  /**
-   * <p>The rule version.</p>
-   */
-  ruleVersion?: string;
 }
 
 export namespace GetRulesRequest {
@@ -1059,19 +1693,20 @@ export namespace GetRulesRequest {
 export interface GetRulesResult {
   __type?: "GetRulesResult";
   /**
-   * <p>The next page token to be used in subsequent requests.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The details of the requested rule.</p>
    */
   ruleDetails?: RuleDetail[];
+
+  /**
+   * <p>The next page token to be used in subsequent requests.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetRulesResult {
   export const filterSensitiveLog = (obj: GetRulesResult): any => ({
     ...obj,
+    ...(obj.ruleDetails && { ruleDetails: obj.ruleDetails.map((item) => RuleDetail.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is GetRulesResult => __isa(o, "GetRulesResult");
 }
@@ -1079,14 +1714,14 @@ export namespace GetRulesResult {
 export interface GetVariablesRequest {
   __type?: "GetVariablesRequest";
   /**
-   * <p>The max size per page determined for the get variable request. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The name of the variable. </p>
    */
   name?: string;
+
+  /**
+   * <p>The max size per page determined for the get variable request. </p>
+   */
+  maxResults?: number;
 
   /**
    * <p>The next page token of the get variable request. </p>
@@ -1104,14 +1739,14 @@ export namespace GetVariablesRequest {
 export interface GetVariablesResult {
   __type?: "GetVariablesResult";
   /**
-   * <p>The next page token to be used in subsequent requests. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The names of the variables returned. </p>
    */
   variables?: Variable[];
+
+  /**
+   * <p>The next page token to be used in subsequent requests. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetVariablesResult {
@@ -1138,21 +1773,68 @@ export namespace InternalServerException {
 }
 
 /**
+ * <p>The KMS key details.</p>
+ */
+export interface KMSKey {
+  __type?: "KMSKey";
+  /**
+   * <p>The encryption key ARN.</p>
+   */
+  kmsEncryptionKeyArn?: string;
+}
+
+export namespace KMSKey {
+  export const filterSensitiveLog = (obj: KMSKey): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is KMSKey => __isa(o, "KMSKey");
+}
+
+/**
+ * <p>The label details.</p>
+ */
+export interface Label {
+  __type?: "Label";
+  /**
+   * <p>Timestamp of when the label was last updated.</p>
+   */
+  lastUpdatedTime?: string;
+
+  /**
+   * <p>The label ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The label description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The label name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Timestamp of when the event type was created.</p>
+   */
+  createdTime?: string;
+}
+
+export namespace Label {
+  export const filterSensitiveLog = (obj: Label): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Label => __isa(o, "Label");
+}
+
+/**
  * <p>The label schema.</p>
  */
 export interface LabelSchema {
   __type?: "LabelSchema";
   /**
-   * <p>The label key.</p>
-   */
-  labelKey: string | undefined;
-
-  /**
-   * <p>The label mapper maps the Amazon Fraud Detector supported label to the appropriate source labels.
-   *             For example, if <code>"FRAUD"</code> and <code>"LEGIT"</code> are Amazon Fraud Detector supported labels, this mapper could
-   *             be: <code>{"FRAUD" => ["0"]</code>, "LEGIT" => ["1"]} or <code>{"FRAUD" => ["false"], "LEGIT" => ["true"]}</code>
-   *             or <code>{"FRAUD" => ["fraud", "abuse"], "LEGIT" => ["legit", "safe"]}</code>. The value part of the
-   *             mapper is a list, because you may have multiple variants for a single Amazon Fraud Detector label.
+   * <p>The label mapper maps the Amazon Fraud Detector supported model classification labels (<code>FRAUD</code>, <code>LEGIT</code>) to the appropriate event type labels. For example, if "<code>FRAUD</code>" and "<code>LEGIT</code>" are Amazon Fraud Detector supported labels, this mapper could be: <code>{"FRAUD" => ["0"]</code>, <code>"LEGIT" => ["1"]}</code> or <code>{"FRAUD" => ["false"]</code>, <code>"LEGIT" => ["true"]}</code> or <code>{"FRAUD" => ["fraud", "abuse"]</code>, <code>"LEGIT" => ["legit", "safe"]}</code>. The value part of the mapper is a list, because you may have multiple label variants from your event type for a single Amazon Fraud Detector label.
    *         </p>
    */
   labelMapper: { [key: string]: string[] } | undefined;
@@ -1169,25 +1851,98 @@ export enum Language {
   DETECTORPL = "DETECTORPL",
 }
 
+export interface ListTagsForResourceRequest {
+  __type?: "ListTagsForResourceRequest";
+  /**
+   * <p>The next token from the previous results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request. </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The ARN that specifies the resource whose tags you want to list.</p>
+   */
+  resourceARN: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
+}
+
+export interface ListTagsForResourceResult {
+  __type?: "ListTagsForResourceResult";
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The next token for subsequent requests. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListTagsForResourceResult {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceResult => __isa(o, "ListTagsForResourceResult");
+}
+
+/**
+ * <p>Model performance metrics data points.</p>
+ */
+export interface MetricDataPoint {
+  __type?: "MetricDataPoint";
+  /**
+   * <p>The model threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any model score 500 or above is labeled as fraud.</p>
+   */
+  threshold?: number;
+
+  /**
+   * <p>The false positive rate. This is the percentage of total legitimate events that are incorrectly predicted as fraud.</p>
+   */
+  fpr?: number;
+
+  /**
+   * <p>The true positive rate. This is the percentage of total fraud the model detects. Also known as capture rate.</p>
+   */
+  tpr?: number;
+
+  /**
+   * <p>The percentage of fraud events correctly predicted as fraudulent as compared to all events predicted as fraudulent.</p>
+   */
+  precision?: number;
+}
+
+export namespace MetricDataPoint {
+  export const filterSensitiveLog = (obj: MetricDataPoint): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is MetricDataPoint => __isa(o, "MetricDataPoint");
+}
+
 /**
  * <p>The model.</p>
  */
 export interface Model {
   __type?: "Model";
   /**
-   * <p>Timestamp of when the model was created.</p>
-   */
-  createdTime?: string;
-
-  /**
    * <p>The model description.</p>
    */
   description?: string;
 
   /**
-   * <p>The model label schema.</p>
+   * <p>The name of the event type.</p>
    */
-  labelSchema?: LabelSchema;
+  eventTypeName?: string;
 
   /**
    * <p>Timestamp of last time the model was updated.</p>
@@ -1195,24 +1950,24 @@ export interface Model {
   lastUpdatedTime?: string;
 
   /**
-   * <p>The model ID.</p>
-   */
-  modelId?: string;
-
-  /**
    * <p>The model type.</p>
    */
   modelType?: ModelTypeEnum | string;
 
   /**
-   * <p>The model input variables.</p>
+   * <p>The ARN of the model.</p>
    */
-  modelVariables?: ModelVariable[];
+  arn?: string;
 
   /**
-   * <p>The model training data source in Amazon S3.</p>
+   * <p>The model ID.</p>
    */
-  trainingDataSource?: TrainingDataSource;
+  modelId?: string;
+
+  /**
+   * <p>Timestamp of when the model was created.</p>
+   */
+  createdTime?: string;
 }
 
 export namespace Model {
@@ -1228,14 +1983,14 @@ export namespace Model {
 export interface ModelEndpointDataBlob {
   __type?: "ModelEndpointDataBlob";
   /**
-   * <p>The byte buffer of the Amazon SageMaker model endpoint input data blob.</p>
-   */
-  byteBuffer?: Uint8Array;
-
-  /**
    * <p>The content type of the Amazon SageMaker model endpoint input data blob. </p>
    */
   contentType?: string;
+
+  /**
+   * <p>The byte buffer of the Amazon SageMaker model endpoint input data blob.</p>
+   */
+  byteBuffer?: Uint8Array;
 }
 
 export namespace ModelEndpointDataBlob {
@@ -1251,7 +2006,7 @@ export enum ModelEndpointStatus {
 }
 
 /**
- * <p>The model input configuration.</p>
+ * <p>The Amazon SageMaker model input configuration.</p>
  */
 export interface ModelInputConfiguration {
   __type?: "ModelInputConfiguration";
@@ -1269,18 +2024,21 @@ export interface ModelInputConfiguration {
   format?: ModelInputDataFormat | string;
 
   /**
-   * <p> For an opaque-model, the input to the model will be a ByteBuffer blob provided in the
-   *             getPrediction request, and will be passed to SageMaker as-is. For non-opaque models,
-   *             the input will be constructed by Amazon Fraud Detector based on the model-configuration. </p>
-   */
-  isOpaque: boolean | undefined;
-
-  /**
    * <p> Template for constructing the JSON input-data sent to SageMaker. At event-evaluation,
    *             the placeholders for variable names in the template will be replaced with the variable
    *             values before being sent to SageMaker. </p>
    */
   jsonInputTemplate?: string;
+
+  /**
+   * <p>The event type name.</p>
+   */
+  eventTypeName?: string;
+
+  /**
+   * <p>The event variables.</p>
+   */
+  useEventVariables: boolean | undefined;
 }
 
 export namespace ModelInputConfiguration {
@@ -1296,7 +2054,7 @@ export enum ModelInputDataFormat {
 }
 
 /**
- * <p>Provides the model output configuration.</p>
+ * <p>Provides the Amazon Sagemaker model output configuration.</p>
  */
 export interface ModelOutputConfiguration {
   __type?: "ModelOutputConfiguration";
@@ -1306,14 +2064,14 @@ export interface ModelOutputConfiguration {
   csvIndexToVariableMap?: { [key: string]: string };
 
   /**
-   * <p>The format of the model output configuration.</p>
-   */
-  format: ModelOutputDataFormat | string | undefined;
-
-  /**
    * <p>A map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables. </p>
    */
   jsonKeyToVariableMap?: { [key: string]: string };
+
+  /**
+   * <p>The format of the model output configuration.</p>
+   */
+  format: ModelOutputDataFormat | string | undefined;
 }
 
 export namespace ModelOutputConfiguration {
@@ -1334,14 +2092,14 @@ export enum ModelOutputDataFormat {
 export interface ModelScores {
   __type?: "ModelScores";
   /**
-   * <p>The model version.</p>
-   */
-  modelVersion?: ModelVersion;
-
-  /**
    * <p>The model's fraud prediction scores.</p>
    */
   scores?: { [key: string]: number };
+
+  /**
+   * <p>The model version.</p>
+   */
+  modelVersion?: ModelVersion;
 }
 
 export namespace ModelScores {
@@ -1360,47 +2118,29 @@ export enum ModelTypeEnum {
 }
 
 /**
- * <p>The model variable.></p>
- */
-export interface ModelVariable {
-  __type?: "ModelVariable";
-  /**
-   * <p>The model variable's index.></p>
-   */
-  index?: number;
-
-  /**
-   * <p>The model variable's name.></p>
-   */
-  name: string | undefined;
-}
-
-export namespace ModelVariable {
-  export const filterSensitiveLog = (obj: ModelVariable): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is ModelVariable => __isa(o, "ModelVariable");
-}
-
-/**
  * <p>The model version.</p>
  */
 export interface ModelVersion {
   __type?: "ModelVersion";
   /**
-   * <p>The parent model ID.</p>
+   * <p>The model ID.</p>
    */
   modelId: string | undefined;
+
+  /**
+   * <p>The model version number.</p>
+   */
+  modelVersionNumber: string | undefined;
+
+  /**
+   * <p>The model version ARN.</p>
+   */
+  arn?: string;
 
   /**
    * <p>The model type.</p>
    */
   modelType: ModelTypeEnum | string | undefined;
-
-  /**
-   * <p>The model version.</p>
-   */
-  modelVersionNumber: string | undefined;
 }
 
 export namespace ModelVersion {
@@ -1411,34 +2151,24 @@ export namespace ModelVersion {
 }
 
 /**
- * <p>Provides the model version details. </p>
+ * <p>The details of the model version.</p>
  */
 export interface ModelVersionDetail {
   __type?: "ModelVersionDetail";
+  /**
+   * <p>The model version number.</p>
+   */
+  modelVersionNumber?: string;
+
   /**
    * <p>The timestamp when the model was created.</p>
    */
   createdTime?: string;
 
   /**
-   * <p>The model description.</p>
+   * <p>The status of the model version.</p>
    */
-  description?: string;
-
-  /**
-   * <p>The model label schema.</p>
-   */
-  labelSchema?: LabelSchema;
-
-  /**
-   * <p>The timestamp when the model was last updated.</p>
-   */
-  lastUpdatedTime?: string;
-
-  /**
-   * <p>The model ID.</p>
-   */
-  modelId?: string;
+  status?: string;
 
   /**
    * <p>The model type.</p>
@@ -1446,34 +2176,39 @@ export interface ModelVersionDetail {
   modelType?: ModelTypeEnum | string;
 
   /**
-   * <p>The model variables.</p>
+   * <p>The timestamp when the model was last updated.</p>
    */
-  modelVariables?: ModelVariable[];
+  lastUpdatedTime?: string;
 
   /**
-   * <p>The model version.</p>
+   * <p>The model version ARN.</p>
    */
-  modelVersionNumber?: string;
+  arn?: string;
 
   /**
-   * <p>The model status.</p>
+   * <p>The model version training data source.</p>
    */
-  status?: string;
+  trainingDataSource?: TrainingDataSourceEnum | string;
 
   /**
-   * <p>The model training data source.</p>
+   * <p>The training results.</p>
    */
-  trainingDataSource?: TrainingDataSource;
+  trainingResult?: TrainingResult;
 
   /**
-   * <p>The model training metrics.</p>
+   * <p>The event details.</p>
    */
-  trainingMetrics?: { [key: string]: string };
+  externalEventsDetail?: ExternalEventsDetail;
 
   /**
-   * <p>The model validation metrics.</p>
+   * <p>The model ID.</p>
    */
-  validationMetrics?: { [key: string]: string };
+  modelId?: string;
+
+  /**
+   * <p>The training data schema.</p>
+   */
+  trainingDataSchema?: TrainingDataSchema;
 }
 
 export namespace ModelVersionDetail {
@@ -1484,14 +2219,8 @@ export namespace ModelVersionDetail {
 }
 
 export enum ModelVersionStatus {
-  ACTIVATE_IN_PROGRESS = "ACTIVATE_IN_PROGRESS",
-  ACTIVATE_REQUESTED = "ACTIVATE_REQUESTED",
   ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVATE_IN_PROGRESS = "INACTIVATE_IN_PROGRESS",
   INACTIVE = "INACTIVE",
-  TRAINING_COMPLETE = "TRAINING_COMPLETE",
-  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS",
 }
 
 /**
@@ -1499,6 +2228,11 @@ export enum ModelVersionStatus {
  */
 export interface Outcome {
   __type?: "Outcome";
+  /**
+   * <p>The timestamp when the outcome was last updated.</p>
+   */
+  lastUpdatedTime?: string;
+
   /**
    * <p>The timestamp when the outcome was created.</p>
    */
@@ -1510,14 +2244,14 @@ export interface Outcome {
   description?: string;
 
   /**
-   * <p>The timestamp when the outcome was last updated.</p>
-   */
-  lastUpdatedTime?: string;
-
-  /**
    * <p>The outcome name.</p>
    */
   name?: string;
+
+  /**
+   * <p>The outcome ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace Outcome {
@@ -1530,9 +2264,19 @@ export namespace Outcome {
 export interface PutDetectorRequest {
   __type?: "PutDetectorRequest";
   /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
+
+  /**
    * <p>The description of the detector.</p>
    */
   description?: string;
+
+  /**
+   * <p>The name of the event type.</p>
+   */
+  eventTypeName: string | undefined;
 
   /**
    * <p>The detector ID. </p>
@@ -1558,8 +2302,105 @@ export namespace PutDetectorResult {
   export const isa = (o: any): o is PutDetectorResult => __isa(o, "PutDetectorResult");
 }
 
+export interface PutEntityTypeRequest {
+  __type?: "PutEntityTypeRequest";
+  /**
+   * <p>The name of the entity type.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
+}
+
+export namespace PutEntityTypeRequest {
+  export const filterSensitiveLog = (obj: PutEntityTypeRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutEntityTypeRequest => __isa(o, "PutEntityTypeRequest");
+}
+
+export interface PutEntityTypeResult {
+  __type?: "PutEntityTypeResult";
+}
+
+export namespace PutEntityTypeResult {
+  export const filterSensitiveLog = (obj: PutEntityTypeResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutEntityTypeResult => __isa(o, "PutEntityTypeResult");
+}
+
+export interface PutEventTypeRequest {
+  __type?: "PutEventTypeRequest";
+  /**
+   * <p>The event type labels.</p>
+   */
+  labels?: string[];
+
+  /**
+   * <p>The event type variables.</p>
+   */
+  eventVariables: string[] | undefined;
+
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The entity type for the event type. Example entity types: customer, merchant, account.</p>
+   */
+  entityTypes: string[] | undefined;
+
+  /**
+   * <p>The description of the event type.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace PutEventTypeRequest {
+  export const filterSensitiveLog = (obj: PutEventTypeRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutEventTypeRequest => __isa(o, "PutEventTypeRequest");
+}
+
+export interface PutEventTypeResult {
+  __type?: "PutEventTypeResult";
+}
+
+export namespace PutEventTypeResult {
+  export const filterSensitiveLog = (obj: PutEventTypeResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutEventTypeResult => __isa(o, "PutEventTypeResult");
+}
+
 export interface PutExternalModelRequest {
   __type?: "PutExternalModelRequest";
+  /**
+   * <p>The IAM role used to invoke the model endpoint.</p>
+   */
+  invokeModelEndpointRoleArn: string | undefined;
+
+  /**
+   * <p>The model endpoint’s status in Amazon Fraud Detector.</p>
+   */
+  modelEndpointStatus: ModelEndpointStatus | string | undefined;
+
   /**
    * <p>The model endpoint input configuration.</p>
    */
@@ -1571,9 +2412,9 @@ export interface PutExternalModelRequest {
   modelEndpoint: string | undefined;
 
   /**
-   * <p>The model endpoint’s status in Amazon Fraud Detector.</p>
+   * <p>A collection of key and value pairs.</p>
    */
-  modelEndpointStatus: ModelEndpointStatus | string | undefined;
+  tags?: Tag[];
 
   /**
    * <p>The source of the model.</p>
@@ -1584,11 +2425,6 @@ export interface PutExternalModelRequest {
    * <p>The model endpoint output configuration.</p>
    */
   outputConfiguration: ModelOutputConfiguration | undefined;
-
-  /**
-   * <p>The IAM role used to invoke the model endpoint.</p>
-   */
-  role: Role | undefined;
 }
 
 export namespace PutExternalModelRequest {
@@ -1609,55 +2445,66 @@ export namespace PutExternalModelResult {
   export const isa = (o: any): o is PutExternalModelResult => __isa(o, "PutExternalModelResult");
 }
 
-export interface PutModelRequest {
-  __type?: "PutModelRequest";
+export interface PutKMSEncryptionKeyRequest {
+  __type?: "PutKMSEncryptionKeyRequest";
   /**
-   * <p>The model description. </p>
+   * <p>The KMS encryption key ARN.</p>
+   */
+  kmsEncryptionKeyArn: string | undefined;
+}
+
+export namespace PutKMSEncryptionKeyRequest {
+  export const filterSensitiveLog = (obj: PutKMSEncryptionKeyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutKMSEncryptionKeyRequest => __isa(o, "PutKMSEncryptionKeyRequest");
+}
+
+export interface PutKMSEncryptionKeyResult {
+  __type?: "PutKMSEncryptionKeyResult";
+}
+
+export namespace PutKMSEncryptionKeyResult {
+  export const filterSensitiveLog = (obj: PutKMSEncryptionKeyResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutKMSEncryptionKeyResult => __isa(o, "PutKMSEncryptionKeyResult");
+}
+
+export interface PutLabelRequest {
+  __type?: "PutLabelRequest";
+  /**
+   * <p></p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The label name.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The label description.</p>
    */
   description?: string;
-
-  /**
-   * <p>The label schema.</p>
-   */
-  labelSchema: LabelSchema | undefined;
-
-  /**
-   * <p>The model ID.</p>
-   */
-  modelId: string | undefined;
-
-  /**
-   * <p>The model type. </p>
-   */
-  modelType: ModelTypeEnum | string | undefined;
-
-  /**
-   * <p>The model input variables.</p>
-   */
-  modelVariables: ModelVariable[] | undefined;
-
-  /**
-   * <p>The training data source location in Amazon S3.  </p>
-   */
-  trainingDataSource: TrainingDataSource | undefined;
 }
 
-export namespace PutModelRequest {
-  export const filterSensitiveLog = (obj: PutModelRequest): any => ({
+export namespace PutLabelRequest {
+  export const filterSensitiveLog = (obj: PutLabelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutModelRequest => __isa(o, "PutModelRequest");
+  export const isa = (o: any): o is PutLabelRequest => __isa(o, "PutLabelRequest");
 }
 
-export interface PutModelResult {
-  __type?: "PutModelResult";
+export interface PutLabelResult {
+  __type?: "PutLabelResult";
 }
 
-export namespace PutModelResult {
-  export const filterSensitiveLog = (obj: PutModelResult): any => ({
+export namespace PutLabelResult {
+  export const filterSensitiveLog = (obj: PutLabelResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutModelResult => __isa(o, "PutModelResult");
+  export const isa = (o: any): o is PutLabelResult => __isa(o, "PutLabelResult");
 }
 
 export interface PutOutcomeRequest {
@@ -1666,6 +2513,11 @@ export interface PutOutcomeRequest {
    * <p>The outcome description.</p>
    */
   description?: string;
+
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The name of the outcome.</p>
@@ -1708,29 +2560,6 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * <p>The role used to invoke external model endpoints.</p>
- */
-export interface Role {
-  __type?: "Role";
-  /**
-   * <p>The role ARN.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The role name.</p>
-   */
-  name: string | undefined;
-}
-
-export namespace Role {
-  export const filterSensitiveLog = (obj: Role): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is Role => __isa(o, "Role");
-}
-
-/**
  * <p>A rule.</p>
  */
 export interface Rule {
@@ -1764,9 +2593,9 @@ export namespace Rule {
 export interface RuleDetail {
   __type?: "RuleDetail";
   /**
-   * <p>The timestamp of when the rule was created.</p>
+   * <p>The rule language.</p>
    */
-  createdTime?: string;
+  language?: Language | string;
 
   /**
    * <p>The rule description.</p>
@@ -1774,29 +2603,9 @@ export interface RuleDetail {
   description?: string;
 
   /**
-   * <p>The detector for which the rule is associated.</p>
+   * <p>The timestamp of when the rule was created.</p>
    */
-  detectorId?: string;
-
-  /**
-   * <p>The rule expression.</p>
-   */
-  expression?: string;
-
-  /**
-   * <p>The rule language.</p>
-   */
-  language?: Language | string;
-
-  /**
-   * <p>Timestamp of the last time the rule was updated.</p>
-   */
-  lastUpdatedTime?: string;
-
-  /**
-   * <p>The rule outcomes.</p>
-   */
-  outcomes?: string[];
+  createdTime?: string;
 
   /**
    * <p>The rule ID.</p>
@@ -1804,16 +2613,124 @@ export interface RuleDetail {
   ruleId?: string;
 
   /**
+   * <p>The rule expression.</p>
+   */
+  expression?: string;
+
+  /**
+   * <p>The detector for which the rule is associated.</p>
+   */
+  detectorId?: string;
+
+  /**
+   * <p>The rule outcomes.</p>
+   */
+  outcomes?: string[];
+
+  /**
+   * <p>The rule ARN.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The rule version.</p>
    */
   ruleVersion?: string;
+
+  /**
+   * <p>Timestamp of the last time the rule was updated.</p>
+   */
+  lastUpdatedTime?: string;
 }
 
 export namespace RuleDetail {
   export const filterSensitiveLog = (obj: RuleDetail): any => ({
     ...obj,
+    ...(obj.expression && { expression: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is RuleDetail => __isa(o, "RuleDetail");
+}
+
+export enum RuleExecutionMode {
+  ALL_MATCHED = "ALL_MATCHED",
+  FIRST_MATCHED = "FIRST_MATCHED",
+}
+
+/**
+ * <p>The rule results.</p>
+ */
+export interface RuleResult {
+  __type?: "RuleResult";
+  /**
+   * <p>The outcomes of the matched rule, based on the rule execution mode.</p>
+   */
+  outcomes?: string[];
+
+  /**
+   * <p>The rule ID that was matched, based on the rule execution mode.</p>
+   */
+  ruleId?: string;
+}
+
+export namespace RuleResult {
+  export const filterSensitiveLog = (obj: RuleResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is RuleResult => __isa(o, "RuleResult");
+}
+
+/**
+ * <p>A key and value pair. </p>
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   * <p>A value assigned to a tag key.</p>
+   */
+  value: string | undefined;
+
+  /**
+   * <p>A tag key.</p>
+   */
+  key: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
+}
+
+export interface TagResourceRequest {
+  __type?: "TagResourceRequest";
+  /**
+   * <p>The resource ARN.</p>
+   */
+  resourceARN: string | undefined;
+
+  /**
+   * <p>The tags to assign to the resource.</p>
+   */
+  tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
+}
+
+export interface TagResourceResult {
+  __type?: "TagResourceResult";
+}
+
+export namespace TagResourceResult {
+  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagResourceResult => __isa(o, "TagResourceResult");
 }
 
 /**
@@ -1833,34 +2750,115 @@ export namespace ThrottlingException {
 }
 
 /**
- * <p>The training data source.</p>
+ * <p>The training data schema.</p>
  */
-export interface TrainingDataSource {
-  __type?: "TrainingDataSource";
+export interface TrainingDataSchema {
+  __type?: "TrainingDataSchema";
   /**
-   * <p>The data access role ARN for the training data source.</p>
+   * <p>The training data schema variables.</p>
    */
-  dataAccessRoleArn: string | undefined;
+  modelVariables: string[] | undefined;
 
   /**
-   * <p>The data location of the training data source.</p>
+   * <p>The label schema.</p>
    */
-  dataLocation: string | undefined;
+  labelSchema: LabelSchema | undefined;
 }
 
-export namespace TrainingDataSource {
-  export const filterSensitiveLog = (obj: TrainingDataSource): any => ({
+export namespace TrainingDataSchema {
+  export const filterSensitiveLog = (obj: TrainingDataSchema): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingDataSource => __isa(o, "TrainingDataSource");
+  export const isa = (o: any): o is TrainingDataSchema => __isa(o, "TrainingDataSchema");
+}
+
+export enum TrainingDataSourceEnum {
+  EXTERNAL_EVENTS = "EXTERNAL_EVENTS",
+}
+
+/**
+ * <p>The training metric details.</p>
+ */
+export interface TrainingMetrics {
+  __type?: "TrainingMetrics";
+  /**
+   * <p>The area under the curve. This summarizes true positive rate (TPR) and false positive rate (FPR) across all possible model score thresholds. A model with no predictive power has an AUC of 0.5, whereas a perfect model has a score of 1.0.</p>
+   */
+  auc?: number;
+
+  /**
+   * <p>The data points details.</p>
+   */
+  metricDataPoints?: MetricDataPoint[];
+}
+
+export namespace TrainingMetrics {
+  export const filterSensitiveLog = (obj: TrainingMetrics): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TrainingMetrics => __isa(o, "TrainingMetrics");
+}
+
+/**
+ * <p>The training result details.</p>
+ */
+export interface TrainingResult {
+  __type?: "TrainingResult";
+  /**
+   * <p>The validation metrics.</p>
+   */
+  dataValidationMetrics?: DataValidationMetrics;
+
+  /**
+   * <p>The training metric details.</p>
+   */
+  trainingMetrics?: TrainingMetrics;
+}
+
+export namespace TrainingResult {
+  export const filterSensitiveLog = (obj: TrainingResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TrainingResult => __isa(o, "TrainingResult");
+}
+
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   * <p>The ARN of the resource from which to remove the tag.</p>
+   */
+  resourceARN: string | undefined;
+
+  /**
+   * <p>The resource ARN.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
+}
+
+export interface UntagResourceResult {
+  __type?: "UntagResourceResult";
+}
+
+export namespace UntagResourceResult {
+  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UntagResourceResult => __isa(o, "UntagResourceResult");
 }
 
 export interface UpdateDetectorVersionMetadataRequest {
   __type?: "UpdateDetectorVersionMetadataRequest";
   /**
-   * <p>The description.</p>
+   * <p>The detector version ID. </p>
    */
-  description: string | undefined;
+  detectorVersionId: string | undefined;
 
   /**
    * <p>The detector ID.</p>
@@ -1868,9 +2866,9 @@ export interface UpdateDetectorVersionMetadataRequest {
   detectorId: string | undefined;
 
   /**
-   * <p>The detector version ID. </p>
+   * <p>The description.</p>
    */
-  detectorVersionId: string | undefined;
+  description: string | undefined;
 }
 
 export namespace UpdateDetectorVersionMetadataRequest {
@@ -1896,24 +2894,9 @@ export namespace UpdateDetectorVersionMetadataResult {
 export interface UpdateDetectorVersionRequest {
   __type?: "UpdateDetectorVersionRequest";
   /**
-   * <p>The detector version description. </p>
-   */
-  description?: string;
-
-  /**
-   * <p>The parent detector ID for the detector version you want to update.</p>
-   */
-  detectorId: string | undefined;
-
-  /**
    * <p>The detector version ID. </p>
    */
   detectorVersionId: string | undefined;
-
-  /**
-   * <p>The Amazon SageMaker model endpoints to include in the detector version.</p>
-   */
-  externalModelEndpoints: string[] | undefined;
 
   /**
    * <p>The model versions to include in the detector version.</p>
@@ -1921,9 +2904,32 @@ export interface UpdateDetectorVersionRequest {
   modelVersions?: ModelVersion[];
 
   /**
+   * <p>The parent detector ID for the detector version you want to update.</p>
+   */
+  detectorId: string | undefined;
+
+  /**
+   * <p>The detector version description. </p>
+   */
+  description?: string;
+
+  /**
    * <p>The rules to include in the detector version.</p>
    */
   rules: Rule[] | undefined;
+
+  /**
+   * <p>The Amazon SageMaker model endpoints to include in the detector version.</p>
+   */
+  externalModelEndpoints: string[] | undefined;
+
+  /**
+   * <p>The rule execution mode to add to the detector.</p>
+   * 	        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
+   * 	        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
+   *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
+   */
+  ruleExecutionMode?: RuleExecutionMode | string;
 }
 
 export namespace UpdateDetectorVersionRequest {
@@ -1952,14 +2958,14 @@ export interface UpdateDetectorVersionStatusRequest {
   detectorId: string | undefined;
 
   /**
-   * <p>The detector version ID. </p>
-   */
-  detectorVersionId: string | undefined;
-
-  /**
    * <p>The new status.</p>
    */
   status: DetectorVersionStatus | string | undefined;
+
+  /**
+   * <p>The detector version ID. </p>
+   */
+  detectorVersionId: string | undefined;
 }
 
 export namespace UpdateDetectorVersionStatusRequest {
@@ -1981,12 +2987,53 @@ export namespace UpdateDetectorVersionStatusResult {
   export const isa = (o: any): o is UpdateDetectorVersionStatusResult => __isa(o, "UpdateDetectorVersionStatusResult");
 }
 
+export interface UpdateModelRequest {
+  __type?: "UpdateModelRequest";
+  /**
+   * <p>The model type.</p>
+   */
+  modelType: ModelTypeEnum | string | undefined;
+
+  /**
+   * <p>The model ID.</p>
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The new model description.</p>
+   */
+  description?: string;
+}
+
+export namespace UpdateModelRequest {
+  export const filterSensitiveLog = (obj: UpdateModelRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateModelRequest => __isa(o, "UpdateModelRequest");
+}
+
+export interface UpdateModelResult {
+  __type?: "UpdateModelResult";
+}
+
+export namespace UpdateModelResult {
+  export const filterSensitiveLog = (obj: UpdateModelResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateModelResult => __isa(o, "UpdateModelResult");
+}
+
 export interface UpdateModelVersionRequest {
   __type?: "UpdateModelVersionRequest";
   /**
-   * <p>The model description.</p>
+   * <p>A collection of key and value pairs.</p>
    */
-  description: string | undefined;
+  tags?: Tag[];
+
+  /**
+   * <p>The major version number.</p>
+   */
+  majorVersionNumber: string | undefined;
 
   /**
    * <p>The model ID.</p>
@@ -1999,14 +3046,9 @@ export interface UpdateModelVersionRequest {
   modelType: ModelTypeEnum | string | undefined;
 
   /**
-   * <p>The model version.</p>
+   * <p>The event details.</p>
    */
-  modelVersionNumber: string | undefined;
-
-  /**
-   * <p>The new model status.</p>
-   */
-  status: ModelVersionStatus | string | undefined;
+  externalEventsDetail?: ExternalEventsDetail;
 }
 
 export namespace UpdateModelVersionRequest {
@@ -2018,6 +3060,25 @@ export namespace UpdateModelVersionRequest {
 
 export interface UpdateModelVersionResult {
   __type?: "UpdateModelVersionResult";
+  /**
+   * <p>The model type.</p>
+   */
+  modelType?: ModelTypeEnum | string;
+
+  /**
+   * <p>The status of the updated model version.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The model ID.</p>
+   */
+  modelId?: string;
+
+  /**
+   * <p>The model version number of the model version updated.</p>
+   */
+  modelVersionNumber?: string;
 }
 
 export namespace UpdateModelVersionResult {
@@ -2027,17 +3088,58 @@ export namespace UpdateModelVersionResult {
   export const isa = (o: any): o is UpdateModelVersionResult => __isa(o, "UpdateModelVersionResult");
 }
 
+export interface UpdateModelVersionStatusRequest {
+  __type?: "UpdateModelVersionStatusRequest";
+  /**
+   * <p>The model ID of the model version to update.</p>
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The model version number.</p>
+   */
+  modelVersionNumber: string | undefined;
+
+  /**
+   * <p>The model type.</p>
+   */
+  modelType: ModelTypeEnum | string | undefined;
+
+  /**
+   * <p>The model version status.</p>
+   */
+  status: ModelVersionStatus | string | undefined;
+}
+
+export namespace UpdateModelVersionStatusRequest {
+  export const filterSensitiveLog = (obj: UpdateModelVersionStatusRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateModelVersionStatusRequest => __isa(o, "UpdateModelVersionStatusRequest");
+}
+
+export interface UpdateModelVersionStatusResult {
+  __type?: "UpdateModelVersionStatusResult";
+}
+
+export namespace UpdateModelVersionStatusResult {
+  export const filterSensitiveLog = (obj: UpdateModelVersionStatusResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateModelVersionStatusResult => __isa(o, "UpdateModelVersionStatusResult");
+}
+
 export interface UpdateRuleMetadataRequest {
   __type?: "UpdateRuleMetadataRequest";
-  /**
-   * <p>The rule description.</p>
-   */
-  description: string | undefined;
-
   /**
    * <p>The rule to update.</p>
    */
   rule: Rule | undefined;
+
+  /**
+   * <p>The rule description.</p>
+   */
+  description: string | undefined;
 }
 
 export namespace UpdateRuleMetadataRequest {
@@ -2061,14 +3163,9 @@ export namespace UpdateRuleMetadataResult {
 export interface UpdateRuleVersionRequest {
   __type?: "UpdateRuleVersionRequest";
   /**
-   * <p>The description.</p>
+   * <p>The tags to assign to the rule version.</p>
    */
-  description?: string;
-
-  /**
-   * <p>The rule expression.</p>
-   */
-  expression: string | undefined;
+  tags?: Tag[];
 
   /**
    * <p>The language.</p>
@@ -2081,6 +3178,16 @@ export interface UpdateRuleVersionRequest {
   outcomes: string[] | undefined;
 
   /**
+   * <p>The rule expression.</p>
+   */
+  expression: string | undefined;
+
+  /**
+   * <p>The description.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The rule to update.</p>
    */
   rule: Rule | undefined;
@@ -2089,6 +3196,7 @@ export interface UpdateRuleVersionRequest {
 export namespace UpdateRuleVersionRequest {
   export const filterSensitiveLog = (obj: UpdateRuleVersionRequest): any => ({
     ...obj,
+    ...(obj.expression && { expression: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is UpdateRuleVersionRequest => __isa(o, "UpdateRuleVersionRequest");
 }
@@ -2111,9 +3219,9 @@ export namespace UpdateRuleVersionResult {
 export interface UpdateVariableRequest {
   __type?: "UpdateVariableRequest";
   /**
-   * <p>The new default value of the variable.</p>
+   * <p>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
    */
-  defaultValue?: string;
+  variableType?: string;
 
   /**
    * <p>The new description.</p>
@@ -2126,9 +3234,9 @@ export interface UpdateVariableRequest {
   name: string | undefined;
 
   /**
-   * <p>The variable type.</p>
+   * <p>The new default value of the variable.</p>
    */
-  variableType?: string;
+  defaultValue?: string;
 }
 
 export namespace UpdateVariableRequest {
@@ -2171,29 +3279,24 @@ export namespace ValidationException {
 export interface Variable {
   __type?: "Variable";
   /**
-   * <p>The time when the variable was created.</p>
-   */
-  createdTime?: string;
-
-  /**
-   * <p>The data source of the variable.</p>
-   */
-  dataSource?: DataSource | string;
-
-  /**
-   * <p>The data type of the variable.</p>
-   */
-  dataType?: DataType | string;
-
-  /**
    * <p>The default value of the variable.</p>
    */
   defaultValue?: string;
 
   /**
-   * <p>The description of the variable. </p>
+   * <p>The data type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
    */
-  description?: string;
+  dataType?: DataType | string;
+
+  /**
+   * <p>The ARN of the variable.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The data source of the variable.</p>
+   */
+  dataSource?: DataSource | string;
 
   /**
    * <p>The time when variable was last updated.</p>
@@ -2207,8 +3310,20 @@ export interface Variable {
 
   /**
    * <p>The variable type of the variable.</p>
+   *          <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT | SHIPPING_ZIP | USERAGENT</code>
+   *          </p>
    */
   variableType?: string;
+
+  /**
+   * <p>The time when the variable was created.</p>
+   */
+  createdTime?: string;
+
+  /**
+   * <p>The description of the variable. </p>
+   */
+  description?: string;
 }
 
 export namespace Variable {
@@ -2219,39 +3334,41 @@ export namespace Variable {
 }
 
 /**
- * <p>The variable entry in a list.</p>
+ * <p>A variable in the list of variables for the batch create variable request.</p>
  */
 export interface VariableEntry {
   __type?: "VariableEntry";
   /**
-   * <p>The data source of the variable entry.</p>
-   */
-  dataSource?: string;
-
-  /**
-   * <p>The data type of the variable entry.</p>
-   */
-  dataType?: string;
-
-  /**
-   * <p>The default value of the variable entry.</p>
-   */
-  defaultValue?: string;
-
-  /**
-   * <p>The description of the variable entry.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The name of the variable entry.</p>
+   * <p>The name of the variable.</p>
    */
   name?: string;
 
   /**
-   * <p>The type of the variable entry.</p>
+   * <p>The description of the variable.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The data source of the variable.</p>
+   */
+  dataSource?: string;
+
+  /**
+   * <p>The type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
+   *          <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT | SHIPPING_ZIP | USERAGENT</code>
+   *          </p>
    */
   variableType?: string;
+
+  /**
+   * <p>The default value of the variable.</p>
+   */
+  defaultValue?: string;
+
+  /**
+   * <p>The data type of the variable.</p>
+   */
+  dataType?: string;
 }
 
 export namespace VariableEntry {

@@ -77,6 +77,11 @@ import {
   DescribeWorkspaceDirectoriesCommandOutput,
 } from "./commands/DescribeWorkspaceDirectoriesCommand";
 import {
+  DescribeWorkspaceImagePermissionsCommand,
+  DescribeWorkspaceImagePermissionsCommandInput,
+  DescribeWorkspaceImagePermissionsCommandOutput,
+} from "./commands/DescribeWorkspaceImagePermissionsCommand";
+import {
   DescribeWorkspaceImagesCommand,
   DescribeWorkspaceImagesCommandInput,
   DescribeWorkspaceImagesCommandOutput,
@@ -196,6 +201,11 @@ import {
   UpdateRulesOfIpGroupCommandInput,
   UpdateRulesOfIpGroupCommandOutput,
 } from "./commands/UpdateRulesOfIpGroupCommand";
+import {
+  UpdateWorkspaceImagePermissionCommand,
+  UpdateWorkspaceImagePermissionCommandInput,
+  UpdateWorkspaceImagePermissionCommandOutput,
+} from "./commands/UpdateWorkspaceImagePermissionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -463,7 +473,7 @@ export class WorkSpaces extends WorkSpacesClient {
 
   /**
    * <p>Deletes the specified image from your account. To delete an image, you must first delete
-   *          any bundles that are associated with the image and un-share the image if it is shared with
+   *          any bundles that are associated with the image and unshare the image if it is shared with
    *          other accounts. </p>
    */
   public deleteWorkspaceImage(
@@ -744,6 +754,39 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: DescribeWorkspaceDirectoriesCommandOutput) => void
   ): Promise<DescribeWorkspaceDirectoriesCommandOutput> | void {
     const command = new DescribeWorkspaceDirectoriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the permissions that the owner of an image has granted to other
+   *          AWS accounts for an image.</p>
+   */
+  public describeWorkspaceImagePermissions(
+    args: DescribeWorkspaceImagePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkspaceImagePermissionsCommandOutput>;
+  public describeWorkspaceImagePermissions(
+    args: DescribeWorkspaceImagePermissionsCommandInput,
+    cb: (err: any, data?: DescribeWorkspaceImagePermissionsCommandOutput) => void
+  ): void;
+  public describeWorkspaceImagePermissions(
+    args: DescribeWorkspaceImagePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkspaceImagePermissionsCommandOutput) => void
+  ): void;
+  public describeWorkspaceImagePermissions(
+    args: DescribeWorkspaceImagePermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkspaceImagePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorkspaceImagePermissionsCommandOutput) => void
+  ): Promise<DescribeWorkspaceImagePermissionsCommandOutput> | void {
+    const command = new DescribeWorkspaceImagePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1192,7 +1235,11 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Modifies the specified WorkSpace properties.</p>
+   * <p>Modifies the specified WorkSpace properties. For important information about how
+   *          to modify the size of the root and user volumes, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">
+   *             Modify a WorkSpace</a>.
+   *       </p>
    */
   public modifyWorkspaceProperties(
     args: ModifyWorkspacePropertiesCommandInput,
@@ -1298,7 +1345,7 @@ export class WorkSpaces extends WorkSpacesClient {
   /**
    * <p>Rebuilds the specified WorkSpace.</p>
    *          <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,
-   *             <code>ERROR</code>, or <code>UNHEALTHY</code>.</p>
+   *             <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or <code>REBOOTING</code>.</p>
    *          <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss
    *          of data. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html">Rebuild a
    *          WorkSpace</a>.</p>
@@ -1373,7 +1420,7 @@ export class WorkSpaces extends WorkSpacesClient {
   /**
    * <p>Restores the specified WorkSpace to its last known healthy state.</p>
    *          <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>,
-   *             <code>ERROR</code>, or <code>UNHEALTHY</code>.</p>
+   *             <code>ERROR</code>, <code>UNHEALTHY</code>, or <code>STOPPED</code>.</p>
    *          <p>Restoring a WorkSpace is a potentially destructive action that can result in the loss of
    *          data. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/restore-workspace.html">Restore a
    *          WorkSpace</a>.</p>
@@ -1571,6 +1618,53 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: UpdateRulesOfIpGroupCommandOutput) => void
   ): Promise<UpdateRulesOfIpGroupCommandOutput> | void {
     const command = new UpdateRulesOfIpGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Shares or unshares an image with one account by specifying whether that account has permission to copy
+   *          the image. If the copy image permission is granted, the image is shared with that account. If the copy image
+   *          permission is revoked, the image is unshared with the account.</p>
+   *
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>To delete an image that has been shared, you must unshare the image before you delete it.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Sharing Bring Your Own License (BYOL) images across AWS accounts isn't supported at
+   *                   this time in the AWS GovCloud (US-West) Region. To share BYOL images across accounts in
+   *                   the AWS GovCloud (US-West) Region, contact AWS Support.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public updateWorkspaceImagePermission(
+    args: UpdateWorkspaceImagePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspaceImagePermissionCommandOutput>;
+  public updateWorkspaceImagePermission(
+    args: UpdateWorkspaceImagePermissionCommandInput,
+    cb: (err: any, data?: UpdateWorkspaceImagePermissionCommandOutput) => void
+  ): void;
+  public updateWorkspaceImagePermission(
+    args: UpdateWorkspaceImagePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspaceImagePermissionCommandOutput) => void
+  ): void;
+  public updateWorkspaceImagePermission(
+    args: UpdateWorkspaceImagePermissionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkspaceImagePermissionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateWorkspaceImagePermissionCommandOutput) => void
+  ): Promise<UpdateWorkspaceImagePermissionCommandOutput> | void {
+    const command = new UpdateWorkspaceImagePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

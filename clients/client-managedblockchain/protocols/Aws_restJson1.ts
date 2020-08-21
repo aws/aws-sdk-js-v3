@@ -15,6 +15,8 @@ import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListN
 import { ListProposalVotesCommandInput, ListProposalVotesCommandOutput } from "../commands/ListProposalVotesCommand";
 import { ListProposalsCommandInput, ListProposalsCommandOutput } from "../commands/ListProposalsCommand";
 import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "../commands/RejectInvitationCommand";
+import { UpdateMemberCommandInput, UpdateMemberCommandOutput } from "../commands/UpdateMemberCommand";
+import { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "../commands/UpdateNodeCommand";
 import { VoteOnProposalCommandInput, VoteOnProposalCommandOutput } from "../commands/VoteOnProposalCommand";
 import {
   AccessDeniedException,
@@ -24,12 +26,16 @@ import {
   InvalidRequestException,
   Invitation,
   InviteAction,
+  LogConfiguration,
+  LogConfigurations,
   Member,
   MemberConfiguration,
   MemberFabricAttributes,
   MemberFabricConfiguration,
+  MemberFabricLogPublishingConfiguration,
   MemberFrameworkAttributes,
   MemberFrameworkConfiguration,
+  MemberLogPublishingConfiguration,
   MemberSummary,
   Network,
   NetworkFabricAttributes,
@@ -40,7 +46,9 @@ import {
   Node,
   NodeConfiguration,
   NodeFabricAttributes,
+  NodeFabricLogPublishingConfiguration,
   NodeFrameworkAttributes,
+  NodeLogPublishingConfiguration,
   NodeSummary,
   Proposal,
   ProposalActions,
@@ -233,15 +241,6 @@ export const serializeAws_restJson1DeleteMemberCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
-  }
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -250,6 +249,15 @@ export const serializeAws_restJson1DeleteMemberCommand = async (
     resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
+  }
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -272,15 +280,6 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
-  }
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -298,6 +297,15 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
     resolvedPath = resolvedPath.replace("{NodeId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NodeId.");
+  }
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -389,6 +397,15 @@ export const serializeAws_restJson1GetNodeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
+  if (input.NodeId !== undefined) {
+    const labelValue: string = input.NodeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: NodeId.");
+    }
+    resolvedPath = resolvedPath.replace("{NodeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: NodeId.");
+  }
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
     if (labelValue.length <= 0) {
@@ -406,15 +423,6 @@ export const serializeAws_restJson1GetNodeCommand = async (
     resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
-  }
-  if (input.NodeId !== undefined) {
-    const labelValue: string = input.NodeId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: NodeId.");
-    }
-    resolvedPath = resolvedPath.replace("{NodeId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: NodeId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -437,15 +445,6 @@ export const serializeAws_restJson1GetProposalCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/proposals/{ProposalId}";
-  if (input.NetworkId !== undefined) {
-    const labelValue: string = input.NetworkId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: NetworkId.");
-    }
-    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: NetworkId.");
-  }
   if (input.ProposalId !== undefined) {
     const labelValue: string = input.ProposalId;
     if (labelValue.length <= 0) {
@@ -454,6 +453,15 @@ export const serializeAws_restJson1GetProposalCommand = async (
     resolvedPath = resolvedPath.replace("{ProposalId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ProposalId.");
+  }
+  if (input.NetworkId !== undefined) {
+    const labelValue: string = input.NetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -512,10 +520,10 @@ export const serializeAws_restJson1ListMembersCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   const query: any = {
-    ...(input.IsOwned !== undefined && { isOwned: input.IsOwned.toString() }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.Name !== undefined && { name: input.Name }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.IsOwned !== undefined && { isOwned: input.IsOwned.toString() }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.Status !== undefined && { status: input.Status }),
   };
   let body: any;
@@ -541,11 +549,11 @@ export const serializeAws_restJson1ListNetworksCommand = async (
   };
   let resolvedPath = "/networks";
   const query: any = {
-    ...(input.Framework !== undefined && { framework: input.Framework }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Status !== undefined && { status: input.Status }),
+    ...(input.Framework !== undefined && { framework: input.Framework }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -588,9 +596,9 @@ export const serializeAws_restJson1ListNodesCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Status !== undefined && { status: input.Status }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -624,8 +632,8 @@ export const serializeAws_restJson1ListProposalsCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -668,8 +676,8 @@ export const serializeAws_restJson1ListProposalVotesCommand = async (
     throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -709,6 +717,109 @@ export const serializeAws_restJson1RejectInvitationCommand = async (
     hostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateMemberCommand = async (
+  input: UpdateMemberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
+  if (input.NetworkId !== undefined) {
+    const labelValue: string = input.NetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: NetworkId.");
+  }
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LogPublishingConfiguration !== undefined && {
+      LogPublishingConfiguration: serializeAws_restJson1MemberLogPublishingConfiguration(
+        input.LogPublishingConfiguration,
+        context
+      ),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateNodeCommand = async (
+  input: UpdateNodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
+  if (input.NodeId !== undefined) {
+    const labelValue: string = input.NodeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: NodeId.");
+    }
+    resolvedPath = resolvedPath.replace("{NodeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: NodeId.");
+  }
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
+  }
+  if (input.NetworkId !== undefined) {
+    const labelValue: string = input.NetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: NetworkId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LogPublishingConfiguration !== undefined && {
+      LogPublishingConfiguration: serializeAws_restJson1NodeLogPublishingConfiguration(
+        input.LogPublishingConfiguration,
+        context
+      ),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
     headers,
     path: resolvedPath,
     body,
@@ -2334,6 +2445,174 @@ const deserializeAws_restJson1RejectInvitationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateMemberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMemberCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateMemberCommandError(output, context);
+  }
+  const contents: UpdateMemberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateMemberOutput",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateMemberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMemberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchain#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.managedblockchain#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchain#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateNodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNodeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateNodeCommandError(output, context);
+  }
+  const contents: UpdateNodeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateNodeOutput",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateNodeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNodeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchain#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceErrorException":
+    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.managedblockchain#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchain#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1VoteOnProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2588,11 +2867,31 @@ const serializeAws_restJson1InviteActionList = (input: InviteAction[], context: 
   return input.map((entry) => serializeAws_restJson1InviteAction(entry, context));
 };
 
+const serializeAws_restJson1LogConfiguration = (input: LogConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+  };
+};
+
+const serializeAws_restJson1LogConfigurations = (input: LogConfigurations, context: __SerdeContext): any => {
+  return {
+    ...(input.Cloudwatch !== undefined && {
+      Cloudwatch: serializeAws_restJson1LogConfiguration(input.Cloudwatch, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1MemberConfiguration = (input: MemberConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.FrameworkConfiguration !== undefined && {
       FrameworkConfiguration: serializeAws_restJson1MemberFrameworkConfiguration(input.FrameworkConfiguration, context),
+    }),
+    ...(input.LogPublishingConfiguration !== undefined && {
+      LogPublishingConfiguration: serializeAws_restJson1MemberLogPublishingConfiguration(
+        input.LogPublishingConfiguration,
+        context
+      ),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
@@ -2608,6 +2907,15 @@ const serializeAws_restJson1MemberFabricConfiguration = (
   };
 };
 
+const serializeAws_restJson1MemberFabricLogPublishingConfiguration = (
+  input: MemberFabricLogPublishingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CaLogs !== undefined && { CaLogs: serializeAws_restJson1LogConfigurations(input.CaLogs, context) }),
+  };
+};
+
 const serializeAws_restJson1MemberFrameworkConfiguration = (
   input: MemberFrameworkConfiguration,
   context: __SerdeContext
@@ -2615,6 +2923,17 @@ const serializeAws_restJson1MemberFrameworkConfiguration = (
   return {
     ...(input.Fabric !== undefined && {
       Fabric: serializeAws_restJson1MemberFabricConfiguration(input.Fabric, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1MemberLogPublishingConfiguration = (
+  input: MemberLogPublishingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Fabric !== undefined && {
+      Fabric: serializeAws_restJson1MemberFabricLogPublishingConfiguration(input.Fabric, context),
     }),
   };
 };
@@ -2643,6 +2962,35 @@ const serializeAws_restJson1NodeConfiguration = (input: NodeConfiguration, conte
   return {
     ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
     ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
+    ...(input.LogPublishingConfiguration !== undefined && {
+      LogPublishingConfiguration: serializeAws_restJson1NodeLogPublishingConfiguration(
+        input.LogPublishingConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1NodeFabricLogPublishingConfiguration = (
+  input: NodeFabricLogPublishingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ChaincodeLogs !== undefined && {
+      ChaincodeLogs: serializeAws_restJson1LogConfigurations(input.ChaincodeLogs, context),
+    }),
+    ...(input.PeerLogs !== undefined && { PeerLogs: serializeAws_restJson1LogConfigurations(input.PeerLogs, context) }),
+  };
+};
+
+const serializeAws_restJson1NodeLogPublishingConfiguration = (
+  input: NodeLogPublishingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Fabric !== undefined && {
+      Fabric: serializeAws_restJson1NodeFabricLogPublishingConfiguration(input.Fabric, context),
+    }),
   };
 };
 
@@ -2727,6 +3075,23 @@ const deserializeAws_restJson1InviteActionList = (output: any, context: __SerdeC
   return (output || []).map((entry: any) => deserializeAws_restJson1InviteAction(entry, context));
 };
 
+const deserializeAws_restJson1LogConfiguration = (output: any, context: __SerdeContext): LogConfiguration => {
+  return {
+    __type: "LogConfiguration",
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LogConfigurations = (output: any, context: __SerdeContext): LogConfigurations => {
+  return {
+    __type: "LogConfigurations",
+    Cloudwatch:
+      output.Cloudwatch !== undefined && output.Cloudwatch !== null
+        ? deserializeAws_restJson1LogConfiguration(output.Cloudwatch, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
   return {
     __type: "Member",
@@ -2738,6 +3103,10 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
         ? deserializeAws_restJson1MemberFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    LogPublishingConfiguration:
+      output.LogPublishingConfiguration !== undefined && output.LogPublishingConfiguration !== null
+        ? deserializeAws_restJson1MemberLogPublishingConfiguration(output.LogPublishingConfiguration, context)
+        : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NetworkId: output.NetworkId !== undefined && output.NetworkId !== null ? output.NetworkId : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -2756,6 +3125,19 @@ const deserializeAws_restJson1MemberFabricAttributes = (
   } as any;
 };
 
+const deserializeAws_restJson1MemberFabricLogPublishingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MemberFabricLogPublishingConfiguration => {
+  return {
+    __type: "MemberFabricLogPublishingConfiguration",
+    CaLogs:
+      output.CaLogs !== undefined && output.CaLogs !== null
+        ? deserializeAws_restJson1LogConfigurations(output.CaLogs, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1MemberFrameworkAttributes = (
   output: any,
   context: __SerdeContext
@@ -2765,6 +3147,19 @@ const deserializeAws_restJson1MemberFrameworkAttributes = (
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
         ? deserializeAws_restJson1MemberFabricAttributes(output.Fabric, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MemberLogPublishingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MemberLogPublishingConfiguration => {
+  return {
+    __type: "MemberLogPublishingConfiguration",
+    Fabric:
+      output.Fabric !== undefined && output.Fabric !== null
+        ? deserializeAws_restJson1MemberFabricLogPublishingConfiguration(output.Fabric, context)
         : undefined,
   } as any;
 };
@@ -2872,6 +3267,10 @@ const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Nod
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
+    LogPublishingConfiguration:
+      output.LogPublishingConfiguration !== undefined && output.LogPublishingConfiguration !== null
+        ? deserializeAws_restJson1NodeLogPublishingConfiguration(output.LogPublishingConfiguration, context)
+        : undefined,
     MemberId: output.MemberId !== undefined && output.MemberId !== null ? output.MemberId : undefined,
     NetworkId: output.NetworkId !== undefined && output.NetworkId !== null ? output.NetworkId : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -2889,6 +3288,23 @@ const deserializeAws_restJson1NodeFabricAttributes = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1NodeFabricLogPublishingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NodeFabricLogPublishingConfiguration => {
+  return {
+    __type: "NodeFabricLogPublishingConfiguration",
+    ChaincodeLogs:
+      output.ChaincodeLogs !== undefined && output.ChaincodeLogs !== null
+        ? deserializeAws_restJson1LogConfigurations(output.ChaincodeLogs, context)
+        : undefined,
+    PeerLogs:
+      output.PeerLogs !== undefined && output.PeerLogs !== null
+        ? deserializeAws_restJson1LogConfigurations(output.PeerLogs, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1NodeFrameworkAttributes = (
   output: any,
   context: __SerdeContext
@@ -2898,6 +3314,19 @@ const deserializeAws_restJson1NodeFrameworkAttributes = (
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
         ? deserializeAws_restJson1NodeFabricAttributes(output.Fabric, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NodeLogPublishingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NodeLogPublishingConfiguration => {
+  return {
+    __type: "NodeLogPublishingConfiguration",
+    Fabric:
+      output.Fabric !== undefined && output.Fabric !== null
+        ? deserializeAws_restJson1NodeFabricLogPublishingConfiguration(output.Fabric, context)
         : undefined,
   } as any;
 };

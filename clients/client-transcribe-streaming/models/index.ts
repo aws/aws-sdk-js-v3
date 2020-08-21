@@ -132,9 +132,11 @@ export namespace InternalFailureException {
 export interface Item {
   __type?: "Item";
   /**
-   * <p>The word or punctuation that was recognized in the input audio.</p>
+   * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that
+   *       was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item was
+   *       interpreted as a pause in the input audio.</p>
    */
-  Content?: string;
+  Type?: ItemType | string;
 
   /**
    * <p>The offset from the beginning of the audio stream to the end of the audio that resulted in
@@ -143,17 +145,22 @@ export interface Item {
   EndTime?: number;
 
   /**
+   * <p>The word or punctuation that was recognized in the input audio.</p>
+   */
+  Content?: string;
+
+  /**
    * <p>The offset from the beginning of the audio stream to the beginning of the audio that
    *       resulted in the item.</p>
    */
   StartTime?: number;
 
   /**
-   * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that
-   *       was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item was
-   *       interpreted as a pause in the input audio.</p>
+   * <p>Indicates whether a word in the item matches a word in the vocabulary filter you've chosen
+   *       for your real-time stream. If <code>true</code> then a word in the item matches your
+   *       vocabulary filter.</p>
    */
-  Type?: ItemType | string;
+  VocabularyFilterMatch?: boolean;
 }
 
 export namespace Item {
@@ -206,18 +213,6 @@ export enum MediaEncoding {
 export interface Result {
   __type?: "Result";
   /**
-   * <p>A list of possible transcriptions for the audio. Each alternative typically contains one
-   *         <code>item</code> that contains the result of the transcription.</p>
-   */
-  Alternatives?: Alternative[];
-
-  /**
-   * <p>The offset in seconds from the beginning of the audio stream to the end of the
-   *       result.</p>
-   */
-  EndTime?: number;
-
-  /**
    * <p>Amazon Transcribe divides the incoming audio stream into segments at natural points in the audio.
    *       Transcription results are returned based on these segments. </p>
    *          <p>The <code>IsPartial</code> field is <code>true</code> to indicate that Amazon Transcribe has
@@ -227,15 +222,27 @@ export interface Result {
   IsPartial?: boolean;
 
   /**
-   * <p>A unique identifier for the result. </p>
+   * <p>The offset in seconds from the beginning of the audio stream to the end of the
+   *       result.</p>
    */
-  ResultId?: string;
+  EndTime?: number;
 
   /**
    * <p>The offset in seconds from the beginning of the audio stream to the beginning of the
    *       result.</p>
    */
   StartTime?: number;
+
+  /**
+   * <p>A list of possible transcriptions for the audio. Each alternative typically contains one
+   *         <code>item</code> that contains the result of the transcription.</p>
+   */
+  Alternatives?: Alternative[];
+
+  /**
+   * <p>A unique identifier for the result. </p>
+   */
+  ResultId?: string;
 }
 
 export namespace Result {
@@ -245,18 +252,29 @@ export namespace Result {
   export const isa = (o: any): o is Result => __isa(o, "Result");
 }
 
+/**
+ * <p>Service is currently unavailable. Try your request later.</p>
+ */
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
+}
+
 export interface StartStreamTranscriptionRequest {
   __type?: "StartStreamTranscriptionRequest";
   /**
-   * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
-   *       frame.</p>
+   * <p>The name of the vocabulary filter you've created that is unique to your AWS accountf.
+   *       Provide the name in this field to successfully use it in a stream.</p>
    */
-  AudioStream: AsyncIterable<AudioStream> | undefined;
-
-  /**
-   * <p>Indicates the source language used in the input audio stream.</p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
+  VocabularyFilterName?: string;
 
   /**
    * <p>The encoding used for the input audio. </p>
@@ -264,10 +282,15 @@ export interface StartStreamTranscriptionRequest {
   MediaEncoding: MediaEncoding | string | undefined;
 
   /**
-   * <p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low
-   *       quality audio and 16000 Hz for high quality audio.</p>
+   * <p>Indicates the source language used in the input audio stream.</p>
    */
-  MediaSampleRateHertz: number | undefined;
+  LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
+   *       frame.</p>
+   */
+  AudioStream: AsyncIterable<AudioStream> | undefined;
 
   /**
    * <p>A identifier for the transcription session. Use this parameter when you want to retry a
@@ -280,6 +303,22 @@ export interface StartStreamTranscriptionRequest {
    * <p>The name of the vocabulary to use when processing the transcription job.</p>
    */
   VocabularyName?: string;
+
+  /**
+   * <p>The manner in which you use your vocabulary filter to filter words in your transcript.
+   *         <code>Remove</code> removes filtered words from your transcription results.
+   *         <code>Mask</code> masks those words with a <code>***</code> in your transcription results.
+   *         <code>Tag</code> keeps the filtered words in your transcription results and tags them. The
+   *       tag appears as <code>VocabularyFilterMatch</code> equal to <code>True</code>
+   *          </p>
+   */
+  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+
+  /**
+   * <p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low
+   *       quality audio and 16000 Hz for high quality audio.</p>
+   */
+  MediaSampleRateHertz: number | undefined;
 }
 
 export namespace StartStreamTranscriptionRequest {
@@ -292,9 +331,9 @@ export namespace StartStreamTranscriptionRequest {
 export interface StartStreamTranscriptionResponse {
   __type?: "StartStreamTranscriptionResponse";
   /**
-   * <p>The language code for the input audio stream.</p>
+   * <p>The name of the vocabulary filter used in your real-time stream.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  VocabularyFilterName?: string;
 
   /**
    * <p>The encoding used for the input audio stream.</p>
@@ -302,15 +341,30 @@ export interface StartStreamTranscriptionResponse {
   MediaEncoding?: MediaEncoding | string;
 
   /**
-   * <p>The sample rate for the input audio stream. Use 8000 Hz for low quality audio and 16000 Hz
-   *       for high quality audio.</p>
+   * <p>The name of the vocabulary used when processing the stream.</p>
    */
-  MediaSampleRateHertz?: number;
+  VocabularyName?: string;
+
+  /**
+   * <p>The vocabulary filtering method used in the real-time stream.</p>
+   */
+  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+
+  /**
+   * <p>The language code for the input audio stream.</p>
+   */
+  LanguageCode?: LanguageCode | string;
 
   /**
    * <p>An identifier for the streaming transcription.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>The sample rate for the input audio stream. Use 8000 Hz for low quality audio and 16000 Hz
+   *       for high quality audio.</p>
+   */
+  MediaSampleRateHertz?: number;
 
   /**
    * <p>An identifier for a specific transcription session.</p>
@@ -321,11 +375,6 @@ export interface StartStreamTranscriptionResponse {
    * <p>Represents the stream of transcription events from Amazon Transcribe to your application.</p>
    */
   TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
-
-  /**
-   * <p>The name of the vocabulary used when processing the job.</p>
-   */
-  VocabularyName?: string;
 }
 
 export namespace StartStreamTranscriptionResponse {
@@ -383,6 +432,7 @@ export type TranscriptResultStream =
   | TranscriptResultStream.ConflictExceptionMember
   | TranscriptResultStream.InternalFailureExceptionMember
   | TranscriptResultStream.LimitExceededExceptionMember
+  | TranscriptResultStream.ServiceUnavailableExceptionMember
   | TranscriptResultStream.TranscriptEventMember
   | TranscriptResultStream.$UnknownMember;
 
@@ -391,15 +441,43 @@ export namespace TranscriptResultStream {
     __type?: "TranscriptResultStream";
   }
   /**
+   * <p>A portion of the transcription of the audio stream. Events are sent periodically from
+   *       Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio
+   *       stream, or it can be the entire transcription of that portion of the audio stream.
+   *       </p>
+   */
+  export interface TranscriptEventMember extends $Base {
+    TranscriptEvent: TranscriptEvent;
+    BadRequestException?: never;
+    InternalFailureException?: never;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    LimitExceededException?: never;
+    $unknown?: never;
+  }
+  /**
    * <p>A client error occurred when the stream was created. Check the parameters of the request
    *       and try your request again.</p>
    */
   export interface BadRequestExceptionMember extends $Base {
-    BadRequestException: BadRequestException;
-    ConflictException?: never;
-    InternalFailureException?: never;
-    LimitExceededException?: never;
     TranscriptEvent?: never;
+    BadRequestException: BadRequestException;
+    InternalFailureException?: never;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    LimitExceededException?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
+   */
+  export interface InternalFailureExceptionMember extends $Base {
+    TranscriptEvent?: never;
+    BadRequestException?: never;
+    InternalFailureException: InternalFailureException;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    LimitExceededException?: never;
     $unknown?: never;
   }
   /**
@@ -407,22 +485,24 @@ export namespace TranscriptResultStream {
    *       terminated.</p>
    */
   export interface ConflictExceptionMember extends $Base {
-    BadRequestException?: never;
-    ConflictException: ConflictException;
-    InternalFailureException?: never;
-    LimitExceededException?: never;
     TranscriptEvent?: never;
+    BadRequestException?: never;
+    InternalFailureException?: never;
+    ConflictException: ConflictException;
+    ServiceUnavailableException?: never;
+    LimitExceededException?: never;
     $unknown?: never;
   }
   /**
-   * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
+   * <p>Service is currently unavailable. Try your request later.</p>
    */
-  export interface InternalFailureExceptionMember extends $Base {
-    BadRequestException?: never;
-    ConflictException?: never;
-    InternalFailureException: InternalFailureException;
-    LimitExceededException?: never;
+  export interface ServiceUnavailableExceptionMember extends $Base {
     TranscriptEvent?: never;
+    BadRequestException?: never;
+    InternalFailureException?: never;
+    ConflictException?: never;
+    ServiceUnavailableException: ServiceUnavailableException;
+    LimitExceededException?: never;
     $unknown?: never;
   }
   /**
@@ -430,50 +510,47 @@ export namespace TranscriptResultStream {
    *       Break your audio stream into smaller chunks and try your request again.</p>
    */
   export interface LimitExceededExceptionMember extends $Base {
-    BadRequestException?: never;
-    ConflictException?: never;
-    InternalFailureException?: never;
-    LimitExceededException: LimitExceededException;
     TranscriptEvent?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>A portion of the transcription of the audio stream. Events are sent periodically from
-   *       Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio
-   *       stream, or it can be the entire transcription of that portion of the audio stream.
-   *       </p>
-   */
-  export interface TranscriptEventMember extends $Base {
     BadRequestException?: never;
-    ConflictException?: never;
     InternalFailureException?: never;
-    LimitExceededException?: never;
-    TranscriptEvent: TranscriptEvent;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    LimitExceededException: LimitExceededException;
     $unknown?: never;
   }
   export interface $UnknownMember extends $Base {
-    BadRequestException?: never;
-    ConflictException?: never;
-    InternalFailureException?: never;
-    LimitExceededException?: never;
     TranscriptEvent?: never;
+    BadRequestException?: never;
+    InternalFailureException?: never;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    LimitExceededException?: never;
     $unknown: [string, any];
   }
   export interface Visitor<T> {
-    BadRequestException: (value: BadRequestException) => T;
-    ConflictException: (value: ConflictException) => T;
-    InternalFailureException: (value: InternalFailureException) => T;
-    LimitExceededException: (value: LimitExceededException) => T;
     TranscriptEvent: (value: TranscriptEvent) => T;
+    BadRequestException: (value: BadRequestException) => T;
+    InternalFailureException: (value: InternalFailureException) => T;
+    ConflictException: (value: ConflictException) => T;
+    ServiceUnavailableException: (value: ServiceUnavailableException) => T;
+    LimitExceededException: (value: LimitExceededException) => T;
     _: (name: string, value: any) => T;
   }
   export const visit = <T>(value: TranscriptResultStream, visitor: Visitor<T>): T => {
+    if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
     if (value.BadRequestException !== undefined) return visitor.BadRequestException(value.BadRequestException);
-    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
     if (value.InternalFailureException !== undefined)
       return visitor.InternalFailureException(value.InternalFailureException);
+    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
+    if (value.ServiceUnavailableException !== undefined)
+      return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
     if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
-    if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+export enum VocabularyFilterMethod {
+  MASK = "mask",
+  REMOVE = "remove",
+  TAG = "tag",
 }

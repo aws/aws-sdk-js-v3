@@ -1,8 +1,20 @@
+import {
+  CreateMedicalVocabularyCommandInput,
+  CreateMedicalVocabularyCommandOutput,
+} from "./commands/CreateMedicalVocabularyCommand";
 import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "./commands/CreateVocabularyCommand";
 import {
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput,
 } from "./commands/CreateVocabularyFilterCommand";
+import {
+  DeleteMedicalTranscriptionJobCommandInput,
+  DeleteMedicalTranscriptionJobCommandOutput,
+} from "./commands/DeleteMedicalTranscriptionJobCommand";
+import {
+  DeleteMedicalVocabularyCommandInput,
+  DeleteMedicalVocabularyCommandOutput,
+} from "./commands/DeleteMedicalVocabularyCommand";
 import {
   DeleteTranscriptionJobCommandInput,
   DeleteTranscriptionJobCommandOutput,
@@ -13,6 +25,14 @@ import {
   DeleteVocabularyFilterCommandOutput,
 } from "./commands/DeleteVocabularyFilterCommand";
 import {
+  GetMedicalTranscriptionJobCommandInput,
+  GetMedicalTranscriptionJobCommandOutput,
+} from "./commands/GetMedicalTranscriptionJobCommand";
+import {
+  GetMedicalVocabularyCommandInput,
+  GetMedicalVocabularyCommandOutput,
+} from "./commands/GetMedicalVocabularyCommand";
+import {
   GetTranscriptionJobCommandInput,
   GetTranscriptionJobCommandOutput,
 } from "./commands/GetTranscriptionJobCommand";
@@ -21,6 +41,14 @@ import {
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput,
 } from "./commands/GetVocabularyFilterCommand";
+import {
+  ListMedicalTranscriptionJobsCommandInput,
+  ListMedicalTranscriptionJobsCommandOutput,
+} from "./commands/ListMedicalTranscriptionJobsCommand";
+import {
+  ListMedicalVocabulariesCommandInput,
+  ListMedicalVocabulariesCommandOutput,
+} from "./commands/ListMedicalVocabulariesCommand";
 import {
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput,
@@ -31,9 +59,17 @@ import {
   ListVocabularyFiltersCommandOutput,
 } from "./commands/ListVocabularyFiltersCommand";
 import {
+  StartMedicalTranscriptionJobCommandInput,
+  StartMedicalTranscriptionJobCommandOutput,
+} from "./commands/StartMedicalTranscriptionJobCommand";
+import {
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput,
 } from "./commands/StartTranscriptionJobCommand";
+import {
+  UpdateMedicalVocabularyCommandInput,
+  UpdateMedicalVocabularyCommandOutput,
+} from "./commands/UpdateMedicalVocabularyCommand";
 import { UpdateVocabularyCommandInput, UpdateVocabularyCommandOutput } from "./commands/UpdateVocabularyCommand";
 import {
   UpdateVocabularyFilterCommandInput,
@@ -87,34 +123,52 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateMedicalVocabularyCommandInput
   | CreateVocabularyCommandInput
   | CreateVocabularyFilterCommandInput
+  | DeleteMedicalTranscriptionJobCommandInput
+  | DeleteMedicalVocabularyCommandInput
   | DeleteTranscriptionJobCommandInput
   | DeleteVocabularyCommandInput
   | DeleteVocabularyFilterCommandInput
+  | GetMedicalTranscriptionJobCommandInput
+  | GetMedicalVocabularyCommandInput
   | GetTranscriptionJobCommandInput
   | GetVocabularyCommandInput
   | GetVocabularyFilterCommandInput
+  | ListMedicalTranscriptionJobsCommandInput
+  | ListMedicalVocabulariesCommandInput
   | ListTranscriptionJobsCommandInput
   | ListVocabulariesCommandInput
   | ListVocabularyFiltersCommandInput
+  | StartMedicalTranscriptionJobCommandInput
   | StartTranscriptionJobCommandInput
+  | UpdateMedicalVocabularyCommandInput
   | UpdateVocabularyCommandInput
   | UpdateVocabularyFilterCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateMedicalVocabularyCommandOutput
   | CreateVocabularyCommandOutput
   | CreateVocabularyFilterCommandOutput
+  | DeleteMedicalTranscriptionJobCommandOutput
+  | DeleteMedicalVocabularyCommandOutput
   | DeleteTranscriptionJobCommandOutput
   | DeleteVocabularyCommandOutput
   | DeleteVocabularyFilterCommandOutput
+  | GetMedicalTranscriptionJobCommandOutput
+  | GetMedicalVocabularyCommandOutput
   | GetTranscriptionJobCommandOutput
   | GetVocabularyCommandOutput
   | GetVocabularyFilterCommandOutput
+  | ListMedicalTranscriptionJobsCommandOutput
+  | ListMedicalVocabulariesCommandOutput
   | ListTranscriptionJobsCommandOutput
   | ListVocabulariesCommandOutput
   | ListVocabularyFiltersCommandOutput
+  | StartMedicalTranscriptionJobCommandOutput
   | StartTranscriptionJobCommandOutput
+  | UpdateMedicalVocabularyCommandOutput
   | UpdateVocabularyCommandOutput
   | UpdateVocabularyFilterCommandOutput;
 

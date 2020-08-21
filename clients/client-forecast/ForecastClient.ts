@@ -50,6 +50,12 @@ import {
 } from "./commands/ListForecastExportJobsCommand";
 import { ListForecastsCommandInput, ListForecastsCommandOutput } from "./commands/ListForecastsCommand";
 import { ListPredictorsCommandInput, ListPredictorsCommandOutput } from "./commands/ListPredictorsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput } from "./commands/UpdateDatasetGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -124,6 +130,9 @@ export type ServiceInputTypes =
   | ListForecastExportJobsCommandInput
   | ListForecastsCommandInput
   | ListPredictorsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateDatasetGroupCommandInput;
 
 export type ServiceOutputTypes =
@@ -152,6 +161,9 @@ export type ServiceOutputTypes =
   | ListForecastExportJobsCommandOutput
   | ListForecastsCommandOutput
   | ListPredictorsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateDatasetGroupCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

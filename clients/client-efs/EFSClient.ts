@@ -15,6 +15,10 @@ import {
   DescribeAccessPointsCommandOutput,
 } from "./commands/DescribeAccessPointsCommand";
 import {
+  DescribeBackupPolicyCommandInput,
+  DescribeBackupPolicyCommandOutput,
+} from "./commands/DescribeBackupPolicyCommand";
+import {
   DescribeFileSystemPolicyCommandInput,
   DescribeFileSystemPolicyCommandOutput,
 } from "./commands/DescribeFileSystemPolicyCommand";
@@ -43,6 +47,7 @@ import {
   ModifyMountTargetSecurityGroupsCommandInput,
   ModifyMountTargetSecurityGroupsCommandOutput,
 } from "./commands/ModifyMountTargetSecurityGroupsCommand";
+import { PutBackupPolicyCommandInput, PutBackupPolicyCommandOutput } from "./commands/PutBackupPolicyCommand";
 import {
   PutFileSystemPolicyCommandInput,
   PutFileSystemPolicyCommandOutput,
@@ -112,6 +117,7 @@ export type ServiceInputTypes =
   | DeleteMountTargetCommandInput
   | DeleteTagsCommandInput
   | DescribeAccessPointsCommandInput
+  | DescribeBackupPolicyCommandInput
   | DescribeFileSystemPolicyCommandInput
   | DescribeFileSystemsCommandInput
   | DescribeLifecycleConfigurationCommandInput
@@ -120,6 +126,7 @@ export type ServiceInputTypes =
   | DescribeTagsCommandInput
   | ListTagsForResourceCommandInput
   | ModifyMountTargetSecurityGroupsCommandInput
+  | PutBackupPolicyCommandInput
   | PutFileSystemPolicyCommandInput
   | PutLifecycleConfigurationCommandInput
   | TagResourceCommandInput
@@ -137,6 +144,7 @@ export type ServiceOutputTypes =
   | DeleteMountTargetCommandOutput
   | DeleteTagsCommandOutput
   | DescribeAccessPointsCommandOutput
+  | DescribeBackupPolicyCommandOutput
   | DescribeFileSystemPolicyCommandOutput
   | DescribeFileSystemsCommandOutput
   | DescribeLifecycleConfigurationCommandOutput
@@ -145,6 +153,7 @@ export type ServiceOutputTypes =
   | DescribeTagsCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyMountTargetSecurityGroupsCommandOutput
+  | PutBackupPolicyCommandOutput
   | PutFileSystemPolicyCommandOutput
   | PutLifecycleConfigurationCommandOutput
   | TagResourceCommandOutput

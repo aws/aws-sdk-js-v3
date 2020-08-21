@@ -168,10 +168,10 @@ export class SQS extends SQSClient {
    *          </note>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    *          <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
@@ -282,10 +282,10 @@ export class SQS extends SQSClient {
    *          </important>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    */
   public changeMessageVisibilityBatch(
@@ -318,8 +318,8 @@ export class SQS extends SQSClient {
   }
 
   /**
-   * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in the request.
-   *           Keep the following caveats in mind:</p>
+   * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in
+   *             the request. Keep the following in mind:</p>
    *          <ul>
    *             <li>
    *               <p>If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates a standard queue.</p>
@@ -340,6 +340,10 @@ export class SQS extends SQSClient {
    *          </ul>
    *
    *          <p>To successfully create a new queue, you must provide a queue name that adheres to the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html">limits related to queues</a> and is unique within the scope of your queues.</p>
+   *         <note>
+   *             <p>After you create a queue, you must wait at least one second after the queue is
+   *                 created to be able to use the queue.</p>
+   *         </note>
    *          <p>To get the queue URL, use the <code>
    *                <a>GetQueueUrl</a>
    *             </code> action. <code>
@@ -356,10 +360,10 @@ export class SQS extends SQSClient {
    *          </ul>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    *          <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
@@ -447,10 +451,10 @@ export class SQS extends SQSClient {
    *          </important>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    */
   public deleteMessageBatch(
@@ -483,7 +487,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   * <p>Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's contents. If the specified queue doesn't exist, Amazon SQS returns a successful response.</p>
+   * <p>Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's contents.</p>
    *          <important>
    *             <p>Be careful with the <code>DeleteQueue</code> action: When you delete a queue, any messages in the queue are no longer available.
    *       </p>
@@ -525,13 +529,6 @@ export class SQS extends SQSClient {
    *          <note>
    *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
    *          </note>
-   *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
-   *          <p>
-   *             <code>&Attribute.1=first</code>
-   *          </p>
-   *          <p>
-   *             <code>&Attribute.2=second</code>
-   *          </p>
    */
   public getQueueAttributes(
     args: GetQueueAttributesCommandInput,
@@ -893,10 +890,10 @@ export class SQS extends SQSClient {
    *          <p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses the default value for the queue.</p>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    */
   public sendMessageBatch(

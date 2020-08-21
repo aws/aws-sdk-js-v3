@@ -55,7 +55,7 @@
     "com.amazonaws.outposts#AvailabilityZone": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "<p>The Availability Zone.</p>",
+        "smithy.api#documentation": "<p>The Availability Zone.</p>\n         <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 1000
@@ -66,7 +66,7 @@
     "com.amazonaws.outposts#AvailabilityZoneId": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "<p>The ID of the Availability Zone.</p>",
+        "smithy.api#documentation": "<p>The ID of the Availability Zone.</p>\n         <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 255
@@ -111,23 +111,23 @@
     "com.amazonaws.outposts#CreateOutpostInput": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.outposts#OutpostName"
+        },
         "AvailabilityZone": {
           "target": "com.amazonaws.outposts#AvailabilityZone"
         },
         "AvailabilityZoneId": {
           "target": "com.amazonaws.outposts#AvailabilityZoneId"
         },
-        "Description": {
-          "target": "com.amazonaws.outposts#OutpostDescription"
-        },
-        "Name": {
-          "target": "com.amazonaws.outposts#OutpostName"
-        },
         "SiteId": {
           "target": "com.amazonaws.outposts#SiteId",
           "traits": {
             "smithy.api#required": {}
           }
+        },
+        "Description": {
+          "target": "com.amazonaws.outposts#OutpostDescription"
         }
       }
     },
@@ -138,6 +138,100 @@
           "target": "com.amazonaws.outposts#Outpost"
         }
       }
+    },
+    "com.amazonaws.outposts#DeleteOutpost": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#DeleteOutpostInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#DeleteOutpostOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the Outpost.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/outposts/{OutpostId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#DeleteOutpostInput": {
+      "type": "structure",
+      "members": {
+        "OutpostId": {
+          "target": "com.amazonaws.outposts#OutpostId",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#DeleteOutpostOutput": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.outposts#DeleteSite": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#DeleteSiteInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#DeleteSiteOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the site.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/sites/{SiteId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#DeleteSiteInput": {
+      "type": "structure",
+      "members": {
+        "SiteId": {
+          "target": "com.amazonaws.outposts#SiteId",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#DeleteSiteOutput": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.outposts#ErrorMessage": {
       "type": "string",
@@ -226,12 +320,6 @@
     "com.amazonaws.outposts#GetOutpostInstanceTypesInput": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.outposts#MaxResults1000",
-          "traits": {
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.outposts#Token",
           "traits": {
@@ -244,23 +332,29 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.outposts#MaxResults1000",
+          "traits": {
+            "smithy.api#httpQuery": "MaxResults"
+          }
         }
       }
     },
     "com.amazonaws.outposts#GetOutpostInstanceTypesOutput": {
       "type": "structure",
       "members": {
-        "InstanceTypes": {
-          "target": "com.amazonaws.outposts#InstanceTypeListDefinition"
-        },
-        "NextToken": {
-          "target": "com.amazonaws.outposts#Token"
-        },
         "OutpostArn": {
           "target": "com.amazonaws.outposts#OutpostArn"
         },
         "OutpostId": {
           "target": "com.amazonaws.outposts#OutpostId"
+        },
+        "InstanceTypes": {
+          "target": "com.amazonaws.outposts#InstanceTypeListDefinition"
+        },
+        "NextToken": {
+          "target": "com.amazonaws.outposts#Token"
         }
       }
     },
@@ -353,16 +447,16 @@
     "com.amazonaws.outposts#ListOutpostsInput": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.outposts#MaxResults1000",
-          "traits": {
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.outposts#Token",
           "traits": {
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.outposts#MaxResults1000",
+          "traits": {
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -370,11 +464,11 @@
     "com.amazonaws.outposts#ListOutpostsOutput": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.outposts#Token"
-        },
         "Outposts": {
           "target": "com.amazonaws.outposts#outpostListDefinition"
+        },
+        "NextToken": {
+          "target": "com.amazonaws.outposts#Token"
         }
       }
     },
@@ -414,16 +508,16 @@
     "com.amazonaws.outposts#ListSitesInput": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.outposts#MaxResults1000",
-          "traits": {
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.outposts#Token",
           "traits": {
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.outposts#MaxResults1000",
+          "traits": {
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -431,11 +525,11 @@
     "com.amazonaws.outposts#ListSitesOutput": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.outposts#Token"
-        },
         "Sites": {
           "target": "com.amazonaws.outposts#siteListDefinition"
+        },
+        "NextToken": {
+          "target": "com.amazonaws.outposts#Token"
         }
       }
     },
@@ -466,23 +560,23 @@
     "com.amazonaws.outposts#Outpost": {
       "type": "structure",
       "members": {
-        "AvailabilityZone": {
-          "target": "com.amazonaws.outposts#AvailabilityZone"
-        },
         "AvailabilityZoneId": {
           "target": "com.amazonaws.outposts#AvailabilityZoneId"
         },
-        "Description": {
-          "target": "com.amazonaws.outposts#OutpostDescription"
+        "AvailabilityZone": {
+          "target": "com.amazonaws.outposts#AvailabilityZone"
         },
         "LifeCycleStatus": {
           "target": "com.amazonaws.outposts#LifeCycleStatus"
         },
+        "OutpostArn": {
+          "target": "com.amazonaws.outposts#OutpostArn"
+        },
         "Name": {
           "target": "com.amazonaws.outposts#OutpostName"
         },
-        "OutpostArn": {
-          "target": "com.amazonaws.outposts#OutpostArn"
+        "SiteId": {
+          "target": "com.amazonaws.outposts#SiteId"
         },
         "OutpostId": {
           "target": "com.amazonaws.outposts#OutpostId"
@@ -490,8 +584,8 @@
         "OwnerId": {
           "target": "com.amazonaws.outposts#OwnerId"
         },
-        "SiteId": {
-          "target": "com.amazonaws.outposts#SiteId"
+        "Description": {
+          "target": "com.amazonaws.outposts#OutpostDescription"
         }
       },
       "traits": {
@@ -548,6 +642,12 @@
       "operations": [
         {
           "target": "com.amazonaws.outposts#CreateOutpost"
+        },
+        {
+          "target": "com.amazonaws.outposts#DeleteOutpost"
+        },
+        {
+          "target": "com.amazonaws.outposts#DeleteSite"
         },
         {
           "target": "com.amazonaws.outposts#GetOutpost"
@@ -607,14 +707,14 @@
         "AccountId": {
           "target": "com.amazonaws.outposts#AccountId"
         },
-        "Description": {
-          "target": "com.amazonaws.outposts#SiteDescription"
-        },
         "Name": {
           "target": "com.amazonaws.outposts#SiteName"
         },
         "SiteId": {
           "target": "com.amazonaws.outposts#SiteId"
+        },
+        "Description": {
+          "target": "com.amazonaws.outposts#SiteDescription"
         }
       },
       "traits": {

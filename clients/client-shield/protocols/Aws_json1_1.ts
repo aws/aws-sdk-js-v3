@@ -3,6 +3,14 @@ import {
   AssociateDRTLogBucketCommandOutput,
 } from "../commands/AssociateDRTLogBucketCommand";
 import { AssociateDRTRoleCommandInput, AssociateDRTRoleCommandOutput } from "../commands/AssociateDRTRoleCommand";
+import {
+  AssociateHealthCheckCommandInput,
+  AssociateHealthCheckCommandOutput,
+} from "../commands/AssociateHealthCheckCommand";
+import {
+  AssociateProactiveEngagementDetailsCommandInput,
+  AssociateProactiveEngagementDetailsCommandOutput,
+} from "../commands/AssociateProactiveEngagementDetailsCommand";
 import { CreateProtectionCommandInput, CreateProtectionCommandOutput } from "../commands/CreateProtectionCommand";
 import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "../commands/CreateSubscriptionCommand";
 import { DeleteProtectionCommandInput, DeleteProtectionCommandOutput } from "../commands/DeleteProtectionCommand";
@@ -19,6 +27,10 @@ import {
   DescribeSubscriptionCommandOutput,
 } from "../commands/DescribeSubscriptionCommand";
 import {
+  DisableProactiveEngagementCommandInput,
+  DisableProactiveEngagementCommandOutput,
+} from "../commands/DisableProactiveEngagementCommand";
+import {
   DisassociateDRTLogBucketCommandInput,
   DisassociateDRTLogBucketCommandOutput,
 } from "../commands/DisassociateDRTLogBucketCommand";
@@ -26,6 +38,14 @@ import {
   DisassociateDRTRoleCommandInput,
   DisassociateDRTRoleCommandOutput,
 } from "../commands/DisassociateDRTRoleCommand";
+import {
+  DisassociateHealthCheckCommandInput,
+  DisassociateHealthCheckCommandOutput,
+} from "../commands/DisassociateHealthCheckCommand";
+import {
+  EnableProactiveEngagementCommandInput,
+  EnableProactiveEngagementCommandOutput,
+} from "../commands/EnableProactiveEngagementCommand";
 import {
   GetSubscriptionStateCommandInput,
   GetSubscriptionStateCommandOutput,
@@ -44,6 +64,10 @@ import {
   AssociateDRTLogBucketResponse,
   AssociateDRTRoleRequest,
   AssociateDRTRoleResponse,
+  AssociateHealthCheckRequest,
+  AssociateHealthCheckResponse,
+  AssociateProactiveEngagementDetailsRequest,
+  AssociateProactiveEngagementDetailsResponse,
   AttackDetail,
   AttackProperty,
   AttackSummary,
@@ -67,11 +91,17 @@ import {
   DescribeProtectionResponse,
   DescribeSubscriptionRequest,
   DescribeSubscriptionResponse,
+  DisableProactiveEngagementRequest,
+  DisableProactiveEngagementResponse,
   DisassociateDRTLogBucketRequest,
   DisassociateDRTLogBucketResponse,
   DisassociateDRTRoleRequest,
   DisassociateDRTRoleResponse,
+  DisassociateHealthCheckRequest,
+  DisassociateHealthCheckResponse,
   EmergencyContact,
+  EnableProactiveEngagementRequest,
+  EnableProactiveEngagementResponse,
   GetSubscriptionStateRequest,
   GetSubscriptionStateResponse,
   InternalErrorException,
@@ -135,6 +165,32 @@ export const serializeAws_json1_1AssociateDRTRoleCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateDRTRoleRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AssociateHealthCheckCommand = async (
+  input: AssociateHealthCheckCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.AssociateHealthCheck",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateHealthCheckRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AssociateProactiveEngagementDetailsCommand = async (
+  input: AssociateProactiveEngagementDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.AssociateProactiveEngagementDetails",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateProactiveEngagementDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -255,6 +311,19 @@ export const serializeAws_json1_1DescribeSubscriptionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DisableProactiveEngagementCommand = async (
+  input: DisableProactiveEngagementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.DisableProactiveEngagement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisableProactiveEngagementRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DisassociateDRTLogBucketCommand = async (
   input: DisassociateDRTLogBucketCommandInput,
   context: __SerdeContext
@@ -278,6 +347,32 @@ export const serializeAws_json1_1DisassociateDRTRoleCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateDRTRoleRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DisassociateHealthCheckCommand = async (
+  input: DisassociateHealthCheckCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.DisassociateHealthCheck",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisassociateHealthCheckRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1EnableProactiveEngagementCommand = async (
+  input: EnableProactiveEngagementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.EnableProactiveEngagement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1EnableProactiveEngagementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -497,6 +592,182 @@ const deserializeAws_json1_1AssociateDRTRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidOperationException":
+    case "com.amazonaws.shield#InvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1AssociateHealthCheckCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateHealthCheckCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1AssociateHealthCheckCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateHealthCheckResponse(data, context);
+  const response: AssociateHealthCheckCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AssociateHealthCheckResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateHealthCheckCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateHealthCheckCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitsExceededException":
+    case "com.amazonaws.shield#LimitsExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitsExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateProactiveEngagementDetailsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1AssociateProactiveEngagementDetailsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateProactiveEngagementDetailsResponse(data, context);
+  const response: AssociateProactiveEngagementDetailsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AssociateProactiveEngagementDetailsResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateProactiveEngagementDetailsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateProactiveEngagementDetailsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.shield#InternalErrorException":
       response = {
@@ -1194,6 +1465,94 @@ const deserializeAws_json1_1DescribeSubscriptionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DisableProactiveEngagementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableProactiveEngagementCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DisableProactiveEngagementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisableProactiveEngagementResponse(data, context);
+  const response: DisableProactiveEngagementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DisableProactiveEngagementResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisableProactiveEngagementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableProactiveEngagementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidOperationException":
+    case "com.amazonaws.shield#InvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DisassociateDRTLogBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1333,6 +1692,174 @@ const deserializeAws_json1_1DisassociateDRTRoleCommandError = async (
     case "com.amazonaws.shield#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DisassociateHealthCheckCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateHealthCheckCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DisassociateHealthCheckCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisassociateHealthCheckResponse(data, context);
+  const response: DisassociateHealthCheckCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DisassociateHealthCheckResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisassociateHealthCheckCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateHealthCheckCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1EnableProactiveEngagementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableProactiveEngagementCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1EnableProactiveEngagementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1EnableProactiveEngagementResponse(data, context);
+  const response: EnableProactiveEngagementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "EnableProactiveEngagementResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1EnableProactiveEngagementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableProactiveEngagementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidOperationException":
+    case "com.amazonaws.shield#InvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1948,6 +2475,27 @@ const serializeAws_json1_1AssociateDRTRoleRequest = (input: AssociateDRTRoleRequ
   };
 };
 
+const serializeAws_json1_1AssociateHealthCheckRequest = (
+  input: AssociateHealthCheckRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HealthCheckArn !== undefined && { HealthCheckArn: input.HealthCheckArn }),
+    ...(input.ProtectionId !== undefined && { ProtectionId: input.ProtectionId }),
+  };
+};
+
+const serializeAws_json1_1AssociateProactiveEngagementDetailsRequest = (
+  input: AssociateProactiveEngagementDetailsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EmergencyContactList !== undefined && {
+      EmergencyContactList: serializeAws_json1_1EmergencyContactList(input.EmergencyContactList, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1CreateProtectionRequest = (input: CreateProtectionRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
@@ -2012,6 +2560,13 @@ const serializeAws_json1_1DescribeSubscriptionRequest = (
   return {};
 };
 
+const serializeAws_json1_1DisableProactiveEngagementRequest = (
+  input: DisableProactiveEngagementRequest,
+  context: __SerdeContext
+): any => {
+  return {};
+};
+
 const serializeAws_json1_1DisassociateDRTLogBucketRequest = (
   input: DisassociateDRTLogBucketRequest,
   context: __SerdeContext
@@ -2028,14 +2583,33 @@ const serializeAws_json1_1DisassociateDRTRoleRequest = (
   return {};
 };
 
+const serializeAws_json1_1DisassociateHealthCheckRequest = (
+  input: DisassociateHealthCheckRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HealthCheckArn !== undefined && { HealthCheckArn: input.HealthCheckArn }),
+    ...(input.ProtectionId !== undefined && { ProtectionId: input.ProtectionId }),
+  };
+};
+
 const serializeAws_json1_1EmergencyContact = (input: EmergencyContact, context: __SerdeContext): any => {
   return {
+    ...(input.ContactNotes !== undefined && { ContactNotes: input.ContactNotes }),
     ...(input.EmailAddress !== undefined && { EmailAddress: input.EmailAddress }),
+    ...(input.PhoneNumber !== undefined && { PhoneNumber: input.PhoneNumber }),
   };
 };
 
 const serializeAws_json1_1EmergencyContactList = (input: EmergencyContact[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_json1_1EmergencyContact(entry, context));
+};
+
+const serializeAws_json1_1EnableProactiveEngagementRequest = (
+  input: EnableProactiveEngagementRequest,
+  context: __SerdeContext
+): any => {
+  return {};
 };
 
 const serializeAws_json1_1GetSubscriptionStateRequest = (
@@ -2127,6 +2701,24 @@ const deserializeAws_json1_1AssociateDRTRoleResponse = (
 ): AssociateDRTRoleResponse => {
   return {
     __type: "AssociateDRTRoleResponse",
+  } as any;
+};
+
+const deserializeAws_json1_1AssociateHealthCheckResponse = (
+  output: any,
+  context: __SerdeContext
+): AssociateHealthCheckResponse => {
+  return {
+    __type: "AssociateHealthCheckResponse",
+  } as any;
+};
+
+const deserializeAws_json1_1AssociateProactiveEngagementDetailsResponse = (
+  output: any,
+  context: __SerdeContext
+): AssociateProactiveEngagementDetailsResponse => {
+  return {
+    __type: "AssociateProactiveEngagementDetailsResponse",
   } as any;
 };
 
@@ -2328,6 +2920,15 @@ const deserializeAws_json1_1DescribeSubscriptionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DisableProactiveEngagementResponse = (
+  output: any,
+  context: __SerdeContext
+): DisableProactiveEngagementResponse => {
+  return {
+    __type: "DisableProactiveEngagementResponse",
+  } as any;
+};
+
 const deserializeAws_json1_1DisassociateDRTLogBucketResponse = (
   output: any,
   context: __SerdeContext
@@ -2346,15 +2947,35 @@ const deserializeAws_json1_1DisassociateDRTRoleResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DisassociateHealthCheckResponse = (
+  output: any,
+  context: __SerdeContext
+): DisassociateHealthCheckResponse => {
+  return {
+    __type: "DisassociateHealthCheckResponse",
+  } as any;
+};
+
 const deserializeAws_json1_1EmergencyContact = (output: any, context: __SerdeContext): EmergencyContact => {
   return {
     __type: "EmergencyContact",
+    ContactNotes: output.ContactNotes !== undefined && output.ContactNotes !== null ? output.ContactNotes : undefined,
     EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
+    PhoneNumber: output.PhoneNumber !== undefined && output.PhoneNumber !== null ? output.PhoneNumber : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1EmergencyContactList = (output: any, context: __SerdeContext): EmergencyContact[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1EmergencyContact(entry, context));
+};
+
+const deserializeAws_json1_1EnableProactiveEngagementResponse = (
+  output: any,
+  context: __SerdeContext
+): EnableProactiveEngagementResponse => {
+  return {
+    __type: "EnableProactiveEngagementResponse",
+  } as any;
 };
 
 const deserializeAws_json1_1GetSubscriptionStateResponse = (
@@ -2368,6 +2989,10 @@ const deserializeAws_json1_1GetSubscriptionStateResponse = (
         ? output.SubscriptionState
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1HealthCheckIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
@@ -2515,6 +3140,10 @@ const deserializeAws_json1_1OptimisticLockException = (
 const deserializeAws_json1_1Protection = (output: any, context: __SerdeContext): Protection => {
   return {
     __type: "Protection",
+    HealthCheckIds:
+      output.HealthCheckIds !== undefined && output.HealthCheckIds !== null
+        ? deserializeAws_json1_1HealthCheckIds(output.HealthCheckIds, context)
+        : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
@@ -2574,6 +3203,10 @@ const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext
     Limits:
       output.Limits !== undefined && output.Limits !== null
         ? deserializeAws_json1_1Limits(output.Limits, context)
+        : undefined,
+    ProactiveEngagementStatus:
+      output.ProactiveEngagementStatus !== undefined && output.ProactiveEngagementStatus !== null
+        ? output.ProactiveEngagementStatus
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null

@@ -633,8 +633,8 @@ export const serializeAws_restJson1GetDedicatedIpsCommand = async (
   };
   let resolvedPath = "/v1/email/dedicated-ips";
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PoolName !== undefined && { PoolName: input.PoolName }),
   };
   let body: any;
@@ -807,8 +807,8 @@ export const serializeAws_restJson1ListConfigurationSetsCommand = async (
   };
   let resolvedPath = "/v1/email/configuration-sets";
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -894,10 +894,10 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
     throw new Error("No value provided for input HTTP label: SubscribedDomain.");
   }
   const query: any = {
-    ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
+    ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.StartDate !== undefined && { StartDate: (input.StartDate.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

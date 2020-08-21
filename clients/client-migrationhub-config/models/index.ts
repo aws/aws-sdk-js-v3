@@ -31,7 +31,8 @@ export interface CreateHomeRegionControlRequest {
   HomeRegion: string | undefined;
 
   /**
-   * <p>The account for which this command sets up a home region control. The <code>Target</code> is always of type <code>ACCOUNT</code>.</p>
+   * <p>The account for which this command sets up a home region control. The <code>Target</code>
+   *       is always of type <code>ACCOUNT</code>.</p>
    */
   Target: Target | undefined;
 }
@@ -46,8 +47,8 @@ export namespace CreateHomeRegionControlRequest {
 export interface CreateHomeRegionControlResult {
   __type?: "CreateHomeRegionControlResult";
   /**
-   * <p>This object is the <code>HomeRegionControl</code> object that's returned by a successful call to
-   *         <code>CreateHomeRegionControl</code>.</p>
+   * <p>This object is the <code>HomeRegionControl</code> object that's returned by a successful
+   *       call to <code>CreateHomeRegionControl</code>.</p>
    */
   HomeRegionControl?: HomeRegionControl;
 }
@@ -62,15 +63,11 @@ export namespace CreateHomeRegionControlResult {
 export interface DescribeHomeRegionControlsRequest {
   __type?: "DescribeHomeRegionControlsRequest";
   /**
-   * <p>The <code>ControlID</code> is a unique identifier string of your <code>HomeRegionControl</code>
-   *       object.</p>
+   * <p>The target parameter specifies the identifier to which the home region is applied, which
+   *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
+   *         <code>ACCOUNT</code>.</p>
    */
-  ControlId?: string;
-
-  /**
-   * <p>The name of the home region you'd like to view.</p>
-   */
-  HomeRegion?: string;
+  Target?: Target;
 
   /**
    * <p>The maximum number of filtering results to display per page. </p>
@@ -78,17 +75,22 @@ export interface DescribeHomeRegionControlsRequest {
   MaxResults?: number;
 
   /**
-   * <p>If a <code>NextToken</code> was returned by a previous call, more results are available. To retrieve
-   *       the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
+   * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
+   *       To retrieve the next page of results, make the call again using the returned token in
+   *         <code>NextToken</code>.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The target parameter specifies the identifier to which the home region is applied, which
-   *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
-   *         <code>ACCOUNT</code>.</p>
+   * <p>The name of the home region you'd like to view.</p>
    */
-  Target?: Target;
+  HomeRegion?: string;
+
+  /**
+   * <p>The <code>ControlID</code> is a unique identifier string of your
+   *         <code>HomeRegionControl</code> object.</p>
+   */
+  ControlId?: string;
 }
 
 export namespace DescribeHomeRegionControlsRequest {
@@ -101,16 +103,16 @@ export namespace DescribeHomeRegionControlsRequest {
 export interface DescribeHomeRegionControlsResult {
   __type?: "DescribeHomeRegionControlsResult";
   /**
-   * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
-   */
-  HomeRegionControls?: HomeRegionControl[];
-
-  /**
    * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
    *       To retrieve the next page of results, make the call again using the returned token in
    *         <code>NextToken</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
+   */
+  HomeRegionControls?: HomeRegionControl[];
 }
 
 export namespace DescribeHomeRegionControlsResult {
@@ -171,16 +173,17 @@ export namespace GetHomeRegionResult {
 export interface HomeRegionControl {
   __type?: "HomeRegionControl";
   /**
+   * <p>The target parameter specifies the identifier to which the home region is applied, which
+   *       is always an <code>ACCOUNT</code>. It applies the home region to the current
+   *         <code>ACCOUNT</code>.</p>
+   */
+  Target?: Target;
+
+  /**
    * <p>A unique identifier that's generated for each home region control. It's always a string
    *       that begins with "hrc-" followed by 12 lowercase letters and numbers.</p>
    */
   ControlId?: string;
-
-  /**
-   * <p>The AWS Region that's been set as home region. For example, "us-west-2" or "eu-central-1"
-   *       are valid home regions.</p>
-   */
-  HomeRegion?: string;
 
   /**
    * <p>A timestamp representing the time when the customer called
@@ -189,11 +192,10 @@ export interface HomeRegionControl {
   RequestedTime?: Date;
 
   /**
-   * <p>The target parameter specifies the identifier to which the home region is applied, which
-   *       is always an <code>ACCOUNT</code>. It applies the home region to the current
-   *         <code>ACCOUNT</code>.</p>
+   * <p>The AWS Region that's been set as home region. For example, "us-west-2" or "eu-central-1"
+   *       are valid home regions.</p>
    */
-  Target?: Target;
+  HomeRegion?: string;
 }
 
 export namespace HomeRegionControl {
@@ -238,7 +240,8 @@ export namespace InvalidInputException {
 }
 
 /**
- * <p>Exception raised when a request fails due to temporary unavailability of the service.</p>
+ * <p>Exception raised when a request fails due to temporary unavailability of the
+ *       service.</p>
  */
 export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
@@ -261,14 +264,15 @@ export namespace ServiceUnavailableException {
 export interface Target {
   __type?: "Target";
   /**
-   * <p>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for which the control was created. (This must be the current account.) </p>
-   */
-  Id?: string;
-
-  /**
    * <p>The target type is always an <code>ACCOUNT</code>.</p>
    */
   Type: TargetType | string | undefined;
+
+  /**
+   * <p>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for
+   *       which the control was created. (This must be the current account.) </p>
+   */
+  Id?: string;
 }
 
 export namespace Target {
@@ -280,4 +284,25 @@ export namespace Target {
 
 export enum TargetType {
   ACCOUNT = "ACCOUNT",
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  /**
+   * <p>The number of seconds the caller should wait before retrying.</p>
+   */
+  RetryAfterSeconds?: number;
+
+  Message: string | undefined;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }

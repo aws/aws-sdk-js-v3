@@ -23,6 +23,10 @@ import {
   GetBlockPublicAccessConfigurationCommandOutput,
 } from "../commands/GetBlockPublicAccessConfigurationCommand";
 import {
+  GetManagedScalingPolicyCommandInput,
+  GetManagedScalingPolicyCommandOutput,
+} from "../commands/GetManagedScalingPolicyCommand";
+import {
   ListBootstrapActionsCommandInput,
   ListBootstrapActionsCommandOutput,
 } from "../commands/ListBootstrapActionsCommand";
@@ -53,9 +57,17 @@ import {
   PutBlockPublicAccessConfigurationCommandOutput,
 } from "../commands/PutBlockPublicAccessConfigurationCommand";
 import {
+  PutManagedScalingPolicyCommandInput,
+  PutManagedScalingPolicyCommandOutput,
+} from "../commands/PutManagedScalingPolicyCommand";
+import {
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput,
 } from "../commands/RemoveAutoScalingPolicyCommand";
+import {
+  RemoveManagedScalingPolicyCommandInput,
+  RemoveManagedScalingPolicyCommandOutput,
+} from "../commands/RemoveManagedScalingPolicyCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "../commands/RemoveTagsCommand";
 import { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "../commands/RunJobFlowCommand";
 import {
@@ -96,6 +108,7 @@ import {
   ClusterSummary,
   ClusterTimeline,
   Command,
+  ComputeLimits,
   Configuration,
   CreateSecurityConfigurationInput,
   CreateSecurityConfigurationOutput,
@@ -117,6 +130,8 @@ import {
   FailureDetails,
   GetBlockPublicAccessConfigurationInput,
   GetBlockPublicAccessConfigurationOutput,
+  GetManagedScalingPolicyInput,
+  GetManagedScalingPolicyOutput,
   HadoopJarStepConfig,
   HadoopStepConfig,
   Instance,
@@ -166,19 +181,25 @@ import {
   ListSecurityConfigurationsOutput,
   ListStepsInput,
   ListStepsOutput,
+  ManagedScalingPolicy,
   MetricDimension,
   ModifyClusterInput,
   ModifyClusterOutput,
   ModifyInstanceFleetInput,
   ModifyInstanceGroupsInput,
+  OnDemandProvisioningSpecification,
   PlacementType,
   PortRange,
   PutAutoScalingPolicyInput,
   PutAutoScalingPolicyOutput,
   PutBlockPublicAccessConfigurationInput,
   PutBlockPublicAccessConfigurationOutput,
+  PutManagedScalingPolicyInput,
+  PutManagedScalingPolicyOutput,
   RemoveAutoScalingPolicyInput,
   RemoveAutoScalingPolicyOutput,
+  RemoveManagedScalingPolicyInput,
+  RemoveManagedScalingPolicyOutput,
   RemoveTagsInput,
   RemoveTagsOutput,
   RunJobFlowInput,
@@ -374,6 +395,19 @@ export const serializeAws_json1_1GetBlockPublicAccessConfigurationCommand = asyn
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetManagedScalingPolicyCommand = async (
+  input: GetManagedScalingPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.GetManagedScalingPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetManagedScalingPolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListBootstrapActionsCommand = async (
   input: ListBootstrapActionsCommandInput,
   context: __SerdeContext
@@ -530,6 +564,19 @@ export const serializeAws_json1_1PutBlockPublicAccessConfigurationCommand = asyn
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PutManagedScalingPolicyCommand = async (
+  input: PutManagedScalingPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.PutManagedScalingPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutManagedScalingPolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
   input: RemoveAutoScalingPolicyCommandInput,
   context: __SerdeContext
@@ -540,6 +587,19 @@ export const serializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveAutoScalingPolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RemoveManagedScalingPolicyCommand = async (
+  input: RemoveManagedScalingPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.RemoveManagedScalingPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RemoveManagedScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1352,6 +1412,54 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetManagedScalingPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedScalingPolicyCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetManagedScalingPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetManagedScalingPolicyOutput(data, context);
+  const response: GetManagedScalingPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetManagedScalingPolicyOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetManagedScalingPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedScalingPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListBootstrapActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2088,6 +2196,54 @@ const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutManagedScalingPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutManagedScalingPolicyCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutManagedScalingPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutManagedScalingPolicyOutput(data, context);
+  const response: PutManagedScalingPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutManagedScalingPolicyOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutManagedScalingPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutManagedScalingPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2110,6 +2266,54 @@ const deserializeAws_json1_1RemoveAutoScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAutoScalingPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1RemoveManagedScalingPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveManagedScalingPolicyCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1RemoveManagedScalingPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RemoveManagedScalingPolicyOutput(data, context);
+  const response: RemoveManagedScalingPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RemoveManagedScalingPolicyOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RemoveManagedScalingPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveManagedScalingPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2582,6 +2786,18 @@ const serializeAws_json1_1ClusterStateList = (input: (ClusterState | string)[], 
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1ComputeLimits = (input: ComputeLimits, context: __SerdeContext): any => {
+  return {
+    ...(input.MaximumCapacityUnits !== undefined && { MaximumCapacityUnits: input.MaximumCapacityUnits }),
+    ...(input.MaximumCoreCapacityUnits !== undefined && { MaximumCoreCapacityUnits: input.MaximumCoreCapacityUnits }),
+    ...(input.MaximumOnDemandCapacityUnits !== undefined && {
+      MaximumOnDemandCapacityUnits: input.MaximumOnDemandCapacityUnits,
+    }),
+    ...(input.MinimumCapacityUnits !== undefined && { MinimumCapacityUnits: input.MinimumCapacityUnits }),
+    ...(input.UnitType !== undefined && { UnitType: input.UnitType }),
+  };
+};
+
 const serializeAws_json1_1Configuration = (input: Configuration, context: __SerdeContext): any => {
   return {
     ...(input.Classification !== undefined && { Classification: input.Classification }),
@@ -2685,6 +2901,15 @@ const serializeAws_json1_1GetBlockPublicAccessConfigurationInput = (
   return {};
 };
 
+const serializeAws_json1_1GetManagedScalingPolicyInput = (
+  input: GetManagedScalingPolicyInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+  };
+};
+
 const serializeAws_json1_1HadoopJarStepConfig = (input: HadoopJarStepConfig, context: __SerdeContext): any => {
   return {
     ...(input.Args !== undefined && { Args: serializeAws_json1_1XmlStringList(input.Args, context) }),
@@ -2732,6 +2957,12 @@ const serializeAws_json1_1InstanceFleetProvisioningSpecifications = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.OnDemandSpecification !== undefined && {
+      OnDemandSpecification: serializeAws_json1_1OnDemandProvisioningSpecification(
+        input.OnDemandSpecification,
+        context
+      ),
+    }),
     ...(input.SpotSpecification !== undefined && {
       SpotSpecification: serializeAws_json1_1SpotProvisioningSpecification(input.SpotSpecification, context),
     }),
@@ -2982,6 +3213,14 @@ const serializeAws_json1_1ListStepsInput = (input: ListStepsInput, context: __Se
   };
 };
 
+const serializeAws_json1_1ManagedScalingPolicy = (input: ManagedScalingPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.ComputeLimits !== undefined && {
+      ComputeLimits: serializeAws_json1_1ComputeLimits(input.ComputeLimits, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
@@ -3031,6 +3270,15 @@ const serializeAws_json1_1NewSupportedProductsList = (
   return input.map((entry) => serializeAws_json1_1SupportedProductConfig(entry, context));
 };
 
+const serializeAws_json1_1OnDemandProvisioningSpecification = (
+  input: OnDemandProvisioningSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllocationStrategy !== undefined && { AllocationStrategy: input.AllocationStrategy }),
+  };
+};
+
 const serializeAws_json1_1PlacementType = (input: PlacementType, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
@@ -3078,6 +3326,18 @@ const serializeAws_json1_1PutBlockPublicAccessConfigurationInput = (
   };
 };
 
+const serializeAws_json1_1PutManagedScalingPolicyInput = (
+  input: PutManagedScalingPolicyInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+    ...(input.ManagedScalingPolicy !== undefined && {
+      ManagedScalingPolicy: serializeAws_json1_1ManagedScalingPolicy(input.ManagedScalingPolicy, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1RemoveAutoScalingPolicyInput = (
   input: RemoveAutoScalingPolicyInput,
   context: __SerdeContext
@@ -3085,6 +3345,15 @@ const serializeAws_json1_1RemoveAutoScalingPolicyInput = (
   return {
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.InstanceGroupId !== undefined && { InstanceGroupId: input.InstanceGroupId }),
+  };
+};
+
+const serializeAws_json1_1RemoveManagedScalingPolicyInput = (
+  input: RemoveManagedScalingPolicyInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
   };
 };
 
@@ -3118,7 +3387,11 @@ const serializeAws_json1_1RunJobFlowInput = (input: RunJobFlowInput, context: __
     ...(input.KerberosAttributes !== undefined && {
       KerberosAttributes: serializeAws_json1_1KerberosAttributes(input.KerberosAttributes, context),
     }),
+    ...(input.LogEncryptionKmsKeyId !== undefined && { LogEncryptionKmsKeyId: input.LogEncryptionKmsKeyId }),
     ...(input.LogUri !== undefined && { LogUri: input.LogUri }),
+    ...(input.ManagedScalingPolicy !== undefined && {
+      ManagedScalingPolicy: serializeAws_json1_1ManagedScalingPolicy(input.ManagedScalingPolicy, context),
+    }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.NewSupportedProducts !== undefined && {
       NewSupportedProducts: serializeAws_json1_1NewSupportedProductsList(input.NewSupportedProducts, context),
@@ -3240,6 +3513,7 @@ const serializeAws_json1_1SpotProvisioningSpecification = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AllocationStrategy !== undefined && { AllocationStrategy: input.AllocationStrategy }),
     ...(input.BlockDurationMinutes !== undefined && { BlockDurationMinutes: input.BlockDurationMinutes }),
     ...(input.TimeoutAction !== undefined && { TimeoutAction: input.TimeoutAction }),
     ...(input.TimeoutDurationMinutes !== undefined && { TimeoutDurationMinutes: input.TimeoutDurationMinutes }),
@@ -3587,6 +3861,10 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
       output.KerberosAttributes !== undefined && output.KerberosAttributes !== null
         ? deserializeAws_json1_1KerberosAttributes(output.KerberosAttributes, context)
         : undefined,
+    LogEncryptionKmsKeyId:
+      output.LogEncryptionKmsKeyId !== undefined && output.LogEncryptionKmsKeyId !== null
+        ? output.LogEncryptionKmsKeyId
+        : undefined,
     LogUri: output.LogUri !== undefined && output.LogUri !== null ? output.LogUri : undefined,
     MasterPublicDnsName:
       output.MasterPublicDnsName !== undefined && output.MasterPublicDnsName !== null
@@ -3723,6 +4001,29 @@ const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Co
 
 const deserializeAws_json1_1CommandList = (output: any, context: __SerdeContext): Command[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Command(entry, context));
+};
+
+const deserializeAws_json1_1ComputeLimits = (output: any, context: __SerdeContext): ComputeLimits => {
+  return {
+    __type: "ComputeLimits",
+    MaximumCapacityUnits:
+      output.MaximumCapacityUnits !== undefined && output.MaximumCapacityUnits !== null
+        ? output.MaximumCapacityUnits
+        : undefined,
+    MaximumCoreCapacityUnits:
+      output.MaximumCoreCapacityUnits !== undefined && output.MaximumCoreCapacityUnits !== null
+        ? output.MaximumCoreCapacityUnits
+        : undefined,
+    MaximumOnDemandCapacityUnits:
+      output.MaximumOnDemandCapacityUnits !== undefined && output.MaximumOnDemandCapacityUnits !== null
+        ? output.MaximumOnDemandCapacityUnits
+        : undefined,
+    MinimumCapacityUnits:
+      output.MinimumCapacityUnits !== undefined && output.MinimumCapacityUnits !== null
+        ? output.MinimumCapacityUnits
+        : undefined,
+    UnitType: output.UnitType !== undefined && output.UnitType !== null ? output.UnitType : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContext): Configuration => {
@@ -3919,6 +4220,19 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1GetManagedScalingPolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): GetManagedScalingPolicyOutput => {
+  return {
+    __type: "GetManagedScalingPolicyOutput",
+    ManagedScalingPolicy:
+      output.ManagedScalingPolicy !== undefined && output.ManagedScalingPolicy !== null
+        ? deserializeAws_json1_1ManagedScalingPolicy(output.ManagedScalingPolicy, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1HadoopJarStepConfig = (output: any, context: __SerdeContext): HadoopJarStepConfig => {
   return {
     __type: "HadoopJarStepConfig",
@@ -4032,6 +4346,10 @@ const deserializeAws_json1_1InstanceFleetProvisioningSpecifications = (
 ): InstanceFleetProvisioningSpecifications => {
   return {
     __type: "InstanceFleetProvisioningSpecifications",
+    OnDemandSpecification:
+      output.OnDemandSpecification !== undefined && output.OnDemandSpecification !== null
+        ? deserializeAws_json1_1OnDemandProvisioningSpecification(output.OnDemandSpecification, context)
+        : undefined,
     SpotSpecification:
       output.SpotSpecification !== undefined && output.SpotSpecification !== null
         ? deserializeAws_json1_1SpotProvisioningSpecification(output.SpotSpecification, context)
@@ -4385,6 +4703,10 @@ const deserializeAws_json1_1JobFlowDetail = (output: any, context: __SerdeContex
         : undefined,
     JobFlowId: output.JobFlowId !== undefined && output.JobFlowId !== null ? output.JobFlowId : undefined,
     JobFlowRole: output.JobFlowRole !== undefined && output.JobFlowRole !== null ? output.JobFlowRole : undefined,
+    LogEncryptionKmsKeyId:
+      output.LogEncryptionKmsKeyId !== undefined && output.LogEncryptionKmsKeyId !== null
+        ? output.LogEncryptionKmsKeyId
+        : undefined,
     LogUri: output.LogUri !== undefined && output.LogUri !== null ? output.LogUri : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ScaleDownBehavior:
@@ -4607,6 +4929,16 @@ const deserializeAws_json1_1ListStepsOutput = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1ManagedScalingPolicy = (output: any, context: __SerdeContext): ManagedScalingPolicy => {
+  return {
+    __type: "ManagedScalingPolicy",
+    ComputeLimits:
+      output.ComputeLimits !== undefined && output.ComputeLimits !== null
+        ? deserializeAws_json1_1ComputeLimits(output.ComputeLimits, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
     __type: "MetricDimension",
@@ -4625,6 +4957,19 @@ const deserializeAws_json1_1ModifyClusterOutput = (output: any, context: __Serde
     StepConcurrencyLevel:
       output.StepConcurrencyLevel !== undefined && output.StepConcurrencyLevel !== null
         ? output.StepConcurrencyLevel
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OnDemandProvisioningSpecification = (
+  output: any,
+  context: __SerdeContext
+): OnDemandProvisioningSpecification => {
+  return {
+    __type: "OnDemandProvisioningSpecification",
+    AllocationStrategy:
+      output.AllocationStrategy !== undefined && output.AllocationStrategy !== null
+        ? output.AllocationStrategy
         : undefined,
   } as any;
 };
@@ -4679,12 +5024,30 @@ const deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1PutManagedScalingPolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): PutManagedScalingPolicyOutput => {
+  return {
+    __type: "PutManagedScalingPolicyOutput",
+  } as any;
+};
+
 const deserializeAws_json1_1RemoveAutoScalingPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveAutoScalingPolicyOutput => {
   return {
     __type: "RemoveAutoScalingPolicyOutput",
+  } as any;
+};
+
+const deserializeAws_json1_1RemoveManagedScalingPolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): RemoveManagedScalingPolicyOutput => {
+  return {
+    __type: "RemoveManagedScalingPolicyOutput",
   } as any;
 };
 
@@ -4822,6 +5185,10 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
 ): SpotProvisioningSpecification => {
   return {
     __type: "SpotProvisioningSpecification",
+    AllocationStrategy:
+      output.AllocationStrategy !== undefined && output.AllocationStrategy !== null
+        ? output.AllocationStrategy
+        : undefined,
     BlockDurationMinutes:
       output.BlockDurationMinutes !== undefined && output.BlockDurationMinutes !== null
         ? output.BlockDurationMinutes

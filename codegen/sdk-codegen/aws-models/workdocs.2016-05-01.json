@@ -212,13 +212,6 @@
     "com.amazonaws.workdocs#AbortDocumentVersionUploadRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "DocumentId": {
           "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
@@ -233,6 +226,13 @@
             "smithy.api#documentation": "<p>The ID of the version.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -277,7 +277,7 @@
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -305,34 +305,10 @@
     "com.amazonaws.workdocs#Activity": {
       "type": "structure",
       "members": {
-        "CommentMetadata": {
-          "target": "com.amazonaws.workdocs#CommentMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>Metadata of the commenting activity. This is an optional field and is filled for\n            commenting activities.</p>"
-          }
-        },
-        "Initiator": {
-          "target": "com.amazonaws.workdocs#UserMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>The user who performed the action.</p>"
-          }
-        },
         "IsIndirectActivity": {
           "target": "com.amazonaws.workdocs#BooleanType",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether an activity is indirect or direct. An indirect activity results\n            from a direct activity performed on a parent resource. For example, sharing a parent\n            folder (the direct activity) shares all of the subfolders and documents within the\n            parent folder (the indirect activity).</p>"
-          }
-        },
-        "OrganizationId": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the organization.</p>"
-          }
-        },
-        "OriginalParent": {
-          "target": "com.amazonaws.workdocs#ResourceMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>The original parent of the resource. This is an optional field and is filled for\n            move activities.</p>"
           }
         },
         "Participants": {
@@ -341,10 +317,34 @@
             "smithy.api#documentation": "<p>The list of users or groups impacted by this action. This is an optional field and\n            is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED,\n            DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.</p>"
           }
         },
-        "ResourceMetadata": {
+        "OrganizationId": {
+          "target": "com.amazonaws.workdocs#IdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the organization.</p>"
+          }
+        },
+        "Initiator": {
+          "target": "com.amazonaws.workdocs#UserMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The user who performed the action.</p>"
+          }
+        },
+        "CommentMetadata": {
+          "target": "com.amazonaws.workdocs#CommentMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata of the commenting activity. This is an optional field and is filled for\n            commenting activities.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.workdocs#ActivityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The activity type.</p>"
+          }
+        },
+        "OriginalParent": {
           "target": "com.amazonaws.workdocs#ResourceMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>The metadata of the resource involved in the user action.</p>"
+            "smithy.api#documentation": "<p>The original parent of the resource. This is an optional field and is filled for\n            move activities.</p>"
           }
         },
         "TimeStamp": {
@@ -353,10 +353,10 @@
             "smithy.api#documentation": "<p>The timestamp when the action was performed.</p>"
           }
         },
-        "Type": {
-          "target": "com.amazonaws.workdocs#ActivityType",
+        "ResourceMetadata": {
+          "target": "com.amazonaws.workdocs#ResourceMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>The activity type.</p>"
+            "smithy.api#documentation": "<p>The metadata of the resource involved in the user action.</p>"
           }
         }
       },
@@ -547,24 +547,17 @@
     "com.amazonaws.workdocs#AddResourcePermissionsRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "NotificationOptions": {
           "target": "com.amazonaws.workdocs#NotificationOptions",
           "traits": {
             "smithy.api#documentation": "<p>The notification options.</p>"
           }
         },
-        "Principals": {
-          "target": "com.amazonaws.workdocs#SharePrincipalList",
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>The users, groups, or organization being granted permission.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         },
         "ResourceId": {
@@ -572,6 +565,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Principals": {
+          "target": "com.amazonaws.workdocs#SharePrincipalList",
+          "traits": {
+            "smithy.api#documentation": "<p>The users, groups, or organization being granted permission.</p>",
             "smithy.api#required": {}
           }
         }
@@ -626,18 +626,6 @@
             "smithy.api#required": {}
           }
         },
-        "Contributor": {
-          "target": "com.amazonaws.workdocs#User",
-          "traits": {
-            "smithy.api#documentation": "<p>The details of the user who made the comment.</p>"
-          }
-        },
-        "CreatedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that the comment was created.</p>"
-          }
-        },
         "ParentId": {
           "target": "com.amazonaws.workdocs#CommentIdType",
           "traits": {
@@ -650,16 +638,28 @@
             "smithy.api#documentation": "<p>If the comment is a reply to another user's comment, this field contains the user\n            ID of the user being replied to.</p>"
           }
         },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the comment was created.</p>"
+          }
+        },
+        "Contributor": {
+          "target": "com.amazonaws.workdocs#User",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of the user who made the comment.</p>"
+          }
+        },
+        "Visibility": {
+          "target": "com.amazonaws.workdocs#CommentVisibilityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The visibility of the comment. Options are either PRIVATE, where the comment is\n            visible only to the comment author and document owner and co-owners, or PUBLIC, where\n            the comment is visible to document owners, co-owners, and contributors.</p>"
+          }
+        },
         "Status": {
           "target": "com.amazonaws.workdocs#CommentStatusType",
           "traits": {
             "smithy.api#documentation": "<p>The status of the comment.</p>"
-          }
-        },
-        "Text": {
-          "target": "com.amazonaws.workdocs#CommentTextType",
-          "traits": {
-            "smithy.api#documentation": "<p>The text of the comment.</p>"
           }
         },
         "ThreadId": {
@@ -668,10 +668,10 @@
             "smithy.api#documentation": "<p>The ID of the root comment in the thread.</p>"
           }
         },
-        "Visibility": {
-          "target": "com.amazonaws.workdocs#CommentVisibilityType",
+        "Text": {
+          "target": "com.amazonaws.workdocs#CommentTextType",
           "traits": {
-            "smithy.api#documentation": "<p>The visibility of the comment. Options are either PRIVATE, where the comment is\n            visible only to the comment author and document owner and co-owners, or PUBLIC, where\n            the comment is visible to document owners, co-owners, and contributors.</p>"
+            "smithy.api#documentation": "<p>The text of the comment.</p>"
           }
         }
       },
@@ -698,6 +698,12 @@
     "com.amazonaws.workdocs#CommentMetadata": {
       "type": "structure",
       "members": {
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp that the comment was created.</p>"
+          }
+        },
         "CommentId": {
           "target": "com.amazonaws.workdocs#CommentIdType",
           "traits": {
@@ -714,12 +720,6 @@
           "target": "com.amazonaws.workdocs#User",
           "traits": {
             "smithy.api#documentation": "<p>The user who made the comment.</p>"
-          }
-        },
-        "CreatedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp that the comment was created.</p>"
           }
         },
         "RecipientId": {
@@ -849,21 +849,6 @@
     "com.amazonaws.workdocs#CreateCommentRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
-        "DocumentId": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the document.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "NotifyCollaborators": {
           "target": "com.amazonaws.workdocs#BooleanType",
           "traits": {
@@ -876,11 +861,10 @@
             "smithy.api#documentation": "<p>The ID of the parent comment.</p>"
           }
         },
-        "Text": {
-          "target": "com.amazonaws.workdocs#CommentTextType",
+        "Visibility": {
+          "target": "com.amazonaws.workdocs#CommentVisibilityType",
           "traits": {
-            "smithy.api#documentation": "<p>The text of the comment.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The visibility of the comment. Options are either PRIVATE, where the comment is\n            visible only to the comment author and document owner and co-owners, or PUBLIC, where\n            the comment is visible to document owners, co-owners, and contributors.</p>"
           }
         },
         "ThreadId": {
@@ -897,10 +881,26 @@
             "smithy.api#required": {}
           }
         },
-        "Visibility": {
-          "target": "com.amazonaws.workdocs#CommentVisibilityType",
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>The visibility of the comment. Options are either PRIVATE, where the comment is\n            visible only to the comment author and document owner and co-owners, or PUBLIC, where\n            the comment is visible to document owners, co-owners, and contributors.</p>"
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.workdocs#CommentTextType",
+          "traits": {
+            "smithy.api#documentation": "<p>The text of the comment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DocumentId": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -959,18 +959,25 @@
     "com.amazonaws.workdocs#CreateCustomMetadataRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "CustomMetadata": {
           "target": "com.amazonaws.workdocs#CustomMetadataMap",
           "traits": {
             "smithy.api#documentation": "<p>Custom metadata in the form of name-value pairs.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
+          }
+        },
+        "VersionId": {
+          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the version, if the custom metadata is being added to a document\n            version.</p>",
+            "smithy.api#httpQuery": "versionid"
           }
         },
         "ResourceId": {
@@ -979,13 +986,6 @@
             "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "VersionId": {
-          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the version, if the custom metadata is being added to a document\n            version.</p>",
-            "smithy.api#httpQuery": "versionid"
           }
         }
       }
@@ -1046,7 +1046,7 @@
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -1119,7 +1119,7 @@
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -1175,6 +1175,20 @@
     "com.amazonaws.workdocs#CreateNotificationSubscriptionRequest": {
       "type": "structure",
       "members": {
+        "SubscriptionType": {
+          "target": "com.amazonaws.workdocs#SubscriptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The notification type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.workdocs#SubscriptionProtocolType",
+          "traits": {
+            "smithy.api#documentation": "<p>The protocol to use. The supported value is https, which delivers JSON-encoded\n            messages using HTTPS POST.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Endpoint": {
           "target": "com.amazonaws.workdocs#SubscriptionEndPointType",
           "traits": {
@@ -1187,20 +1201,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the organization.</p>",
             "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "Protocol": {
-          "target": "com.amazonaws.workdocs#SubscriptionProtocolType",
-          "traits": {
-            "smithy.api#documentation": "<p>The protocol to use. The supported value is https, which delivers JSON-encoded\n            messages using HTTPS POST.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "SubscriptionType": {
-          "target": "com.amazonaws.workdocs#SubscriptionType",
-          "traits": {
-            "smithy.api#documentation": "<p>The notification type.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1254,43 +1254,11 @@
     "com.amazonaws.workdocs#CreateUserRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
-        "EmailAddress": {
-          "target": "com.amazonaws.workdocs#EmailAddressType",
-          "traits": {
-            "smithy.api#documentation": "<p>The email address of the user.</p>"
-          }
-        },
         "GivenName": {
           "target": "com.amazonaws.workdocs#UserAttributeValueType",
           "traits": {
             "smithy.api#documentation": "<p>The given name of the user.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "OrganizationId": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the organization.</p>"
-          }
-        },
-        "Password": {
-          "target": "com.amazonaws.workdocs#PasswordType",
-          "traits": {
-            "smithy.api#documentation": "<p>The password of the user.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "StorageRule": {
-          "target": "com.amazonaws.workdocs#StorageRuleType",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of storage for the user.</p>"
           }
         },
         "Surname": {
@@ -1300,16 +1268,48 @@
             "smithy.api#required": {}
           }
         },
-        "TimeZoneId": {
-          "target": "com.amazonaws.workdocs#TimeZoneIdType",
+        "OrganizationId": {
+          "target": "com.amazonaws.workdocs#IdType",
           "traits": {
-            "smithy.api#documentation": "<p>The time zone ID of the user.</p>"
+            "smithy.api#documentation": "<p>The ID of the organization.</p>"
           }
         },
         "Username": {
           "target": "com.amazonaws.workdocs#UsernameType",
           "traits": {
             "smithy.api#documentation": "<p>The login name of the user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TimeZoneId": {
+          "target": "com.amazonaws.workdocs#TimeZoneIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The time zone ID of the user.</p>"
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
+          }
+        },
+        "StorageRule": {
+          "target": "com.amazonaws.workdocs#StorageRuleType",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of storage for the user.</p>"
+          }
+        },
+        "EmailAddress": {
+          "target": "com.amazonaws.workdocs#EmailAddressType",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address of the user.</p>"
+          }
+        },
+        "Password": {
+          "target": "com.amazonaws.workdocs#PasswordType",
+          "traits": {
+            "smithy.api#documentation": "<p>The password of the user.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1420,19 +1420,19 @@
     "com.amazonaws.workdocs#DeactivateUserRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "UserId": {
           "target": "com.amazonaws.workdocs#IdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the user.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -1493,17 +1493,18 @@
     "com.amazonaws.workdocs#DeleteCommentRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "CommentId": {
           "target": "com.amazonaws.workdocs#CommentIdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the comment.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "VersionId": {
+          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the document version.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1516,12 +1517,11 @@
             "smithy.api#required": {}
           }
         },
-        "VersionId": {
-          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the document version.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -1566,13 +1566,6 @@
     "com.amazonaws.workdocs#DeleteCustomMetadataRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "DeleteAll": {
           "target": "com.amazonaws.workdocs#BooleanType",
           "traits": {
@@ -1580,11 +1573,11 @@
             "smithy.api#httpQuery": "deleteAll"
           }
         },
-        "Keys": {
-          "target": "com.amazonaws.workdocs#CustomMetadataKeyList",
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>List of properties to remove.</p>",
-            "smithy.api#httpQuery": "keys"
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         },
         "ResourceId": {
@@ -1600,6 +1593,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the version, if the custom metadata is being deleted from a document\n            version.</p>",
             "smithy.api#httpQuery": "versionId"
+          }
+        },
+        "Keys": {
+          "target": "com.amazonaws.workdocs#CustomMetadataKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of properties to remove.</p>",
+            "smithy.api#httpQuery": "keys"
           }
         }
       }
@@ -1651,19 +1651,19 @@
     "com.amazonaws.workdocs#DeleteDocumentRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "DocumentId": {
           "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -1748,19 +1748,19 @@
     "com.amazonaws.workdocs#DeleteFolderContentsRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "FolderId": {
           "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the folder.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -1768,19 +1768,19 @@
     "com.amazonaws.workdocs#DeleteFolderRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "FolderId": {
           "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the folder.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -1822,13 +1822,6 @@
     "com.amazonaws.workdocs#DeleteLabelsRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "DeleteAll": {
           "target": "com.amazonaws.workdocs#BooleanType",
           "traits": {
@@ -1836,11 +1829,11 @@
             "smithy.api#httpQuery": "deleteAll"
           }
         },
-        "Labels": {
-          "target": "com.amazonaws.workdocs#SharedLabels",
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>List of labels to delete from the resource.</p>",
-            "smithy.api#httpQuery": "labels"
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         },
         "ResourceId": {
@@ -1849,6 +1842,13 @@
             "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "Labels": {
+          "target": "com.amazonaws.workdocs#SharedLabels",
+          "traits": {
+            "smithy.api#documentation": "<p>List of labels to delete from the resource.</p>",
+            "smithy.api#httpQuery": "labels"
           }
         }
       }
@@ -1888,18 +1888,18 @@
     "com.amazonaws.workdocs#DeleteNotificationSubscriptionRequest": {
       "type": "structure",
       "members": {
-        "OrganizationId": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the organization.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "SubscriptionId": {
           "target": "com.amazonaws.workdocs#IdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the subscription.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workdocs#IdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the organization.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1940,19 +1940,19 @@
     "com.amazonaws.workdocs#DeleteUserRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "UserId": {
           "target": "com.amazonaws.workdocs#IdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the user.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -1994,6 +1994,13 @@
     "com.amazonaws.workdocs#DescribeActivitiesRequest": {
       "type": "structure",
       "members": {
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
+          }
+        },
         "ActivityTypes": {
           "target": "com.amazonaws.workdocs#ActivityNamesFilterType",
           "traits": {
@@ -2001,18 +2008,18 @@
             "smithy.api#httpQuery": "activityTypes"
           }
         },
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+        "OrganizationId": {
+          "target": "com.amazonaws.workdocs#IdType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
+            "smithy.api#documentation": "<p>The ID of the organization. This is a mandatory parameter when using administrative\n            API (SigV4) requests.</p>",
+            "smithy.api#httpQuery": "organizationId"
           }
         },
-        "EndTime": {
-          "target": "com.amazonaws.workdocs#TimestampType",
+        "Marker": {
+          "target": "com.amazonaws.workdocs#MarkerType",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp that determines the end time of the activities. The response includes\n            the activities performed before the specified timestamp.</p>",
-            "smithy.api#httpQuery": "endTime"
+            "smithy.api#documentation": "<p>The marker for the next set of results.</p>",
+            "smithy.api#httpQuery": "marker"
           }
         },
         "IncludeIndirectActivities": {
@@ -2029,25 +2036,18 @@
             "smithy.api#httpQuery": "limit"
           }
         },
-        "Marker": {
-          "target": "com.amazonaws.workdocs#MarkerType",
+        "EndTime": {
+          "target": "com.amazonaws.workdocs#TimestampType",
           "traits": {
-            "smithy.api#documentation": "<p>The marker for the next set of results.</p>",
-            "smithy.api#httpQuery": "marker"
+            "smithy.api#documentation": "<p>The timestamp that determines the end time of the activities. The response includes\n            the activities performed before the specified timestamp.</p>",
+            "smithy.api#httpQuery": "endTime"
           }
         },
-        "OrganizationId": {
+        "UserId": {
           "target": "com.amazonaws.workdocs#IdType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the organization. This is a mandatory parameter when using administrative\n            API (SigV4) requests.</p>",
-            "smithy.api#httpQuery": "organizationId"
-          }
-        },
-        "ResourceId": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The document or folder ID for which to describe activity types.</p>",
-            "smithy.api#httpQuery": "resourceId"
+            "smithy.api#documentation": "<p>The ID of the user who performed the action. The response includes activities\n            pertaining to this user. This is an optional parameter and is only applicable for\n            administrative API (SigV4) requests.</p>",
+            "smithy.api#httpQuery": "userId"
           }
         },
         "StartTime": {
@@ -2057,11 +2057,11 @@
             "smithy.api#httpQuery": "startTime"
           }
         },
-        "UserId": {
+        "ResourceId": {
           "target": "com.amazonaws.workdocs#IdType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the user who performed the action. The response includes activities\n            pertaining to this user. This is an optional parameter and is only applicable for\n            administrative API (SigV4) requests.</p>",
-            "smithy.api#httpQuery": "userId"
+            "smithy.api#documentation": "<p>The document or folder ID for which to describe activity types.</p>",
+            "smithy.api#httpQuery": "resourceId"
           }
         }
       }
@@ -2069,16 +2069,16 @@
     "com.amazonaws.workdocs#DescribeActivitiesResponse": {
       "type": "structure",
       "members": {
-        "Marker": {
-          "target": "com.amazonaws.workdocs#MarkerType",
-          "traits": {
-            "smithy.api#documentation": "<p>The marker for the next set of results.</p>"
-          }
-        },
         "UserActivities": {
           "target": "com.amazonaws.workdocs#UserActivities",
           "traits": {
             "smithy.api#documentation": "<p>The list of activities for the specified user and time period.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.workdocs#MarkerType",
+          "traits": {
+            "smithy.api#documentation": "<p>The marker for the next set of results.</p>"
           }
         }
       }
@@ -2123,10 +2123,17 @@
     "com.amazonaws.workdocs#DescribeCommentsRequest": {
       "type": "structure",
       "members": {
+        "Limit": {
+          "target": "com.amazonaws.workdocs#LimitType",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>",
+            "smithy.api#httpQuery": "limit"
+          }
+        },
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -2138,11 +2145,12 @@
             "smithy.api#required": {}
           }
         },
-        "Limit": {
-          "target": "com.amazonaws.workdocs#LimitType",
+        "VersionId": {
+          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to return.</p>",
-            "smithy.api#httpQuery": "limit"
+            "smithy.api#documentation": "<p>The ID of the document version.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Marker": {
@@ -2151,30 +2159,22 @@
             "smithy.api#documentation": "<p>The marker for the next set of results. This marker was received from a previous\n            call.</p>",
             "smithy.api#httpQuery": "marker"
           }
-        },
-        "VersionId": {
-          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the document version.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.workdocs#DescribeCommentsResponse": {
       "type": "structure",
       "members": {
-        "Comments": {
-          "target": "com.amazonaws.workdocs#CommentList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of comments for the specified document version.</p>"
-          }
-        },
         "Marker": {
           "target": "com.amazonaws.workdocs#MarkerType",
           "traits": {
             "smithy.api#documentation": "<p>The marker for the next set of results. This marker was received from a previous\n            call.</p>"
+          }
+        },
+        "Comments": {
+          "target": "com.amazonaws.workdocs#CommentList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of comments for the specified document version.</p>"
           }
         }
       }
@@ -2228,11 +2228,11 @@
     "com.amazonaws.workdocs#DescribeDocumentVersionsRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+        "Include": {
+          "target": "com.amazonaws.workdocs#FieldNamesType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
+            "smithy.api#documentation": "<p>A comma-separated list of values. Specify \"INITIALIZED\" to include incomplete\n            versions.</p>",
+            "smithy.api#httpQuery": "include"
           }
         },
         "DocumentId": {
@@ -2243,18 +2243,11 @@
             "smithy.api#required": {}
           }
         },
-        "Fields": {
-          "target": "com.amazonaws.workdocs#FieldNamesType",
+        "Marker": {
+          "target": "com.amazonaws.workdocs#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "<p>Specify \"SOURCE\" to include initialized versions and a URL for the source\n            document.</p>",
-            "smithy.api#httpQuery": "fields"
-          }
-        },
-        "Include": {
-          "target": "com.amazonaws.workdocs#FieldNamesType",
-          "traits": {
-            "smithy.api#documentation": "<p>A comma-separated list of values. Specify \"INITIALIZED\" to include incomplete\n            versions.</p>",
-            "smithy.api#httpQuery": "include"
+            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>",
+            "smithy.api#httpQuery": "marker"
           }
         },
         "Limit": {
@@ -2264,11 +2257,18 @@
             "smithy.api#httpQuery": "limit"
           }
         },
-        "Marker": {
-          "target": "com.amazonaws.workdocs#PageMarkerType",
+        "Fields": {
+          "target": "com.amazonaws.workdocs#FieldNamesType",
           "traits": {
-            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>",
-            "smithy.api#httpQuery": "marker"
+            "smithy.api#documentation": "<p>Specify \"SOURCE\" to include initialized versions and a URL for the source\n            document.</p>",
+            "smithy.api#httpQuery": "fields"
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -2276,16 +2276,16 @@
     "com.amazonaws.workdocs#DescribeDocumentVersionsResponse": {
       "type": "structure",
       "members": {
-        "DocumentVersions": {
-          "target": "com.amazonaws.workdocs#DocumentVersionMetadataList",
-          "traits": {
-            "smithy.api#documentation": "<p>The document versions.</p>"
-          }
-        },
         "Marker": {
           "target": "com.amazonaws.workdocs#PageMarkerType",
           "traits": {
             "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
+          }
+        },
+        "DocumentVersions": {
+          "target": "com.amazonaws.workdocs#DocumentVersionMetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>The document versions.</p>"
           }
         }
       }
@@ -2335,19 +2335,26 @@
     "com.amazonaws.workdocs#DescribeFolderContentsRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "FolderId": {
           "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the folder.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "Sort": {
+          "target": "com.amazonaws.workdocs#ResourceSortType",
+          "traits": {
+            "smithy.api#documentation": "<p>The sorting criteria.</p>",
+            "smithy.api#httpQuery": "sort"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.workdocs#PageMarkerType",
+          "traits": {
+            "smithy.api#documentation": "<p>The marker for the next set of results. This marker was received from a previous\n            call.</p>",
+            "smithy.api#httpQuery": "marker"
           }
         },
         "Include": {
@@ -2364,13 +2371,6 @@
             "smithy.api#httpQuery": "limit"
           }
         },
-        "Marker": {
-          "target": "com.amazonaws.workdocs#PageMarkerType",
-          "traits": {
-            "smithy.api#documentation": "<p>The marker for the next set of results. This marker was received from a previous\n            call.</p>",
-            "smithy.api#httpQuery": "marker"
-          }
-        },
         "Order": {
           "target": "com.amazonaws.workdocs#OrderType",
           "traits": {
@@ -2378,11 +2378,11 @@
             "smithy.api#httpQuery": "order"
           }
         },
-        "Sort": {
-          "target": "com.amazonaws.workdocs#ResourceSortType",
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>The sorting criteria.</p>",
-            "smithy.api#httpQuery": "sort"
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         },
         "Type": {
@@ -2397,16 +2397,16 @@
     "com.amazonaws.workdocs#DescribeFolderContentsResponse": {
       "type": "structure",
       "members": {
-        "Documents": {
-          "target": "com.amazonaws.workdocs#DocumentMetadataList",
-          "traits": {
-            "smithy.api#documentation": "<p>The documents in the specified folder.</p>"
-          }
-        },
         "Folders": {
           "target": "com.amazonaws.workdocs#FolderMetadataList",
           "traits": {
             "smithy.api#documentation": "<p>The subfolders in the specified folder.</p>"
+          }
+        },
+        "Documents": {
+          "target": "com.amazonaws.workdocs#DocumentMetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>The documents in the specified folder.</p>"
           }
         },
         "Marker": {
@@ -2451,11 +2451,12 @@
     "com.amazonaws.workdocs#DescribeGroupsRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+        "SearchQuery": {
+          "target": "com.amazonaws.workdocs#SearchQueryType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using administrative\n            API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
+            "smithy.api#documentation": "<p>A query to describe groups by group name.</p>",
+            "smithy.api#httpQuery": "searchQuery",
+            "smithy.api#required": {}
           }
         },
         "Limit": {
@@ -2465,13 +2466,6 @@
             "smithy.api#httpQuery": "limit"
           }
         },
-        "Marker": {
-          "target": "com.amazonaws.workdocs#MarkerType",
-          "traits": {
-            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>",
-            "smithy.api#httpQuery": "marker"
-          }
-        },
         "OrganizationId": {
           "target": "com.amazonaws.workdocs#IdType",
           "traits": {
@@ -2479,12 +2473,18 @@
             "smithy.api#httpQuery": "organizationId"
           }
         },
-        "SearchQuery": {
-          "target": "com.amazonaws.workdocs#SearchQueryType",
+        "Marker": {
+          "target": "com.amazonaws.workdocs#MarkerType",
           "traits": {
-            "smithy.api#documentation": "<p>A query to describe groups by group name.</p>",
-            "smithy.api#httpQuery": "searchQuery",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>",
+            "smithy.api#httpQuery": "marker"
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -2492,16 +2492,16 @@
     "com.amazonaws.workdocs#DescribeGroupsResponse": {
       "type": "structure",
       "members": {
-        "Groups": {
-          "target": "com.amazonaws.workdocs#GroupMetadataList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of groups.</p>"
-          }
-        },
         "Marker": {
           "target": "com.amazonaws.workdocs#MarkerType",
           "traits": {
             "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no additional\n            results, the string is empty.</p>"
+          }
+        },
+        "Groups": {
+          "target": "com.amazonaws.workdocs#GroupMetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of groups.</p>"
           }
         }
       }
@@ -2537,13 +2537,6 @@
     "com.amazonaws.workdocs#DescribeNotificationSubscriptionsRequest": {
       "type": "structure",
       "members": {
-        "Limit": {
-          "target": "com.amazonaws.workdocs#LimitType",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to return with this call.</p>",
-            "smithy.api#httpQuery": "limit"
-          }
-        },
         "Marker": {
           "target": "com.amazonaws.workdocs#PageMarkerType",
           "traits": {
@@ -2558,22 +2551,29 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "Limit": {
+          "target": "com.amazonaws.workdocs#LimitType",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return with this call.</p>",
+            "smithy.api#httpQuery": "limit"
+          }
         }
       }
     },
     "com.amazonaws.workdocs#DescribeNotificationSubscriptionsResponse": {
       "type": "structure",
       "members": {
-        "Marker": {
-          "target": "com.amazonaws.workdocs#PageMarkerType",
-          "traits": {
-            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
-          }
-        },
         "Subscriptions": {
           "target": "com.amazonaws.workdocs#SubscriptionList",
           "traits": {
             "smithy.api#documentation": "<p>The subscriptions.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.workdocs#PageMarkerType",
+          "traits": {
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
           }
         }
       }
@@ -2612,10 +2612,25 @@
     "com.amazonaws.workdocs#DescribeResourcePermissionsRequest": {
       "type": "structure",
       "members": {
+        "PrincipalId": {
+          "target": "com.amazonaws.workdocs#IdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the principal to filter permissions by.</p>",
+            "smithy.api#httpQuery": "principalId"
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the resource.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -2632,37 +2647,22 @@
             "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call)</p>",
             "smithy.api#httpQuery": "marker"
           }
-        },
-        "PrincipalId": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the principal to filter permissions by.</p>",
-            "smithy.api#httpQuery": "principalId"
-          }
-        },
-        "ResourceId": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the resource.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.workdocs#DescribeResourcePermissionsResponse": {
       "type": "structure",
       "members": {
-        "Marker": {
-          "target": "com.amazonaws.workdocs#PageMarkerType",
-          "traits": {
-            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
-          }
-        },
         "Principals": {
           "target": "com.amazonaws.workdocs#PrincipalList",
           "traits": {
             "smithy.api#documentation": "<p>The principals.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.workdocs#PageMarkerType",
+          "traits": {
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
           }
         }
       }
@@ -2704,19 +2704,19 @@
     "com.amazonaws.workdocs#DescribeRootFoldersRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication",
-            "smithy.api#required": {}
-          }
-        },
         "Limit": {
           "target": "com.amazonaws.workdocs#LimitType",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of items to return.</p>",
             "smithy.api#httpQuery": "limit"
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token.</p>",
+            "smithy.api#httpHeader": "Authentication",
+            "smithy.api#required": {}
           }
         },
         "Marker": {
@@ -2731,16 +2731,16 @@
     "com.amazonaws.workdocs#DescribeRootFoldersResponse": {
       "type": "structure",
       "members": {
-        "Folders": {
-          "target": "com.amazonaws.workdocs#FolderMetadataList",
-          "traits": {
-            "smithy.api#documentation": "<p>The user's special folders.</p>"
-          }
-        },
         "Marker": {
           "target": "com.amazonaws.workdocs#PageMarkerType",
           "traits": {
             "smithy.api#documentation": "<p>The marker for the next set of results.</p>"
+          }
+        },
+        "Folders": {
+          "target": "com.amazonaws.workdocs#FolderMetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>The user's special folders.</p>"
           }
         }
       }
@@ -2794,13 +2794,6 @@
     "com.amazonaws.workdocs#DescribeUsersRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "Fields": {
           "target": "com.amazonaws.workdocs#FieldNamesType",
           "traits": {
@@ -2808,11 +2801,18 @@
             "smithy.api#httpQuery": "fields"
           }
         },
-        "Include": {
-          "target": "com.amazonaws.workdocs#UserFilterType",
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the users. Specify \"ALL\" to include inactive users.</p>",
-            "smithy.api#httpQuery": "include"
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
+          }
+        },
+        "Order": {
+          "target": "com.amazonaws.workdocs#OrderType",
+          "traits": {
+            "smithy.api#documentation": "<p>The order for the results.</p>",
+            "smithy.api#httpQuery": "order"
           }
         },
         "Limit": {
@@ -2829,25 +2829,11 @@
             "smithy.api#httpQuery": "marker"
           }
         },
-        "Order": {
-          "target": "com.amazonaws.workdocs#OrderType",
+        "Include": {
+          "target": "com.amazonaws.workdocs#UserFilterType",
           "traits": {
-            "smithy.api#documentation": "<p>The order for the results.</p>",
-            "smithy.api#httpQuery": "order"
-          }
-        },
-        "OrganizationId": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the organization.</p>",
-            "smithy.api#httpQuery": "organizationId"
-          }
-        },
-        "Query": {
-          "target": "com.amazonaws.workdocs#SearchQueryType",
-          "traits": {
-            "smithy.api#documentation": "<p>A query to filter users by user name.</p>",
-            "smithy.api#httpQuery": "query"
+            "smithy.api#documentation": "<p>The state of the users. Specify \"ALL\" to include inactive users.</p>",
+            "smithy.api#httpQuery": "include"
           }
         },
         "Sort": {
@@ -2863,23 +2849,37 @@
             "smithy.api#documentation": "<p>The IDs of the users.</p>",
             "smithy.api#httpQuery": "userIds"
           }
+        },
+        "Query": {
+          "target": "com.amazonaws.workdocs#SearchQueryType",
+          "traits": {
+            "smithy.api#documentation": "<p>A query to filter users by user name.</p>",
+            "smithy.api#httpQuery": "query"
+          }
+        },
+        "OrganizationId": {
+          "target": "com.amazonaws.workdocs#IdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the organization.</p>",
+            "smithy.api#httpQuery": "organizationId"
+          }
         }
       }
     },
     "com.amazonaws.workdocs#DescribeUsersResponse": {
       "type": "structure",
       "members": {
-        "Marker": {
-          "target": "com.amazonaws.workdocs#PageMarkerType",
-          "traits": {
-            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
-          }
-        },
         "TotalNumberOfUsers": {
           "target": "com.amazonaws.workdocs#SizeType",
           "traits": {
             "smithy.api#deprecated": {},
             "smithy.api#documentation": "<p>The total number of users included in the results.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.workdocs#PageMarkerType",
+          "traits": {
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
           }
         },
         "Users": {
@@ -2915,10 +2915,22 @@
     "com.amazonaws.workdocs#DocumentMetadata": {
       "type": "structure",
       "members": {
+        "Id": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the document.</p>"
+          }
+        },
         "CreatedTimestamp": {
           "target": "com.amazonaws.workdocs#TimestampType",
           "traits": {
             "smithy.api#documentation": "<p>The time when the document was created.</p>"
+          }
+        },
+        "ModifiedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the document was updated.</p>"
           }
         },
         "CreatorId": {
@@ -2927,10 +2939,16 @@
             "smithy.api#documentation": "<p>The ID of the creator.</p>"
           }
         },
-        "Id": {
+        "ResourceState": {
+          "target": "com.amazonaws.workdocs#ResourceStateType",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource state.</p>"
+          }
+        },
+        "ParentFolderId": {
           "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the document.</p>"
+            "smithy.api#documentation": "<p>The ID of the parent folder.</p>"
           }
         },
         "Labels": {
@@ -2943,24 +2961,6 @@
           "target": "com.amazonaws.workdocs#DocumentVersionMetadata",
           "traits": {
             "smithy.api#documentation": "<p>The latest version of the document.</p>"
-          }
-        },
-        "ModifiedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the document was updated.</p>"
-          }
-        },
-        "ParentFolderId": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the parent folder.</p>"
-          }
-        },
-        "ResourceState": {
-          "target": "com.amazonaws.workdocs#ResourceStateType",
-          "traits": {
-            "smithy.api#documentation": "<p>The resource state.</p>"
           }
         }
       },
@@ -3054,34 +3054,16 @@
     "com.amazonaws.workdocs#DocumentVersionMetadata": {
       "type": "structure",
       "members": {
+        "Source": {
+          "target": "com.amazonaws.workdocs#DocumentSourceUrlMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The source of the document.</p>"
+          }
+        },
         "ContentCreatedTimestamp": {
           "target": "com.amazonaws.workdocs#TimestampType",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the content of the document was originally created.</p>"
-          }
-        },
-        "ContentModifiedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp when the content of the document was modified.</p>"
-          }
-        },
-        "ContentType": {
-          "target": "com.amazonaws.workdocs#DocumentContentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The content type of the document.</p>"
-          }
-        },
-        "CreatedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp when the document was first uploaded.</p>"
-          }
-        },
-        "CreatorId": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the creator.</p>"
           }
         },
         "Id": {
@@ -3090,22 +3072,10 @@
             "smithy.api#documentation": "<p>The ID of the version.</p>"
           }
         },
-        "ModifiedTimestamp": {
+        "CreatedTimestamp": {
           "target": "com.amazonaws.workdocs#TimestampType",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp when the document was last uploaded.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.workdocs#ResourceNameType",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the version.</p>"
-          }
-        },
-        "Signature": {
-          "target": "com.amazonaws.workdocs#HashType",
-          "traits": {
-            "smithy.api#documentation": "<p>The signature of the document.</p>"
+            "smithy.api#documentation": "<p>The timestamp when the document was first uploaded.</p>"
           }
         },
         "Size": {
@@ -3114,10 +3084,28 @@
             "smithy.api#documentation": "<p>The size of the document, in bytes.</p>"
           }
         },
-        "Source": {
-          "target": "com.amazonaws.workdocs#DocumentSourceUrlMap",
+        "Signature": {
+          "target": "com.amazonaws.workdocs#HashType",
           "traits": {
-            "smithy.api#documentation": "<p>The source of the document.</p>"
+            "smithy.api#documentation": "<p>The signature of the document.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workdocs#ResourceNameType",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the version.</p>"
+          }
+        },
+        "Thumbnail": {
+          "target": "com.amazonaws.workdocs#DocumentThumbnailUrlMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The thumbnail of the document.</p>"
+          }
+        },
+        "ContentModifiedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the content of the document was modified.</p>"
           }
         },
         "Status": {
@@ -3126,10 +3114,22 @@
             "smithy.api#documentation": "<p>The status of the document.</p>"
           }
         },
-        "Thumbnail": {
-          "target": "com.amazonaws.workdocs#DocumentThumbnailUrlMap",
+        "ModifiedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
           "traits": {
-            "smithy.api#documentation": "<p>The thumbnail of the document.</p>"
+            "smithy.api#documentation": "<p>The timestamp when the document was last uploaded.</p>"
+          }
+        },
+        "CreatorId": {
+          "target": "com.amazonaws.workdocs#IdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the creator.</p>"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.workdocs#DocumentContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The content type of the document.</p>"
           }
         }
       },
@@ -3263,22 +3263,10 @@
     "com.amazonaws.workdocs#FolderMetadata": {
       "type": "structure",
       "members": {
-        "CreatedTimestamp": {
+        "ModifiedTimestamp": {
           "target": "com.amazonaws.workdocs#TimestampType",
           "traits": {
-            "smithy.api#documentation": "<p>The time when the folder was created.</p>"
-          }
-        },
-        "CreatorId": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the creator.</p>"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the folder.</p>"
+            "smithy.api#documentation": "<p>The time when the folder was updated.</p>"
           }
         },
         "Labels": {
@@ -3287,22 +3275,16 @@
             "smithy.api#documentation": "<p>List of labels on the folder.</p>"
           }
         },
-        "LatestVersionSize": {
-          "target": "com.amazonaws.workdocs#SizeType",
+        "Signature": {
+          "target": "com.amazonaws.workdocs#HashType",
           "traits": {
-            "smithy.api#documentation": "<p>The size of the latest version of the folder metadata.</p>"
+            "smithy.api#documentation": "<p>The unique identifier created from the subfolders and documents of the\n            folder.</p>"
           }
         },
-        "ModifiedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
+        "CreatorId": {
+          "target": "com.amazonaws.workdocs#IdType",
           "traits": {
-            "smithy.api#documentation": "<p>The time when the folder was updated.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.workdocs#ResourceNameType",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the folder.</p>"
+            "smithy.api#documentation": "<p>The ID of the creator.</p>"
           }
         },
         "ParentFolderId": {
@@ -3311,22 +3293,40 @@
             "smithy.api#documentation": "<p>The ID of the parent folder.</p>"
           }
         },
-        "ResourceState": {
-          "target": "com.amazonaws.workdocs#ResourceStateType",
+        "Name": {
+          "target": "com.amazonaws.workdocs#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "<p>The resource state of the folder.</p>"
+            "smithy.api#documentation": "<p>The name of the folder.</p>"
           }
         },
-        "Signature": {
-          "target": "com.amazonaws.workdocs#HashType",
+        "Id": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier created from the subfolders and documents of the\n            folder.</p>"
+            "smithy.api#documentation": "<p>The ID of the folder.</p>"
+          }
+        },
+        "LatestVersionSize": {
+          "target": "com.amazonaws.workdocs#SizeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the latest version of the folder metadata.</p>"
           }
         },
         "Size": {
           "target": "com.amazonaws.workdocs#SizeType",
           "traits": {
             "smithy.api#documentation": "<p>The size of the folder metadata.</p>"
+          }
+        },
+        "ResourceState": {
+          "target": "com.amazonaws.workdocs#ResourceStateType",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource state of the folder.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the folder was created.</p>"
           }
         }
       },
@@ -3366,7 +3366,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves details of the current user for whom the authentication token was\n            generated. This is not a valid action for SigV4 (administrative API) clients.</p>",
+        "smithy.api#documentation": "<p>Retrieves details of the current user for whom the authentication token was\n            generated. This is not a valid action for SigV4 (administrative API) clients.</p>\n        <p>This action requires an authentication token. To get an authentication token,\n            register an application with Amazon WorkDocs. For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html\">Authentication and Access\n                Control for User Applications</a> in the\n            <i>Amazon\n                WorkDocs Developer Guide</i>.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/me",
@@ -3380,7 +3380,7 @@
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token.</p>",
             "smithy.api#httpHeader": "Authentication",
             "smithy.api#required": {}
           }
@@ -3475,26 +3475,12 @@
     "com.amazonaws.workdocs#GetDocumentPathRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "DocumentId": {
           "target": "com.amazonaws.workdocs#IdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "Fields": {
-          "target": "com.amazonaws.workdocs#FieldNamesType",
-          "traits": {
-            "smithy.api#documentation": "<p>A comma-separated list of values. Specify <code>NAME</code> to include the names of\n            the parent folders.</p>",
-            "smithy.api#httpQuery": "fields"
           }
         },
         "Limit": {
@@ -3509,6 +3495,20 @@
           "traits": {
             "smithy.api#documentation": "<p>This value is not supported.</p>",
             "smithy.api#httpQuery": "marker"
+          }
+        },
+        "Fields": {
+          "target": "com.amazonaws.workdocs#FieldNamesType",
+          "traits": {
+            "smithy.api#documentation": "<p>A comma-separated list of values. Specify <code>NAME</code> to include the names of\n            the parent folders.</p>",
+            "smithy.api#httpQuery": "fields"
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -3530,7 +3530,7 @@
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -3611,10 +3611,25 @@
     "com.amazonaws.workdocs#GetDocumentVersionRequest": {
       "type": "structure",
       "members": {
+        "IncludeCustomMetadata": {
+          "target": "com.amazonaws.workdocs#BooleanType",
+          "traits": {
+            "smithy.api#documentation": "<p>Set this to TRUE to include custom metadata in the response.</p>",
+            "smithy.api#httpQuery": "includeCustomMetadata"
+          }
+        },
+        "VersionId": {
+          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The version ID of the document.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -3632,37 +3647,22 @@
             "smithy.api#documentation": "<p>A comma-separated list of values. Specify \"SOURCE\" to include a URL for the source\n            document.</p>",
             "smithy.api#httpQuery": "fields"
           }
-        },
-        "IncludeCustomMetadata": {
-          "target": "com.amazonaws.workdocs#BooleanType",
-          "traits": {
-            "smithy.api#documentation": "<p>Set this to TRUE to include custom metadata in the response.</p>",
-            "smithy.api#httpQuery": "includeCustomMetadata"
-          }
-        },
-        "VersionId": {
-          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The version ID of the document.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.workdocs#GetDocumentVersionResponse": {
       "type": "structure",
       "members": {
-        "CustomMetadata": {
-          "target": "com.amazonaws.workdocs#CustomMetadataMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The custom metadata on the document version.</p>"
-          }
-        },
         "Metadata": {
           "target": "com.amazonaws.workdocs#DocumentVersionMetadata",
           "traits": {
             "smithy.api#documentation": "<p>The version metadata.</p>"
+          }
+        },
+        "CustomMetadata": {
+          "target": "com.amazonaws.workdocs#CustomMetadataMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom metadata on the document version.</p>"
           }
         }
       }
@@ -3747,7 +3747,7 @@
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -3756,6 +3756,13 @@
           "traits": {
             "smithy.api#documentation": "<p>A comma-separated list of values. Specify \"NAME\" to include the names of the parent\n            folders.</p>",
             "smithy.api#httpQuery": "fields"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.workdocs#PageMarkerType",
+          "traits": {
+            "smithy.api#documentation": "<p>This value is not supported.</p>",
+            "smithy.api#httpQuery": "marker"
           }
         },
         "FolderId": {
@@ -3771,13 +3778,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of levels in the hierarchy to return.</p>",
             "smithy.api#httpQuery": "limit"
-          }
-        },
-        "Marker": {
-          "target": "com.amazonaws.workdocs#PageMarkerType",
-          "traits": {
-            "smithy.api#documentation": "<p>This value is not supported.</p>",
-            "smithy.api#httpQuery": "marker"
           }
         }
       }
@@ -3796,13 +3796,6 @@
     "com.amazonaws.workdocs#GetFolderRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "FolderId": {
           "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
@@ -3816,6 +3809,13 @@
           "traits": {
             "smithy.api#documentation": "<p>Set to TRUE to include custom metadata in the response.</p>",
             "smithy.api#httpQuery": "includeCustomMetadata"
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -3874,25 +3874,11 @@
     "com.amazonaws.workdocs#GetResourcesRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API operation using AWS\n            credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "CollectionType": {
           "target": "com.amazonaws.workdocs#ResourceCollectionType",
           "traits": {
             "smithy.api#documentation": "<p>The collection type.</p>",
             "smithy.api#httpQuery": "collectionType"
-          }
-        },
-        "Limit": {
-          "target": "com.amazonaws.workdocs#LimitType",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of resources to return.</p>",
-            "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
@@ -3908,12 +3894,32 @@
             "smithy.api#documentation": "<p>The user ID for the resource collection. This is a required field for accessing the\n            API operation using IAM credentials.</p>",
             "smithy.api#httpQuery": "userId"
           }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.workdocs#LimitType",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of resources to return.</p>",
+            "smithy.api#httpQuery": "limit"
+          }
         }
       }
     },
     "com.amazonaws.workdocs#GetResourcesResponse": {
       "type": "structure",
       "members": {
+        "Marker": {
+          "target": "com.amazonaws.workdocs#PageMarkerType",
+          "traits": {
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>"
+          }
+        },
         "Documents": {
           "target": "com.amazonaws.workdocs#DocumentMetadataList",
           "traits": {
@@ -3925,28 +3931,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The folders in the specified folder.</p>"
           }
-        },
-        "Marker": {
-          "target": "com.amazonaws.workdocs#PageMarkerType",
-          "traits": {
-            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>"
-          }
         }
       }
     },
     "com.amazonaws.workdocs#GroupMetadata": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the user group.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.workdocs#GroupNameType",
           "traits": {
             "smithy.api#documentation": "<p>The name of the group.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workdocs#IdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the user group.</p>"
           }
         }
       },
@@ -4070,35 +4070,10 @@
     "com.amazonaws.workdocs#InitiateDocumentVersionUploadRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
-        "ContentCreatedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp when the content of the document was originally created.</p>"
-          }
-        },
-        "ContentModifiedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp when the content of the document was modified.</p>"
-          }
-        },
         "ContentType": {
           "target": "com.amazonaws.workdocs#DocumentContentType",
           "traits": {
             "smithy.api#documentation": "<p>The content type of the document.</p>"
-          }
-        },
-        "DocumentSizeInBytes": {
-          "target": "com.amazonaws.workdocs#SizeType",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the document, in bytes.</p>"
           }
         },
         "Id": {
@@ -4107,17 +4082,42 @@
             "smithy.api#documentation": "<p>The ID of the document.</p>"
           }
         },
+        "ParentFolderId": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the parent folder.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
+          }
+        },
+        "ContentModifiedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the content of the document was modified.</p>"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.workdocs#ResourceNameType",
           "traits": {
             "smithy.api#documentation": "<p>The name of the document.</p>"
           }
         },
-        "ParentFolderId": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
+        "DocumentSizeInBytes": {
+          "target": "com.amazonaws.workdocs#SizeType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the parent folder.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The size of the document, in bytes.</p>"
+          }
+        },
+        "ContentCreatedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the content of the document was originally created.</p>"
           }
         }
       }
@@ -4125,16 +4125,16 @@
     "com.amazonaws.workdocs#InitiateDocumentVersionUploadResponse": {
       "type": "structure",
       "members": {
-        "Metadata": {
-          "target": "com.amazonaws.workdocs#DocumentMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>The document metadata.</p>"
-          }
-        },
         "UploadMetadata": {
           "target": "com.amazonaws.workdocs#UploadMetadata",
           "traits": {
             "smithy.api#documentation": "<p>The upload metadata.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.workdocs#DocumentMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The document metadata.</p>"
           }
         }
       }
@@ -4338,16 +4338,16 @@
     "com.amazonaws.workdocs#Participants": {
       "type": "structure",
       "members": {
-        "Groups": {
-          "target": "com.amazonaws.workdocs#GroupMetadataList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of user groups.</p>"
-          }
-        },
         "Users": {
           "target": "com.amazonaws.workdocs#UserMetadataList",
           "traits": {
             "smithy.api#documentation": "<p>The list of users.</p>"
+          }
+        },
+        "Groups": {
+          "target": "com.amazonaws.workdocs#GroupMetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of user groups.</p>"
           }
         }
       },
@@ -4413,16 +4413,16 @@
     "com.amazonaws.workdocs#Principal": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the resource.</p>"
-          }
-        },
         "Roles": {
           "target": "com.amazonaws.workdocs#PermissionInfoList",
           "traits": {
             "smithy.api#documentation": "<p>The permission information for the resource.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workdocs#IdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the resource.</p>"
           }
         },
         "Type": {
@@ -4516,7 +4516,7 @@
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -4561,10 +4561,17 @@
     "com.amazonaws.workdocs#RemoveResourcePermissionRequest": {
       "type": "structure",
       "members": {
+        "PrincipalType": {
+          "target": "com.amazonaws.workdocs#PrincipalType",
+          "traits": {
+            "smithy.api#documentation": "<p>The principal type of the resource.</p>",
+            "smithy.api#httpQuery": "type"
+          }
+        },
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -4574,13 +4581,6 @@
             "smithy.api#documentation": "<p>The principal ID of the resource.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "PrincipalType": {
-          "target": "com.amazonaws.workdocs#PrincipalType",
-          "traits": {
-            "smithy.api#documentation": "<p>The principal type of the resource.</p>",
-            "smithy.api#httpQuery": "type"
           }
         },
         "ResourceId": {
@@ -4643,34 +4643,10 @@
     "com.amazonaws.workdocs#ResourceMetadata": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
+        "VersionId": {
+          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the resource.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.workdocs#ResourceNameType",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the resource.</p>"
-          }
-        },
-        "OriginalName": {
-          "target": "com.amazonaws.workdocs#ResourceNameType",
-          "traits": {
-            "smithy.api#documentation": "<p>The original name of the resource before a rename operation.</p>"
-          }
-        },
-        "Owner": {
-          "target": "com.amazonaws.workdocs#UserMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner of the resource.</p>"
-          }
-        },
-        "ParentId": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The parent ID of the resource before a rename operation.</p>"
+            "smithy.api#documentation": "<p>The version ID of the resource. This is an optional field and is filled for action\n            on document version.</p>"
           }
         },
         "Type": {
@@ -4679,10 +4655,34 @@
             "smithy.api#documentation": "<p>The type of resource.</p>"
           }
         },
-        "VersionId": {
-          "target": "com.amazonaws.workdocs#DocumentVersionIdType",
+        "Owner": {
+          "target": "com.amazonaws.workdocs#UserMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>The version ID of the resource. This is an optional field and is filled for action\n            on document version.</p>"
+            "smithy.api#documentation": "<p>The owner of the resource.</p>"
+          }
+        },
+        "OriginalName": {
+          "target": "com.amazonaws.workdocs#ResourceNameType",
+          "traits": {
+            "smithy.api#documentation": "<p>The original name of the resource before a rename operation.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.workdocs#ResourceNameType",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the resource.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the resource.</p>"
+          }
+        },
+        "ParentId": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The parent ID of the resource before a rename operation.</p>"
           }
         }
       },
@@ -4899,10 +4899,10 @@
             "smithy.api#documentation": "<p>The ID of the invited user.</p>"
           }
         },
-        "PrincipalId": {
-          "target": "com.amazonaws.workdocs#IdType",
+        "StatusMessage": {
+          "target": "com.amazonaws.workdocs#MessageType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the principal.</p>"
+            "smithy.api#documentation": "<p>The status message.</p>"
           }
         },
         "Role": {
@@ -4911,22 +4911,22 @@
             "smithy.api#documentation": "<p>The role.</p>"
           }
         },
-        "ShareId": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the resource that was shared.</p>"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.workdocs#ShareStatusType",
           "traits": {
             "smithy.api#documentation": "<p>The status.</p>"
           }
         },
-        "StatusMessage": {
-          "target": "com.amazonaws.workdocs#MessageType",
+        "ShareId": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "<p>The status message.</p>"
+            "smithy.api#documentation": "<p>The ID of the resource that was shared.</p>"
+          }
+        },
+        "PrincipalId": {
+          "target": "com.amazonaws.workdocs#IdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the principal.</p>"
           }
         }
       },
@@ -5056,10 +5056,10 @@
     "com.amazonaws.workdocs#Subscription": {
       "type": "structure",
       "members": {
-        "EndPoint": {
-          "target": "com.amazonaws.workdocs#SubscriptionEndPointType",
+        "SubscriptionId": {
+          "target": "com.amazonaws.workdocs#IdType",
           "traits": {
-            "smithy.api#documentation": "<p>The endpoint of the subscription.</p>"
+            "smithy.api#documentation": "<p>The ID of the subscription.</p>"
           }
         },
         "Protocol": {
@@ -5068,10 +5068,10 @@
             "smithy.api#documentation": "<p>The protocol of the subscription.</p>"
           }
         },
-        "SubscriptionId": {
-          "target": "com.amazonaws.workdocs#IdType",
+        "EndPoint": {
+          "target": "com.amazonaws.workdocs#SubscriptionEndPointType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the subscription.</p>"
+            "smithy.api#documentation": "<p>The endpoint of the subscription.</p>"
           }
         }
       },
@@ -5238,13 +5238,6 @@
     "com.amazonaws.workdocs#UpdateDocumentRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
-          "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
-          }
-        },
         "DocumentId": {
           "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
@@ -5253,10 +5246,10 @@
             "smithy.api#required": {}
           }
         },
-        "Name": {
-          "target": "com.amazonaws.workdocs#ResourceNameType",
+        "ResourceState": {
+          "target": "com.amazonaws.workdocs#ResourceStateType",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the document.</p>"
+            "smithy.api#documentation": "<p>The resource state of the document. Only ACTIVE and RECYCLED are\n            supported.</p>"
           }
         },
         "ParentFolderId": {
@@ -5265,10 +5258,17 @@
             "smithy.api#documentation": "<p>The ID of the parent folder.</p>"
           }
         },
-        "ResourceState": {
-          "target": "com.amazonaws.workdocs#ResourceStateType",
+        "Name": {
+          "target": "com.amazonaws.workdocs#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "<p>The resource state of the document. Only ACTIVE and RECYCLED are\n            supported.</p>"
+            "smithy.api#documentation": "<p>The name of the document.</p>"
+          }
+        },
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         }
       }
@@ -5319,7 +5319,7 @@
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
@@ -5399,16 +5399,14 @@
         "AuthenticationToken": {
           "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
-        "FolderId": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
+        "ResourceState": {
+          "target": "com.amazonaws.workdocs#ResourceStateType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the folder.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from\n            the API.</p>"
           }
         },
         "Name": {
@@ -5423,10 +5421,12 @@
             "smithy.api#documentation": "<p>The ID of the parent folder.</p>"
           }
         },
-        "ResourceState": {
-          "target": "com.amazonaws.workdocs#ResourceStateType",
+        "FolderId": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "<p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from\n            the API.</p>"
+            "smithy.api#documentation": "<p>The ID of the folder.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5477,11 +5477,10 @@
     "com.amazonaws.workdocs#UpdateUserRequest": {
       "type": "structure",
       "members": {
-        "AuthenticationToken": {
-          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
+        "TimeZoneId": {
+          "target": "com.amazonaws.workdocs#TimeZoneIdType",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
-            "smithy.api#httpHeader": "Authentication"
+            "smithy.api#documentation": "<p>The time zone ID of the user.</p>"
           }
         },
         "GivenName": {
@@ -5490,10 +5489,12 @@
             "smithy.api#documentation": "<p>The given name of the user.</p>"
           }
         },
-        "GrantPoweruserPrivileges": {
-          "target": "com.amazonaws.workdocs#BooleanEnumType",
+        "UserId": {
+          "target": "com.amazonaws.workdocs#IdType",
           "traits": {
-            "smithy.api#documentation": "<p>Boolean value to determine whether the user is granted Poweruser privileges.</p>"
+            "smithy.api#documentation": "<p>The ID of the user.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Locale": {
@@ -5508,30 +5509,29 @@
             "smithy.api#documentation": "<p>The amount of storage for the user.</p>"
           }
         },
+        "GrantPoweruserPrivileges": {
+          "target": "com.amazonaws.workdocs#BooleanEnumType",
+          "traits": {
+            "smithy.api#documentation": "<p>Boolean value to determine whether the user is granted Poweruser privileges.</p>"
+          }
+        },
         "Surname": {
           "target": "com.amazonaws.workdocs#UserAttributeValueType",
           "traits": {
             "smithy.api#documentation": "<p>The surname of the user.</p>"
           }
         },
-        "TimeZoneId": {
-          "target": "com.amazonaws.workdocs#TimeZoneIdType",
+        "AuthenticationToken": {
+          "target": "com.amazonaws.workdocs#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "<p>The time zone ID of the user.</p>"
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>",
+            "smithy.api#httpHeader": "Authentication"
           }
         },
         "Type": {
           "target": "com.amazonaws.workdocs#UserType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the user.</p>"
-          }
-        },
-        "UserId": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the user.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         }
       }
@@ -5580,16 +5580,10 @@
     "com.amazonaws.workdocs#User": {
       "type": "structure",
       "members": {
-        "CreatedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
+        "Status": {
+          "target": "com.amazonaws.workdocs#UserStatusType",
           "traits": {
-            "smithy.api#documentation": "<p>The time when the user was created.</p>"
-          }
-        },
-        "EmailAddress": {
-          "target": "com.amazonaws.workdocs#EmailAddressType",
-          "traits": {
-            "smithy.api#documentation": "<p>The email address of the user.</p>"
+            "smithy.api#documentation": "<p>The status of the user.</p>"
           }
         },
         "GivenName": {
@@ -5598,34 +5592,16 @@
             "smithy.api#documentation": "<p>The given name of the user.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.workdocs#IdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the user.</p>"
-          }
-        },
-        "Locale": {
-          "target": "com.amazonaws.workdocs#LocaleType",
-          "traits": {
-            "smithy.api#documentation": "<p>The locale of the user.</p>"
-          }
-        },
-        "ModifiedTimestamp": {
-          "target": "com.amazonaws.workdocs#TimestampType",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the user was modified.</p>"
-          }
-        },
         "OrganizationId": {
           "target": "com.amazonaws.workdocs#IdType",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the organization.</p>"
           }
         },
-        "RecycleBinFolderId": {
-          "target": "com.amazonaws.workdocs#ResourceIdType",
+        "EmailAddress": {
+          "target": "com.amazonaws.workdocs#EmailAddressType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the recycle bin folder.</p>"
+            "smithy.api#documentation": "<p>The email address of the user.</p>"
           }
         },
         "RootFolderId": {
@@ -5634,10 +5610,28 @@
             "smithy.api#documentation": "<p>The ID of the root folder.</p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.workdocs#UserStatusType",
+        "RecycleBinFolderId": {
+          "target": "com.amazonaws.workdocs#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the user.</p>"
+            "smithy.api#documentation": "<p>The ID of the recycle bin folder.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the user was created.</p>"
+          }
+        },
+        "Locale": {
+          "target": "com.amazonaws.workdocs#LocaleType",
+          "traits": {
+            "smithy.api#documentation": "<p>The locale of the user.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.workdocs#IdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the user.</p>"
           }
         },
         "Storage": {
@@ -5646,10 +5640,22 @@
             "smithy.api#documentation": "<p>The storage for the user.</p>"
           }
         },
+        "Type": {
+          "target": "com.amazonaws.workdocs#UserType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of user.</p>"
+          }
+        },
         "Surname": {
           "target": "com.amazonaws.workdocs#UserAttributeValueType",
           "traits": {
             "smithy.api#documentation": "<p>The surname of the user.</p>"
+          }
+        },
+        "Username": {
+          "target": "com.amazonaws.workdocs#UsernameType",
+          "traits": {
+            "smithy.api#documentation": "<p>The login name of the user.</p>"
           }
         },
         "TimeZoneId": {
@@ -5658,16 +5664,10 @@
             "smithy.api#documentation": "<p>The time zone ID of the user.</p>"
           }
         },
-        "Type": {
-          "target": "com.amazonaws.workdocs#UserType",
+        "ModifiedTimestamp": {
+          "target": "com.amazonaws.workdocs#TimestampType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of user.</p>"
-          }
-        },
-        "Username": {
-          "target": "com.amazonaws.workdocs#UsernameType",
-          "traits": {
-            "smithy.api#documentation": "<p>The login name of the user.</p>"
+            "smithy.api#documentation": "<p>The time when the user was modified.</p>"
           }
         }
       },
@@ -5718,16 +5718,22 @@
     "com.amazonaws.workdocs#UserMetadata": {
       "type": "structure",
       "members": {
+        "Surname": {
+          "target": "com.amazonaws.workdocs#UserAttributeValueType",
+          "traits": {
+            "smithy.api#documentation": "<p>The surname of the user.</p>"
+          }
+        },
         "EmailAddress": {
           "target": "com.amazonaws.workdocs#EmailAddressType",
           "traits": {
             "smithy.api#documentation": "<p>The email address of the user.</p>"
           }
         },
-        "GivenName": {
-          "target": "com.amazonaws.workdocs#UserAttributeValueType",
+        "Username": {
+          "target": "com.amazonaws.workdocs#UsernameType",
           "traits": {
-            "smithy.api#documentation": "<p>The given name of the user before a rename operation.</p>"
+            "smithy.api#documentation": "<p>The name of the user.</p>"
           }
         },
         "Id": {
@@ -5736,16 +5742,10 @@
             "smithy.api#documentation": "<p>The ID of the user.</p>"
           }
         },
-        "Surname": {
+        "GivenName": {
           "target": "com.amazonaws.workdocs#UserAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "<p>The surname of the user.</p>"
-          }
-        },
-        "Username": {
-          "target": "com.amazonaws.workdocs#UsernameType",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the user.</p>"
+            "smithy.api#documentation": "<p>The given name of the user before a rename operation.</p>"
           }
         }
       },
@@ -5808,16 +5808,16 @@
     "com.amazonaws.workdocs#UserStorageMetadata": {
       "type": "structure",
       "members": {
-        "StorageRule": {
-          "target": "com.amazonaws.workdocs#StorageRuleType",
-          "traits": {
-            "smithy.api#documentation": "<p>The storage for a user.</p>"
-          }
-        },
         "StorageUtilizedInBytes": {
           "target": "com.amazonaws.workdocs#SizeType",
           "traits": {
             "smithy.api#documentation": "<p>The amount of storage used, in bytes.</p>"
+          }
+        },
+        "StorageRule": {
+          "target": "com.amazonaws.workdocs#StorageRuleType",
+          "traits": {
+            "smithy.api#documentation": "<p>The storage for a user.</p>"
           }
         }
       },

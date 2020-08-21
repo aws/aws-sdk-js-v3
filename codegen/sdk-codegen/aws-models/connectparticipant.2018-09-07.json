@@ -138,16 +138,16 @@
     "com.amazonaws.connectparticipant#ConnectionCredentials": {
       "type": "structure",
       "members": {
-        "ConnectionToken": {
-          "target": "com.amazonaws.connectparticipant#ParticipantToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The connection token.</p>"
-          }
-        },
         "Expiry": {
           "target": "com.amazonaws.connectparticipant#ISO8601Datetime",
           "traits": {
             "smithy.api#documentation": "<p>The expiration of the token.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
+          }
+        },
+        "ConnectionToken": {
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection token.</p>"
           }
         }
       },
@@ -361,6 +361,24 @@
     "com.amazonaws.connectparticipant#GetTranscriptRequest": {
       "type": "structure",
       "members": {
+        "SortOrder": {
+          "target": "com.amazonaws.connectparticipant#SortKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order for the records. Default: DESCENDING.</p>"
+          }
+        },
+        "ContactId": {
+          "target": "com.amazonaws.connectparticipant#ContactId",
+          "traits": {
+            "smithy.api#documentation": "<p>The contactId from the current contact chain for which transcript is needed.</p>"
+          }
+        },
+        "StartPosition": {
+          "target": "com.amazonaws.connectparticipant#StartPosition",
+          "traits": {
+            "smithy.api#documentation": "<p>A filtering option for where to start.</p>"
+          }
+        },
         "ConnectionToken": {
           "target": "com.amazonaws.connectparticipant#ParticipantToken",
           "traits": {
@@ -369,10 +387,10 @@
             "smithy.api#required": {}
           }
         },
-        "ContactId": {
-          "target": "com.amazonaws.connectparticipant#ContactId",
+        "NextToken": {
+          "target": "com.amazonaws.connectparticipant#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The contactId from the current contact chain for which transcript is needed.</p>"
+            "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
           }
         },
         "MaxResults": {
@@ -382,28 +400,10 @@
             "smithy.api#documentation": "<p>The maximum number of results to return in the page. Default: 10. \n           </p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.connectparticipant#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
-          }
-        },
         "ScanDirection": {
           "target": "com.amazonaws.connectparticipant#ScanDirection",
           "traits": {
             "smithy.api#documentation": "<p>The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. </p>"
-          }
-        },
-        "SortOrder": {
-          "target": "com.amazonaws.connectparticipant#SortKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The sort order for the records. Default: DESCENDING.</p>"
-          }
-        },
-        "StartPosition": {
-          "target": "com.amazonaws.connectparticipant#StartPosition",
-          "traits": {
-            "smithy.api#documentation": "<p>A filtering option for where to start.</p>"
           }
         }
       }
@@ -417,16 +417,16 @@
             "smithy.api#documentation": "<p>The initial contact ID for the contact. </p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.connectparticipant#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
-          }
-        },
         "Transcript": {
           "target": "com.amazonaws.connectparticipant#Transcript",
           "traits": {
             "smithy.api#documentation": "<p>The list of messages in the session.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connectparticipant#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
           }
         }
       }
@@ -462,10 +462,22 @@
     "com.amazonaws.connectparticipant#Item": {
       "type": "structure",
       "members": {
-        "AbsoluteTime": {
-          "target": "com.amazonaws.connectparticipant#Instant",
+        "ParticipantId": {
+          "target": "com.amazonaws.connectparticipant#ParticipantId",
           "traits": {
-            "smithy.api#documentation": "<p>The time when the message or event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
+            "smithy.api#documentation": "<p>The ID of the sender in the session.</p>"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.connectparticipant#ChatContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of content of the item.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.connectparticipant#ChatItemType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of the item: message or event. </p>"
           }
         },
         "Content": {
@@ -474,10 +486,10 @@
             "smithy.api#documentation": "<p>The content of the message or event.</p>"
           }
         },
-        "ContentType": {
-          "target": "com.amazonaws.connectparticipant#ChatContentType",
+        "AbsoluteTime": {
+          "target": "com.amazonaws.connectparticipant#Instant",
           "traits": {
-            "smithy.api#documentation": "<p>The type of content of the item.</p>"
+            "smithy.api#documentation": "<p>The time when the message or event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "DisplayName": {
@@ -492,22 +504,10 @@
             "smithy.api#documentation": "<p>The ID of the item.</p>"
           }
         },
-        "ParticipantId": {
-          "target": "com.amazonaws.connectparticipant#ParticipantId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the sender in the session.</p>"
-          }
-        },
         "ParticipantRole": {
           "target": "com.amazonaws.connectparticipant#ParticipantRole",
           "traits": {
             "smithy.api#documentation": "<p>The role of the sender. For example, is it a customer, agent, or system.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.connectparticipant#ChatItemType",
-          "traits": {
-            "smithy.api#documentation": "<p>Type of the item: message or event. </p>"
           }
         }
       },
@@ -649,13 +649,6 @@
     "com.amazonaws.connectparticipant#SendEventRequest": {
       "type": "structure",
       "members": {
-        "ClientToken": {
-          "target": "com.amazonaws.connectparticipant#ClientToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
         "ConnectionToken": {
           "target": "com.amazonaws.connectparticipant#ParticipantToken",
           "traits": {
@@ -664,10 +657,11 @@
             "smithy.api#required": {}
           }
         },
-        "Content": {
-          "target": "com.amazonaws.connectparticipant#ChatContent",
+        "ClientToken": {
+          "target": "com.amazonaws.connectparticipant#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>The content of the event to be sent (for example, message text). This is not yet\n            supported.</p>"
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         },
         "ContentType": {
@@ -676,22 +670,28 @@
             "smithy.api#documentation": "<p>The content type of the request. Supported types are:</p>\n\n        <ul>\n            <li>\n                <p>application/vnd.amazonaws.connect.event.typing</p>\n            </li>\n            <li>\n                <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
+        },
+        "Content": {
+          "target": "com.amazonaws.connectparticipant#ChatContent",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of the event to be sent (for example, message text). This is not yet\n            supported.</p>"
+          }
         }
       }
     },
     "com.amazonaws.connectparticipant#SendEventResponse": {
       "type": "structure",
       "members": {
-        "AbsoluteTime": {
-          "target": "com.amazonaws.connectparticipant#Instant",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.connectparticipant#ChatItemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the response.</p>"
+          }
+        },
+        "AbsoluteTime": {
+          "target": "com.amazonaws.connectparticipant#Instant",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         }
       }
@@ -737,6 +737,13 @@
             "smithy.api#idempotencyToken": {}
           }
         },
+        "ContentType": {
+          "target": "com.amazonaws.connectparticipant#ChatContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the content. Supported types are text/plain.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ConnectionToken": {
           "target": "com.amazonaws.connectparticipant#ParticipantToken",
           "traits": {
@@ -751,29 +758,22 @@
             "smithy.api#documentation": "<p>The content of the message.</p>",
             "smithy.api#required": {}
           }
-        },
-        "ContentType": {
-          "target": "com.amazonaws.connectparticipant#ChatContentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the content. Supported types are text/plain.</p>",
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.connectparticipant#SendMessageResponse": {
       "type": "structure",
       "members": {
-        "AbsoluteTime": {
-          "target": "com.amazonaws.connectparticipant#Instant",
-          "traits": {
-            "smithy.api#documentation": "<p>The time when the message was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.connectparticipant#ChatItemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the message.</p>"
+          }
+        },
+        "AbsoluteTime": {
+          "target": "com.amazonaws.connectparticipant#Instant",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the message was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         }
       }
@@ -802,16 +802,16 @@
             "smithy.api#documentation": "<p>The time in ISO format where to start.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
-        "Id": {
-          "target": "com.amazonaws.connectparticipant#ChatItemId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the message or event where to start. </p>"
-          }
-        },
         "MostRecent": {
           "target": "com.amazonaws.connectparticipant#MostRecent",
           "traits": {
             "smithy.api#documentation": "<p>The start position of the most recent message where you want to start. </p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the message or event where to start. </p>"
           }
         }
       },
@@ -860,16 +860,16 @@
     "com.amazonaws.connectparticipant#Websocket": {
       "type": "structure",
       "members": {
-        "ConnectionExpiry": {
-          "target": "com.amazonaws.connectparticipant#ISO8601Datetime",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL expiration timestamp in ISO date format.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
-          }
-        },
         "Url": {
           "target": "com.amazonaws.connectparticipant#PreSignedConnectionUrl",
           "traits": {
             "smithy.api#documentation": "<p>The URL of the websocket.</p>"
+          }
+        },
+        "ConnectionExpiry": {
+          "target": "com.amazonaws.connectparticipant#ISO8601Datetime",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL expiration timestamp in ISO date format.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         }
       },

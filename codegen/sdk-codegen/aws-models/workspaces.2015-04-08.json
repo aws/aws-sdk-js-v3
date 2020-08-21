@@ -65,24 +65,6 @@
     "com.amazonaws.workspaces#AccountModification": {
       "type": "structure",
       "members": {
-        "DedicatedTenancyManagementCidrRange": {
-          "target": "com.amazonaws.workspaces#DedicatedTenancyManagementCidrRange",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address range, specified as an IPv4 CIDR block, for the management network\n         interface used for the account.</p>"
-          }
-        },
-        "DedicatedTenancySupport": {
-          "target": "com.amazonaws.workspaces#DedicatedTenancySupportResultEnum",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of BYOL (whether BYOL is being enabled or disabled).</p>"
-          }
-        },
-        "ErrorCode": {
-          "target": "com.amazonaws.workspaces#WorkspaceErrorCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The error code that is returned if the configuration of BYOL cannot be modified.</p>"
-          }
-        },
         "ErrorMessage": {
           "target": "com.amazonaws.workspaces#Description",
           "traits": {
@@ -95,10 +77,28 @@
             "smithy.api#documentation": "<p>The state of the modification to the configuration of BYOL.</p>"
           }
         },
+        "DedicatedTenancyManagementCidrRange": {
+          "target": "com.amazonaws.workspaces#DedicatedTenancyManagementCidrRange",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address range, specified as an IPv4 CIDR block, for the management network\n         interface used for the account.</p>"
+          }
+        },
+        "ErrorCode": {
+          "target": "com.amazonaws.workspaces#WorkspaceErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code that is returned if the configuration of BYOL cannot be modified.</p>"
+          }
+        },
         "StartTime": {
           "target": "com.amazonaws.workspaces#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the modification of the BYOL configuration was started.</p>"
+          }
+        },
+        "DedicatedTenancySupport": {
+          "target": "com.amazonaws.workspaces#DedicatedTenancySupportResultEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of BYOL (whether BYOL is being enabled or disabled).</p>"
           }
         }
       },
@@ -150,17 +150,17 @@
     "com.amazonaws.workspaces#AssociateIpGroupsRequest": {
       "type": "structure",
       "members": {
-        "DirectoryId": {
-          "target": "com.amazonaws.workspaces#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "GroupIds": {
           "target": "com.amazonaws.workspaces#IpGroupIdList",
           "traits": {
             "smithy.api#documentation": "<p>The identifiers of one or more IP access control groups.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
             "smithy.api#required": {}
           }
         }
@@ -202,17 +202,17 @@
     "com.amazonaws.workspaces#AuthorizeIpRulesRequest": {
       "type": "structure",
       "members": {
-        "GroupId": {
-          "target": "com.amazonaws.workspaces#IpGroupId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the group.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "UserRules": {
           "target": "com.amazonaws.workspaces#IpRuleList",
           "traits": {
             "smithy.api#documentation": "<p>The rules to add to the group.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "GroupId": {
+          "target": "com.amazonaws.workspaces#IpGroupId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the group.</p>",
             "smithy.api#required": {}
           }
         }
@@ -221,6 +221,12 @@
     "com.amazonaws.workspaces#AuthorizeIpRulesResult": {
       "type": "structure",
       "members": {}
+    },
+    "com.amazonaws.workspaces#AwsAccount": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^\\d{12}$"
+      }
     },
     "com.amazonaws.workspaces#BooleanObject": {
       "type": "boolean",
@@ -278,16 +284,16 @@
     "com.amazonaws.workspaces#ClientPropertiesResult": {
       "type": "structure",
       "members": {
-        "ClientProperties": {
-          "target": "com.amazonaws.workspaces#ClientProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the Amazon WorkSpaces client.</p>"
-          }
-        },
         "ResourceId": {
           "target": "com.amazonaws.workspaces#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The resource identifier, in the form of a directory ID.</p>"
+          }
+        },
+        "ClientProperties": {
+          "target": "com.amazonaws.workspaces#ClientProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Amazon WorkSpaces client.</p>"
           }
         }
       },
@@ -404,12 +410,6 @@
     "com.amazonaws.workspaces#CopyWorkspaceImageRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.workspaces#WorkspaceImageDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the image.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.workspaces#WorkspaceImageName",
           "traits": {
@@ -424,6 +424,12 @@
             "smithy.api#required": {}
           }
         },
+        "Tags": {
+          "target": "com.amazonaws.workspaces#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the image.</p>"
+          }
+        },
         "SourceRegion": {
           "target": "com.amazonaws.workspaces#Region",
           "traits": {
@@ -431,10 +437,10 @@
             "smithy.api#required": {}
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.workspaces#TagList",
+        "Description": {
+          "target": "com.amazonaws.workspaces#WorkspaceImageDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The tags for the image.</p>"
+            "smithy.api#documentation": "<p>A description of the image.</p>"
           }
         }
       }
@@ -482,10 +488,10 @@
     "com.amazonaws.workspaces#CreateIpGroupRequest": {
       "type": "structure",
       "members": {
-        "GroupDesc": {
-          "target": "com.amazonaws.workspaces#IpGroupDesc",
+        "UserRules": {
+          "target": "com.amazonaws.workspaces#IpRuleList",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the group.</p>"
+            "smithy.api#documentation": "<p>The rules to add to the group.</p>"
           }
         },
         "GroupName": {
@@ -501,10 +507,10 @@
             "smithy.api#documentation": "<p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>"
           }
         },
-        "UserRules": {
-          "target": "com.amazonaws.workspaces#IpRuleList",
+        "GroupDesc": {
+          "target": "com.amazonaws.workspaces#IpGroupDesc",
           "traits": {
-            "smithy.api#documentation": "<p>The rules to add to the group.</p>"
+            "smithy.api#documentation": "<p>The description of the group.</p>"
           }
         }
       }
@@ -546,17 +552,17 @@
     "com.amazonaws.workspaces#CreateTagsRequest": {
       "type": "structure",
       "members": {
-        "ResourceId": {
-          "target": "com.amazonaws.workspaces#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,\n         registered directories, images, custom bundles, and IP access control groups.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.workspaces#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags. Each WorkSpaces resource can have a maximum of 50 tags. If you want to add new tags\n         to a set of existing tags, you must submit all of the existing tags along with the new ones.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workspaces#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,\n         registered directories, images, custom bundles, and IP access control groups.</p>",
             "smithy.api#required": {}
           }
         }
@@ -601,16 +607,16 @@
     "com.amazonaws.workspaces#CreateWorkspacesResult": {
       "type": "structure",
       "members": {
-        "FailedRequests": {
-          "target": "com.amazonaws.workspaces#FailedCreateWorkspaceRequests",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the WorkSpaces that could not be created.</p>"
-          }
-        },
         "PendingRequests": {
           "target": "com.amazonaws.workspaces#WorkspaceList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the WorkSpaces that were created.</p>\n         <p>Because this operation is asynchronous, the identifier returned is not immediately\n         available for use with other operations. For example, if you call <a>DescribeWorkspaces</a> before the WorkSpace is created, the information returned\n         can be incomplete.</p>"
+          }
+        },
+        "FailedRequests": {
+          "target": "com.amazonaws.workspaces#FailedCreateWorkspaceRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the WorkSpaces that could not be created.</p>"
           }
         }
       }
@@ -681,13 +687,7 @@
         "CustomSecurityGroupId": {
           "target": "com.amazonaws.workspaces#SecurityGroupId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of any security groups to apply to WorkSpaces when they are\n         created.</p>"
-          }
-        },
-        "DefaultOu": {
-          "target": "com.amazonaws.workspaces#DefaultOu",
-          "traits": {
-            "smithy.api#documentation": "<p>The organizational unit (OU) in the directory for the WorkSpace machine accounts.</p>"
+            "smithy.api#documentation": "<p>The identifier of the default security group to apply to WorkSpaces when they are created. \n         For more information, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html\">\n            Security Groups for Your WorkSpaces</a>.</p>"
           }
         },
         "EnableInternetAccess": {
@@ -696,16 +696,22 @@
             "smithy.api#documentation": "<p>Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default. \n         If enabled, the Elastic public IP address allows outbound internet access from your WorkSpaces when you’re using an \n         internet gateway in the Amazon VPC in which your WorkSpaces are located. If you're using a Network Address \n         Translation (NAT) gateway for outbound internet access from your VPC, or if your WorkSpaces are in public \n         subnets and you manually assign them Elastic IP addresses, you should disable this setting. This setting \n         applies to new WorkSpaces that you launch or to existing WorkSpaces that you rebuild. For more information, \n         see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html\">\n            Configure a VPC for Amazon WorkSpaces</a>.</p>"
           }
         },
-        "EnableMaintenanceMode": {
-          "target": "com.amazonaws.workspaces#BooleanObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see\n            <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html\">WorkSpace\n            Maintenance</a>.</p>"
-          }
-        },
         "EnableWorkDocs": {
           "target": "com.amazonaws.workspaces#BooleanObject",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the directory is enabled for Amazon WorkDocs.</p>"
+          }
+        },
+        "DefaultOu": {
+          "target": "com.amazonaws.workspaces#DefaultOu",
+          "traits": {
+            "smithy.api#documentation": "<p>The organizational unit (OU) in the directory for the WorkSpace machine accounts.</p>"
+          }
+        },
+        "EnableMaintenanceMode": {
+          "target": "com.amazonaws.workspaces#BooleanObject",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see\n            <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html\">WorkSpace\n            Maintenance</a>.</p>"
           }
         },
         "UserEnabledAsLocalAdministrator": {
@@ -784,17 +790,17 @@
     "com.amazonaws.workspaces#DeleteTagsRequest": {
       "type": "structure",
       "members": {
-        "ResourceId": {
-          "target": "com.amazonaws.workspaces#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,\n         registered directories, images, custom bundles, and IP access control groups.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "TagKeys": {
           "target": "com.amazonaws.workspaces#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The tag keys.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workspaces#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,\n         registered directories, images, custom bundles, and IP access control groups.</p>",
             "smithy.api#required": {}
           }
         }
@@ -824,7 +830,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified image from your account. To delete an image, you must first delete\n         any bundles that are associated with the image and un-share the image if it is shared with\n         other accounts. </p>"
+        "smithy.api#documentation": "<p>Deletes the specified image from your account. To delete an image, you must first delete\n         any bundles that are associated with the image and unshare the image if it is shared with\n         other accounts. </p>"
       }
     },
     "com.amazonaws.workspaces#DeleteWorkspaceImageRequest": {
@@ -1142,16 +1148,16 @@
     "com.amazonaws.workspaces#DescribeWorkspaceBundlesRequest": {
       "type": "structure",
       "members": {
-        "BundleIds": {
-          "target": "com.amazonaws.workspaces#BundleIdList",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.workspaces#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results. (You received this token from a previous call.)</p>"
+          }
+        },
+        "BundleIds": {
+          "target": "com.amazonaws.workspaces#BundleIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>"
           }
         },
         "Owner": {
@@ -1204,12 +1210,6 @@
     "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesRequest": {
       "type": "structure",
       "members": {
-        "DirectoryIds": {
-          "target": "com.amazonaws.workspaces#DirectoryIdList",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifiers of the directories. If the value is null, all directories are\n         retrieved.</p>"
-          }
-        },
         "Limit": {
           "target": "com.amazonaws.workspaces#Limit",
           "traits": {
@@ -1221,22 +1221,98 @@
           "traits": {
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results.</p>"
           }
+        },
+        "DirectoryIds": {
+          "target": "com.amazonaws.workspaces#DirectoryIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifiers of the directories. If the value is null, all directories are\n         retrieved.</p>"
+          }
         }
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesResult": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.workspaces#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next set of results, or null if no more results are\n         available.</p>"
+          }
+        },
         "Directories": {
           "target": "com.amazonaws.workspaces#DirectoryList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the directories.</p>"
           }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspaceImagePermissions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspaceImagePermissionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspaceImagePermissionsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the permissions that the owner of an image has granted to other \n         AWS accounts for an image.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspaceImagePermissionsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.workspaces#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
+          }
         },
         "NextToken": {
           "target": "com.amazonaws.workspaces#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next set of results, or null if no more results are\n         available.</p>"
+            "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated, \n         provide this token to receive the next set of results.</p>"
+          }
+        },
+        "ImageId": {
+          "target": "com.amazonaws.workspaces#WorkspaceImageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the image.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspaceImagePermissionsResult": {
+      "type": "structure",
+      "members": {
+        "ImagePermissions": {
+          "target": "com.amazonaws.workspaces#ImagePermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifiers of the AWS accounts that the image has been shared with.</p>"
+          }
+        },
+        "ImageId": {
+          "target": "com.amazonaws.workspaces#WorkspaceImageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the image.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workspaces#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next set of results, or null if no more \n         results are available.</p>"
           }
         }
       }
@@ -1278,22 +1354,28 @@
           "traits": {
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results.</p>"
           }
+        },
+        "ImageType": {
+          "target": "com.amazonaws.workspaces#ImageType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type (owned or shared) of the image.</p>"
+          }
         }
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspaceImagesResult": {
       "type": "structure",
       "members": {
-        "Images": {
-          "target": "com.amazonaws.workspaces#WorkspaceImageList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the images.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.workspaces#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next set of results, or null if no more results are\n         available.</p>"
+          }
+        },
+        "Images": {
+          "target": "com.amazonaws.workspaces#WorkspaceImageList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the images.</p>"
           }
         }
       }
@@ -1413,16 +1495,16 @@
     "com.amazonaws.workspaces#DescribeWorkspacesConnectionStatusResult": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.workspaces#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next set of results, or null if no more results are\n         available.</p>"
-          }
-        },
         "WorkspacesConnectionStatus": {
           "target": "com.amazonaws.workspaces#WorkspaceConnectionStatusList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the connection status of the WorkSpace.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workspaces#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next set of results, or null if no more results are\n         available.</p>"
           }
         }
       }
@@ -1430,24 +1512,6 @@
     "com.amazonaws.workspaces#DescribeWorkspacesRequest": {
       "type": "structure",
       "members": {
-        "BundleId": {
-          "target": "com.amazonaws.workspaces#BundleId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the bundle. All WorkSpaces that are created from this bundle are\n         retrieved. You cannot combine this parameter with any other filter.</p>"
-          }
-        },
-        "DirectoryId": {
-          "target": "com.amazonaws.workspaces#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory. In addition, you can optionally specify a specific\n         directory user (see <code>UserName</code>). You cannot combine this parameter with any\n         other filter.</p>"
-          }
-        },
-        "Limit": {
-          "target": "com.amazonaws.workspaces#Limit",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.workspaces#PaginationToken",
           "traits": {
@@ -1458,6 +1522,24 @@
           "target": "com.amazonaws.workspaces#UserName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the directory user. You must specify this parameter with\n            <code>DirectoryId</code>.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.workspaces#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
+          }
+        },
+        "BundleId": {
+          "target": "com.amazonaws.workspaces#BundleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the bundle. All WorkSpaces that are created from this bundle are\n         retrieved. You cannot combine this parameter with any other filter.</p>"
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory. In addition, you can optionally specify a specific\n         directory user (see <code>UserName</code>). You cannot combine this parameter with any\n         other filter.</p>"
           }
         },
         "WorkspaceIds": {
@@ -1471,16 +1553,16 @@
     "com.amazonaws.workspaces#DescribeWorkspacesResult": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.workspaces#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token to use to retrieve the next set of results, or null if no more results are\n         available.</p>"
-          }
-        },
         "Workspaces": {
           "target": "com.amazonaws.workspaces#WorkspaceList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the WorkSpaces.</p>\n         <p>Because <a>CreateWorkspaces</a> is an asynchronous operation, some of the\n         returned information could be incomplete.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workspaces#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next set of results, or null if no more results are\n         available.</p>"
           }
         }
       }
@@ -1548,17 +1630,17 @@
     "com.amazonaws.workspaces#DisassociateIpGroupsRequest": {
       "type": "structure",
       "members": {
-        "DirectoryId": {
-          "target": "com.amazonaws.workspaces#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "GroupIds": {
           "target": "com.amazonaws.workspaces#IpGroupIdList",
           "traits": {
             "smithy.api#documentation": "<p>The identifiers of one or more IP access control groups.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1589,10 +1671,10 @@
     "com.amazonaws.workspaces#FailedCreateWorkspaceRequest": {
       "type": "structure",
       "members": {
-        "ErrorCode": {
-          "target": "com.amazonaws.workspaces#ErrorType",
+        "WorkspaceRequest": {
+          "target": "com.amazonaws.workspaces#WorkspaceRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The error code that is returned if the WorkSpace cannot be created.</p>"
+            "smithy.api#documentation": "<p>Information about the WorkSpace.</p>"
           }
         },
         "ErrorMessage": {
@@ -1601,10 +1683,10 @@
             "smithy.api#documentation": "<p>The text of the error message that is returned if the WorkSpace cannot be\n         created.</p>"
           }
         },
-        "WorkspaceRequest": {
-          "target": "com.amazonaws.workspaces#WorkspaceRequest",
+        "ErrorCode": {
+          "target": "com.amazonaws.workspaces#ErrorType",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the WorkSpace.</p>"
+            "smithy.api#documentation": "<p>The error code that is returned if the WorkSpace cannot be created.</p>"
           }
         }
       },
@@ -1651,16 +1733,16 @@
     "com.amazonaws.workspaces#FailedWorkspaceChangeRequest": {
       "type": "structure",
       "members": {
-        "ErrorCode": {
-          "target": "com.amazonaws.workspaces#ErrorType",
-          "traits": {
-            "smithy.api#documentation": "<p>The error code that is returned if the WorkSpace cannot be rebooted.</p>"
-          }
-        },
         "ErrorMessage": {
           "target": "com.amazonaws.workspaces#Description",
           "traits": {
             "smithy.api#documentation": "<p>The text of the error message that is returned if the WorkSpace cannot be\n         rebooted.</p>"
+          }
+        },
+        "ErrorCode": {
+          "target": "com.amazonaws.workspaces#ErrorType",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code that is returned if the WorkSpace cannot be rebooted.</p>"
           }
         },
         "WorkspaceId": {
@@ -1672,6 +1754,41 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes a WorkSpace that could not be rebooted.\n         (<a>RebootWorkspaces</a>), rebuilt (<a>RebuildWorkspaces</a>), restored (<a>RestoreWorkspace</a>), terminated\n         (<a>TerminateWorkspaces</a>), started (<a>StartWorkspaces</a>), or stopped (<a>StopWorkspaces</a>).</p>"
+      }
+    },
+    "com.amazonaws.workspaces#ImagePermission": {
+      "type": "structure",
+      "members": {
+        "SharedAccountId": {
+          "target": "com.amazonaws.workspaces#AwsAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the AWS account that an image has been shared with.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the AWS accounts that have been granted permission to use a shared image.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#ImagePermissions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#ImagePermission"
+      }
+    },
+    "com.amazonaws.workspaces#ImageType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "OWNED",
+            "name": "OWNED"
+          },
+          {
+            "value": "SHARED",
+            "name": "SHARED"
+          }
+        ]
       }
     },
     "com.amazonaws.workspaces#ImportWorkspaceImage": {
@@ -1723,11 +1840,10 @@
             "smithy.api#required": {}
           }
         },
-        "ImageName": {
-          "target": "com.amazonaws.workspaces#WorkspaceImageName",
+        "Tags": {
+          "target": "com.amazonaws.workspaces#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the WorkSpace image.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>"
           }
         },
         "IngestionProcess": {
@@ -1737,10 +1853,11 @@
             "smithy.api#required": {}
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.workspaces#TagList",
+        "ImageName": {
+          "target": "com.amazonaws.workspaces#WorkspaceImageName",
           "traits": {
-            "smithy.api#documentation": "<p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>"
+            "smithy.api#documentation": "<p>The name of the WorkSpace image.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1882,16 +1999,16 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.workspaces#ManagementCidrRangeMaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.workspaces#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.workspaces#ManagementCidrRangeMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
           }
         }
       }
@@ -1899,16 +2016,16 @@
     "com.amazonaws.workspaces#ListAvailableManagementCidrRangesResult": {
       "type": "structure",
       "members": {
-        "ManagementCidrRanges": {
-          "target": "com.amazonaws.workspaces#DedicatedTenancyCidrRangeList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of available IP address ranges, specified as IPv4 CIDR blocks.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.workspaces#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next set of results, or null if no more results are\n         available.</p>"
+          }
+        },
+        "ManagementCidrRanges": {
+          "target": "com.amazonaws.workspaces#DedicatedTenancyCidrRangeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of available IP address ranges, specified as IPv4 CIDR blocks.</p>"
           }
         }
       }
@@ -1964,17 +2081,17 @@
     "com.amazonaws.workspaces#MigrateWorkspaceRequest": {
       "type": "structure",
       "members": {
-        "BundleId": {
-          "target": "com.amazonaws.workspaces#BundleId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the target bundle type to migrate the WorkSpace to.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SourceWorkspaceId": {
           "target": "com.amazonaws.workspaces#WorkspaceId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the WorkSpace to migrate from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "BundleId": {
+          "target": "com.amazonaws.workspaces#BundleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the target bundle type to migrate the WorkSpace to.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1983,16 +2100,16 @@
     "com.amazonaws.workspaces#MigrateWorkspaceResult": {
       "type": "structure",
       "members": {
-        "SourceWorkspaceId": {
-          "target": "com.amazonaws.workspaces#WorkspaceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The original identifier of the WorkSpace that is being migrated.</p>"
-          }
-        },
         "TargetWorkspaceId": {
           "target": "com.amazonaws.workspaces#WorkspaceId",
           "traits": {
             "smithy.api#documentation": "<p>The new identifier of the WorkSpace that is being migrated. If the migration does not succeed, \n         the target WorkSpace ID will not be used, and the WorkSpace will still have the original WorkSpace ID.</p>"
+          }
+        },
+        "SourceWorkspaceId": {
+          "target": "com.amazonaws.workspaces#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The original identifier of the WorkSpace that is being migrated.</p>"
           }
         }
       }
@@ -2089,16 +2206,16 @@
     "com.amazonaws.workspaces#ModifyAccountRequest": {
       "type": "structure",
       "members": {
-        "DedicatedTenancyManagementCidrRange": {
-          "target": "com.amazonaws.workspaces#DedicatedTenancyManagementCidrRange",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address range, specified as an IPv4 CIDR block, for the management network\n         interface. Specify an IP address range that is compatible with your network and in CIDR\n         notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be\n         /16 (for example, 203.0.113.25/16). It must also be specified as available by the\n            <code>ListAvailableManagementCidrRanges</code> operation.</p>"
-          }
-        },
         "DedicatedTenancySupport": {
           "target": "com.amazonaws.workspaces#DedicatedTenancySupportEnum",
           "traits": {
             "smithy.api#documentation": "<p>The status of BYOL.</p>"
+          }
+        },
+        "DedicatedTenancyManagementCidrRange": {
+          "target": "com.amazonaws.workspaces#DedicatedTenancyManagementCidrRange",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address range, specified as an IPv4 CIDR block, for the management network\n         interface. Specify an IP address range that is compatible with your network and in CIDR\n         notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be\n         /16 (for example, 203.0.113.25/16). It must also be specified as available by the\n            <code>ListAvailableManagementCidrRanges</code> operation.</p>"
           }
         }
       }
@@ -2179,17 +2296,17 @@
     "com.amazonaws.workspaces#ModifySelfservicePermissionsRequest": {
       "type": "structure",
       "members": {
-        "ResourceId": {
-          "target": "com.amazonaws.workspaces#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SelfservicePermissions": {
           "target": "com.amazonaws.workspaces#SelfservicePermissions",
           "traits": {
             "smithy.api#documentation": "<p>The permissions to enable or disable self-service capabilities.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2268,17 +2385,17 @@
     "com.amazonaws.workspaces#ModifyWorkspaceCreationPropertiesRequest": {
       "type": "structure",
       "members": {
-        "ResourceId": {
-          "target": "com.amazonaws.workspaces#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "WorkspaceCreationProperties": {
           "target": "com.amazonaws.workspaces#WorkspaceCreationProperties",
           "traits": {
             "smithy.api#documentation": "<p>The default properties for creating WorkSpaces.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2320,7 +2437,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Modifies the specified WorkSpace properties.</p>"
+        "smithy.api#documentation": "<p>Modifies the specified WorkSpace properties. For important information about how \n         to modify the size of the root and user volumes, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html\">\n            Modify a WorkSpace</a>.\n      </p>"
       }
     },
     "com.amazonaws.workspaces#ModifyWorkspacePropertiesRequest": {
@@ -2372,17 +2489,17 @@
     "com.amazonaws.workspaces#ModifyWorkspaceStateRequest": {
       "type": "structure",
       "members": {
-        "WorkspaceId": {
-          "target": "com.amazonaws.workspaces#WorkspaceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the WorkSpace.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "WorkspaceState": {
           "target": "com.amazonaws.workspaces#TargetWorkspaceState",
           "traits": {
             "smithy.api#documentation": "<p>The WorkSpace state.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "WorkspaceId": {
+          "target": "com.amazonaws.workspaces#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the WorkSpace.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2560,7 +2677,7 @@
         "target": "com.amazonaws.workspaces#RebuildWorkspacesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Rebuilds the specified WorkSpace.</p>\n         <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,\n            <code>ERROR</code>, or <code>UNHEALTHY</code>.</p>\n         <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss\n         of data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html\">Rebuild a\n         WorkSpace</a>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces have been completely\n         rebuilt.</p>"
+        "smithy.api#documentation": "<p>Rebuilds the specified WorkSpace.</p>\n         <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,\n            <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or <code>REBOOTING</code>.</p>\n         <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss\n         of data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html\">Rebuild a\n         WorkSpace</a>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces have been completely\n         rebuilt.</p>"
       }
     },
     "com.amazonaws.workspaces#RebuildWorkspacesRequest": {
@@ -2652,17 +2769,23 @@
     "com.amazonaws.workspaces#RegisterWorkspaceDirectoryRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.workspaces#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the directory.</p>"
+          }
+        },
+        "Tenancy": {
+          "target": "com.amazonaws.workspaces#Tenancy",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own\n         License (BYOL) images, this value must be set to <code>DEDICATED</code> and your AWS account must be \n         enabled for BYOL. If your account has not been enabled for BYOL, you will receive an \n         InvalidParameterValuesException error. For more information about BYOL images, see\n            <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\">Bring Your Own Windows Desktop Images</a>.</p>"
+          }
+        },
         "DirectoryId": {
           "target": "com.amazonaws.workspaces#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the directory. You cannot register a directory if it does not have a status \n         of Active. If the directory does not have a status of Active, you will receive an \n         InvalidResourceStateException error. If you have already registered the maximum number of directories \n         that you can register with Amazon WorkSpaces, you will receive a ResourceLimitExceededException error. \n         Deregister directories that you are not using for WorkSpaces, and try again.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "EnableSelfService": {
-          "target": "com.amazonaws.workspaces#BooleanObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether self-service capabilities are enabled or disabled.</p>"
           }
         },
         "EnableWorkDocs": {
@@ -2678,16 +2801,10 @@
             "smithy.api#documentation": "<p>The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the subnets \n         are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these \n         conditions are not met, you will receive an OperationNotSupportedException error.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.workspaces#TagList",
+        "EnableSelfService": {
+          "target": "com.amazonaws.workspaces#BooleanObject",
           "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the directory.</p>"
-          }
-        },
-        "Tenancy": {
-          "target": "com.amazonaws.workspaces#Tenancy",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own\n         License (BYOL) images, this value must be set to <code>DEDICATED</code> and your AWS account must be \n         enabled for BYOL. If your account has not been enabled for BYOL, you will receive an \n         InvalidParameterValuesException error. For more information about BYOL images, see\n            <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\">Bring Your Own Windows Desktop Images</a>.</p>"
+            "smithy.api#documentation": "<p>Indicates whether self-service capabilities are enabled or disabled.</p>"
           }
         }
       }
@@ -2771,16 +2888,16 @@
     "com.amazonaws.workspaces#ResourceNotFoundException": {
       "type": "structure",
       "members": {
-        "ResourceId": {
-          "target": "com.amazonaws.workspaces#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the resource that could not be found.</p>"
-          }
-        },
         "message": {
           "target": "com.amazonaws.workspaces#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>The resource could not be found.</p>"
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workspaces#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the resource that could not be found.</p>"
           }
         }
       },
@@ -2792,16 +2909,16 @@
     "com.amazonaws.workspaces#ResourceUnavailableException": {
       "type": "structure",
       "members": {
-        "ResourceId": {
-          "target": "com.amazonaws.workspaces#NonEmptyString",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the resource that is not available.</p>"
-          }
-        },
         "message": {
           "target": "com.amazonaws.workspaces#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>The exception error message.</p>"
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.workspaces#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the resource that is not available.</p>"
           }
         }
       },
@@ -2830,7 +2947,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Restores the specified WorkSpace to its last known healthy state.</p>\n         <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>,\n            <code>ERROR</code>, or <code>UNHEALTHY</code>.</p>\n         <p>Restoring a WorkSpace is a potentially destructive action that can result in the loss of\n         data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/restore-workspace.html\">Restore a\n         WorkSpace</a>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpace is completely\n         restored.</p>"
+        "smithy.api#documentation": "<p>Restores the specified WorkSpace to its last known healthy state.</p>\n         <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>,\n            <code>ERROR</code>, <code>UNHEALTHY</code>, or <code>STOPPED</code>.</p>\n         <p>Restoring a WorkSpace is a potentially destructive action that can result in the loss of\n         data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/restore-workspace.html\">Restore a\n         WorkSpace</a>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpace is completely\n         restored.</p>"
       }
     },
     "com.amazonaws.workspaces#RestoreWorkspaceRequest": {
@@ -2952,16 +3069,10 @@
     "com.amazonaws.workspaces#SelfservicePermissions": {
       "type": "structure",
       "members": {
-        "ChangeComputeType": {
+        "SwitchRunningMode": {
           "target": "com.amazonaws.workspaces#ReconnectEnum",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether users can change the compute type (bundle) for their WorkSpace.</p>"
-          }
-        },
-        "IncreaseVolumeSize": {
-          "target": "com.amazonaws.workspaces#ReconnectEnum",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether users can increase the volume size of the drives on their\n         WorkSpace.</p>"
+            "smithy.api#documentation": "<p>Specifies whether users can switch the running mode of their WorkSpace.</p>"
           }
         },
         "RebuildWorkspace": {
@@ -2970,16 +3081,22 @@
             "smithy.api#documentation": "<p>Specifies whether users can rebuild the operating system of a WorkSpace to its original\n         state.</p>"
           }
         },
+        "ChangeComputeType": {
+          "target": "com.amazonaws.workspaces#ReconnectEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether users can change the compute type (bundle) for their WorkSpace.</p>"
+          }
+        },
         "RestartWorkspace": {
           "target": "com.amazonaws.workspaces#ReconnectEnum",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether users can restart their WorkSpace.</p>"
           }
         },
-        "SwitchRunningMode": {
+        "IncreaseVolumeSize": {
           "target": "com.amazonaws.workspaces#ReconnectEnum",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether users can switch the running mode of their WorkSpace.</p>"
+            "smithy.api#documentation": "<p>Specifies whether users can increase the volume size of the drives on their\n         WorkSpace.</p>"
           }
         }
       },
@@ -3154,17 +3271,17 @@
     "com.amazonaws.workspaces#Tag": {
       "type": "structure",
       "members": {
+        "Value": {
+          "target": "com.amazonaws.workspaces#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the tag.</p>"
+          }
+        },
         "Key": {
           "target": "com.amazonaws.workspaces#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The key of the tag.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Value": {
-          "target": "com.amazonaws.workspaces#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The value of the tag.</p>"
           }
         }
       },
@@ -3353,23 +3470,82 @@
     "com.amazonaws.workspaces#UpdateRulesOfIpGroupRequest": {
       "type": "structure",
       "members": {
-        "GroupId": {
-          "target": "com.amazonaws.workspaces#IpGroupId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the group.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "UserRules": {
           "target": "com.amazonaws.workspaces#IpRuleList",
           "traits": {
             "smithy.api#documentation": "<p>One or more rules.</p>",
             "smithy.api#required": {}
           }
+        },
+        "GroupId": {
+          "target": "com.amazonaws.workspaces#IpGroupId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the group.</p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.workspaces#UpdateRulesOfIpGroupResult": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.workspaces#UpdateWorkspaceImagePermission": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#UpdateWorkspaceImagePermissionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#UpdateWorkspaceImagePermissionResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceUnavailableException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Shares or unshares an image with one account by specifying whether that account has permission to copy \n         the image. If the copy image permission is granted, the image is shared with that account. If the copy image \n         permission is revoked, the image is unshared with the account.</p>\n      \n         <note>\n            <ul>\n               <li>\n                  <p>To delete an image that has been shared, you must unshare the image before you delete it.</p>\n               </li>\n               <li>\n                  <p>Sharing Bring Your Own License (BYOL) images across AWS accounts isn't supported at \n                  this time in the AWS GovCloud (US-West) Region. To share BYOL images across accounts in \n                  the AWS GovCloud (US-West) Region, contact AWS Support.</p>\n               </li>\n            </ul>         \n         </note>"
+      }
+    },
+    "com.amazonaws.workspaces#UpdateWorkspaceImagePermissionRequest": {
+      "type": "structure",
+      "members": {
+        "AllowCopyImage": {
+          "target": "com.amazonaws.workspaces#BooleanObject",
+          "traits": {
+            "smithy.api#documentation": "<p>The permission to copy the image. This permission can be revoked only after an image \n      has been shared.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SharedAccountId": {
+          "target": "com.amazonaws.workspaces#AwsAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the AWS account to share or unshare the image with.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ImageId": {
+          "target": "com.amazonaws.workspaces#WorkspaceImageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the image.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#UpdateWorkspaceImagePermissionResult": {
       "type": "structure",
       "members": {}
     },
@@ -3408,58 +3584,10 @@
     "com.amazonaws.workspaces#Workspace": {
       "type": "structure",
       "members": {
-        "BundleId": {
-          "target": "com.amazonaws.workspaces#BundleId",
+        "UserName": {
+          "target": "com.amazonaws.workspaces#UserName",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the bundle used to create the WorkSpace.</p>"
-          }
-        },
-        "ComputerName": {
-          "target": "com.amazonaws.workspaces#ComputerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the WorkSpace, as seen by the operating system.</p>"
-          }
-        },
-        "DirectoryId": {
-          "target": "com.amazonaws.workspaces#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the AWS Directory Service directory for the WorkSpace.</p>"
-          }
-        },
-        "ErrorCode": {
-          "target": "com.amazonaws.workspaces#WorkspaceErrorCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The error code that is returned if the WorkSpace cannot be created.</p>"
-          }
-        },
-        "ErrorMessage": {
-          "target": "com.amazonaws.workspaces#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The text of the error message that is returned if the WorkSpace cannot be\n         created.</p>"
-          }
-        },
-        "IpAddress": {
-          "target": "com.amazonaws.workspaces#IpAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address of the WorkSpace.</p>"
-          }
-        },
-        "ModificationStates": {
-          "target": "com.amazonaws.workspaces#ModificationStateList",
-          "traits": {
-            "smithy.api#documentation": "<p>The modification states of the WorkSpace.</p>"
-          }
-        },
-        "RootVolumeEncryptionEnabled": {
-          "target": "com.amazonaws.workspaces#BooleanObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the data stored on the root volume is encrypted.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.workspaces#WorkspaceState",
-          "traits": {
-            "smithy.api#documentation": "<p>The operational state of the WorkSpace.</p>"
+            "smithy.api#documentation": "<p>The user for the WorkSpace.</p>"
           }
         },
         "SubnetId": {
@@ -3468,10 +3596,10 @@
             "smithy.api#documentation": "<p>The identifier of the subnet for the WorkSpace.</p>"
           }
         },
-        "UserName": {
-          "target": "com.amazonaws.workspaces#UserName",
+        "ErrorCode": {
+          "target": "com.amazonaws.workspaces#WorkspaceErrorCode",
           "traits": {
-            "smithy.api#documentation": "<p>The user for the WorkSpace.</p>"
+            "smithy.api#documentation": "<p>The error code that is returned if the WorkSpace cannot be created.</p>"
           }
         },
         "UserVolumeEncryptionEnabled": {
@@ -3480,10 +3608,58 @@
             "smithy.api#documentation": "<p>Indicates whether the data stored on the user volume is encrypted.</p>"
           }
         },
+        "ModificationStates": {
+          "target": "com.amazonaws.workspaces#ModificationStateList",
+          "traits": {
+            "smithy.api#documentation": "<p>The modification states of the WorkSpace.</p>"
+          }
+        },
         "VolumeEncryptionKey": {
           "target": "com.amazonaws.workspaces#VolumeEncryptionKey",
           "traits": {
             "smithy.api#documentation": "<p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. \n         Amazon WorkSpaces does not support asymmetric CMKs.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspaceState",
+          "traits": {
+            "smithy.api#documentation": "<p>The operational state of the WorkSpace.</p>"
+          }
+        },
+        "WorkspaceProperties": {
+          "target": "com.amazonaws.workspaces#WorkspaceProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties of the WorkSpace.</p>"
+          }
+        },
+        "IpAddress": {
+          "target": "com.amazonaws.workspaces#IpAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address of the WorkSpace.</p>"
+          }
+        },
+        "RootVolumeEncryptionEnabled": {
+          "target": "com.amazonaws.workspaces#BooleanObject",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the data stored on the root volume is encrypted.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.workspaces#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The text of the error message that is returned if the WorkSpace cannot be\n         created.</p>"
+          }
+        },
+        "BundleId": {
+          "target": "com.amazonaws.workspaces#BundleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the bundle used to create the WorkSpace.</p>"
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the AWS Directory Service directory for the WorkSpace.</p>"
           }
         },
         "WorkspaceId": {
@@ -3492,10 +3668,10 @@
             "smithy.api#documentation": "<p>The identifier of the WorkSpace.</p>"
           }
         },
-        "WorkspaceProperties": {
-          "target": "com.amazonaws.workspaces#WorkspaceProperties",
+        "ComputerName": {
+          "target": "com.amazonaws.workspaces#ComputerName",
           "traits": {
-            "smithy.api#documentation": "<p>The properties of the WorkSpace.</p>"
+            "smithy.api#documentation": "<p>The name of the WorkSpace, as seen by the operating system.</p>"
           }
         }
       },
@@ -3506,6 +3682,18 @@
     "com.amazonaws.workspaces#WorkspaceAccessProperties": {
       "type": "structure",
       "members": {
+        "DeviceTypeZeroClient": {
+          "target": "com.amazonaws.workspaces#AccessPropertyValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>"
+          }
+        },
+        "DeviceTypeIos": {
+          "target": "com.amazonaws.workspaces#AccessPropertyValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether users can use iOS devices to access their WorkSpaces.</p>"
+          }
+        },
         "DeviceTypeAndroid": {
           "target": "com.amazonaws.workspaces#AccessPropertyValue",
           "traits": {
@@ -3518,10 +3706,10 @@
             "smithy.api#documentation": "<p>Indicates whether users can use Chromebooks to access their WorkSpaces.</p>"
           }
         },
-        "DeviceTypeIos": {
+        "DeviceTypeWeb": {
           "target": "com.amazonaws.workspaces#AccessPropertyValue",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether users can use iOS devices to access their WorkSpaces.</p>"
+            "smithy.api#documentation": "<p>Indicates whether users can access their WorkSpaces through a web browser.</p>"
           }
         },
         "DeviceTypeOsx": {
@@ -3530,22 +3718,10 @@
             "smithy.api#documentation": "<p>Indicates whether users can use macOS clients to access their WorkSpaces. To restrict\n         WorkSpaces access to trusted devices (also known as managed devices) with valid\n         certificates, specify a value of <code>TRUST</code>. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html\">Restrict\n            WorkSpaces Access to Trusted Devices</a>. </p>"
           }
         },
-        "DeviceTypeWeb": {
-          "target": "com.amazonaws.workspaces#AccessPropertyValue",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether users can access their WorkSpaces through a web browser.</p>"
-          }
-        },
         "DeviceTypeWindows": {
           "target": "com.amazonaws.workspaces#AccessPropertyValue",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether users can use Windows clients to access their WorkSpaces. To restrict\n         WorkSpaces access to trusted devices (also known as managed devices) with valid\n         certificates, specify a value of <code>TRUST</code>. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html\">Restrict\n            WorkSpaces Access to Trusted Devices</a>. </p>"
-          }
-        },
-        "DeviceTypeZeroClient": {
-          "target": "com.amazonaws.workspaces#AccessPropertyValue",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>"
           }
         }
       },
@@ -3556,16 +3732,16 @@
     "com.amazonaws.workspaces#WorkspaceBundle": {
       "type": "structure",
       "members": {
-        "BundleId": {
-          "target": "com.amazonaws.workspaces#BundleId",
+        "ImageId": {
+          "target": "com.amazonaws.workspaces#WorkspaceImageId",
           "traits": {
-            "smithy.api#documentation": "<p>The bundle identifier.</p>"
+            "smithy.api#documentation": "<p>The image identifier of the bundle.</p>"
           }
         },
-        "ComputeType": {
-          "target": "com.amazonaws.workspaces#ComputeType",
+        "Owner": {
+          "target": "com.amazonaws.workspaces#BundleOwner",
           "traits": {
-            "smithy.api#documentation": "<p>The compute type. For more information, see <a href=\"http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles\">Amazon WorkSpaces Bundles</a>.</p>"
+            "smithy.api#documentation": "<p>The owner of the bundle. This is the account identifier of the owner, or\n         <code>AMAZON</code> if the bundle is provided by AWS.</p>"
           }
         },
         "Description": {
@@ -3574,10 +3750,22 @@
             "smithy.api#documentation": "<p>A description.</p>"
           }
         },
-        "ImageId": {
-          "target": "com.amazonaws.workspaces#WorkspaceImageId",
+        "ComputeType": {
+          "target": "com.amazonaws.workspaces#ComputeType",
           "traits": {
-            "smithy.api#documentation": "<p>The image identifier of the bundle.</p>"
+            "smithy.api#documentation": "<p>The compute type. For more information, see <a href=\"http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles\">Amazon WorkSpaces Bundles</a>.</p>"
+          }
+        },
+        "UserStorage": {
+          "target": "com.amazonaws.workspaces#UserStorage",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the user storage.</p>"
+          }
+        },
+        "BundleId": {
+          "target": "com.amazonaws.workspaces#BundleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The bundle identifier.</p>"
           }
         },
         "LastUpdatedTime": {
@@ -3592,22 +3780,10 @@
             "smithy.api#documentation": "<p>The name of the bundle.</p>"
           }
         },
-        "Owner": {
-          "target": "com.amazonaws.workspaces#BundleOwner",
-          "traits": {
-            "smithy.api#documentation": "<p>The owner of the bundle. This is the account identifier of the owner, or\n         <code>AMAZON</code> if the bundle is provided by AWS.</p>"
-          }
-        },
         "RootStorage": {
           "target": "com.amazonaws.workspaces#RootStorage",
           "traits": {
             "smithy.api#documentation": "<p>The size of the root volume.</p>"
-          }
-        },
-        "UserStorage": {
-          "target": "com.amazonaws.workspaces#UserStorage",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the user storage.</p>"
           }
         }
       },
@@ -3618,16 +3794,16 @@
     "com.amazonaws.workspaces#WorkspaceConnectionStatus": {
       "type": "structure",
       "members": {
+        "WorkspaceId": {
+          "target": "com.amazonaws.workspaces#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the WorkSpace.</p>"
+          }
+        },
         "ConnectionState": {
           "target": "com.amazonaws.workspaces#ConnectionState",
           "traits": {
             "smithy.api#documentation": "<p>The connection state of the WorkSpace. The connection state is unknown if the WorkSpace\n         is stopped.</p>"
-          }
-        },
-        "ConnectionStateCheckTimestamp": {
-          "target": "com.amazonaws.workspaces#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The timestamp of the connection status check.</p>"
           }
         },
         "LastKnownUserConnectionTimestamp": {
@@ -3636,10 +3812,10 @@
             "smithy.api#documentation": "<p>The timestamp of the last known user connection.</p>"
           }
         },
-        "WorkspaceId": {
-          "target": "com.amazonaws.workspaces#WorkspaceId",
+        "ConnectionStateCheckTimestamp": {
+          "target": "com.amazonaws.workspaces#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the WorkSpace.</p>"
+            "smithy.api#documentation": "<p>The timestamp of the connection status check.</p>"
           }
         }
       },
@@ -3662,12 +3838,6 @@
             "smithy.api#documentation": "<p>The identifier of your custom security group.</p>"
           }
         },
-        "DefaultOu": {
-          "target": "com.amazonaws.workspaces#DefaultOu",
-          "traits": {
-            "smithy.api#documentation": "<p>The default organizational unit (OU) for your WorkSpace directories.</p>"
-          }
-        },
         "EnableInternetAccess": {
           "target": "com.amazonaws.workspaces#BooleanObject",
           "traits": {
@@ -3685,6 +3855,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether users are local administrators of their WorkSpaces.</p>"
           }
+        },
+        "DefaultOu": {
+          "target": "com.amazonaws.workspaces#DefaultOu",
+          "traits": {
+            "smithy.api#documentation": "<p>The default organizational unit (OU) for your WorkSpace directories.</p>"
+          }
         }
       },
       "traits": {
@@ -3694,10 +3870,10 @@
     "com.amazonaws.workspaces#WorkspaceDirectory": {
       "type": "structure",
       "members": {
-        "Alias": {
-          "target": "com.amazonaws.workspaces#Alias",
+        "DirectoryName": {
+          "target": "com.amazonaws.workspaces#DirectoryName",
           "traits": {
-            "smithy.api#documentation": "<p>The directory alias.</p>"
+            "smithy.api#documentation": "<p>The name of the directory.</p>"
           }
         },
         "CustomerUserName": {
@@ -3706,58 +3882,10 @@
             "smithy.api#documentation": "<p>The user name for the service account.</p>"
           }
         },
-        "DirectoryId": {
-          "target": "com.amazonaws.workspaces#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The directory identifier.</p>"
-          }
-        },
-        "DirectoryName": {
-          "target": "com.amazonaws.workspaces#DirectoryName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the directory.</p>"
-          }
-        },
-        "DirectoryType": {
-          "target": "com.amazonaws.workspaces#WorkspaceDirectoryType",
-          "traits": {
-            "smithy.api#documentation": "<p>The directory type.</p>"
-          }
-        },
-        "DnsIpAddresses": {
-          "target": "com.amazonaws.workspaces#DnsIpAddresses",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP addresses of the DNS servers for the directory.</p>"
-          }
-        },
         "IamRoleId": {
           "target": "com.amazonaws.workspaces#ARN",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make\n         calls to other services, such as Amazon EC2, on your behalf.</p>"
-          }
-        },
-        "RegistrationCode": {
-          "target": "com.amazonaws.workspaces#RegistrationCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The registration code for the directory. This is the code that users enter in their\n         Amazon WorkSpaces client application to connect to the directory.</p>"
-          }
-        },
-        "SelfservicePermissions": {
-          "target": "com.amazonaws.workspaces#SelfservicePermissions",
-          "traits": {
-            "smithy.api#documentation": "<p>The default self-service permissions for WorkSpaces in the directory.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.workspaces#WorkspaceDirectoryState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the directory's registration with Amazon WorkSpaces.</p>"
-          }
-        },
-        "SubnetIds": {
-          "target": "com.amazonaws.workspaces#SubnetIds",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifiers of the subnets used with the directory.</p>"
           }
         },
         "Tenancy": {
@@ -3766,16 +3894,34 @@
             "smithy.api#documentation": "<p>Specifies whether the directory is dedicated or shared. To use Bring Your Own License\n         (BYOL), this value must be set to <code>DEDICATED</code>. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\">Bring\n            Your Own Windows Desktop Images</a>.</p>"
           }
         },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The directory identifier.</p>"
+          }
+        },
         "WorkspaceAccessProperties": {
           "target": "com.amazonaws.workspaces#WorkspaceAccessProperties",
           "traits": {
             "smithy.api#documentation": "<p>The devices and operating systems that users can use to access WorkSpaces.</p>"
           }
         },
-        "WorkspaceCreationProperties": {
-          "target": "com.amazonaws.workspaces#DefaultWorkspaceCreationProperties",
+        "SelfservicePermissions": {
+          "target": "com.amazonaws.workspaces#SelfservicePermissions",
           "traits": {
-            "smithy.api#documentation": "<p>The default creation properties for all WorkSpaces in the directory.</p>"
+            "smithy.api#documentation": "<p>The default self-service permissions for WorkSpaces in the directory.</p>"
+          }
+        },
+        "RegistrationCode": {
+          "target": "com.amazonaws.workspaces#RegistrationCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The registration code for the directory. This is the code that users enter in their\n         Amazon WorkSpaces client application to connect to the directory.</p>"
+          }
+        },
+        "DnsIpAddresses": {
+          "target": "com.amazonaws.workspaces#DnsIpAddresses",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP addresses of the DNS servers for the directory.</p>"
           }
         },
         "WorkspaceSecurityGroupId": {
@@ -3784,10 +3930,40 @@
             "smithy.api#documentation": "<p>The identifier of the security group that is assigned to new WorkSpaces.</p>"
           }
         },
+        "DirectoryType": {
+          "target": "com.amazonaws.workspaces#WorkspaceDirectoryType",
+          "traits": {
+            "smithy.api#documentation": "<p>The directory type.</p>"
+          }
+        },
+        "WorkspaceCreationProperties": {
+          "target": "com.amazonaws.workspaces#DefaultWorkspaceCreationProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The default creation properties for all WorkSpaces in the directory.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspaceDirectoryState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the directory's registration with Amazon WorkSpaces.</p>"
+          }
+        },
         "ipGroupIds": {
           "target": "com.amazonaws.workspaces#IpGroupIdList",
           "traits": {
             "smithy.api#documentation": "<p>The identifiers of the IP access control groups associated with the directory.</p>"
+          }
+        },
+        "Alias": {
+          "target": "com.amazonaws.workspaces#Alias",
+          "traits": {
+            "smithy.api#documentation": "<p>The directory alias.</p>"
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.workspaces#SubnetIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifiers of the subnets used with the directory.</p>"
           }
         }
       },
@@ -3861,10 +4037,10 @@
     "com.amazonaws.workspaces#WorkspaceImage": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.workspaces#WorkspaceImageDescription",
+        "Name": {
+          "target": "com.amazonaws.workspaces#WorkspaceImageName",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the image.</p>"
+            "smithy.api#documentation": "<p>The name of the image.</p>"
           }
         },
         "ErrorCode": {
@@ -3873,28 +4049,10 @@
             "smithy.api#documentation": "<p>The error code that is returned for the image.</p>"
           }
         },
-        "ErrorMessage": {
-          "target": "com.amazonaws.workspaces#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The text of the error message that is returned for the image.</p>"
-          }
-        },
         "ImageId": {
           "target": "com.amazonaws.workspaces#WorkspaceImageId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the image.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.workspaces#WorkspaceImageName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the image.</p>"
-          }
-        },
-        "OperatingSystem": {
-          "target": "com.amazonaws.workspaces#OperatingSystem",
-          "traits": {
-            "smithy.api#documentation": "<p>The operating system that the image is running. </p>"
           }
         },
         "RequiredTenancy": {
@@ -3907,6 +4065,36 @@
           "target": "com.amazonaws.workspaces#WorkspaceImageState",
           "traits": {
             "smithy.api#documentation": "<p>The status of the image.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.workspaces#WorkspaceImageDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the image.</p>"
+          }
+        },
+        "OwnerAccountId": {
+          "target": "com.amazonaws.workspaces#AwsAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the AWS account that owns the image.</p>"
+          }
+        },
+        "OperatingSystem": {
+          "target": "com.amazonaws.workspaces#OperatingSystem",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system that the image is running. </p>"
+          }
+        },
+        "Created": {
+          "target": "com.amazonaws.workspaces#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date when the image was created. If the image has been shared, the AWS account \n         that the image has been shared with sees the original creation date of the image.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.workspaces#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The text of the error message that is returned for the image.</p>"
           }
         }
       },
@@ -4023,24 +4211,6 @@
     "com.amazonaws.workspaces#WorkspaceProperties": {
       "type": "structure",
       "members": {
-        "ComputeTypeName": {
-          "target": "com.amazonaws.workspaces#Compute",
-          "traits": {
-            "smithy.api#documentation": "<p>The compute type. For more information, see <a href=\"http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles\">Amazon WorkSpaces\n         Bundles</a>.</p>"
-          }
-        },
-        "RootVolumeSizeGib": {
-          "target": "com.amazonaws.workspaces#RootVolumeSizeGib",
-          "traits": {
-            "smithy.api#documentation": "<p>The size of the root volume.</p>"
-          }
-        },
-        "RunningMode": {
-          "target": "com.amazonaws.workspaces#RunningMode",
-          "traits": {
-            "smithy.api#documentation": "<p>The running mode. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html\">Manage the WorkSpace Running\n            Mode</a>.</p>"
-          }
-        },
         "RunningModeAutoStopTimeoutInMinutes": {
           "target": "com.amazonaws.workspaces#RunningModeAutoStopTimeoutInMinutes",
           "traits": {
@@ -4050,7 +4220,25 @@
         "UserVolumeSizeGib": {
           "target": "com.amazonaws.workspaces#UserVolumeSizeGib",
           "traits": {
-            "smithy.api#documentation": "<p>The size of the user storage.</p>"
+            "smithy.api#documentation": "<p>The size of the user storage. For important information about how to modify the size of the root and user volumes, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html\">Modify a WorkSpace</a>.</p>"
+          }
+        },
+        "RootVolumeSizeGib": {
+          "target": "com.amazonaws.workspaces#RootVolumeSizeGib",
+          "traits": {
+            "smithy.api#documentation": "<p>The size of the root volume. For important information about how to modify the size of the root and user volumes, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html\">Modify a WorkSpace</a>.</p>"
+          }
+        },
+        "ComputeTypeName": {
+          "target": "com.amazonaws.workspaces#Compute",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute type. For more information, see <a href=\"http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles\">Amazon WorkSpaces\n         Bundles</a>.</p>"
+          }
+        },
+        "RunningMode": {
+          "target": "com.amazonaws.workspaces#RunningMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The running mode. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html\">Manage the WorkSpace Running\n            Mode</a>.</p>"
           }
         }
       },
@@ -4061,30 +4249,16 @@
     "com.amazonaws.workspaces#WorkspaceRequest": {
       "type": "structure",
       "members": {
-        "BundleId": {
-          "target": "com.amazonaws.workspaces#BundleId",
+        "VolumeEncryptionKey": {
+          "target": "com.amazonaws.workspaces#VolumeEncryptionKey",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the bundle for the WorkSpace. You can use <a>DescribeWorkspaceBundles</a> to list the available bundles.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "DirectoryId": {
-          "target": "com.amazonaws.workspaces#DirectoryId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the AWS Directory Service directory for the WorkSpace. You can use\n            <a>DescribeWorkspaceDirectories</a> to list the available directories.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. \n         Amazon WorkSpaces does not support asymmetric CMKs.</p>"
           }
         },
         "RootVolumeEncryptionEnabled": {
           "target": "com.amazonaws.workspaces#BooleanObject",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the data stored on the root volume is encrypted.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.workspaces#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags for the WorkSpace.</p>"
           }
         },
         "UserName": {
@@ -4094,22 +4268,36 @@
             "smithy.api#required": {}
           }
         },
-        "UserVolumeEncryptionEnabled": {
-          "target": "com.amazonaws.workspaces#BooleanObject",
+        "BundleId": {
+          "target": "com.amazonaws.workspaces#BundleId",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the data stored on the user volume is encrypted.</p>"
+            "smithy.api#documentation": "<p>The identifier of the bundle for the WorkSpace. You can use <a>DescribeWorkspaceBundles</a> to list the available bundles.</p>",
+            "smithy.api#required": {}
           }
         },
-        "VolumeEncryptionKey": {
-          "target": "com.amazonaws.workspaces#VolumeEncryptionKey",
+        "Tags": {
+          "target": "com.amazonaws.workspaces#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. \n         Amazon WorkSpaces does not support asymmetric CMKs.</p>"
+            "smithy.api#documentation": "<p>The tags for the WorkSpace.</p>"
           }
         },
         "WorkspaceProperties": {
           "target": "com.amazonaws.workspaces#WorkspaceProperties",
           "traits": {
             "smithy.api#documentation": "<p>The WorkSpace properties.</p>"
+          }
+        },
+        "UserVolumeEncryptionEnabled": {
+          "target": "com.amazonaws.workspaces#BooleanObject",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the data stored on the user volume is encrypted.</p>"
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the AWS Directory Service directory for the WorkSpace. You can use\n            <a>DescribeWorkspaceDirectories</a> to list the available directories.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4219,16 +4407,16 @@
     "com.amazonaws.workspaces#WorkspacesIpGroup": {
       "type": "structure",
       "members": {
-        "groupDesc": {
-          "target": "com.amazonaws.workspaces#IpGroupDesc",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the group.</p>"
-          }
-        },
         "groupId": {
           "target": "com.amazonaws.workspaces#IpGroupId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the group.</p>"
+          }
+        },
+        "userRules": {
+          "target": "com.amazonaws.workspaces#IpRuleList",
+          "traits": {
+            "smithy.api#documentation": "<p>The rules.</p>"
           }
         },
         "groupName": {
@@ -4237,10 +4425,10 @@
             "smithy.api#documentation": "<p>The name of the group.</p>"
           }
         },
-        "userRules": {
-          "target": "com.amazonaws.workspaces#IpRuleList",
+        "groupDesc": {
+          "target": "com.amazonaws.workspaces#IpGroupDesc",
           "traits": {
-            "smithy.api#documentation": "<p>The rules.</p>"
+            "smithy.api#documentation": "<p>The description of the group.</p>"
           }
         }
       },
@@ -4308,6 +4496,9 @@
         },
         {
           "target": "com.amazonaws.workspaces#DescribeWorkspaceDirectories"
+        },
+        {
+          "target": "com.amazonaws.workspaces#DescribeWorkspaceImagePermissions"
         },
         {
           "target": "com.amazonaws.workspaces#DescribeWorkspaceImages"
@@ -4380,6 +4571,9 @@
         },
         {
           "target": "com.amazonaws.workspaces#UpdateRulesOfIpGroup"
+        },
+        {
+          "target": "com.amazonaws.workspaces#UpdateWorkspaceImagePermission"
         }
       ],
       "traits": {

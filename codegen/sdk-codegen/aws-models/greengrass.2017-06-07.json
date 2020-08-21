@@ -136,16 +136,16 @@
     "com.amazonaws.greengrass#BadRequestException": {
       "type": "structure",
       "members": {
-        "ErrorDetails": {
-          "target": "com.amazonaws.greengrass#ErrorDetails",
-          "traits": {
-            "smithy.api#documentation": "Details about the error."
-          }
-        },
         "Message": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "A message containing information about the error."
+          }
+        },
+        "ErrorDetails": {
+          "target": "com.amazonaws.greengrass#ErrorDetails",
+          "traits": {
+            "smithy.api#documentation": "Details about the error."
           }
         }
       },
@@ -184,12 +184,6 @@
     "com.amazonaws.greengrass#BulkDeploymentMetrics": {
       "type": "structure",
       "members": {
-        "InvalidInputRecords": {
-          "target": "com.amazonaws.greengrass#__integer",
-          "traits": {
-            "smithy.api#documentation": "The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version."
-          }
-        },
         "RecordsProcessed": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
@@ -201,6 +195,12 @@
           "traits": {
             "smithy.api#documentation": "The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times."
           }
+        },
+        "InvalidInputRecords": {
+          "target": "com.amazonaws.greengrass#__integer",
+          "traits": {
+            "smithy.api#documentation": "The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version."
+          }
         }
       },
       "traits": {
@@ -210,6 +210,36 @@
     "com.amazonaws.greengrass#BulkDeploymentResult": {
       "type": "structure",
       "members": {
+        "DeploymentStatus": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''."
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The error message for a failed deployment"
+          }
+        },
+        "DeploymentId": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the group deployment."
+          }
+        },
+        "ErrorDetails": {
+          "target": "com.amazonaws.greengrass#ErrorDetails",
+          "traits": {
+            "smithy.api#documentation": "Details about the error."
+          }
+        },
+        "DeploymentType": {
+          "target": "com.amazonaws.greengrass#DeploymentType",
+          "traits": {
+            "smithy.api#documentation": "The type of the deployment."
+          }
+        },
         "CreatedAt": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -220,36 +250,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the group deployment."
-          }
-        },
-        "DeploymentId": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the group deployment."
-          }
-        },
-        "DeploymentStatus": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''."
-          }
-        },
-        "DeploymentType": {
-          "target": "com.amazonaws.greengrass#DeploymentType",
-          "traits": {
-            "smithy.api#documentation": "The type of the deployment."
-          }
-        },
-        "ErrorDetails": {
-          "target": "com.amazonaws.greengrass#ErrorDetails",
-          "traits": {
-            "smithy.api#documentation": "Details about the error."
-          }
-        },
-        "ErrorMessage": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The error message for a failed deployment"
           }
         },
         "GroupArn": {
@@ -322,16 +322,16 @@
             "smithy.api#documentation": "The ID of the connectivity information."
           }
         },
-        "Metadata": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "Metadata for this endpoint."
-          }
-        },
         "PortNumber": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
             "smithy.api#documentation": "The port of the Greengrass core. Usually 8883."
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "Metadata for this endpoint."
           }
         }
       },
@@ -342,6 +342,12 @@
     "com.amazonaws.greengrass#Connector": {
       "type": "structure",
       "members": {
+        "Parameters": {
+          "target": "com.amazonaws.greengrass#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "The parameters or configuration that the connector uses."
+          }
+        },
         "ConnectorArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -354,12 +360,6 @@
           "traits": {
             "smithy.api#documentation": "A descriptive or arbitrary ID for the connector. This value must be unique within the connector definition version. Max length is 128 characters with pattern [a-zA-Z0-9:_-]+.",
             "smithy.api#required": {}
-          }
-        },
-        "Parameters": {
-          "target": "com.amazonaws.greengrass#__mapOf__string",
-          "traits": {
-            "smithy.api#documentation": "The parameters or configuration that the connector uses."
           }
         }
       },
@@ -455,19 +455,6 @@
     "com.amazonaws.greengrass#CreateConnectorDefinitionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
-        "InitialVersion": {
-          "target": "com.amazonaws.greengrass#ConnectorDefinitionVersion",
-          "traits": {
-            "smithy.api#documentation": "Information about the initial version of the connector definition."
-          }
-        },
         "Name": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -479,24 +466,25 @@
           "traits": {
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
+        },
+        "InitialVersion": {
+          "target": "com.amazonaws.greengrass#ConnectorDefinitionVersion",
+          "traits": {
+            "smithy.api#documentation": "Information about the initial version of the connector definition."
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
+          }
         }
       }
     },
     "com.amazonaws.greengrass#CreateConnectorDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
-          }
-        },
         "Id": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -509,6 +497,24 @@
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
           }
         },
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+          }
+        },
         "LatestVersion": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -519,12 +525,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the latest version associated with the definition."
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the definition."
           }
         }
       }
@@ -554,6 +554,12 @@
     "com.amazonaws.greengrass#CreateConnectorDefinitionVersionRequest": {
       "type": "structure",
       "members": {
+        "Connectors": {
+          "target": "com.amazonaws.greengrass#__listOfConnector",
+          "traits": {
+            "smithy.api#documentation": "A list of references to connectors in this version, with their corresponding configuration settings."
+          }
+        },
         "AmznClientToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -568,28 +574,22 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
-        },
-        "Connectors": {
-          "target": "com.amazonaws.greengrass#__listOfConnector",
-          "traits": {
-            "smithy.api#documentation": "A list of references to connectors in this version, with their corresponding configuration settings."
-          }
         }
       }
     },
     "com.amazonaws.greengrass#CreateConnectorDefinitionVersionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the version."
-          }
-        },
         "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the version was created."
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the version."
           }
         },
         "Id": {
@@ -598,10 +598,10 @@
             "smithy.api#documentation": "The ID of the parent definition that the version is associated with."
           }
         },
-        "Version": {
+        "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the version."
+            "smithy.api#documentation": "The ARN of the version."
           }
         }
       }
@@ -631,17 +631,16 @@
     "com.amazonaws.greengrass#CreateCoreDefinitionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
         "InitialVersion": {
           "target": "com.amazonaws.greengrass#CoreDefinitionVersion",
           "traits": {
             "smithy.api#documentation": "Information about the initial version of the core definition."
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.greengrass#Tags",
+          "traits": {
+            "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
         },
         "Name": {
@@ -650,10 +649,11 @@
             "smithy.api#documentation": "The name of the core definition."
           }
         },
-        "tags": {
-          "target": "com.amazonaws.greengrass#Tags",
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "Tag(s) to add to the new resource."
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         }
       },
@@ -664,6 +664,30 @@
     "com.amazonaws.greengrass#CreateCoreDefinitionResponse": {
       "type": "structure",
       "members": {
+        "LatestVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
+          }
+        },
+        "LatestVersion": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the latest version associated with the definition."
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
+          }
+        },
         "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -680,30 +704,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the definition."
-          }
-        },
-        "LastUpdatedTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
-          }
-        },
-        "LatestVersion": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the latest version associated with the definition."
-          }
-        },
-        "LatestVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the definition."
           }
         }
       }
@@ -740,6 +740,12 @@
             "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         },
+        "Cores": {
+          "target": "com.amazonaws.greengrass#__listOfCore",
+          "traits": {
+            "smithy.api#documentation": "A list of cores in the core definition version."
+          }
+        },
         "CoreDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -747,18 +753,18 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
-        },
-        "Cores": {
-          "target": "com.amazonaws.greengrass#__listOfCore",
-          "traits": {
-            "smithy.api#documentation": "A list of cores in the core definition version."
-          }
         }
       }
     },
     "com.amazonaws.greengrass#CreateCoreDefinitionVersionResponse": {
       "type": "structure",
       "members": {
+        "Id": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the parent definition that the version is associated with."
+          }
+        },
         "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -769,12 +775,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the version was created."
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the parent definition that the version is associated with."
           }
         },
         "Version": {
@@ -810,11 +810,18 @@
     "com.amazonaws.greengrass#CreateDeploymentRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
+        "GroupId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
+            "smithy.api#documentation": "The ID of the Greengrass group.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "GroupVersionId": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the group version to be deployed."
           }
         },
         "DeploymentId": {
@@ -830,18 +837,11 @@
             "smithy.api#required": {}
           }
         },
-        "GroupId": {
+        "AmznClientToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the Greengrass group.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "GroupVersionId": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the group version to be deployed."
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         }
       }
@@ -888,6 +888,12 @@
     "com.amazonaws.greengrass#CreateDeviceDefinitionRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the device definition."
+          }
+        },
         "AmznClientToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -901,12 +907,6 @@
             "smithy.api#documentation": "Information about the initial version of the device definition."
           }
         },
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the device definition."
-          }
-        },
         "tags": {
           "target": "com.amazonaws.greengrass#Tags",
           "traits": {
@@ -918,22 +918,10 @@
     "com.amazonaws.greengrass#CreateDeviceDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "LatestVersion": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the definition."
+            "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
         "LastUpdatedTimestamp": {
@@ -942,16 +930,28 @@
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
           }
         },
-        "LatestVersion": {
+        "Id": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the latest version associated with the definition."
+            "smithy.api#documentation": "The ID of the definition."
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
           }
         },
         "LatestVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the latest version associated with the definition."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
           }
         },
         "Name": {
@@ -987,19 +987,19 @@
     "com.amazonaws.greengrass#CreateDeviceDefinitionVersionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
         "DeviceDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the device definition.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         },
         "Devices": {
@@ -1013,10 +1013,10 @@
     "com.amazonaws.greengrass#CreateDeviceDefinitionVersionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "Version": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the version."
+            "smithy.api#documentation": "The ID of the version."
           }
         },
         "CreationTimestamp": {
@@ -1031,10 +1031,10 @@
             "smithy.api#documentation": "The ID of the parent definition that the version is associated with."
           }
         },
-        "Version": {
+        "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the version."
+            "smithy.api#documentation": "The ARN of the version."
           }
         }
       }
@@ -1064,13 +1064,6 @@
     "com.amazonaws.greengrass#CreateFunctionDefinitionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
         "InitialVersion": {
           "target": "com.amazonaws.greengrass#FunctionDefinitionVersion",
           "traits": {
@@ -1081,6 +1074,13 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The name of the function definition."
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         },
         "tags": {
@@ -1094,22 +1094,10 @@
     "com.amazonaws.greengrass#CreateFunctionDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "LatestVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the definition."
+            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
         "LastUpdatedTimestamp": {
@@ -1124,16 +1112,28 @@
             "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
-        "LatestVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
-          }
-        },
         "Name": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The name of the definition."
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the definition."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
           }
         }
       }
@@ -1163,13 +1163,6 @@
     "com.amazonaws.greengrass#CreateFunctionDefinitionVersionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
         "DefaultConfig": {
           "target": "com.amazonaws.greengrass#FunctionDefaultConfig",
           "traits": {
@@ -1182,6 +1175,13 @@
             "smithy.api#documentation": "The ID of the Lambda function definition.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         },
         "Functions": {
@@ -1198,16 +1198,16 @@
     "com.amazonaws.greengrass#CreateFunctionDefinitionVersionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the version."
-          }
-        },
         "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the version was created."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the version."
           }
         },
         "Id": {
@@ -1274,19 +1274,19 @@
     "com.amazonaws.greengrass#CreateGroupCertificateAuthorityRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
         "GroupId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the Greengrass group.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         }
       }
@@ -1305,11 +1305,10 @@
     "com.amazonaws.greengrass#CreateGroupRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
+        "Name": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
+            "smithy.api#documentation": "The name of the group."
           }
         },
         "InitialVersion": {
@@ -1318,16 +1317,17 @@
             "smithy.api#documentation": "Information about the initial version of the group."
           }
         },
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the group."
-          }
-        },
         "tags": {
           "target": "com.amazonaws.greengrass#Tags",
           "traits": {
             "smithy.api#documentation": "Tag(s) to add to the new resource."
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         }
       }
@@ -1335,16 +1335,10 @@
     "com.amazonaws.greengrass#CreateGroupResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "LastUpdatedTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
           }
         },
         "Id": {
@@ -1353,10 +1347,10 @@
             "smithy.api#documentation": "The ID of the definition."
           }
         },
-        "LastUpdatedTimestamp": {
+        "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
+            "smithy.api#documentation": "The ARN of the definition."
           }
         },
         "LatestVersion": {
@@ -1365,16 +1359,22 @@
             "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
+          }
+        },
         "LatestVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
-        "Name": {
+        "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The name of the definition."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
           }
         }
       }
@@ -1404,37 +1404,6 @@
     "com.amazonaws.greengrass#CreateGroupVersionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
-        "ConnectorDefinitionVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the connector definition version for this group."
-          }
-        },
-        "CoreDefinitionVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the core definition version for this group."
-          }
-        },
-        "DeviceDefinitionVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the device definition version for this group."
-          }
-        },
-        "FunctionDefinitionVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the function definition version for this group."
-          }
-        },
         "GroupId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -1443,10 +1412,35 @@
             "smithy.api#required": {}
           }
         },
-        "LoggerDefinitionVersionArn": {
+        "DeviceDefinitionVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the logger definition version for this group."
+            "smithy.api#documentation": "The ARN of the device definition version for this group."
+          }
+        },
+        "CoreDefinitionVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the core definition version for this group."
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
+          }
+        },
+        "FunctionDefinitionVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the function definition version for this group."
+          }
+        },
+        "ConnectorDefinitionVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the connector definition version for this group."
           }
         },
         "ResourceDefinitionVersionArn": {
@@ -1460,6 +1454,12 @@
           "traits": {
             "smithy.api#documentation": "The ARN of the subscription definition version for this group."
           }
+        },
+        "LoggerDefinitionVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the logger definition version for this group."
+          }
         }
       }
     },
@@ -1472,10 +1472,10 @@
             "smithy.api#documentation": "The ARN of the version."
           }
         },
-        "CreationTimestamp": {
+        "Version": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the version was created."
+            "smithy.api#documentation": "The ID of the version."
           }
         },
         "Id": {
@@ -1484,10 +1484,10 @@
             "smithy.api#documentation": "The ID of the parent definition that the version is associated with."
           }
         },
-        "Version": {
+        "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the version."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the version was created."
           }
         }
       }
@@ -1517,13 +1517,6 @@
     "com.amazonaws.greengrass#CreateLoggerDefinitionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
         "InitialVersion": {
           "target": "com.amazonaws.greengrass#LoggerDefinitionVersion",
           "traits": {
@@ -1534,6 +1527,13 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The name of the logger definition."
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         },
         "tags": {
@@ -1547,6 +1547,18 @@
     "com.amazonaws.greengrass#CreateLoggerDefinitionResponse": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
+          }
+        },
         "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -1565,28 +1577,16 @@
             "smithy.api#documentation": "The ID of the definition."
           }
         },
-        "LastUpdatedTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
-          }
-        },
-        "LatestVersion": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the latest version associated with the definition."
-          }
-        },
         "LatestVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
-        "Name": {
+        "LatestVersion": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The name of the definition."
+            "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         }
       }
@@ -1616,13 +1616,6 @@
     "com.amazonaws.greengrass#CreateLoggerDefinitionVersionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
         "LoggerDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -1636,6 +1629,13 @@
           "traits": {
             "smithy.api#documentation": "A list of loggers."
           }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
+          }
         }
       }
     },
@@ -1648,10 +1648,10 @@
             "smithy.api#documentation": "The ARN of the version."
           }
         },
-        "CreationTimestamp": {
+        "Version": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the version was created."
+            "smithy.api#documentation": "The ID of the version."
           }
         },
         "Id": {
@@ -1660,10 +1660,10 @@
             "smithy.api#documentation": "The ID of the parent definition that the version is associated with."
           }
         },
-        "Version": {
+        "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the version."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the version was created."
           }
         }
       }
@@ -1693,19 +1693,6 @@
     "com.amazonaws.greengrass#CreateResourceDefinitionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
-        "InitialVersion": {
-          "target": "com.amazonaws.greengrass#ResourceDefinitionVersion",
-          "traits": {
-            "smithy.api#documentation": "Information about the initial version of the resource definition."
-          }
-        },
         "Name": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -1717,34 +1704,29 @@
           "traits": {
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
+        },
+        "InitialVersion": {
+          "target": "com.amazonaws.greengrass#ResourceDefinitionVersion",
+          "traits": {
+            "smithy.api#documentation": "Information about the initial version of the resource definition."
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
+          }
         }
       }
     },
     "com.amazonaws.greengrass#CreateResourceDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
         "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the definition."
-          }
-        },
-        "LastUpdatedTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
           }
         },
         "LatestVersion": {
@@ -1753,16 +1735,34 @@
             "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
+          }
+        },
         "LatestVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
+        "Id": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the definition."
+          }
+        },
         "Name": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The name of the definition."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
           }
         }
       }
@@ -1872,6 +1872,15 @@
     "com.amazonaws.greengrass#CreateSoftwareUpdateJobRequest": {
       "type": "structure",
       "members": {
+        "UpdateTargetsOperatingSystem": {
+          "target": "com.amazonaws.greengrass#UpdateTargetsOperatingSystem",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "UpdateAgentLogLevel": {
+          "target": "com.amazonaws.greengrass#UpdateAgentLogLevel"
+        },
         "AmznClientToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -1885,15 +1894,6 @@
             "smithy.api#required": {}
           }
         },
-        "SoftwareToUpdate": {
-          "target": "com.amazonaws.greengrass#SoftwareToUpdate",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
-        "UpdateAgentLogLevel": {
-          "target": "com.amazonaws.greengrass#UpdateAgentLogLevel"
-        },
         "UpdateTargets": {
           "target": "com.amazonaws.greengrass#UpdateTargets",
           "traits": {
@@ -1906,8 +1906,8 @@
             "smithy.api#required": {}
           }
         },
-        "UpdateTargetsOperatingSystem": {
-          "target": "com.amazonaws.greengrass#UpdateTargetsOperatingSystem",
+        "SoftwareToUpdate": {
+          "target": "com.amazonaws.greengrass#SoftwareToUpdate",
           "traits": {
             "smithy.api#required": {}
           }
@@ -1917,6 +1917,12 @@
     "com.amazonaws.greengrass#CreateSoftwareUpdateJobResponse": {
       "type": "structure",
       "members": {
+        "PlatformSoftwareVersion": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The software version installed on the device or devices after the update."
+          }
+        },
         "IotJobArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -1927,12 +1933,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The IoT Job Id corresponding to this update."
-          }
-        },
-        "PlatformSoftwareVersion": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The software version installed on the device or devices after the update."
           }
         }
       }
@@ -1962,19 +1962,6 @@
     "com.amazonaws.greengrass#CreateSubscriptionDefinitionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
-        "InitialVersion": {
-          "target": "com.amazonaws.greengrass#SubscriptionDefinitionVersion",
-          "traits": {
-            "smithy.api#documentation": "Information about the initial version of the subscription definition."
-          }
-        },
         "Name": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -1986,22 +1973,53 @@
           "traits": {
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
+        },
+        "InitialVersion": {
+          "target": "com.amazonaws.greengrass#SubscriptionDefinitionVersion",
+          "traits": {
+            "smithy.api#documentation": "Information about the initial version of the subscription definition."
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
+          }
         }
       }
     },
     "com.amazonaws.greengrass#CreateSubscriptionDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
         "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
+          }
+        },
+        "LatestVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
+          }
+        },
+        "LatestVersion": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the latest version associated with the definition."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
           }
         },
         "Id": {
@@ -2014,24 +2032,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
-          }
-        },
-        "LatestVersion": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the latest version associated with the definition."
-          }
-        },
-        "LatestVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the definition."
           }
         }
       }
@@ -2061,11 +2061,10 @@
     "com.amazonaws.greengrass#CreateSubscriptionDefinitionVersionRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
+        "Subscriptions": {
+          "target": "com.amazonaws.greengrass#__listOfSubscription",
           "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
+            "smithy.api#documentation": "A list of subscriptions."
           }
         },
         "SubscriptionDefinitionId": {
@@ -2076,10 +2075,11 @@
             "smithy.api#required": {}
           }
         },
-        "Subscriptions": {
-          "target": "com.amazonaws.greengrass#__listOfSubscription",
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "A list of subscriptions."
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         }
       }
@@ -2116,16 +2116,10 @@
     "com.amazonaws.greengrass#DefinitionInformation": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "Name": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+            "smithy.api#documentation": "The name of the definition."
           }
         },
         "Id": {
@@ -2134,10 +2128,10 @@
             "smithy.api#documentation": "The ID of the definition."
           }
         },
-        "LastUpdatedTimestamp": {
+        "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
           }
         },
         "LatestVersion": {
@@ -2146,16 +2140,16 @@
             "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
-        "LatestVersionArn": {
+        "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
+            "smithy.api#documentation": "The ARN of the definition."
           }
         },
-        "Name": {
+        "LastUpdatedTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The name of the definition."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
           }
         },
         "Tags": {
@@ -2163,6 +2157,12 @@
           "traits": {
             "smithy.api#documentation": "Tag(s) attached to the resource arn.",
             "smithy.api#jsonName": "tags"
+          }
+        },
+        "LatestVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         }
       },
@@ -2485,10 +2485,16 @@
     "com.amazonaws.greengrass#Deployment": {
       "type": "structure",
       "members": {
-        "CreatedAt": {
+        "GroupArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the deployment was created."
+            "smithy.api#documentation": "The ARN of the group for this deployment."
+          }
+        },
+        "DeploymentType": {
+          "target": "com.amazonaws.greengrass#DeploymentType",
+          "traits": {
+            "smithy.api#documentation": "The type of the deployment."
           }
         },
         "DeploymentArn": {
@@ -2503,16 +2509,10 @@
             "smithy.api#documentation": "The ID of the deployment."
           }
         },
-        "DeploymentType": {
-          "target": "com.amazonaws.greengrass#DeploymentType",
-          "traits": {
-            "smithy.api#documentation": "The type of the deployment."
-          }
-        },
-        "GroupArn": {
+        "CreatedAt": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the group for this deployment."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the deployment was created."
           }
         }
       },
@@ -2553,20 +2553,6 @@
     "com.amazonaws.greengrass#Device": {
       "type": "structure",
       "members": {
-        "CertificateArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the certificate associated with the device.",
-            "smithy.api#required": {}
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.",
-            "smithy.api#required": {}
-          }
-        },
         "SyncShadow": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
@@ -2577,6 +2563,20 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The thing ARN of the device.",
+            "smithy.api#required": {}
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.",
+            "smithy.api#required": {}
+          }
+        },
+        "CertificateArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the certificate associated with the device.",
             "smithy.api#required": {}
           }
         }
@@ -2732,12 +2732,6 @@
     "com.amazonaws.greengrass#Function": {
       "type": "structure",
       "members": {
-        "FunctionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the Lambda function."
-          }
-        },
         "FunctionConfiguration": {
           "target": "com.amazonaws.greengrass#FunctionConfiguration",
           "traits": {
@@ -2750,6 +2744,12 @@
             "smithy.api#documentation": "A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.",
             "smithy.api#required": {}
           }
+        },
+        "FunctionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the Lambda function."
+          }
         }
       },
       "traits": {
@@ -2759,34 +2759,10 @@
     "com.amazonaws.greengrass#FunctionConfiguration": {
       "type": "structure",
       "members": {
-        "EncodingType": {
-          "target": "com.amazonaws.greengrass#EncodingType",
-          "traits": {
-            "smithy.api#documentation": "The expected encoding type of the input payload for the function. The default is ''json''."
-          }
-        },
-        "Environment": {
-          "target": "com.amazonaws.greengrass#FunctionConfigurationEnvironment",
-          "traits": {
-            "smithy.api#documentation": "The environment configuration of the function."
-          }
-        },
-        "ExecArgs": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The execution arguments."
-          }
-        },
-        "Executable": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the function executable."
-          }
-        },
-        "MemorySize": {
+        "Timeout": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#documentation": "The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization."
+            "smithy.api#documentation": "The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request."
           }
         },
         "Pinned": {
@@ -2795,10 +2771,34 @@
             "smithy.api#documentation": "True if the function is pinned. Pinned means the function is long-lived and starts when the core starts."
           }
         },
-        "Timeout": {
+        "EncodingType": {
+          "target": "com.amazonaws.greengrass#EncodingType",
+          "traits": {
+            "smithy.api#documentation": "The expected encoding type of the input payload for the function. The default is ''json''."
+          }
+        },
+        "Executable": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the function executable."
+          }
+        },
+        "Environment": {
+          "target": "com.amazonaws.greengrass#FunctionConfigurationEnvironment",
+          "traits": {
+            "smithy.api#documentation": "The environment configuration of the function."
+          }
+        },
+        "MemorySize": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#documentation": "The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request."
+            "smithy.api#documentation": "The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization."
+          }
+        },
+        "ExecArgs": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The execution arguments."
           }
         }
       },
@@ -2809,6 +2809,18 @@
     "com.amazonaws.greengrass#FunctionConfigurationEnvironment": {
       "type": "structure",
       "members": {
+        "Variables": {
+          "target": "com.amazonaws.greengrass#__mapOf__string",
+          "traits": {
+            "smithy.api#documentation": "Environment variables for the Lambda function's configuration."
+          }
+        },
+        "ResourceAccessPolicies": {
+          "target": "com.amazonaws.greengrass#__listOfResourceAccessPolicy",
+          "traits": {
+            "smithy.api#documentation": "A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container."
+          }
+        },
         "AccessSysfs": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
@@ -2819,18 +2831,6 @@
           "target": "com.amazonaws.greengrass#FunctionExecutionConfig",
           "traits": {
             "smithy.api#documentation": "Configuration related to executing the Lambda function"
-          }
-        },
-        "ResourceAccessPolicies": {
-          "target": "com.amazonaws.greengrass#__listOfResourceAccessPolicy",
-          "traits": {
-            "smithy.api#documentation": "A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container."
-          }
-        },
-        "Variables": {
-          "target": "com.amazonaws.greengrass#__mapOf__string",
-          "traits": {
-            "smithy.api#documentation": "Environment variables for the Lambda function's configuration."
           }
         }
       },
@@ -2852,11 +2852,11 @@
     "com.amazonaws.greengrass#FunctionDefaultExecutionConfig": {
       "type": "structure",
       "members": {
-        "IsolationMode": {
-          "target": "com.amazonaws.greengrass#FunctionIsolationMode"
-        },
         "RunAs": {
           "target": "com.amazonaws.greengrass#FunctionRunAsConfig"
+        },
+        "IsolationMode": {
+          "target": "com.amazonaws.greengrass#FunctionIsolationMode"
         }
       },
       "traits": {
@@ -2866,16 +2866,16 @@
     "com.amazonaws.greengrass#FunctionDefinitionVersion": {
       "type": "structure",
       "members": {
-        "DefaultConfig": {
-          "target": "com.amazonaws.greengrass#FunctionDefaultConfig",
-          "traits": {
-            "smithy.api#documentation": "The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings."
-          }
-        },
         "Functions": {
           "target": "com.amazonaws.greengrass#__listOfFunction",
           "traits": {
             "smithy.api#documentation": "A list of Lambda functions in this function definition version."
+          }
+        },
+        "DefaultConfig": {
+          "target": "com.amazonaws.greengrass#FunctionDefaultConfig",
+          "traits": {
+            "smithy.api#documentation": "The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings."
           }
         }
       },
@@ -2974,16 +2974,16 @@
     "com.amazonaws.greengrass#GetAssociatedRoleResponse": {
       "type": "structure",
       "members": {
-        "AssociatedAt": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time when the role was associated with the group."
-          }
-        },
         "RoleArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the role that is associated with the group."
+          }
+        },
+        "AssociatedAt": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time when the role was associated with the group."
           }
         }
       }
@@ -3026,16 +3026,10 @@
     "com.amazonaws.greengrass#GetBulkDeploymentStatusResponse": {
       "type": "structure",
       "members": {
-        "BulkDeploymentMetrics": {
-          "target": "com.amazonaws.greengrass#BulkDeploymentMetrics",
+        "tags": {
+          "target": "com.amazonaws.greengrass#Tags",
           "traits": {
-            "smithy.api#documentation": "Relevant metrics on input records processed during bulk deployment."
-          }
-        },
-        "BulkDeploymentStatus": {
-          "target": "com.amazonaws.greengrass#BulkDeploymentStatus",
-          "traits": {
-            "smithy.api#documentation": "The status of the bulk deployment."
+            "smithy.api#documentation": "Tag(s) attached to the resource arn."
           }
         },
         "CreatedAt": {
@@ -3044,22 +3038,28 @@
             "smithy.api#documentation": "The time, in ISO format, when the deployment was created."
           }
         },
-        "ErrorDetails": {
-          "target": "com.amazonaws.greengrass#ErrorDetails",
-          "traits": {
-            "smithy.api#documentation": "Error details"
-          }
-        },
         "ErrorMessage": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "Error message"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.greengrass#Tags",
+        "BulkDeploymentStatus": {
+          "target": "com.amazonaws.greengrass#BulkDeploymentStatus",
           "traits": {
-            "smithy.api#documentation": "Tag(s) attached to the resource arn."
+            "smithy.api#documentation": "The status of the bulk deployment."
+          }
+        },
+        "BulkDeploymentMetrics": {
+          "target": "com.amazonaws.greengrass#BulkDeploymentMetrics",
+          "traits": {
+            "smithy.api#documentation": "Relevant metrics on input records processed during bulk deployment."
+          }
+        },
+        "ErrorDetails": {
+          "target": "com.amazonaws.greengrass#ErrorDetails",
+          "traits": {
+            "smithy.api#documentation": "Error details"
           }
         }
       }
@@ -3105,17 +3105,17 @@
     "com.amazonaws.greengrass#GetConnectivityInfoResponse": {
       "type": "structure",
       "members": {
-        "ConnectivityInfo": {
-          "target": "com.amazonaws.greengrass#__listOfConnectivityInfo",
-          "traits": {
-            "smithy.api#documentation": "Connectivity info list."
-          }
-        },
         "Message": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "A message about the connectivity info request.",
             "smithy.api#jsonName": "message"
+          }
+        },
+        "ConnectivityInfo": {
+          "target": "com.amazonaws.greengrass#__listOfConnectivityInfo",
+          "traits": {
+            "smithy.api#documentation": "Connectivity info list."
           }
         }
       }
@@ -3158,10 +3158,16 @@
     "com.amazonaws.greengrass#GetConnectorDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "tags": {
+          "target": "com.amazonaws.greengrass#Tags",
+          "traits": {
+            "smithy.api#documentation": "Tag(s) attached to the resource arn."
+          }
+        },
+        "LatestVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
+            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
         "CreationTimestamp": {
@@ -3176,22 +3182,16 @@
             "smithy.api#documentation": "The ID of the definition."
           }
         },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
+          }
+        },
         "LastUpdatedTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
-          }
-        },
-        "LatestVersion": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the latest version associated with the definition."
-          }
-        },
-        "LatestVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
         "Name": {
@@ -3200,10 +3200,10 @@
             "smithy.api#documentation": "The name of the definition."
           }
         },
-        "tags": {
-          "target": "com.amazonaws.greengrass#Tags",
+        "LatestVersion": {
+          "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "Tag(s) attached to the resource arn."
+            "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         }
       }
@@ -3233,14 +3233,6 @@
     "com.amazonaws.greengrass#GetConnectorDefinitionVersionRequest": {
       "type": "structure",
       "members": {
-        "ConnectorDefinitionId": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the connector definition.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "ConnectorDefinitionVersionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -3255,28 +3247,24 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
           }
+        },
+        "ConnectorDefinitionId": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the connector definition.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.greengrass#GetConnectorDefinitionVersionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the connector definition version."
-          }
-        },
         "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the connector definition version was created."
-          }
-        },
-        "Definition": {
-          "target": "com.amazonaws.greengrass#ConnectorDefinitionVersion",
-          "traits": {
-            "smithy.api#documentation": "Information about the connector definition version."
           }
         },
         "Id": {
@@ -3285,16 +3273,28 @@
             "smithy.api#documentation": "The ID of the connector definition version."
           }
         },
-        "NextToken": {
+        "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
+            "smithy.api#documentation": "The ARN of the connector definition version."
+          }
+        },
+        "Definition": {
+          "target": "com.amazonaws.greengrass#ConnectorDefinitionVersion",
+          "traits": {
+            "smithy.api#documentation": "Information about the connector definition version."
           }
         },
         "Version": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The version of the connector definition version."
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
       }
@@ -3343,12 +3343,6 @@
             "smithy.api#documentation": "The ARN of the definition."
           }
         },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
-          }
-        },
         "Id": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -3361,16 +3355,22 @@
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
           }
         },
+        "LatestVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
+          }
+        },
         "LatestVersion": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
-        "LatestVersionArn": {
+        "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
           }
         },
         "Name": {
@@ -3433,22 +3433,28 @@
     "com.amazonaws.greengrass#GetCoreDefinitionVersionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the core definition version."
-          }
-        },
         "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the core definition version was created."
           }
         },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the core definition version."
+          }
+        },
         "Definition": {
           "target": "com.amazonaws.greengrass#CoreDefinitionVersion",
           "traits": {
             "smithy.api#documentation": "Information about the core definition version."
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The version of the core definition version."
           }
         },
         "Id": {
@@ -3461,12 +3467,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
-          }
-        },
-        "Version": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The version of the core definition version."
           }
         }
       }
@@ -3517,12 +3517,6 @@
     "com.amazonaws.greengrass#GetDeploymentStatusResponse": {
       "type": "structure",
       "members": {
-        "DeploymentStatus": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The status of the deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''."
-          }
-        },
         "DeploymentType": {
           "target": "com.amazonaws.greengrass#DeploymentType",
           "traits": {
@@ -3545,6 +3539,12 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the deployment status was updated."
+          }
+        },
+        "DeploymentStatus": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The status of the deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''."
           }
         }
       }
@@ -3587,18 +3587,6 @@
     "com.amazonaws.greengrass#GetDeviceDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
-          }
-        },
         "Id": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -3609,6 +3597,12 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
           }
         },
         "LatestVersion": {
@@ -3623,16 +3617,22 @@
             "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the definition."
-          }
-        },
         "tags": {
           "target": "com.amazonaws.greengrass#Tags",
           "traits": {
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
           }
         }
       }
@@ -3662,14 +3662,6 @@
     "com.amazonaws.greengrass#GetDeviceDefinitionVersionRequest": {
       "type": "structure",
       "members": {
-        "DeviceDefinitionId": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the device definition.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "DeviceDefinitionVersionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -3684,28 +3676,24 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
           }
+        },
+        "DeviceDefinitionId": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the device definition.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.greengrass#GetDeviceDefinitionVersionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "Version": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the device definition version."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the device definition version was created."
-          }
-        },
-        "Definition": {
-          "target": "com.amazonaws.greengrass#DeviceDefinitionVersion",
-          "traits": {
-            "smithy.api#documentation": "Information about the device definition version."
+            "smithy.api#documentation": "The version of the device definition version."
           }
         },
         "Id": {
@@ -3714,16 +3702,28 @@
             "smithy.api#documentation": "The ID of the device definition version."
           }
         },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the device definition version was created."
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         },
-        "Version": {
+        "Definition": {
+          "target": "com.amazonaws.greengrass#DeviceDefinitionVersion",
+          "traits": {
+            "smithy.api#documentation": "Information about the device definition version."
+          }
+        },
+        "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The version of the device definition version."
+            "smithy.api#documentation": "The ARN of the device definition version."
           }
         }
       }
@@ -3766,18 +3766,6 @@
     "com.amazonaws.greengrass#GetFunctionDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
-          }
-        },
         "Id": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -3796,6 +3784,18 @@
             "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
+        "tags": {
+          "target": "com.amazonaws.greengrass#Tags",
+          "traits": {
+            "smithy.api#documentation": "Tag(s) attached to the resource arn."
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+          }
+        },
         "LatestVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -3808,10 +3808,10 @@
             "smithy.api#documentation": "The name of the definition."
           }
         },
-        "tags": {
-          "target": "com.amazonaws.greengrass#Tags",
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "Tag(s) attached to the resource arn."
+            "smithy.api#documentation": "The ARN of the definition."
           }
         }
       }
@@ -3841,14 +3841,6 @@
     "com.amazonaws.greengrass#GetFunctionDefinitionVersionRequest": {
       "type": "structure",
       "members": {
-        "FunctionDefinitionId": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the Lambda function definition.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "FunctionDefinitionVersionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -3863,22 +3855,24 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
           }
+        },
+        "FunctionDefinitionId": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the Lambda function definition.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.greengrass#GetFunctionDefinitionVersionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "Id": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the function definition version."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the function definition version was created."
+            "smithy.api#documentation": "The ID of the function definition version."
           }
         },
         "Definition": {
@@ -3887,10 +3881,16 @@
             "smithy.api#documentation": "Information on the definition."
           }
         },
-        "Id": {
+        "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the function definition version."
+            "smithy.api#documentation": "The ARN of the function definition version."
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The version of the function definition version."
           }
         },
         "NextToken": {
@@ -3899,10 +3899,10 @@
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         },
-        "Version": {
+        "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The version of the function definition version."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the function definition version was created."
           }
         }
       }
@@ -3985,16 +3985,16 @@
             "smithy.api#documentation": "The ARN of the certificate authority for the group."
           }
         },
-        "GroupCertificateAuthorityId": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the certificate authority for the group."
-          }
-        },
         "PemEncodedCertificate": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The PEM encoded certificate for the group."
+          }
+        },
+        "GroupCertificateAuthorityId": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the certificate authority for the group."
           }
         }
       }
@@ -4040,16 +4040,16 @@
     "com.amazonaws.greengrass#GetGroupCertificateConfigurationResponse": {
       "type": "structure",
       "members": {
-        "CertificateAuthorityExpiryInMilliseconds": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The amount of time remaining before the certificate authority expires, in milliseconds."
-          }
-        },
         "CertificateExpiryInMilliseconds": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The amount of time remaining before the certificate expires, in milliseconds."
+          }
+        },
+        "CertificateAuthorityExpiryInMilliseconds": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The amount of time remaining before the certificate authority expires, in milliseconds."
           }
         },
         "GroupId": {
@@ -4076,16 +4076,10 @@
     "com.amazonaws.greengrass#GetGroupResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "LastUpdatedTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
           }
         },
         "Id": {
@@ -4094,16 +4088,10 @@
             "smithy.api#documentation": "The ID of the definition."
           }
         },
-        "LastUpdatedTimestamp": {
+        "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
-          }
-        },
-        "LatestVersion": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the latest version associated with the definition."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
           }
         },
         "LatestVersionArn": {
@@ -4112,16 +4100,28 @@
             "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
-        "Name": {
+        "LatestVersion": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The name of the definition."
+            "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
         "tags": {
           "target": "com.amazonaws.greengrass#Tags",
           "traits": {
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
           }
         }
       }
@@ -4172,6 +4172,18 @@
     "com.amazonaws.greengrass#GetGroupVersionResponse": {
       "type": "structure",
       "members": {
+        "Version": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the group version."
+          }
+        },
+        "Definition": {
+          "target": "com.amazonaws.greengrass#GroupVersion",
+          "traits": {
+            "smithy.api#documentation": "Information about the group version definition."
+          }
+        },
         "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -4184,22 +4196,10 @@
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the group version was created."
           }
         },
-        "Definition": {
-          "target": "com.amazonaws.greengrass#GroupVersion",
-          "traits": {
-            "smithy.api#documentation": "Information about the group version definition."
-          }
-        },
         "Id": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the group that the version is associated with."
-          }
-        },
-        "Version": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the group version."
           }
         }
       }
@@ -4242,40 +4242,10 @@
     "com.amazonaws.greengrass#GetLoggerDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
         "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the definition."
-          }
-        },
-        "LastUpdatedTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
-          }
-        },
-        "LatestVersion": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the latest version associated with the definition."
-          }
-        },
-        "LatestVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
         "Name": {
@@ -4284,10 +4254,40 @@
             "smithy.api#documentation": "The name of the definition."
           }
         },
+        "LatestVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the latest version associated with the definition."
+          }
+        },
         "tags": {
           "target": "com.amazonaws.greengrass#Tags",
           "traits": {
             "smithy.api#documentation": "Tag(s) attached to the resource arn."
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the definition."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
+          }
+        },
+        "LatestVersion": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the latest version associated with the definition."
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
           }
         }
       }
@@ -4325,6 +4325,13 @@
             "smithy.api#required": {}
           }
         },
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
         "LoggerDefinitionVersionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -4332,35 +4339,16 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
-            "smithy.api#httpQuery": "NextToken"
-          }
         }
       }
     },
     "com.amazonaws.greengrass#GetLoggerDefinitionVersionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "Version": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the logger definition version."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the logger definition version was created."
-          }
-        },
-        "Definition": {
-          "target": "com.amazonaws.greengrass#LoggerDefinitionVersion",
-          "traits": {
-            "smithy.api#documentation": "Information about the logger definition version."
+            "smithy.api#documentation": "The version of the logger definition version."
           }
         },
         "Id": {
@@ -4369,10 +4357,22 @@
             "smithy.api#documentation": "The ID of the logger definition version."
           }
         },
-        "Version": {
+        "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The version of the logger definition version."
+            "smithy.api#documentation": "The ARN of the logger definition version."
+          }
+        },
+        "Definition": {
+          "target": "com.amazonaws.greengrass#LoggerDefinitionVersion",
+          "traits": {
+            "smithy.api#documentation": "Information about the logger definition version."
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the logger definition version was created."
           }
         }
       }
@@ -4421,10 +4421,10 @@
             "smithy.api#documentation": "The ARN of the definition."
           }
         },
-        "CreationTimestamp": {
+        "LatestVersion": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+            "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
         "Id": {
@@ -4439,16 +4439,16 @@
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
           }
         },
-        "LatestVersion": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the latest version associated with the definition."
-          }
-        },
         "LatestVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the latest version associated with the definition."
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
           }
         },
         "Name": {
@@ -4490,18 +4490,18 @@
     "com.amazonaws.greengrass#GetResourceDefinitionVersionRequest": {
       "type": "structure",
       "members": {
-        "ResourceDefinitionId": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the resource definition.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "ResourceDefinitionVersionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the resource definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListResourceDefinitionVersions'' requests. If the version is the last one that was associated with a resource definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceDefinitionId": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the resource definition.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4511,16 +4511,16 @@
     "com.amazonaws.greengrass#GetResourceDefinitionVersionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "Arn of the resource definition version."
-          }
-        },
         "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the resource definition version was created."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "Arn of the resource definition version."
           }
         },
         "Definition": {
@@ -4572,16 +4572,16 @@
     "com.amazonaws.greengrass#GetServiceRoleForAccountResponse": {
       "type": "structure",
       "members": {
-        "AssociatedAt": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time when the service role was associated with the account."
-          }
-        },
         "RoleArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the role which is associated with the account."
+          }
+        },
+        "AssociatedAt": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time when the service role was associated with the account."
           }
         }
       }
@@ -4624,16 +4624,10 @@
     "com.amazonaws.greengrass#GetSubscriptionDefinitionResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "LatestVersion": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the definition."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+            "smithy.api#documentation": "The ID of the latest version associated with the definition."
           }
         },
         "Id": {
@@ -4642,28 +4636,34 @@
             "smithy.api#documentation": "The ID of the definition."
           }
         },
-        "LastUpdatedTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
-          }
-        },
-        "LatestVersion": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the latest version associated with the definition."
-          }
-        },
         "LatestVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the latest version associated with the definition."
           }
         },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was last updated."
+          }
+        },
         "Name": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The name of the definition."
+          }
+        },
+        "CreationTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the definition was created."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the definition."
           }
         },
         "tags": {
@@ -4727,16 +4727,16 @@
     "com.amazonaws.greengrass#GetSubscriptionDefinitionVersionResponse": {
       "type": "structure",
       "members": {
+        "Id": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the subscription definition version."
+          }
+        },
         "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the subscription definition version."
-          }
-        },
-        "CreationTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the subscription definition version was created."
           }
         },
         "Definition": {
@@ -4745,10 +4745,10 @@
             "smithy.api#documentation": "Information about the subscription definition version."
           }
         },
-        "Id": {
+        "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the subscription definition version."
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the subscription definition version was created."
           }
         },
         "NextToken": {
@@ -5058,16 +5058,16 @@
     "com.amazonaws.greengrass#GroupCertificateAuthorityProperties": {
       "type": "structure",
       "members": {
-        "GroupCertificateAuthorityArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the certificate authority for the group."
-          }
-        },
         "GroupCertificateAuthorityId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the certificate authority for the group."
+          }
+        },
+        "GroupCertificateAuthorityArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the certificate authority for the group."
           }
         }
       },
@@ -5078,28 +5078,10 @@
     "com.amazonaws.greengrass#GroupInformation": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the group."
-          }
-        },
         "CreationTimestamp": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The time, in milliseconds since the epoch, when the group was created."
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the group."
-          }
-        },
-        "LastUpdatedTimestamp": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the group was last updated."
           }
         },
         "LatestVersion": {
@@ -5114,10 +5096,28 @@
             "smithy.api#documentation": "The ARN of the latest version associated with the group."
           }
         },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The time, in milliseconds since the epoch, when the group was last updated."
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the group."
+          }
+        },
         "Name": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The name of the group."
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the group."
           }
         }
       },
@@ -5148,6 +5148,18 @@
     "com.amazonaws.greengrass#GroupVersion": {
       "type": "structure",
       "members": {
+        "SubscriptionDefinitionVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the subscription definition version for this group."
+          }
+        },
+        "LoggerDefinitionVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the logger definition version for this group."
+          }
+        },
         "ConnectorDefinitionVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -5160,6 +5172,12 @@
             "smithy.api#documentation": "The ARN of the core definition version for this group."
           }
         },
+        "ResourceDefinitionVersionArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the resource definition version for this group."
+          }
+        },
         "DeviceDefinitionVersionArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -5170,24 +5188,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the function definition version for this group."
-          }
-        },
-        "LoggerDefinitionVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the logger definition version for this group."
-          }
-        },
-        "ResourceDefinitionVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the resource definition version for this group."
-          }
-        },
-        "SubscriptionDefinitionVersionArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the subscription definition version for this group."
           }
         }
       },
@@ -5242,12 +5242,11 @@
     "com.amazonaws.greengrass#ListBulkDeploymentDetailedReportsRequest": {
       "type": "structure",
       "members": {
-        "BulkDeploymentId": {
+        "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the bulk deployment.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
+            "smithy.api#httpQuery": "NextToken"
           }
         },
         "MaxResults": {
@@ -5257,11 +5256,12 @@
             "smithy.api#httpQuery": "MaxResults"
           }
         },
-        "NextToken": {
+        "BulkDeploymentId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
-            "smithy.api#httpQuery": "NextToken"
+            "smithy.api#documentation": "The ID of the bulk deployment.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5308,18 +5308,18 @@
     "com.amazonaws.greengrass#ListBulkDeploymentsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The maximum number of results to be returned per request.",
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of results to be returned per request.",
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -5366,6 +5366,13 @@
     "com.amazonaws.greengrass#ListConnectorDefinitionVersionsRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
         "ConnectorDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -5379,13 +5386,6 @@
           "traits": {
             "smithy.api#documentation": "The maximum number of results to be returned per request.",
             "smithy.api#httpQuery": "MaxResults"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
-            "smithy.api#httpQuery": "NextToken"
           }
         }
       }
@@ -5427,18 +5427,18 @@
     "com.amazonaws.greengrass#ListConnectorDefinitionsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The maximum number of results to be returned per request.",
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of results to be returned per request.",
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -5485,12 +5485,11 @@
     "com.amazonaws.greengrass#ListCoreDefinitionVersionsRequest": {
       "type": "structure",
       "members": {
-        "CoreDefinitionId": {
+        "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the core definition.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
+            "smithy.api#httpQuery": "NextToken"
           }
         },
         "MaxResults": {
@@ -5500,11 +5499,12 @@
             "smithy.api#httpQuery": "MaxResults"
           }
         },
-        "NextToken": {
+        "CoreDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
-            "smithy.api#httpQuery": "NextToken"
+            "smithy.api#documentation": "The ID of the core definition.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5604,12 +5604,11 @@
     "com.amazonaws.greengrass#ListDeploymentsRequest": {
       "type": "structure",
       "members": {
-        "GroupId": {
+        "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the Greengrass group.",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
+            "smithy.api#httpQuery": "NextToken"
           }
         },
         "MaxResults": {
@@ -5619,11 +5618,12 @@
             "smithy.api#httpQuery": "MaxResults"
           }
         },
-        "NextToken": {
+        "GroupId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
-            "smithy.api#httpQuery": "NextToken"
+            "smithy.api#documentation": "The ID of the Greengrass group.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5631,16 +5631,16 @@
     "com.amazonaws.greengrass#ListDeploymentsResponse": {
       "type": "structure",
       "members": {
-        "Deployments": {
-          "target": "com.amazonaws.greengrass#Deployments",
-          "traits": {
-            "smithy.api#documentation": "A list of deployments for the requested groups."
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
+          }
+        },
+        "Deployments": {
+          "target": "com.amazonaws.greengrass#Deployments",
+          "traits": {
+            "smithy.api#documentation": "A list of deployments for the requested groups."
           }
         }
       }
@@ -5678,18 +5678,18 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The maximum number of results to be returned per request.",
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of results to be returned per request.",
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -5697,16 +5697,16 @@
     "com.amazonaws.greengrass#ListDeviceDefinitionVersionsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
-          }
-        },
         "Versions": {
           "target": "com.amazonaws.greengrass#__listOfVersionInformation",
           "traits": {
             "smithy.api#documentation": "Information about a version."
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
       }
@@ -5750,16 +5750,16 @@
     "com.amazonaws.greengrass#ListDeviceDefinitionsResponse": {
       "type": "structure",
       "members": {
-        "Definitions": {
-          "target": "com.amazonaws.greengrass#__listOfDefinitionInformation",
-          "traits": {
-            "smithy.api#documentation": "Information about a definition."
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
+          }
+        },
+        "Definitions": {
+          "target": "com.amazonaws.greengrass#__listOfDefinitionInformation",
+          "traits": {
+            "smithy.api#documentation": "Information about a definition."
           }
         }
       }
@@ -5816,16 +5816,16 @@
     "com.amazonaws.greengrass#ListFunctionDefinitionVersionsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
-          }
-        },
         "Versions": {
           "target": "com.amazonaws.greengrass#__listOfVersionInformation",
           "traits": {
             "smithy.api#documentation": "Information about a version."
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
       }
@@ -5965,18 +5965,18 @@
             "smithy.api#required": {}
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The maximum number of results to be returned per request.",
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of results to be returned per request.",
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -6018,18 +6018,18 @@
     "com.amazonaws.greengrass#ListGroupsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The maximum number of results to be returned per request.",
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of results to be returned per request.",
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -6037,16 +6037,16 @@
     "com.amazonaws.greengrass#ListGroupsResponse": {
       "type": "structure",
       "members": {
-        "Groups": {
-          "target": "com.amazonaws.greengrass#__listOfGroupInformation",
-          "traits": {
-            "smithy.api#documentation": "Information about a group."
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
+          }
+        },
+        "Groups": {
+          "target": "com.amazonaws.greengrass#__listOfGroupInformation",
+          "traits": {
+            "smithy.api#documentation": "Information about a group."
           }
         }
       }
@@ -6076,6 +6076,13 @@
     "com.amazonaws.greengrass#ListLoggerDefinitionVersionsRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
         "LoggerDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -6090,29 +6097,22 @@
             "smithy.api#documentation": "The maximum number of results to be returned per request.",
             "smithy.api#httpQuery": "MaxResults"
           }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
-            "smithy.api#httpQuery": "NextToken"
-          }
         }
       }
     },
     "com.amazonaws.greengrass#ListLoggerDefinitionVersionsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
-          }
-        },
         "Versions": {
           "target": "com.amazonaws.greengrass#__listOfVersionInformation",
           "traits": {
             "smithy.api#documentation": "Information about a version."
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
       }
@@ -6137,18 +6137,18 @@
     "com.amazonaws.greengrass#ListLoggerDefinitionsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The maximum number of results to be returned per request.",
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of results to be returned per request.",
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -6156,16 +6156,16 @@
     "com.amazonaws.greengrass#ListLoggerDefinitionsResponse": {
       "type": "structure",
       "members": {
-        "Definitions": {
-          "target": "com.amazonaws.greengrass#__listOfDefinitionInformation",
-          "traits": {
-            "smithy.api#documentation": "Information about a definition."
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
+          }
+        },
+        "Definitions": {
+          "target": "com.amazonaws.greengrass#__listOfDefinitionInformation",
+          "traits": {
+            "smithy.api#documentation": "Information about a definition."
           }
         }
       }
@@ -6202,19 +6202,19 @@
             "smithy.api#httpQuery": "MaxResults"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
-            "smithy.api#httpQuery": "NextToken"
-          }
-        },
         "ResourceDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the resource definition.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
+            "smithy.api#httpQuery": "NextToken"
           }
         }
       }
@@ -6256,18 +6256,18 @@
     "com.amazonaws.greengrass#ListResourceDefinitionsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The maximum number of results to be returned per request.",
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of results to be returned per request.",
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -6275,16 +6275,16 @@
     "com.amazonaws.greengrass#ListResourceDefinitionsResponse": {
       "type": "structure",
       "members": {
-        "Definitions": {
-          "target": "com.amazonaws.greengrass#__listOfDefinitionInformation",
-          "traits": {
-            "smithy.api#documentation": "Information about a definition."
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
+          }
+        },
+        "Definitions": {
+          "target": "com.amazonaws.greengrass#__listOfDefinitionInformation",
+          "traits": {
+            "smithy.api#documentation": "Information about a definition."
           }
         }
       }
@@ -6321,13 +6321,6 @@
             "smithy.api#httpQuery": "MaxResults"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
-            "smithy.api#httpQuery": "NextToken"
-          }
-        },
         "SubscriptionDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -6335,22 +6328,29 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
+            "smithy.api#httpQuery": "NextToken"
+          }
         }
       }
     },
     "com.amazonaws.greengrass#ListSubscriptionDefinitionVersionsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
-          }
-        },
         "Versions": {
           "target": "com.amazonaws.greengrass#__listOfVersionInformation",
           "traits": {
             "smithy.api#documentation": "Information about a version."
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results."
           }
         }
       }
@@ -6375,18 +6375,18 @@
     "com.amazonaws.greengrass#ListSubscriptionDefinitionsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The maximum number of results to be returned per request.",
-            "smithy.api#httpQuery": "MaxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The token for the next set of results, or ''null'' if there are no additional results.",
             "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of results to be returned per request.",
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -6480,16 +6480,16 @@
             "smithy.api#documentation": "The absolute local path of the resource inside the Lambda environment."
           }
         },
-        "GroupOwnerSetting": {
-          "target": "com.amazonaws.greengrass#GroupOwnerSetting",
-          "traits": {
-            "smithy.api#documentation": "Allows you to configure additional group privileges for the Lambda process. This field is optional."
-          }
-        },
         "SourcePath": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/sys''."
+          }
+        },
+        "GroupOwnerSetting": {
+          "target": "com.amazonaws.greengrass#GroupOwnerSetting",
+          "traits": {
+            "smithy.api#documentation": "Allows you to configure additional group privileges for the Lambda process. This field is optional."
           }
         }
       },
@@ -6500,6 +6500,26 @@
     "com.amazonaws.greengrass#Logger": {
       "type": "structure",
       "members": {
+        "Space": {
+          "target": "com.amazonaws.greengrass#__integer",
+          "traits": {
+            "smithy.api#documentation": "The amount of file space, in KB, to use if the local file system is used for logging purposes."
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.greengrass#LoggerType",
+          "traits": {
+            "smithy.api#documentation": "The type of log output which will be used.",
+            "smithy.api#required": {}
+          }
+        },
+        "Level": {
+          "target": "com.amazonaws.greengrass#LoggerLevel",
+          "traits": {
+            "smithy.api#documentation": "The level of the logs.",
+            "smithy.api#required": {}
+          }
+        },
         "Component": {
           "target": "com.amazonaws.greengrass#LoggerComponent",
           "traits": {
@@ -6511,26 +6531,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.",
-            "smithy.api#required": {}
-          }
-        },
-        "Level": {
-          "target": "com.amazonaws.greengrass#LoggerLevel",
-          "traits": {
-            "smithy.api#documentation": "The level of the logs.",
-            "smithy.api#required": {}
-          }
-        },
-        "Space": {
-          "target": "com.amazonaws.greengrass#__integer",
-          "traits": {
-            "smithy.api#documentation": "The amount of file space, in KB, to use if the local file system is used for logging purposes."
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.greengrass#LoggerType",
-          "traits": {
-            "smithy.api#documentation": "The type of log output which will be used.",
             "smithy.api#required": {}
           }
         }
@@ -6658,18 +6658,18 @@
             "smithy.api#httpHeader": "X-Amzn-Client-Token"
           }
         },
-        "Force": {
-          "target": "com.amazonaws.greengrass#__boolean",
-          "traits": {
-            "smithy.api#documentation": "If true, performs a best-effort only core reset."
-          }
-        },
         "GroupId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the Greengrass group.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "Force": {
+          "target": "com.amazonaws.greengrass#__boolean",
+          "traits": {
+            "smithy.api#documentation": "If true, performs a best-effort only core reset."
           }
         }
       },
@@ -6680,16 +6680,16 @@
     "com.amazonaws.greengrass#ResetDeploymentsResponse": {
       "type": "structure",
       "members": {
-        "DeploymentArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the deployment."
-          }
-        },
         "DeploymentId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the deployment."
+          }
+        },
+        "DeploymentArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the deployment."
           }
         }
       }
@@ -6697,6 +6697,13 @@
     "com.amazonaws.greengrass#Resource": {
       "type": "structure",
       "members": {
+        "ResourceDataContainer": {
+          "target": "com.amazonaws.greengrass#ResourceDataContainer",
+          "traits": {
+            "smithy.api#documentation": "A container of data for all resource types.",
+            "smithy.api#required": {}
+          }
+        },
         "Id": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -6708,13 +6715,6 @@
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The descriptive resource name, which is displayed on the AWS IoT Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.",
-            "smithy.api#required": {}
-          }
-        },
-        "ResourceDataContainer": {
-          "target": "com.amazonaws.greengrass#ResourceDataContainer",
-          "traits": {
-            "smithy.api#documentation": "A container of data for all resource types.",
             "smithy.api#required": {}
           }
         }
@@ -6747,24 +6747,6 @@
     "com.amazonaws.greengrass#ResourceDataContainer": {
       "type": "structure",
       "members": {
-        "LocalDeviceResourceData": {
-          "target": "com.amazonaws.greengrass#LocalDeviceResourceData",
-          "traits": {
-            "smithy.api#documentation": "Attributes that define the local device resource."
-          }
-        },
-        "LocalVolumeResourceData": {
-          "target": "com.amazonaws.greengrass#LocalVolumeResourceData",
-          "traits": {
-            "smithy.api#documentation": "Attributes that define the local volume resource."
-          }
-        },
-        "S3MachineLearningModelResourceData": {
-          "target": "com.amazonaws.greengrass#S3MachineLearningModelResourceData",
-          "traits": {
-            "smithy.api#documentation": "Attributes that define an Amazon S3 machine learning resource."
-          }
-        },
         "SageMakerMachineLearningModelResourceData": {
           "target": "com.amazonaws.greengrass#SageMakerMachineLearningModelResourceData",
           "traits": {
@@ -6775,6 +6757,24 @@
           "target": "com.amazonaws.greengrass#SecretsManagerSecretResourceData",
           "traits": {
             "smithy.api#documentation": "Attributes that define a secret resource, which references a secret from AWS Secrets Manager."
+          }
+        },
+        "S3MachineLearningModelResourceData": {
+          "target": "com.amazonaws.greengrass#S3MachineLearningModelResourceData",
+          "traits": {
+            "smithy.api#documentation": "Attributes that define an Amazon S3 machine learning resource."
+          }
+        },
+        "LocalVolumeResourceData": {
+          "target": "com.amazonaws.greengrass#LocalVolumeResourceData",
+          "traits": {
+            "smithy.api#documentation": "Attributes that define the local volume resource."
+          }
+        },
+        "LocalDeviceResourceData": {
+          "target": "com.amazonaws.greengrass#LocalDeviceResourceData",
+          "traits": {
+            "smithy.api#documentation": "Attributes that define the local device resource."
           }
         }
       },
@@ -6799,17 +6799,17 @@
     "com.amazonaws.greengrass#ResourceDownloadOwnerSetting": {
       "type": "structure",
       "members": {
-        "GroupOwner": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.",
-            "smithy.api#required": {}
-          }
-        },
         "GroupPermission": {
           "target": "com.amazonaws.greengrass#Permission",
           "traits": {
             "smithy.api#documentation": "The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).",
+            "smithy.api#required": {}
+          }
+        },
+        "GroupOwner": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.",
             "smithy.api#required": {}
           }
         }
@@ -6821,6 +6821,12 @@
     "com.amazonaws.greengrass#S3MachineLearningModelResourceData": {
       "type": "structure",
       "members": {
+        "S3Uri": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The URI of the source model in an S3 bucket. The model package must be in tar.gz or .zip format."
+          }
+        },
         "DestinationPath": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -6829,12 +6835,6 @@
         },
         "OwnerSetting": {
           "target": "com.amazonaws.greengrass#ResourceDownloadOwnerSetting"
-        },
-        "S3Uri": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The URI of the source model in an S3 bucket. The model package must be in tar.gz or .zip format."
-          }
         }
       },
       "traits": {
@@ -6850,19 +6850,19 @@
     "com.amazonaws.greengrass#SageMakerMachineLearningModelResourceData": {
       "type": "structure",
       "members": {
-        "DestinationPath": {
+        "SageMakerJobArn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The absolute local path of the resource inside the Lambda environment."
+            "smithy.api#documentation": "The ARN of the Amazon SageMaker training job that represents the source model."
           }
         },
         "OwnerSetting": {
           "target": "com.amazonaws.greengrass#ResourceDownloadOwnerSetting"
         },
-        "SageMakerJobArn": {
+        "DestinationPath": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the Amazon SageMaker training job that represents the source model."
+            "smithy.api#documentation": "The absolute local path of the resource inside the Lambda environment."
           }
         }
       },
@@ -6931,20 +6931,6 @@
     "com.amazonaws.greengrass#StartBulkDeploymentRequest": {
       "type": "structure",
       "members": {
-        "AmznClientToken": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A client token used to correlate requests and responses.",
-            "smithy.api#httpHeader": "X-Amzn-Client-Token"
-          }
-        },
-        "ExecutionRoleArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.",
-            "smithy.api#required": {}
-          }
-        },
         "InputFileUri": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -6957,22 +6943,36 @@
           "traits": {
             "smithy.api#documentation": "Tag(s) to add to the new resource."
           }
+        },
+        "ExecutionRoleArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.",
+            "smithy.api#required": {}
+          }
+        },
+        "AmznClientToken": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "A client token used to correlate requests and responses.",
+            "smithy.api#httpHeader": "X-Amzn-Client-Token"
+          }
         }
       }
     },
     "com.amazonaws.greengrass#StartBulkDeploymentResponse": {
       "type": "structure",
       "members": {
-        "BulkDeploymentArn": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the bulk deployment."
-          }
-        },
         "BulkDeploymentId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the bulk deployment."
+          }
+        },
+        "BulkDeploymentArn": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the bulk deployment."
           }
         }
       }
@@ -7019,17 +7019,17 @@
     "com.amazonaws.greengrass#Subscription": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.",
-            "smithy.api#required": {}
-          }
-        },
         "Source": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The source of the subscription. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.",
+            "smithy.api#required": {}
+          }
+        },
+        "Target": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.",
             "smithy.api#required": {}
           }
         },
@@ -7040,10 +7040,10 @@
             "smithy.api#required": {}
           }
         },
-        "Target": {
+        "Id": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.",
+            "smithy.api#documentation": "A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.",
             "smithy.api#required": {}
           }
         }
@@ -7246,17 +7246,17 @@
     "com.amazonaws.greengrass#UpdateConnectivityInfoResponse": {
       "type": "structure",
       "members": {
+        "Version": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The new version of the connectivity info."
+          }
+        },
         "Message": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "A message about the connectivity info update request.",
             "smithy.api#jsonName": "message"
-          }
-        },
-        "Version": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The new version of the connectivity info."
           }
         }
       }
@@ -7376,18 +7376,18 @@
     "com.amazonaws.greengrass#UpdateDeviceDefinitionRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
+          }
+        },
         "DeviceDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the device definition.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the definition."
           }
         }
       }
@@ -7510,6 +7510,12 @@
     "com.amazonaws.greengrass#UpdateGroupCertificateConfigurationResponse": {
       "type": "structure",
       "members": {
+        "GroupId": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the group certificate configuration."
+          }
+        },
         "CertificateAuthorityExpiryInMilliseconds": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
@@ -7521,30 +7527,24 @@
           "traits": {
             "smithy.api#documentation": "The amount of time remaining before the certificate expires, in milliseconds."
           }
-        },
-        "GroupId": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the group certificate configuration."
-          }
         }
       }
     },
     "com.amazonaws.greengrass#UpdateGroupRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
+          }
+        },
         "GroupId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the Greengrass group.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the definition."
           }
         }
       }
@@ -7623,18 +7623,18 @@
     "com.amazonaws.greengrass#UpdateResourceDefinitionRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the definition."
-          }
-        },
         "ResourceDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the resource definition.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
           }
         }
       }
@@ -7668,18 +7668,18 @@
     "com.amazonaws.greengrass#UpdateSubscriptionDefinitionRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.greengrass#__string",
-          "traits": {
-            "smithy.api#documentation": "The name of the definition."
-          }
-        },
         "SubscriptionDefinitionId": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the subscription definition.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.greengrass#__string",
+          "traits": {
+            "smithy.api#documentation": "The name of the definition."
           }
         }
       }
@@ -7748,10 +7748,10 @@
     "com.amazonaws.greengrass#VersionInformation": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "Version": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ARN of the version."
+            "smithy.api#documentation": "The ID of the version."
           }
         },
         "CreationTimestamp": {
@@ -7766,10 +7766,10 @@
             "smithy.api#documentation": "The ID of the parent definition that the version is associated with."
           }
         },
-        "Version": {
+        "Arn": {
           "target": "com.amazonaws.greengrass#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the version."
+            "smithy.api#documentation": "The ARN of the version."
           }
         }
       },

@@ -34,6 +34,10 @@ import {
   DescribeWorkspaceDirectoriesCommandOutput,
 } from "./commands/DescribeWorkspaceDirectoriesCommand";
 import {
+  DescribeWorkspaceImagePermissionsCommandInput,
+  DescribeWorkspaceImagePermissionsCommandOutput,
+} from "./commands/DescribeWorkspaceImagePermissionsCommand";
+import {
   DescribeWorkspaceImagesCommandInput,
   DescribeWorkspaceImagesCommandOutput,
 } from "./commands/DescribeWorkspaceImagesCommand";
@@ -102,6 +106,10 @@ import {
   UpdateRulesOfIpGroupCommandInput,
   UpdateRulesOfIpGroupCommandOutput,
 } from "./commands/UpdateRulesOfIpGroupCommand";
+import {
+  UpdateWorkspaceImagePermissionCommandInput,
+  UpdateWorkspaceImagePermissionCommandOutput,
+} from "./commands/UpdateWorkspaceImagePermissionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -167,6 +175,7 @@ export type ServiceInputTypes =
   | DescribeTagsCommandInput
   | DescribeWorkspaceBundlesCommandInput
   | DescribeWorkspaceDirectoriesCommandInput
+  | DescribeWorkspaceImagePermissionsCommandInput
   | DescribeWorkspaceImagesCommandInput
   | DescribeWorkspaceSnapshotsCommandInput
   | DescribeWorkspacesCommandInput
@@ -190,7 +199,8 @@ export type ServiceInputTypes =
   | StartWorkspacesCommandInput
   | StopWorkspacesCommandInput
   | TerminateWorkspacesCommandInput
-  | UpdateRulesOfIpGroupCommandInput;
+  | UpdateRulesOfIpGroupCommandInput
+  | UpdateWorkspaceImagePermissionCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateIpGroupsCommandOutput
@@ -210,6 +220,7 @@ export type ServiceOutputTypes =
   | DescribeTagsCommandOutput
   | DescribeWorkspaceBundlesCommandOutput
   | DescribeWorkspaceDirectoriesCommandOutput
+  | DescribeWorkspaceImagePermissionsCommandOutput
   | DescribeWorkspaceImagesCommandOutput
   | DescribeWorkspaceSnapshotsCommandOutput
   | DescribeWorkspacesCommandOutput
@@ -233,7 +244,8 @@ export type ServiceOutputTypes =
   | StartWorkspacesCommandOutput
   | StopWorkspacesCommandOutput
   | TerminateWorkspacesCommandOutput
-  | UpdateRulesOfIpGroupCommandOutput;
+  | UpdateRulesOfIpGroupCommandOutput
+  | UpdateWorkspaceImagePermissionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

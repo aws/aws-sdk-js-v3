@@ -130,11 +130,10 @@
     "com.amazonaws.kinesisvideosignaling#GetIceServerConfigRequest": {
       "type": "structure",
       "members": {
-        "ChannelARN": {
-          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
+        "Service": {
+          "target": "com.amazonaws.kinesisvideosignaling#Service",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the signaling channel to be used for the peer-to-peer connection between\n            configured peers. </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Specifies the desired service. Currently, <code>TURN</code> is the only valid\n            value.</p>"
           }
         },
         "ClientId": {
@@ -143,16 +142,17 @@
             "smithy.api#documentation": "<p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>"
           }
         },
-        "Service": {
-          "target": "com.amazonaws.kinesisvideosignaling#Service",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the desired service. Currently, <code>TURN</code> is the only valid\n            value.</p>"
-          }
-        },
         "Username": {
           "target": "com.amazonaws.kinesisvideosignaling#Username",
           "traits": {
             "smithy.api#documentation": "<p>An optional user ID to be associated with the credentials.</p>"
+          }
+        },
+        "ChannelARN": {
+          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the signaling channel to be used for the peer-to-peer connection between\n            configured peers. </p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -171,12 +171,6 @@
     "com.amazonaws.kinesisvideosignaling#IceServer": {
       "type": "structure",
       "members": {
-        "Password": {
-          "target": "com.amazonaws.kinesisvideosignaling#Password",
-          "traits": {
-            "smithy.api#documentation": "<p>A password to login to the ICE server.</p>"
-          }
-        },
         "Ttl": {
           "target": "com.amazonaws.kinesisvideosignaling#Ttl",
           "traits": {
@@ -187,6 +181,12 @@
           "target": "com.amazonaws.kinesisvideosignaling#Uris",
           "traits": {
             "smithy.api#documentation": "<p>An array of URIs, in the form specified in the <a href=\"https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03\">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different\n            addresses and/or protocols that can be used to reach the TURN server.</p>"
+          }
+        },
+        "Password": {
+          "target": "com.amazonaws.kinesisvideosignaling#Password",
+          "traits": {
+            "smithy.api#documentation": "<p>A password to login to the ICE server.</p>"
           }
         },
         "Username": {
@@ -322,10 +322,10 @@
     "com.amazonaws.kinesisvideosignaling#SendAlexaOfferToMasterRequest": {
       "type": "structure",
       "members": {
-        "ChannelARN": {
-          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
+        "SenderClientId": {
+          "target": "com.amazonaws.kinesisvideosignaling#ClientId",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the signaling channel by which Alexa and the master peer\n            communicate.</p>",
+            "smithy.api#documentation": "<p>The unique identifier for the sender client.</p>",
             "smithy.api#required": {}
           }
         },
@@ -336,10 +336,10 @@
             "smithy.api#required": {}
           }
         },
-        "SenderClientId": {
-          "target": "com.amazonaws.kinesisvideosignaling#ClientId",
+        "ChannelARN": {
+          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the sender client.</p>",
+            "smithy.api#documentation": "<p>The ARN of the signaling channel by which Alexa and the master peer\n            communicate.</p>",
             "smithy.api#required": {}
           }
         }

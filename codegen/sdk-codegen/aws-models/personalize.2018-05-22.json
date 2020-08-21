@@ -41,46 +41,16 @@
     "com.amazonaws.personalize#Algorithm": {
       "type": "structure",
       "members": {
-        "algorithmArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the algorithm.</p>"
-          }
-        },
-        "algorithmImage": {
-          "target": "com.amazonaws.personalize#AlgorithmImage",
-          "traits": {
-            "smithy.api#documentation": "<p>The URI of the Docker container for the algorithm image.</p>"
-          }
-        },
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the algorithm was created.</p>"
-          }
-        },
-        "defaultHyperParameterRanges": {
-          "target": "com.amazonaws.personalize#DefaultHyperParameterRanges",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the default hyperparameters, their ranges, and whether they\n      are tunable. A tunable hyperparameter can\n      have its value determined during hyperparameter optimization (HPO).</p>"
-          }
-        },
-        "defaultHyperParameters": {
-          "target": "com.amazonaws.personalize#HyperParameters",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the default hyperparameters.</p>"
-          }
-        },
         "defaultResourceConfig": {
           "target": "com.amazonaws.personalize#ResourceConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the default maximum number of training jobs and parallel training jobs.</p>"
           }
         },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "algorithmArn": {
+          "target": "com.amazonaws.personalize#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the algorithm was last updated.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the algorithm.</p>"
           }
         },
         "name": {
@@ -89,16 +59,46 @@
             "smithy.api#documentation": "<p>The name of the algorithm.</p>"
           }
         },
+        "algorithmImage": {
+          "target": "com.amazonaws.personalize#AlgorithmImage",
+          "traits": {
+            "smithy.api#documentation": "<p>The URI of the Docker container for the algorithm image.</p>"
+          }
+        },
         "roleArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role.</p>"
           }
         },
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the algorithm was last updated.</p>"
+          }
+        },
+        "defaultHyperParameters": {
+          "target": "com.amazonaws.personalize#HyperParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the default hyperparameters.</p>"
+          }
+        },
         "trainingInputMode": {
           "target": "com.amazonaws.personalize#TrainingInputMode",
           "traits": {
             "smithy.api#documentation": "<p>The training input mode.</p>"
+          }
+        },
+        "defaultHyperParameterRanges": {
+          "target": "com.amazonaws.personalize#DefaultHyperParameterRanges",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the default hyperparameters, their ranges, and whether they\n      are tunable. A tunable hyperparameter can\n      have its value determined during hyperparameter optimization (HPO).</p>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the algorithm was created.</p>"
           }
         }
       },
@@ -109,17 +109,17 @@
     "com.amazonaws.personalize#AlgorithmImage": {
       "type": "structure",
       "members": {
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the algorithm image.</p>"
+          }
+        },
         "dockerURI": {
           "target": "com.amazonaws.personalize#DockerURI",
           "traits": {
             "smithy.api#documentation": "<p>The URI of the Docker container for the algorithm image.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the algorithm image.</p>"
           }
         }
       },
@@ -150,6 +150,9 @@
           "target": "com.amazonaws.personalize#CreateEventTracker"
         },
         {
+          "target": "com.amazonaws.personalize#CreateFilter"
+        },
+        {
           "target": "com.amazonaws.personalize#CreateSchema"
         },
         {
@@ -169,6 +172,9 @@
         },
         {
           "target": "com.amazonaws.personalize#DeleteEventTracker"
+        },
+        {
+          "target": "com.amazonaws.personalize#DeleteFilter"
         },
         {
           "target": "com.amazonaws.personalize#DeleteSchema"
@@ -199,6 +205,9 @@
         },
         {
           "target": "com.amazonaws.personalize#DescribeFeatureTransformation"
+        },
+        {
+          "target": "com.amazonaws.personalize#DescribeFilter"
         },
         {
           "target": "com.amazonaws.personalize#DescribeRecipe"
@@ -232,6 +241,9 @@
         },
         {
           "target": "com.amazonaws.personalize#ListEventTrackers"
+        },
+        {
+          "target": "com.amazonaws.personalize#ListFilters"
         },
         {
           "target": "com.amazonaws.personalize#ListRecipes"
@@ -332,16 +344,10 @@
     "com.amazonaws.personalize#BatchInferenceJob": {
       "type": "structure",
       "members": {
-        "batchInferenceJobArn": {
-          "target": "com.amazonaws.personalize#Arn",
+        "jobName": {
+          "target": "com.amazonaws.personalize#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the batch inference job.</p>"
-          }
-        },
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The time at which the batch inference job was created.</p>"
+            "smithy.api#documentation": "<p>The name of the batch inference job.</p>"
           }
         },
         "failureReason": {
@@ -350,34 +356,10 @@
             "smithy.api#documentation": "<p>If the batch inference job failed, the reason for the failure.</p>"
           }
         },
-        "jobInput": {
-          "target": "com.amazonaws.personalize#BatchInferenceJobInput",
+        "solutionVersionArn": {
+          "target": "com.amazonaws.personalize#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon S3 path that leads to the input data used to generate the batch inference\n      job.</p>"
-          }
-        },
-        "jobName": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the batch inference job.</p>"
-          }
-        },
-        "jobOutput": {
-          "target": "com.amazonaws.personalize#BatchInferenceJobOutput",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>"
-          }
-        },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The time at which the batch inference job was last updated.</p>"
-          }
-        },
-        "numResults": {
-          "target": "com.amazonaws.personalize#NumBatchResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of recommendations generated by the batch inference job. This number includes\n      the error messages generated for failed input records.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job\n      was created.</p>"
           }
         },
         "roleArn": {
@@ -386,16 +368,52 @@
             "smithy.api#documentation": "<p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>"
           }
         },
-        "solutionVersionArn": {
-          "target": "com.amazonaws.personalize#Arn",
+        "numResults": {
+          "target": "com.amazonaws.personalize#NumBatchResults",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job\n      was created.</p>"
+            "smithy.api#documentation": "<p>The number of recommendations generated by the batch inference job. This number includes\n      the error messages generated for failed input records.</p>"
+          }
+        },
+        "jobInput": {
+          "target": "com.amazonaws.personalize#BatchInferenceJobInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 path that leads to the input data used to generate the batch inference\n      job.</p>"
+          }
+        },
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the batch inference job was last updated.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.personalize#Status",
           "traits": {
             "smithy.api#documentation": "<p>The status of the batch inference job. The status is one of the following values:</p>\n         <ul>\n            <li>\n               <p>PENDING</p>\n            </li>\n            <li>\n               <p>IN PROGRESS</p>\n            </li>\n            <li>\n               <p>ACTIVE</p>\n            </li>\n            <li>\n               <p>CREATE FAILED</p>\n            </li>\n         </ul>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the batch inference job was created.</p>"
+          }
+        },
+        "jobOutput": {
+          "target": "com.amazonaws.personalize#BatchInferenceJobOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>"
+          }
+        },
+        "filterArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the filter used on the batch inference job.</p>"
+          }
+        },
+        "batchInferenceJobArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the batch inference job.</p>"
           }
         }
       },
@@ -436,6 +454,24 @@
     "com.amazonaws.personalize#BatchInferenceJobSummary": {
       "type": "structure",
       "members": {
+        "solutionVersionArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the solution version used by the batch inference job.</p>"
+          }
+        },
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the batch inference job was last updated.</p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.personalize#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>If the batch inference job failed, the reason for the failure.</p>"
+          }
+        },
         "batchInferenceJobArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
@@ -448,28 +484,16 @@
             "smithy.api#documentation": "<p>The time at which the batch inference job was created.</p>"
           }
         },
-        "failureReason": {
-          "target": "com.amazonaws.personalize#FailureReason",
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
           "traits": {
-            "smithy.api#documentation": "<p>If the batch inference job failed, the reason for the failure.</p>"
+            "smithy.api#documentation": "<p>The status of the batch inference job. The status is one of the following values:</p>\n         <ul>\n            <li>\n               <p>PENDING</p>\n            </li>\n            <li>\n               <p>IN PROGRESS</p>\n            </li>\n            <li>\n               <p>ACTIVE</p>\n            </li>\n            <li>\n               <p>CREATE FAILED</p>\n            </li>\n         </ul>"
           }
         },
         "jobName": {
           "target": "com.amazonaws.personalize#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the batch inference job.</p>"
-          }
-        },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The time at which the batch inference job was last updated.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the batch inference job. The status is one of the following values:</p>\n         <ul>\n            <li>\n               <p>PENDING</p>\n            </li>\n            <li>\n               <p>IN PROGRESS</p>\n            </li>\n            <li>\n               <p>ACTIVE</p>\n            </li>\n            <li>\n               <p>CREATE FAILED</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -498,32 +522,14 @@
     "com.amazonaws.personalize#Campaign": {
       "type": "structure",
       "members": {
-        "campaignArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the campaign. </p>"
-          }
-        },
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix format) that the campaign was created.</p>"
-          }
-        },
-        "failureReason": {
-          "target": "com.amazonaws.personalize#FailureReason",
-          "traits": {
-            "smithy.api#documentation": "<p>If a campaign fails, the reason behind the failure.</p>"
-          }
+        "latestCampaignUpdate": {
+          "target": "com.amazonaws.personalize#CampaignUpdateSummary"
         },
         "lastUpdatedDateTime": {
           "target": "com.amazonaws.personalize#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date and time (in Unix format) that the campaign was last updated.</p>"
           }
-        },
-        "latestCampaignUpdate": {
-          "target": "com.amazonaws.personalize#CampaignUpdateSummary"
         },
         "minProvisionedTPS": {
           "target": "com.amazonaws.personalize#TransactionsPerSecond",
@@ -537,16 +543,34 @@
             "smithy.api#documentation": "<p>The name of the campaign.</p>"
           }
         },
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the campaign.</p>\n         <p>A campaign can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix format) that the campaign was created.</p>"
+          }
+        },
         "solutionVersionArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a specific version of the solution.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
+        "campaignArn": {
+          "target": "com.amazonaws.personalize#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the campaign.</p>\n         <p>A campaign can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the campaign. </p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.personalize#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>If a campaign fails, the reason behind the failure.</p>"
           }
         }
       },
@@ -557,28 +581,16 @@
     "com.amazonaws.personalize#CampaignSummary": {
       "type": "structure",
       "members": {
-        "campaignArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the campaign.</p>"
-          }
-        },
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the campaign was created.</p>"
-          }
-        },
-        "failureReason": {
-          "target": "com.amazonaws.personalize#FailureReason",
-          "traits": {
-            "smithy.api#documentation": "<p>If a campaign fails, the reason behind the failure.</p>"
-          }
-        },
         "lastUpdatedDateTime": {
           "target": "com.amazonaws.personalize#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date and time (in Unix time) that the campaign was last updated.</p>"
+          }
+        },
+        "campaignArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the campaign.</p>"
           }
         },
         "name": {
@@ -587,10 +599,22 @@
             "smithy.api#documentation": "<p>The name of the campaign.</p>"
           }
         },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the campaign was created.</p>"
+          }
+        },
         "status": {
           "target": "com.amazonaws.personalize#Status",
           "traits": {
             "smithy.api#documentation": "<p>The status of the campaign.</p>\n         <p>A campaign can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.personalize#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>If a campaign fails, the reason behind the failure.</p>"
           }
         }
       },
@@ -601,10 +625,10 @@
     "com.amazonaws.personalize#CampaignUpdateSummary": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
+        "lastUpdatedDateTime": {
           "target": "com.amazonaws.personalize#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the campaign update was created.</p>"
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the campaign update was last updated.</p>"
           }
         },
         "failureReason": {
@@ -613,16 +637,16 @@
             "smithy.api#documentation": "<p>If a campaign update fails, the reason behind the failure.</p>"
           }
         },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the campaign update was last updated.</p>"
+            "smithy.api#documentation": "<p>The status of the campaign update.</p>\n         <p>A campaign update can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
           }
         },
-        "minProvisionedTPS": {
-          "target": "com.amazonaws.personalize#TransactionsPerSecond",
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the requested minimum provisioned transactions (recommendations) per second that\n      Amazon Personalize will support.</p>"
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the campaign update was created.</p>"
           }
         },
         "solutionVersionArn": {
@@ -631,10 +655,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deployed solution version.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
+        "minProvisionedTPS": {
+          "target": "com.amazonaws.personalize#TransactionsPerSecond",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the campaign update.</p>\n         <p>A campaign update can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Specifies the requested minimum provisioned transactions (recommendations) per second that\n      Amazon Personalize will support.</p>"
           }
         }
       },
@@ -716,16 +740,16 @@
             "smithy.api#documentation": "<p>The maximum allowable value for the hyperparameter.</p>"
           }
         },
-        "minValue": {
-          "target": "com.amazonaws.personalize#ContinuousMinValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The minimum allowable value for the hyperparameter.</p>"
-          }
-        },
         "name": {
           "target": "com.amazonaws.personalize#ParameterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the hyperparameter.</p>"
+          }
+        },
+        "minValue": {
+          "target": "com.amazonaws.personalize#ContinuousMinValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The minimum allowable value for the hyperparameter.</p>"
           }
         }
       },
@@ -793,20 +817,6 @@
     "com.amazonaws.personalize#CreateBatchInferenceJobRequest": {
       "type": "structure",
       "members": {
-        "jobInput": {
-          "target": "com.amazonaws.personalize#BatchInferenceJobInput",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon S3 path that leads to the input file to base your recommendations on. The input\n      material must be in JSON format.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "jobName": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the batch inference job to create.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "jobOutput": {
           "target": "com.amazonaws.personalize#BatchInferenceJobOutput",
           "traits": {
@@ -820,10 +830,30 @@
             "smithy.api#documentation": "<p>The number of recommendations to retreive.</p>"
           }
         },
+        "filterArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the filter to apply to the batch inference job. For more information on using\n      filters, see Using Filters with Amazon Personalize.</p>"
+          }
+        },
         "roleArn": {
           "target": "com.amazonaws.personalize#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and out\n      Amazon S3 buckets respectively.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobName": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the batch inference job to create.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "jobInput": {
+          "target": "com.amazonaws.personalize#BatchInferenceJobInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 path that leads to the input file to base your recommendations on. The input\n      material must be in JSON format.</p>",
             "smithy.api#required": {}
           }
         },
@@ -887,17 +917,17 @@
             "smithy.api#required": {}
           }
         },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>A name for the new campaign. The campaign name must be unique within your account.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "solutionVersionArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the solution version to deploy.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>A name for the new campaign. The campaign name must be unique within your account.</p>",
             "smithy.api#required": {}
           }
         }
@@ -976,17 +1006,17 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a KMS key used to encrypt the datasets.</p>"
           }
         },
+        "roleArn": {
+          "target": "com.amazonaws.personalize#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM role that has permissions to access the KMS key. Supplying an\n      IAM role is only valid when also specifying a KMS key.</p>"
+          }
+        },
         "name": {
           "target": "com.amazonaws.personalize#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name for the new dataset group.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "roleArn": {
-          "target": "com.amazonaws.personalize#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the IAM role that has permissions to access the KMS key. Supplying an\n      IAM role is only valid when also specifying a KMS key.</p>"
           }
         }
       }
@@ -1041,13 +1071,6 @@
             "smithy.api#required": {}
           }
         },
-        "datasetArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the dataset that receives the imported data.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "jobName": {
           "target": "com.amazonaws.personalize#Name",
           "traits": {
@@ -1059,6 +1082,13 @@
           "target": "com.amazonaws.personalize#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the IAM role that has permissions to read from the Amazon S3 data source.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "datasetArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the dataset that receives the imported data.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1085,13 +1115,6 @@
             "smithy.api#required": {}
           }
         },
-        "datasetType": {
-          "target": "com.amazonaws.personalize#DatasetType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of dataset.</p>\n         <p>One of the following (case insensitive) values:</p>\n         <ul>\n            <li>\n               <p>Interactions</p>\n            </li>\n            <li>\n               <p>Items</p>\n            </li>\n            <li>\n               <p>Users</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
-          }
-        },
         "name": {
           "target": "com.amazonaws.personalize#Name",
           "traits": {
@@ -1103,6 +1126,13 @@
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the schema to associate with the dataset. The schema defines the dataset\n      fields.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "datasetType": {
+          "target": "com.amazonaws.personalize#DatasetType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of dataset.</p>\n         <p>One of the following (case insensitive) values:</p>\n         <ul>\n            <li>\n               <p>Interactions</p>\n            </li>\n            <li>\n               <p>Items</p>\n            </li>\n            <li>\n               <p>Users</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -1152,17 +1182,17 @@
     "com.amazonaws.personalize#CreateEventTrackerRequest": {
       "type": "structure",
       "members": {
-        "datasetGroupArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "name": {
           "target": "com.amazonaws.personalize#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name for the event tracker.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1181,6 +1211,69 @@
           "target": "com.amazonaws.personalize#TrackingId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the event tracker. Include this ID in requests to the\n      <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\">PutEvents</a> API.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.personalize#CreateFilter": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.personalize#CreateFilterRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.personalize#CreateFilterResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.personalize#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.personalize#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.personalize#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.personalize#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a recommendation filter. For more information, see Using Filters with Amazon\n            Personalize.</p>"
+      }
+    },
+    "com.amazonaws.personalize#CreateFilterRequest": {
+      "type": "structure",
+      "members": {
+        "filterExpression": {
+          "target": "com.amazonaws.personalize#FilterExpression",
+          "traits": {
+            "smithy.api#documentation": "<p>The filter expression that designates the interaction types that the filter will\n            filter out. A filter expression must follow the following format:</p>\n        <p>\n            <code>EXCLUDE itemId WHERE INTERACTIONS.event_type in (\"EVENT_TYPE\")</code>\n         </p>\n        <p>Where \"EVENT_TYPE\" is the type of event to filter out. To filter out all items with\n            any interactions history, set <code>\"*\"</code> as the EVENT_TYPE. For more information, see\n            Using Filters with Amazon Personalize.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the dataset group that the filter will belong to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the filter to create.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.personalize#CreateFilterResponse": {
+      "type": "structure",
+      "members": {
+        "filterArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the new filter.</p>"
           }
         }
       }
@@ -1212,17 +1305,17 @@
     "com.amazonaws.personalize#CreateSchemaRequest": {
       "type": "structure",
       "members": {
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name for the schema.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "schema": {
           "target": "com.amazonaws.personalize#AvroSchema",
           "traits": {
             "smithy.api#documentation": "<p>A schema in Avro JSON format.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name for the schema.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1271,24 +1364,10 @@
     "com.amazonaws.personalize#CreateSolutionRequest": {
       "type": "structure",
       "members": {
-        "datasetGroupArn": {
+        "recipeArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "eventType": {
-          "target": "com.amazonaws.personalize#EventType",
-          "traits": {
-            "smithy.api#documentation": "<p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),\n      this parameter specifies which event type (for example, 'click' or 'like') is used for\n      training the model.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name for the solution.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The ARN of the recipe to use for model training. Only specified when\n      <code>performAutoML</code> is false.</p>"
           }
         },
         "performAutoML": {
@@ -1303,16 +1382,30 @@
             "smithy.api#documentation": "<p>Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe.\n      The default is <code>false</code>.</p>\n         <p>When performing AutoML, this parameter is always <code>true</code> and you\n      should not set it to <code>false</code>.</p>"
           }
         },
-        "recipeArn": {
-          "target": "com.amazonaws.personalize#Arn",
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the recipe to use for model training. Only specified when\n      <code>performAutoML</code> is false.</p>"
+            "smithy.api#documentation": "<p>The name for the solution.</p>",
+            "smithy.api#required": {}
           }
         },
         "solutionConfig": {
           "target": "com.amazonaws.personalize#SolutionConfig",
           "traits": {
             "smithy.api#documentation": "<p>The configuration to use with the solution. When <code>performAutoML</code> is set to\n      true, Amazon Personalize only evaluates the <code>autoMLConfig</code> section\n      of the solution configuration.</p>"
+          }
+        },
+        "eventType": {
+          "target": "com.amazonaws.personalize#EventType",
+          "traits": {
+            "smithy.api#documentation": "<p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),\n      this parameter specifies which event type (for example, 'click' or 'like') is used for\n      training the model.</p>"
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1397,24 +1490,6 @@
     "com.amazonaws.personalize#Dataset": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the dataset.</p>"
-          }
-        },
-        "datasetArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset that you want metadata for.</p>"
-          }
-        },
-        "datasetGroupArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group.</p>"
-          }
-        },
         "datasetType": {
           "target": "com.amazonaws.personalize#DatasetType",
           "traits": {
@@ -1425,6 +1500,24 @@
           "target": "com.amazonaws.personalize#Date",
           "traits": {
             "smithy.api#documentation": "<p>A time stamp that shows when the dataset was updated.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the dataset.</p>\n         <p>A dataset can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the dataset.</p>"
+          }
+        },
+        "datasetArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset that you want metadata for.</p>"
           }
         },
         "name": {
@@ -1439,10 +1532,10 @@
             "smithy.api#documentation": "<p>The ARN of the associated schema.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the dataset.</p>\n         <p>A dataset can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group.</p>"
           }
         }
       },
@@ -1453,34 +1546,10 @@
     "com.amazonaws.personalize#DatasetGroup": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "roleArn": {
+          "target": "com.amazonaws.personalize#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the dataset group.</p>"
-          }
-        },
-        "datasetGroupArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group.</p>"
-          }
-        },
-        "failureReason": {
-          "target": "com.amazonaws.personalize#FailureReason",
-          "traits": {
-            "smithy.api#documentation": "<p>If creating a dataset group fails, provides the reason why.</p>"
-          }
-        },
-        "kmsKeyArn": {
-          "target": "com.amazonaws.personalize#KmsKeyArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.</p>"
-          }
-        },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The last update date and time (in Unix time) of the dataset group.</p>"
+            "smithy.api#documentation": "<p>The ARN of the IAM role that has permissions to create the dataset group.</p>"
           }
         },
         "name": {
@@ -1489,16 +1558,40 @@
             "smithy.api#documentation": "<p>The name of the dataset group.</p>"
           }
         },
-        "roleArn": {
-          "target": "com.amazonaws.personalize#RoleArn",
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the IAM role that has permissions to create the dataset group.</p>"
+            "smithy.api#documentation": "<p>The last update date and time (in Unix time) of the dataset group.</p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.personalize#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>If creating a dataset group fails, provides the reason why.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.personalize#Status",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the dataset group.</p>\n         <p>A dataset group can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING</p>\n            </li>\n         </ul>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the dataset group.</p>"
+          }
+        },
+        "kmsKeyArn": {
+          "target": "com.amazonaws.personalize#KmsKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.</p>"
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group.</p>"
           }
         }
       },
@@ -1509,16 +1602,16 @@
     "com.amazonaws.personalize#DatasetGroupSummary": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the dataset group was created.</p>"
-          }
-        },
         "datasetGroupArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the dataset group.</p>"
           }
         },
         "failureReason": {
@@ -1533,10 +1626,10 @@
             "smithy.api#documentation": "<p>The date and time (in Unix time) that the dataset group was last updated.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the dataset group.</p>"
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the dataset group was created.</p>"
           }
         },
         "status": {
@@ -1565,28 +1658,10 @@
     "com.amazonaws.personalize#DatasetImportJob": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
           "traits": {
-            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the dataset import job.</p>"
-          }
-        },
-        "dataSource": {
-          "target": "com.amazonaws.personalize#DataSource",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon S3 bucket that contains the training data to import.</p>"
-          }
-        },
-        "datasetArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset that receives the imported data.</p>"
-          }
-        },
-        "datasetImportJobArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the dataset import job.</p>"
+            "smithy.api#documentation": "<p>The status of the dataset import job.</p>\n         <p>A dataset import job can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n         </ul>"
           }
         },
         "failureReason": {
@@ -1595,10 +1670,10 @@
             "smithy.api#documentation": "<p>If a dataset import job fails, provides the reason why.</p>"
           }
         },
-        "jobName": {
-          "target": "com.amazonaws.personalize#Name",
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the import job.</p>"
+            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the dataset import job.</p>"
           }
         },
         "lastUpdatedDateTime": {
@@ -1607,16 +1682,34 @@
             "smithy.api#documentation": "<p>The date and time (in Unix time) the dataset was last updated.</p>"
           }
         },
+        "datasetArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset that receives the imported data.</p>"
+          }
+        },
+        "jobName": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the import job.</p>"
+          }
+        },
+        "dataSource": {
+          "target": "com.amazonaws.personalize#DataSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 bucket that contains the training data to import.</p>"
+          }
+        },
+        "datasetImportJobArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the dataset import job.</p>"
+          }
+        },
         "roleArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to read from the Amazon S3 data source.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the dataset import job.</p>\n         <p>A dataset import job can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -1627,6 +1720,24 @@
     "com.amazonaws.personalize#DatasetImportJobSummary": {
       "type": "structure",
       "members": {
+        "jobName": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the dataset import job.</p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.personalize#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>If a dataset import job fails, the reason behind the failure.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the dataset import job.</p>\n         <p>A dataset import job can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n         </ul>"
+          }
+        },
         "creationDateTime": {
           "target": "com.amazonaws.personalize#Date",
           "traits": {
@@ -1639,28 +1750,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset import job.</p>"
           }
         },
-        "failureReason": {
-          "target": "com.amazonaws.personalize#FailureReason",
-          "traits": {
-            "smithy.api#documentation": "<p>If a dataset import job fails, the reason behind the failure.</p>"
-          }
-        },
-        "jobName": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the dataset import job.</p>"
-          }
-        },
         "lastUpdatedDateTime": {
           "target": "com.amazonaws.personalize#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date and time (in Unix time) that the dataset was last updated.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the dataset import job.</p>\n         <p>A dataset import job can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -1683,22 +1776,10 @@
     "com.amazonaws.personalize#DatasetSchema": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "schemaArn": {
+          "target": "com.amazonaws.personalize#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the schema was created.</p>"
-          }
-        },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the schema was last updated.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the schema.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the schema.</p>"
           }
         },
         "schema": {
@@ -1707,10 +1788,22 @@
             "smithy.api#documentation": "<p>The schema.</p>"
           }
         },
-        "schemaArn": {
-          "target": "com.amazonaws.personalize#Arn",
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the schema.</p>"
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the schema was created.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema.</p>"
+          }
+        },
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the schema was last updated.</p>"
           }
         }
       },
@@ -1721,10 +1814,10 @@
     "com.amazonaws.personalize#DatasetSchemaSummary": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the schema was created.</p>"
+            "smithy.api#documentation": "<p>The name of the schema.</p>"
           }
         },
         "lastUpdatedDateTime": {
@@ -1733,10 +1826,10 @@
             "smithy.api#documentation": "<p>The date and time (in Unix time) that the schema was last updated.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the schema.</p>"
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the schema was created.</p>"
           }
         },
         "schemaArn": {
@@ -1753,18 +1846,6 @@
     "com.amazonaws.personalize#DatasetSummary": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the dataset was created.</p>"
-          }
-        },
-        "datasetArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset.</p>"
-          }
-        },
         "datasetType": {
           "target": "com.amazonaws.personalize#DatasetType",
           "traits": {
@@ -1777,16 +1858,28 @@
             "smithy.api#documentation": "<p>The date and time (in Unix time) that the dataset was last updated.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the dataset.</p>"
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the dataset was created.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.personalize#Status",
           "traits": {
             "smithy.api#documentation": "<p>The status of the dataset.</p>\n         <p>A dataset can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the dataset.</p>"
+          }
+        },
+        "datasetArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset.</p>"
           }
         }
       },
@@ -1821,6 +1914,12 @@
     "com.amazonaws.personalize#DefaultCategoricalHyperParameterRange": {
       "type": "structure",
       "members": {
+        "values": {
+          "target": "com.amazonaws.personalize#CategoricalValues",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the categories for the hyperparameter.</p>"
+          }
+        },
         "isTunable": {
           "target": "com.amazonaws.personalize#Tunable",
           "traits": {
@@ -1831,12 +1930,6 @@
           "target": "com.amazonaws.personalize#ParameterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the hyperparameter.</p>"
-          }
-        },
-        "values": {
-          "target": "com.amazonaws.personalize#CategoricalValues",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of the categories for the hyperparameter.</p>"
           }
         }
       },
@@ -1859,18 +1952,6 @@
     "com.amazonaws.personalize#DefaultContinuousHyperParameterRange": {
       "type": "structure",
       "members": {
-        "isTunable": {
-          "target": "com.amazonaws.personalize#Tunable",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether the hyperparameter is tunable.</p>"
-          }
-        },
-        "maxValue": {
-          "target": "com.amazonaws.personalize#ContinuousMaxValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum allowable value for the hyperparameter.</p>"
-          }
-        },
         "minValue": {
           "target": "com.amazonaws.personalize#ContinuousMinValue",
           "traits": {
@@ -1881,6 +1962,18 @@
           "target": "com.amazonaws.personalize#ParameterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the hyperparameter.</p>"
+          }
+        },
+        "isTunable": {
+          "target": "com.amazonaws.personalize#Tunable",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the hyperparameter is tunable.</p>"
+          }
+        },
+        "maxValue": {
+          "target": "com.amazonaws.personalize#ContinuousMaxValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum allowable value for the hyperparameter.</p>"
           }
         }
       },
@@ -1903,10 +1996,10 @@
     "com.amazonaws.personalize#DefaultHyperParameterRanges": {
       "type": "structure",
       "members": {
-        "categoricalHyperParameterRanges": {
-          "target": "com.amazonaws.personalize#DefaultCategoricalHyperParameterRanges",
+        "integerHyperParameterRanges": {
+          "target": "com.amazonaws.personalize#DefaultIntegerHyperParameterRanges",
           "traits": {
-            "smithy.api#documentation": "<p>The categorical hyperparameters and their default ranges.</p>"
+            "smithy.api#documentation": "<p>The integer-valued hyperparameters and their default ranges.</p>"
           }
         },
         "continuousHyperParameterRanges": {
@@ -1915,10 +2008,10 @@
             "smithy.api#documentation": "<p>The continuous hyperparameters and their default ranges.</p>"
           }
         },
-        "integerHyperParameterRanges": {
-          "target": "com.amazonaws.personalize#DefaultIntegerHyperParameterRanges",
+        "categoricalHyperParameterRanges": {
+          "target": "com.amazonaws.personalize#DefaultCategoricalHyperParameterRanges",
           "traits": {
-            "smithy.api#documentation": "<p>The integer-valued hyperparameters and their default ranges.</p>"
+            "smithy.api#documentation": "<p>The categorical hyperparameters and their default ranges.</p>"
           }
         }
       },
@@ -1929,6 +2022,12 @@
     "com.amazonaws.personalize#DefaultIntegerHyperParameterRange": {
       "type": "structure",
       "members": {
+        "name": {
+          "target": "com.amazonaws.personalize#ParameterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the hyperparameter.</p>"
+          }
+        },
         "isTunable": {
           "target": "com.amazonaws.personalize#Tunable",
           "traits": {
@@ -1945,12 +2044,6 @@
           "target": "com.amazonaws.personalize#IntegerMinValue",
           "traits": {
             "smithy.api#documentation": "<p>The minimum allowable value for the hyperparameter.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.personalize#ParameterName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the hyperparameter.</p>"
           }
         }
       },
@@ -2097,6 +2190,35 @@
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the event tracker to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.personalize#DeleteFilter": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.personalize#DeleteFilterRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.personalize#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.personalize#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a filter.</p>"
+      }
+    },
+    "com.amazonaws.personalize#DeleteFilterRequest": {
+      "type": "structure",
+      "members": {
+        "filterArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the filter to delete.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2520,6 +2642,50 @@
         }
       }
     },
+    "com.amazonaws.personalize#DescribeFilter": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.personalize#DescribeFilterRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.personalize#DescribeFilterResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.personalize#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.personalize#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a filter's properties.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.personalize#DescribeFilterRequest": {
+      "type": "structure",
+      "members": {
+        "filterArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the filter to describe.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.personalize#DescribeFilterResponse": {
+      "type": "structure",
+      "members": {
+        "filter": {
+          "target": "com.amazonaws.personalize#Filter",
+          "traits": {
+            "smithy.api#documentation": "<p>The filter's details.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.personalize#DescribeRecipe": {
       "type": "operation",
       "input": {
@@ -2714,28 +2880,10 @@
     "com.amazonaws.personalize#EventTracker": {
       "type": "structure",
       "members": {
-        "accountId": {
-          "target": "com.amazonaws.personalize#AccountId",
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon AWS account that owns the event tracker.</p>"
-          }
-        },
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix format) that the event tracker was created.</p>"
-          }
-        },
-        "datasetGroupArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>"
-          }
-        },
-        "eventTrackerArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the event tracker.</p>"
+            "smithy.api#documentation": "<p>The name of the event tracker.</p>"
           }
         },
         "lastUpdatedDateTime": {
@@ -2744,10 +2892,16 @@
             "smithy.api#documentation": "<p>The date and time (in Unix time) that the event tracker was last updated.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
+        "eventTrackerArn": {
+          "target": "com.amazonaws.personalize#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the event tracker.</p>"
+            "smithy.api#documentation": "<p>The ARN of the event tracker.</p>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix format) that the event tracker was created.</p>"
           }
         },
         "status": {
@@ -2761,6 +2915,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the event tracker. Include this ID in requests to the\n    <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\">PutEvents</a> API.</p>"
           }
+        },
+        "accountId": {
+          "target": "com.amazonaws.personalize#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon AWS account that owns the event tracker.</p>"
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>"
+          }
         }
       },
       "traits": {
@@ -2770,6 +2936,12 @@
     "com.amazonaws.personalize#EventTrackerSummary": {
       "type": "structure",
       "members": {
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the event tracker was last updated.</p>"
+          }
+        },
         "creationDateTime": {
           "target": "com.amazonaws.personalize#Date",
           "traits": {
@@ -2782,22 +2954,16 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the event tracker.</p>"
           }
         },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the event tracker was last updated.</p>"
+            "smithy.api#documentation": "<p>The status of the event tracker.</p>\n         <p>An event tracker can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
           }
         },
         "name": {
           "target": "com.amazonaws.personalize#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event tracker.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the event tracker.</p>\n         <p>An event tracker can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -2841,16 +3007,10 @@
     "com.amazonaws.personalize#FeatureTransformation": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the feature transformation.</p>"
-          }
-        },
-        "defaultParameters": {
-          "target": "com.amazonaws.personalize#FeaturizationParameters",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides the default parameters for feature transformation.</p>"
+            "smithy.api#documentation": "<p>The name of the feature transformation.</p>"
           }
         },
         "featureTransformationArn": {
@@ -2859,16 +3019,22 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the FeatureTransformation object.</p>"
           }
         },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the feature transformation.</p>"
+          }
+        },
         "lastUpdatedDateTime": {
           "target": "com.amazonaws.personalize#Date",
           "traits": {
             "smithy.api#documentation": "<p>The last update date and time (in Unix time) of the feature transformation.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
+        "defaultParameters": {
+          "target": "com.amazonaws.personalize#FeaturizationParameters",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the feature transformation.</p>"
+            "smithy.api#documentation": "<p>Provides the default parameters for feature transformation.</p>"
           }
         },
         "status": {
@@ -2904,6 +3070,134 @@
       },
       "value": {
         "target": "com.amazonaws.personalize#ParameterValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.personalize#Filter": {
+      "type": "structure",
+      "members": {
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the dataset group to which the filter belongs.</p>"
+          }
+        },
+        "filterExpression": {
+          "target": "com.amazonaws.personalize#FilterExpression",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the type of item interactions to filter out of recommendation results. The\n            filter expression must follow the following format:</p>\n        <p>\n            <code>EXCLUDE itemId WHERE INTERACTIONS.event_type in (\"EVENT_TYPE\")</code>\n         </p>\n        <p>Where \"EVENT_TYPE\" is the type of event to filter out. For more information, see Using\n            Filters with Amazon Personalize.</p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.personalize#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>If the filter failed, the reason for its failure.</p>"
+          }
+        },
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the filter was last updated.</p>"
+          }
+        },
+        "filterArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the filter.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the filter.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the filter.</p>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the filter was created.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information on a recommendation filter, including its ARN, status, and filter\n            expression.</p>"
+      }
+    },
+    "com.amazonaws.personalize#FilterExpression": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2500
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.personalize#FilterSummary": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the filter.</p>"
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the dataset group to which the filter belongs.</p>"
+          }
+        },
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the filter was last updated.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the filter.</p>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the filter was created.</p>"
+          }
+        },
+        "filterArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the filter.</p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.personalize#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>If the filter failed, the reason for the failure.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A short summary of a filter's attributes.</p>"
+      }
+    },
+    "com.amazonaws.personalize#Filters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.personalize#FilterSummary"
       },
       "traits": {
         "smithy.api#length": {
@@ -2967,6 +3261,12 @@
     "com.amazonaws.personalize#HPOConfig": {
       "type": "structure",
       "members": {
+        "hpoResourceConfig": {
+          "target": "com.amazonaws.personalize#HPOResourceConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the resource configuration for HPO.</p>"
+          }
+        },
         "algorithmHyperParameterRanges": {
           "target": "com.amazonaws.personalize#HyperParameterRanges",
           "traits": {
@@ -2977,12 +3277,6 @@
           "target": "com.amazonaws.personalize#HPOObjective",
           "traits": {
             "smithy.api#documentation": "<p>The metric to optimize during HPO.</p>"
-          }
-        },
-        "hpoResourceConfig": {
-          "target": "com.amazonaws.personalize#HPOResourceConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the resource configuration for HPO.</p>"
           }
         }
       },
@@ -2999,16 +3293,16 @@
             "smithy.api#documentation": "<p>The name of the metric.</p>"
           }
         },
+        "type": {
+          "target": "com.amazonaws.personalize#HPOObjectiveType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the metric. Valid values are <code>Maximize</code> and <code>Minimize</code>.</p>"
+          }
+        },
         "metricRegex": {
           "target": "com.amazonaws.personalize#MetricRegex",
           "traits": {
             "smithy.api#documentation": "<p>A regular expression for finding the metric in the training job logs.</p>"
-          }
-        },
-        "type": {
-          "target": "com.amazonaws.personalize#HPOObjectiveType",
-          "traits": {
-            "smithy.api#documentation": "<p>The data type of the metric.</p>"
           }
         }
       },
@@ -3037,16 +3331,16 @@
     "com.amazonaws.personalize#HPOResourceConfig": {
       "type": "structure",
       "members": {
-        "maxNumberOfTrainingJobs": {
-          "target": "com.amazonaws.personalize#HPOResource",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of training\n      jobs when you create a\n      solution\n      version.\n      The maximum value for <code>maxNumberOfTrainingJobs</code> is\n      <code>40</code>.</p>"
-          }
-        },
         "maxParallelTrainingJobs": {
           "target": "com.amazonaws.personalize#HPOResource",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of parallel training\n      jobs when you create a\n      solution\n      version.\n      The maximum value for <code>maxParallelTrainingJobs</code> is\n      <code>10</code>.</p>"
+          }
+        },
+        "maxNumberOfTrainingJobs": {
+          "target": "com.amazonaws.personalize#HPOResource",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of training\n      jobs when you create a\n      solution\n      version.\n      The maximum value for <code>maxNumberOfTrainingJobs</code> is\n      <code>40</code>.</p>"
           }
         }
       },
@@ -3057,16 +3351,16 @@
     "com.amazonaws.personalize#HyperParameterRanges": {
       "type": "structure",
       "members": {
-        "categoricalHyperParameterRanges": {
-          "target": "com.amazonaws.personalize#CategoricalHyperParameterRanges",
-          "traits": {
-            "smithy.api#documentation": "<p>The categorical hyperparameters and their ranges.</p>"
-          }
-        },
         "continuousHyperParameterRanges": {
           "target": "com.amazonaws.personalize#ContinuousHyperParameterRanges",
           "traits": {
             "smithy.api#documentation": "<p>The continuous hyperparameters and their ranges.</p>"
+          }
+        },
+        "categoricalHyperParameterRanges": {
+          "target": "com.amazonaws.personalize#CategoricalHyperParameterRanges",
+          "traits": {
+            "smithy.api#documentation": "<p>The categorical hyperparameters and their ranges.</p>"
           }
         },
         "integerHyperParameterRanges": {
@@ -3244,16 +3538,16 @@
     "com.amazonaws.personalize#ListBatchInferenceJobsResponse": {
       "type": "structure",
       "members": {
-        "batchInferenceJobs": {
-          "target": "com.amazonaws.personalize#BatchInferenceJobs",
-          "traits": {
-            "smithy.api#documentation": "<p>A list containing information on each job that is returned.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.personalize#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retreive the next page of results. The value is <code>null</code> when\n      there are no more results to return.</p>"
+          }
+        },
+        "batchInferenceJobs": {
+          "target": "com.amazonaws.personalize#BatchInferenceJobs",
+          "traits": {
+            "smithy.api#documentation": "<p>A list containing information on each job that is returned.</p>"
           }
         }
       }
@@ -3294,16 +3588,16 @@
             "smithy.api#documentation": "<p>The maximum number of campaigns to return.</p>"
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.personalize#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token returned from the previous call to <code>ListCampaigns</code> for getting\n      the next set of campaigns (if they exist).</p>"
-          }
-        },
         "solutionArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the solution to list the campaigns for. When\n        a solution is not specified, all the campaigns associated with the account are listed.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.personalize#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token returned from the previous call to <code>ListCampaigns</code> for getting\n      the next set of campaigns (if they exist).</p>"
           }
         }
       }
@@ -3311,16 +3605,16 @@
     "com.amazonaws.personalize#ListCampaignsResponse": {
       "type": "structure",
       "members": {
-        "campaigns": {
-          "target": "com.amazonaws.personalize#Campaigns",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of the campaigns.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.personalize#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token for getting the next set of campaigns (if they exist).</p>"
+          }
+        },
+        "campaigns": {
+          "target": "com.amazonaws.personalize#Campaigns",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the campaigns.</p>"
           }
         }
       }
@@ -3352,16 +3646,16 @@
     "com.amazonaws.personalize#ListDatasetGroupsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.personalize#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of dataset groups to return.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.personalize#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token returned from the previous call to <code>ListDatasetGroups</code> for getting\n      the next set of dataset groups (if they exist).</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.personalize#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of dataset groups to return.</p>"
           }
         }
       }
@@ -3413,6 +3707,12 @@
     "com.amazonaws.personalize#ListDatasetImportJobsRequest": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.personalize#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting\n      the next set of dataset import jobs (if they exist).</p>"
+          }
+        },
         "datasetArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
@@ -3424,28 +3724,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of dataset import jobs to return.</p>"
           }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.personalize#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting\n      the next set of dataset import jobs (if they exist).</p>"
-          }
         }
       }
     },
     "com.amazonaws.personalize#ListDatasetImportJobsResponse": {
       "type": "structure",
       "members": {
-        "datasetImportJobs": {
-          "target": "com.amazonaws.personalize#DatasetImportJobs",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of dataset import jobs.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.personalize#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token for getting the next set of dataset import jobs (if they exist).</p>"
+          }
+        },
+        "datasetImportJobs": {
+          "target": "com.amazonaws.personalize#DatasetImportJobs",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of dataset import jobs.</p>"
           }
         }
       }
@@ -3480,12 +3774,6 @@
     "com.amazonaws.personalize#ListDatasetsRequest": {
       "type": "structure",
       "members": {
-        "datasetGroupArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that contains the\n      datasets to list.</p>"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.personalize#MaxResults",
           "traits": {
@@ -3497,22 +3785,28 @@
           "traits": {
             "smithy.api#documentation": "<p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting\n      the next set of dataset import jobs (if they exist).</p>"
           }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that contains the\n      datasets to list.</p>"
+          }
         }
       }
     },
     "com.amazonaws.personalize#ListDatasetsResponse": {
       "type": "structure",
       "members": {
-        "datasets": {
-          "target": "com.amazonaws.personalize#Datasets",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of <code>Dataset</code> objects. Each object provides metadata information.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.personalize#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token for getting the next set of datasets (if they exist).</p>"
+          }
+        },
+        "datasets": {
+          "target": "com.amazonaws.personalize#Datasets",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <code>Dataset</code> objects. Each object provides metadata information.</p>"
           }
         }
       }
@@ -3547,16 +3841,16 @@
     "com.amazonaws.personalize#ListEventTrackersRequest": {
       "type": "structure",
       "members": {
-        "datasetGroupArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of a dataset group used to filter the response.</p>"
-          }
-        },
         "maxResults": {
           "target": "com.amazonaws.personalize#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of event trackers to return.</p>"
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of a dataset group used to filter the response.</p>"
           }
         },
         "nextToken": {
@@ -3570,16 +3864,77 @@
     "com.amazonaws.personalize#ListEventTrackersResponse": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.personalize#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token for getting the next set of event trackers (if they exist).</p>"
+          }
+        },
         "eventTrackers": {
           "target": "com.amazonaws.personalize#EventTrackers",
           "traits": {
             "smithy.api#documentation": "<p>A list of event trackers.</p>"
           }
+        }
+      }
+    },
+    "com.amazonaws.personalize#ListFilters": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.personalize#ListFiltersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.personalize#ListFiltersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.personalize#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.personalize#InvalidNextTokenException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all filters that belong to a given dataset group.</p>",
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.personalize#ListFiltersRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.personalize#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of filters to return.</p>"
+          }
         },
         "nextToken": {
           "target": "com.amazonaws.personalize#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>A token for getting the next set of event trackers (if they exist).</p>"
+            "smithy.api#documentation": "<p>A token returned from the previous call to <code>ListFilters</code> for getting the\n            next set of filters (if they exist).</p>"
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the dataset group that contains the filters.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.personalize#ListFiltersResponse": {
+      "type": "structure",
+      "members": {
+        "Filters": {
+          "target": "com.amazonaws.personalize#Filters",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of returned filters.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.personalize#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token for getting the next set of filters (if they exist).</p>"
           }
         }
       }
@@ -3611,10 +3966,10 @@
     "com.amazonaws.personalize#ListRecipesRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.personalize#MaxResults",
+        "recipeProvider": {
+          "target": "com.amazonaws.personalize#RecipeProvider",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of recipes to return.</p>"
+            "smithy.api#documentation": "<p>The default is <code>SERVICE</code>.</p>"
           }
         },
         "nextToken": {
@@ -3623,10 +3978,10 @@
             "smithy.api#documentation": "<p>A token returned from the previous call to <code>ListRecipes</code> for getting\n      the next set of recipes (if they exist).</p>"
           }
         },
-        "recipeProvider": {
-          "target": "com.amazonaws.personalize#RecipeProvider",
+        "maxResults": {
+          "target": "com.amazonaws.personalize#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The default is <code>SERVICE</code>.</p>"
+            "smithy.api#documentation": "<p>The maximum number of recipes to return.</p>"
           }
         }
       }
@@ -3692,16 +4047,16 @@
     "com.amazonaws.personalize#ListSchemasResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.personalize#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>A token used to get the next set of schemas (if they exist).</p>"
-          }
-        },
         "schemas": {
           "target": "com.amazonaws.personalize#Schemas",
           "traits": {
             "smithy.api#documentation": "<p>A list of schemas.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.personalize#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token used to get the next set of schemas (if they exist).</p>"
           }
         }
       }
@@ -3739,16 +4094,16 @@
     "com.amazonaws.personalize#ListSolutionVersionsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.personalize#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of solution versions to return.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.personalize#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token returned from the previous call to <code>ListSolutionVersions</code> for getting\n      the next set of solution versions (if they exist).</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.personalize#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of solution versions to return.</p>"
           }
         },
         "solutionArn": {
@@ -3941,34 +4296,10 @@
     "com.amazonaws.personalize#Recipe": {
       "type": "structure",
       "members": {
-        "algorithmArn": {
-          "target": "com.amazonaws.personalize#Arn",
+        "recipeType": {
+          "target": "com.amazonaws.personalize#RecipeType",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train\n      the model.</p>"
-          }
-        },
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix format) that the recipe was created.</p>"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.personalize#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the recipe.</p>"
-          }
-        },
-        "featureTransformationArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the FeatureTransformation object.</p>"
-          }
-        },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix format) that the recipe was last updated.</p>"
+            "smithy.api#documentation": "<p>One of the following values:</p>\n         <ul>\n            <li>\n               <p>PERSONALIZED_RANKING</p>\n            </li>\n            <li>\n               <p>RELATED_ITEMS</p>\n            </li>\n            <li>\n               <p>USER_PERSONALIZATION</p>\n            </li>\n         </ul>"
           }
         },
         "name": {
@@ -3977,22 +4308,46 @@
             "smithy.api#documentation": "<p>The name of the recipe.</p>"
           }
         },
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix format) that the recipe was last updated.</p>"
+          }
+        },
         "recipeArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the recipe.</p>"
           }
         },
-        "recipeType": {
-          "target": "com.amazonaws.personalize#RecipeType",
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
           "traits": {
-            "smithy.api#documentation": "<p>One of the following values:</p>\n         <ul>\n            <li>\n               <p>PERSONALIZED_RANKING</p>\n            </li>\n            <li>\n               <p>RELATED_ITEMS</p>\n            </li>\n            <li>\n               <p>USER_PERSONALIZATION</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The date and time (in Unix format) that the recipe was created.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.personalize#Status",
           "traits": {
             "smithy.api#documentation": "<p>The status of the recipe.</p>"
+          }
+        },
+        "featureTransformationArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the FeatureTransformation object.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.personalize#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the recipe.</p>"
+          }
+        },
+        "algorithmArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train\n      the model.</p>"
           }
         }
       },
@@ -4020,16 +4375,16 @@
             "smithy.api#documentation": "<p>The date and time (in Unix time) that the recipe was created.</p>"
           }
         },
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the recipe.</p>"
+          }
+        },
         "lastUpdatedDateTime": {
           "target": "com.amazonaws.personalize#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date and time (in Unix time) that the recipe was last updated.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the recipe.</p>"
           }
         },
         "recipeArn": {
@@ -4038,10 +4393,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the recipe.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the recipe.</p>"
+            "smithy.api#documentation": "<p>The name of the recipe.</p>"
           }
         }
       },
@@ -4140,7 +4495,7 @@
         "kmsKeyArn": {
           "target": "com.amazonaws.personalize#KmsKeyArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that  Amazon Personalize  uses to\n      encrypt or decrypt the input and output files of a batch inference job.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that Amazon Personalize uses to\n      encrypt or decrypt the input and output files of a batch inference job.</p>"
           }
         },
         "path": {
@@ -4179,70 +4534,10 @@
     "com.amazonaws.personalize#Solution": {
       "type": "structure",
       "members": {
-        "autoMLResult": {
-          "target": "com.amazonaws.personalize#AutoMLResult",
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
           "traits": {
-            "smithy.api#documentation": "<p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>"
-          }
-        },
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the solution.</p>"
-          }
-        },
-        "datasetGroupArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>"
-          }
-        },
-        "eventType": {
-          "target": "com.amazonaws.personalize#EventType",
-          "traits": {
-            "smithy.api#documentation": "<p>The event type (for example, 'click' or 'like') that is used for training the model.</p>"
-          }
-        },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the solution was last updated.</p>"
-          }
-        },
-        "latestSolutionVersion": {
-          "target": "com.amazonaws.personalize#SolutionVersionSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the latest version of the solution, including the status and the ARN.</p>"
-          }
-        },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the solution.</p>"
-          }
-        },
-        "performAutoML": {
-          "target": "com.amazonaws.personalize#PerformAutoML",
-          "traits": {
-            "smithy.api#documentation": "<p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from\n      the list specified in the solution configuration (<code>recipeArn</code> must not be specified).\n      When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>"
-          }
-        },
-        "performHPO": {
-          "target": "com.amazonaws.personalize#PerformHPO",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The\n      default is <code>false</code>.</p>"
-          }
-        },
-        "recipeArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the recipe used to create the solution.</p>"
-          }
-        },
-        "solutionArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the solution.</p>"
+            "smithy.api#documentation": "<p>The status of the solution.</p>\n         <p>A solution can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
           }
         },
         "solutionConfig": {
@@ -4251,10 +4546,70 @@
             "smithy.api#documentation": "<p>Describes the configuration properties for the solution.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
+        "performAutoML": {
+          "target": "com.amazonaws.personalize#PerformAutoML",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the solution.</p>\n         <p>A solution can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from\n      the list specified in the solution configuration (<code>recipeArn</code> must not be specified).\n      When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>"
+          }
+        },
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the solution was last updated.</p>"
+          }
+        },
+        "performHPO": {
+          "target": "com.amazonaws.personalize#PerformHPO",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The\n      default is <code>false</code>.</p>"
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation date and time (in Unix time) of the solution.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the solution.</p>"
+          }
+        },
+        "recipeArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the recipe used to create the solution.</p>"
+          }
+        },
+        "latestSolutionVersion": {
+          "target": "com.amazonaws.personalize#SolutionVersionSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the latest version of the solution, including the status and the ARN.</p>"
+          }
+        },
+        "autoMLResult": {
+          "target": "com.amazonaws.personalize#AutoMLResult",
+          "traits": {
+            "smithy.api#documentation": "<p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>"
+          }
+        },
+        "solutionArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the solution.</p>"
+          }
+        },
+        "eventType": {
+          "target": "com.amazonaws.personalize#EventType",
+          "traits": {
+            "smithy.api#documentation": "<p>The event type (for example, 'click' or 'like') that is used for training the model.</p>"
           }
         }
       },
@@ -4265,22 +4620,16 @@
     "com.amazonaws.personalize#SolutionConfig": {
       "type": "structure",
       "members": {
-        "algorithmHyperParameters": {
-          "target": "com.amazonaws.personalize#HyperParameters",
+        "eventValueThreshold": {
+          "target": "com.amazonaws.personalize#EventValueThreshold",
           "traits": {
-            "smithy.api#documentation": "<p>Lists the hyperparameter names and ranges.</p>"
+            "smithy.api#documentation": "<p>Only events with a value greater than or equal to this threshold are\n      used for training a model.</p>"
           }
         },
         "autoMLConfig": {
           "target": "com.amazonaws.personalize#AutoMLConfig",
           "traits": {
             "smithy.api#documentation": "<p>The <a>AutoMLConfig</a> object containing a list of recipes to search\n      when AutoML is performed.</p>"
-          }
-        },
-        "eventValueThreshold": {
-          "target": "com.amazonaws.personalize#EventValueThreshold",
-          "traits": {
-            "smithy.api#documentation": "<p>Only events with a value greater than or equal to this threshold are\n      used for training a model.</p>"
           }
         },
         "featureTransformationParameters": {
@@ -4294,6 +4643,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Describes the properties for hyperparameter optimization (HPO).</p>"
           }
+        },
+        "algorithmHyperParameters": {
+          "target": "com.amazonaws.personalize#HyperParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the hyperparameter names and ranges.</p>"
+          }
         }
       },
       "traits": {
@@ -4303,10 +4658,10 @@
     "com.amazonaws.personalize#SolutionSummary": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "solutionArn": {
+          "target": "com.amazonaws.personalize#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the solution was created.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the solution.</p>"
           }
         },
         "lastUpdatedDateTime": {
@@ -4315,22 +4670,22 @@
             "smithy.api#documentation": "<p>The date and time (in Unix time) that the solution was last updated.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.personalize#Name",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the solution.</p>"
-          }
-        },
-        "solutionArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the solution.</p>"
-          }
-        },
         "status": {
           "target": "com.amazonaws.personalize#Status",
           "traits": {
             "smithy.api#documentation": "<p>The status of the solution.</p>\n         <p>A solution can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n            <li>\n               <p>DELETE PENDING > DELETE IN_PROGRESS</p>\n            </li>\n         </ul>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the solution was created.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.personalize#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the solution.</p>"
           }
         }
       },
@@ -4341,28 +4696,10 @@
     "com.amazonaws.personalize#SolutionVersion": {
       "type": "structure",
       "members": {
-        "creationDateTime": {
-          "target": "com.amazonaws.personalize#Date",
+        "solutionConfig": {
+          "target": "com.amazonaws.personalize#SolutionConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The date and\n      time\n      (in Unix time) that this version of the solution was created.</p>"
-          }
-        },
-        "datasetGroupArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>"
-          }
-        },
-        "eventType": {
-          "target": "com.amazonaws.personalize#EventType",
-          "traits": {
-            "smithy.api#documentation": "<p>The event type (for example, 'click' or 'like') that is used for training the\n      model.</p>"
-          }
-        },
-        "failureReason": {
-          "target": "com.amazonaws.personalize#FailureReason",
-          "traits": {
-            "smithy.api#documentation": "<p>If training a solution version fails, the reason for the failure.</p>"
+            "smithy.api#documentation": "<p>Describes the configuration properties for the solution.</p>"
           }
         },
         "lastUpdatedDateTime": {
@@ -4371,10 +4708,16 @@
             "smithy.api#documentation": "<p>The date and time (in\n      Unix\n      time) that the solution was last updated.</p>"
           }
         },
-        "performAutoML": {
-          "target": "com.amazonaws.personalize#PerformAutoML",
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
           "traits": {
-            "smithy.api#documentation": "<p>When true, Amazon Personalize searches for the most optimal recipe according to the solution\n      configuration. When false (the default), Amazon Personalize uses <code>recipeArn</code>.</p>"
+            "smithy.api#documentation": "<p>The status of the solution version.</p>\n         <p>A solution version can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING</p>\n            </li>\n            <li>\n               <p>CREATE IN_PROGRESS</p>\n            </li>\n            <li>\n               <p>ACTIVE</p>\n            </li>\n            <li>\n               <p>CREATE FAILED</p>\n            </li>\n         </ul>"
+          }
+        },
+        "tunedHPOParams": {
+          "target": "com.amazonaws.personalize#TunedHPOParams",
+          "traits": {
+            "smithy.api#documentation": "<p>If hyperparameter optimization was performed, contains the hyperparameter values of the\n      best performing model.</p>"
           }
         },
         "performHPO": {
@@ -4383,34 +4726,16 @@
             "smithy.api#documentation": "<p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The default is\n        <code>false</code>.</p>"
           }
         },
-        "recipeArn": {
-          "target": "com.amazonaws.personalize#Arn",
+        "performAutoML": {
+          "target": "com.amazonaws.personalize#PerformAutoML",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the recipe used in the solution.</p>"
+            "smithy.api#documentation": "<p>When true, Amazon Personalize searches for the most optimal recipe according to the solution\n      configuration. When false (the default), Amazon Personalize uses <code>recipeArn</code>.</p>"
           }
         },
-        "solutionArn": {
-          "target": "com.amazonaws.personalize#Arn",
+        "trainingMode": {
+          "target": "com.amazonaws.personalize#TrainingMode",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the solution.</p>"
-          }
-        },
-        "solutionConfig": {
-          "target": "com.amazonaws.personalize#SolutionConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the configuration properties for the solution.</p>"
-          }
-        },
-        "solutionVersionArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the solution version.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the solution version.</p>\n         <p>A solution version can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING</p>\n            </li>\n            <li>\n               <p>CREATE IN_PROGRESS</p>\n            </li>\n            <li>\n               <p>ACTIVE</p>\n            </li>\n            <li>\n               <p>CREATE FAILED</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The scope of training used to create the solution version. The <code>FULL</code> option\n      trains the solution version based on the entirety of the input solution's training data, while\n      the <code>UPDATE</code> option processes only the training data that has changed since the\n      creation of the last solution version. Choose <code>UPDATE</code> when you want to start\n      recommending items added to the dataset without retraining the model.</p>\n         <important>\n            <p>The <code>UPDATE</code> option can only be used after you've created a solution version\n        with the <code>FULL</code> option and the training solution uses the <a>native-recipe-hrnn-coldstart</a>.</p>\n         </important>"
           }
         },
         "trainingHours": {
@@ -4419,10 +4744,46 @@
             "smithy.api#documentation": "<p>The time used to train the model. You are billed for the time it takes to train a model.\n      This field is visible only after Amazon Personalize successfully trains a model.</p>"
           }
         },
-        "trainingMode": {
-          "target": "com.amazonaws.personalize#TrainingMode",
+        "failureReason": {
+          "target": "com.amazonaws.personalize#FailureReason",
           "traits": {
-            "smithy.api#documentation": "<p>The scope of training used to create the solution version. The <code>FULL</code> option\n      trains the solution version based on the entirety of the input solution's training data, while\n      the <code>UPDATE</code> option processes only the training data that has changed since the\n      creation of the last solution version. Choose <code>UPDATE</code> when you want to start\n      recommending items added to the dataset without retraining the model.</p>\n         <important>\n            <p>The <code>UPDATE</code> option can only be used after you've created a solution version\n        with the <code>FULL</code> option and the training solution uses the <a>native-recipe-hrnn-coldstart</a>.</p>\n         </important>"
+            "smithy.api#documentation": "<p>If training a solution version fails, the reason for the failure.</p>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and\n      time\n      (in Unix time) that this version of the solution was created.</p>"
+          }
+        },
+        "eventType": {
+          "target": "com.amazonaws.personalize#EventType",
+          "traits": {
+            "smithy.api#documentation": "<p>The event type (for example, 'click' or 'like') that is used for training the\n      model.</p>"
+          }
+        },
+        "solutionArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the solution.</p>"
+          }
+        },
+        "recipeArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the recipe used in the solution.</p>"
+          }
+        },
+        "solutionVersionArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the solution version.</p>"
+          }
+        },
+        "datasetGroupArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>"
           }
         }
       },
@@ -4433,10 +4794,22 @@
     "com.amazonaws.personalize#SolutionVersionSummary": {
       "type": "structure",
       "members": {
+        "lastUpdatedDateTime": {
+          "target": "com.amazonaws.personalize#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time (in Unix time) that the solution version was last updated.</p>"
+          }
+        },
         "creationDateTime": {
           "target": "com.amazonaws.personalize#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date and time (in Unix time) that this version of a solution was created.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.personalize#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the solution version.</p>\n         <p>A solution version can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n         </ul>"
           }
         },
         "failureReason": {
@@ -4445,22 +4818,10 @@
             "smithy.api#documentation": "<p>If a solution version fails, the reason behind the failure.</p>"
           }
         },
-        "lastUpdatedDateTime": {
-          "target": "com.amazonaws.personalize#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time (in Unix time) that the solution version was last updated.</p>"
-          }
-        },
         "solutionVersionArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the solution version.</p>"
-          }
-        },
-        "status": {
-          "target": "com.amazonaws.personalize#Status",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the solution version.</p>\n         <p>A solution version can be in one of the following states:</p>\n         <ul>\n            <li>\n               <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -4555,6 +4916,20 @@
     "com.amazonaws.personalize#Tunable": {
       "type": "boolean"
     },
+    "com.amazonaws.personalize#TunedHPOParams": {
+      "type": "structure",
+      "members": {
+        "algorithmHyperParameters": {
+          "target": "com.amazonaws.personalize#HyperParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the hyperparameter values of the best performing model.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>If hyperparameter optimization (HPO) was performed, contains the hyperparameter values of\n      the best performing model.</p>"
+      }
+    },
     "com.amazonaws.personalize#UpdateCampaign": {
       "type": "operation",
       "input": {
@@ -4582,6 +4957,12 @@
     "com.amazonaws.personalize#UpdateCampaignRequest": {
       "type": "structure",
       "members": {
+        "solutionVersionArn": {
+          "target": "com.amazonaws.personalize#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of a new solution version to deploy.</p>"
+          }
+        },
         "campaignArn": {
           "target": "com.amazonaws.personalize#Arn",
           "traits": {
@@ -4593,12 +4974,6 @@
           "target": "com.amazonaws.personalize#TransactionsPerSecond",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the requested minimum provisioned transactions (recommendations) per second that\n      Amazon Personalize will support.</p>"
-          }
-        },
-        "solutionVersionArn": {
-          "target": "com.amazonaws.personalize#Arn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of a new solution version to deploy.</p>"
           }
         }
       }

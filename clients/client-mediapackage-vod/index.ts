@@ -12,4 +12,8 @@ export * from "./commands/DescribePackagingGroupCommand";
 export * from "./commands/ListAssetsCommand";
 export * from "./commands/ListPackagingConfigurationsCommand";
 export * from "./commands/ListPackagingGroupsCommand";
+export * from "./commands/ListTagsForResourceCommand";
+export * from "./commands/TagResourceCommand";
+export * from "./commands/UntagResourceCommand";
+export * from "./commands/UpdatePackagingGroupCommand";
 export * from "./models/index";

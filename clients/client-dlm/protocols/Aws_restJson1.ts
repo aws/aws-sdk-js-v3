@@ -120,11 +120,11 @@ export const serializeAws_restJson1GetLifecyclePoliciesCommand = async (
   };
   let resolvedPath = "/policies";
   const query: any = {
-    ...(input.PolicyIds !== undefined && { policyIds: (input.PolicyIds || []).map((_entry) => _entry) }),
     ...(input.ResourceTypes !== undefined && { resourceTypes: (input.ResourceTypes || []).map((_entry) => _entry) }),
-    ...(input.State !== undefined && { state: input.State }),
-    ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry) }),
     ...(input.TargetTags !== undefined && { targetTags: (input.TargetTags || []).map((_entry) => _entry) }),
+    ...(input.PolicyIds !== undefined && { policyIds: (input.PolicyIds || []).map((_entry) => _entry) }),
+    ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry) }),
+    ...(input.State !== undefined && { state: input.State }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -994,6 +994,7 @@ const serializeAws_restJson1AvailabilityZoneList = (input: string[], context: __
 
 const serializeAws_restJson1CreateRule = (input: CreateRule, context: __SerdeContext): any => {
   return {
+    ...(input.CronExpression !== undefined && { CronExpression: input.CronExpression }),
     ...(input.Interval !== undefined && { Interval: input.Interval }),
     ...(input.IntervalUnit !== undefined && { IntervalUnit: input.IntervalUnit }),
     ...(input.Times !== undefined && { Times: serializeAws_restJson1TimesList(input.Times, context) }),
@@ -1135,6 +1136,8 @@ const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __Se
 const deserializeAws_restJson1CreateRule = (output: any, context: __SerdeContext): CreateRule => {
   return {
     __type: "CreateRule",
+    CronExpression:
+      output.CronExpression !== undefined && output.CronExpression !== null ? output.CronExpression : undefined,
     Interval: output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
     IntervalUnit: output.IntervalUnit !== undefined && output.IntervalUnit !== null ? output.IntervalUnit : undefined,
     Times:

@@ -12,6 +12,10 @@ import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/List
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
+import {
+  StartMonitoringMemberCommandInput,
+  StartMonitoringMemberCommandOutput,
+} from "./commands/StartMonitoringMemberCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -70,7 +74,8 @@ export type ServiceInputTypes =
   | ListGraphsCommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
-  | RejectInvitationCommandInput;
+  | RejectInvitationCommandInput
+  | StartMonitoringMemberCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
@@ -83,7 +88,8 @@ export type ServiceOutputTypes =
   | ListGraphsCommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
-  | RejectInvitationCommandOutput;
+  | RejectInvitationCommandOutput
+  | StartMonitoringMemberCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -193,11 +199,7 @@ export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig;
 
 /**
- * <important>
- *             <p>Amazon Detective is currently in preview. The Detective API can only be used by accounts that
- *             are admitted into the preview.</p>
- *          </important>
- *          <p>Detective uses machine learning and purpose-built visualizations to help you analyze and
+ * <p>Detective uses machine learning and purpose-built visualizations to help you analyze and
  *          investigate security issues across your Amazon Web Services (AWS) workloads. Detective automatically
  *          extracts time-based events such as login attempts, API calls, and network traffic from
  *          AWS CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by

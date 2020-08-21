@@ -10,6 +10,11 @@ import {
   CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
 import {
+  CreateCustomVerificationEmailTemplateCommand,
+  CreateCustomVerificationEmailTemplateCommandInput,
+  CreateCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/CreateCustomVerificationEmailTemplateCommand";
+import {
   CreateDedicatedIpPoolCommand,
   CreateDedicatedIpPoolCommandInput,
   CreateDedicatedIpPoolCommandOutput,
@@ -25,6 +30,16 @@ import {
   CreateEmailIdentityCommandOutput,
 } from "./commands/CreateEmailIdentityCommand";
 import {
+  CreateEmailIdentityPolicyCommand,
+  CreateEmailIdentityPolicyCommandInput,
+  CreateEmailIdentityPolicyCommandOutput,
+} from "./commands/CreateEmailIdentityPolicyCommand";
+import {
+  CreateEmailTemplateCommand,
+  CreateEmailTemplateCommandInput,
+  CreateEmailTemplateCommandOutput,
+} from "./commands/CreateEmailTemplateCommand";
+import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -35,6 +50,11 @@ import {
   DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
 import {
+  DeleteCustomVerificationEmailTemplateCommand,
+  DeleteCustomVerificationEmailTemplateCommandInput,
+  DeleteCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/DeleteCustomVerificationEmailTemplateCommand";
+import {
   DeleteDedicatedIpPoolCommand,
   DeleteDedicatedIpPoolCommandInput,
   DeleteDedicatedIpPoolCommandOutput,
@@ -44,6 +64,16 @@ import {
   DeleteEmailIdentityCommandInput,
   DeleteEmailIdentityCommandOutput,
 } from "./commands/DeleteEmailIdentityCommand";
+import {
+  DeleteEmailIdentityPolicyCommand,
+  DeleteEmailIdentityPolicyCommandInput,
+  DeleteEmailIdentityPolicyCommandOutput,
+} from "./commands/DeleteEmailIdentityPolicyCommand";
+import {
+  DeleteEmailTemplateCommand,
+  DeleteEmailTemplateCommandInput,
+  DeleteEmailTemplateCommandOutput,
+} from "./commands/DeleteEmailTemplateCommand";
 import {
   DeleteSuppressedDestinationCommand,
   DeleteSuppressedDestinationCommandInput,
@@ -65,6 +95,11 @@ import {
   GetConfigurationSetEventDestinationsCommandInput,
   GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
+import {
+  GetCustomVerificationEmailTemplateCommand,
+  GetCustomVerificationEmailTemplateCommandInput,
+  GetCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/GetCustomVerificationEmailTemplateCommand";
 import {
   GetDedicatedIpCommand,
   GetDedicatedIpCommandInput,
@@ -101,6 +136,16 @@ import {
   GetEmailIdentityCommandOutput,
 } from "./commands/GetEmailIdentityCommand";
 import {
+  GetEmailIdentityPoliciesCommand,
+  GetEmailIdentityPoliciesCommandInput,
+  GetEmailIdentityPoliciesCommandOutput,
+} from "./commands/GetEmailIdentityPoliciesCommand";
+import {
+  GetEmailTemplateCommand,
+  GetEmailTemplateCommandInput,
+  GetEmailTemplateCommandOutput,
+} from "./commands/GetEmailTemplateCommand";
+import {
   GetSuppressedDestinationCommand,
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
@@ -110,6 +155,11 @@ import {
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
+import {
+  ListCustomVerificationEmailTemplatesCommand,
+  ListCustomVerificationEmailTemplatesCommandInput,
+  ListCustomVerificationEmailTemplatesCommandOutput,
+} from "./commands/ListCustomVerificationEmailTemplatesCommand";
 import {
   ListDedicatedIpPoolsCommand,
   ListDedicatedIpPoolsCommandInput,
@@ -131,6 +181,11 @@ import {
   ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand";
 import {
+  ListEmailTemplatesCommand,
+  ListEmailTemplatesCommandInput,
+  ListEmailTemplatesCommandOutput,
+} from "./commands/ListEmailTemplatesCommand";
+import {
   ListSuppressedDestinationsCommand,
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
@@ -145,6 +200,11 @@ import {
   PutAccountDedicatedIpWarmupAttributesCommandInput,
   PutAccountDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutAccountDedicatedIpWarmupAttributesCommand";
+import {
+  PutAccountDetailsCommand,
+  PutAccountDetailsCommandInput,
+  PutAccountDetailsCommandOutput,
+} from "./commands/PutAccountDetailsCommand";
 import {
   PutAccountSendingAttributesCommand,
   PutAccountSendingAttributesCommandInput,
@@ -220,8 +280,23 @@ import {
   PutSuppressedDestinationCommandInput,
   PutSuppressedDestinationCommandOutput,
 } from "./commands/PutSuppressedDestinationCommand";
+import {
+  SendBulkEmailCommand,
+  SendBulkEmailCommandInput,
+  SendBulkEmailCommandOutput,
+} from "./commands/SendBulkEmailCommand";
+import {
+  SendCustomVerificationEmailCommand,
+  SendCustomVerificationEmailCommandInput,
+  SendCustomVerificationEmailCommandOutput,
+} from "./commands/SendCustomVerificationEmailCommand";
 import { SendEmailCommand, SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TestRenderEmailTemplateCommand,
+  TestRenderEmailTemplateCommandInput,
+  TestRenderEmailTemplateCommandOutput,
+} from "./commands/TestRenderEmailTemplateCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -232,6 +307,21 @@ import {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
+import {
+  UpdateCustomVerificationEmailTemplateCommand,
+  UpdateCustomVerificationEmailTemplateCommandInput,
+  UpdateCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/UpdateCustomVerificationEmailTemplateCommand";
+import {
+  UpdateEmailIdentityPolicyCommand,
+  UpdateEmailIdentityPolicyCommandInput,
+  UpdateEmailIdentityPolicyCommandOutput,
+} from "./commands/UpdateEmailIdentityPolicyCommand";
+import {
+  UpdateEmailTemplateCommand,
+  UpdateEmailTemplateCommandInput,
+  UpdateEmailTemplateCommandOutput,
+} from "./commands/UpdateEmailTemplateCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -323,6 +413,43 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new CreateConfigurationSetEventDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new custom verification email template.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public createCustomVerificationEmailTemplate(
+    args: CreateCustomVerificationEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomVerificationEmailTemplateCommandOutput>;
+  public createCustomVerificationEmailTemplate(
+    args: CreateCustomVerificationEmailTemplateCommandInput,
+    cb: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public createCustomVerificationEmailTemplate(
+    args: CreateCustomVerificationEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public createCustomVerificationEmailTemplate(
+    args: CreateCustomVerificationEmailTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
+  ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> | void {
+    const command = new CreateCustomVerificationEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -458,6 +585,84 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * <p>Creates the specified sending authorization policy for the given identity (an email
+   *         address or a domain).</p>
+   *         <note>
+   *             <p>This API is for the identity owner only. If you have not verified the identity,
+   *                 this API will return an error.</p>
+   *         </note>
+   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *             senders to use its identities. For information about using sending authorization, see
+   *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public createEmailIdentityPolicy(
+    args: CreateEmailIdentityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEmailIdentityPolicyCommandOutput>;
+  public createEmailIdentityPolicy(
+    args: CreateEmailIdentityPolicyCommandInput,
+    cb: (err: any, data?: CreateEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public createEmailIdentityPolicy(
+    args: CreateEmailIdentityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public createEmailIdentityPolicy(
+    args: CreateEmailIdentityPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEmailIdentityPolicyCommandOutput) => void),
+    cb?: (err: any, data?: CreateEmailIdentityPolicyCommandOutput) => void
+  ): Promise<CreateEmailIdentityPolicyCommandOutput> | void {
+    const command = new CreateEmailIdentityPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an email template. Email templates enable you to send personalized email to
+   *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
+   *                 Developer Guide</a>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public createEmailTemplate(
+    args: CreateEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEmailTemplateCommandOutput>;
+  public createEmailTemplate(
+    args: CreateEmailTemplateCommandInput,
+    cb: (err: any, data?: CreateEmailTemplateCommandOutput) => void
+  ): void;
+  public createEmailTemplate(
+    args: CreateEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEmailTemplateCommandOutput) => void
+  ): void;
+  public createEmailTemplate(
+    args: CreateEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateEmailTemplateCommandOutput) => void
+  ): Promise<CreateEmailTemplateCommandOutput> | void {
+    const command = new CreateEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Delete an existing configuration set.</p>
    *         <p>
    *             <i>Configuration sets</i> are groups of rules that you can apply to the
@@ -535,6 +740,43 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * <p>Deletes an existing custom verification email template.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/es/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public deleteCustomVerificationEmailTemplate(
+    args: DeleteCustomVerificationEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput>;
+  public deleteCustomVerificationEmailTemplate(
+    args: DeleteCustomVerificationEmailTemplateCommandInput,
+    cb: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public deleteCustomVerificationEmailTemplate(
+    args: DeleteCustomVerificationEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public deleteCustomVerificationEmailTemplate(
+    args: DeleteCustomVerificationEmailTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
+  ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> | void {
+    const command = new DeleteCustomVerificationEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Delete a dedicated IP pool.</p>
    */
   public deleteDedicatedIpPool(
@@ -589,6 +831,84 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: DeleteEmailIdentityCommandOutput) => void
   ): Promise<DeleteEmailIdentityCommandOutput> | void {
     const command = new DeleteEmailIdentityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified sending authorization policy for the given identity (an email
+   *             address or a domain). This API returns successfully even if a policy with the specified
+   *             name does not exist.</p>
+   *         <note>
+   *             <p>This API is for the identity owner only. If you have not verified the identity,
+   *                 this API will return an error.</p>
+   *         </note>
+   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *             senders to use its identities. For information about using sending authorization, see
+   *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public deleteEmailIdentityPolicy(
+    args: DeleteEmailIdentityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEmailIdentityPolicyCommandOutput>;
+  public deleteEmailIdentityPolicy(
+    args: DeleteEmailIdentityPolicyCommandInput,
+    cb: (err: any, data?: DeleteEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public deleteEmailIdentityPolicy(
+    args: DeleteEmailIdentityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public deleteEmailIdentityPolicy(
+    args: DeleteEmailIdentityPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailIdentityPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEmailIdentityPolicyCommandOutput) => void
+  ): Promise<DeleteEmailIdentityPolicyCommandOutput> | void {
+    const command = new DeleteEmailIdentityPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an email template.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public deleteEmailTemplate(
+    args: DeleteEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEmailTemplateCommandOutput>;
+  public deleteEmailTemplate(
+    args: DeleteEmailTemplateCommandInput,
+    cb: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
+  ): void;
+  public deleteEmailTemplate(
+    args: DeleteEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
+  ): void;
+  public deleteEmailTemplate(
+    args: DeleteEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
+  ): Promise<DeleteEmailTemplateCommandOutput> | void {
+    const command = new DeleteEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -758,6 +1078,42 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> | void {
     const command = new GetConfigurationSetEventDestinationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the custom email verification template for the template name you
+   *             specify.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public getCustomVerificationEmailTemplate(
+    args: GetCustomVerificationEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomVerificationEmailTemplateCommandOutput>;
+  public getCustomVerificationEmailTemplate(
+    args: GetCustomVerificationEmailTemplateCommandInput,
+    cb: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public getCustomVerificationEmailTemplate(
+    args: GetCustomVerificationEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public getCustomVerificationEmailTemplate(
+    args: GetCustomVerificationEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
+  ): Promise<GetCustomVerificationEmailTemplateCommandOutput> | void {
+    const command = new GetCustomVerificationEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -975,7 +1331,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Provides information about a specific identity, including the identity's verification
-   *             status, its DKIM authentication status, and its custom Mail-From settings.</p>
+   *             status, sending authorization policies, its DKIM authentication status, and its custom
+   *             Mail-From settings.</p>
    */
   public getEmailIdentity(
     args: GetEmailIdentityCommandInput,
@@ -996,6 +1353,84 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: GetEmailIdentityCommandOutput) => void
   ): Promise<GetEmailIdentityCommandOutput> | void {
     const command = new GetEmailIdentityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the requested sending authorization policies for the given identity (an email
+   *             address or a domain). The policies are returned as a map of policy names to policy
+   *             contents. You can retrieve a maximum of 20 policies at a time.</p>
+   *         <note>
+   *             <p>This API is for the identity owner only. If you have not verified the identity,
+   *                 this API will return an error.</p>
+   *         </note>
+   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *             senders to use its identities. For information about using sending authorization, see
+   *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public getEmailIdentityPolicies(
+    args: GetEmailIdentityPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEmailIdentityPoliciesCommandOutput>;
+  public getEmailIdentityPolicies(
+    args: GetEmailIdentityPoliciesCommandInput,
+    cb: (err: any, data?: GetEmailIdentityPoliciesCommandOutput) => void
+  ): void;
+  public getEmailIdentityPolicies(
+    args: GetEmailIdentityPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEmailIdentityPoliciesCommandOutput) => void
+  ): void;
+  public getEmailIdentityPolicies(
+    args: GetEmailIdentityPoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailIdentityPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: GetEmailIdentityPoliciesCommandOutput) => void
+  ): Promise<GetEmailIdentityPoliciesCommandOutput> | void {
+    const command = new GetEmailIdentityPoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Displays the template object (which includes the subject line, HTML part and text
+   *             part) for the template you specify.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public getEmailTemplate(
+    args: GetEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEmailTemplateCommandOutput>;
+  public getEmailTemplate(
+    args: GetEmailTemplateCommandInput,
+    cb: (err: any, data?: GetEmailTemplateCommandOutput) => void
+  ): void;
+  public getEmailTemplate(
+    args: GetEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEmailTemplateCommandOutput) => void
+  ): void;
+  public getEmailTemplate(
+    args: GetEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetEmailTemplateCommandOutput) => void
+  ): Promise<GetEmailTemplateCommandOutput> | void {
+    const command = new GetEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1067,6 +1502,42 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: ListConfigurationSetsCommandOutput) => void
   ): Promise<ListConfigurationSetsCommandOutput> | void {
     const command = new ListConfigurationSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the existing custom verification email templates for your account in the current
+   *             AWS Region.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public listCustomVerificationEmailTemplates(
+    args: ListCustomVerificationEmailTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomVerificationEmailTemplatesCommandOutput>;
+  public listCustomVerificationEmailTemplates(
+    args: ListCustomVerificationEmailTemplatesCommandInput,
+    cb: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
+  ): void;
+  public listCustomVerificationEmailTemplates(
+    args: ListCustomVerificationEmailTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
+  ): void;
+  public listCustomVerificationEmailTemplates(
+    args: ListCustomVerificationEmailTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
+  ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> | void {
+    const command = new ListCustomVerificationEmailTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1214,6 +1685,41 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * <p>Lists the email templates present in your Amazon SES account in the current AWS
+   *             Region.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public listEmailTemplates(
+    args: ListEmailTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEmailTemplatesCommandOutput>;
+  public listEmailTemplates(
+    args: ListEmailTemplatesCommandInput,
+    cb: (err: any, data?: ListEmailTemplatesCommandOutput) => void
+  ): void;
+  public listEmailTemplates(
+    args: ListEmailTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEmailTemplatesCommandOutput) => void
+  ): void;
+  public listEmailTemplates(
+    args: ListEmailTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEmailTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListEmailTemplatesCommandOutput) => void
+  ): Promise<ListEmailTemplatesCommandOutput> | void {
+    const command = new ListEmailTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a list of email addresses that are on the suppression list for your
    *             account.</p>
    */
@@ -1307,6 +1813,38 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void
   ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> | void {
     const command = new PutAccountDedicatedIpWarmupAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update your Amazon SES account details.</p>
+   */
+  public putAccountDetails(
+    args: PutAccountDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountDetailsCommandOutput>;
+  public putAccountDetails(
+    args: PutAccountDetailsCommandInput,
+    cb: (err: any, data?: PutAccountDetailsCommandOutput) => void
+  ): void;
+  public putAccountDetails(
+    args: PutAccountDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountDetailsCommandOutput) => void
+  ): void;
+  public putAccountDetails(
+    args: PutAccountDetailsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountDetailsCommandOutput) => void),
+    cb?: (err: any, data?: PutAccountDetailsCommandOutput) => void
+  ): Promise<PutAccountDetailsCommandOutput> | void {
+    const command = new PutAccountDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1850,6 +2388,77 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * <p>Composes an email message to multiple destinations.</p>
+   */
+  public sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendBulkEmailCommandOutput>;
+  public sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    cb: (err: any, data?: SendBulkEmailCommandOutput) => void
+  ): void;
+  public sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendBulkEmailCommandOutput) => void
+  ): void;
+  public sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendBulkEmailCommandOutput) => void),
+    cb?: (err: any, data?: SendBulkEmailCommandOutput) => void
+  ): Promise<SendBulkEmailCommandOutput> | void {
+    const command = new SendBulkEmailCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds an email address to the list of identities for your Amazon SES account in the current
+   *             AWS Region and attempts to verify it. As a result of executing this operation, a
+   *             customized verification email is sent to the specified address.</p>
+   *         <p>To use this operation, you must first create a custom verification email template. For
+   *             more information about creating and using custom verification email templates, see
+   *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public sendCustomVerificationEmail(
+    args: SendCustomVerificationEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendCustomVerificationEmailCommandOutput>;
+  public sendCustomVerificationEmail(
+    args: SendCustomVerificationEmailCommandInput,
+    cb: (err: any, data?: SendCustomVerificationEmailCommandOutput) => void
+  ): void;
+  public sendCustomVerificationEmail(
+    args: SendCustomVerificationEmailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendCustomVerificationEmailCommandOutput) => void
+  ): void;
+  public sendCustomVerificationEmail(
+    args: SendCustomVerificationEmailCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendCustomVerificationEmailCommandOutput) => void),
+    cb?: (err: any, data?: SendCustomVerificationEmailCommandOutput) => void
+  ): Promise<SendCustomVerificationEmailCommandOutput> | void {
+    const command = new SendCustomVerificationEmailCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Sends an email message. You can use the Amazon SES API v2 to send two types of
    *             messages:</p>
    *         <ul>
@@ -1866,6 +2475,12 @@ export class SESv2 extends SESv2Client {
    *                     message headers, as well as the message body. You can use this message type to
    *                     send messages that contain attachments. The message that you specify has to be a
    *                     valid MIME message.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>Templated</b> – A message that contains
+   *                     personalization tags. When you send this type of email, Amazon SES API v2 automatically
+   *                     replaces the tags with values that you specify.</p>
    *             </li>
    *          </ul>
    */
@@ -1916,6 +2531,41 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a preview of the MIME content of an email when provided with a template and a
+   *             set of replacement data.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public testRenderEmailTemplate(
+    args: TestRenderEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestRenderEmailTemplateCommandOutput>;
+  public testRenderEmailTemplate(
+    args: TestRenderEmailTemplateCommandInput,
+    cb: (err: any, data?: TestRenderEmailTemplateCommandOutput) => void
+  ): void;
+  public testRenderEmailTemplate(
+    args: TestRenderEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestRenderEmailTemplateCommandOutput) => void
+  ): void;
+  public testRenderEmailTemplate(
+    args: TestRenderEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestRenderEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: TestRenderEmailTemplateCommandOutput) => void
+  ): Promise<TestRenderEmailTemplateCommandOutput> | void {
+    const command = new TestRenderEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1988,6 +2638,122 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new UpdateConfigurationSetEventDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing custom verification email template.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public updateCustomVerificationEmailTemplate(
+    args: UpdateCustomVerificationEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput>;
+  public updateCustomVerificationEmailTemplate(
+    args: UpdateCustomVerificationEmailTemplateCommandInput,
+    cb: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public updateCustomVerificationEmailTemplate(
+    args: UpdateCustomVerificationEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public updateCustomVerificationEmailTemplate(
+    args: UpdateCustomVerificationEmailTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
+  ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> | void {
+    const command = new UpdateCustomVerificationEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified sending authorization policy for the given identity (an email
+   *             address or a domain). This API returns successfully even if a policy with the specified
+   *             name does not exist.</p>
+   *         <note>
+   *             <p>This API is for the identity owner only. If you have not verified the identity,
+   *                 this API will return an error.</p>
+   *         </note>
+   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *             senders to use its identities. For information about using sending authorization, see
+   *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public updateEmailIdentityPolicy(
+    args: UpdateEmailIdentityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEmailIdentityPolicyCommandOutput>;
+  public updateEmailIdentityPolicy(
+    args: UpdateEmailIdentityPolicyCommandInput,
+    cb: (err: any, data?: UpdateEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public updateEmailIdentityPolicy(
+    args: UpdateEmailIdentityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public updateEmailIdentityPolicy(
+    args: UpdateEmailIdentityPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmailIdentityPolicyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEmailIdentityPolicyCommandOutput) => void
+  ): Promise<UpdateEmailIdentityPolicyCommandOutput> | void {
+    const command = new UpdateEmailIdentityPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an email template. Email templates enable you to send personalized email to
+   *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
+   *                 Developer Guide</a>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public updateEmailTemplate(
+    args: UpdateEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEmailTemplateCommandOutput>;
+  public updateEmailTemplate(
+    args: UpdateEmailTemplateCommandInput,
+    cb: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
+  ): void;
+  public updateEmailTemplate(
+    args: UpdateEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
+  ): void;
+  public updateEmailTemplate(
+    args: UpdateEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
+  ): Promise<UpdateEmailTemplateCommandOutput> | void {
+    const command = new UpdateEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -1,5 +1,6 @@
 import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 export enum AacCodingMode {
   AD_RECEIVER_MIX = "AD_RECEIVER_MIX",
@@ -36,6 +37,38 @@ export enum AacRawFormat {
 export interface AacSettings {
   __type?: "AacSettings";
   /**
+   * Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+   */
+  Spec?: AacSpec | string;
+
+  /**
+   * Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.  The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd.
+   *
+   * Leave set to "normal" when input does not contain pre-mixed audio + AD.
+   */
+  InputType?: AacInputType | string;
+
+  /**
+   * Rate Control Mode.
+   */
+  RateControlMode?: AacRateControlMode | string;
+
+  /**
+   * Sample rate in Hz. Valid values depend on rate control mode and profile.
+   */
+  SampleRate?: number;
+
+  /**
+   * AAC Profile.
+   */
+  Profile?: AacProfile | string;
+
+  /**
+   * VBR Quality Level - Only used if rateControlMode is VBR.
+   */
+  VbrQuality?: AacVbrQuality | string;
+
+  /**
    * Average bitrate in bits/second. Valid values depend on rate control mode and profile.
    */
   Bitrate?: number;
@@ -46,41 +79,9 @@ export interface AacSettings {
   CodingMode?: AacCodingMode | string;
 
   /**
-   * Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.  The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd.
-   *
-   * Leave set to "normal" when input does not contain pre-mixed audio + AD.
-   */
-  InputType?: AacInputType | string;
-
-  /**
-   * AAC Profile.
-   */
-  Profile?: AacProfile | string;
-
-  /**
-   * Rate Control Mode.
-   */
-  RateControlMode?: AacRateControlMode | string;
-
-  /**
    * Sets LATM / LOAS AAC output for raw containers.
    */
   RawFormat?: AacRawFormat | string;
-
-  /**
-   * Sample rate in Hz. Valid values depend on rate control mode and profile.
-   */
-  SampleRate?: number;
-
-  /**
-   * Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-   */
-  Spec?: AacSpec | string;
-
-  /**
-   * VBR Quality Level - Only used if rateControlMode is VBR.
-   */
-  VbrQuality?: AacVbrQuality | string;
 }
 
 export namespace AacSettings {
@@ -141,19 +142,9 @@ export enum Ac3MetadataControl {
 export interface Ac3Settings {
   __type?: "Ac3Settings";
   /**
-   * Average bitrate in bits/second. Valid bitrates depend on the coding mode.
+   * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
    */
-  Bitrate?: number;
-
-  /**
-   * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
-   */
-  BitstreamMode?: Ac3BitstreamMode | string;
-
-  /**
-   * Dolby Digital coding mode. Determines number of channels.
-   */
-  CodingMode?: Ac3CodingMode | string;
+  LfeFilter?: Ac3LfeFilter | string;
 
   /**
    * Sets the dialnorm for the output. If excluded and input audio is Dolby Digital, dialnorm will be passed through.
@@ -166,14 +157,24 @@ export interface Ac3Settings {
   DrcProfile?: Ac3DrcProfile | string;
 
   /**
-   * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
+   * Average bitrate in bits/second. Valid bitrates depend on the coding mode.
    */
-  LfeFilter?: Ac3LfeFilter | string;
+  Bitrate?: number;
 
   /**
    * When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
    */
   MetadataControl?: Ac3MetadataControl | string;
+
+  /**
+   * Dolby Digital coding mode. Determines number of channels.
+   */
+  CodingMode?: Ac3CodingMode | string;
+
+  /**
+   * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
+   */
+  BitstreamMode?: Ac3BitstreamMode | string;
 }
 
 export namespace Ac3Settings {
@@ -181,6 +182,10 @@ export namespace Ac3Settings {
     ...obj,
   });
   export const isa = (o: any): o is Ac3Settings => __isa(o, "Ac3Settings");
+}
+
+export enum AcceptHeader {
+  image_jpeg = "image/jpeg",
 }
 
 export enum AfdSignaling {
@@ -213,14 +218,14 @@ export namespace ArchiveContainerSettings {
 export interface ArchiveGroupSettings {
   __type?: "ArchiveGroupSettings";
   /**
-   * A directory and base filename where archive files should be written.
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
    * Number of seconds to write to archive file before closing and starting a new one.
    */
   RolloverInterval?: number;
+
+  /**
+   * A directory and base filename where archive files should be written.
+   */
+  Destination: OutputLocationRef | undefined;
 }
 
 export namespace ArchiveGroupSettings {
@@ -315,9 +320,9 @@ export namespace AudioChannelMapping {
 export interface AudioCodecSettings {
   __type?: "AudioCodecSettings";
   /**
-   * Aac Settings
+   * Pass Through Settings
    */
-  AacSettings?: AacSettings;
+  PassThroughSettings?: PassThroughSettings;
 
   /**
    * Ac3 Settings
@@ -325,19 +330,19 @@ export interface AudioCodecSettings {
   Ac3Settings?: Ac3Settings;
 
   /**
-   * Eac3 Settings
-   */
-  Eac3Settings?: Eac3Settings;
-
-  /**
    * Mp2 Settings
    */
   Mp2Settings?: Mp2Settings;
 
   /**
-   * Pass Through Settings
+   * Aac Settings
    */
-  PassThroughSettings?: PassThroughSettings;
+  AacSettings?: AacSettings;
+
+  /**
+   * Eac3 Settings
+   */
+  Eac3Settings?: Eac3Settings;
 }
 
 export namespace AudioCodecSettings {
@@ -358,14 +363,44 @@ export interface AudioDescription {
   AudioNormalizationSettings?: AudioNormalizationSettings;
 
   /**
+   * RFC 5646 language code representing the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
+   */
+  LanguageCode?: string;
+
+  /**
    * The name of the AudioSelector used as the source for this AudioDescription.
    */
   AudioSelectorName: string | undefined;
 
   /**
+   * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary).
+   */
+  StreamName?: string;
+
+  /**
+   * Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
+   */
+  LanguageCodeControl?: AudioDescriptionLanguageCodeControl | string;
+
+  /**
    * Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
    */
   AudioType?: AudioType | string;
+
+  /**
+   * The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription.  Description names should be unique within this Live Event.
+   */
+  Name: string | undefined;
+
+  /**
+   * Audio codec settings.
+   */
+  CodecSettings?: AudioCodecSettings;
+
+  /**
+   * Settings that control how input audio channels are remixed into the output audio channels.
+   */
+  RemixSettings?: RemixSettings;
 
   /**
    * Determines how audio type is determined.
@@ -374,36 +409,6 @@ export interface AudioDescription {
    * Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
    */
   AudioTypeControl?: AudioDescriptionAudioTypeControl | string;
-
-  /**
-   * Audio codec settings.
-   */
-  CodecSettings?: AudioCodecSettings;
-
-  /**
-   * Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
-   */
-  LanguageCode?: string;
-
-  /**
-   * Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
-   */
-  LanguageCodeControl?: AudioDescriptionLanguageCodeControl | string;
-
-  /**
-   * The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription.  Description names should be unique within this Live Event.
-   */
-  Name: string | undefined;
-
-  /**
-   * Settings that control how input audio channels are remixed into the output audio channels.
-   */
-  RemixSettings?: RemixSettings;
-
-  /**
-   * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary).
-   */
-  StreamName?: string;
 }
 
 export namespace AudioDescription {
@@ -429,14 +434,14 @@ export enum AudioDescriptionLanguageCodeControl {
 export interface AudioLanguageSelection {
   __type?: "AudioLanguageSelection";
   /**
-   * Selects a specific three-letter language code from within an audio source.
-   */
-  LanguageCode: string | undefined;
-
-  /**
    * When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
    */
   LanguageSelectionPolicy?: AudioLanguageSelectionPolicy | string;
+
+  /**
+   * Selects a specific three-letter language code from within an audio source.
+   */
+  LanguageCode: string | undefined;
 }
 
 export namespace AudioLanguageSelection {
@@ -466,9 +471,9 @@ export enum AudioNormalizationAlgorithmControl {
 export interface AudioNormalizationSettings {
   __type?: "AudioNormalizationSettings";
   /**
-   * Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
+   * Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
    */
-  Algorithm?: AudioNormalizationAlgorithm | string;
+  TargetLkfs?: number;
 
   /**
    * When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -476,9 +481,9 @@ export interface AudioNormalizationSettings {
   AlgorithmControl?: AudioNormalizationAlgorithmControl | string;
 
   /**
-   * Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
+   * Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
    */
-  TargetLkfs?: number;
+  Algorithm?: AudioNormalizationAlgorithm | string;
 }
 
 export namespace AudioNormalizationSettings {
@@ -499,16 +504,9 @@ export enum AudioOnlyHlsSegmentType {
 export interface AudioOnlyHlsSettings {
   __type?: "AudioOnlyHlsSettings";
   /**
-   * Specifies the group to which the audio Rendition belongs.
+   * Specifies the segment type.
    */
-  AudioGroupId?: string;
-
-  /**
-   * Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth.
-   *
-   * The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
-   */
-  AudioOnlyImage?: InputLocation;
+  SegmentType?: AudioOnlyHlsSegmentType | string;
 
   /**
    * Four types of audio-only tracks are supported:
@@ -528,9 +526,16 @@ export interface AudioOnlyHlsSettings {
   AudioTrackType?: AudioOnlyHlsTrackType | string;
 
   /**
-   * Specifies the segment type.
+   * Specifies the group to which the audio Rendition belongs.
    */
-  SegmentType?: AudioOnlyHlsSegmentType | string;
+  AudioGroupId?: string;
+
+  /**
+   * Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth.
+   *
+   * The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
+   */
+  AudioOnlyImage?: InputLocation;
 }
 
 export namespace AudioOnlyHlsSettings {
@@ -602,6 +607,11 @@ export interface AudioSelectorSettings {
    * Audio Pid Selection
    */
   AudioPidSelection?: AudioPidSelection;
+
+  /**
+   * Audio Track Selection
+   */
+  AudioTrackSelection?: AudioTrackSelection;
 }
 
 export namespace AudioSelectorSettings {
@@ -609,6 +619,42 @@ export namespace AudioSelectorSettings {
     ...obj,
   });
   export const isa = (o: any): o is AudioSelectorSettings => __isa(o, "AudioSelectorSettings");
+}
+
+/**
+ * Audio Track
+ */
+export interface AudioTrack {
+  __type?: "AudioTrack";
+  /**
+   * 1-based integer value that maps to a specific audio track
+   */
+  Track: number | undefined;
+}
+
+export namespace AudioTrack {
+  export const filterSensitiveLog = (obj: AudioTrack): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AudioTrack => __isa(o, "AudioTrack");
+}
+
+/**
+ * Audio Track Selection
+ */
+export interface AudioTrackSelection {
+  __type?: "AudioTrackSelection";
+  /**
+   * Selects one or more unique audio tracks from within an mp4 source.
+   */
+  Tracks: AudioTrack[] | undefined;
+}
+
+export namespace AudioTrackSelection {
+  export const filterSensitiveLog = (obj: AudioTrackSelection): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AudioTrackSelection => __isa(o, "AudioTrackSelection");
 }
 
 export enum AudioType {
@@ -624,19 +670,42 @@ export enum AuthenticationScheme {
 }
 
 /**
+ * The settings for Automatic Input Failover.
+ */
+export interface AutomaticInputFailoverSettings {
+  __type?: "AutomaticInputFailoverSettings";
+  /**
+   * The input ID of the secondary input in the automatic input failover pair.
+   */
+  SecondaryInputId: string | undefined;
+
+  /**
+   * Input preference when deciding which input to make active when a previously failed input has recovered.
+   */
+  InputPreference?: InputPreference | string;
+}
+
+export namespace AutomaticInputFailoverSettings {
+  export const filterSensitiveLog = (obj: AutomaticInputFailoverSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AutomaticInputFailoverSettings => __isa(o, "AutomaticInputFailoverSettings");
+}
+
+/**
  * Avail Blanking
  */
 export interface AvailBlanking {
   __type?: "AvailBlanking";
   /**
-   * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
-   */
-  AvailBlankingImage?: InputLocation;
-
-  /**
    * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
    */
   State?: AvailBlankingState | string;
+
+  /**
+   * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   */
+  AvailBlankingImage?: InputLocation;
 }
 
 export namespace AvailBlanking {
@@ -675,14 +744,14 @@ export namespace AvailConfiguration {
 export interface AvailSettings {
   __type?: "AvailSettings";
   /**
-   * Scte35 Splice Insert
-   */
-  Scte35SpliceInsert?: Scte35SpliceInsert;
-
-  /**
    * Scte35 Time Signal Apos
    */
   Scte35TimeSignalApos?: Scte35TimeSignalApos;
+
+  /**
+   * Scte35 Splice Insert
+   */
+  Scte35SpliceInsert?: Scte35SpliceInsert;
 }
 
 export namespace AvailSettings {
@@ -813,14 +882,14 @@ export interface BatchUpdateScheduleRequest {
   ChannelId: string | undefined;
 
   /**
-   * Schedule actions to create in the schedule.
-   */
-  Creates?: BatchScheduleActionCreateRequest;
-
-  /**
    * Schedule actions to delete from the schedule.
    */
   Deletes?: BatchScheduleActionDeleteRequest;
+
+  /**
+   * Schedule actions to create in the schedule.
+   */
+  Creates?: BatchScheduleActionCreateRequest;
 }
 
 export namespace BatchUpdateScheduleRequest {
@@ -836,14 +905,14 @@ export namespace BatchUpdateScheduleRequest {
 export interface BatchUpdateScheduleResponse {
   __type?: "BatchUpdateScheduleResponse";
   /**
-   * Schedule actions created in the schedule.
-   */
-  Creates?: BatchScheduleActionCreateResult;
-
-  /**
    * Schedule actions deleted from the schedule.
    */
   Deletes?: BatchScheduleActionDeleteResult;
+
+  /**
+   * Schedule actions created in the schedule.
+   */
+  Creates?: BatchScheduleActionCreateResult;
 }
 
 export namespace BatchUpdateScheduleResponse {
@@ -859,14 +928,9 @@ export namespace BatchUpdateScheduleResponse {
 export interface BlackoutSlate {
   __type?: "BlackoutSlate";
   /**
-   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
    */
-  BlackoutSlateImage?: InputLocation;
-
-  /**
-   * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
-   */
-  NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | string;
+  State?: BlackoutSlateState | string;
 
   /**
    * Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
@@ -874,14 +938,19 @@ export interface BlackoutSlate {
   NetworkEndBlackoutImage?: InputLocation;
 
   /**
+   * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
+   */
+  NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | string;
+
+  /**
    * Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
    */
   NetworkId?: string;
 
   /**
-   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
+   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
    */
-  State?: BlackoutSlateState | string;
+  BlackoutSlateImage?: InputLocation;
 }
 
 export namespace BlackoutSlate {
@@ -919,79 +988,9 @@ export enum BurnInBackgroundColor {
 export interface BurnInDestinationSettings {
   __type?: "BurnInDestinationSettings";
   /**
-   * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles.  All burn-in and DVB-Sub font settings must match.
-   */
-  Alignment?: BurnInAlignment | string;
-
-  /**
-   * Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match.
-   */
-  BackgroundColor?: BurnInBackgroundColor | string;
-
-  /**
-   * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
-   */
-  BackgroundOpacity?: number;
-
-  /**
    * External font file used for caption burn-in. File extension must be 'ttf' or 'tte'.  Although the user can select output fonts for many different types of input captions,  embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts.  All burn-in and DVB-Sub font settings must match.
    */
   Font?: InputLocation;
-
-  /**
-   * Specifies the color of the burned-in captions.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
-   */
-  FontColor?: BurnInFontColor | string;
-
-  /**
-   * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.  All burn-in and DVB-Sub font settings must match.
-   */
-  FontOpacity?: number;
-
-  /**
-   * Font resolution in DPI (dots per inch); default is 96 dpi.  All burn-in and DVB-Sub font settings must match.
-   */
-  FontResolution?: number;
-
-  /**
-   * When set to 'auto' fontSize will scale depending on the size of the output.  Giving a positive integer will specify the exact font size in points.  All burn-in and DVB-Sub font settings must match.
-   */
-  FontSize?: string;
-
-  /**
-   * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-   */
-  OutlineColor?: BurnInOutlineColor | string;
-
-  /**
-   * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-   */
-  OutlineSize?: number;
-
-  /**
-   * Specifies the color of the shadow cast by the captions.  All burn-in and DVB-Sub font settings must match.
-   */
-  ShadowColor?: BurnInShadowColor | string;
-
-  /**
-   * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
-   */
-  ShadowOpacity?: number;
-
-  /**
-   * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left.  All burn-in and DVB-Sub font settings must match.
-   */
-  ShadowXOffset?: number;
-
-  /**
-   * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text.  All burn-in and DVB-Sub font settings must match.
-   */
-  ShadowYOffset?: number;
-
-  /**
-   * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
-   */
-  TeletextGridControl?: BurnInTeletextGridControl | string;
 
   /**
    * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter.  All burn-in and DVB-Sub font settings must match.
@@ -999,9 +998,79 @@ export interface BurnInDestinationSettings {
   XPosition?: number;
 
   /**
+   * When set to 'auto' fontSize will scale depending on the size of the output.  Giving a positive integer will specify the exact font size in points.  All burn-in and DVB-Sub font settings must match.
+   */
+  FontSize?: string;
+
+  /**
+   * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text.  All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowYOffset?: number;
+
+  /**
    * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output.  All burn-in and DVB-Sub font settings must match.
    */
   YPosition?: number;
+
+  /**
+   * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+   */
+  TeletextGridControl?: BurnInTeletextGridControl | string;
+
+  /**
+   * Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match.
+   */
+  BackgroundColor?: BurnInBackgroundColor | string;
+
+  /**
+   * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  OutlineSize?: number;
+
+  /**
+   * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left.  All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowXOffset?: number;
+
+  /**
+   * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.  All burn-in and DVB-Sub font settings must match.
+   */
+  FontOpacity?: number;
+
+  /**
+   * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  OutlineColor?: BurnInOutlineColor | string;
+
+  /**
+   * Specifies the color of the shadow cast by the captions.  All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowColor?: BurnInShadowColor | string;
+
+  /**
+   * Font resolution in DPI (dots per inch); default is 96 dpi.  All burn-in and DVB-Sub font settings must match.
+   */
+  FontResolution?: number;
+
+  /**
+   * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
+   */
+  BackgroundOpacity?: number;
+
+  /**
+   * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles.  All burn-in and DVB-Sub font settings must match.
+   */
+  Alignment?: BurnInAlignment | string;
+
+  /**
+   * Specifies the color of the burned-in captions.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
+   */
+  FontColor?: BurnInFontColor | string;
+
+  /**
+   * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowOpacity?: number;
 }
 
 export namespace BurnInDestinationSettings {
@@ -1046,11 +1115,6 @@ export enum BurnInTeletextGridControl {
 export interface CaptionDescription {
   __type?: "CaptionDescription";
   /**
-   * Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
-   */
-  CaptionSelectorName: string | undefined;
-
-  /**
    * Additional settings for captions destination that depend on the destination type.
    */
   DestinationSettings?: CaptionDestinationSettings;
@@ -1069,6 +1133,11 @@ export interface CaptionDescription {
    * Name of the caption description.  Used to associate a caption description with an output.  Names must be unique within an event.
    */
   Name: string | undefined;
+
+  /**
+   * Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+   */
+  CaptionSelectorName: string | undefined;
 }
 
 export namespace CaptionDescription {
@@ -1084,24 +1153,9 @@ export namespace CaptionDescription {
 export interface CaptionDestinationSettings {
   __type?: "CaptionDestinationSettings";
   /**
-   * Arib Destination Settings
+   * Smpte Tt Destination Settings
    */
-  AribDestinationSettings?: AribDestinationSettings;
-
-  /**
-   * Burn In Destination Settings
-   */
-  BurnInDestinationSettings?: BurnInDestinationSettings;
-
-  /**
-   * Dvb Sub Destination Settings
-   */
-  DvbSubDestinationSettings?: DvbSubDestinationSettings;
-
-  /**
-   * Embedded Destination Settings
-   */
-  EmbeddedDestinationSettings?: EmbeddedDestinationSettings;
+  SmpteTtDestinationSettings?: SmpteTtDestinationSettings;
 
   /**
    * Embedded Plus Scte20 Destination Settings
@@ -1109,29 +1163,14 @@ export interface CaptionDestinationSettings {
   EmbeddedPlusScte20DestinationSettings?: EmbeddedPlusScte20DestinationSettings;
 
   /**
-   * Rtmp Caption Info Destination Settings
+   * Arib Destination Settings
    */
-  RtmpCaptionInfoDestinationSettings?: RtmpCaptionInfoDestinationSettings;
+  AribDestinationSettings?: AribDestinationSettings;
 
   /**
-   * Scte20 Plus Embedded Destination Settings
+   * Ebu Tt DDestination Settings
    */
-  Scte20PlusEmbeddedDestinationSettings?: Scte20PlusEmbeddedDestinationSettings;
-
-  /**
-   * Scte27 Destination Settings
-   */
-  Scte27DestinationSettings?: Scte27DestinationSettings;
-
-  /**
-   * Smpte Tt Destination Settings
-   */
-  SmpteTtDestinationSettings?: SmpteTtDestinationSettings;
-
-  /**
-   * Teletext Destination Settings
-   */
-  TeletextDestinationSettings?: TeletextDestinationSettings;
+  EbuTtDDestinationSettings?: EbuTtDDestinationSettings;
 
   /**
    * Ttml Destination Settings
@@ -1139,9 +1178,44 @@ export interface CaptionDestinationSettings {
   TtmlDestinationSettings?: TtmlDestinationSettings;
 
   /**
+   * Scte20 Plus Embedded Destination Settings
+   */
+  Scte20PlusEmbeddedDestinationSettings?: Scte20PlusEmbeddedDestinationSettings;
+
+  /**
+   * Dvb Sub Destination Settings
+   */
+  DvbSubDestinationSettings?: DvbSubDestinationSettings;
+
+  /**
    * Webvtt Destination Settings
    */
   WebvttDestinationSettings?: WebvttDestinationSettings;
+
+  /**
+   * Teletext Destination Settings
+   */
+  TeletextDestinationSettings?: TeletextDestinationSettings;
+
+  /**
+   * Burn In Destination Settings
+   */
+  BurnInDestinationSettings?: BurnInDestinationSettings;
+
+  /**
+   * Scte27 Destination Settings
+   */
+  Scte27DestinationSettings?: Scte27DestinationSettings;
+
+  /**
+   * Embedded Destination Settings
+   */
+  EmbeddedDestinationSettings?: EmbeddedDestinationSettings;
+
+  /**
+   * Rtmp Caption Info Destination Settings
+   */
+  RtmpCaptionInfoDestinationSettings?: RtmpCaptionInfoDestinationSettings;
 }
 
 export namespace CaptionDestinationSettings {
@@ -1157,11 +1231,6 @@ export namespace CaptionDestinationSettings {
 export interface CaptionLanguageMapping {
   __type?: "CaptionLanguageMapping";
   /**
-   * The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
-   */
-  CaptionChannel: number | undefined;
-
-  /**
    * Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
    */
   LanguageCode: string | undefined;
@@ -1170,6 +1239,11 @@ export interface CaptionLanguageMapping {
    * Textual description of language
    */
   LanguageDescription: string | undefined;
+
+  /**
+   * The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
+   */
+  CaptionChannel: number | undefined;
 }
 
 export namespace CaptionLanguageMapping {
@@ -1185,6 +1259,11 @@ export namespace CaptionLanguageMapping {
 export interface CaptionSelector {
   __type?: "CaptionSelector";
   /**
+   * Caption selector settings.
+   */
+  SelectorSettings?: CaptionSelectorSettings;
+
+  /**
    * When specified this field indicates the three letter language code of the caption track to extract from the source.
    */
   LanguageCode?: string;
@@ -1193,11 +1272,6 @@ export interface CaptionSelector {
    * Name identifier for a caption selector.  This name is used to associate this caption selector with one or more caption descriptions.  Names must be unique within an event.
    */
   Name: string | undefined;
-
-  /**
-   * Caption selector settings.
-   */
-  SelectorSettings?: CaptionSelectorSettings;
 }
 
 export namespace CaptionSelector {
@@ -1213,9 +1287,9 @@ export namespace CaptionSelector {
 export interface CaptionSelectorSettings {
   __type?: "CaptionSelectorSettings";
   /**
-   * Arib Source Settings
+   * Scte27 Source Settings
    */
-  AribSourceSettings?: AribSourceSettings;
+  Scte27SourceSettings?: Scte27SourceSettings;
 
   /**
    * Dvb Sub Source Settings
@@ -1223,9 +1297,9 @@ export interface CaptionSelectorSettings {
   DvbSubSourceSettings?: DvbSubSourceSettings;
 
   /**
-   * Embedded Source Settings
+   * Arib Source Settings
    */
-  EmbeddedSourceSettings?: EmbeddedSourceSettings;
+  AribSourceSettings?: AribSourceSettings;
 
   /**
    * Scte20 Source Settings
@@ -1233,9 +1307,9 @@ export interface CaptionSelectorSettings {
   Scte20SourceSettings?: Scte20SourceSettings;
 
   /**
-   * Scte27 Source Settings
+   * Embedded Source Settings
    */
-  Scte27SourceSettings?: Scte27SourceSettings;
+  EmbeddedSourceSettings?: EmbeddedSourceSettings;
 
   /**
    * Teletext Source Settings
@@ -1256,31 +1330,14 @@ export namespace CaptionSelectorSettings {
 export interface Channel {
   __type?: "Channel";
   /**
-   * The unique arn of the channel.
+   * Placeholder documentation for InputSpecification
    */
-  Arn?: string;
+  InputSpecification?: InputSpecification;
 
   /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
    */
-  ChannelClass?: ChannelClass | string;
-
-  /**
-   * A list of destinations of the channel. For UDP outputs, there is one
-   * destination per output. For other types (HLS, for example), there is
-   * one destination per packager.
-   */
-  Destinations?: OutputDestination[];
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * Encoder Settings
-   */
-  EncoderSettings?: EncoderSettings;
+  RoleArn?: string;
 
   /**
    * The unique id of the channel.
@@ -1293,9 +1350,39 @@ export interface Channel {
   InputAttachments?: InputAttachment[];
 
   /**
-   * Placeholder documentation for InputSpecification
+   * The unique arn of the channel.
    */
-  InputSpecification?: InputSpecification;
+  Arn?: string;
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   */
+  PipelineDetails?: PipelineDetail[];
+
+  /**
+   * Encoder Settings
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   */
+  ChannelClass?: ChannelClass | string;
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * The log level being written to CloudWatch Logs.
@@ -1308,29 +1395,16 @@ export interface Channel {
   Name?: string;
 
   /**
-   * Runtime details for the pipelines of a running channel.
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
    */
-  PipelineDetails?: PipelineDetail[];
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-   */
-  RoleArn?: string;
+  Destinations?: OutputDestination[];
 
   /**
    * Placeholder documentation for ChannelState
    */
   State?: ChannelState | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace Channel {
@@ -1383,31 +1457,11 @@ export enum ChannelState {
 export interface ChannelSummary {
   __type?: "ChannelSummary";
   /**
-   * The unique arn of the channel.
-   */
-  Arn?: string;
-
-  /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   */
-  ChannelClass?: ChannelClass | string;
-
-  /**
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
    */
   Destinations?: OutputDestination[];
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * The unique id of the channel.
-   */
-  Id?: string;
 
   /**
    * List of input attachments for channel.
@@ -1420,24 +1474,14 @@ export interface ChannelSummary {
   InputSpecification?: InputSpecification;
 
   /**
-   * The log level being written to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * The name of the channel. (user-mutable)
-   */
-  Name?: string;
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
    * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
    */
   RoleArn?: string;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
 
   /**
    * Placeholder documentation for ChannelState
@@ -1445,9 +1489,39 @@ export interface ChannelSummary {
   State?: ChannelState | string;
 
   /**
+   * The name of the channel. (user-mutable)
+   */
+  Name?: string;
+
+  /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * The unique id of the channel.
+   */
+  Id?: string;
+
+  /**
+   * The unique arn of the channel.
+   */
+  Arn?: string;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   */
+  ChannelClass?: ChannelClass | string;
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
 }
 
 export namespace ChannelSummary {
@@ -1490,20 +1564,19 @@ export namespace ConflictException {
   export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
+export enum ContentType {
+  image_jpeg = "image/jpeg",
+}
+
 /**
  * A request to create a channel
  */
 export interface CreateChannelRequest {
   __type?: "CreateChannelRequest";
   /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * Name of channel.
    */
-  ChannelClass?: ChannelClass | string;
-
-  /**
-   * Placeholder documentation for __listOfOutputDestination
-   */
-  Destinations?: OutputDestination[];
+  Name?: string;
 
   /**
    * Encoder Settings
@@ -1511,24 +1584,24 @@ export interface CreateChannelRequest {
   EncoderSettings?: EncoderSettings;
 
   /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Specification of input for this channel (max. bitrate, resolution, codec, etc.)
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
    * The log level to write to CloudWatch Logs.
    */
   LogLevel?: LogLevel | string;
 
   /**
-   * Name of channel.
+   * List of input attachments for channel.
    */
-  Name?: string;
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
+   */
+  RoleArn?: string;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   */
+  ChannelClass?: ChannelClass | string;
 
   /**
    * Unique request ID to be specified. This is needed to prevent retries from
@@ -1542,14 +1615,19 @@ export interface CreateChannelRequest {
   Reserved?: string;
 
   /**
-   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
-   */
-  RoleArn?: string;
-
-  /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Specification of input for this channel (max. bitrate, resolution, codec, etc.)
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * Placeholder documentation for __listOfOutputDestination
+   */
+  Destinations?: OutputDestination[];
 }
 
 export namespace CreateChannelRequest {
@@ -1583,46 +1661,6 @@ export namespace CreateChannelResponse {
 export interface CreateInputRequest {
   __type?: "CreateInputRequest";
   /**
-   * Destination settings for PUSH type inputs.
-   */
-  Destinations?: InputDestinationRequest[];
-
-  /**
-   * A list of security groups referenced by IDs to attach to the input.
-   */
-  InputSecurityGroups?: string[];
-
-  /**
-   * A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
-   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
-   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
-   */
-  MediaConnectFlows?: MediaConnectFlowRequest[];
-
-  /**
-   * Name of the input.
-   */
-  Name?: string;
-
-  /**
-   * Unique identifier of the request to ensure the request is handled
-   * exactly once in case of retries.
-   */
-  RequestId?: string;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-   */
-  RoleArn?: string;
-
-  /**
-   * The source URLs for a PULL-type input. Every PULL type input needs
-   * exactly two source URLs for redundancy.
-   * Only specify sources for PULL type Inputs. Leave Destinations empty.
-   */
-  Sources?: InputSourceRequest[];
-
-  /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
@@ -1633,12 +1671,57 @@ export interface CreateInputRequest {
   Type?: InputType | string;
 
   /**
+   * Settings for the devices.
+   */
+  InputDevices?: InputDeviceSettings[];
+
+  /**
+   * A list of security groups referenced by IDs to attach to the input.
+   */
+  InputSecurityGroups?: string[];
+
+  /**
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   */
+  RoleArn?: string;
+
+  /**
+   * Name of the input.
+   */
+  Name?: string;
+
+  /**
+   * The source URLs for a PULL-type input. Every PULL type input needs
+   * exactly two source URLs for redundancy.
+   * Only specify sources for PULL type Inputs. Leave Destinations empty.
+   */
+  Sources?: InputSourceRequest[];
+
+  /**
+   * A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
+   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
+   */
+  MediaConnectFlows?: MediaConnectFlowRequest[];
+
+  /**
    * Settings for a private VPC Input.
    * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
    * This property requires setting the roleArn property on Input creation.
    * Not compatible with the inputSecurityGroups property.
    */
   Vpc?: InputVpcRequest;
+
+  /**
+   * Destination settings for PUSH type inputs.
+   */
+  Destinations?: InputDestinationRequest[];
+
+  /**
+   * Unique identifier of the request to ensure the request is handled
+   * exactly once in case of retries.
+   */
+  RequestId?: string;
 }
 
 export namespace CreateInputRequest {
@@ -1672,14 +1755,14 @@ export namespace CreateInputResponse {
 export interface CreateInputSecurityGroupRequest {
   __type?: "CreateInputSecurityGroupRequest";
   /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * List of IPv4 CIDR addresses to whitelist
    */
   WhitelistRules?: InputWhitelistRuleCidr[];
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateInputSecurityGroupRequest {
@@ -1775,11 +1858,6 @@ export interface CreateMultiplexRequest {
   MultiplexSettings: MultiplexSettings | undefined;
 
   /**
-   * Name of multiplex.
-   */
-  Name: string | undefined;
-
-  /**
    * Unique request ID. This prevents retries from creating multiple
    * resources.
    */
@@ -1789,6 +1867,11 @@ export interface CreateMultiplexRequest {
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Name of multiplex.
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateMultiplexRequest {
@@ -1822,14 +1905,14 @@ export namespace CreateMultiplexResponse {
 export interface CreateTagsRequest {
   __type?: "CreateTagsRequest";
   /**
-   * Placeholder documentation for __string
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * Placeholder documentation for Tags
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Placeholder documentation for __string
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace CreateTagsRequest {
@@ -1863,16 +1946,6 @@ export namespace DeleteChannelRequest {
 export interface DeleteChannelResponse {
   __type?: "DeleteChannelResponse";
   /**
-   * The unique arn of the channel.
-   */
-  Arn?: string;
-
-  /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   */
-  ChannelClass?: ChannelClass | string;
-
-  /**
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
@@ -1880,9 +1953,9 @@ export interface DeleteChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
-   * The endpoints where outgoing connections initiate from
+   * The unique id of the channel.
    */
-  EgressEndpoints?: ChannelEgressEndpoint[];
+  Id?: string;
 
   /**
    * Encoder Settings
@@ -1890,9 +1963,39 @@ export interface DeleteChannelResponse {
   EncoderSettings?: EncoderSettings;
 
   /**
-   * The unique id of the channel.
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  Id?: string;
+  ChannelClass?: ChannelClass | string;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   */
+  PipelineDetails?: PipelineDetail[];
+
+  /**
+   * The unique arn of the channel.
+   */
+  Arn?: string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * Placeholder documentation for ChannelState
+   */
+  State?: ChannelState | string;
 
   /**
    * List of input attachments for channel.
@@ -1910,34 +2013,14 @@ export interface DeleteChannelResponse {
   LogLevel?: LogLevel | string;
 
   /**
-   * The name of the channel. (user-mutable)
-   */
-  Name?: string;
-
-  /**
-   * Runtime details for the pipelines of a running channel.
-   */
-  PipelineDetails?: PipelineDetail[];
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
    * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
    */
   RoleArn?: string;
 
   /**
-   * Placeholder documentation for ChannelState
+   * The name of the channel. (user-mutable)
    */
-  State?: ChannelState | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
+  Name?: string;
 }
 
 export namespace DeleteChannelResponse {
@@ -2017,14 +2100,14 @@ export namespace DeleteInputSecurityGroupResponse {
 export interface DeleteMultiplexProgramRequest {
   __type?: "DeleteMultiplexProgramRequest";
   /**
-   * The ID of the multiplex that the program belongs to.
-   */
-  MultiplexId: string | undefined;
-
-  /**
    * The multiplex program name.
    */
   ProgramName: string | undefined;
+
+  /**
+   * The ID of the multiplex that the program belongs to.
+   */
+  MultiplexId: string | undefined;
 }
 
 export namespace DeleteMultiplexProgramRequest {
@@ -2040,24 +2123,24 @@ export namespace DeleteMultiplexProgramRequest {
 export interface DeleteMultiplexProgramResponse {
   __type?: "DeleteMultiplexProgramResponse";
   /**
-   * The MediaLive channel associated with the program.
-   */
-  ChannelId?: string;
-
-  /**
    * The settings for this multiplex program.
    */
   MultiplexProgramSettings?: MultiplexProgramSettings;
 
   /**
-   * The packet identifier map for this multiplex program.
+   * The MediaLive channel associated with the program.
    */
-  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
+  ChannelId?: string;
 
   /**
    * The name of the multiplex program.
    */
   ProgramName?: string;
+
+  /**
+   * The packet identifier map for this multiplex program.
+   */
+  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
 }
 
 export namespace DeleteMultiplexProgramResponse {
@@ -2091,9 +2174,9 @@ export namespace DeleteMultiplexRequest {
 export interface DeleteMultiplexResponse {
   __type?: "DeleteMultiplexResponse";
   /**
-   * The unique arn of the multiplex.
+   * A collection of key-value pairs.
    */
-  Arn?: string;
+  Tags?: { [key: string]: string };
 
   /**
    * A list of availability zones for the multiplex.
@@ -2101,34 +2184,14 @@ export interface DeleteMultiplexResponse {
   AvailabilityZones?: string[];
 
   /**
-   * A list of the multiplex output destinations.
-   */
-  Destinations?: MultiplexOutputDestination[];
-
-  /**
-   * The unique id of the multiplex.
-   */
-  Id?: string;
-
-  /**
-   * Configuration for a multiplex event.
-   */
-  MultiplexSettings?: MultiplexSettings;
-
-  /**
    * The name of the multiplex.
    */
   Name?: string;
 
   /**
-   * The number of currently healthy pipelines.
+   * A list of the multiplex output destinations.
    */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The number of programs in the multiplex.
-   */
-  ProgramCount?: number;
+  Destinations?: MultiplexOutputDestination[];
 
   /**
    * The current state of the multiplex.
@@ -2136,9 +2199,29 @@ export interface DeleteMultiplexResponse {
   State?: MultiplexState | string;
 
   /**
-   * A collection of key-value pairs.
+   * The unique arn of the multiplex.
    */
-  Tags?: { [key: string]: string };
+  Arn?: string;
+
+  /**
+   * The number of programs in the multiplex.
+   */
+  ProgramCount?: number;
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * Configuration for a multiplex event.
+   */
+  MultiplexSettings?: MultiplexSettings;
+
+  /**
+   * The unique id of the multiplex.
+   */
+  Id?: string;
 }
 
 export namespace DeleteMultiplexResponse {
@@ -2172,74 +2255,9 @@ export namespace DeleteReservationRequest {
 export interface DeleteReservationResponse {
   __type?: "DeleteReservationResponse";
   /**
-   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
-   */
-  Arn?: string;
-
-  /**
-   * Number of reserved resources
-   */
-  Count?: number;
-
-  /**
-   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-   */
-  CurrencyCode?: string;
-
-  /**
-   * Lease duration, e.g. '12'
-   */
-  Duration?: number;
-
-  /**
-   * Units for duration, e.g. 'MONTHS'
-   */
-  DurationUnits?: OfferingDurationUnits | string;
-
-  /**
-   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
-   */
-  End?: string;
-
-  /**
-   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
-   */
-  FixedPrice?: number;
-
-  /**
-   * User specified reservation name
-   */
-  Name?: string;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   */
-  OfferingDescription?: string;
-
-  /**
    * Unique offering ID, e.g. '87654321'
    */
   OfferingId?: string;
-
-  /**
-   * Offering type, e.g. 'NO_UPFRONT'
-   */
-  OfferingType?: OfferingType | string;
-
-  /**
-   * AWS region, e.g. 'us-west-2'
-   */
-  Region?: string;
-
-  /**
-   * Unique reservation ID, e.g. '1234567'
-   */
-  ReservationId?: string;
-
-  /**
-   * Resource configuration details
-   */
-  ResourceSpecification?: ReservationResourceSpecification;
 
   /**
    * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
@@ -2247,9 +2265,24 @@ export interface DeleteReservationResponse {
   Start?: string;
 
   /**
-   * Current state of reservation, e.g. 'ACTIVE'
+   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
    */
-  State?: ReservationState | string;
+  End?: string;
+
+  /**
+   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+   */
+  Arn?: string;
+
+  /**
+   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   */
+  FixedPrice?: number;
+
+  /**
+   * AWS region, e.g. 'us-west-2'
+   */
+  Region?: string;
 
   /**
    * A collection of key-value pairs
@@ -2257,9 +2290,59 @@ export interface DeleteReservationResponse {
   Tags?: { [key: string]: string };
 
   /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   */
+  OfferingDescription?: string;
+
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   */
+  ReservationId?: string;
+
+  /**
+   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+   */
+  CurrencyCode?: string;
+
+  /**
+   * Units for duration, e.g. 'MONTHS'
+   */
+  DurationUnits?: OfferingDurationUnits | string;
+
+  /**
+   * Current state of reservation, e.g. 'ACTIVE'
+   */
+  State?: ReservationState | string;
+
+  /**
+   * User specified reservation name
+   */
+  Name?: string;
+
+  /**
+   * Lease duration, e.g. '12'
+   */
+  Duration?: number;
+
+  /**
    * Recurring usage charge for each reserved resource, e.g. '157.0'
    */
   UsagePrice?: number;
+
+  /**
+   * Offering type, e.g. 'NO_UPFRONT'
+   */
+  OfferingType?: OfferingType | string;
+
+  /**
+   * Number of reserved resources
+   */
+  Count?: number;
+
+  /**
+   * Resource configuration details
+   */
+  ResourceSpecification?: ReservationResourceSpecification;
 }
 
 export namespace DeleteReservationResponse {
@@ -2353,9 +2436,9 @@ export interface DescribeChannelResponse {
   Arn?: string;
 
   /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
    */
-  ChannelClass?: ChannelClass | string;
+  RoleArn?: string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -2365,39 +2448,9 @@ export interface DescribeChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * Encoder Settings
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * The unique id of the channel.
-   */
-  Id?: string;
-
-  /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
    * Placeholder documentation for InputSpecification
    */
   InputSpecification?: InputSpecification;
-
-  /**
-   * The log level being written to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * The name of the channel. (user-mutable)
-   */
-  Name?: string;
 
   /**
    * Runtime details for the pipelines of a running channel.
@@ -2405,14 +2458,29 @@ export interface DescribeChannelResponse {
   PipelineDetails?: PipelineDetail[];
 
   /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   */
+  ChannelClass?: ChannelClass | string;
+
+  /**
    * The number of currently healthy pipelines.
    */
   PipelinesRunningCount?: number;
 
   /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * The unique id of the channel.
    */
-  RoleArn?: string;
+  Id?: string;
 
   /**
    * Placeholder documentation for ChannelState
@@ -2420,9 +2488,24 @@ export interface DescribeChannelResponse {
   State?: ChannelState | string;
 
   /**
-   * A collection of key-value pairs.
+   * The name of the channel. (user-mutable)
    */
-  Tags?: { [key: string]: string };
+  Name?: string;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
+
+  /**
+   * Encoder Settings
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * List of input attachments for channel.
+   */
+  InputAttachments?: InputAttachment[];
 }
 
 export namespace DescribeChannelResponse {
@@ -2430,6 +2513,150 @@ export namespace DescribeChannelResponse {
     ...obj,
   });
   export const isa = (o: any): o is DescribeChannelResponse => __isa(o, "DescribeChannelResponse");
+}
+
+/**
+ * Placeholder documentation for DescribeInputDeviceRequest
+ */
+export interface DescribeInputDeviceRequest {
+  __type?: "DescribeInputDeviceRequest";
+  /**
+   * The unique ID of this input device. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
+}
+
+export namespace DescribeInputDeviceRequest {
+  export const filterSensitiveLog = (obj: DescribeInputDeviceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeInputDeviceRequest => __isa(o, "DescribeInputDeviceRequest");
+}
+
+/**
+ * Placeholder documentation for DescribeInputDeviceResponse
+ */
+export interface DescribeInputDeviceResponse {
+  __type?: "DescribeInputDeviceResponse";
+  /**
+   * The network MAC address of the input device.
+   */
+  MacAddress?: string;
+
+  /**
+   * The unique ARN of the input device.
+   */
+  Arn?: string;
+
+  /**
+   * The state of the connection between the input device and AWS.
+   */
+  ConnectionState?: InputDeviceConnectionState | string;
+
+  /**
+   * The unique ID of the input device.
+   */
+  Id?: string;
+
+  /**
+   * The network settings for the input device.
+   */
+  NetworkSettings?: InputDeviceNetworkSettings;
+
+  /**
+   * The unique serial number of the input device.
+   */
+  SerialNumber?: string;
+
+  /**
+   * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+   */
+  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
+
+  /**
+   * The type of the input device.
+   */
+  Type?: InputDeviceType | string;
+
+  /**
+   * Settings that describe an input device that is type HD.
+   */
+  HdDeviceSettings?: InputDeviceHdSettings;
+
+  /**
+   * A name that you specify for the input device.
+   */
+  Name?: string;
+}
+
+export namespace DescribeInputDeviceResponse {
+  export const filterSensitiveLog = (obj: DescribeInputDeviceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeInputDeviceResponse => __isa(o, "DescribeInputDeviceResponse");
+}
+
+/**
+ * Placeholder documentation for DescribeInputDeviceThumbnailRequest
+ */
+export interface DescribeInputDeviceThumbnailRequest {
+  __type?: "DescribeInputDeviceThumbnailRequest";
+  /**
+   * The unique ID of this input device. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
+
+  /**
+   * The HTTP Accept header. Indicates the requested type for the thumbnail.
+   */
+  Accept: AcceptHeader | string | undefined;
+}
+
+export namespace DescribeInputDeviceThumbnailRequest {
+  export const filterSensitiveLog = (obj: DescribeInputDeviceThumbnailRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeInputDeviceThumbnailRequest =>
+    __isa(o, "DescribeInputDeviceThumbnailRequest");
+}
+
+/**
+ * Placeholder documentation for DescribeInputDeviceThumbnailResponse
+ */
+export interface DescribeInputDeviceThumbnailResponse {
+  __type?: "DescribeInputDeviceThumbnailResponse";
+  /**
+   * Specifies the media type of the thumbnail.
+   */
+  ContentType?: ContentType | string;
+
+  /**
+   * The length of the content.
+   */
+  ContentLength?: number;
+
+  /**
+   * The unique, cacheable version of this thumbnail.
+   */
+  ETag?: string;
+
+  /**
+   * The date and time the thumbnail was last updated at the device.
+   */
+  LastModified?: Date;
+
+  /**
+   * The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
+   */
+  Body?: Readable | ReadableStream | Blob;
+}
+
+export namespace DescribeInputDeviceThumbnailResponse {
+  export const filterSensitiveLog = (obj: DescribeInputDeviceThumbnailResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeInputDeviceThumbnailResponse =>
+    __isa(o, "DescribeInputDeviceThumbnailResponse");
 }
 
 /**
@@ -2456,19 +2683,19 @@ export namespace DescribeInputRequest {
 export interface DescribeInputResponse {
   __type?: "DescribeInputResponse";
   /**
-   * The Unique ARN of the input (generated, immutable).
+   * Placeholder documentation for InputType
    */
-  Arn?: string;
+  Type?: InputType | string;
 
   /**
-   * A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
+   * A collection of key-value pairs.
    */
-  AttachedChannels?: string[];
+  Tags?: { [key: string]: string };
 
   /**
-   * A list of the destinations of the input (PUSH-type).
+   * A list of MediaConnect Flows for this input.
    */
-  Destinations?: InputDestination[];
+  MediaConnectFlows?: MediaConnectFlow[];
 
   /**
    * The generated ID of the input (unique for user account, immutable).
@@ -2476,10 +2703,19 @@ export interface DescribeInputResponse {
   Id?: string;
 
   /**
-   * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
-   * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
    */
-  InputClass?: InputClass | string;
+  RoleArn?: string;
+
+  /**
+   * Placeholder documentation for InputState
+   */
+  State?: InputState | string;
+
+  /**
+   * A list of the destinations of the input (PUSH-type).
+   */
+  Destinations?: InputDestination[];
 
   /**
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
@@ -2488,9 +2724,9 @@ export interface DescribeInputResponse {
   InputSourceType?: InputSourceType | string;
 
   /**
-   * A list of MediaConnect Flows for this input.
+   * Settings for the input devices.
    */
-  MediaConnectFlows?: MediaConnectFlow[];
+  InputDevices?: InputDeviceSettings[];
 
   /**
    * The user-assigned name (This is a mutable value).
@@ -2498,14 +2734,15 @@ export interface DescribeInputResponse {
   Name?: string;
 
   /**
-   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
+   * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
    */
-  RoleArn?: string;
+  InputClass?: InputClass | string;
 
   /**
-   * A list of IDs for all the Input Security Groups attached to the input.
+   * A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
    */
-  SecurityGroups?: string[];
+  AttachedChannels?: string[];
 
   /**
    * A list of the sources of the input (PULL-type).
@@ -2513,19 +2750,14 @@ export interface DescribeInputResponse {
   Sources?: InputSource[];
 
   /**
-   * Placeholder documentation for InputState
+   * The Unique ARN of the input (generated, immutable).
    */
-  State?: InputState | string;
+  Arn?: string;
 
   /**
-   * A collection of key-value pairs.
+   * A list of IDs for all the Input Security Groups attached to the input.
    */
-  Tags?: { [key: string]: string };
-
-  /**
-   * Placeholder documentation for InputType
-   */
-  Type?: InputType | string;
+  SecurityGroups?: string[];
 }
 
 export namespace DescribeInputResponse {
@@ -2564,9 +2796,14 @@ export interface DescribeInputSecurityGroupResponse {
   Arn?: string;
 
   /**
-   * The Id of the Input Security Group
+   * Whitelist rules and their sync status
    */
-  Id?: string;
+  WhitelistRules?: InputWhitelistRule[];
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * The list of inputs currently using this Input Security Group.
@@ -2579,14 +2816,9 @@ export interface DescribeInputSecurityGroupResponse {
   State?: InputSecurityGroupState | string;
 
   /**
-   * A collection of key-value pairs.
+   * The Id of the Input Security Group
    */
-  Tags?: { [key: string]: string };
-
-  /**
-   * Whitelist rules and their sync status
-   */
-  WhitelistRules?: InputWhitelistRule[];
+  Id?: string;
 }
 
 export namespace DescribeInputSecurityGroupResponse {
@@ -2631,6 +2863,11 @@ export interface DescribeMultiplexProgramResponse {
   ChannelId?: string;
 
   /**
+   * The name of the multiplex program.
+   */
+  ProgramName?: string;
+
+  /**
    * The settings for this multiplex program.
    */
   MultiplexProgramSettings?: MultiplexProgramSettings;
@@ -2639,11 +2876,6 @@ export interface DescribeMultiplexProgramResponse {
    * The packet identifier map for this multiplex program.
    */
   PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
-
-  /**
-   * The name of the multiplex program.
-   */
-  ProgramName?: string;
 }
 
 export namespace DescribeMultiplexProgramResponse {
@@ -2677,9 +2909,9 @@ export namespace DescribeMultiplexRequest {
 export interface DescribeMultiplexResponse {
   __type?: "DescribeMultiplexResponse";
   /**
-   * The unique arn of the multiplex.
+   * A collection of key-value pairs.
    */
-  Arn?: string;
+  Tags?: { [key: string]: string };
 
   /**
    * A list of availability zones for the multiplex.
@@ -2692,14 +2924,19 @@ export interface DescribeMultiplexResponse {
   Destinations?: MultiplexOutputDestination[];
 
   /**
-   * The unique id of the multiplex.
+   * The current state of the multiplex.
    */
-  Id?: string;
+  State?: MultiplexState | string;
 
   /**
-   * Configuration for a multiplex event.
+   * The number of programs in the multiplex.
    */
-  MultiplexSettings?: MultiplexSettings;
+  ProgramCount?: number;
+
+  /**
+   * The unique arn of the multiplex.
+   */
+  Arn?: string;
 
   /**
    * The name of the multiplex.
@@ -2712,19 +2949,14 @@ export interface DescribeMultiplexResponse {
   PipelinesRunningCount?: number;
 
   /**
-   * The number of programs in the multiplex.
+   * Configuration for a multiplex event.
    */
-  ProgramCount?: number;
+  MultiplexSettings?: MultiplexSettings;
 
   /**
-   * The current state of the multiplex.
+   * The unique id of the multiplex.
    */
-  State?: MultiplexState | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
+  Id?: string;
 }
 
 export namespace DescribeMultiplexResponse {
@@ -2758,44 +2990,9 @@ export namespace DescribeOfferingRequest {
 export interface DescribeOfferingResponse {
   __type?: "DescribeOfferingResponse";
   /**
-   * Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
-   */
-  Arn?: string;
-
-  /**
-   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-   */
-  CurrencyCode?: string;
-
-  /**
    * Lease duration, e.g. '12'
    */
   Duration?: number;
-
-  /**
-   * Units for duration, e.g. 'MONTHS'
-   */
-  DurationUnits?: OfferingDurationUnits | string;
-
-  /**
-   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
-   */
-  FixedPrice?: number;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   */
-  OfferingDescription?: string;
-
-  /**
-   * Unique offering ID, e.g. '87654321'
-   */
-  OfferingId?: string;
-
-  /**
-   * Offering type, e.g. 'NO_UPFRONT'
-   */
-  OfferingType?: OfferingType | string;
 
   /**
    * AWS region, e.g. 'us-west-2'
@@ -2808,9 +3005,44 @@ export interface DescribeOfferingResponse {
   ResourceSpecification?: ReservationResourceSpecification;
 
   /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   */
+  OfferingDescription?: string;
+
+  /**
    * Recurring usage charge for each reserved resource, e.g. '157.0'
    */
   UsagePrice?: number;
+
+  /**
+   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+   */
+  CurrencyCode?: string;
+
+  /**
+   * Offering type, e.g. 'NO_UPFRONT'
+   */
+  OfferingType?: OfferingType | string;
+
+  /**
+   * Unique offering ID, e.g. '87654321'
+   */
+  OfferingId?: string;
+
+  /**
+   * Units for duration, e.g. 'MONTHS'
+   */
+  DurationUnits?: OfferingDurationUnits | string;
+
+  /**
+   * Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
+   */
+  Arn?: string;
+
+  /**
+   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   */
+  FixedPrice?: number;
 }
 
 export namespace DescribeOfferingResponse {
@@ -2844,34 +3076,9 @@ export namespace DescribeReservationRequest {
 export interface DescribeReservationResponse {
   __type?: "DescribeReservationResponse";
   /**
-   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
-   */
-  Arn?: string;
-
-  /**
    * Number of reserved resources
    */
   Count?: number;
-
-  /**
-   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-   */
-  CurrencyCode?: string;
-
-  /**
-   * Lease duration, e.g. '12'
-   */
-  Duration?: number;
-
-  /**
-   * Units for duration, e.g. 'MONTHS'
-   */
-  DurationUnits?: OfferingDurationUnits | string;
-
-  /**
-   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
-   */
-  End?: string;
 
   /**
    * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
@@ -2879,24 +3086,19 @@ export interface DescribeReservationResponse {
   FixedPrice?: number;
 
   /**
+   * Current state of reservation, e.g. 'ACTIVE'
+   */
+  State?: ReservationState | string;
+
+  /**
+   * Units for duration, e.g. 'MONTHS'
+   */
+  DurationUnits?: OfferingDurationUnits | string;
+
+  /**
    * User specified reservation name
    */
   Name?: string;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   */
-  OfferingDescription?: string;
-
-  /**
-   * Unique offering ID, e.g. '87654321'
-   */
-  OfferingId?: string;
-
-  /**
-   * Offering type, e.g. 'NO_UPFRONT'
-   */
-  OfferingType?: OfferingType | string;
 
   /**
    * AWS region, e.g. 'us-west-2'
@@ -2904,24 +3106,14 @@ export interface DescribeReservationResponse {
   Region?: string;
 
   /**
-   * Unique reservation ID, e.g. '1234567'
+   * Offering type, e.g. 'NO_UPFRONT'
    */
-  ReservationId?: string;
+  OfferingType?: OfferingType | string;
 
   /**
-   * Resource configuration details
+   * Unique offering ID, e.g. '87654321'
    */
-  ResourceSpecification?: ReservationResourceSpecification;
-
-  /**
-   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
-   */
-  Start?: string;
-
-  /**
-   * Current state of reservation, e.g. 'ACTIVE'
-   */
-  State?: ReservationState | string;
+  OfferingId?: string;
 
   /**
    * A collection of key-value pairs
@@ -2929,9 +3121,49 @@ export interface DescribeReservationResponse {
   Tags?: { [key: string]: string };
 
   /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   */
+  OfferingDescription?: string;
+
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   */
+  ReservationId?: string;
+
+  /**
+   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+   */
+  Start?: string;
+
+  /**
+   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+   */
+  End?: string;
+
+  /**
+   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+   */
+  Arn?: string;
+
+  /**
+   * Resource configuration details
+   */
+  ResourceSpecification?: ReservationResourceSpecification;
+
+  /**
+   * Lease duration, e.g. '12'
+   */
+  Duration?: number;
+
+  /**
    * Recurring usage charge for each reserved resource, e.g. '157.0'
    */
   UsagePrice?: number;
+
+  /**
+   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+   */
+  CurrencyCode?: string;
 }
 
 export namespace DescribeReservationResponse {
@@ -2947,6 +3179,11 @@ export namespace DescribeReservationResponse {
 export interface DescribeScheduleRequest {
   __type?: "DescribeScheduleRequest";
   /**
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+
+  /**
    * Id of the channel whose schedule is being updated.
    */
   ChannelId: string | undefined;
@@ -2955,11 +3192,6 @@ export interface DescribeScheduleRequest {
    * Placeholder documentation for MaxResults
    */
   MaxResults?: number;
-
-  /**
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeScheduleRequest {
@@ -2992,16 +3224,16 @@ export namespace DescribeScheduleResponse {
   export const isa = (o: any): o is DescribeScheduleResponse => __isa(o, "DescribeScheduleResponse");
 }
 
+export enum DeviceSettingsSyncState {
+  SYNCED = "SYNCED",
+  SYNCING = "SYNCING",
+}
+
 /**
  * DVB Network Information Table (NIT)
  */
 export interface DvbNitSettings {
   __type?: "DvbNitSettings";
-  /**
-   * The numeric value placed in the Network Information Table (NIT).
-   */
-  NetworkId: number | undefined;
-
   /**
    * The network name text placed in the networkNameDescriptor inside the Network Information Table. Maximum length is 256 characters.
    */
@@ -3011,6 +3243,11 @@ export interface DvbNitSettings {
    * The number of milliseconds between instances of this table in the output transport stream.
    */
   RepInterval?: number;
+
+  /**
+   * The numeric value placed in the Network Information Table (NIT).
+   */
+  NetworkId: number | undefined;
 }
 
 export namespace DvbNitSettings {
@@ -3038,9 +3275,9 @@ export interface DvbSdtSettings {
   OutputSdt?: DvbSdtOutputSdt | string;
 
   /**
-   * The number of milliseconds between instances of this table in the output transport stream.
+   * The service provider name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters.
    */
-  RepInterval?: number;
+  ServiceProviderName?: string;
 
   /**
    * The service name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters.
@@ -3048,9 +3285,9 @@ export interface DvbSdtSettings {
   ServiceName?: string;
 
   /**
-   * The service provider name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters.
+   * The number of milliseconds between instances of this table in the output transport stream.
    */
-  ServiceProviderName?: string;
+  RepInterval?: number;
 }
 
 export namespace DvbSdtSettings {
@@ -3096,39 +3333,9 @@ export enum DvbSubDestinationOutlineColor {
 export interface DvbSubDestinationSettings {
   __type?: "DvbSubDestinationSettings";
   /**
-   * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles.  This option is not valid for source captions that are STL or 608/embedded.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
+   * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter.  This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
    */
-  Alignment?: DvbSubDestinationAlignment | string;
-
-  /**
-   * Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match.
-   */
-  BackgroundColor?: DvbSubDestinationBackgroundColor | string;
-
-  /**
-   * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
-   */
-  BackgroundOpacity?: number;
-
-  /**
-   * External font file used for caption burn-in. File extension must be 'ttf' or 'tte'.  Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts.  All burn-in and DVB-Sub font settings must match.
-   */
-  Font?: InputLocation;
-
-  /**
-   * Specifies the color of the burned-in captions.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
-   */
-  FontColor?: DvbSubDestinationFontColor | string;
-
-  /**
-   * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.  All burn-in and DVB-Sub font settings must match.
-   */
-  FontOpacity?: number;
-
-  /**
-   * Font resolution in DPI (dots per inch); default is 96 dpi.  All burn-in and DVB-Sub font settings must match.
-   */
-  FontResolution?: number;
+  XPosition?: number;
 
   /**
    * When set to auto fontSize will scale depending on the size of the output.  Giving a positive integer will specify the exact font size in points.  All burn-in and DVB-Sub font settings must match.
@@ -3136,24 +3343,19 @@ export interface DvbSubDestinationSettings {
   FontSize?: string;
 
   /**
-   * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   * External font file used for caption burn-in. File extension must be 'ttf' or 'tte'.  Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts.  All burn-in and DVB-Sub font settings must match.
    */
-  OutlineColor?: DvbSubDestinationOutlineColor | string;
+  Font?: InputLocation;
 
   /**
-   * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   * Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match.
    */
-  OutlineSize?: number;
+  BackgroundColor?: DvbSubDestinationBackgroundColor | string;
 
   /**
-   * Specifies the color of the shadow cast by the captions.  All burn-in and DVB-Sub font settings must match.
+   * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles.  This option is not valid for source captions that are STL or 608/embedded.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
    */
-  ShadowColor?: DvbSubDestinationShadowColor | string;
-
-  /**
-   * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
-   */
-  ShadowOpacity?: number;
+  Alignment?: DvbSubDestinationAlignment | string;
 
   /**
    * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left.  All burn-in and DVB-Sub font settings must match.
@@ -3161,9 +3363,14 @@ export interface DvbSubDestinationSettings {
   ShadowXOffset?: number;
 
   /**
-   * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text.  All burn-in and DVB-Sub font settings must match.
+   * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
-  ShadowYOffset?: number;
+  OutlineSize?: number;
+
+  /**
+   * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
+   */
+  BackgroundOpacity?: number;
 
   /**
    * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
@@ -3171,14 +3378,44 @@ export interface DvbSubDestinationSettings {
   TeletextGridControl?: DvbSubDestinationTeletextGridControl | string;
 
   /**
-   * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter.  This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
-   */
-  XPosition?: number;
-
-  /**
    * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
    */
   YPosition?: number;
+
+  /**
+   * Font resolution in DPI (dots per inch); default is 96 dpi.  All burn-in and DVB-Sub font settings must match.
+   */
+  FontResolution?: number;
+
+  /**
+   * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  OutlineColor?: DvbSubDestinationOutlineColor | string;
+
+  /**
+   * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.  All burn-in and DVB-Sub font settings must match.
+   */
+  FontOpacity?: number;
+
+  /**
+   * Specifies the color of the burned-in captions.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
+   */
+  FontColor?: DvbSubDestinationFontColor | string;
+
+  /**
+   * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowOpacity?: number;
+
+  /**
+   * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text.  All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowYOffset?: number;
+
+  /**
+   * Specifies the color of the shadow cast by the captions.  All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowColor?: DvbSubDestinationShadowColor | string;
 }
 
 export namespace DvbSubDestinationSettings {
@@ -3308,54 +3545,9 @@ export enum Eac3PhaseControl {
 export interface Eac3Settings {
   __type?: "Eac3Settings";
   /**
-   * When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
-   */
-  AttenuationControl?: Eac3AttenuationControl | string;
-
-  /**
-   * Average bitrate in bits/second. Valid bitrates depend on the coding mode.
-   */
-  Bitrate?: number;
-
-  /**
-   * Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
-   */
-  BitstreamMode?: Eac3BitstreamMode | string;
-
-  /**
-   * Dolby Digital Plus coding mode. Determines number of channels.
-   */
-  CodingMode?: Eac3CodingMode | string;
-
-  /**
    * When set to enabled, activates a DC highpass filter for all input channels.
    */
   DcFilter?: Eac3DcFilter | string;
-
-  /**
-   * Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
-   */
-  Dialnorm?: number;
-
-  /**
-   * Sets the Dolby dynamic range compression profile.
-   */
-  DrcLine?: Eac3DrcLine | string;
-
-  /**
-   * Sets the profile for heavy Dolby dynamic range compression, ensures that the instantaneous signal peaks do not exceed specified levels.
-   */
-  DrcRf?: Eac3DrcRf | string;
-
-  /**
-   * When encoding 3/2 audio, setting to lfe enables the LFE channel
-   */
-  LfeControl?: Eac3LfeControl | string;
-
-  /**
-   * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with codingMode32 coding mode.
-   */
-  LfeFilter?: Eac3LfeFilter | string;
 
   /**
    * Left only/Right only center mix level. Only used for 3/2 coding mode.
@@ -3363,29 +3555,49 @@ export interface Eac3Settings {
   LoRoCenterMixLevel?: number;
 
   /**
-   * Left only/Right only surround mix level. Only used for 3/2 coding mode.
-   */
-  LoRoSurroundMixLevel?: number;
-
-  /**
-   * Left total/Right total center mix level. Only used for 3/2 coding mode.
-   */
-  LtRtCenterMixLevel?: number;
-
-  /**
    * Left total/Right total surround mix level. Only used for 3/2 coding mode.
    */
   LtRtSurroundMixLevel?: number;
 
   /**
-   * When set to followInput, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
+   * When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
    */
-  MetadataControl?: Eac3MetadataControl | string;
+  SurroundExMode?: Eac3SurroundExMode | string;
 
   /**
    * When set to whenPossible, input DD+ audio will be passed through if it is present on the input. This detection is dynamic over the life of the transcode. Inputs that alternate between DD+ and non-DD+ content will have a consistent DD+ output as the system alternates between passthrough and encoding.
    */
   PassthroughControl?: Eac3PassthroughControl | string;
+
+  /**
+   * Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
+   */
+  BitstreamMode?: Eac3BitstreamMode | string;
+
+  /**
+   * Sets the profile for heavy Dolby dynamic range compression, ensures that the instantaneous signal peaks do not exceed specified levels.
+   */
+  DrcRf?: Eac3DrcRf | string;
+
+  /**
+   * When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
+   */
+  AttenuationControl?: Eac3AttenuationControl | string;
+
+  /**
+   * Dolby Digital Plus coding mode. Determines number of channels.
+   */
+  CodingMode?: Eac3CodingMode | string;
+
+  /**
+   * Sets the Dolby dynamic range compression profile.
+   */
+  DrcLine?: Eac3DrcLine | string;
+
+  /**
+   * Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
+   */
+  Dialnorm?: number;
 
   /**
    * When set to shift90Degrees, applies a 90-degree phase shift to the surround channels. Only used for 3/2 coding mode.
@@ -3398,14 +3610,39 @@ export interface Eac3Settings {
   StereoDownmix?: Eac3StereoDownmix | string;
 
   /**
-   * When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
-   */
-  SurroundExMode?: Eac3SurroundExMode | string;
-
-  /**
    * When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
    */
   SurroundMode?: Eac3SurroundMode | string;
+
+  /**
+   * Left total/Right total center mix level. Only used for 3/2 coding mode.
+   */
+  LtRtCenterMixLevel?: number;
+
+  /**
+   * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with codingMode32 coding mode.
+   */
+  LfeFilter?: Eac3LfeFilter | string;
+
+  /**
+   * Left only/Right only surround mix level. Only used for 3/2 coding mode.
+   */
+  LoRoSurroundMixLevel?: number;
+
+  /**
+   * Average bitrate in bits/second. Valid bitrates depend on the coding mode.
+   */
+  Bitrate?: number;
+
+  /**
+   * When set to followInput, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
+   */
+  MetadataControl?: Eac3MetadataControl | string;
+
+  /**
+   * When encoding 3/2 audio, setting to lfe enables the LFE channel
+   */
+  LfeControl?: Eac3LfeControl | string;
 }
 
 export namespace Eac3Settings {
@@ -3432,6 +3669,55 @@ export enum Eac3SurroundMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
   NOT_INDICATED = "NOT_INDICATED",
+}
+
+/**
+ * Ebu Tt DDestination Settings
+ */
+export interface EbuTtDDestinationSettings {
+  __type?: "EbuTtDDestinationSettings";
+  /**
+   * Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to "monospaced". (If styleControl is set to exclude, the font family is always set to "monospaced".)
+   *
+   * You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size.
+   *
+   * - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font).
+   * - Leave blank to set the family to “monospace”.
+   */
+  FontFamily?: string;
+
+  /**
+   * Specifies how to handle the gap between the lines (in multi-line captions).
+   *
+   * - enabled: Fill with the captions background color (as specified in the input captions).
+   * - disabled: Leave the gap unfilled.
+   */
+  FillLineGap?: EbuTtDFillLineGapControl | string;
+
+  /**
+   * Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions.
+   *
+   * - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext.
+   * - exclude: In the font data attached to the EBU-TT captions, set the font family to "monospaced". Do not include any other style information.
+   */
+  StyleControl?: EbuTtDDestinationStyleControl | string;
+}
+
+export namespace EbuTtDDestinationSettings {
+  export const filterSensitiveLog = (obj: EbuTtDDestinationSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EbuTtDDestinationSettings => __isa(o, "EbuTtDDestinationSettings");
+}
+
+export enum EbuTtDDestinationStyleControl {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
+
+export enum EbuTtDFillLineGapControl {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
 }
 
 export enum EmbeddedConvert608To708 {
@@ -3479,9 +3765,9 @@ export enum EmbeddedScte20Detection {
 export interface EmbeddedSourceSettings {
   __type?: "EmbeddedSourceSettings";
   /**
-   * If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+   * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
    */
-  Convert608To708?: EmbeddedConvert608To708 | string;
+  Source608ChannelNumber?: number;
 
   /**
    * Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
@@ -3489,9 +3775,9 @@ export interface EmbeddedSourceSettings {
   Scte20Detection?: EmbeddedScte20Detection | string;
 
   /**
-   * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+   * If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
    */
-  Source608ChannelNumber?: number;
+  Convert608To708?: EmbeddedConvert608To708 | string;
 
   /**
    * This field is unused and deprecated.
@@ -3517,24 +3803,9 @@ export interface EncoderSettings {
   AudioDescriptions: AudioDescription[] | undefined;
 
   /**
-   * Settings for ad avail blanking.
+   * Nielsen configuration settings.
    */
-  AvailBlanking?: AvailBlanking;
-
-  /**
-   * Event-wide configuration settings for ad avail insertion.
-   */
-  AvailConfiguration?: AvailConfiguration;
-
-  /**
-   * Settings for blackout slate.
-   */
-  BlackoutSlate?: BlackoutSlate;
-
-  /**
-   * Settings for caption decriptions
-   */
-  CaptionDescriptions?: CaptionDescription[];
+  NielsenConfiguration?: NielsenConfiguration;
 
   /**
    * Configuration settings that apply to the event as a whole.
@@ -3542,9 +3813,14 @@ export interface EncoderSettings {
   GlobalConfiguration?: GlobalConfiguration;
 
   /**
-   * Nielsen configuration settings.
+   * Placeholder documentation for __listOfVideoDescription
    */
-  NielsenConfiguration?: NielsenConfiguration;
+  VideoDescriptions: VideoDescription[] | undefined;
+
+  /**
+   * Event-wide configuration settings for ad avail insertion.
+   */
+  AvailConfiguration?: AvailConfiguration;
 
   /**
    * Placeholder documentation for __listOfOutputGroup
@@ -3552,14 +3828,29 @@ export interface EncoderSettings {
   OutputGroups: OutputGroup[] | undefined;
 
   /**
+   * Settings for caption decriptions
+   */
+  CaptionDescriptions?: CaptionDescription[];
+
+  /**
+   * Feature Activations
+   */
+  FeatureActivations?: FeatureActivations;
+
+  /**
    * Contains settings used to acquire and adjust timecode information from inputs.
    */
   TimecodeConfig: TimecodeConfig | undefined;
 
   /**
-   * Placeholder documentation for __listOfVideoDescription
+   * Settings for ad avail blanking.
    */
-  VideoDescriptions: VideoDescription[] | undefined;
+  AvailBlanking?: AvailBlanking;
+
+  /**
+   * Settings for blackout slate.
+   */
+  BlackoutSlate?: BlackoutSlate;
 }
 
 export namespace EncoderSettings {
@@ -3567,6 +3858,30 @@ export namespace EncoderSettings {
     ...obj,
   });
   export const isa = (o: any): o is EncoderSettings => __isa(o, "EncoderSettings");
+}
+
+/**
+ * Feature Activations
+ */
+export interface FeatureActivations {
+  __type?: "FeatureActivations";
+  /**
+   * Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
+   * If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
+   */
+  InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | string;
+}
+
+export namespace FeatureActivations {
+  export const filterSensitiveLog = (obj: FeatureActivations): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is FeatureActivations => __isa(o, "FeatureActivations");
+}
+
+export enum FeatureActivationsInputPrepareScheduleActions {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
 }
 
 export enum FecOutputIncludeFec {
@@ -3585,14 +3900,14 @@ export interface FecOutputSettings {
   ColumnDepth?: number;
 
   /**
-   * Enables column only or column and row based FEC
-   */
-  IncludeFec?: FecOutputIncludeFec | string;
-
-  /**
    * Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
    */
   RowLength?: number;
+
+  /**
+   * Enables column only or column and row based FEC
+   */
+  IncludeFec?: FecOutputIncludeFec | string;
 }
 
 export namespace FecOutputSettings {
@@ -3641,9 +3956,19 @@ export namespace FixedModeScheduleActionStartSettings {
 export interface Fmp4HlsSettings {
   __type?: "Fmp4HlsSettings";
   /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   */
+  NielsenId3Behavior?: Fmp4NielsenId3Behavior | string;
+
+  /**
    * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
    */
   AudioRenditionSets?: string;
+
+  /**
+   * When set to passthrough, timed metadata is passed through from input to output.
+   */
+  TimedMetadataBehavior?: Fmp4TimedMetadataBehavior | string;
 }
 
 export namespace Fmp4HlsSettings {
@@ -3653,20 +3978,30 @@ export namespace Fmp4HlsSettings {
   export const isa = (o: any): o is Fmp4HlsSettings => __isa(o, "Fmp4HlsSettings");
 }
 
+export enum Fmp4NielsenId3Behavior {
+  NO_PASSTHROUGH = "NO_PASSTHROUGH",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
+export enum Fmp4TimedMetadataBehavior {
+  NO_PASSTHROUGH = "NO_PASSTHROUGH",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
 /**
  * Settings to specify if an action follows another.
  */
 export interface FollowModeScheduleActionStartSettings {
   __type?: "FollowModeScheduleActionStartSettings";
   /**
-   * Identifies whether this action starts relative to the start or relative to the end of the reference action.
-   */
-  FollowPoint: FollowPoint | string | undefined;
-
-  /**
    * The action name of another action that this one refers to.
    */
   ReferenceActionName: string | undefined;
+
+  /**
+   * Identifies whether this action starts relative to the start or relative to the end of the reference action.
+   */
+  FollowPoint: FollowPoint | string | undefined;
 }
 
 export namespace FollowModeScheduleActionStartSettings {
@@ -3748,14 +4083,14 @@ export namespace FrameCaptureOutputSettings {
 export interface FrameCaptureSettings {
   __type?: "FrameCaptureSettings";
   /**
-   * The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
-   */
-  CaptureInterval: number | undefined;
-
-  /**
    * Unit for the frame capture interval.
    */
   CaptureIntervalUnits?: FrameCaptureIntervalUnit | string;
+
+  /**
+   * The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
+   */
+  CaptureInterval: number | undefined;
 }
 
 export namespace FrameCaptureSettings {
@@ -3790,29 +4125,6 @@ export namespace GatewayTimeoutException {
 export interface GlobalConfiguration {
   __type?: "GlobalConfiguration";
   /**
-   * Value to set the initial audio gain for the Live Event.
-   */
-  InitialAudioGain?: number;
-
-  /**
-   * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-   */
-  InputEndAction?: GlobalConfigurationInputEndAction | string;
-
-  /**
-   * Settings for system actions when input is lost.
-   */
-  InputLossBehavior?: InputLossBehavior;
-
-  /**
-   * Indicates how MediaLive pipelines are synchronized.
-   *
-   * PIPELINELOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other.
-   * EPOCHLOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
-   */
-  OutputLockingMode?: GlobalConfigurationOutputLockingMode | string;
-
-  /**
    * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
    */
   OutputTimingSource?: GlobalConfigurationOutputTimingSource | string;
@@ -3821,6 +4133,29 @@ export interface GlobalConfiguration {
    * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
    */
   SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | string;
+
+  /**
+   * Value to set the initial audio gain for the Live Event.
+   */
+  InitialAudioGain?: number;
+
+  /**
+   * Indicates how MediaLive pipelines are synchronized.
+   *
+   * PIPELINE_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other.
+   * EPOCH_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+   */
+  OutputLockingMode?: GlobalConfigurationOutputLockingMode | string;
+
+  /**
+   * Settings for system actions when input is lost.
+   */
+  InputLossBehavior?: InputLossBehavior;
+
+  /**
+   * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+   */
+  InputEndAction?: GlobalConfigurationInputEndAction | string;
 }
 
 export namespace GlobalConfiguration {
@@ -3870,11 +4205,6 @@ export enum H264ColorMetadata {
 export interface H264ColorSpaceSettings {
   __type?: "H264ColorSpaceSettings";
   /**
-   * Passthrough applies no color space conversion to the output
-   */
-  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
-
-  /**
    * Rec601 Settings
    */
   Rec601Settings?: Rec601Settings;
@@ -3883,6 +4213,11 @@ export interface H264ColorSpaceSettings {
    * Rec709 Settings
    */
   Rec709Settings?: Rec709Settings;
+
+  /**
+   * Passthrough applies no color space conversion to the output
+   */
+  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
 }
 
 export namespace H264ColorSpaceSettings {
@@ -3897,7 +4232,30 @@ export enum H264EntropyEncoding {
   CAVLC = "CAVLC",
 }
 
+/**
+ * H264 Filter Settings
+ */
+export interface H264FilterSettings {
+  __type?: "H264FilterSettings";
+  /**
+   * Temporal Filter Settings
+   */
+  TemporalFilterSettings?: TemporalFilterSettings;
+}
+
+export namespace H264FilterSettings {
+  export const filterSensitiveLog = (obj: H264FilterSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is H264FilterSettings => __isa(o, "H264FilterSettings");
+}
+
 export enum H264FlickerAq {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum H264ForceFieldPictures {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
@@ -3957,6 +4315,11 @@ export enum H264Profile {
   MAIN = "MAIN",
 }
 
+export enum H264QualityLevel {
+  ENHANCED_QUALITY = "ENHANCED_QUALITY",
+  STANDARD_QUALITY = "STANDARD_QUALITY",
+}
+
 export enum H264RateControlMode {
   CBR = "CBR",
   MULTIPLEX = "MULTIPLEX",
@@ -3980,69 +4343,14 @@ export enum H264SceneChangeDetect {
 export interface H264Settings {
   __type?: "H264Settings";
   /**
-   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
-   */
-  AdaptiveQuantization?: H264AdaptiveQuantization | string;
-
-  /**
-   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
-   */
-  AfdSignaling?: AfdSignaling | string;
-
-  /**
-   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
-   */
-  Bitrate?: number;
-
-  /**
-   * Percentage of the buffer that should initially be filled (HRD buffer model).
-   */
-  BufFillPct?: number;
-
-  /**
-   * Size of buffer (HRD buffer model) in bits.
-   */
-  BufSize?: number;
-
-  /**
-   * Includes colorspace metadata in the output.
-   */
-  ColorMetadata?: H264ColorMetadata | string;
-
-  /**
    * Color Space settings
    */
   ColorSpaceSettings?: H264ColorSpaceSettings;
 
   /**
-   * Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
+   * Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.
    */
-  EntropyEncoding?: H264EntropyEncoding | string;
-
-  /**
-   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
-   */
-  FixedAfd?: FixedAfd | string;
-
-  /**
-   * If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
-   */
-  FlickerAq?: H264FlickerAq | string;
-
-  /**
-   * This field indicates how the output video frame rate is specified.  If "specified" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if "initializeFromSource" is selected then the output video frame rate will be set equal to the input video frame rate of the first input.
-   */
-  FramerateControl?: H264FramerateControl | string;
-
-  /**
-   * Framerate denominator.
-   */
-  FramerateDenominator?: number;
-
-  /**
-   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
-   */
-  FramerateNumerator?: number;
+  Softness?: number;
 
   /**
    * Documentation update needed
@@ -4050,14 +4358,39 @@ export interface H264Settings {
   GopBReference?: H264GopBReference | string;
 
   /**
-   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   * Pixel Aspect Ratio denominator.
    */
-  GopClosedCadence?: number;
+  ParDenominator?: number;
 
   /**
-   * Number of B-frames between reference frames.
+   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
    */
-  GopNumBFrames?: number;
+  Bitrate?: number;
+
+  /**
+   * If set to enabled, adjust quantization within each frame based on spatial variation of content complexity.
+   */
+  SpatialAq?: H264SpatialAq | string;
+
+  /**
+   * Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
+   */
+  EntropyEncoding?: H264EntropyEncoding | string;
+
+  /**
+   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
+   */
+  GopSizeUnits?: H264GopSizeUnits | string;
+
+  /**
+   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
+   */
+  FixedAfd?: FixedAfd | string;
+
+  /**
+   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
+   */
+  AfdSignaling?: AfdSignaling | string;
 
   /**
    * GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
@@ -4067,26 +4400,19 @@ export interface H264Settings {
   GopSize?: number;
 
   /**
-   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
-   */
-  GopSizeUnits?: H264GopSizeUnits | string;
-
-  /**
-   * H.264 Level.
-   */
-  Level?: H264Level | string;
-
-  /**
-   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
-   */
-  LookAheadRateControl?: H264LookAheadRateControl | string;
-
-  /**
-   * For QVBR: See the tooltip for Quality level
+   * Scene change detection.
    *
-   * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+   * - On: inserts I-frames when scene change is detected.
+   * - Off: does not force an I-frame when scene change is detected.
    */
-  MaxBitrate?: number;
+  SceneChangeDetect?: H264SceneChangeDetect | string;
+
+  /**
+   * This setting applies only when scan type is "interlaced." It controls whether coding is performed on a field basis or on a frame basis. (When the video is progressive, the coding is always performed on a frame basis.)
+   * enabled: Force MediaLive to code on a field basis, so that odd and even sets of fields are coded separately.
+   * disabled: Code the two sets of fields separately (on a field basis) or together (on a frame basis using PAFF), depending on what is most appropriate for the content.
+   */
+  ForceFieldPictures?: H264ForceFieldPictures | string;
 
   /**
    * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
@@ -4094,9 +4420,46 @@ export interface H264Settings {
   MinIInterval?: number;
 
   /**
+   * Leave as STANDARD_QUALITY or choose a different value (which might result in additional costs to run the channel).
+   * - ENHANCED_QUALITY: Produces a slightly better video quality without an increase in the bitrate. Has an effect only when the Rate control mode is QVBR or CBR. If this channel is in a MediaLive multiplex, the value must be ENHANCED_QUALITY.
+   * - STANDARD_QUALITY: Valid for any Rate control mode.
+   */
+  QualityLevel?: H264QualityLevel | string;
+
+  /**
+   * Framerate denominator.
+   */
+  FramerateDenominator?: number;
+
+  /**
+   * This field indicates how the output video frame rate is specified.  If "specified" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if "initializeFromSource" is selected then the output video frame rate will be set equal to the input video frame rate of the first input.
+   */
+  FramerateControl?: H264FramerateControl | string;
+
+  /**
+   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+   */
+  AdaptiveQuantization?: H264AdaptiveQuantization | string;
+
+  /**
+   * Optional filters that you can apply to an encode.
+   */
+  FilterSettings?: H264FilterSettings;
+
+  /**
    * Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
    */
   NumRefFrames?: number;
+
+  /**
+   * Produces a bitstream compliant with SMPTE RP-2027.
+   */
+  Syntax?: H264Syntax | string;
+
+  /**
+   * H.264 Level.
+   */
+  Level?: H264Level | string;
 
   /**
    * This field indicates how the output pixel aspect ratio is specified.  If "specified" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if "initializeFromSource" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input.
@@ -4104,27 +4467,29 @@ export interface H264Settings {
   ParControl?: H264ParControl | string;
 
   /**
-   * Pixel Aspect Ratio denominator.
+   * If set to enabled, adjust quantization within each frame based on temporal variation of content complexity.
    */
-  ParDenominator?: number;
+  TemporalAq?: H264TemporalAq | string;
 
   /**
-   * Pixel Aspect Ratio numerator.
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
    */
-  ParNumerator?: number;
+  GopClosedCadence?: number;
+
+  /**
+   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+   */
+  FramerateNumerator?: number;
+
+  /**
+   * If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+   */
+  FlickerAq?: H264FlickerAq | string;
 
   /**
    * H.264 Profile.
    */
   Profile?: H264Profile | string;
-
-  /**
-   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
-   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
-   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
-   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
-   */
-  QvbrQualityLevel?: number;
 
   /**
    * Rate control mode.
@@ -4145,17 +4510,29 @@ export interface H264Settings {
   RateControlMode?: H264RateControlMode | string;
 
   /**
-   * Sets the scan type of the output to progressive or top-field-first interlaced.
+   * For QVBR: See the tooltip for Quality level
+   *
+   * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
    */
-  ScanType?: H264ScanType | string;
+  MaxBitrate?: number;
 
   /**
-   * Scene change detection.
-   *
-   * - On: inserts I-frames when scene change is detected.
-   * - Off: does not force an I-frame when scene change is detected.
+   * Includes colorspace metadata in the output.
    */
-  SceneChangeDetect?: H264SceneChangeDetect | string;
+  ColorMetadata?: H264ColorMetadata | string;
+
+  /**
+   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
+   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
+   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
+   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+   */
+  QvbrQualityLevel?: number;
+
+  /**
+   * If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
+   */
+  SubgopLength?: H264SubGopLength | string;
 
   /**
    * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
@@ -4164,29 +4541,14 @@ export interface H264Settings {
   Slices?: number;
 
   /**
-   * Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.
+   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
    */
-  Softness?: number;
+  LookAheadRateControl?: H264LookAheadRateControl | string;
 
   /**
-   * If set to enabled, adjust quantization within each frame based on spatial variation of content complexity.
+   * Size of buffer (HRD buffer model) in bits.
    */
-  SpatialAq?: H264SpatialAq | string;
-
-  /**
-   * If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
-   */
-  SubgopLength?: H264SubGopLength | string;
-
-  /**
-   * Produces a bitstream compliant with SMPTE RP-2027.
-   */
-  Syntax?: H264Syntax | string;
-
-  /**
-   * If set to enabled, adjust quantization within each frame based on temporal variation of content complexity.
-   */
-  TemporalAq?: H264TemporalAq | string;
+  BufSize?: number;
 
   /**
    * Determines how timecodes should be inserted into the video elementary stream.
@@ -4194,6 +4556,26 @@ export interface H264Settings {
    * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
    */
   TimecodeInsertion?: H264TimecodeInsertionBehavior | string;
+
+  /**
+   * Sets the scan type of the output to progressive or top-field-first interlaced.
+   */
+  ScanType?: H264ScanType | string;
+
+  /**
+   * Percentage of the buffer that should initially be filled (HRD buffer model).
+   */
+  BufFillPct?: number;
+
+  /**
+   * Pixel Aspect Ratio numerator.
+   */
+  ParNumerator?: number;
+
+  /**
+   * Number of B-frames between reference frames.
+   */
+  GopNumBFrames?: number;
 }
 
 export namespace H264Settings {
@@ -4253,11 +4635,6 @@ export enum H265ColorMetadata {
 export interface H265ColorSpaceSettings {
   __type?: "H265ColorSpaceSettings";
   /**
-   * Passthrough applies no color space conversion to the output
-   */
-  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
-
-  /**
    * Hdr10 Settings
    */
   Hdr10Settings?: Hdr10Settings;
@@ -4271,6 +4648,11 @@ export interface H265ColorSpaceSettings {
    * Rec709 Settings
    */
   Rec709Settings?: Rec709Settings;
+
+  /**
+   * Passthrough applies no color space conversion to the output
+   */
+  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
 }
 
 export namespace H265ColorSpaceSettings {
@@ -4278,6 +4660,24 @@ export namespace H265ColorSpaceSettings {
     ...obj,
   });
   export const isa = (o: any): o is H265ColorSpaceSettings => __isa(o, "H265ColorSpaceSettings");
+}
+
+/**
+ * H265 Filter Settings
+ */
+export interface H265FilterSettings {
+  __type?: "H265FilterSettings";
+  /**
+   * Temporal Filter Settings
+   */
+  TemporalFilterSettings?: TemporalFilterSettings;
+}
+
+export namespace H265FilterSettings {
+  export const filterSensitiveLog = (obj: H265FilterSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is H265FilterSettings => __isa(o, "H265FilterSettings");
 }
 
 export enum H265FlickerAq {
@@ -4325,6 +4725,7 @@ export enum H265RateControlMode {
 }
 
 export enum H265ScanType {
+  INTERLACED = "INTERLACED",
   PROGRESSIVE = "PROGRESSIVE",
 }
 
@@ -4339,9 +4740,29 @@ export enum H265SceneChangeDetect {
 export interface H265Settings {
   __type?: "H265Settings";
   /**
-   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+   * Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
    */
-  AdaptiveQuantization?: H265AdaptiveQuantization | string;
+  AlternativeTransferFunction?: H265AlternativeTransferFunction | string;
+
+  /**
+   * Pixel Aspect Ratio denominator.
+   */
+  ParDenominator?: number;
+
+  /**
+   * Color Space settings
+   */
+  ColorSpaceSettings?: H265ColorSpaceSettings;
+
+  /**
+   * H.265 Tier.
+   */
+  Tier?: H265Tier | string;
+
+  /**
+   * For QVBR: See the tooltip for Quality level
+   */
+  MaxBitrate?: number;
 
   /**
    * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
@@ -4349,14 +4770,14 @@ export interface H265Settings {
   AfdSignaling?: AfdSignaling | string;
 
   /**
-   * Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
+   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
    */
-  AlternativeTransferFunction?: H265AlternativeTransferFunction | string;
+  FixedAfd?: FixedAfd | string;
 
   /**
-   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
    */
-  Bitrate?: number;
+  GopSizeUnits?: H265GopSizeUnits | string;
 
   /**
    * Size of buffer (HRD buffer model) in bits.
@@ -4369,46 +4790,21 @@ export interface H265Settings {
   ColorMetadata?: H265ColorMetadata | string;
 
   /**
-   * Color Space settings
+   * Pixel Aspect Ratio numerator.
    */
-  ColorSpaceSettings?: H265ColorSpaceSettings;
+  ParNumerator?: number;
 
   /**
-   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
+   * Sets the scan type of the output to progressive or top-field-first interlaced.
    */
-  FixedAfd?: FixedAfd | string;
+  ScanType?: H265ScanType | string;
 
   /**
-   * If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+   * Determines how timecodes should be inserted into the video elementary stream.
+   * - 'disabled': Do not include timecodes
+   * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
    */
-  FlickerAq?: H265FlickerAq | string;
-
-  /**
-   * Framerate denominator.
-   */
-  FramerateDenominator: number | undefined;
-
-  /**
-   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
-   */
-  FramerateNumerator: number | undefined;
-
-  /**
-   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
-   */
-  GopClosedCadence?: number;
-
-  /**
-   * GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
-   * If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
-   * If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
-   */
-  GopSize?: number;
-
-  /**
-   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
-   */
-  GopSizeUnits?: H265GopSizeUnits | string;
+  TimecodeInsertion?: H265TimecodeInsertionBehavior | string;
 
   /**
    * H.265 Level.
@@ -4416,34 +4812,10 @@ export interface H265Settings {
   Level?: H265Level | string;
 
   /**
-   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
    */
-  LookAheadRateControl?: H265LookAheadRateControl | string;
-
-  /**
-   * For QVBR: See the tooltip for Quality level
-   */
-  MaxBitrate?: number;
-
-  /**
-   * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
-   */
-  MinIInterval?: number;
-
-  /**
-   * Pixel Aspect Ratio denominator.
-   */
-  ParDenominator?: number;
-
-  /**
-   * Pixel Aspect Ratio numerator.
-   */
-  ParNumerator?: number;
-
-  /**
-   * H.265 Profile.
-   */
-  Profile?: H265Profile | string;
+  Slices?: number;
 
   /**
    * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
@@ -4454,6 +4826,41 @@ export interface H265Settings {
   QvbrQualityLevel?: number;
 
   /**
+   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
+   */
+  LookAheadRateControl?: H265LookAheadRateControl | string;
+
+  /**
+   * If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+   */
+  FlickerAq?: H265FlickerAq | string;
+
+  /**
+   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+   */
+  FramerateNumerator: number | undefined;
+
+  /**
+   * H.265 Profile.
+   */
+  Profile?: H265Profile | string;
+
+  /**
+   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   */
+  Bitrate?: number;
+
+  /**
+   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+   */
+  AdaptiveQuantization?: H265AdaptiveQuantization | string;
+
+  /**
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   */
+  GopClosedCadence?: number;
+
+  /**
    * Rate control mode.
    *
    * QVBR: Quality will match the specified quality level except when it is constrained by the
@@ -4461,13 +4868,22 @@ export interface H265Settings {
    *
    * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
    * your assets to devices that cannot handle variable bitrates.
+   *
+   * Multiplex: This rate control mode is only supported (and is required) when the video is being
+   * delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
+   * by the properties within the Multiplex Program.
    */
   RateControlMode?: H265RateControlMode | string;
 
   /**
-   * Sets the scan type of the output to progressive or top-field-first interlaced.
+   * Framerate denominator.
    */
-  ScanType?: H265ScanType | string;
+  FramerateDenominator: number | undefined;
+
+  /**
+   * Optional filters that you can apply to an encode.
+   */
+  FilterSettings?: H265FilterSettings;
 
   /**
    * Scene change detection.
@@ -4475,22 +4891,16 @@ export interface H265Settings {
   SceneChangeDetect?: H265SceneChangeDetect | string;
 
   /**
-   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
-   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
+   * GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
+   * If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
+   * If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
    */
-  Slices?: number;
+  GopSize?: number;
 
   /**
-   * H.265 Tier.
+   * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
    */
-  Tier?: H265Tier | string;
-
-  /**
-   * Determines how timecodes should be inserted into the video elementary stream.
-   * - 'disabled': Do not include timecodes
-   * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
-   */
-  TimecodeInsertion?: H265TimecodeInsertionBehavior | string;
+  MinIInterval?: number;
 }
 
 export namespace H265Settings {
@@ -4554,29 +4964,14 @@ export enum HlsAkamaiHttpTransferMode {
 export interface HlsAkamaiSettings {
   __type?: "HlsAkamaiSettings";
   /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   */
-  ConnectionRetryInterval?: number;
-
-  /**
    * Size in seconds of file cache for streaming outputs.
    */
   FilecacheDuration?: number;
 
   /**
-   * Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
+   * Token parameter for authenticated akamai. If not specified, _gda_ is used.
    */
-  HttpTransferMode?: HlsAkamaiHttpTransferMode | string;
-
-  /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state.
-   */
-  NumRetries?: number;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   */
-  RestartDelay?: number;
+  Token?: string;
 
   /**
    * Salt for authenticated Akamai.
@@ -4584,9 +4979,24 @@ export interface HlsAkamaiSettings {
   Salt?: string;
 
   /**
-   * Token parameter for authenticated akamai. If not specified, _gda_ is used.
+   * Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
    */
-  Token?: string;
+  HttpTransferMode?: HlsAkamaiHttpTransferMode | string;
+
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   */
+  ConnectionRetryInterval?: number;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   */
+  RestartDelay?: number;
+
+  /**
+   * Number of retry attempts that will be made before the Live Event is put into an error state.
+   */
+  NumRetries?: number;
 }
 
 export namespace HlsAkamaiSettings {
@@ -4602,6 +5012,11 @@ export namespace HlsAkamaiSettings {
 export interface HlsBasicPutSettings {
   __type?: "HlsBasicPutSettings";
   /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   */
+  RestartDelay?: number;
+
+  /**
    * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
    */
   ConnectionRetryInterval?: number;
@@ -4615,11 +5030,6 @@ export interface HlsBasicPutSettings {
    * Number of retry attempts that will be made before the Live Event is put into an error state.
    */
   NumRetries?: number;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   */
-  RestartDelay?: number;
 }
 
 export namespace HlsBasicPutSettings {
@@ -4646,6 +5056,11 @@ export interface HlsCdnSettings {
   HlsAkamaiSettings?: HlsAkamaiSettings;
 
   /**
+   * Hls Webdav Settings
+   */
+  HlsWebdavSettings?: HlsWebdavSettings;
+
+  /**
    * Hls Basic Put Settings
    */
   HlsBasicPutSettings?: HlsBasicPutSettings;
@@ -4654,11 +5069,6 @@ export interface HlsCdnSettings {
    * Hls Media Store Settings
    */
   HlsMediaStoreSettings?: HlsMediaStoreSettings;
-
-  /**
-   * Hls Webdav Settings
-   */
-  HlsWebdavSettings?: HlsWebdavSettings;
 }
 
 export namespace HlsCdnSettings {
@@ -4694,6 +5104,90 @@ export enum HlsEncryptionType {
 export interface HlsGroupSettings {
   __type?: "HlsGroupSettings";
   /**
+   * Indicates whether the output manifest should use floating point or integer values for segment duration.
+   */
+  ManifestDurationFormat?: HlsManifestDurationFormat | string;
+
+  /**
+   * Place segments in subdirectories.
+   */
+  DirectoryStructure?: HlsDirectoryStructure | string;
+
+  /**
+   * Timed Metadata interval in seconds.
+   */
+  TimedMetadataId3Period?: number;
+
+  /**
+   * Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
+   */
+  KeepSegments?: number;
+
+  /**
+   * When set to gzip, compresses HLS playlist.
+   */
+  ManifestCompression?: HlsManifestCompression | string;
+
+  /**
+   * Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
+   */
+  SegmentLength?: number;
+
+  /**
+   * The key provider settings.
+   */
+  KeyProviderSettings?: KeyProviderSettings;
+
+  /**
+   * Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
+   */
+  IndexNSegments?: number;
+
+  /**
+   * Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to "insert".
+   */
+  CaptionLanguageMappings?: CaptionLanguageMapping[];
+
+  /**
+   * SEGMENTED_FILES: Emit the program as segments - multiple .ts media files.
+   *
+   * SINGLE_FILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+   */
+  TsFileMode?: HlsTsFileMode | string;
+
+  /**
+   * For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
+   */
+  IvSource?: HlsIvSource | string;
+
+  /**
+   * Optional. One value per output group.
+   *
+   * This field is required only if you are completing Base URL content A, and the downstream system has notified you that the media files for pipeline 1 of all outputs are in a location different from the media files for pipeline 0.
+   */
+  BaseUrlContent1?: string;
+
+  /**
+   * useInputSegmentation has been deprecated. The configured segment size is always used.
+   */
+  SegmentationMode?: HlsSegmentationMode | string;
+
+  /**
+   * The value specifies how the key is represented in the resource identified by the URI.  If parameter is absent, an implicit value of "identity" is used.  A reverse DNS string can also be given.
+   */
+  KeyFormat?: string;
+
+  /**
+   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
+   */
+  ProgramDateTime?: HlsProgramDateTime | string;
+
+  /**
+   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
+   */
+  BaseUrlManifest?: string;
+
+  /**
    * Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
    */
   AdMarkers?: (HlsAdMarkers | string)[];
@@ -4704,28 +5198,14 @@ export interface HlsGroupSettings {
   BaseUrlContent?: string;
 
   /**
-   * Optional. One value per output group.
-   *
-   * This field is required only if you are completing Base URL content A, and the downstream system has notified you that the media files for pipeline 1 of all outputs are in a location different from the media files for pipeline 0.
+   * Provides an extra millisecond delta offset to fine tune the timestamps.
    */
-  BaseUrlContent1?: string;
+  TimestampDeltaMilliseconds?: number;
 
   /**
-   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
+   * Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
    */
-  BaseUrlManifest?: string;
-
-  /**
-   * Optional. One value per output group.
-   *
-   * Complete this field only if you are completing Base URL manifest A, and the downstream system has notified you that the child manifest files for pipeline 1 of all outputs are in a location different from the child manifest files for pipeline 0.
-   */
-  BaseUrlManifest1?: string;
-
-  /**
-   * Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to "insert".
-   */
-  CaptionLanguageMappings?: CaptionLanguageMapping[];
+  SegmentsPerSubdirectory?: number;
 
   /**
    * Applies only to 608 Embedded output captions.
@@ -4736,46 +5216,6 @@ export interface HlsGroupSettings {
   CaptionLanguageSetting?: HlsCaptionLanguageSetting | string;
 
   /**
-   * When set to "disabled", sets the #EXT-X-ALLOW-CACHE:no tag in the manifest, which prevents clients from saving media segments for later replay.
-   */
-  ClientCache?: HlsClientCache | string;
-
-  /**
-   * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
-   */
-  CodecSpecification?: HlsCodecSpecification | string;
-
-  /**
-   * For use with encryptionType. This is a 128-bit, 16-byte hex value represented by a 32-character text string. If ivSource is set to "explicit" then this parameter is required and is used as the IV for encryption.
-   */
-  ConstantIv?: string;
-
-  /**
-   * A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Place segments in subdirectories.
-   */
-  DirectoryStructure?: HlsDirectoryStructure | string;
-
-  /**
-   * Encrypts the segments with the given encryption scheme.  Exclude this parameter if no encryption is desired.
-   */
-  EncryptionType?: HlsEncryptionType | string;
-
-  /**
-   * Parameters that control interactions with the CDN.
-   */
-  HlsCdnSettings?: HlsCdnSettings;
-
-  /**
-   * State of HLS ID3 Segment Tagging
-   */
-  HlsId3SegmentTagging?: HlsId3SegmentTaggingState | string;
-
-  /**
    * DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field).
    *
    * STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
@@ -4783,83 +5223,23 @@ export interface HlsGroupSettings {
   IFrameOnlyPlaylists?: IFrameOnlyPlaylistType | string;
 
   /**
-   * Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
-   */
-  IndexNSegments?: number;
-
-  /**
-   * Parameter that control output group behavior on input loss.
-   */
-  InputLossAction?: InputLossActionForHlsOut | string;
-
-  /**
    * For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
    */
   IvInManifest?: HlsIvInManifest | string;
 
   /**
-   * For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
-   */
-  IvSource?: HlsIvSource | string;
-
-  /**
-   * Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
-   */
-  KeepSegments?: number;
-
-  /**
-   * The value specifies how the key is represented in the resource identified by the URI.  If parameter is absent, an implicit value of "identity" is used.  A reverse DNS string can also be given.
-   */
-  KeyFormat?: string;
-
-  /**
-   * Either a single positive integer version value or a slash delimited list of version values (1/2/3).
-   */
-  KeyFormatVersions?: string;
-
-  /**
-   * The key provider settings.
-   */
-  KeyProviderSettings?: KeyProviderSettings;
-
-  /**
-   * When set to gzip, compresses HLS playlist.
-   */
-  ManifestCompression?: HlsManifestCompression | string;
-
-  /**
-   * Indicates whether the output manifest should use floating point or integer values for segment duration.
-   */
-  ManifestDurationFormat?: HlsManifestDurationFormat | string;
-
-  /**
-   * When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
-   */
-  MinSegmentLength?: number;
-
-  /**
-   * If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event.
+   * MANIFESTS_AND_SEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group.
    *
-   * VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
-   */
-  Mode?: HlsMode | string;
-
-  /**
-   * MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group.
+   * VARIANT_MANIFESTS_AND_SEGMENTS: Generates media manifests for this output group, but not a master manifest.
    *
-   * SEGMENTSONLY: Does not generate any manifests for this output group.
+   * SEGMENTS_ONLY: Does not generate any manifests for this output group.
    */
   OutputSelection?: HlsOutputSelection | string;
 
   /**
-   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
+   * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
    */
-  ProgramDateTime?: HlsProgramDateTime | string;
-
-  /**
-   * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-   */
-  ProgramDateTimePeriod?: number;
+  StreamInfResolution?: HlsStreamInfResolution | string;
 
   /**
    * ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines.
@@ -4871,24 +5251,9 @@ export interface HlsGroupSettings {
   RedundantManifest?: HlsRedundantManifest | string;
 
   /**
-   * Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
+   * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
    */
-  SegmentLength?: number;
-
-  /**
-   * useInputSegmentation has been deprecated. The configured segment size is always used.
-   */
-  SegmentationMode?: HlsSegmentationMode | string;
-
-  /**
-   * Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
-   */
-  SegmentsPerSubdirectory?: number;
-
-  /**
-   * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
-   */
-  StreamInfResolution?: HlsStreamInfResolution | string;
+  ProgramDateTimePeriod?: number;
 
   /**
    * Indicates ID3 frame that has the timecode.
@@ -4896,21 +5261,68 @@ export interface HlsGroupSettings {
   TimedMetadataId3Frame?: HlsTimedMetadataId3Frame | string;
 
   /**
-   * Timed Metadata interval in seconds.
+   * When set to "disabled", sets the #EXT-X-ALLOW-CACHE:no tag in the manifest, which prevents clients from saving media segments for later replay.
    */
-  TimedMetadataId3Period?: number;
+  ClientCache?: HlsClientCache | string;
 
   /**
-   * Provides an extra millisecond delta offset to fine tune the timestamps.
+   * When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
    */
-  TimestampDeltaMilliseconds?: number;
+  MinSegmentLength?: number;
 
   /**
-   * SEGMENTEDFILES: Emit the program as segments - multiple .ts media files.
+   * Optional. One value per output group.
    *
-   * SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+   * Complete this field only if you are completing Base URL manifest A, and the downstream system has notified you that the child manifest files for pipeline 1 of all outputs are in a location different from the child manifest files for pipeline 0.
    */
-  TsFileMode?: HlsTsFileMode | string;
+  BaseUrlManifest1?: string;
+
+  /**
+   * If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event.
+   *
+   * VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
+   */
+  Mode?: HlsMode | string;
+
+  /**
+   * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
+   */
+  CodecSpecification?: HlsCodecSpecification | string;
+
+  /**
+   * A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Parameter that control output group behavior on input loss.
+   */
+  InputLossAction?: InputLossActionForHlsOut | string;
+
+  /**
+   * Encrypts the segments with the given encryption scheme.  Exclude this parameter if no encryption is desired.
+   */
+  EncryptionType?: HlsEncryptionType | string;
+
+  /**
+   * For use with encryptionType. This is a 128-bit, 16-byte hex value represented by a 32-character text string. If ivSource is set to "explicit" then this parameter is required and is used as the IV for encryption.
+   */
+  ConstantIv?: string;
+
+  /**
+   * Either a single positive integer version value or a slash delimited list of version values (1/2/3).
+   */
+  KeyFormatVersions?: string;
+
+  /**
+   * State of HLS ID3 Segment Tagging
+   */
+  HlsId3SegmentTagging?: HlsId3SegmentTaggingState | string;
+
+  /**
+   * Parameters that control interactions with the CDN.
+   */
+  HlsCdnSettings?: HlsCdnSettings;
 }
 
 export namespace HlsGroupSettings {
@@ -4955,9 +5367,9 @@ export enum HlsId3SegmentTaggingState {
 export interface HlsInputSettings {
   __type?: "HlsInputSettings";
   /**
-   * When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest.
+   * The number of seconds between retries when an attempt to read a manifest or segment fails.
    */
-  Bandwidth?: number;
+  RetryInterval?: number;
 
   /**
    * When specified, reading of the HLS input will begin this many buffer segments from the end (most recently written segment).  When not specified, the HLS input will begin with the first segment specified in the m3u8.
@@ -4965,14 +5377,14 @@ export interface HlsInputSettings {
   BufferSegments?: number;
 
   /**
+   * When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest.
+   */
+  Bandwidth?: number;
+
+  /**
    * The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
    */
   Retries?: number;
-
-  /**
-   * The number of seconds between retries when an attempt to read a manifest or segment fails.
-   */
-  RetryInterval?: number;
 }
 
 export namespace HlsInputSettings {
@@ -5008,21 +5420,6 @@ export enum HlsManifestDurationFormat {
 export interface HlsMediaStoreSettings {
   __type?: "HlsMediaStoreSettings";
   /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   */
-  ConnectionRetryInterval?: number;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   */
-  FilecacheDuration?: number;
-
-  /**
-   * When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
-   */
-  MediaStoreStorageClass?: HlsMediaStoreStorageClass | string;
-
-  /**
    * Number of retry attempts that will be made before the Live Event is put into an error state.
    */
   NumRetries?: number;
@@ -5031,6 +5428,21 @@ export interface HlsMediaStoreSettings {
    * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
    */
   RestartDelay?: number;
+
+  /**
+   * When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
+   */
+  MediaStoreStorageClass?: HlsMediaStoreStorageClass | string;
+
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   */
+  ConnectionRetryInterval?: number;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   */
+  FilecacheDuration?: number;
 }
 
 export namespace HlsMediaStoreSettings {
@@ -5052,6 +5464,7 @@ export enum HlsMode {
 export enum HlsOutputSelection {
   MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
   SEGMENTS_ONLY = "SEGMENTS_ONLY",
+  VARIANT_MANIFESTS_AND_SEGMENTS = "VARIANT_MANIFESTS_AND_SEGMENTS",
 }
 
 /**
@@ -5060,10 +5473,9 @@ export enum HlsOutputSelection {
 export interface HlsOutputSettings {
   __type?: "HlsOutputSettings";
   /**
-   * Only applicable when this output is referencing an H.265 video description.
-   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+   * String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
    */
-  H265PackagingType?: HlsH265PackagingType | string;
+  NameModifier?: string;
 
   /**
    * Settings regarding the underlying stream. These settings are different for audio-only outputs.
@@ -5071,9 +5483,10 @@ export interface HlsOutputSettings {
   HlsSettings: HlsSettings | undefined;
 
   /**
-   * String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
+   * Only applicable when this output is referencing an H.265 video description.
+   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
    */
-  NameModifier?: string;
+  H265PackagingType?: HlsH265PackagingType | string;
 
   /**
    * String concatenated to end of segment filenames.
@@ -5109,9 +5522,9 @@ export enum HlsSegmentationMode {
 export interface HlsSettings {
   __type?: "HlsSettings";
   /**
-   * Audio Only Hls Settings
+   * Standard Hls Settings
    */
-  AudioOnlyHlsSettings?: AudioOnlyHlsSettings;
+  StandardHlsSettings?: StandardHlsSettings;
 
   /**
    * Fmp4 Hls Settings
@@ -5119,9 +5532,9 @@ export interface HlsSettings {
   Fmp4HlsSettings?: Fmp4HlsSettings;
 
   /**
-   * Standard Hls Settings
+   * Audio Only Hls Settings
    */
-  StandardHlsSettings?: StandardHlsSettings;
+  AudioOnlyHlsSettings?: AudioOnlyHlsSettings;
 }
 
 export namespace HlsSettings {
@@ -5177,16 +5590,6 @@ export enum HlsWebdavHttpTransferMode {
 export interface HlsWebdavSettings {
   __type?: "HlsWebdavSettings";
   /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   */
-  ConnectionRetryInterval?: number;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   */
-  FilecacheDuration?: number;
-
-  /**
    * Specify whether or not to use chunked transfer encoding to WebDAV.
    */
   HttpTransferMode?: HlsWebdavHttpTransferMode | string;
@@ -5197,9 +5600,19 @@ export interface HlsWebdavSettings {
   NumRetries?: number;
 
   /**
+   * Size in seconds of file cache for streaming outputs.
+   */
+  FilecacheDuration?: number;
+
+  /**
    * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
    */
   RestartDelay?: number;
+
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   */
+  ConnectionRetryInterval?: number;
 }
 
 export namespace HlsWebdavSettings {
@@ -5215,7 +5628,7 @@ export enum IFrameOnlyPlaylistType {
 }
 
 /**
- * Settings to configure an action so that it occurs immediately. This is only supported for input switch actions currently.
+ * Settings to configure an action so that it occurs as soon as possible.
  */
 export interface ImmediateModeScheduleActionStartSettings {
   __type?: "ImmediateModeScheduleActionStartSettings";
@@ -5235,24 +5648,14 @@ export namespace ImmediateModeScheduleActionStartSettings {
 export interface Input {
   __type?: "Input";
   /**
-   * The Unique ARN of the input (generated, immutable).
+   * A list of IDs for all the Input Security Groups attached to the input.
    */
-  Arn?: string;
+  SecurityGroups?: string[];
 
   /**
-   * A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
    */
-  AttachedChannels?: string[];
-
-  /**
-   * A list of the destinations of the input (PUSH-type).
-   */
-  Destinations?: InputDestination[];
-
-  /**
-   * The generated ID of the input (unique for user account, immutable).
-   */
-  Id?: string;
+  RoleArn?: string;
 
   /**
    * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
@@ -5261,30 +5664,14 @@ export interface Input {
   InputClass?: InputClass | string;
 
   /**
-   * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
-   * during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
+   * The Unique ARN of the input (generated, immutable).
    */
-  InputSourceType?: InputSourceType | string;
+  Arn?: string;
 
   /**
-   * A list of MediaConnect Flows for this input.
+   * The generated ID of the input (unique for user account, immutable).
    */
-  MediaConnectFlows?: MediaConnectFlow[];
-
-  /**
-   * The user-assigned name (This is a mutable value).
-   */
-  Name?: string;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-   */
-  RoleArn?: string;
-
-  /**
-   * A list of IDs for all the Input Security Groups attached to the input.
-   */
-  SecurityGroups?: string[];
+  Id?: string;
 
   /**
    * A list of the sources of the input (PULL-type).
@@ -5292,9 +5679,35 @@ export interface Input {
   Sources?: InputSource[];
 
   /**
+   * A list of the destinations of the input (PUSH-type).
+   */
+  Destinations?: InputDestination[];
+
+  /**
+   * The user-assigned name (This is a mutable value).
+   */
+  Name?: string;
+
+  /**
    * Placeholder documentation for InputState
    */
   State?: InputState | string;
+
+  /**
+   * A list of MediaConnect Flows for this input.
+   */
+  MediaConnectFlows?: MediaConnectFlow[];
+
+  /**
+   * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
+   * during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
+   */
+  InputSourceType?: InputSourceType | string;
+
+  /**
+   * Placeholder documentation for InputType
+   */
+  Type?: InputType | string;
 
   /**
    * A collection of key-value pairs.
@@ -5302,9 +5715,14 @@ export interface Input {
   Tags?: { [key: string]: string };
 
   /**
-   * Placeholder documentation for InputType
+   * A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
    */
-  Type?: InputType | string;
+  AttachedChannels?: string[];
+
+  /**
+   * Settings for the input devices.
+   */
+  InputDevices?: InputDeviceSettings[];
 }
 
 export namespace Input {
@@ -5330,6 +5748,11 @@ export interface InputAttachment {
   InputId?: string;
 
   /**
+   * User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
+   */
+  AutomaticInputFailoverSettings?: AutomaticInputFailoverSettings;
+
+  /**
    * Settings of an input (caption selector, etc.)
    */
   InputSettings?: InputSettings;
@@ -5348,14 +5771,14 @@ export namespace InputAttachment {
 export interface InputChannelLevel {
   __type?: "InputChannelLevel";
   /**
-   * Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
-   */
-  Gain: number | undefined;
-
-  /**
    * The index of the input channel used as a source.
    */
   InputChannel: number | undefined;
+
+  /**
+   * Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
+   */
+  Gain: number | undefined;
 }
 
 export namespace InputChannelLevel {
@@ -5381,14 +5804,14 @@ export interface InputClippingSettings {
   InputTimecodeSource: InputTimecodeSource | string | undefined;
 
   /**
-   * Settings to identify the start of the clip.
-   */
-  StartTimecode?: StartTimecode;
-
-  /**
    * Settings to identify the end of the clip.
    */
   StopTimecode?: StopTimecode;
+
+  /**
+   * Settings to identify the start of the clip.
+   */
+  StartTimecode?: StartTimecode;
 }
 
 export namespace InputClippingSettings {
@@ -5420,26 +5843,26 @@ export enum InputDenoiseFilter {
 export interface InputDestination {
   __type?: "InputDestination";
   /**
+   * The port number for the input.
+   */
+  Port?: string;
+
+  /**
+   * The properties for a VPC type input destination.
+   */
+  Vpc?: InputDestinationVpc;
+
+  /**
    * The system-generated static IP address of endpoint.
    * It remains fixed for the lifetime of the input.
    */
   Ip?: string;
 
   /**
-   * The port number for the input.
-   */
-  Port?: string;
-
-  /**
    * This represents the endpoint that the customer stream will be
    * pushed to.
    */
   Url?: string;
-
-  /**
-   * The properties for a VPC type input destination.
-   */
-  Vpc?: InputDestinationVpc;
 }
 
 export namespace InputDestination {
@@ -5474,14 +5897,14 @@ export namespace InputDestinationRequest {
 export interface InputDestinationVpc {
   __type?: "InputDestinationVpc";
   /**
-   * The availability zone of the Input destination.
-   */
-  AvailabilityZone?: string;
-
-  /**
    * The network interface ID of the Input destination in the VPC.
    */
   NetworkInterfaceId?: string;
+
+  /**
+   * The availability zone of the Input destination.
+   */
+  AvailabilityZone?: string;
 }
 
 export namespace InputDestinationVpc {
@@ -5489,6 +5912,254 @@ export namespace InputDestinationVpc {
     ...obj,
   });
   export const isa = (o: any): o is InputDestinationVpc => __isa(o, "InputDestinationVpc");
+}
+
+export enum InputDeviceActiveInput {
+  HDMI = "HDMI",
+  SDI = "SDI",
+}
+
+/**
+ * Configurable settings for the input device.
+ */
+export interface InputDeviceConfigurableSettings {
+  __type?: "InputDeviceConfigurableSettings";
+  /**
+   * The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
+   */
+  MaxBitrate?: number;
+
+  /**
+   * The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
+   */
+  ConfiguredInput?: InputDeviceConfiguredInput | string;
+}
+
+export namespace InputDeviceConfigurableSettings {
+  export const filterSensitiveLog = (obj: InputDeviceConfigurableSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InputDeviceConfigurableSettings => __isa(o, "InputDeviceConfigurableSettings");
+}
+
+export enum InputDeviceConfiguredInput {
+  AUTO = "AUTO",
+  HDMI = "HDMI",
+  SDI = "SDI",
+}
+
+export enum InputDeviceConnectionState {
+  CONNECTED = "CONNECTED",
+  DISCONNECTED = "DISCONNECTED",
+}
+
+/**
+ * Settings that describe the active source from the input device, and the video characteristics of that source.
+ */
+export interface InputDeviceHdSettings {
+  __type?: "InputDeviceHdSettings";
+  /**
+   * The width of the video source, in pixels.
+   */
+  Width?: number;
+
+  /**
+   * The height of the video source, in pixels.
+   */
+  Height?: number;
+
+  /**
+   * If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).
+   */
+  ActiveInput?: InputDeviceActiveInput | string;
+
+  /**
+   * The frame rate of the video source.
+   */
+  Framerate?: number;
+
+  /**
+   * The state of the input device.
+   */
+  DeviceState?: InputDeviceState | string;
+
+  /**
+   * The current maximum bitrate for ingesting this source, in bits per second. You can specify this maximum.
+   */
+  MaxBitrate?: number;
+
+  /**
+   * The source at the input device that is currently active. You can specify this source.
+   */
+  ConfiguredInput?: InputDeviceConfiguredInput | string;
+
+  /**
+   * The scan type of the video source.
+   */
+  ScanType?: InputDeviceScanType | string;
+}
+
+export namespace InputDeviceHdSettings {
+  export const filterSensitiveLog = (obj: InputDeviceHdSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InputDeviceHdSettings => __isa(o, "InputDeviceHdSettings");
+}
+
+export enum InputDeviceIpScheme {
+  DHCP = "DHCP",
+  STATIC = "STATIC",
+}
+
+/**
+ * The network settings for the input device.
+ */
+export interface InputDeviceNetworkSettings {
+  __type?: "InputDeviceNetworkSettings";
+  /**
+   * The subnet mask of the input device.
+   */
+  SubnetMask?: string;
+
+  /**
+   * The network gateway IP address.
+   */
+  Gateway?: string;
+
+  /**
+   * The DNS addresses of the input device.
+   */
+  DnsAddresses?: string[];
+
+  /**
+   * Specifies whether the input device has been configured (outside of MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP address.
+   */
+  IpScheme?: InputDeviceIpScheme | string;
+
+  /**
+   * The IP address of the input device.
+   */
+  IpAddress?: string;
+}
+
+export namespace InputDeviceNetworkSettings {
+  export const filterSensitiveLog = (obj: InputDeviceNetworkSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InputDeviceNetworkSettings => __isa(o, "InputDeviceNetworkSettings");
+}
+
+/**
+ * Settings for an input device.
+ */
+export interface InputDeviceRequest {
+  __type?: "InputDeviceRequest";
+  /**
+   * The unique ID for the device.
+   */
+  Id?: string;
+}
+
+export namespace InputDeviceRequest {
+  export const filterSensitiveLog = (obj: InputDeviceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InputDeviceRequest => __isa(o, "InputDeviceRequest");
+}
+
+export enum InputDeviceScanType {
+  INTERLACED = "INTERLACED",
+  PROGRESSIVE = "PROGRESSIVE",
+}
+
+/**
+ * Settings for an input device.
+ */
+export interface InputDeviceSettings {
+  __type?: "InputDeviceSettings";
+  /**
+   * The unique ID for the device.
+   */
+  Id?: string;
+}
+
+export namespace InputDeviceSettings {
+  export const filterSensitiveLog = (obj: InputDeviceSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InputDeviceSettings => __isa(o, "InputDeviceSettings");
+}
+
+export enum InputDeviceState {
+  IDLE = "IDLE",
+  STREAMING = "STREAMING",
+}
+
+/**
+ * Details of the input device.
+ */
+export interface InputDeviceSummary {
+  __type?: "InputDeviceSummary";
+  /**
+   * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+   */
+  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
+
+  /**
+   * A name that you specify for the input device.
+   */
+  Name?: string;
+
+  /**
+   * The unique ID of the input device.
+   */
+  Id?: string;
+
+  /**
+   * The network MAC address of the input device.
+   */
+  MacAddress?: string;
+
+  /**
+   * Settings that describe an input device that is type HD.
+   */
+  HdDeviceSettings?: InputDeviceHdSettings;
+
+  /**
+   * The state of the connection between the input device and AWS.
+   */
+  ConnectionState?: InputDeviceConnectionState | string;
+
+  /**
+   * The unique ARN of the input device.
+   */
+  Arn?: string;
+
+  /**
+   * Network settings for the input device.
+   */
+  NetworkSettings?: InputDeviceNetworkSettings;
+
+  /**
+   * The type of the input device.
+   */
+  Type?: InputDeviceType | string;
+
+  /**
+   * The unique serial number of the input device.
+   */
+  SerialNumber?: string;
+}
+
+export namespace InputDeviceSummary {
+  export const filterSensitiveLog = (obj: InputDeviceSummary): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InputDeviceSummary => __isa(o, "InputDeviceSummary");
+}
+
+export enum InputDeviceType {
+  HD = "HD",
 }
 
 export enum InputFilter {
@@ -5503,14 +6174,14 @@ export enum InputFilter {
 export interface InputLocation {
   __type?: "InputLocation";
   /**
-   * key used to extract the password from EC2 Parameter store
-   */
-  PasswordParam?: string;
-
-  /**
    * Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
    */
   Uri: string | undefined;
+
+  /**
+   * key used to extract the password from EC2 Parameter store
+   */
+  PasswordParam?: string;
 
   /**
    * Documentation update needed
@@ -5554,7 +6225,17 @@ export interface InputLossBehavior {
   /**
    * Documentation update needed
    */
+  RepeatFrameMsec?: number;
+
+  /**
+   * Documentation update needed
+   */
   BlackFrameMsec?: number;
+
+  /**
+   * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
+   */
+  InputLossImageType?: InputLossImageType | string;
 
   /**
    * When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
@@ -5565,16 +6246,6 @@ export interface InputLossBehavior {
    * When input loss image type is "slate" these fields specify the parameters for accessing the slate.
    */
   InputLossImageSlate?: InputLocation;
-
-  /**
-   * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
-   */
-  InputLossImageType?: InputLossImageType | string;
-
-  /**
-   * Documentation update needed
-   */
-  RepeatFrameMsec?: number;
 }
 
 export namespace InputLossBehavior {
@@ -5595,6 +6266,40 @@ export enum InputMaximumBitrate {
   MAX_50_MBPS = "MAX_50_MBPS",
 }
 
+export enum InputPreference {
+  EQUAL_INPUT_PREFERENCE = "EQUAL_INPUT_PREFERENCE",
+  PRIMARY_INPUT_PREFERRED = "PRIMARY_INPUT_PREFERRED",
+}
+
+/**
+ * Action to prepare an input for a future immediate input switch.
+ */
+export interface InputPrepareScheduleActionSettings {
+  __type?: "InputPrepareScheduleActionSettings";
+  /**
+   * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
+   */
+  InputClippingSettings?: InputClippingSettings;
+
+  /**
+   * The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
+   */
+  UrlPath?: string[];
+
+  /**
+   * The name of the input attachment that should be prepared by this action. If no name is provided, the action will stop the most recent prepare (if any) when activated.
+   */
+  InputAttachmentNameReference?: string;
+}
+
+export namespace InputPrepareScheduleActionSettings {
+  export const filterSensitiveLog = (obj: InputPrepareScheduleActionSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InputPrepareScheduleActionSettings =>
+    __isa(o, "InputPrepareScheduleActionSettings");
+}
+
 export enum InputResolution {
   HD = "HD",
   SD = "SD",
@@ -5607,19 +6312,19 @@ export enum InputResolution {
 export interface InputSecurityGroup {
   __type?: "InputSecurityGroup";
   /**
-   * Unique ARN of Input Security Group
-   */
-  Arn?: string;
-
-  /**
    * The Id of the Input Security Group
    */
   Id?: string;
 
   /**
-   * The list of inputs currently using this Input Security Group.
+   * Whitelist rules and their sync status
    */
-  Inputs?: string[];
+  WhitelistRules?: InputWhitelistRule[];
+
+  /**
+   * Unique ARN of Input Security Group
+   */
+  Arn?: string;
 
   /**
    * The current state of the Input Security Group.
@@ -5627,14 +6332,14 @@ export interface InputSecurityGroup {
   State?: InputSecurityGroupState | string;
 
   /**
+   * The list of inputs currently using this Input Security Group.
+   */
+  Inputs?: string[];
+
+  /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * Whitelist rules and their sync status
-   */
-  WhitelistRules?: InputWhitelistRule[];
 }
 
 export namespace InputSecurityGroup {
@@ -5657,31 +6362,6 @@ export enum InputSecurityGroupState {
 export interface InputSettings {
   __type?: "InputSettings";
   /**
-   * Used to select the audio stream to decode for inputs that have multiple available.
-   */
-  AudioSelectors?: AudioSelector[];
-
-  /**
-   * Used to select the caption input to use for inputs that have multiple available.
-   */
-  CaptionSelectors?: CaptionSelector[];
-
-  /**
-   * Enable or disable the deblock filter when filtering.
-   */
-  DeblockFilter?: InputDeblockFilter | string;
-
-  /**
-   * Enable or disable the denoise filter when filtering.
-   */
-  DenoiseFilter?: InputDenoiseFilter | string;
-
-  /**
-   * Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-   */
-  FilterStrength?: number;
-
-  /**
    * Turns on the filter for this input. MPEG-2 inputs have the deblocking filter enabled by default.
    * 1) auto - filtering will be applied depending on input type/quality
    * 2) disabled - no filtering will be applied to the input
@@ -5690,9 +6370,31 @@ export interface InputSettings {
   InputFilter?: InputFilter | string;
 
   /**
-   * Input settings.
+   * Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
    */
-  NetworkInputSettings?: NetworkInputSettings;
+  FilterStrength?: number;
+
+  /**
+   * Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input. Applicable data types are captions, timecode, AFD, and SCTE-104 messages.
+   * - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any).
+   * - IGNORE: Never extract any ancillary data from SMPTE-2038.
+   */
+  Smpte2038DataPreference?: Smpte2038DataPreference | string;
+
+  /**
+   * Used to select the caption input to use for inputs that have multiple available.
+   */
+  CaptionSelectors?: CaptionSelector[];
+
+  /**
+   * Used to select the audio stream to decode for inputs that have multiple available.
+   */
+  AudioSelectors?: AudioSelector[];
+
+  /**
+   * Informs which video elementary stream to decode for input types that have multiple available.
+   */
+  VideoSelector?: VideoSelector;
 
   /**
    * Loop input if it is a file. This allows a file input to be streamed indefinitely.
@@ -5700,9 +6402,19 @@ export interface InputSettings {
   SourceEndBehavior?: InputSourceEndBehavior | string;
 
   /**
-   * Informs which video elementary stream to decode for input types that have multiple available.
+   * Enable or disable the deblock filter when filtering.
    */
-  VideoSelector?: VideoSelector;
+  DeblockFilter?: InputDeblockFilter | string;
+
+  /**
+   * Input settings.
+   */
+  NetworkInputSettings?: NetworkInputSettings;
+
+  /**
+   * Enable or disable the denoise filter when filtering.
+   */
+  DenoiseFilter?: InputDenoiseFilter | string;
 }
 
 export namespace InputSettings {
@@ -5718,11 +6430,6 @@ export namespace InputSettings {
 export interface InputSource {
   __type?: "InputSource";
   /**
-   * The key used to extract the password from EC2 Parameter store.
-   */
-  PasswordParam?: string;
-
-  /**
    * This represents the customer's source URL where stream is
    * pulled from.
    */
@@ -5732,6 +6439,11 @@ export interface InputSource {
    * The username for the input source.
    */
   Username?: string;
+
+  /**
+   * The key used to extract the password from EC2 Parameter store.
+   */
+  PasswordParam?: string;
 }
 
 export namespace InputSource {
@@ -5752,11 +6464,6 @@ export enum InputSourceEndBehavior {
 export interface InputSourceRequest {
   __type?: "InputSourceRequest";
   /**
-   * The key used to extract the password from EC2 Parameter store.
-   */
-  PasswordParam?: string;
-
-  /**
    * This represents the customer's source URL where stream is
    * pulled from.
    */
@@ -5766,6 +6473,11 @@ export interface InputSourceRequest {
    * The username for the input source.
    */
   Username?: string;
+
+  /**
+   * The key used to extract the password from EC2 Parameter store.
+   */
+  PasswordParam?: string;
 }
 
 export namespace InputSourceRequest {
@@ -5791,14 +6503,14 @@ export interface InputSpecification {
   Codec?: InputCodec | string;
 
   /**
-   * Maximum input bitrate, categorized coarsely
-   */
-  MaximumBitrate?: InputMaximumBitrate | string;
-
-  /**
    * Input resolution, categorized coarsely
    */
   Resolution?: InputResolution | string;
+
+  /**
+   * Maximum input bitrate, categorized coarsely
+   */
+  MaximumBitrate?: InputMaximumBitrate | string;
 }
 
 export namespace InputSpecification {
@@ -5827,14 +6539,14 @@ export interface InputSwitchScheduleActionSettings {
   InputAttachmentNameReference: string | undefined;
 
   /**
-   * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
-   */
-  InputClippingSettings?: InputClippingSettings;
-
-  /**
    * The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
    */
   UrlPath?: string[];
+
+  /**
+   * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
+   */
+  InputClippingSettings?: InputClippingSettings;
 }
 
 export namespace InputSwitchScheduleActionSettings {
@@ -5850,6 +6562,7 @@ export enum InputTimecodeSource {
 }
 
 export enum InputType {
+  INPUT_DEVICE = "INPUT_DEVICE",
   MEDIACONNECT = "MEDIACONNECT",
   MP4_FILE = "MP4_FILE",
   RTMP_PULL = "RTMP_PULL",
@@ -5868,16 +6581,16 @@ export enum InputType {
 export interface InputVpcRequest {
   __type?: "InputVpcRequest";
   /**
-   * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
-   * Requires subnetIds. If none are specified then the VPC default security group will be used.
-   */
-  SecurityGroupIds?: string[];
-
-  /**
    * A list of 2 VPC subnet IDs from the same VPC.
    * Subnet IDs must be mapped to two unique availability zones (AZ).
    */
   SubnetIds: string[] | undefined;
+
+  /**
+   * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+   * Requires subnetIds. If none are specified then the VPC default security group will be used.
+   */
+  SecurityGroupIds?: string[];
 }
 
 export namespace InputVpcRequest {
@@ -5994,14 +6707,14 @@ export namespace ListChannelsRequest {
 export interface ListChannelsResponse {
   __type?: "ListChannelsResponse";
   /**
-   * Placeholder documentation for __listOfChannelSummary
-   */
-  Channels?: ChannelSummary[];
-
-  /**
    * Placeholder documentation for __string
    */
   NextToken?: string;
+
+  /**
+   * Placeholder documentation for __listOfChannelSummary
+   */
+  Channels?: ChannelSummary[];
 }
 
 export namespace ListChannelsResponse {
@@ -6009,6 +6722,52 @@ export namespace ListChannelsResponse {
     ...obj,
   });
   export const isa = (o: any): o is ListChannelsResponse => __isa(o, "ListChannelsResponse");
+}
+
+/**
+ * Placeholder documentation for ListInputDevicesRequest
+ */
+export interface ListInputDevicesRequest {
+  __type?: "ListInputDevicesRequest";
+  /**
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+}
+
+export namespace ListInputDevicesRequest {
+  export const filterSensitiveLog = (obj: ListInputDevicesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListInputDevicesRequest => __isa(o, "ListInputDevicesRequest");
+}
+
+/**
+ * Placeholder documentation for ListInputDevicesResponse
+ */
+export interface ListInputDevicesResponse {
+  __type?: "ListInputDevicesResponse";
+  /**
+   * The list of input devices.
+   */
+  InputDevices?: InputDeviceSummary[];
+
+  /**
+   * A token to get additional list results.
+   */
+  NextToken?: string;
+}
+
+export namespace ListInputDevicesResponse {
+  export const filterSensitiveLog = (obj: ListInputDevicesResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListInputDevicesResponse => __isa(o, "ListInputDevicesResponse");
 }
 
 /**
@@ -6063,14 +6822,14 @@ export namespace ListInputSecurityGroupsResponse {
 export interface ListInputsRequest {
   __type?: "ListInputsRequest";
   /**
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
    * Placeholder documentation for __string
    */
   NextToken?: string;
+
+  /**
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
 }
 
 export namespace ListInputsRequest {
@@ -6155,11 +6914,6 @@ export namespace ListMultiplexesResponse {
 export interface ListMultiplexProgramsRequest {
   __type?: "ListMultiplexProgramsRequest";
   /**
-   * The maximum number of items to return.
-   */
-  MaxResults?: number;
-
-  /**
    * The ID of the multiplex that the programs belong to.
    */
   MultiplexId: string | undefined;
@@ -6168,6 +6922,11 @@ export interface ListMultiplexProgramsRequest {
    * The token to retrieve the next page of results.
    */
   NextToken?: string;
+
+  /**
+   * The maximum number of items to return.
+   */
+  MaxResults?: number;
 }
 
 export namespace ListMultiplexProgramsRequest {
@@ -6206,9 +6965,29 @@ export namespace ListMultiplexProgramsResponse {
 export interface ListOfferingsRequest {
   __type?: "ListOfferingsRequest";
   /**
+   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', or 'AUDIO'
+   */
+  Codec?: string;
+
+  /**
    * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
    */
   ChannelClass?: string;
+
+  /**
+   * Filter by offering duration, e.g. '12'
+   */
+  Duration?: string;
+
+  /**
+   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
+   */
+  Resolution?: string;
+
+  /**
+   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+   */
+  MaximumFramerate?: string;
 
   /**
    * Filter to offerings that match the configuration of an existing channel, e.g. '2345678' (a channel ID)
@@ -6216,14 +6995,19 @@ export interface ListOfferingsRequest {
   ChannelConfiguration?: string;
 
   /**
-   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', or 'AUDIO'
+   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
    */
-  Codec?: string;
+  ResourceType?: string;
 
   /**
-   * Filter by offering duration, e.g. '12'
+   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
    */
-  Duration?: string;
+  VideoQuality?: string;
+
+  /**
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
 
   /**
    * Placeholder documentation for MaxResults
@@ -6236,34 +7020,9 @@ export interface ListOfferingsRequest {
   MaximumBitrate?: string;
 
   /**
-   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
-   */
-  MaximumFramerate?: string;
-
-  /**
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
-   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
-   */
-  Resolution?: string;
-
-  /**
-   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
-   */
-  ResourceType?: string;
-
-  /**
    * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
    */
   SpecialFeature?: string;
-
-  /**
-   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
-   */
-  VideoQuality?: string;
 }
 
 export namespace ListOfferingsRequest {
@@ -6279,14 +7038,14 @@ export namespace ListOfferingsRequest {
 export interface ListOfferingsResponse {
   __type?: "ListOfferingsResponse";
   /**
-   * Token to retrieve the next page of results
-   */
-  NextToken?: string;
-
-  /**
    * List of offerings
    */
   Offerings?: Offering[];
+
+  /**
+   * Token to retrieve the next page of results
+   */
+  NextToken?: string;
 }
 
 export namespace ListOfferingsResponse {
@@ -6302,36 +7061,6 @@ export namespace ListOfferingsResponse {
 export interface ListReservationsRequest {
   __type?: "ListReservationsRequest";
   /**
-   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
-   */
-  ChannelClass?: string;
-
-  /**
-   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', or 'AUDIO'
-   */
-  Codec?: string;
-
-  /**
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
-   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
-   */
-  MaximumBitrate?: string;
-
-  /**
-   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
-   */
-  MaximumFramerate?: string;
-
-  /**
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
    * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
    */
   Resolution?: string;
@@ -6342,14 +7071,44 @@ export interface ListReservationsRequest {
   ResourceType?: string;
 
   /**
+   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+   */
+  MaximumFramerate?: string;
+
+  /**
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+
+  /**
+   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
+   */
+  MaximumBitrate?: string;
+
+  /**
    * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
    */
   SpecialFeature?: string;
 
   /**
+   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', or 'AUDIO'
+   */
+  Codec?: string;
+
+  /**
    * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
    */
   VideoQuality?: string;
+
+  /**
+   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+   */
+  ChannelClass?: string;
 }
 
 export namespace ListReservationsRequest {
@@ -6365,14 +7124,14 @@ export namespace ListReservationsRequest {
 export interface ListReservationsResponse {
   __type?: "ListReservationsResponse";
   /**
-   * Token to retrieve the next page of results
-   */
-  NextToken?: string;
-
-  /**
    * List of reservations
    */
   Reservations?: Reservation[];
+
+  /**
+   * Token to retrieve the next page of results
+   */
+  NextToken?: string;
 }
 
 export namespace ListReservationsResponse {
@@ -6526,29 +7285,34 @@ export enum M2tsSegmentationStyle {
 export interface M2tsSettings {
   __type?: "M2tsSettings";
   /**
-   * When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
+   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
    */
-  AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior | string;
+  Scte35Pid?: string;
 
   /**
-   * When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
+   * Packet Identifier (PID) for input source SCTE-27 data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
    */
-  Arib?: M2tsArib | string;
+  Scte27Pids?: string;
 
   /**
-   * Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * Controls placement of EBP on Audio PIDs. If set to videoAndAudioPids, EBP markers will be placed on the video PID and all audio PIDs.  If set to videoPid, EBP markers will be placed on only the video PID.
    */
-  AribCaptionsPid?: string;
+  EbpPlacement?: M2tsEbpPlacement | string;
 
   /**
-   * If set to auto, pid number used for ARIB Captions will be auto-selected from unused pids.  If set to useConfigured, ARIB Captions will be on the configured pid number.
+   * When set to enabled, generates captionServiceDescriptor in PMT.
    */
-  AribCaptionsPidControl?: M2tsAribCaptionsPidControl | string;
+  CcDescriptor?: M2tsCcDescriptor | string;
 
   /**
-   * When set to dvb, uses DVB buffer model for Dolby Digital audio.  When set to atsc, the ATSC model is used.
+   * Packet Identifier (PID) for input source ETV Signal data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
    */
-  AudioBufferModel?: M2tsAudioBufferModel | string;
+  EtvSignalPid?: string;
+
+  /**
+   * The value of the transport stream ID field in the Program Map Table.
+   */
+  TransportStreamId?: number;
 
   /**
    * The number of audio frames to insert for each PES packet.
@@ -6561,9 +7325,9 @@ export interface M2tsSettings {
   AudioPids?: string;
 
   /**
-   * When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87 for EAC3. When set to dvb, uses stream type = 0x06.
+   * Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
    */
-  AudioStreamType?: M2tsAudioStreamType | string;
+  AribCaptionsPid?: string;
 
   /**
    * The output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate.
@@ -6571,69 +7335,14 @@ export interface M2tsSettings {
   Bitrate?: number;
 
   /**
-   * If set to multiplex, use multiplex buffer model for accurate interleaving.  Setting to bufferModel to none can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
+   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
    */
-  BufferModel?: M2tsBufferModel | string;
+  VideoPid?: string;
 
   /**
-   * When set to enabled, generates captionServiceDescriptor in PMT.
+   * Inserts segmentation markers at each segmentationTime period. raiSegstart sets the Random Access Indicator bit in the adaptation field. raiAdapt sets the RAI bit and adds the current timecode in the private data bytes. psiSegstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebpLegacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
    */
-  CcDescriptor?: M2tsCcDescriptor | string;
-
-  /**
-   * Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
-   */
-  DvbNitSettings?: DvbNitSettings;
-
-  /**
-   * Inserts DVB Service Description Table (SDT) at the specified table repetition interval.
-   */
-  DvbSdtSettings?: DvbSdtSettings;
-
-  /**
-   * Packet Identifier (PID) for input source DVB Subtitle data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   */
-  DvbSubPids?: string;
-
-  /**
-   * Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
-   */
-  DvbTdtSettings?: DvbTdtSettings;
-
-  /**
-   * Packet Identifier (PID) for input source DVB Teletext data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   */
-  DvbTeletextPid?: string;
-
-  /**
-   * If set to passthrough, passes any EBIF data from the input source to this output.
-   */
-  Ebif?: M2tsEbifControl | string;
-
-  /**
-   * When videoAndFixedIntervals is selected, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. Only available when EBP Cablelabs segmentation markers are selected.  Partitions 1 and 2 will always follow the video interval.
-   */
-  EbpAudioInterval?: M2tsAudioInterval | string;
-
-  /**
-   * When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker.  The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
-   */
-  EbpLookaheadMs?: number;
-
-  /**
-   * Controls placement of EBP on Audio PIDs. If set to videoAndAudioPids, EBP markers will be placed on the video PID and all audio PIDs.  If set to videoPid, EBP markers will be placed on only the video PID.
-   */
-  EbpPlacement?: M2tsEbpPlacement | string;
-
-  /**
-   * This field is unused and deprecated.
-   */
-  EcmPid?: string;
-
-  /**
-   * Include or exclude the ES Rate field in the PES header.
-   */
-  EsRateInPes?: M2tsEsRateInPes | string;
+  SegmentationMarkers?: M2tsSegmentationMarkers | string;
 
   /**
    * Packet Identifier (PID) for input source ETV Platform data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -6641,34 +7350,14 @@ export interface M2tsSettings {
   EtvPlatformPid?: string;
 
   /**
-   * Packet Identifier (PID) for input source ETV Signal data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   */
-  EtvSignalPid?: string;
-
-  /**
    * The length in seconds of each fragment. Only used with EBP markers.
    */
   FragmentTime?: number;
 
   /**
-   * If set to passthrough, passes any KLV data from the input source to this output.
+   * When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
    */
-  Klv?: M2tsKlv | string;
-
-  /**
-   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   */
-  KlvDataPids?: string;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   */
-  NielsenId3Behavior?: M2tsNielsenId3Behavior | string;
-
-  /**
-   * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
-   */
-  NullPacketBitrate?: number;
+  AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior | string;
 
   /**
    * The number of milliseconds between instances of this table in the output transport stream.  Valid values are 0, 10..1000.
@@ -6676,14 +7365,113 @@ export interface M2tsSettings {
   PatInterval?: number;
 
   /**
+   * Maximum time in milliseconds between Program Clock Reference (PCRs) inserted into the transport stream.
+   */
+  PcrPeriod?: number;
+
+  /**
+   * Optionally pass SCTE-35 signals from the input source to this output.
+   */
+  Scte35Control?: M2tsScte35Control | string;
+
+  /**
+   * When set to passthrough, timed metadata will be passed through from input to output.
+   */
+  TimedMetadataBehavior?: M2tsTimedMetadataBehavior | string;
+
+  /**
+   * Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
+   */
+  DvbNitSettings?: DvbNitSettings;
+
+  /**
+   * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted.
+   *
+   * When a segmentation style of "resetCadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of $segmentationTime seconds.
+   *
+   * When a segmentation style of "maintainCadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentationTime seconds. Note that EBP lookahead is a slight exception to this rule.
+   */
+  SegmentationStyle?: M2tsSegmentationStyle | string;
+
+  /**
+   * Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
+   */
+  DvbTdtSettings?: DvbTdtSettings;
+
+  /**
+   * If set to auto, pid number used for ARIB Captions will be auto-selected from unused pids.  If set to useConfigured, ARIB Captions will be on the configured pid number.
+   */
+  AribCaptionsPidControl?: M2tsAribCaptionsPidControl | string;
+
+  /**
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   */
+  Klv?: M2tsKlv | string;
+
+  /**
+   * When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87 for EAC3. When set to dvb, uses stream type = 0x06.
+   */
+  AudioStreamType?: M2tsAudioStreamType | string;
+
+  /**
+   * When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker.  The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
+   */
+  EbpLookaheadMs?: number;
+
+  /**
+   * Include or exclude the ES Rate field in the PES header.
+   */
+  EsRateInPes?: M2tsEsRateInPes | string;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   */
+  NielsenId3Behavior?: M2tsNielsenId3Behavior | string;
+
+  /**
+   * When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
+   */
+  Arib?: M2tsArib | string;
+
+  /**
+   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
+   */
+  KlvDataPids?: string;
+
+  /**
+   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   */
+  PmtPid?: string;
+
+  /**
+   * Packet Identifier (PID) for input source DVB Teletext data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   */
+  DvbTeletextPid?: string;
+
+  /**
+   * The value of the program number field in the Program Map Table.
+   */
+  ProgramNum?: number;
+
+  /**
    * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
    */
   PcrControl?: M2tsPcrControl | string;
 
   /**
-   * Maximum time in milliseconds between Program Clock Reference (PCRs) inserted into the transport stream.
+   * When vbr, does not insert null packets into transport stream to fill specified bitrate. The bitrate setting acts as the maximum bitrate when vbr is set.
    */
-  PcrPeriod?: number;
+  RateMode?: M2tsRateMode | string;
+
+  /**
+   * Packet Identifier (PID) for input source DVB Subtitle data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
+   */
+  DvbSubPids?: string;
+
+  /**
+   * When videoAndFixedIntervals is selected, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. Only available when EBP Cablelabs segmentation markers are selected.  Partitions 1 and 2 will always follow the video interval.
+   */
+  EbpAudioInterval?: M2tsAudioInterval | string;
 
   /**
    * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -6696,58 +7484,14 @@ export interface M2tsSettings {
   PmtInterval?: number;
 
   /**
-   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   */
-  PmtPid?: string;
-
-  /**
-   * The value of the program number field in the Program Map Table.
-   */
-  ProgramNum?: number;
-
-  /**
-   * When vbr, does not insert null packets into transport stream to fill specified bitrate. The bitrate setting acts as the maximum bitrate when vbr is set.
-   */
-  RateMode?: M2tsRateMode | string;
-
-  /**
-   * Packet Identifier (PID) for input source SCTE-27 data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   */
-  Scte27Pids?: string;
-
-  /**
-   * Optionally pass SCTE-35 signals from the input source to this output.
-   */
-  Scte35Control?: M2tsScte35Control | string;
-
-  /**
-   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   */
-  Scte35Pid?: string;
-
-  /**
-   * Inserts segmentation markers at each segmentationTime period. raiSegstart sets the Random Access Indicator bit in the adaptation field. raiAdapt sets the RAI bit and adds the current timecode in the private data bytes. psiSegstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebpLegacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
-   */
-  SegmentationMarkers?: M2tsSegmentationMarkers | string;
-
-  /**
-   * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted.
-   *
-   * When a segmentation style of "resetCadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of $segmentationTime seconds.
-   *
-   * When a segmentation style of "maintainCadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentationTime seconds. Note that EBP lookahead is a slight exception to this rule.
-   */
-  SegmentationStyle?: M2tsSegmentationStyle | string;
-
-  /**
-   * The length in seconds of each segment. Required unless markers is set to None_.
+   * The length in seconds of each segment. Required unless markers is set to _none_.
    */
   SegmentationTime?: number;
 
   /**
-   * When set to passthrough, timed metadata will be passed through from input to output.
+   * If set to multiplex, use multiplex buffer model for accurate interleaving.  Setting to bufferModel to none can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
    */
-  TimedMetadataBehavior?: M2tsTimedMetadataBehavior | string;
+  BufferModel?: M2tsBufferModel | string;
 
   /**
    * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -6755,14 +7499,29 @@ export interface M2tsSettings {
   TimedMetadataPid?: string;
 
   /**
-   * The value of the transport stream ID field in the Program Map Table.
+   * This field is unused and deprecated.
    */
-  TransportStreamId?: number;
+  EcmPid?: string;
 
   /**
-   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
    */
-  VideoPid?: string;
+  NullPacketBitrate?: number;
+
+  /**
+   * Inserts DVB Service Description Table (SDT) at the specified table repetition interval.
+   */
+  DvbSdtSettings?: DvbSdtSettings;
+
+  /**
+   * If set to passthrough, passes any EBIF data from the input source to this output.
+   */
+  Ebif?: M2tsEbifControl | string;
+
+  /**
+   * When set to dvb, uses DVB buffer model for Dolby Digital audio.  When set to atsc, the ATSC model is used.
+   */
+  AudioBufferModel?: M2tsAudioBufferModel | string;
 }
 
 export namespace M2tsSettings {
@@ -6798,66 +7557,6 @@ export enum M3u8Scte35Behavior {
 export interface M3u8Settings {
   __type?: "M3u8Settings";
   /**
-   * The number of audio frames to insert for each PES packet.
-   */
-  AudioFramesPerPes?: number;
-
-  /**
-   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
-   */
-  AudioPids?: string;
-
-  /**
-   * This parameter is unused and deprecated.
-   */
-  EcmPid?: string;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   */
-  NielsenId3Behavior?: M3u8NielsenId3Behavior | string;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
-   */
-  PatInterval?: number;
-
-  /**
-   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-   */
-  PcrControl?: M3u8PcrControl | string;
-
-  /**
-   * Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
-   */
-  PcrPeriod?: number;
-
-  /**
-   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
-   */
-  PcrPid?: string;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
-   */
-  PmtInterval?: number;
-
-  /**
-   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
-   */
-  PmtPid?: string;
-
-  /**
-   * The value of the program number field in the Program Map Table.
-   */
-  ProgramNum?: number;
-
-  /**
-   * If set to passthrough, passes any SCTE-35 signals from the input source to this output.
-   */
-  Scte35Behavior?: M3u8Scte35Behavior | string;
-
-  /**
    * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
    */
   Scte35Pid?: string;
@@ -6868,9 +7567,59 @@ export interface M3u8Settings {
   TimedMetadataBehavior?: M3u8TimedMetadataBehavior | string;
 
   /**
+   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+   */
+  VideoPid?: string;
+
+  /**
    * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
    */
   TimedMetadataPid?: string;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   */
+  NielsenId3Behavior?: M3u8NielsenId3Behavior | string;
+
+  /**
+   * Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
+   */
+  PcrPeriod?: number;
+
+  /**
+   * The value of the program number field in the Program Map Table.
+   */
+  ProgramNum?: number;
+
+  /**
+   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
+   */
+  AudioPids?: string;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+   */
+  PatInterval?: number;
+
+  /**
+   * This parameter is unused and deprecated.
+   */
+  EcmPid?: string;
+
+  /**
+   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
+   */
+  PcrControl?: M3u8PcrControl | string;
+
+  /**
+   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
+   */
+  PmtPid?: string;
+
+  /**
+   * If set to passthrough, passes any SCTE-35 signals from the input source to this output.
+   */
+  Scte35Behavior?: M3u8Scte35Behavior | string;
 
   /**
    * The value of the transport stream ID field in the Program Map Table.
@@ -6878,9 +7627,19 @@ export interface M3u8Settings {
   TransportStreamId?: number;
 
   /**
-   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+   * The number of audio frames to insert for each PES packet.
    */
-  VideoPid?: string;
+  AudioFramesPerPes?: number;
+
+  /**
+   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
+   */
+  PcrPid?: string;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+   */
+  PmtInterval?: number;
 }
 
 export namespace M3u8Settings {
@@ -6993,9 +7752,9 @@ export enum Mp2CodingMode {
 export interface Mp2Settings {
   __type?: "Mp2Settings";
   /**
-   * Average bitrate in bits/second.
+   * Sample rate in Hz.
    */
-  Bitrate?: number;
+  SampleRate?: number;
 
   /**
    * The MPEG2 Audio coding mode.  Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
@@ -7003,9 +7762,9 @@ export interface Mp2Settings {
   CodingMode?: Mp2CodingMode | string;
 
   /**
-   * Sample rate in Hz.
+   * Average bitrate in bits/second.
    */
-  SampleRate?: number;
+  Bitrate?: number;
 }
 
 export namespace Mp2Settings {
@@ -7021,29 +7780,9 @@ export namespace Mp2Settings {
 export interface MsSmoothGroupSettings {
   __type?: "MsSmoothGroupSettings";
   /**
-   * The value of the "Acquisition Point Identity" element used in each message placed in the sparse track.  Only enabled if sparseTrackType is not "none".
+   * Number of milliseconds to delay the output from the second pipeline.
    */
-  AcquisitionPointId?: string;
-
-  /**
-   * If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
-   */
-  AudioOnlyTimecodeControl?: SmoothGroupAudioOnlyTimecodeControl | string;
-
-  /**
-   * If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
-   */
-  CertificateMode?: SmoothGroupCertificateMode | string;
-
-  /**
-   * Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
-   */
-  ConnectionRetryInterval?: number;
-
-  /**
-   * Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
-   */
-  Destination: OutputLocationRef | undefined;
+  SendDelayMs?: number;
 
   /**
    * MS Smooth event ID to be sent to the IIS server.
@@ -7053,39 +7792,14 @@ export interface MsSmoothGroupSettings {
   EventId?: string;
 
   /**
-   * Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
-   *
-   * Options:
-   * - "useConfigured" - use the value provided in eventId
-   * - "useTimestamp" - generate and send an event ID based on the current timestamp
-   * - "noEventId" - do not send an event ID to the IIS server.
-   */
-  EventIdMode?: SmoothGroupEventIdMode | string;
-
-  /**
-   * When set to sendEos, send EOS signal to IIS server when stopping the event
-   */
-  EventStopBehavior?: SmoothGroupEventStopBehavior | string;
-
-  /**
    * Size in seconds of file cache for streaming outputs.
    */
   FilecacheDuration?: number;
 
   /**
-   * Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
+   * Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
    */
-  FragmentLength?: number;
-
-  /**
-   * Parameter that control output group behavior on input loss.
-   */
-  InputLossAction?: InputLossActionForMsSmoothOut | string;
-
-  /**
-   * Number of retry attempts.
-   */
-  NumRetries?: number;
+  ConnectionRetryInterval?: number;
 
   /**
    * Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
@@ -7098,19 +7812,9 @@ export interface MsSmoothGroupSettings {
   SegmentationMode?: SmoothGroupSegmentationMode | string;
 
   /**
-   * Number of milliseconds to delay the output from the second pipeline.
+   * Parameter that control output group behavior on input loss.
    */
-  SendDelayMs?: number;
-
-  /**
-   * If set to scte35, use incoming SCTE-35 messages to generate a sparse track in this group of MS-Smooth outputs.
-   */
-  SparseTrackType?: SmoothGroupSparseTrackType | string;
-
-  /**
-   * When set to send, send stream manifest so publishing point doesn't start until all streams start.
-   */
-  StreamManifestBehavior?: SmoothGroupStreamManifestBehavior | string;
+  InputLossAction?: InputLossActionForMsSmoothOut | string;
 
   /**
    * Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
@@ -7118,11 +7822,69 @@ export interface MsSmoothGroupSettings {
   TimestampOffset?: string;
 
   /**
+   * When set to send, send stream manifest so publishing point doesn't start until all streams start.
+   */
+  StreamManifestBehavior?: SmoothGroupStreamManifestBehavior | string;
+
+  /**
    * Type of timestamp date offset to use.
    * - useEventStartDate: Use the date the event was started as the offset
    * - useConfiguredOffset: Use an explicitly configured date as the offset
    */
   TimestampOffsetMode?: SmoothGroupTimestampOffsetMode | string;
+
+  /**
+   * Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
+   */
+  FragmentLength?: number;
+
+  /**
+   * Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
+   *
+   * Options:
+   * - "useConfigured" - use the value provided in eventId
+   * - "useTimestamp" - generate and send an event ID based on the current timestamp
+   * - "noEventId" - do not send an event ID to the IIS server.
+   */
+  EventIdMode?: SmoothGroupEventIdMode | string;
+
+  /**
+   * If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
+   */
+  CertificateMode?: SmoothGroupCertificateMode | string;
+
+  /**
+   * Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Number of retry attempts.
+   */
+  NumRetries?: number;
+
+  /**
+   * Identifies the type of data to place in the sparse track:
+   * - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
+   * - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
+   * - NONE: Don't generate a sparse track for any outputs in this output group.
+   */
+  SparseTrackType?: SmoothGroupSparseTrackType | string;
+
+  /**
+   * When set to sendEos, send EOS signal to IIS server when stopping the event
+   */
+  EventStopBehavior?: SmoothGroupEventStopBehavior | string;
+
+  /**
+   * If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
+   */
+  AudioOnlyTimecodeControl?: SmoothGroupAudioOnlyTimecodeControl | string;
+
+  /**
+   * The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
+   */
+  AcquisitionPointId?: string;
 }
 
 export namespace MsSmoothGroupSettings {
@@ -7143,15 +7905,15 @@ export enum MsSmoothH265PackagingType {
 export interface MsSmoothOutputSettings {
   __type?: "MsSmoothOutputSettings";
   /**
+   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+   */
+  NameModifier?: string;
+
+  /**
    * Only applicable when this output is referencing an H.265 video description.
    * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
    */
   H265PackagingType?: MsSmoothH265PackagingType | string;
-
-  /**
-   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
-   */
-  NameModifier?: string;
 }
 
 export namespace MsSmoothOutputSettings {
@@ -7167,19 +7929,24 @@ export namespace MsSmoothOutputSettings {
 export interface Multiplex {
   __type?: "Multiplex";
   /**
-   * The unique arn of the multiplex.
+   * The number of currently healthy pipelines.
    */
-  Arn?: string;
+  PipelinesRunningCount?: number;
 
   /**
-   * A list of availability zones for the multiplex.
+   * The number of programs in the multiplex.
    */
-  AvailabilityZones?: string[];
+  ProgramCount?: number;
 
   /**
-   * A list of the multiplex output destinations.
+   * The name of the multiplex.
    */
-  Destinations?: MultiplexOutputDestination[];
+  Name?: string;
+
+  /**
+   * The current state of the multiplex.
+   */
+  State?: MultiplexState | string;
 
   /**
    * The unique id of the multiplex.
@@ -7192,29 +7959,24 @@ export interface Multiplex {
   MultiplexSettings?: MultiplexSettings;
 
   /**
-   * The name of the multiplex.
+   * The unique arn of the multiplex.
    */
-  Name?: string;
+  Arn?: string;
 
   /**
-   * The number of currently healthy pipelines.
+   * A list of availability zones for the multiplex.
    */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The number of programs in the multiplex.
-   */
-  ProgramCount?: number;
-
-  /**
-   * The current state of the multiplex.
-   */
-  State?: MultiplexState | string;
+  AvailabilityZones?: string[];
 
   /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * A list of the multiplex output destinations.
+   */
+  Destinations?: MultiplexOutputDestination[];
 }
 
 export namespace Multiplex {
@@ -7299,6 +8061,11 @@ export namespace MultiplexOutputSettings {
 export interface MultiplexProgram {
   __type?: "MultiplexProgram";
   /**
+   * The name of the multiplex program.
+   */
+  ProgramName?: string;
+
+  /**
    * The MediaLive channel associated with the program.
    */
   ChannelId?: string;
@@ -7312,11 +8079,6 @@ export interface MultiplexProgram {
    * The packet identifier map for this multiplex program.
    */
   PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
-
-  /**
-   * The name of the multiplex program.
-   */
-  ProgramName?: string;
 }
 
 export namespace MultiplexProgram {
@@ -7332,15 +8094,15 @@ export namespace MultiplexProgram {
 export interface MultiplexProgramChannelDestinationSettings {
   __type?: "MultiplexProgramChannelDestinationSettings";
   /**
+   * The program name of the Multiplex program that the encoder is providing output to.
+   */
+  ProgramName?: string;
+
+  /**
    * The ID of the Multiplex that the encoder is providing output to. You do not need to specify the individual inputs to the Multiplex; MediaLive will handle the connection of the two MediaLive pipelines to the two Multiplex instances.
    * The Multiplex must be in the same region as the Channel.
    */
   MultiplexId?: string;
-
-  /**
-   * The program name of the Multiplex program that the encoder is providing output to.
-   */
-  ProgramName?: string;
 }
 
 export namespace MultiplexProgramChannelDestinationSettings {
@@ -7357,21 +8119,6 @@ export namespace MultiplexProgramChannelDestinationSettings {
 export interface MultiplexProgramPacketIdentifiersMap {
   __type?: "MultiplexProgramPacketIdentifiersMap";
   /**
-   * Placeholder documentation for __listOf__integer
-   */
-  AudioPids?: number[];
-
-  /**
-   * Placeholder documentation for __listOf__integer
-   */
-  DvbSubPids?: number[];
-
-  /**
-   * Placeholder documentation for __integer
-   */
-  DvbTeletextPid?: number;
-
-  /**
    * Placeholder documentation for __integer
    */
   EtvPlatformPid?: number;
@@ -7379,27 +8126,12 @@ export interface MultiplexProgramPacketIdentifiersMap {
   /**
    * Placeholder documentation for __integer
    */
-  EtvSignalPid?: number;
+  TimedMetadataPid?: number;
 
   /**
    * Placeholder documentation for __listOf__integer
    */
-  KlvDataPids?: number[];
-
-  /**
-   * Placeholder documentation for __integer
-   */
-  PcrPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   */
-  PmtPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   */
-  PrivateMetadataPid?: number;
+  DvbSubPids?: number[];
 
   /**
    * Placeholder documentation for __listOf__integer
@@ -7409,17 +8141,47 @@ export interface MultiplexProgramPacketIdentifiersMap {
   /**
    * Placeholder documentation for __integer
    */
+  PcrPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   */
+  EtvSignalPid?: number;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   */
+  AudioPids?: number[];
+
+  /**
+   * Placeholder documentation for __integer
+   */
   Scte35Pid?: number;
 
   /**
    * Placeholder documentation for __integer
    */
-  TimedMetadataPid?: number;
+  PrivateMetadataPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   */
+  PmtPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   */
+  DvbTeletextPid?: number;
 
   /**
    * Placeholder documentation for __integer
    */
   VideoPid?: number;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   */
+  KlvDataPids?: number[];
 }
 
 export namespace MultiplexProgramPacketIdentifiersMap {
@@ -7436,14 +8198,14 @@ export namespace MultiplexProgramPacketIdentifiersMap {
 export interface MultiplexProgramServiceDescriptor {
   __type?: "MultiplexProgramServiceDescriptor";
   /**
-   * Name of the provider.
-   */
-  ProviderName: string | undefined;
-
-  /**
    * Name of the service.
    */
   ServiceName: string | undefined;
+
+  /**
+   * Name of the provider.
+   */
+  ProviderName: string | undefined;
 }
 
 export namespace MultiplexProgramServiceDescriptor {
@@ -7459,9 +8221,9 @@ export namespace MultiplexProgramServiceDescriptor {
 export interface MultiplexProgramSettings {
   __type?: "MultiplexProgramSettings";
   /**
-   * Unique program number.
+   * Indicates which pipeline is preferred by the multiplex for program ingest.
    */
-  ProgramNumber: number | undefined;
+  PreferredChannelPipeline?: PreferredChannelPipeline | string;
 
   /**
    * Transport stream service descriptor configuration for the Multiplex program.
@@ -7472,6 +8234,11 @@ export interface MultiplexProgramSettings {
    * Program video settings configuration.
    */
   VideoSettings?: MultiplexVideoSettings;
+
+  /**
+   * Unique program number.
+   */
+  ProgramNumber: number | undefined;
 }
 
 export namespace MultiplexProgramSettings {
@@ -7487,14 +8254,14 @@ export namespace MultiplexProgramSettings {
 export interface MultiplexProgramSummary {
   __type?: "MultiplexProgramSummary";
   /**
-   * The MediaLive Channel associated with the program.
-   */
-  ChannelId?: string;
-
-  /**
    * The name of the multiplex program.
    */
   ProgramName?: string;
+
+  /**
+   * The MediaLive Channel associated with the program.
+   */
+  ChannelId?: string;
 }
 
 export namespace MultiplexProgramSummary {
@@ -7510,14 +8277,9 @@ export namespace MultiplexProgramSummary {
 export interface MultiplexSettings {
   __type?: "MultiplexSettings";
   /**
-   * Maximum video buffer delay in milliseconds.
+   * Transport stream reserved bit rate.
    */
-  MaximumVideoBufferDelayMilliseconds?: number;
-
-  /**
-   * Transport stream bit rate.
-   */
-  TransportStreamBitrate: number | undefined;
+  TransportStreamReservedBitrate?: number;
 
   /**
    * Transport stream ID.
@@ -7525,9 +8287,14 @@ export interface MultiplexSettings {
   TransportStreamId: number | undefined;
 
   /**
-   * Transport stream reserved bit rate.
+   * Transport stream bit rate.
    */
-  TransportStreamReservedBitrate?: number;
+  TransportStreamBitrate: number | undefined;
+
+  /**
+   * Maximum video buffer delay in milliseconds.
+   */
+  MaximumVideoBufferDelayMilliseconds?: number;
 }
 
 export namespace MultiplexSettings {
@@ -7596,34 +8363,9 @@ export namespace MultiplexStatmuxVideoSettings {
 export interface MultiplexSummary {
   __type?: "MultiplexSummary";
   /**
-   * The unique arn of the multiplex.
+   * The current state of the multiplex.
    */
-  Arn?: string;
-
-  /**
-   * A list of availability zones for the multiplex.
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * The unique id of the multiplex.
-   */
-  Id?: string;
-
-  /**
-   * Configuration for a multiplex event.
-   */
-  MultiplexSettings?: MultiplexSettingsSummary;
-
-  /**
-   * The name of the multiplex.
-   */
-  Name?: string;
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
+  State?: MultiplexState | string;
 
   /**
    * The number of programs in the multiplex.
@@ -7631,14 +8373,39 @@ export interface MultiplexSummary {
   ProgramCount?: number;
 
   /**
-   * The current state of the multiplex.
+   * The unique arn of the multiplex.
    */
-  State?: MultiplexState | string;
+  Arn?: string;
+
+  /**
+   * Configuration for a multiplex event.
+   */
+  MultiplexSettings?: MultiplexSettingsSummary;
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * The unique id of the multiplex.
+   */
+  Id?: string;
 
   /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * A list of availability zones for the multiplex.
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * The name of the multiplex.
+   */
+  Name?: string;
 }
 
 export namespace MultiplexSummary {
@@ -7654,16 +8421,16 @@ export namespace MultiplexSummary {
 export interface MultiplexVideoSettings {
   __type?: "MultiplexVideoSettings";
   /**
-   * The constant bitrate configuration for the video encode.
-   * When this field is defined, StatmuxSettings must be undefined.
-   */
-  ConstantBitrate?: number;
-
-  /**
    * Statmux rate control settings.
    * When this field is defined, ConstantBitrate must be undefined.
    */
   StatmuxSettings?: MultiplexStatmuxVideoSettings;
+
+  /**
+   * The constant bitrate configuration for the video encode.
+   * When this field is defined, StatmuxSettings must be undefined.
+   */
+  ConstantBitrate?: number;
 }
 
 export namespace MultiplexVideoSettings {
@@ -7754,19 +8521,19 @@ export namespace NotFoundException {
 export interface Offering {
   __type?: "Offering";
   /**
+   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   */
+  FixedPrice?: number;
+
+  /**
+   * AWS region, e.g. 'us-west-2'
+   */
+  Region?: string;
+
+  /**
    * Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
    */
   Arn?: string;
-
-  /**
-   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-   */
-  CurrencyCode?: string;
-
-  /**
-   * Lease duration, e.g. '12'
-   */
-  Duration?: number;
 
   /**
    * Units for duration, e.g. 'MONTHS'
@@ -7774,14 +8541,9 @@ export interface Offering {
   DurationUnits?: OfferingDurationUnits | string;
 
   /**
-   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
    */
-  FixedPrice?: number;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   */
-  OfferingDescription?: string;
+  CurrencyCode?: string;
 
   /**
    * Unique offering ID, e.g. '87654321'
@@ -7794,19 +8556,24 @@ export interface Offering {
   OfferingType?: OfferingType | string;
 
   /**
-   * AWS region, e.g. 'us-west-2'
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
    */
-  Region?: string;
-
-  /**
-   * Resource configuration details
-   */
-  ResourceSpecification?: ReservationResourceSpecification;
+  OfferingDescription?: string;
 
   /**
    * Recurring usage charge for each reserved resource, e.g. '157.0'
    */
   UsagePrice?: number;
+
+  /**
+   * Lease duration, e.g. '12'
+   */
+  Duration?: number;
+
+  /**
+   * Resource configuration details
+   */
+  ResourceSpecification?: ReservationResourceSpecification;
 }
 
 export namespace Offering {
@@ -7845,14 +8612,14 @@ export interface Output {
   OutputName?: string;
 
   /**
-   * Output type-specific settings.
-   */
-  OutputSettings: OutputSettings | undefined;
-
-  /**
    * The name of the VideoDescription used as the source for this output.
    */
   VideoDescriptionName?: string;
+
+  /**
+   * Output type-specific settings.
+   */
+  OutputSettings: OutputSettings | undefined;
 }
 
 export namespace Output {
@@ -7873,14 +8640,14 @@ export interface OutputDestination {
   Id?: string;
 
   /**
-   * Destination settings for a MediaPackage output; one destination for both encoders.
-   */
-  MediaPackageSettings?: MediaPackageOutputDestinationSettings[];
-
-  /**
    * Destination settings for a Multiplex output; one destination for both encoders.
    */
   MultiplexSettings?: MultiplexProgramChannelDestinationSettings;
+
+  /**
+   * Destination settings for a MediaPackage output; one destination for both encoders.
+   */
+  MediaPackageSettings?: MediaPackageOutputDestinationSettings[];
 
   /**
    * Destination settings for a standard output; one destination for each redundant encoder.
@@ -7901,9 +8668,9 @@ export namespace OutputDestination {
 export interface OutputDestinationSettings {
   __type?: "OutputDestinationSettings";
   /**
-   * key used to extract the password from EC2 Parameter store
+   * A URL specifying a destination
    */
-  PasswordParam?: string;
+  Url?: string;
 
   /**
    * Stream name for RTMP destinations (URLs of type rtmp://)
@@ -7911,9 +8678,9 @@ export interface OutputDestinationSettings {
   StreamName?: string;
 
   /**
-   * A URL specifying a destination
+   * key used to extract the password from EC2 Parameter store
    */
-  Url?: string;
+  PasswordParam?: string;
 
   /**
    * username for destination
@@ -7962,9 +8729,9 @@ export namespace OutputGroup {
 export interface OutputGroupSettings {
   __type?: "OutputGroupSettings";
   /**
-   * Archive Group Settings
+   * Rtmp Group Settings
    */
-  ArchiveGroupSettings?: ArchiveGroupSettings;
+  RtmpGroupSettings?: RtmpGroupSettings;
 
   /**
    * Frame Capture Group Settings
@@ -7972,14 +8739,19 @@ export interface OutputGroupSettings {
   FrameCaptureGroupSettings?: FrameCaptureGroupSettings;
 
   /**
+   * Multiplex Group Settings
+   */
+  MultiplexGroupSettings?: MultiplexGroupSettings;
+
+  /**
+   * Archive Group Settings
+   */
+  ArchiveGroupSettings?: ArchiveGroupSettings;
+
+  /**
    * Hls Group Settings
    */
   HlsGroupSettings?: HlsGroupSettings;
-
-  /**
-   * Media Package Group Settings
-   */
-  MediaPackageGroupSettings?: MediaPackageGroupSettings;
 
   /**
    * Ms Smooth Group Settings
@@ -7987,14 +8759,9 @@ export interface OutputGroupSettings {
   MsSmoothGroupSettings?: MsSmoothGroupSettings;
 
   /**
-   * Multiplex Group Settings
+   * Media Package Group Settings
    */
-  MultiplexGroupSettings?: MultiplexGroupSettings;
-
-  /**
-   * Rtmp Group Settings
-   */
-  RtmpGroupSettings?: RtmpGroupSettings;
+  MediaPackageGroupSettings?: MediaPackageGroupSettings;
 
   /**
    * Udp Group Settings
@@ -8033,6 +8800,21 @@ export namespace OutputLocationRef {
 export interface OutputSettings {
   __type?: "OutputSettings";
   /**
+   * Media Package Output Settings
+   */
+  MediaPackageOutputSettings?: MediaPackageOutputSettings;
+
+  /**
+   * Multiplex Output Settings
+   */
+  MultiplexOutputSettings?: MultiplexOutputSettings;
+
+  /**
+   * Ms Smooth Output Settings
+   */
+  MsSmoothOutputSettings?: MsSmoothOutputSettings;
+
+  /**
    * Archive Output Settings
    */
   ArchiveOutputSettings?: ArchiveOutputSettings;
@@ -8046,21 +8828,6 @@ export interface OutputSettings {
    * Hls Output Settings
    */
   HlsOutputSettings?: HlsOutputSettings;
-
-  /**
-   * Media Package Output Settings
-   */
-  MediaPackageOutputSettings?: MediaPackageOutputSettings;
-
-  /**
-   * Ms Smooth Output Settings
-   */
-  MsSmoothOutputSettings?: MsSmoothOutputSettings;
-
-  /**
-   * Multiplex Output Settings
-   */
-  MultiplexOutputSettings?: MultiplexOutputSettings;
 
   /**
    * Rtmp Output Settings
@@ -8163,15 +8930,26 @@ export namespace PipelinePauseStateSettings {
   export const isa = (o: any): o is PipelinePauseStateSettings => __isa(o, "PipelinePauseStateSettings");
 }
 
+export enum PreferredChannelPipeline {
+  CURRENTLY_ACTIVE = "CURRENTLY_ACTIVE",
+  PIPELINE_0 = "PIPELINE_0",
+  PIPELINE_1 = "PIPELINE_1",
+}
+
 /**
  * Placeholder documentation for PurchaseOfferingRequest
  */
 export interface PurchaseOfferingRequest {
   __type?: "PurchaseOfferingRequest";
   /**
-   * Number of resources
+   * Offering to purchase, e.g. '87654321'
    */
-  Count: number | undefined;
+  OfferingId: string | undefined;
+
+  /**
+   * A collection of key-value pairs
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * Name for the new reservation
@@ -8179,9 +8957,9 @@ export interface PurchaseOfferingRequest {
   Name?: string;
 
   /**
-   * Offering to purchase, e.g. '87654321'
+   * Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
    */
-  OfferingId: string | undefined;
+  Start?: string;
 
   /**
    * Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
@@ -8189,14 +8967,9 @@ export interface PurchaseOfferingRequest {
   RequestId?: string;
 
   /**
-   * Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
+   * Number of resources
    */
-  Start?: string;
-
-  /**
-   * A collection of key-value pairs
-   */
-  Tags?: { [key: string]: string };
+  Count: number | undefined;
 }
 
 export namespace PurchaseOfferingRequest {
@@ -8258,6 +9031,12 @@ export namespace Rec709Settings {
 export interface RemixSettings {
   __type?: "RemixSettings";
   /**
+   * Number of output channels to be produced.
+   * Valid values: 1, 2, 4, 6, 8
+   */
+  ChannelsOut?: number;
+
+  /**
    * Mapping of input channels to output channels, with appropriate gain adjustments.
    */
   ChannelMappings: AudioChannelMapping[] | undefined;
@@ -8266,12 +9045,6 @@ export interface RemixSettings {
    * Number of input channels to be used.
    */
   ChannelsIn?: number;
-
-  /**
-   * Number of output channels to be produced.
-   * Valid values: 1, 2, 4, 6, 8
-   */
-  ChannelsOut?: number;
 }
 
 export namespace RemixSettings {
@@ -8287,54 +9060,9 @@ export namespace RemixSettings {
 export interface Reservation {
   __type?: "Reservation";
   /**
-   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
-   */
-  Arn?: string;
-
-  /**
-   * Number of reserved resources
-   */
-  Count?: number;
-
-  /**
-   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-   */
-  CurrencyCode?: string;
-
-  /**
-   * Lease duration, e.g. '12'
-   */
-  Duration?: number;
-
-  /**
-   * Units for duration, e.g. 'MONTHS'
-   */
-  DurationUnits?: OfferingDurationUnits | string;
-
-  /**
-   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
-   */
-  End?: string;
-
-  /**
    * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
    */
   FixedPrice?: number;
-
-  /**
-   * User specified reservation name
-   */
-  Name?: string;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   */
-  OfferingDescription?: string;
-
-  /**
-   * Unique offering ID, e.g. '87654321'
-   */
-  OfferingId?: string;
 
   /**
    * Offering type, e.g. 'NO_UPFRONT'
@@ -8342,29 +9070,29 @@ export interface Reservation {
   OfferingType?: OfferingType | string;
 
   /**
+   * Current state of reservation, e.g. 'ACTIVE'
+   */
+  State?: ReservationState | string;
+
+  /**
+   * Units for duration, e.g. 'MONTHS'
+   */
+  DurationUnits?: OfferingDurationUnits | string;
+
+  /**
+   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+   */
+  CurrencyCode?: string;
+
+  /**
    * AWS region, e.g. 'us-west-2'
    */
   Region?: string;
 
   /**
-   * Unique reservation ID, e.g. '1234567'
+   * Unique offering ID, e.g. '87654321'
    */
-  ReservationId?: string;
-
-  /**
-   * Resource configuration details
-   */
-  ResourceSpecification?: ReservationResourceSpecification;
-
-  /**
-   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
-   */
-  Start?: string;
-
-  /**
-   * Current state of reservation, e.g. 'ACTIVE'
-   */
-  State?: ReservationState | string;
+  OfferingId?: string;
 
   /**
    * A collection of key-value pairs
@@ -8375,6 +9103,51 @@ export interface Reservation {
    * Recurring usage charge for each reserved resource, e.g. '157.0'
    */
   UsagePrice?: number;
+
+  /**
+   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+   */
+  Arn?: string;
+
+  /**
+   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+   */
+  Start?: string;
+
+  /**
+   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+   */
+  End?: string;
+
+  /**
+   * Lease duration, e.g. '12'
+   */
+  Duration?: number;
+
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   */
+  ReservationId?: string;
+
+  /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   */
+  OfferingDescription?: string;
+
+  /**
+   * User specified reservation name
+   */
+  Name?: string;
+
+  /**
+   * Resource configuration details
+   */
+  ResourceSpecification?: ReservationResourceSpecification;
+
+  /**
+   * Number of reserved resources
+   */
+  Count?: number;
 }
 
 export namespace Reservation {
@@ -8415,21 +9188,6 @@ export enum ReservationResolution {
 export interface ReservationResourceSpecification {
   __type?: "ReservationResourceSpecification";
   /**
-   * Channel class, e.g. 'STANDARD'
-   */
-  ChannelClass?: ChannelClass | string;
-
-  /**
-   * Codec, e.g. 'AVC'
-   */
-  Codec?: ReservationCodec | string;
-
-  /**
-   * Maximum bitrate, e.g. 'MAX_20_MBPS'
-   */
-  MaximumBitrate?: ReservationMaximumBitrate | string;
-
-  /**
    * Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
    */
   MaximumFramerate?: ReservationMaximumFramerate | string;
@@ -8440,14 +9198,29 @@ export interface ReservationResourceSpecification {
   Resolution?: ReservationResolution | string;
 
   /**
-   * Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+   * Codec, e.g. 'AVC'
    */
-  ResourceType?: ReservationResourceType | string;
+  Codec?: ReservationCodec | string;
 
   /**
    * Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
    */
   SpecialFeature?: ReservationSpecialFeature | string;
+
+  /**
+   * Maximum bitrate, e.g. 'MAX_20_MBPS'
+   */
+  MaximumBitrate?: ReservationMaximumBitrate | string;
+
+  /**
+   * Channel class, e.g. 'STANDARD'
+   */
+  ChannelClass?: ChannelClass | string;
+
+  /**
+   * Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+   */
+  ResourceType?: ReservationResourceType | string;
 
   /**
    * Video quality, e.g. 'STANDARD' (Outputs only)
@@ -8519,24 +9292,24 @@ export namespace RtmpCaptionInfoDestinationSettings {
 export interface RtmpGroupSettings {
   __type?: "RtmpGroupSettings";
   /**
-   * Authentication scheme to use when connecting with CDN
-   */
-  AuthenticationScheme?: AuthenticationScheme | string;
-
-  /**
    * Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
    */
   CacheFullBehavior?: RtmpCacheFullBehavior | string;
 
   /**
-   * Cache length, in seconds, is used to calculate buffer size.
-   */
-  CacheLength?: number;
-
-  /**
    * Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
    */
   CaptionData?: RtmpCaptionData | string;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   */
+  RestartDelay?: number;
+
+  /**
+   * Cache length, in seconds, is used to calculate buffer size.
+   */
+  CacheLength?: number;
 
   /**
    * Controls the behavior of this RTMP group if input becomes unavailable.
@@ -8547,9 +9320,9 @@ export interface RtmpGroupSettings {
   InputLossAction?: InputLossActionForRtmpOut | string;
 
   /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   * Authentication scheme to use when connecting with CDN
    */
-  RestartDelay?: number;
+  AuthenticationScheme?: AuthenticationScheme | string;
 }
 
 export namespace RtmpGroupSettings {
@@ -8570,6 +9343,11 @@ export enum RtmpOutputCertificateMode {
 export interface RtmpOutputSettings {
   __type?: "RtmpOutputSettings";
   /**
+   * Number of retry attempts.
+   */
+  NumRetries?: number;
+
+  /**
    * If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
    */
   CertificateMode?: RtmpOutputCertificateMode | string;
@@ -8583,11 +9361,6 @@ export interface RtmpOutputSettings {
    * The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
    */
   Destination: OutputLocationRef | undefined;
-
-  /**
-   * Number of retry attempts.
-   */
-  NumRetries?: number;
 }
 
 export namespace RtmpOutputSettings {
@@ -8603,9 +9376,9 @@ export namespace RtmpOutputSettings {
 export interface ScheduleAction {
   __type?: "ScheduleAction";
   /**
-   * The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
+   * The time for the action to start in the channel.
    */
-  ActionName: string | undefined;
+  ScheduleActionStartSettings: ScheduleActionStartSettings | undefined;
 
   /**
    * Settings for this schedule action.
@@ -8613,9 +9386,9 @@ export interface ScheduleAction {
   ScheduleActionSettings: ScheduleActionSettings | undefined;
 
   /**
-   * The time for the action to start in the channel.
+   * The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
    */
-  ScheduleActionStartSettings: ScheduleActionStartSettings | undefined;
+  ActionName: string | undefined;
 }
 
 export namespace ScheduleAction {
@@ -8631,29 +9404,9 @@ export namespace ScheduleAction {
 export interface ScheduleActionSettings {
   __type?: "ScheduleActionSettings";
   /**
-   * Action to insert HLS ID3 segment tagging
-   */
-  HlsId3SegmentTaggingSettings?: HlsId3SegmentTaggingScheduleActionSettings;
-
-  /**
-   * Action to insert HLS metadata
-   */
-  HlsTimedMetadataSettings?: HlsTimedMetadataScheduleActionSettings;
-
-  /**
-   * Action to switch the input
-   */
-  InputSwitchSettings?: InputSwitchScheduleActionSettings;
-
-  /**
    * Action to pause or unpause one or both channel pipelines
    */
   PauseStateSettings?: PauseStateScheduleActionSettings;
-
-  /**
-   * Action to insert SCTE-35 return_to_network message
-   */
-  Scte35ReturnToNetworkSettings?: Scte35ReturnToNetworkScheduleActionSettings;
 
   /**
    * Action to insert SCTE-35 splice_insert message
@@ -8661,9 +9414,34 @@ export interface ScheduleActionSettings {
   Scte35SpliceInsertSettings?: Scte35SpliceInsertScheduleActionSettings;
 
   /**
+   * Action to switch the input
+   */
+  InputSwitchSettings?: InputSwitchScheduleActionSettings;
+
+  /**
+   * Action to deactivate a static image overlay
+   */
+  StaticImageDeactivateSettings?: StaticImageDeactivateScheduleActionSettings;
+
+  /**
    * Action to insert SCTE-35 time_signal message
    */
   Scte35TimeSignalSettings?: Scte35TimeSignalScheduleActionSettings;
+
+  /**
+   * Action to insert HLS metadata
+   */
+  HlsTimedMetadataSettings?: HlsTimedMetadataScheduleActionSettings;
+
+  /**
+   * Action to insert HLS ID3 segment tagging
+   */
+  HlsId3SegmentTaggingSettings?: HlsId3SegmentTaggingScheduleActionSettings;
+
+  /**
+   * Action to insert SCTE-35 return_to_network message
+   */
+  Scte35ReturnToNetworkSettings?: Scte35ReturnToNetworkScheduleActionSettings;
 
   /**
    * Action to activate a static image overlay
@@ -8671,9 +9449,9 @@ export interface ScheduleActionSettings {
   StaticImageActivateSettings?: StaticImageActivateScheduleActionSettings;
 
   /**
-   * Action to deactivate a static image overlay
+   * Action to prepare an input for a future immediate input switch
    */
-  StaticImageDeactivateSettings?: StaticImageDeactivateScheduleActionSettings;
+  InputPrepareSettings?: InputPrepareScheduleActionSettings;
 }
 
 export namespace ScheduleActionSettings {
@@ -8689,9 +9467,9 @@ export namespace ScheduleActionSettings {
 export interface ScheduleActionStartSettings {
   __type?: "ScheduleActionStartSettings";
   /**
-   * Option for specifying the start time for an action.
+   * Option for specifying an action that should be applied immediately.
    */
-  FixedModeScheduleActionStartSettings?: FixedModeScheduleActionStartSettings;
+  ImmediateModeScheduleActionStartSettings?: ImmediateModeScheduleActionStartSettings;
 
   /**
    * Option for specifying an action as relative to another action.
@@ -8699,9 +9477,9 @@ export interface ScheduleActionStartSettings {
   FollowModeScheduleActionStartSettings?: FollowModeScheduleActionStartSettings;
 
   /**
-   * Option for specifying an action that should be applied immediately.
+   * Option for specifying the start time for an action.
    */
-  ImmediateModeScheduleActionStartSettings?: ImmediateModeScheduleActionStartSettings;
+  FixedModeScheduleActionStartSettings?: FixedModeScheduleActionStartSettings;
 }
 
 export namespace ScheduleActionStartSettings {
@@ -8811,16 +9589,6 @@ export enum Scte35ArchiveAllowedFlag {
 export interface Scte35DeliveryRestrictions {
   __type?: "Scte35DeliveryRestrictions";
   /**
-   * Corresponds to SCTE-35 archive_allowed_flag.
-   */
-  ArchiveAllowedFlag: Scte35ArchiveAllowedFlag | string | undefined;
-
-  /**
-   * Corresponds to SCTE-35 device_restrictions parameter.
-   */
-  DeviceRestrictions: Scte35DeviceRestrictions | string | undefined;
-
-  /**
    * Corresponds to SCTE-35 no_regional_blackout_flag parameter.
    */
   NoRegionalBlackoutFlag: Scte35NoRegionalBlackoutFlag | string | undefined;
@@ -8829,6 +9597,16 @@ export interface Scte35DeliveryRestrictions {
    * Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
    */
   WebDeliveryAllowedFlag: Scte35WebDeliveryAllowedFlag | string | undefined;
+
+  /**
+   * Corresponds to SCTE-35 archive_allowed_flag.
+   */
+  ArchiveAllowedFlag: Scte35ArchiveAllowedFlag | string | undefined;
+
+  /**
+   * Corresponds to SCTE-35 device_restrictions parameter.
+   */
+  DeviceRestrictions: Scte35DeviceRestrictions | string | undefined;
 }
 
 export namespace Scte35DeliveryRestrictions {
@@ -8916,29 +9694,14 @@ export enum Scte35SegmentationCancelIndicator {
 export interface Scte35SegmentationDescriptor {
   __type?: "Scte35SegmentationDescriptor";
   /**
-   * Holds the four SCTE-35 delivery restriction parameters.
-   */
-  DeliveryRestrictions?: Scte35DeliveryRestrictions;
-
-  /**
    * Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
    */
   SegmentNum?: number;
 
   /**
-   * Corresponds to SCTE-35 segmentation_event_cancel_indicator.
+   * Holds the four SCTE-35 delivery restriction parameters.
    */
-  SegmentationCancelIndicator: Scte35SegmentationCancelIndicator | string | undefined;
-
-  /**
-   * Corresponds to SCTE-35 segmentation_duration. Optional. The duration for the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter a duration, the time_signal will continue until you insert a cancellation message.
-   */
-  SegmentationDuration?: number;
-
-  /**
-   * Corresponds to SCTE-35 segmentation_event_id.
-   */
-  SegmentationEventId: number | undefined;
+  DeliveryRestrictions?: Scte35DeliveryRestrictions;
 
   /**
    * Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID in hex (for example, "0x34") or decimal (for example, "52").
@@ -8946,9 +9709,9 @@ export interface Scte35SegmentationDescriptor {
   SegmentationTypeId?: number;
 
   /**
-   * Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII "ADS Information" becomes hex "41445320496e666f726d6174696f6e.
+   * Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
    */
-  SegmentationUpid?: string;
+  SubSegmentsExpected?: number;
 
   /**
    * Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
@@ -8966,9 +9729,24 @@ export interface Scte35SegmentationDescriptor {
   SubSegmentNum?: number;
 
   /**
-   * Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
+   * Corresponds to SCTE-35 segmentation_event_cancel_indicator.
    */
-  SubSegmentsExpected?: number;
+  SegmentationCancelIndicator: Scte35SegmentationCancelIndicator | string | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII "ADS Information" becomes hex "41445320496e666f726d6174696f6e.
+   */
+  SegmentationUpid?: string;
+
+  /**
+   * Corresponds to SCTE-35 segmentation_event_id.
+   */
+  SegmentationEventId: number | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segmentation_duration. Optional. The duration for the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter a duration, the time_signal will continue until you insert a cancellation message.
+   */
+  SegmentationDuration?: number;
 }
 
 export namespace Scte35SegmentationDescriptor {
@@ -8984,14 +9762,14 @@ export namespace Scte35SegmentationDescriptor {
 export interface Scte35SpliceInsert {
   __type?: "Scte35SpliceInsert";
   /**
-   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
-   */
-  AdAvailOffset?: number;
-
-  /**
    * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
    */
   NoRegionalBlackoutFlag?: Scte35SpliceInsertNoRegionalBlackoutBehavior | string;
+
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   */
+  AdAvailOffset?: number;
 
   /**
    * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -9046,9 +9824,9 @@ export enum Scte35SpliceInsertWebDeliveryAllowedBehavior {
 export interface Scte35TimeSignalApos {
   __type?: "Scte35TimeSignalApos";
   /**
-   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
    */
-  AdAvailOffset?: number;
+  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | string;
 
   /**
    * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -9056,9 +9834,9 @@ export interface Scte35TimeSignalApos {
   NoRegionalBlackoutFlag?: Scte35AposNoRegionalBlackoutBehavior | string;
 
   /**
-   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
    */
-  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | string;
+  AdAvailOffset?: number;
 }
 
 export namespace Scte35TimeSignalApos {
@@ -9121,6 +9899,7 @@ export enum SmoothGroupSegmentationMode {
 export enum SmoothGroupSparseTrackType {
   NONE = "NONE",
   SCTE_35 = "SCTE_35",
+  SCTE_35_WITHOUT_SEGMENTATION = "SCTE_35_WITHOUT_SEGMENTATION",
 }
 
 export enum SmoothGroupStreamManifestBehavior {
@@ -9131,6 +9910,11 @@ export enum SmoothGroupStreamManifestBehavior {
 export enum SmoothGroupTimestampOffsetMode {
   USE_CONFIGURED_OFFSET = "USE_CONFIGURED_OFFSET",
   USE_EVENT_START_DATE = "USE_EVENT_START_DATE",
+}
+
+export enum Smpte2038DataPreference {
+  IGNORE = "IGNORE",
+  PREFER = "PREFER",
 }
 
 /**
@@ -9194,16 +9978,6 @@ export namespace StartChannelRequest {
 export interface StartChannelResponse {
   __type?: "StartChannelResponse";
   /**
-   * The unique arn of the channel.
-   */
-  Arn?: string;
-
-  /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   */
-  ChannelClass?: ChannelClass | string;
-
-  /**
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
@@ -9211,29 +9985,9 @@ export interface StartChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
    * Encoder Settings
    */
   EncoderSettings?: EncoderSettings;
-
-  /**
-   * The unique id of the channel.
-   */
-  Id?: string;
-
-  /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Placeholder documentation for InputSpecification
-   */
-  InputSpecification?: InputSpecification;
 
   /**
    * The log level being written to CloudWatch Logs.
@@ -9241,9 +9995,54 @@ export interface StartChannelResponse {
   LogLevel?: LogLevel | string;
 
   /**
+   * Placeholder documentation for InputSpecification
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   */
+  RoleArn?: string;
+
+  /**
+   * List of input attachments for channel.
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
    * The name of the channel. (user-mutable)
    */
   Name?: string;
+
+  /**
+   * Placeholder documentation for ChannelState
+   */
+  State?: ChannelState | string;
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * The unique arn of the channel.
+   */
+  Arn?: string;
+
+  /**
+   * The unique id of the channel.
+   */
+  Id?: string;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   */
+  ChannelClass?: ChannelClass | string;
 
   /**
    * Runtime details for the pipelines of a running channel.
@@ -9254,21 +10053,6 @@ export interface StartChannelResponse {
    * The number of currently healthy pipelines.
    */
   PipelinesRunningCount?: number;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-   */
-  RoleArn?: string;
-
-  /**
-   * Placeholder documentation for ChannelState
-   */
-  State?: ChannelState | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace StartChannelResponse {
@@ -9302,19 +10086,9 @@ export namespace StartMultiplexRequest {
 export interface StartMultiplexResponse {
   __type?: "StartMultiplexResponse";
   /**
-   * The unique arn of the multiplex.
+   * Configuration for a multiplex event.
    */
-  Arn?: string;
-
-  /**
-   * A list of availability zones for the multiplex.
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * A list of the multiplex output destinations.
-   */
-  Destinations?: MultiplexOutputDestination[];
+  MultiplexSettings?: MultiplexSettings;
 
   /**
    * The unique id of the multiplex.
@@ -9322,14 +10096,14 @@ export interface StartMultiplexResponse {
   Id?: string;
 
   /**
-   * Configuration for a multiplex event.
+   * The current state of the multiplex.
    */
-  MultiplexSettings?: MultiplexSettings;
+  State?: MultiplexState | string;
 
   /**
-   * The name of the multiplex.
+   * A list of availability zones for the multiplex.
    */
-  Name?: string;
+  AvailabilityZones?: string[];
 
   /**
    * The number of currently healthy pipelines.
@@ -9337,19 +10111,29 @@ export interface StartMultiplexResponse {
   PipelinesRunningCount?: number;
 
   /**
-   * The number of programs in the multiplex.
+   * The name of the multiplex.
    */
-  ProgramCount?: number;
+  Name?: string;
 
   /**
-   * The current state of the multiplex.
+   * A list of the multiplex output destinations.
    */
-  State?: MultiplexState | string;
+  Destinations?: MultiplexOutputDestination[];
 
   /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * The unique arn of the multiplex.
+   */
+  Arn?: string;
+
+  /**
+   * The number of programs in the multiplex.
+   */
+  ProgramCount?: number;
 }
 
 export namespace StartMultiplexResponse {
@@ -9383,14 +10167,14 @@ export namespace StartTimecode {
 export interface StaticImageActivateScheduleActionSettings {
   __type?: "StaticImageActivateScheduleActionSettings";
   /**
-   * The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
-   */
-  Duration?: number;
-
-  /**
    * The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
    */
   FadeIn?: number;
+
+  /**
+   * Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+   */
+  Opacity?: number;
 
   /**
    * Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
@@ -9403,9 +10187,9 @@ export interface StaticImageActivateScheduleActionSettings {
   Height?: number;
 
   /**
-   * The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
+   * Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
    */
-  Image: InputLocation | undefined;
+  ImageY?: number;
 
   /**
    * Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
@@ -9413,19 +10197,19 @@ export interface StaticImageActivateScheduleActionSettings {
   ImageX?: number;
 
   /**
-   * Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
-   */
-  ImageY?: number;
-
-  /**
    * The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
    */
   Layer?: number;
 
   /**
-   * Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+   * The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
    */
-  Opacity?: number;
+  Duration?: number;
+
+  /**
+   * The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
+   */
+  Image: InputLocation | undefined;
 
   /**
    * The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
@@ -9447,14 +10231,14 @@ export namespace StaticImageActivateScheduleActionSettings {
 export interface StaticImageDeactivateScheduleActionSettings {
   __type?: "StaticImageDeactivateScheduleActionSettings";
   /**
-   * The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
-   */
-  FadeOut?: number;
-
-  /**
    * The image overlay layer to deactivate, 0 to 7. Default is 0.
    */
   Layer?: number;
+
+  /**
+   * The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
+   */
+  FadeOut?: number;
 }
 
 export namespace StaticImageDeactivateScheduleActionSettings {
@@ -9471,14 +10255,14 @@ export namespace StaticImageDeactivateScheduleActionSettings {
 export interface StaticKeySettings {
   __type?: "StaticKeySettings";
   /**
-   * The URL of the license server used for protecting content.
-   */
-  KeyProviderServer?: InputLocation;
-
-  /**
    * Static key value as a 32 character hexadecimal string.
    */
   StaticKeyValue: string | undefined;
+
+  /**
+   * The URL of the license server used for protecting content.
+   */
+  KeyProviderServer?: InputLocation;
 }
 
 export namespace StaticKeySettings {
@@ -9512,14 +10296,39 @@ export namespace StopChannelRequest {
 export interface StopChannelResponse {
   __type?: "StopChannelResponse";
   /**
-   * The unique arn of the channel.
+   * A collection of key-value pairs.
    */
-  Arn?: string;
+  Tags?: { [key: string]: string };
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
   ChannelClass?: ChannelClass | string;
+
+  /**
+   * Placeholder documentation for ChannelState
+   */
+  State?: ChannelState | string;
+
+  /**
+   * The name of the channel. (user-mutable)
+   */
+  Name?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   */
+  RoleArn?: string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -9529,44 +10338,9 @@ export interface StopChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * Encoder Settings
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * The unique id of the channel.
-   */
-  Id?: string;
-
-  /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
    * Placeholder documentation for InputSpecification
    */
   InputSpecification?: InputSpecification;
-
-  /**
-   * The log level being written to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * The name of the channel. (user-mutable)
-   */
-  Name?: string;
-
-  /**
-   * Runtime details for the pipelines of a running channel.
-   */
-  PipelineDetails?: PipelineDetail[];
 
   /**
    * The number of currently healthy pipelines.
@@ -9574,19 +10348,29 @@ export interface StopChannelResponse {
   PipelinesRunningCount?: number;
 
   /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * The unique arn of the channel.
    */
-  RoleArn?: string;
+  Arn?: string;
 
   /**
-   * Placeholder documentation for ChannelState
+   * Runtime details for the pipelines of a running channel.
    */
-  State?: ChannelState | string;
+  PipelineDetails?: PipelineDetail[];
 
   /**
-   * A collection of key-value pairs.
+   * List of input attachments for channel.
    */
-  Tags?: { [key: string]: string };
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * The unique id of the channel.
+   */
+  Id?: string;
+
+  /**
+   * Encoder Settings
+   */
+  EncoderSettings?: EncoderSettings;
 }
 
 export namespace StopChannelResponse {
@@ -9620,19 +10404,24 @@ export namespace StopMultiplexRequest {
 export interface StopMultiplexResponse {
   __type?: "StopMultiplexResponse";
   /**
-   * The unique arn of the multiplex.
-   */
-  Arn?: string;
-
-  /**
-   * A list of availability zones for the multiplex.
-   */
-  AvailabilityZones?: string[];
-
-  /**
    * A list of the multiplex output destinations.
    */
   Destinations?: MultiplexOutputDestination[];
+
+  /**
+   * The number of programs in the multiplex.
+   */
+  ProgramCount?: number;
+
+  /**
+   * The current state of the multiplex.
+   */
+  State?: MultiplexState | string;
+
+  /**
+   * The name of the multiplex.
+   */
+  Name?: string;
 
   /**
    * The unique id of the multiplex.
@@ -9645,9 +10434,9 @@ export interface StopMultiplexResponse {
   MultiplexSettings?: MultiplexSettings;
 
   /**
-   * The name of the multiplex.
+   * The unique arn of the multiplex.
    */
-  Name?: string;
+  Arn?: string;
 
   /**
    * The number of currently healthy pipelines.
@@ -9655,14 +10444,9 @@ export interface StopMultiplexResponse {
   PipelinesRunningCount?: number;
 
   /**
-   * The number of programs in the multiplex.
+   * A list of availability zones for the multiplex.
    */
-  ProgramCount?: number;
-
-  /**
-   * The current state of the multiplex.
-   */
-  State?: MultiplexState | string;
+  AvailabilityZones?: string[];
 
   /**
    * A collection of key-value pairs.
@@ -9732,11 +10516,67 @@ export namespace TeletextSourceSettings {
   export const isa = (o: any): o is TeletextSourceSettings => __isa(o, "TeletextSourceSettings");
 }
 
+export enum TemporalFilterPostFilterSharpening {
+  AUTO = "AUTO",
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * Temporal Filter Settings
+ */
+export interface TemporalFilterSettings {
+  __type?: "TemporalFilterSettings";
+  /**
+   * If you enable this filter, the results are the following:
+   * - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
+   * - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
+   */
+  PostFilterSharpening?: TemporalFilterPostFilterSharpening | string;
+
+  /**
+   * Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
+   */
+  Strength?: TemporalFilterStrength | string;
+}
+
+export namespace TemporalFilterSettings {
+  export const filterSensitiveLog = (obj: TemporalFilterSettings): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TemporalFilterSettings => __isa(o, "TemporalFilterSettings");
+}
+
+export enum TemporalFilterStrength {
+  AUTO = "AUTO",
+  STRENGTH_1 = "STRENGTH_1",
+  STRENGTH_10 = "STRENGTH_10",
+  STRENGTH_11 = "STRENGTH_11",
+  STRENGTH_12 = "STRENGTH_12",
+  STRENGTH_13 = "STRENGTH_13",
+  STRENGTH_14 = "STRENGTH_14",
+  STRENGTH_15 = "STRENGTH_15",
+  STRENGTH_16 = "STRENGTH_16",
+  STRENGTH_2 = "STRENGTH_2",
+  STRENGTH_3 = "STRENGTH_3",
+  STRENGTH_4 = "STRENGTH_4",
+  STRENGTH_5 = "STRENGTH_5",
+  STRENGTH_6 = "STRENGTH_6",
+  STRENGTH_7 = "STRENGTH_7",
+  STRENGTH_8 = "STRENGTH_8",
+  STRENGTH_9 = "STRENGTH_9",
+}
+
 /**
  * Timecode Config
  */
 export interface TimecodeConfig {
   __type?: "TimecodeConfig";
+  /**
+   * Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
+   */
+  SyncThreshold?: number;
+
   /**
    * Identifies the source for the timecode that will be associated with the events outputs.
    * -Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using "Start at 0" (zerobased).
@@ -9744,11 +10584,6 @@ export interface TimecodeConfig {
    * -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
    */
   Source: TimecodeConfigSource | string | undefined;
-
-  /**
-   * Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
-   */
-  SyncThreshold?: number;
 }
 
 export namespace TimecodeConfig {
@@ -9858,9 +10693,9 @@ export namespace UdpGroupSettings {
 export interface UdpOutputSettings {
   __type?: "UdpOutputSettings";
   /**
-   * UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
+   * Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
    */
-  BufferMsec?: number;
+  Destination: OutputLocationRef | undefined;
 
   /**
    * Udp Container Settings
@@ -9868,9 +10703,9 @@ export interface UdpOutputSettings {
   ContainerSettings: UdpContainerSettings | undefined;
 
   /**
-   * Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
+   * UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
    */
-  Destination: OutputLocationRef | undefined;
+  BufferMsec?: number;
 
   /**
    * Settings for enabling and adjusting Forward Error Correction on UDP outputs.
@@ -9898,7 +10733,7 @@ export interface UnprocessableEntityException extends __SmithyException, $Metada
   name: "UnprocessableEntityException";
   $fault: "client";
   /**
-   * Placeholder documentation for __string
+   * The error message.
    */
   Message?: string;
 
@@ -9977,26 +10812,6 @@ export interface UpdateChannelRequest {
   Destinations?: OutputDestination[];
 
   /**
-   * The encoder settings for this channel.
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * Placeholder documentation for __listOfInputAttachment
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Specification of input for this channel (max. bitrate, resolution, codec, etc.)
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * The log level to write to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
    * The name of the channel.
    */
   Name?: string;
@@ -10005,6 +10820,26 @@ export interface UpdateChannelRequest {
    * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
    */
   RoleArn?: string;
+
+  /**
+   * Placeholder documentation for __listOfInputAttachment
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * The log level to write to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
+
+  /**
+   * Specification of input for this channel (max. bitrate, resolution, codec, etc.)
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * The encoder settings for this channel.
+   */
+  EncoderSettings?: EncoderSettings;
 }
 
 export namespace UpdateChannelRequest {
@@ -10033,10 +10868,113 @@ export namespace UpdateChannelResponse {
 }
 
 /**
+ * A request to update an input device.
+ */
+export interface UpdateInputDeviceRequest {
+  __type?: "UpdateInputDeviceRequest";
+  /**
+   * The settings that you want to apply to the input device.
+   */
+  HdDeviceSettings?: InputDeviceConfigurableSettings;
+
+  /**
+   * The unique ID of the input device. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
+
+  /**
+   * The name that you assigned to this input device (not the unique ID).
+   */
+  Name?: string;
+}
+
+export namespace UpdateInputDeviceRequest {
+  export const filterSensitiveLog = (obj: UpdateInputDeviceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateInputDeviceRequest => __isa(o, "UpdateInputDeviceRequest");
+}
+
+/**
+ * Placeholder documentation for UpdateInputDeviceResponse
+ */
+export interface UpdateInputDeviceResponse {
+  __type?: "UpdateInputDeviceResponse";
+  /**
+   * The unique ARN of the input device.
+   */
+  Arn?: string;
+
+  /**
+   * The network MAC address of the input device.
+   */
+  MacAddress?: string;
+
+  /**
+   * Settings that describe an input device that is type HD.
+   */
+  HdDeviceSettings?: InputDeviceHdSettings;
+
+  /**
+   * The type of the input device.
+   */
+  Type?: InputDeviceType | string;
+
+  /**
+   * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+   */
+  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
+
+  /**
+   * The network settings for the input device.
+   */
+  NetworkSettings?: InputDeviceNetworkSettings;
+
+  /**
+   * The unique serial number of the input device.
+   */
+  SerialNumber?: string;
+
+  /**
+   * A name that you specify for the input device.
+   */
+  Name?: string;
+
+  /**
+   * The unique ID of the input device.
+   */
+  Id?: string;
+
+  /**
+   * The state of the connection between the input device and AWS.
+   */
+  ConnectionState?: InputDeviceConnectionState | string;
+}
+
+export namespace UpdateInputDeviceResponse {
+  export const filterSensitiveLog = (obj: UpdateInputDeviceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateInputDeviceResponse => __isa(o, "UpdateInputDeviceResponse");
+}
+
+/**
  * A request to update an input.
  */
 export interface UpdateInputRequest {
   __type?: "UpdateInputRequest";
+  /**
+   * Settings for the devices.
+   */
+  InputDevices?: InputDeviceRequest[];
+
+  /**
+   * The source URLs for a PULL-type input. Every PULL type input needs
+   * exactly two source URLs for redundancy.
+   * Only specify sources for PULL type Inputs. Leave Destinations empty.
+   */
+  Sources?: InputSourceRequest[];
+
   /**
    * Destination settings for PUSH type inputs.
    */
@@ -10053,13 +10991,6 @@ export interface UpdateInputRequest {
   InputSecurityGroups?: string[];
 
   /**
-   * A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
-   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
-   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
-   */
-  MediaConnectFlows?: MediaConnectFlowRequest[];
-
-  /**
    * Name of the input.
    */
   Name?: string;
@@ -10070,11 +11001,11 @@ export interface UpdateInputRequest {
   RoleArn?: string;
 
   /**
-   * The source URLs for a PULL-type input. Every PULL type input needs
-   * exactly two source URLs for redundancy.
-   * Only specify sources for PULL type Inputs. Leave Destinations empty.
+   * A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
+   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
    */
-  Sources?: InputSourceRequest[];
+  MediaConnectFlows?: MediaConnectFlowRequest[];
 }
 
 export namespace UpdateInputRequest {
@@ -10108,9 +11039,9 @@ export namespace UpdateInputResponse {
 export interface UpdateInputSecurityGroupRequest {
   __type?: "UpdateInputSecurityGroupRequest";
   /**
-   * The id of the Input Security Group to update.
+   * List of IPv4 CIDR addresses to whitelist
    */
-  InputSecurityGroupId: string | undefined;
+  WhitelistRules?: InputWhitelistRuleCidr[];
 
   /**
    * A collection of key-value pairs.
@@ -10118,9 +11049,9 @@ export interface UpdateInputSecurityGroupRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * List of IPv4 CIDR addresses to whitelist
+   * The id of the Input Security Group to update.
    */
-  WhitelistRules?: InputWhitelistRuleCidr[];
+  InputSecurityGroupId: string | undefined;
 }
 
 export namespace UpdateInputSecurityGroupRequest {
@@ -10154,9 +11085,9 @@ export namespace UpdateInputSecurityGroupResponse {
 export interface UpdateMultiplexProgramRequest {
   __type?: "UpdateMultiplexProgramRequest";
   /**
-   * The ID of the multiplex of the program to update.
+   * The name of the program to update.
    */
-  MultiplexId: string | undefined;
+  ProgramName: string | undefined;
 
   /**
    * The new settings for a multiplex program.
@@ -10164,9 +11095,9 @@ export interface UpdateMultiplexProgramRequest {
   MultiplexProgramSettings?: MultiplexProgramSettings;
 
   /**
-   * The name of the program to update.
+   * The ID of the multiplex of the program to update.
    */
-  ProgramName: string | undefined;
+  MultiplexId: string | undefined;
 }
 
 export namespace UpdateMultiplexProgramRequest {
@@ -10205,14 +11136,14 @@ export interface UpdateMultiplexRequest {
   MultiplexId: string | undefined;
 
   /**
-   * The new settings for a multiplex.
-   */
-  MultiplexSettings?: MultiplexSettings;
-
-  /**
    * Name of the multiplex.
    */
   Name?: string;
+
+  /**
+   * The new settings for a multiplex.
+   */
+  MultiplexSettings?: MultiplexSettings;
 }
 
 export namespace UpdateMultiplexRequest {
@@ -10246,14 +11177,14 @@ export namespace UpdateMultiplexResponse {
 export interface UpdateReservationRequest {
   __type?: "UpdateReservationRequest";
   /**
-   * Name of the reservation
-   */
-  Name?: string;
-
-  /**
    * Unique reservation ID, e.g. '1234567'
    */
   ReservationId: string | undefined;
+
+  /**
+   * Name of the reservation
+   */
+  Name?: string;
 }
 
 export namespace UpdateReservationRequest {
@@ -10287,12 +11218,12 @@ export namespace UpdateReservationResponse {
 export interface ValidationError {
   __type?: "ValidationError";
   /**
-   * Placeholder documentation for __string
+   * Path to the source of the error.
    */
   ElementPath?: string;
 
   /**
-   * Placeholder documentation for __string
+   * The error message.
    */
   ErrorMessage?: string;
 }
@@ -10315,14 +11246,14 @@ export interface VideoCodecSettings {
   FrameCaptureSettings?: FrameCaptureSettings;
 
   /**
-   * H264 Settings
-   */
-  H264Settings?: H264Settings;
-
-  /**
    * H265 Settings
    */
   H265Settings?: H265Settings;
+
+  /**
+   * H264 Settings
+   */
+  H264Settings?: H264Settings;
 }
 
 export namespace VideoCodecSettings {
@@ -10338,14 +11269,24 @@ export namespace VideoCodecSettings {
 export interface VideoDescription {
   __type?: "VideoDescription";
   /**
-   * Video codec settings.
-   */
-  CodecSettings?: VideoCodecSettings;
-
-  /**
    * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
    */
   Height?: number;
+
+  /**
+   * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+   */
+  Width?: number;
+
+  /**
+   * Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped, depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for FRAME_CAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAME_CAPTURE codec) ignores the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values and does not include the values through to the output, so input video is not clipped.
+   */
+  RespondToAfd?: VideoDescriptionRespondToAfd | string;
+
+  /**
+   * STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
+   */
+  ScalingBehavior?: VideoDescriptionScalingBehavior | string;
 
   /**
    * The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
@@ -10353,24 +11294,14 @@ export interface VideoDescription {
   Name: string | undefined;
 
   /**
-   * Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped, depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec) ignores the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values and does not include the values through to the output, so input video is not clipped.
-   */
-  RespondToAfd?: VideoDescriptionRespondToAfd | string;
-
-  /**
-   * STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
-   */
-  ScalingBehavior?: VideoDescriptionScalingBehavior | string;
-
-  /**
    * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
    */
   Sharpness?: number;
 
   /**
-   * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+   * Video codec settings.
    */
-  Width?: number;
+  CodecSettings?: VideoCodecSettings;
 }
 
 export namespace VideoDescription {
@@ -10402,14 +11333,14 @@ export interface VideoSelector {
   ColorSpace?: VideoSelectorColorSpace | string;
 
   /**
-   * Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
-   */
-  ColorSpaceUsage?: VideoSelectorColorSpaceUsage | string;
-
-  /**
    * The video selector settings.
    */
   SelectorSettings?: VideoSelectorSettings;
+
+  /**
+   * Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
+   */
+  ColorSpaceUsage?: VideoSelectorColorSpaceUsage | string;
 }
 
 export namespace VideoSelector {

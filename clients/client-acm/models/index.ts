@@ -4,6 +4,11 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AddTagsToCertificateRequest {
   __type?: "AddTagsToCertificateRequest";
   /**
+   * <p>The key-value pair that defines the tag. The tag value is optional.</p>
+   */
+  Tags: Tag[] | undefined;
+
+  /**
    * <p>String that contains the ARN of the ACM certificate to which the tag is to be applied.
    *       This must be of the form:</p>
    *
@@ -14,11 +19,6 @@ export interface AddTagsToCertificateRequest {
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </p>
    */
   CertificateArn: string | undefined;
-
-  /**
-   * <p>The key-value pair that defines the tag. The tag value is optional.</p>
-   */
-  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToCertificateRequest {
@@ -35,11 +35,42 @@ export namespace AddTagsToCertificateRequest {
 export interface CertificateDetail {
   __type?: "CertificateDetail";
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see
-   *         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
-   *         Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   * <p>Specifies whether the certificate is eligible for renewal. At this time, only exported
+   *       private certificates can be renewed with the <a>RenewCertificate</a>
+   *       command.</p>
    */
-  CertificateArn?: string;
+  RenewalEligibility?: RenewalEligibility | string;
+
+  /**
+   * <p>The algorithm that was used to sign the certificate.</p>
+   */
+  SignatureAlgorithm?: string;
+
+  /**
+   * <p>A list of ARNs for the AWS resources that are using the certificate. A certificate can
+   *       be used by multiple AWS resources. </p>
+   */
+  InUseBy?: string[];
+
+  /**
+   * <p>The time at which the certificate was revoked. This value exists only when the certificate
+   *       status is <code>REVOKED</code>. </p>
+   */
+  RevokedAt?: Date;
+
+  /**
+   * <p>Value that specifies whether to add the certificate to a transparency log. Certificate
+   *       transparency makes it possible to detect SSL certificates that have been mistakenly or
+   *       maliciously issued. A browser might respond to certificate that has not been logged by showing
+   *       an error message. The logs are cryptographically secure. </p>
+   */
+  Options?: CertificateOptions;
+
+  /**
+   * <p>The date and time at which the certificate was imported. This value exists only when the
+   *       certificate type is <code>IMPORTED</code>. </p>
+   */
+  ImportedAt?: Date;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued
@@ -51,16 +82,20 @@ export interface CertificateDetail {
   CertificateAuthorityArn?: string;
 
   /**
+   * <p>The serial number of the certificate.</p>
+   */
+  Serial?: string;
+
+  /**
+   * <p>The name of the certificate authority that issued and signed the certificate.</p>
+   */
+  Issuer?: string;
+
+  /**
    * <p>The time at which the certificate was requested. This value exists only when the
    *       certificate type is <code>AMAZON_ISSUED</code>. </p>
    */
   CreatedAt?: Date;
-
-  /**
-   * <p>The fully qualified domain name for the certificate, such as www.example.com or
-   *       example.com.</p>
-   */
-  DomainName?: string;
 
   /**
    * <p>Contains information about the initial validation of each domain name that occurs as a
@@ -70,117 +105,16 @@ export interface CertificateDetail {
   DomainValidationOptions?: DomainValidation[];
 
   /**
-   * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a
-   *       purpose for which the certificate public key can be used and consists of a name and an object
-   *       identifier (OID). </p>
+   * <p>The name of the entity that is associated with the public key contained in the
+   *       certificate.</p>
    */
-  ExtendedKeyUsages?: ExtendedKeyUsage[];
-
-  /**
-   * <p>The reason the certificate request failed. This value exists only when the certificate
-   *       status is <code>FAILED</code>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed">Certificate Request
-   *         Failed</a> in the <i>AWS Certificate Manager User Guide</i>. </p>
-   */
-  FailureReason?: FailureReason | string;
-
-  /**
-   * <p>The date and time at which the certificate was imported. This value exists only when the
-   *       certificate type is <code>IMPORTED</code>. </p>
-   */
-  ImportedAt?: Date;
-
-  /**
-   * <p>A list of ARNs for the AWS resources that are using the certificate. A certificate can
-   *       be used by multiple AWS resources. </p>
-   */
-  InUseBy?: string[];
-
-  /**
-   * <p>The time at which the certificate was issued. This value exists only when the certificate
-   *       type is <code>AMAZON_ISSUED</code>. </p>
-   */
-  IssuedAt?: Date;
-
-  /**
-   * <p>The name of the certificate authority that issued and signed the certificate.</p>
-   */
-  Issuer?: string;
-
-  /**
-   * <p>The algorithm that was used to generate the public-private key pair.</p>
-   */
-  KeyAlgorithm?: KeyAlgorithm | string;
-
-  /**
-   * <p>A list of Key Usage X.509 v3 extension objects. Each object is a string value that
-   *       identifies the purpose of the public key contained in the certificate. Possible extension
-   *       values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
-   */
-  KeyUsages?: KeyUsage[];
-
-  /**
-   * <p>The time after which the certificate is not valid.</p>
-   */
-  NotAfter?: Date;
-
-  /**
-   * <p>The time before which the certificate is not valid.</p>
-   */
-  NotBefore?: Date;
-
-  /**
-   * <p>Value that specifies whether to add the certificate to a transparency log. Certificate
-   *       transparency makes it possible to detect SSL certificates that have been mistakenly or
-   *       maliciously issued. A browser might respond to certificate that has not been logged by showing
-   *       an error message. The logs are cryptographically secure. </p>
-   */
-  Options?: CertificateOptions;
-
-  /**
-   * <p>Specifies whether the certificate is eligible for renewal. At this time, only exported
-   *       private certificates can be renewed with the <a>RenewCertificate</a>
-   *       command.</p>
-   */
-  RenewalEligibility?: RenewalEligibility | string;
-
-  /**
-   * <p>Contains information about the status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This field
-   *       exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
-   */
-  RenewalSummary?: RenewalSummary;
+  Subject?: string;
 
   /**
    * <p>The reason the certificate was revoked. This value exists only when the certificate status
    *       is <code>REVOKED</code>. </p>
    */
   RevocationReason?: RevocationReason | string;
-
-  /**
-   * <p>The time at which the certificate was revoked. This value exists only when the certificate
-   *       status is <code>REVOKED</code>. </p>
-   */
-  RevokedAt?: Date;
-
-  /**
-   * <p>The serial number of the certificate.</p>
-   */
-  Serial?: string;
-
-  /**
-   * <p>The algorithm that was used to sign the certificate.</p>
-   */
-  SignatureAlgorithm?: string;
-
-  /**
-   * <p>The status of the certificate.</p>
-   */
-  Status?: CertificateStatus | string;
-
-  /**
-   * <p>The name of the entity that is associated with the public key contained in the
-   *       certificate.</p>
-   */
-  Subject?: string;
 
   /**
    * <p>One or more domain names (subject alternative names) included in the certificate. This
@@ -191,6 +125,65 @@ export interface CertificateDetail {
   SubjectAlternativeNames?: string[];
 
   /**
+   * <p>The time at which the certificate was issued. This value exists only when the certificate
+   *       type is <code>AMAZON_ISSUED</code>. </p>
+   */
+  IssuedAt?: Date;
+
+  /**
+   * <p>The algorithm that was used to generate the public-private key pair.</p>
+   */
+  KeyAlgorithm?: KeyAlgorithm | string;
+
+  /**
+   * <p>The fully qualified domain name for the certificate, such as www.example.com or
+   *       example.com.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>A list of Key Usage X.509 v3 extension objects. Each object is a string value that
+   *       identifies the purpose of the public key contained in the certificate. Possible extension
+   *       values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
+   */
+  KeyUsages?: KeyUsage[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see
+   *         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
+   *         Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * <p>The time before which the certificate is not valid.</p>
+   */
+  NotBefore?: Date;
+
+  /**
+   * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a
+   *       purpose for which the certificate public key can be used and consists of a name and an object
+   *       identifier (OID). </p>
+   */
+  ExtendedKeyUsages?: ExtendedKeyUsage[];
+
+  /**
+   * <p>The time after which the certificate is not valid.</p>
+   */
+  NotAfter?: Date;
+
+  /**
+   * <p>The status of the certificate.</p>
+   */
+  Status?: CertificateStatus | string;
+
+  /**
+   * <p>Contains information about the status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This field
+   *       exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
+   */
+  RenewalSummary?: RenewalSummary;
+
+  /**
    * <p>The source of the certificate. For certificates provided by ACM, this value is
    *         <code>AMAZON_ISSUED</code>. For certificates that you imported with <a>ImportCertificate</a>, this value is <code>IMPORTED</code>. ACM does not provide
    *         <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for
@@ -199,6 +192,13 @@ export interface CertificateDetail {
    *         <i>AWS Certificate Manager User Guide</i>. </p>
    */
   Type?: CertificateType | string;
+
+  /**
+   * <p>The reason the certificate request failed. This value exists only when the certificate
+   *       status is <code>FAILED</code>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed">Certificate Request
+   *         Failed</a> in the <i>AWS Certificate Manager User Guide</i>. </p>
+   */
+  FailureReason?: FailureReason | string;
 }
 
 export namespace CertificateDetail {
@@ -352,16 +352,20 @@ export enum DomainStatus {
 export interface DomainValidation {
   __type?: "DomainValidation";
   /**
+   * <p>Contains the CNAME record that you add to your DNS database for domain validation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">Use DNS to Validate Domain Ownership</a>.</p>
+   *          <p>Note: The CNAME information that you need does not include the name of your domain. If you
+   *       include  your domain name in the DNS database CNAME record, validation fails.  For example, if
+   *       the name is "_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com", only
+   *       "_a79865eb4cd1a6ab990a45779b4e0b96" must be used.</p>
+   */
+  ResourceRecord?: ResourceRecord;
+
+  /**
    * <p>A fully qualified domain name (FQDN) in the certificate. For example,
    *         <code>www.example.com</code> or <code>example.com</code>. </p>
    */
   DomainName: string | undefined;
-
-  /**
-   * <p>Contains the CNAME record that you add to your DNS database for domain validation. For
-   *       more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">Use DNS to Validate Domain Ownership</a>.</p>
-   */
-  ResourceRecord?: ResourceRecord;
 
   /**
    * <p>The domain name that ACM used to send domain validation emails.</p>
@@ -369,14 +373,14 @@ export interface DomainValidation {
   ValidationDomain?: string;
 
   /**
-   * <p>A list of email addresses that ACM used to send domain validation emails.</p>
-   */
-  ValidationEmails?: string[];
-
-  /**
    * <p>Specifies the domain validation method.</p>
    */
   ValidationMethod?: ValidationMethod | string;
+
+  /**
+   * <p>A list of email addresses that ACM used to send domain validation emails.</p>
+   */
+  ValidationEmails?: string[];
 
   /**
    * <p>The validation status of the domain name. This can be one of the following values:</p>
@@ -414,11 +418,6 @@ export namespace DomainValidation {
 export interface DomainValidationOption {
   __type?: "DomainValidationOption";
   /**
-   * <p>A fully qualified domain name (FQDN) in the certificate request.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>The domain name that you want ACM to use to send you validation emails. This domain name
    *       is the suffix of the email addresses that you want ACM to use. This must be the same as the
    *         <code>DomainName</code> value or a superdomain of the <code>DomainName</code> value. For
@@ -444,6 +443,11 @@ export interface DomainValidationOption {
    *          </ul>
    */
   ValidationDomain: string | undefined;
+
+  /**
+   * <p>A fully qualified domain name (FQDN) in the certificate request.</p>
+   */
+  DomainName: string | undefined;
 }
 
 export namespace DomainValidationOption {
@@ -490,16 +494,16 @@ export interface ExportCertificateResponse {
   Certificate?: string;
 
   /**
-   * <p>The base64 PEM-encoded certificate chain. This does not include the certificate that you
-   *       are exporting.</p>
-   */
-  CertificateChain?: string;
-
-  /**
    * <p>The encrypted private key associated with the public key in the certificate. The key is
    *       output in PKCS #8 format and is base64 PEM-encoded. </p>
    */
   PrivateKey?: string;
+
+  /**
+   * <p>The base64 PEM-encoded certificate chain. This does not include the certificate that you
+   *       are exporting.</p>
+   */
+  CertificateChain?: string;
 }
 
 export namespace ExportCertificateResponse {
@@ -625,9 +629,9 @@ export enum FailureReason {
 export interface Filters {
   __type?: "Filters";
   /**
-   * <p>Specify one or more <a>ExtendedKeyUsage</a> extension values.</p>
+   * <p>Specify one or more <a>KeyUsage</a> extension values.</p>
    */
-  extendedKeyUsage?: (ExtendedKeyUsageName | string)[];
+  keyUsage?: (KeyUsageName | string)[];
 
   /**
    * <p>Specify one or more algorithms that can be used to generate key pairs.</p>
@@ -639,9 +643,9 @@ export interface Filters {
   keyTypes?: (KeyAlgorithm | string)[];
 
   /**
-   * <p>Specify one or more <a>KeyUsage</a> extension values.</p>
+   * <p>Specify one or more <a>ExtendedKeyUsage</a> extension values.</p>
    */
-  keyUsage?: (KeyUsageName | string)[];
+  extendedKeyUsage?: (ExtendedKeyUsageName | string)[];
 }
 
 export namespace Filters {
@@ -673,16 +677,15 @@ export namespace GetCertificateRequest {
 export interface GetCertificateResponse {
   __type?: "GetCertificateResponse";
   /**
-   * <p>String that contains the ACM certificate represented by the ARN specified at
-   *       input.</p>
-   */
-  Certificate?: string;
-
-  /**
-   * <p>The certificate chain that contains the root certificate issued by the certificate
-   *       authority (CA).</p>
+   * <p>Certificates forming the requested certificate's chain of trust. The chain consists of the
+   *       certificate of the issuing CA and the intermediate certificates of any other subordinate CAs. </p>
    */
   CertificateChain?: string;
+
+  /**
+   * <p>The ACM-issued certificate corresponding to the ARN specified as input.</p>
+   */
+  Certificate?: string;
 }
 
 export namespace GetCertificateResponse {
@@ -695,21 +698,11 @@ export namespace GetCertificateResponse {
 export interface ImportCertificateRequest {
   __type?: "ImportCertificateRequest";
   /**
-   * <p>The certificate to import.</p>
-   */
-  Certificate: Uint8Array | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name
    *         (ARN)</a> of an imported certificate to replace. To import a new certificate, omit this
    *       field. </p>
    */
   CertificateArn?: string;
-
-  /**
-   * <p>The PEM encoded certificate chain.</p>
-   */
-  CertificateChain?: Uint8Array;
 
   /**
    * <p>The private key that matches the public key in the certificate.</p>
@@ -721,6 +714,16 @@ export interface ImportCertificateRequest {
    *          <p>Note: You cannot apply tags when reimporting a certificate.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The certificate to import.</p>
+   */
+  Certificate: Uint8Array | undefined;
+
+  /**
+   * <p>The PEM encoded certificate chain.</p>
+   */
+  CertificateChain?: Uint8Array;
 }
 
 export namespace ImportCertificateRequest {
@@ -889,7 +892,7 @@ export enum KeyUsageName {
 }
 
 /**
- * <p>An ACM limit has been exceeded.</p>
+ * <p>An ACM quota has been exceeded.</p>
  */
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
@@ -907,6 +910,14 @@ export namespace LimitExceededException {
 export interface ListCertificatesRequest {
   __type?: "ListCertificatesRequest";
   /**
+   * <p>Use this parameter when paginating results to specify the maximum number of items to
+   *       return in the response. If additional items exist beyond the number you specify, the
+   *         <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code>
+   *       value in a subsequent request to retrieve additional items.</p>
+   */
+  MaxItems?: number;
+
+  /**
    * <p>Filter the certificate list by status value.</p>
    */
   CertificateStatuses?: (CertificateStatus | string)[];
@@ -916,14 +927,6 @@ export interface ListCertificatesRequest {
    *       structure.</p>
    */
   Includes?: Filters;
-
-  /**
-   * <p>Use this parameter when paginating results to specify the maximum number of items to
-   *       return in the response. If additional items exist beyond the number you specify, the
-   *         <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code>
-   *       value in a subsequent request to retrieve additional items.</p>
-   */
-  MaxItems?: number;
 
   /**
    * <p>Use this parameter only when paginating results and only in a subsequent request after you
@@ -943,15 +946,15 @@ export namespace ListCertificatesRequest {
 export interface ListCertificatesResponse {
   __type?: "ListCertificatesResponse";
   /**
-   * <p>A list of ACM certificates.</p>
-   */
-  CertificateSummaryList?: CertificateSummary[];
-
-  /**
    * <p>When the list is truncated, this value is present and contains the value to use for the
    *         <code>NextToken</code> parameter in a subsequent pagination request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of ACM certificates.</p>
+   */
+  CertificateSummaryList?: CertificateSummary[];
 }
 
 export namespace ListCertificatesResponse {
@@ -1046,13 +1049,9 @@ export enum RenewalStatus {
 export interface RenewalSummary {
   __type?: "RenewalSummary";
   /**
-   * <p>Contains information about the validation of each domain name in the certificate, as it
-   *       pertains to ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed
-   *         renewal</a>. This is different from the initial validation that occurs as a result of
-   *       the <a>RequestCertificate</a> request. This field exists only when the certificate
-   *       type is <code>AMAZON_ISSUED</code>.</p>
+   * <p>The reason that a renewal request was unsuccessful.</p>
    */
-  DomainValidationOptions: DomainValidation[] | undefined;
+  RenewalStatusReason?: FailureReason | string;
 
   /**
    * <p>The status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> of the certificate.</p>
@@ -1060,9 +1059,13 @@ export interface RenewalSummary {
   RenewalStatus: RenewalStatus | string | undefined;
 
   /**
-   * <p>The reason that a renewal request was unsuccessful.</p>
+   * <p>Contains information about the validation of each domain name in the certificate, as it
+   *       pertains to ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed
+   *         renewal</a>. This is different from the initial validation that occurs as a result of
+   *       the <a>RequestCertificate</a> request. This field exists only when the certificate
+   *       type is <code>AMAZON_ISSUED</code>.</p>
    */
-  RenewalStatusReason?: FailureReason | string;
+  DomainValidationOptions: DomainValidation[] | undefined;
 
   /**
    * <p>The time at which the renewal summary was last updated.</p>
@@ -1100,29 +1103,6 @@ export namespace RenewCertificateRequest {
 export interface RequestCertificateRequest {
   __type?: "RequestCertificateRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used
-   *       to issue the certificate. If you do not provide an ARN and you are trying to request a private
-   *       certificate, ACM will attempt to issue a public certificate. For more information about
-   *       private CAs, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">AWS Certificate Manager Private Certificate Authority (PCA)</a> user guide. The ARN must have the following form: </p>
-   *
-   *          <p>
-   *             <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
-   *          </p>
-   */
-  CertificateAuthorityArn?: string;
-
-  /**
-   * <p> Fully qualified domain name (FQDN), such as www.example.com, that you want to secure with
-   *       an ACM certificate. Use an asterisk (*) to create a wildcard certificate that protects
-   *       several sites in the same domain. For example, *.example.com protects www.example.com,
-   *       site.example.com, and images.example.com. </p>
-   *
-   *          <p> The first domain name you enter cannot exceed 64 octets, including periods. Each
-   *       subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length. </p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>The domain name that you want ACM to use to send you emails so that you can validate
    *       domain ownership.</p>
    */
@@ -1139,6 +1119,13 @@ export interface RequestCertificateRequest {
   IdempotencyToken?: string;
 
   /**
+   * <p>The method you want to use if you are requesting a public certificate to validate that you
+   *       own or control domain. You can <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">validate with DNS</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">validate with
+   *         email</a>. We recommend that you use DNS validation. </p>
+   */
+  ValidationMethod?: ValidationMethod | string;
+
+  /**
    * <p>Currently, you can use this parameter to specify whether to add the certificate to a
    *       certificate transparency log. Certificate transparency makes it possible to detect SSL/TLS
    *       certificates that have been mistakenly or maliciously issued. Certificates that have not been
@@ -1147,12 +1134,40 @@ export interface RequestCertificateRequest {
   Options?: CertificateOptions;
 
   /**
+   * <p>One or more resource tags to associate with the certificate.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p> Fully qualified domain name (FQDN), such as www.example.com, that you want to secure with
+   *       an ACM certificate. Use an asterisk (*) to create a wildcard certificate that protects
+   *       several sites in the same domain. For example, *.example.com protects www.example.com,
+   *       site.example.com, and images.example.com. </p>
+   *
+   *          <p> The first domain name you enter cannot exceed 64 octets, including periods. Each
+   *       subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length. </p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used
+   *       to issue the certificate. If you do not provide an ARN and you are trying to request a private
+   *       certificate, ACM will attempt to issue a public certificate. For more information about
+   *       private CAs, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">AWS Certificate Manager Private Certificate Authority (PCA)</a> user guide. The ARN must have the following form: </p>
+   *
+   *          <p>
+   *             <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
+   *          </p>
+   */
+  CertificateAuthorityArn?: string;
+
+  /**
    * <p>Additional FQDNs to be included in the Subject Alternative Name extension of the ACM
    *       certificate. For example, add the name www.example.net to a certificate for which the
    *         <code>DomainName</code> field is www.example.com if users can reach your site by using
    *       either name. The maximum number of domain names that you can add to an ACM certificate is
-   *       100. However, the initial limit is 10 domain names. If you need more than 10 names, you must
-   *       request a limit increase. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>.</p>
+   *       100. However, the initial quota is 10 domain names. If you need more than 10 names, you must
+   *       request a quota increase. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Quotas</a>.</p>
    *
    *          <p> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple
    *       labels separated by periods. No label can be longer than 63 octets. Consider the following
@@ -1178,18 +1193,6 @@ export interface RequestCertificateRequest {
    *          </ul>
    */
   SubjectAlternativeNames?: string[];
-
-  /**
-   * <p>One or more resource tags to associate with the certificate.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The method you want to use if you are requesting a public certificate to validate that you
-   *       own or control domain. You can <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">validate with DNS</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">validate with
-   *         email</a>. We recommend that you use DNS validation. </p>
-   */
-  ValidationMethod?: ValidationMethod | string;
 }
 
 export namespace RequestCertificateRequest {
@@ -1237,24 +1240,6 @@ export namespace RequestInProgressException {
 export interface ResendValidationEmailRequest {
   __type?: "ResendValidationEmailRequest";
   /**
-   * <p>String that contains the ARN of the requested certificate. The certificate ARN is
-   *       generated and returned by the <a>RequestCertificate</a> action as soon as the
-   *       request is made. By default, using this parameter causes email to be sent to all top-level
-   *       domains you specified in the certificate request. The ARN must be of the form: </p>
-   *
-   *          <p>
-   *             <code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
-   *          </p>
-   */
-  CertificateArn: string | undefined;
-
-  /**
-   * <p>The fully qualified domain name (FQDN) of the certificate that needs to be
-   *       validated.</p>
-   */
-  Domain: string | undefined;
-
-  /**
    * <p>The base validation domain that will act as the suffix of the email addresses that are
    *       used to send the emails. This must be the same as the <code>Domain</code> value or a
    *       superdomain of the <code>Domain</code> value. For example, if you requested a certificate for
@@ -1280,6 +1265,24 @@ export interface ResendValidationEmailRequest {
    *          </ul>
    */
   ValidationDomain: string | undefined;
+
+  /**
+   * <p>String that contains the ARN of the requested certificate. The certificate ARN is
+   *       generated and returned by the <a>RequestCertificate</a> action as soon as the
+   *       request is made. By default, using this parameter causes email to be sent to all top-level
+   *       domains you specified in the certificate request. The ARN must be of the form: </p>
+   *
+   *          <p>
+   *             <code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
+   *          </p>
+   */
+  CertificateArn: string | undefined;
+
+  /**
+   * <p>The fully qualified domain name (FQDN) of the certificate that needs to be
+   *       validated.</p>
+   */
+  Domain: string | undefined;
 }
 
 export namespace ResendValidationEmailRequest {
@@ -1330,9 +1333,10 @@ export namespace ResourceNotFoundException {
 export interface ResourceRecord {
   __type?: "ResourceRecord";
   /**
-   * <p>The name of the DNS record to create in your domain. This is supplied by ACM.</p>
+   * <p>The value of the CNAME record to add to your DNS database. This is supplied by
+   *       ACM.</p>
    */
-  Name: string | undefined;
+  Value: string | undefined;
 
   /**
    * <p>The type of DNS record. Currently this can be <code>CNAME</code>.</p>
@@ -1340,10 +1344,9 @@ export interface ResourceRecord {
   Type: RecordType | string | undefined;
 
   /**
-   * <p>The value of the CNAME record to add to your DNS database. This is supplied by
-   *       ACM.</p>
+   * <p>The name of the DNS record to create in your domain. This is supplied by ACM.</p>
    */
-  Value: string | undefined;
+  Name: string | undefined;
 }
 
 export namespace ResourceRecord {
@@ -1372,14 +1375,14 @@ export enum RevocationReason {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The key of the tag.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>The value of the tag.</p>
    */
   Value?: string;
+
+  /**
+   * <p>The key of the tag.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -1424,6 +1427,14 @@ export namespace TooManyTagsException {
 export interface UpdateCertificateOptionsRequest {
   __type?: "UpdateCertificateOptionsRequest";
   /**
+   * <p>Use to update the options for your certificate. Currently, you can specify whether to add
+   *       your certificate to a transparency log. Certificate transparency makes it possible to detect
+   *       SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have
+   *       not been logged typically produce an error message in a browser. </p>
+   */
+  Options: CertificateOptions | undefined;
+
+  /**
    * <p>ARN of the requested certificate to update. This must be of the form:</p>
    *          <p>
    *             <code>arn:aws:acm:us-east-1:<i>account</i>:certificate/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1431,14 +1442,6 @@ export interface UpdateCertificateOptionsRequest {
    *          </p>
    */
   CertificateArn: string | undefined;
-
-  /**
-   * <p>Use to update the options for your certificate. Currently, you can specify whether to add
-   *       your certificate to a transparency log. Certificate transparency makes it possible to detect
-   *       SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have
-   *       not been logged typically produce an error message in a browser. </p>
-   */
-  Options: CertificateOptions | undefined;
 }
 
 export namespace UpdateCertificateOptionsRequest {

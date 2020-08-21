@@ -54,7 +54,7 @@
           "name": "mgh"
         },
         "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<p>The AWS Migration Hub home region APIs are available specifically for working with your\n      Migration Hub home region. You can use these APIs to determine a home region, as well as to\n      create and work with controls that describe the home region.</p>\n\n         <p>You can use these APIs within your home region only. If you call these APIs from outside\n      your home region, your calls are rejected, except for the ability to register your agents and\n      connectors. </p>\n\n         <p> You must call <code>GetHomeRegion</code> at least once before you call any other AWS\n      Application Discovery Service and AWS Migration Hub APIs, to obtain the account's Migration\n      Hub home region.</p>\n\n         <p>The <code>StartDataCollection</code> API call in AWS Application Discovery Service allows\n      your agents and connectors to begin collecting data that flows directly into the home region,\n      and it will prevent you from enabling data collection information to be sent outside the home\n      region. </p>\n\n         <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region\n      API reference. </p>\n\n         <note>\n            <p>The Migration Hub Home Region APIs do not support AWS Organizations.</p>\n         </note>",
+        "smithy.api#documentation": "<p>The AWS Migration Hub home region APIs are available specifically for working with your\n      Migration Hub home region. You can use these APIs to determine a home region, as well as to\n      create and work with controls that describe the home region.</p>\n\n         <ul>\n            <li>\n               <p>You must make API calls for write actions (create, notify, associate, disassociate,\n          import, or put) while in your home region, or a <code>HomeRegionNotSetException</code>\n          error is returned.</p>\n            </li>\n            <li>\n               <p>API calls for read actions (list, describe, stop, and delete) are permitted outside of\n          your home region.</p>\n            </li>\n            <li>\n               <p>If you call a write API outside the home region, an <code>InvalidInputException</code>\n          is returned.</p>\n            </li>\n            <li>\n               <p>You can call <code>GetHomeRegion</code> action to obtain the account's Migration Hub\n          home region.</p>\n            </li>\n         </ul>\n\n         <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region\n      API reference. </p>",
         "smithy.api#title": "AWS Migration Hub Config"
       }
     },
@@ -103,6 +103,9 @@
         },
         {
           "target": "com.amazonaws.migrationhubconfig#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.migrationhubconfig#ThrottlingException"
         }
       ],
       "traits": {
@@ -128,7 +131,7 @@
         "Target": {
           "target": "com.amazonaws.migrationhubconfig#Target",
           "traits": {
-            "smithy.api#documentation": "<p>The account for which this command sets up a home region control. The <code>Target</code> is always of type <code>ACCOUNT</code>.</p>",
+            "smithy.api#documentation": "<p>The account for which this command sets up a home region control. The <code>Target</code>\n      is always of type <code>ACCOUNT</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -140,7 +143,7 @@
         "HomeRegionControl": {
           "target": "com.amazonaws.migrationhubconfig#HomeRegionControl",
           "traits": {
-            "smithy.api#documentation": "<p>This object is the <code>HomeRegionControl</code> object that's returned by a successful call to\n        <code>CreateHomeRegionControl</code>.</p>"
+            "smithy.api#documentation": "<p>This object is the <code>HomeRegionControl</code> object that's returned by a successful\n      call to <code>CreateHomeRegionControl</code>.</p>"
           }
         }
       }
@@ -165,10 +168,13 @@
         },
         {
           "target": "com.amazonaws.migrationhubconfig#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.migrationhubconfig#ThrottlingException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API permits filtering on the <code>ControlId</code>, <code>HomeRegion</code>, and\n        <code>RegionControlScope</code> fields.</p>",
+        "smithy.api#documentation": "<p>This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>\n      fields.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -189,16 +195,10 @@
     "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsRequest": {
       "type": "structure",
       "members": {
-        "ControlId": {
-          "target": "com.amazonaws.migrationhubconfig#ControlId",
+        "Target": {
+          "target": "com.amazonaws.migrationhubconfig#Target",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>ControlID</code> is a unique identifier string of your <code>HomeRegionControl</code>\n      object.</p>"
-          }
-        },
-        "HomeRegion": {
-          "target": "com.amazonaws.migrationhubconfig#HomeRegion",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the home region you'd like to view.</p>"
+            "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always of type <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
           }
         },
         "MaxResults": {
@@ -210,13 +210,19 @@
         "NextToken": {
           "target": "com.amazonaws.migrationhubconfig#Token",
           "traits": {
-            "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, more results are available. To retrieve\n      the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>"
+            "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, more results are available.\n      To retrieve the next page of results, make the call again using the returned token in\n        <code>NextToken</code>.</p>"
           }
         },
-        "Target": {
-          "target": "com.amazonaws.migrationhubconfig#Target",
+        "HomeRegion": {
+          "target": "com.amazonaws.migrationhubconfig#HomeRegion",
           "traits": {
-            "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always of type <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
+            "smithy.api#documentation": "<p>The name of the home region you'd like to view.</p>"
+          }
+        },
+        "ControlId": {
+          "target": "com.amazonaws.migrationhubconfig#ControlId",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ControlID</code> is a unique identifier string of your\n        <code>HomeRegionControl</code> object.</p>"
           }
         }
       }
@@ -224,16 +230,16 @@
     "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsResult": {
       "type": "structure",
       "members": {
-        "HomeRegionControls": {
-          "target": "com.amazonaws.migrationhubconfig#HomeRegionControls",
-          "traits": {
-            "smithy.api#documentation": "<p>An array that contains your <code>HomeRegionControl</code> objects.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.migrationhubconfig#Token",
           "traits": {
             "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, more results are available.\n      To retrieve the next page of results, make the call again using the returned token in\n        <code>NextToken</code>.</p>"
+          }
+        },
+        "HomeRegionControls": {
+          "target": "com.amazonaws.migrationhubconfig#HomeRegionControls",
+          "traits": {
+            "smithy.api#documentation": "<p>An array that contains your <code>HomeRegionControl</code> objects.</p>"
           }
         }
       }
@@ -276,6 +282,9 @@
         },
         {
           "target": "com.amazonaws.migrationhubconfig#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.migrationhubconfig#ThrottlingException"
         }
       ],
       "traits": {
@@ -310,16 +319,16 @@
     "com.amazonaws.migrationhubconfig#HomeRegionControl": {
       "type": "structure",
       "members": {
+        "Target": {
+          "target": "com.amazonaws.migrationhubconfig#Target",
+          "traits": {
+            "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always an <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
+          }
+        },
         "ControlId": {
           "target": "com.amazonaws.migrationhubconfig#ControlId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier that's generated for each home region control. It's always a string\n      that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"
-          }
-        },
-        "HomeRegion": {
-          "target": "com.amazonaws.migrationhubconfig#HomeRegion",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Region that's been set as home region. For example, \"us-west-2\" or \"eu-central-1\"\n      are valid home regions.</p>"
           }
         },
         "RequestedTime": {
@@ -328,10 +337,10 @@
             "smithy.api#documentation": "<p>A timestamp representing the time when the customer called\n        <code>CreateHomeregionControl</code> and set the home region for the account.</p>"
           }
         },
-        "Target": {
-          "target": "com.amazonaws.migrationhubconfig#Target",
+        "HomeRegion": {
+          "target": "com.amazonaws.migrationhubconfig#HomeRegion",
           "traits": {
-            "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always an <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
+            "smithy.api#documentation": "<p>The AWS Region that's been set as home region. For example, \"us-west-2\" or \"eu-central-1\"\n      are valid home regions.</p>"
           }
         }
       },
@@ -378,6 +387,9 @@
     "com.amazonaws.migrationhubconfig#RequestedTime": {
       "type": "timestamp"
     },
+    "com.amazonaws.migrationhubconfig#RetryAfterSeconds": {
+      "type": "integer"
+    },
     "com.amazonaws.migrationhubconfig#ServiceUnavailableException": {
       "type": "structure",
       "members": {
@@ -386,24 +398,24 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Exception raised when a request fails due to temporary unavailability of the service.</p>",
+        "smithy.api#documentation": "<p>Exception raised when a request fails due to temporary unavailability of the\n      service.</p>",
         "smithy.api#error": "server"
       }
     },
     "com.amazonaws.migrationhubconfig#Target": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.migrationhubconfig#TargetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for which the control was created. (This must be the current account.) </p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.migrationhubconfig#TargetType",
           "traits": {
             "smithy.api#documentation": "<p>The target type is always an <code>ACCOUNT</code>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.migrationhubconfig#TargetId",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for\n      which the control was created. (This must be the current account.) </p>"
           }
         }
       },
@@ -430,6 +442,29 @@
             "name": "ACCOUNT"
           }
         ]
+      }
+    },
+    "com.amazonaws.migrationhubconfig#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "RetryAfterSeconds": {
+          "target": "com.amazonaws.migrationhubconfig#RetryAfterSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of seconds the caller should wait before retrying.</p>",
+            "smithy.api#httpHeader": "Retry-After"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.migrationhubconfig#ErrorMessage",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.migrationhubconfig#Token": {

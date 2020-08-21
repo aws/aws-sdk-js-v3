@@ -179,17 +179,17 @@
             "smithy.api#required": {}
           }
         },
-        "InstanceOSUser": {
-          "target": "com.amazonaws.ec2instanceconnect#InstanceOSUser",
-          "traits": {
-            "smithy.api#documentation": "<p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "SSHPublicKey": {
           "target": "com.amazonaws.ec2instanceconnect#SSHPublicKey",
           "traits": {
             "smithy.api#documentation": "<p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceOSUser": {
+          "target": "com.amazonaws.ec2instanceconnect#InstanceOSUser",
+          "traits": {
+            "smithy.api#documentation": "<p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>",
             "smithy.api#required": {}
           }
         }
@@ -198,16 +198,16 @@
     "com.amazonaws.ec2instanceconnect#SendSSHPublicKeyResponse": {
       "type": "structure",
       "members": {
-        "RequestId": {
-          "target": "com.amazonaws.ec2instanceconnect#RequestId",
-          "traits": {
-            "smithy.api#documentation": "<p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>"
-          }
-        },
         "Success": {
           "target": "com.amazonaws.ec2instanceconnect#Success",
           "traits": {
             "smithy.api#documentation": "<p>Indicates request success.</p>"
+          }
+        },
+        "RequestId": {
+          "target": "com.amazonaws.ec2instanceconnect#RequestId",
+          "traits": {
+            "smithy.api#documentation": "<p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>"
           }
         }
       }

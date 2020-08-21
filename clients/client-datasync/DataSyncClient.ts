@@ -4,7 +4,15 @@ import {
 } from "./commands/CancelTaskExecutionCommand";
 import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "./commands/CreateLocationEfsCommand";
+import {
+  CreateLocationFsxWindowsCommandInput,
+  CreateLocationFsxWindowsCommandOutput,
+} from "./commands/CreateLocationFsxWindowsCommand";
 import { CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput } from "./commands/CreateLocationNfsCommand";
+import {
+  CreateLocationObjectStorageCommandInput,
+  CreateLocationObjectStorageCommandOutput,
+} from "./commands/CreateLocationObjectStorageCommand";
 import { CreateLocationS3CommandInput, CreateLocationS3CommandOutput } from "./commands/CreateLocationS3Command";
 import { CreateLocationSmbCommandInput, CreateLocationSmbCommandOutput } from "./commands/CreateLocationSmbCommand";
 import { CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
@@ -17,9 +25,17 @@ import {
   DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand";
 import {
+  DescribeLocationFsxWindowsCommandInput,
+  DescribeLocationFsxWindowsCommandOutput,
+} from "./commands/DescribeLocationFsxWindowsCommand";
+import {
   DescribeLocationNfsCommandInput,
   DescribeLocationNfsCommandOutput,
 } from "./commands/DescribeLocationNfsCommand";
+import {
+  DescribeLocationObjectStorageCommandInput,
+  DescribeLocationObjectStorageCommandOutput,
+} from "./commands/DescribeLocationObjectStorageCommand";
 import { DescribeLocationS3CommandInput, DescribeLocationS3CommandOutput } from "./commands/DescribeLocationS3Command";
 import {
   DescribeLocationSmbCommandInput,
@@ -94,7 +110,9 @@ export type ServiceInputTypes =
   | CancelTaskExecutionCommandInput
   | CreateAgentCommandInput
   | CreateLocationEfsCommandInput
+  | CreateLocationFsxWindowsCommandInput
   | CreateLocationNfsCommandInput
+  | CreateLocationObjectStorageCommandInput
   | CreateLocationS3CommandInput
   | CreateLocationSmbCommandInput
   | CreateTaskCommandInput
@@ -103,7 +121,9 @@ export type ServiceInputTypes =
   | DeleteTaskCommandInput
   | DescribeAgentCommandInput
   | DescribeLocationEfsCommandInput
+  | DescribeLocationFsxWindowsCommandInput
   | DescribeLocationNfsCommandInput
+  | DescribeLocationObjectStorageCommandInput
   | DescribeLocationS3CommandInput
   | DescribeLocationSmbCommandInput
   | DescribeTaskCommandInput
@@ -123,7 +143,9 @@ export type ServiceOutputTypes =
   | CancelTaskExecutionCommandOutput
   | CreateAgentCommandOutput
   | CreateLocationEfsCommandOutput
+  | CreateLocationFsxWindowsCommandOutput
   | CreateLocationNfsCommandOutput
+  | CreateLocationObjectStorageCommandOutput
   | CreateLocationS3CommandOutput
   | CreateLocationSmbCommandOutput
   | CreateTaskCommandOutput
@@ -132,7 +154,9 @@ export type ServiceOutputTypes =
   | DeleteTaskCommandOutput
   | DescribeAgentCommandOutput
   | DescribeLocationEfsCommandOutput
+  | DescribeLocationFsxWindowsCommandOutput
   | DescribeLocationNfsCommandOutput
+  | DescribeLocationObjectStorageCommandOutput
   | DescribeLocationS3CommandOutput
   | DescribeLocationSmbCommandOutput
   | DescribeTaskCommandOutput

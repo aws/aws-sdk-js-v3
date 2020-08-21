@@ -95,18 +95,18 @@
             "smithy.api#required": {}
           }
         },
-        "DeviceId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the device.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "GlobalNetworkId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the device.</p>",
             "smithy.api#required": {}
           }
         },
@@ -172,18 +172,18 @@
     "com.amazonaws.networkmanager#AssociateLinkRequest": {
       "type": "structure",
       "members": {
-        "DeviceId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the device.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "GlobalNetworkId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the device.</p>",
             "smithy.api#required": {}
           }
         },
@@ -230,16 +230,16 @@
     "com.amazonaws.networkmanager#ConflictException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
         "ResourceId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
             "smithy.api#required": {}
           }
         },
@@ -300,18 +300,34 @@
     "com.amazonaws.networkmanager#CreateDeviceRequest": {
       "type": "structure",
       "members": {
+        "SerialNumber": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The serial number of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.networkmanager#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
+          }
+        },
+        "SiteId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the site.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the device.</p>"
+          }
+        },
         "Description": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the device.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
-          }
-        },
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         },
         "Location": {
@@ -326,34 +342,18 @@
             "smithy.api#documentation": "<p>The model of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
-        "SerialNumber": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The serial number of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
-          }
-        },
-        "SiteId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the site.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.networkmanager#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the device.</p>"
-          }
-        },
         "Vendor": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The vendor of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
+          }
+        },
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -409,16 +409,16 @@
     "com.amazonaws.networkmanager#CreateGlobalNetworkRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the global network.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the global network.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         }
       }
@@ -477,17 +477,23 @@
     "com.amazonaws.networkmanager#CreateLinkRequest": {
       "type": "structure",
       "members": {
-        "Bandwidth": {
-          "target": "com.amazonaws.networkmanager#Bandwidth",
+        "Tags": {
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
-            "smithy.api#documentation": "<p> The upload speed and download speed in Mbps. </p>",
+            "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
+          }
+        },
+        "SiteId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the site.</p>",
             "smithy.api#required": {}
           }
         },
-        "Description": {
+        "Type": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the link.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
+            "smithy.api#documentation": "<p>The type of the link.</p>\n        <p>Constraints: Cannot include the following characters: | \\ ^</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
         "GlobalNetworkId": {
@@ -504,23 +510,17 @@
             "smithy.api#documentation": "<p>The provider of the link.</p>\n        <p>Constraints: Cannot include the following characters: | \\ ^</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
-        "SiteId": {
+        "Description": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the site.</p>",
+            "smithy.api#documentation": "<p>A description of the link.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
+          }
+        },
+        "Bandwidth": {
+          "target": "com.amazonaws.networkmanager#Bandwidth",
+          "traits": {
+            "smithy.api#documentation": "<p> The upload speed and download speed in Mbps. </p>",
             "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.networkmanager#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the link.</p>\n        <p>Constraints: Cannot include the following characters: | \\ ^</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         }
       }
@@ -579,20 +579,6 @@
     "com.amazonaws.networkmanager#CreateSiteRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of your site.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
-          }
-        },
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "Location": {
           "target": "com.amazonaws.networkmanager#Location",
           "traits": {
@@ -603,6 +589,20 @@
           "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
+          }
+        },
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of your site.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         }
       }
@@ -621,16 +621,22 @@
     "com.amazonaws.networkmanager#CustomerGatewayAssociation": {
       "type": "structure",
       "members": {
-        "CustomerGatewayArn": {
-          "target": "com.amazonaws.networkmanager#String",
+        "State": {
+          "target": "com.amazonaws.networkmanager#CustomerGatewayAssociationState",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the customer gateway.</p>"
+            "smithy.api#documentation": "<p>The association state.</p>"
           }
         },
         "DeviceId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the device.</p>"
+          }
+        },
+        "CustomerGatewayArn": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the customer gateway.</p>"
           }
         },
         "GlobalNetworkId": {
@@ -643,12 +649,6 @@
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.networkmanager#CustomerGatewayAssociationState",
-          "traits": {
-            "smithy.api#documentation": "<p>The association state.</p>"
           }
         }
       },
@@ -1067,18 +1067,18 @@
     "com.amazonaws.networkmanager#DescribeGlobalNetworksRequest": {
       "type": "structure",
       "members": {
-        "GlobalNetworkIds": {
-          "target": "com.amazonaws.networkmanager#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>The IDs of one or more global networks. The maximum is 10.</p>",
-            "smithy.api#httpQuery": "globalNetworkIds"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "GlobalNetworkIds": {
+          "target": "com.amazonaws.networkmanager#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of one or more global networks. The maximum is 10.</p>",
+            "smithy.api#httpQuery": "globalNetworkIds"
           }
         },
         "NextToken": {
@@ -1093,16 +1093,16 @@
     "com.amazonaws.networkmanager#DescribeGlobalNetworksResponse": {
       "type": "structure",
       "members": {
-        "GlobalNetworks": {
-          "target": "com.amazonaws.networkmanager#GlobalNetworkList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the global networks.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "GlobalNetworks": {
+          "target": "com.amazonaws.networkmanager#GlobalNetworkList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the global networks.</p>"
           }
         }
       }
@@ -1114,18 +1114,6 @@
           "target": "com.amazonaws.networkmanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the site was created.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the device.</p>"
-          }
-        },
-        "DeviceArn": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the device.</p>"
           }
         },
         "DeviceId": {
@@ -1140,34 +1128,22 @@
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
-        "Location": {
-          "target": "com.amazonaws.networkmanager#Location",
-          "traits": {
-            "smithy.api#documentation": "<p>The site location.</p>"
-          }
-        },
         "Model": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The device model.</p>"
           }
         },
+        "Description": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the device.</p>"
+          }
+        },
         "SerialNumber": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The device serial number.</p>"
-          }
-        },
-        "SiteId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The site ID.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.networkmanager#DeviceState",
-          "traits": {
-            "smithy.api#documentation": "<p>The device state.</p>"
           }
         },
         "Tags": {
@@ -1182,10 +1158,34 @@
             "smithy.api#documentation": "<p>The device type.</p>"
           }
         },
+        "SiteId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The site ID.</p>"
+          }
+        },
+        "Location": {
+          "target": "com.amazonaws.networkmanager#Location",
+          "traits": {
+            "smithy.api#documentation": "<p>The site location.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.networkmanager#DeviceState",
+          "traits": {
+            "smithy.api#documentation": "<p>The device state.</p>"
+          }
+        },
         "Vendor": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The device vendor.</p>"
+          }
+        },
+        "DeviceArn": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the device.</p>"
           }
         }
       },
@@ -1339,19 +1339,19 @@
             "smithy.api#required": {}
           }
         },
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "LinkId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>",
             "smithy.api#httpQuery": "linkId",
+            "smithy.api#required": {}
+          }
+        },
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -1413,19 +1413,18 @@
     "com.amazonaws.networkmanager#GetCustomerGatewayAssociationsRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
         "CustomerGatewayArns": {
           "target": "com.amazonaws.networkmanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>One or more customer gateway Amazon Resource Names (ARNs). For more information, see\n                <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>. The maximum is 10.</p>",
             "smithy.api#httpQuery": "customerGatewayArns"
-          }
-        },
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -1435,11 +1434,12 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "NextToken": {
+        "GlobalNetworkId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
-            "smithy.api#httpQuery": "nextToken"
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1503,6 +1503,14 @@
     "com.amazonaws.networkmanager#GetDevicesRequest": {
       "type": "structure",
       "members": {
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "DeviceIds": {
           "target": "com.amazonaws.networkmanager#StringList",
           "traits": {
@@ -1510,12 +1518,11 @@
             "smithy.api#httpQuery": "deviceIds"
           }
         },
-        "GlobalNetworkId": {
+        "SiteId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The ID of the site.</p>",
+            "smithy.api#httpQuery": "siteId"
           }
         },
         "MaxResults": {
@@ -1530,13 +1537,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
-          }
-        },
-        "SiteId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the site.</p>",
-            "smithy.api#httpQuery": "siteId"
           }
         }
       }
@@ -1600,26 +1600,11 @@
     "com.amazonaws.networkmanager#GetLinkAssociationsRequest": {
       "type": "structure",
       "members": {
-        "DeviceId": {
+        "NextToken": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the device.</p>",
-            "smithy.api#httpQuery": "deviceId"
-          }
-        },
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "LinkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the link.</p>",
-            "smithy.api#httpQuery": "linkId"
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
           }
         },
         "MaxResults": {
@@ -1629,11 +1614,26 @@
             "smithy.api#httpQuery": "maxResults"
           }
         },
-        "NextToken": {
+        "DeviceId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
-            "smithy.api#httpQuery": "nextToken"
+            "smithy.api#documentation": "<p>The ID of the device.</p>",
+            "smithy.api#httpQuery": "deviceId"
+          }
+        },
+        "LinkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the link.</p>",
+            "smithy.api#httpQuery": "linkId"
+          }
+        },
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1697,35 +1697,6 @@
     "com.amazonaws.networkmanager#GetLinksRequest": {
       "type": "structure",
       "members": {
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "LinkIds": {
-          "target": "com.amazonaws.networkmanager#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more link IDs. The maximum is 10.</p>",
-            "smithy.api#httpQuery": "linkIds"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.networkmanager#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
         "Provider": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
@@ -1746,22 +1717,51 @@
             "smithy.api#documentation": "<p>The link type.</p>",
             "smithy.api#httpQuery": "type"
           }
+        },
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.networkmanager#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "LinkIds": {
+          "target": "com.amazonaws.networkmanager#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more link IDs. The maximum is 10.</p>",
+            "smithy.api#httpQuery": "linkIds"
+          }
         }
       }
     },
     "com.amazonaws.networkmanager#GetLinksResponse": {
       "type": "structure",
       "members": {
-        "Links": {
-          "target": "com.amazonaws.networkmanager#LinkList",
-          "traits": {
-            "smithy.api#documentation": "<p>The links.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "Links": {
+          "target": "com.amazonaws.networkmanager#LinkList",
+          "traits": {
+            "smithy.api#documentation": "<p>The links.</p>"
           }
         }
       }
@@ -1808,14 +1808,6 @@
     "com.amazonaws.networkmanager#GetSitesRequest": {
       "type": "structure",
       "members": {
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
@@ -1828,6 +1820,14 @@
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SiteIds": {
@@ -1898,26 +1898,11 @@
     "com.amazonaws.networkmanager#GetTransitGatewayRegistrationsRequest": {
       "type": "structure",
       "members": {
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
-            "smithy.api#httpQuery": "nextToken"
           }
         },
         "TransitGatewayArns": {
@@ -1926,22 +1911,37 @@
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is\n            10.</p>",
             "smithy.api#httpQuery": "transitGatewayArns"
           }
+        },
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
         }
       }
     },
     "com.amazonaws.networkmanager#GetTransitGatewayRegistrationsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
-          }
-        },
         "TransitGatewayRegistrations": {
           "target": "com.amazonaws.networkmanager#TransitGatewayRegistrationList",
           "traits": {
             "smithy.api#documentation": "<p>The transit gateway registrations.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         }
       }
@@ -1949,22 +1949,16 @@
     "com.amazonaws.networkmanager#GlobalNetwork": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.networkmanager#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the global network.</p>"
+          }
+        },
         "CreatedAt": {
           "target": "com.amazonaws.networkmanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the global network was created.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the global network.</p>"
-          }
-        },
-        "GlobalNetworkArn": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the global network.</p>"
           }
         },
         "GlobalNetworkId": {
@@ -1973,16 +1967,22 @@
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
+        "Description": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the global network.</p>"
+          }
+        },
         "State": {
           "target": "com.amazonaws.networkmanager#GlobalNetworkState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the global network.</p>"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.networkmanager#TagList",
+        "GlobalNetworkArn": {
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The tags for the global network.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the global network.</p>"
           }
         }
       },
@@ -2028,17 +2028,17 @@
     "com.amazonaws.networkmanager#InternalServerException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
         "RetryAfterSeconds": {
           "target": "com.amazonaws.networkmanager#RetryAfterSeconds",
           "traits": {
             "smithy.api#documentation": "<p>Indicates when to retry the request.</p>",
             "smithy.api#httpHeader": "Retry-After"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#required": {}
           }
         }
       },
@@ -2051,12 +2051,6 @@
     "com.amazonaws.networkmanager#Link": {
       "type": "structure",
       "members": {
-        "Bandwidth": {
-          "target": "com.amazonaws.networkmanager#Bandwidth",
-          "traits": {
-            "smithy.api#documentation": "<p>The bandwidth for the link.</p>"
-          }
-        },
         "CreatedAt": {
           "target": "com.amazonaws.networkmanager#DateTime",
           "traits": {
@@ -2075,10 +2069,10 @@
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
-        "LinkArn": {
+        "Type": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the link.</p>"
+            "smithy.api#documentation": "<p>The type of the link.</p>"
           }
         },
         "LinkId": {
@@ -2087,22 +2081,16 @@
             "smithy.api#documentation": "<p>The ID of the link.</p>"
           }
         },
-        "Provider": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The provider of the link.</p>"
-          }
-        },
         "SiteId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>"
           }
         },
-        "State": {
-          "target": "com.amazonaws.networkmanager#LinkState",
+        "Provider": {
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the link.</p>"
+            "smithy.api#documentation": "<p>The provider of the link.</p>"
           }
         },
         "Tags": {
@@ -2111,10 +2099,22 @@
             "smithy.api#documentation": "<p>The tags for the link.</p>"
           }
         },
-        "Type": {
+        "Bandwidth": {
+          "target": "com.amazonaws.networkmanager#Bandwidth",
+          "traits": {
+            "smithy.api#documentation": "<p>The bandwidth for the link.</p>"
+          }
+        },
+        "LinkArn": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the link.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the link.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.networkmanager#LinkState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the link.</p>"
           }
         }
       },
@@ -2125,12 +2125,6 @@
     "com.amazonaws.networkmanager#LinkAssociation": {
       "type": "structure",
       "members": {
-        "DeviceId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The device ID for the link association.</p>"
-          }
-        },
         "GlobalNetworkId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
@@ -2147,6 +2141,12 @@
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>"
+          }
+        },
+        "DeviceId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The device ID for the link association.</p>"
           }
         }
       },
@@ -2279,16 +2279,16 @@
             "smithy.api#documentation": "<p>The physical address.</p>"
           }
         },
-        "Latitude": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The latitude.</p>"
-          }
-        },
         "Longitude": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The longitude.</p>"
+          }
+        },
+        "Latitude": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The latitude.</p>"
           }
         }
       },
@@ -2450,18 +2450,18 @@
     "com.amazonaws.networkmanager#RegisterTransitGatewayRequest": {
       "type": "structure",
       "members": {
+        "TransitGatewayArn": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the transit gateway. For more information, see\n                <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "GlobalNetworkId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
             "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "TransitGatewayArn": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the transit gateway. For more information, see\n                <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2484,12 +2484,6 @@
     "com.amazonaws.networkmanager#ResourceNotFoundException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
         "ResourceId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
@@ -2501,6 +2495,12 @@
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
             "smithy.api#required": {}
           }
         }
@@ -2527,6 +2527,12 @@
             "smithy.api#required": {}
           }
         },
+        "ResourceType": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type.</p>"
+          }
+        },
         "Message": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
@@ -2538,12 +2544,6 @@
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the resource.</p>"
-          }
-        },
-        "ResourceType": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The resource type.</p>"
           }
         },
         "ServiceCode": {
@@ -2563,16 +2563,22 @@
     "com.amazonaws.networkmanager#Site": {
       "type": "structure",
       "members": {
+        "State": {
+          "target": "com.amazonaws.networkmanager#SiteState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the site.</p>"
+          }
+        },
+        "Location": {
+          "target": "com.amazonaws.networkmanager#Location",
+          "traits": {
+            "smithy.api#documentation": "<p>The location of the site.</p>"
+          }
+        },
         "CreatedAt": {
           "target": "com.amazonaws.networkmanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the site was created.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The description of the site.</p>"
           }
         },
         "GlobalNetworkId": {
@@ -2581,10 +2587,16 @@
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
-        "Location": {
-          "target": "com.amazonaws.networkmanager#Location",
+        "Description": {
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The location of the site.</p>"
+            "smithy.api#documentation": "<p>The description of the site.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.networkmanager#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the site.</p>"
           }
         },
         "SiteArn": {
@@ -2597,18 +2609,6 @@
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>"
-          }
-        },
-        "State": {
-          "target": "com.amazonaws.networkmanager#SiteState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the site.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.networkmanager#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags for the site.</p>"
           }
         }
       },
@@ -2732,18 +2732,18 @@
     "com.amazonaws.networkmanager#TagResourceRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.networkmanager#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the specified resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ResourceArn": {
           "target": "com.amazonaws.networkmanager#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
             "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.networkmanager#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to apply to the specified resource.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2759,17 +2759,17 @@
     "com.amazonaws.networkmanager#ThrottlingException": {
       "type": "structure",
       "members": {
-        "Message": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
         "RetryAfterSeconds": {
           "target": "com.amazonaws.networkmanager#RetryAfterSeconds",
           "traits": {
             "smithy.api#documentation": "<p>Indicates when to retry the request.</p>",
             "smithy.api#httpHeader": "Retry-After"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#required": {}
           }
         }
       },
@@ -2782,12 +2782,6 @@
     "com.amazonaws.networkmanager#TransitGatewayRegistration": {
       "type": "structure",
       "members": {
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>"
-          }
-        },
         "State": {
           "target": "com.amazonaws.networkmanager#TransitGatewayRegistrationStateReason",
           "traits": {
@@ -2798,6 +2792,12 @@
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the transit gateway.</p>"
+          }
+        },
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         }
       },
@@ -2841,16 +2841,16 @@
     "com.amazonaws.networkmanager#TransitGatewayRegistrationStateReason": {
       "type": "structure",
       "members": {
-        "Code": {
-          "target": "com.amazonaws.networkmanager#TransitGatewayRegistrationState",
-          "traits": {
-            "smithy.api#documentation": "<p>The code for the state reason.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The message for the state reason.</p>"
+          }
+        },
+        "Code": {
+          "target": "com.amazonaws.networkmanager#TransitGatewayRegistrationState",
+          "traits": {
+            "smithy.api#documentation": "<p>The code for the state reason.</p>"
           }
         }
       },
@@ -2898,19 +2898,19 @@
     "com.amazonaws.networkmanager#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "ResourceArn": {
-          "target": "com.amazonaws.networkmanager#ResourceARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "TagKeys": {
           "target": "com.amazonaws.networkmanager#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The tag keys to remove from the specified resource.</p>",
             "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.networkmanager#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -2960,37 +2960,6 @@
     "com.amazonaws.networkmanager#UpdateDeviceRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the device.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
-          }
-        },
-        "DeviceId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the device.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
-        "Location": {
-          "target": "com.amazonaws.networkmanager#Location"
-        },
-        "Model": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The model of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
-          }
-        },
         "SerialNumber": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
@@ -3009,10 +2978,41 @@
             "smithy.api#documentation": "<p>The type of the device.</p>"
           }
         },
+        "GlobalNetworkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "Vendor": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The vendor of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
+          }
+        },
+        "Location": {
+          "target": "com.amazonaws.networkmanager#Location"
+        },
+        "Description": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the device.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
+          }
+        },
+        "Model": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The model of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
+          }
+        },
+        "DeviceId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the device.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3068,18 +3068,18 @@
     "com.amazonaws.networkmanager#UpdateGlobalNetworkRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of the global network.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
-          }
-        },
         "GlobalNetworkId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of your global network.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the global network.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         }
       }
@@ -3138,16 +3138,24 @@
     "com.amazonaws.networkmanager#UpdateLinkRequest": {
       "type": "structure",
       "members": {
+        "LinkId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the link.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "Bandwidth": {
           "target": "com.amazonaws.networkmanager#Bandwidth",
           "traits": {
             "smithy.api#documentation": "<p>The upload and download speed in Mbps. </p>"
           }
         },
-        "Description": {
+        "Type": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the link.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
+            "smithy.api#documentation": "<p>The type of the link.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
         "GlobalNetworkId": {
@@ -3158,24 +3166,16 @@
             "smithy.api#required": {}
           }
         },
-        "LinkId": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the link.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "Provider": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The provider of the link.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
-        "Type": {
+        "Description": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the link.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
+            "smithy.api#documentation": "<p>A description of the link.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         }
       }
@@ -3231,16 +3231,18 @@
     "com.amazonaws.networkmanager#UpdateSiteRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.networkmanager#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description of your site.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
-          }
-        },
         "GlobalNetworkId": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "SiteId": {
+          "target": "com.amazonaws.networkmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of your site.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3251,12 +3253,10 @@
             "smithy.api#documentation": "<p>The site location:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>Address</code>: The physical address of the site.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Latitude</code>: The latitude of the site. </p>\n            </li>\n            <li>\n               <p>\n                  <code>Longitude</code>: The longitude of the site.</p>\n            </li>\n         </ul>"
           }
         },
-        "SiteId": {
+        "Description": {
           "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of your site.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A description of your site.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         }
       }

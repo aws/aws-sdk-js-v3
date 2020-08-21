@@ -8,6 +8,10 @@ import {
   CreateDeploymentStrategyCommandOutput,
 } from "./commands/CreateDeploymentStrategyCommand";
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
+import {
+  CreateHostedConfigurationVersionCommandInput,
+  CreateHostedConfigurationVersionCommandOutput,
+} from "./commands/CreateHostedConfigurationVersionCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import {
   DeleteConfigurationProfileCommandInput,
@@ -18,6 +22,10 @@ import {
   DeleteDeploymentStrategyCommandOutput,
 } from "./commands/DeleteDeploymentStrategyCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
+import {
+  DeleteHostedConfigurationVersionCommandInput,
+  DeleteHostedConfigurationVersionCommandOutput,
+} from "./commands/DeleteHostedConfigurationVersionCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
@@ -30,6 +38,10 @@ import {
   GetDeploymentStrategyCommandOutput,
 } from "./commands/GetDeploymentStrategyCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import {
+  GetHostedConfigurationVersionCommandInput,
+  GetHostedConfigurationVersionCommandOutput,
+} from "./commands/GetHostedConfigurationVersionCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListConfigurationProfilesCommandInput,
@@ -41,6 +53,10 @@ import {
 } from "./commands/ListDeploymentStrategiesCommand";
 import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import {
+  ListHostedConfigurationVersionsCommandInput,
+  ListHostedConfigurationVersionsCommandOutput,
+} from "./commands/ListHostedConfigurationVersionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -115,21 +131,25 @@ export type ServiceInputTypes =
   | CreateConfigurationProfileCommandInput
   | CreateDeploymentStrategyCommandInput
   | CreateEnvironmentCommandInput
+  | CreateHostedConfigurationVersionCommandInput
   | DeleteApplicationCommandInput
   | DeleteConfigurationProfileCommandInput
   | DeleteDeploymentStrategyCommandInput
   | DeleteEnvironmentCommandInput
+  | DeleteHostedConfigurationVersionCommandInput
   | GetApplicationCommandInput
   | GetConfigurationCommandInput
   | GetConfigurationProfileCommandInput
   | GetDeploymentCommandInput
   | GetDeploymentStrategyCommandInput
   | GetEnvironmentCommandInput
+  | GetHostedConfigurationVersionCommandInput
   | ListApplicationsCommandInput
   | ListConfigurationProfilesCommandInput
   | ListDeploymentStrategiesCommandInput
   | ListDeploymentsCommandInput
   | ListEnvironmentsCommandInput
+  | ListHostedConfigurationVersionsCommandInput
   | ListTagsForResourceCommandInput
   | StartDeploymentCommandInput
   | StopDeploymentCommandInput
@@ -146,21 +166,25 @@ export type ServiceOutputTypes =
   | CreateConfigurationProfileCommandOutput
   | CreateDeploymentStrategyCommandOutput
   | CreateEnvironmentCommandOutput
+  | CreateHostedConfigurationVersionCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteConfigurationProfileCommandOutput
   | DeleteDeploymentStrategyCommandOutput
   | DeleteEnvironmentCommandOutput
+  | DeleteHostedConfigurationVersionCommandOutput
   | GetApplicationCommandOutput
   | GetConfigurationCommandOutput
   | GetConfigurationProfileCommandOutput
   | GetDeploymentCommandOutput
   | GetDeploymentStrategyCommandOutput
   | GetEnvironmentCommandOutput
+  | GetHostedConfigurationVersionCommandOutput
   | ListApplicationsCommandOutput
   | ListConfigurationProfilesCommandOutput
   | ListDeploymentStrategiesCommandOutput
   | ListDeploymentsCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListHostedConfigurationVersionsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartDeploymentCommandOutput
   | StopDeploymentCommandOutput
@@ -282,24 +306,25 @@ export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<__Http
 /**
  * <fullname>AWS AppConfig</fullname>
  *          <p>Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy
- *          application configurations. AppConfig supports controlled deployments to applications of any size
- *          and includes built-in validation checks and monitoring. You can use AppConfig with applications
- *          hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT
+ *          application configurations. AppConfig supports controlled deployments to applications of any
+ *          size and includes built-in validation checks and monitoring. You can use AppConfig with
+ *          applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT
  *          devices.</p>
  *
  *          <p>To prevent errors when deploying application configurations, especially for production
- *          systems where a simple typo could cause an unexpected outage, AppConfig includes validators. A
- *          validator provides a syntactic or semantic check to ensure that the configuration you want
- *          to deploy works as intended. To validate your application configuration data, you provide a
- *          schema or a Lambda function that runs against the configuration. The configuration
- *          deployment or update can only proceed when the configuration data is valid.</p>
+ *          systems where a simple typo could cause an unexpected outage, AppConfig includes validators.
+ *          A validator provides a syntactic or semantic check to ensure that the configuration you
+ *          want to deploy works as intended. To validate your application configuration data, you
+ *          provide a schema or a Lambda function that runs against the configuration. The
+ *          configuration deployment or update can only proceed when the configuration data is
+ *          valid.</p>
  *
  *          <p>During a configuration deployment, AppConfig monitors the application to ensure that the
- *          deployment is successful. If the system encounters an error, AppConfig rolls back the change to
- *          minimize impact for your application users. You can configure a deployment strategy for
+ *          deployment is successful. If the system encounters an error, AppConfig rolls back the change
+ *          to minimize impact for your application users. You can configure a deployment strategy for
  *          each application or environment that includes deployment criteria, including velocity, bake
- *          time, and alarms to monitor. Similar to error monitoring, if a deployment triggers an alarm,
- *          AppConfig automatically rolls back to the previous version. </p>
+ *          time, and alarms to monitor. Similar to error monitoring, if a deployment triggers an
+ *          alarm, AppConfig automatically rolls back to the previous version. </p>
  *
  *          <p>AppConfig supports multiple use cases. Here are some examples.</p>
  *          <ul>
@@ -311,18 +336,19 @@ export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<__Http
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Feature toggle</b>: Use AppConfig to turn on new features
- *                that require a timely deployment, such as a product launch or announcement. </p>
+ *                   <b>Feature toggle</b>: Use AppConfig to turn on new
+ *                features that require a timely deployment, such as a product launch or announcement.
+ *             </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>User membership</b>: Use AppConfig to allow premium
+ *                   <b>Allow list</b>: Use AppConfig to allow premium
  *                subscribers to access paid content. </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Operational issues</b>: Use AppConfig to reduce stress on
- *                your application when a dependency or other external factor impacts the
+ *                   <b>Operational issues</b>: Use AppConfig to reduce stress
+ *                on your application when a dependency or other external factor impacts the
  *                system.</p>
  *             </li>
  *          </ul>

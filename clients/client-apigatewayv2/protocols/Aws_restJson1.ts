@@ -15,6 +15,11 @@ import {
   CreateRouteResponseCommandOutput,
 } from "../commands/CreateRouteResponseCommand";
 import { CreateStageCommandInput, CreateStageCommandOutput } from "../commands/CreateStageCommand";
+import { CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput } from "../commands/CreateVpcLinkCommand";
+import {
+  DeleteAccessLogSettingsCommandInput,
+  DeleteAccessLogSettingsCommandOutput,
+} from "../commands/DeleteAccessLogSettingsCommand";
 import { DeleteApiCommandInput, DeleteApiCommandOutput } from "../commands/DeleteApiCommand";
 import { DeleteApiMappingCommandInput, DeleteApiMappingCommandOutput } from "../commands/DeleteApiMappingCommand";
 import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "../commands/DeleteAuthorizerCommand";
@@ -32,6 +37,10 @@ import {
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/DeleteModelCommand";
 import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "../commands/DeleteRouteCommand";
 import {
+  DeleteRouteRequestParameterCommandInput,
+  DeleteRouteRequestParameterCommandOutput,
+} from "../commands/DeleteRouteRequestParameterCommand";
+import {
   DeleteRouteResponseCommandInput,
   DeleteRouteResponseCommandOutput,
 } from "../commands/DeleteRouteResponseCommand";
@@ -40,6 +49,8 @@ import {
   DeleteRouteSettingsCommandOutput,
 } from "../commands/DeleteRouteSettingsCommand";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "../commands/DeleteStageCommand";
+import { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "../commands/DeleteVpcLinkCommand";
+import { ExportApiCommandInput, ExportApiCommandOutput } from "../commands/ExportApiCommand";
 import { GetApiCommandInput, GetApiCommandOutput } from "../commands/GetApiCommand";
 import { GetApiMappingCommandInput, GetApiMappingCommandOutput } from "../commands/GetApiMappingCommand";
 import { GetApiMappingsCommandInput, GetApiMappingsCommandOutput } from "../commands/GetApiMappingsCommand";
@@ -70,6 +81,8 @@ import { GetRoutesCommandInput, GetRoutesCommandOutput } from "../commands/GetRo
 import { GetStageCommandInput, GetStageCommandOutput } from "../commands/GetStageCommand";
 import { GetStagesCommandInput, GetStagesCommandOutput } from "../commands/GetStagesCommand";
 import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCommand";
+import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "../commands/GetVpcLinkCommand";
+import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "../commands/GetVpcLinksCommand";
 import { ImportApiCommandInput, ImportApiCommandOutput } from "../commands/ImportApiCommand";
 import { ReimportApiCommandInput, ReimportApiCommandOutput } from "../commands/ReimportApiCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -91,6 +104,7 @@ import {
   UpdateRouteResponseCommandOutput,
 } from "../commands/UpdateRouteResponseCommand";
 import { UpdateStageCommandInput, UpdateStageCommandOutput } from "../commands/UpdateStageCommand";
+import { UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput } from "../commands/UpdateVpcLinkCommand";
 import {
   AccessDeniedException,
   AccessLogSettings,
@@ -113,7 +127,10 @@ import {
   RouteResponse,
   RouteSettings,
   Stage,
+  TlsConfig,
+  TlsConfigInput,
   TooManyRequestsException,
+  VpcLink,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -350,6 +367,7 @@ export const serializeAws_restJson1CreateIntegrationCommand = async (
       templateSelectionExpression: input.TemplateSelectionExpression,
     }),
     ...(input.TimeoutInMillis !== undefined && { timeoutInMillis: input.TimeoutInMillis }),
+    ...(input.TlsConfig !== undefined && { tlsConfig: serializeAws_restJson1TlsConfigInput(input.TlsConfig, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -601,6 +619,74 @@ export const serializeAws_restJson1CreateStageCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateVpcLinkCommand = async (
+  input: CreateVpcLinkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v2/vpclinks";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.SecurityGroupIds !== undefined && {
+      securityGroupIds: serializeAws_restJson1SecurityGroupIdList(input.SecurityGroupIds, context),
+    }),
+    ...(input.SubnetIds !== undefined && { subnetIds: serializeAws_restJson1SubnetIdList(input.SubnetIds, context) }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAccessLogSettingsCommand = async (
+  input: DeleteAccessLogSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v2/apis/{ApiId}/stages/{StageName}/accesslogsettings";
+  if (input.StageName !== undefined) {
+    const labelValue: string = input.StageName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: StageName.");
+    }
+    resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: StageName.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteApiCommand = async (
   input: DeleteApiCommandInput,
   context: __SerdeContext
@@ -639,15 +725,6 @@ export const serializeAws_restJson1DeleteApiMappingCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/domainnames/{DomainName}/apimappings/{ApiMappingId}";
-  if (input.ApiMappingId !== undefined) {
-    const labelValue: string = input.ApiMappingId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiMappingId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiMappingId.");
-  }
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -656,6 +733,15 @@ export const serializeAws_restJson1DeleteApiMappingCommand = async (
     resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  if (input.ApiMappingId !== undefined) {
+    const labelValue: string = input.ApiMappingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiMappingId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiMappingId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -855,15 +941,6 @@ export const serializeAws_restJson1DeleteIntegrationResponseCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses/{IntegrationResponseId}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
@@ -881,6 +958,15 @@ export const serializeAws_restJson1DeleteIntegrationResponseCommand = async (
     resolvedPath = resolvedPath.replace("{IntegrationResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationResponseId.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -903,15 +989,6 @@ export const serializeAws_restJson1DeleteModelCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/models/{ModelId}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.ModelId !== undefined) {
     const labelValue: string = input.ModelId;
     if (labelValue.length <= 0) {
@@ -920,6 +997,15 @@ export const serializeAws_restJson1DeleteModelCommand = async (
     resolvedPath = resolvedPath.replace("{ModelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ModelId.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -973,6 +1059,54 @@ export const serializeAws_restJson1DeleteRouteCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteRouteRequestParameterCommand = async (
+  input: DeleteRouteRequestParameterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/requestparameters/{RequestParameterKey}";
+  if (input.RouteId !== undefined) {
+    const labelValue: string = input.RouteId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RouteId.");
+    }
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RouteId.");
+  }
+  if (input.RequestParameterKey !== undefined) {
+    const labelValue: string = input.RequestParameterKey;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RequestParameterKey.");
+    }
+    resolvedPath = resolvedPath.replace("{RequestParameterKey}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RequestParameterKey.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteRouteResponseCommand = async (
   input: DeleteRouteResponseCommandInput,
   context: __SerdeContext
@@ -981,6 +1115,15 @@ export const serializeAws_restJson1DeleteRouteResponseCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
+  if (input.RouteResponseId !== undefined) {
+    const labelValue: string = input.RouteResponseId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RouteResponseId.");
+    }
+    resolvedPath = resolvedPath.replace("{RouteResponseId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RouteResponseId.");
+  }
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
@@ -998,15 +1141,6 @@ export const serializeAws_restJson1DeleteRouteResponseCommand = async (
     resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
-  }
-  if (input.RouteResponseId !== undefined) {
-    const labelValue: string = input.RouteResponseId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RouteResponseId.");
-    }
-    resolvedPath = resolvedPath.replace("{RouteResponseId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RouteResponseId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1029,15 +1163,6 @@ export const serializeAws_restJson1DeleteRouteSettingsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/stages/{StageName}/routesettings/{RouteKey}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.RouteKey !== undefined) {
     const labelValue: string = input.RouteKey;
     if (labelValue.length <= 0) {
@@ -1055,6 +1180,15 @@ export const serializeAws_restJson1DeleteRouteSettingsCommand = async (
     resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1077,15 +1211,6 @@ export const serializeAws_restJson1DeleteStageCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/stages/{StageName}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.StageName !== undefined) {
     const labelValue: string = input.StageName;
     if (labelValue.length <= 0) {
@@ -1094,6 +1219,15 @@ export const serializeAws_restJson1DeleteStageCommand = async (
     resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1104,6 +1238,82 @@ export const serializeAws_restJson1DeleteStageCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteVpcLinkCommand = async (
+  input: DeleteVpcLinkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v2/vpclinks/{VpcLinkId}";
+  if (input.VpcLinkId !== undefined) {
+    const labelValue: string = input.VpcLinkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VpcLinkId.");
+    }
+    resolvedPath = resolvedPath.replace("{VpcLinkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VpcLinkId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ExportApiCommand = async (
+  input: ExportApiCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v2/apis/{ApiId}/exports/{Specification}";
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
+  }
+  if (input.Specification !== undefined) {
+    const labelValue: string = input.Specification;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Specification.");
+    }
+    resolvedPath = resolvedPath.replace("{Specification}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Specification.");
+  }
+  const query: any = {
+    ...(input.ExportVersion !== undefined && { exportVersion: input.ExportVersion }),
+    ...(input.OutputType !== undefined && { outputType: input.OutputType }),
+    ...(input.StageName !== undefined && { stageName: input.StageName }),
+    ...(input.IncludeExtensions !== undefined && { includeExtensions: input.IncludeExtensions.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1146,15 +1356,6 @@ export const serializeAws_restJson1GetApiMappingCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/domainnames/{DomainName}/apimappings/{ApiMappingId}";
-  if (input.ApiMappingId !== undefined) {
-    const labelValue: string = input.ApiMappingId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiMappingId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiMappingId.");
-  }
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -1163,6 +1364,15 @@ export const serializeAws_restJson1GetApiMappingCommand = async (
     resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  if (input.ApiMappingId !== undefined) {
+    const labelValue: string = input.ApiMappingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiMappingId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiMappingId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1195,8 +1405,8 @@ export const serializeAws_restJson1GetApiMappingsCommand = async (
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1221,8 +1431,8 @@ export const serializeAws_restJson1GetApisCommand = async (
   };
   let resolvedPath = "/v2/apis";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1246,15 +1456,6 @@ export const serializeAws_restJson1GetAuthorizerCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/authorizers/{AuthorizerId}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.AuthorizerId !== undefined) {
     const labelValue: string = input.AuthorizerId;
     if (labelValue.length <= 0) {
@@ -1263,6 +1464,15 @@ export const serializeAws_restJson1GetAuthorizerCommand = async (
     resolvedPath = resolvedPath.replace("{AuthorizerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AuthorizerId.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1320,15 +1530,6 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/deployments/{DeploymentId}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.DeploymentId !== undefined) {
     const labelValue: string = input.DeploymentId;
     if (labelValue.length <= 0) {
@@ -1337,6 +1538,15 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
     resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1369,8 +1579,8 @@ export const serializeAws_restJson1GetDeploymentsCommand = async (
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1425,8 +1635,8 @@ export const serializeAws_restJson1GetDomainNamesCommand = async (
   };
   let resolvedPath = "/v2/domainnames";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1450,15 +1660,6 @@ export const serializeAws_restJson1GetIntegrationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
@@ -1467,6 +1668,15 @@ export const serializeAws_restJson1GetIntegrationCommand = async (
     resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1537,15 +1747,6 @@ export const serializeAws_restJson1GetIntegrationResponsesCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
@@ -1555,9 +1756,18 @@ export const serializeAws_restJson1GetIntegrationResponsesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
+  }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1591,8 +1801,8 @@ export const serializeAws_restJson1GetIntegrationsCommand = async (
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1768,14 +1978,14 @@ export const serializeAws_restJson1GetRouteResponseCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
+  if (input.RouteResponseId !== undefined) {
+    const labelValue: string = input.RouteResponseId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
+      throw new Error("Empty value provided for input HTTP label: RouteResponseId.");
     }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{RouteResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
+    throw new Error("No value provided for input HTTP label: RouteResponseId.");
   }
   if (input.RouteId !== undefined) {
     const labelValue: string = input.RouteId;
@@ -1786,14 +1996,14 @@ export const serializeAws_restJson1GetRouteResponseCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
-  if (input.RouteResponseId !== undefined) {
-    const labelValue: string = input.RouteResponseId;
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RouteResponseId.");
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace("{RouteResponseId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: RouteResponseId.");
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1816,15 +2026,6 @@ export const serializeAws_restJson1GetRouteResponsesCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.RouteId !== undefined) {
     const labelValue: string = input.RouteId;
     if (labelValue.length <= 0) {
@@ -1833,6 +2034,15 @@ export const serializeAws_restJson1GetRouteResponsesCommand = async (
     resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
@@ -1895,15 +2105,6 @@ export const serializeAws_restJson1GetStageCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v2/apis/{ApiId}/stages/{StageName}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.StageName !== undefined) {
     const labelValue: string = input.StageName;
     if (labelValue.length <= 0) {
@@ -1912,6 +2113,15 @@ export const serializeAws_restJson1GetStageCommand = async (
     resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1991,6 +2201,62 @@ export const serializeAws_restJson1GetTagsCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetVpcLinkCommand = async (
+  input: GetVpcLinkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v2/vpclinks/{VpcLinkId}";
+  if (input.VpcLinkId !== undefined) {
+    const labelValue: string = input.VpcLinkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VpcLinkId.");
+    }
+    resolvedPath = resolvedPath.replace("{VpcLinkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VpcLinkId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetVpcLinksCommand = async (
+  input: GetVpcLinksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v2/vpclinks";
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ImportApiCommand = async (
   input: ImportApiCommandInput,
   context: __SerdeContext
@@ -2038,8 +2304,8 @@ export const serializeAws_restJson1ReimportApiCommand = async (
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   const query: any = {
-    ...(input.Basepath !== undefined && { basepath: input.Basepath }),
     ...(input.FailOnWarnings !== undefined && { failOnWarnings: input.FailOnWarnings.toString() }),
+    ...(input.Basepath !== undefined && { basepath: input.Basepath }),
   };
   let body: any;
   body = JSON.stringify({
@@ -2179,15 +2445,6 @@ export const serializeAws_restJson1UpdateApiMappingCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v2/domainnames/{DomainName}/apimappings/{ApiMappingId}";
-  if (input.ApiMappingId !== undefined) {
-    const labelValue: string = input.ApiMappingId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiMappingId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiMappingId.");
-  }
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -2196,6 +2453,15 @@ export const serializeAws_restJson1UpdateApiMappingCommand = async (
     resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  if (input.ApiMappingId !== undefined) {
+    const labelValue: string = input.ApiMappingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiMappingId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiMappingId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2280,15 +2546,6 @@ export const serializeAws_restJson1UpdateDeploymentCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v2/apis/{ApiId}/deployments/{DeploymentId}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.DeploymentId !== undefined) {
     const labelValue: string = input.DeploymentId;
     if (labelValue.length <= 0) {
@@ -2297,6 +2554,15 @@ export const serializeAws_restJson1UpdateDeploymentCommand = async (
     resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2397,6 +2663,7 @@ export const serializeAws_restJson1UpdateIntegrationCommand = async (
       templateSelectionExpression: input.TemplateSelectionExpression,
     }),
     ...(input.TimeoutInMillis !== undefined && { timeoutInMillis: input.TimeoutInMillis }),
+    ...(input.TlsConfig !== undefined && { tlsConfig: serializeAws_restJson1TlsConfigInput(input.TlsConfig, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2427,15 +2694,6 @@ export const serializeAws_restJson1UpdateIntegrationResponseCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  if (input.IntegrationId !== undefined) {
-    const labelValue: string = input.IntegrationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
-    }
-    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: IntegrationId.");
-  }
   if (input.IntegrationResponseId !== undefined) {
     const labelValue: string = input.IntegrationResponseId;
     if (labelValue.length <= 0) {
@@ -2444,6 +2702,15 @@ export const serializeAws_restJson1UpdateIntegrationResponseCommand = async (
     resolvedPath = resolvedPath.replace("{IntegrationResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationResponseId.");
+  }
+  if (input.IntegrationId !== undefined) {
+    const labelValue: string = input.IntegrationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
+    }
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2524,15 +2791,6 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.RouteId !== undefined) {
     const labelValue: string = input.RouteId;
     if (labelValue.length <= 0) {
@@ -2541,6 +2799,15 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
     resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2584,15 +2851,6 @@ export const serializeAws_restJson1UpdateRouteResponseCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.RouteId !== undefined) {
     const labelValue: string = input.RouteId;
     if (labelValue.length <= 0) {
@@ -2601,6 +2859,15 @@ export const serializeAws_restJson1UpdateRouteResponseCommand = async (
     resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.RouteResponseId !== undefined) {
     const labelValue: string = input.RouteResponseId;
@@ -2642,15 +2909,6 @@ export const serializeAws_restJson1UpdateStageCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v2/apis/{ApiId}/stages/{StageName}";
-  if (input.ApiId !== undefined) {
-    const labelValue: string = input.ApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApiId.");
-  }
   if (input.StageName !== undefined) {
     const labelValue: string = input.StageName;
     if (labelValue.length <= 0) {
@@ -2659,6 +2917,15 @@ export const serializeAws_restJson1UpdateStageCommand = async (
     resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
+  }
+  if (input.ApiId !== undefined) {
+    const labelValue: string = input.ApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2678,6 +2945,39 @@ export const serializeAws_restJson1UpdateStageCommand = async (
     ...(input.StageVariables !== undefined && {
       stageVariables: serializeAws_restJson1StageVariablesMap(input.StageVariables, context),
     }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateVpcLinkCommand = async (
+  input: UpdateVpcLinkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v2/vpclinks/{VpcLinkId}";
+  if (input.VpcLinkId !== undefined) {
+    const labelValue: string = input.VpcLinkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VpcLinkId.");
+    }
+    resolvedPath = resolvedPath.replace("{VpcLinkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VpcLinkId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3257,6 +3557,7 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
     RequestTemplates: undefined,
     TemplateSelectionExpression: undefined,
     TimeoutInMillis: undefined,
+    TlsConfig: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
@@ -3312,6 +3613,9 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
     contents.TimeoutInMillis = data.timeoutInMillis;
+  }
+  if (data.tlsConfig !== undefined && data.tlsConfig !== null) {
+    contents.TlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
   }
   return Promise.resolve(contents);
 };
@@ -3896,6 +4200,161 @@ const deserializeAws_restJson1CreateStageCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "NotFoundException":
+    case "com.amazonaws.apigatewayv2#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateVpcLinkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcLinkCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreateVpcLinkCommandError(output, context);
+  }
+  const contents: CreateVpcLinkCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateVpcLinkResponse",
+    CreatedDate: undefined,
+    Name: undefined,
+    SecurityGroupIds: undefined,
+    SubnetIds: undefined,
+    Tags: undefined,
+    VpcLinkId: undefined,
+    VpcLinkStatus: undefined,
+    VpcLinkStatusMessage: undefined,
+    VpcLinkVersion: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.createdDate !== undefined && data.createdDate !== null) {
+    contents.CreatedDate = new Date(data.createdDate);
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.Name = data.name;
+  }
+  if (data.securityGroupIds !== undefined && data.securityGroupIds !== null) {
+    contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIdList(data.securityGroupIds, context);
+  }
+  if (data.subnetIds !== undefined && data.subnetIds !== null) {
+    contents.SubnetIds = deserializeAws_restJson1SubnetIdList(data.subnetIds, context);
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
+  if (data.vpcLinkId !== undefined && data.vpcLinkId !== null) {
+    contents.VpcLinkId = data.vpcLinkId;
+  }
+  if (data.vpcLinkStatus !== undefined && data.vpcLinkStatus !== null) {
+    contents.VpcLinkStatus = data.vpcLinkStatus;
+  }
+  if (data.vpcLinkStatusMessage !== undefined && data.vpcLinkStatusMessage !== null) {
+    contents.VpcLinkStatusMessage = data.vpcLinkStatusMessage;
+  }
+  if (data.vpcLinkVersion !== undefined && data.vpcLinkVersion !== null) {
+    contents.VpcLinkVersion = data.vpcLinkVersion;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateVpcLinkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcLinkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.apigatewayv2#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteAccessLogSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessLogSettingsCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteAccessLogSettingsCommandError(output, context);
+  }
+  const contents: DeleteAccessLogSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteAccessLogSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessLogSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
@@ -4527,6 +4986,65 @@ const deserializeAws_restJson1DeleteRouteCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteRouteRequestParameterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRouteRequestParameterCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteRouteRequestParameterCommandError(output, context);
+  }
+  const contents: DeleteRouteRequestParameterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteRouteRequestParameterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRouteRequestParameterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "NotFoundException":
+    case "com.amazonaws.apigatewayv2#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteRouteResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4671,6 +5189,136 @@ const deserializeAws_restJson1DeleteStageCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "NotFoundException":
+    case "com.amazonaws.apigatewayv2#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteVpcLinkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcLinkCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteVpcLinkCommandError(output, context);
+  }
+  const contents: DeleteVpcLinkCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteVpcLinkResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteVpcLinkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcLinkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "NotFoundException":
+    case "com.amazonaws.apigatewayv2#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ExportApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ExportApiCommandError(output, context);
+  }
+  const contents: ExportApiCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ExportApiResponse",
+    body: undefined,
+  };
+  const data: any = await collectBody(output.body, context);
+  contents.body = data;
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ExportApiCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportApiCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.apigatewayv2#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
@@ -5570,6 +6218,7 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     RequestTemplates: undefined,
     TemplateSelectionExpression: undefined,
     TimeoutInMillis: undefined,
+    TlsConfig: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
@@ -5625,6 +6274,9 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
     contents.TimeoutInMillis = data.timeoutInMillis;
+  }
+  if (data.tlsConfig !== undefined && data.tlsConfig !== null) {
+    contents.TlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
   }
   return Promise.resolve(contents);
 };
@@ -6746,6 +7398,170 @@ const deserializeAws_restJson1GetTagsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetVpcLinkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpcLinkCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetVpcLinkCommandError(output, context);
+  }
+  const contents: GetVpcLinkCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetVpcLinkResponse",
+    CreatedDate: undefined,
+    Name: undefined,
+    SecurityGroupIds: undefined,
+    SubnetIds: undefined,
+    Tags: undefined,
+    VpcLinkId: undefined,
+    VpcLinkStatus: undefined,
+    VpcLinkStatusMessage: undefined,
+    VpcLinkVersion: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.createdDate !== undefined && data.createdDate !== null) {
+    contents.CreatedDate = new Date(data.createdDate);
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.Name = data.name;
+  }
+  if (data.securityGroupIds !== undefined && data.securityGroupIds !== null) {
+    contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIdList(data.securityGroupIds, context);
+  }
+  if (data.subnetIds !== undefined && data.subnetIds !== null) {
+    contents.SubnetIds = deserializeAws_restJson1SubnetIdList(data.subnetIds, context);
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
+  if (data.vpcLinkId !== undefined && data.vpcLinkId !== null) {
+    contents.VpcLinkId = data.vpcLinkId;
+  }
+  if (data.vpcLinkStatus !== undefined && data.vpcLinkStatus !== null) {
+    contents.VpcLinkStatus = data.vpcLinkStatus;
+  }
+  if (data.vpcLinkStatusMessage !== undefined && data.vpcLinkStatusMessage !== null) {
+    contents.VpcLinkStatusMessage = data.vpcLinkStatusMessage;
+  }
+  if (data.vpcLinkVersion !== undefined && data.vpcLinkVersion !== null) {
+    contents.VpcLinkVersion = data.vpcLinkVersion;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetVpcLinkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpcLinkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "NotFoundException":
+    case "com.amazonaws.apigatewayv2#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetVpcLinksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpcLinksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetVpcLinksCommandError(output, context);
+  }
+  const contents: GetVpcLinksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetVpcLinksResponse",
+    Items: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.items !== undefined && data.items !== null) {
+    contents.Items = deserializeAws_restJson1__listOfVpcLink(data.items, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.NextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetVpcLinksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpcLinksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.apigatewayv2#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ImportApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7719,6 +8535,7 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
     RequestTemplates: undefined,
     TemplateSelectionExpression: undefined,
     TimeoutInMillis: undefined,
+    TlsConfig: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
@@ -7774,6 +8591,9 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
     contents.TimeoutInMillis = data.timeoutInMillis;
+  }
+  if (data.tlsConfig !== undefined && data.tlsConfig !== null) {
+    contents.TlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
   }
   return Promise.resolve(contents);
 };
@@ -8391,6 +9211,110 @@ const deserializeAws_restJson1UpdateStageCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcLinkCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateVpcLinkCommandError(output, context);
+  }
+  const contents: UpdateVpcLinkCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateVpcLinkResponse",
+    CreatedDate: undefined,
+    Name: undefined,
+    SecurityGroupIds: undefined,
+    SubnetIds: undefined,
+    Tags: undefined,
+    VpcLinkId: undefined,
+    VpcLinkStatus: undefined,
+    VpcLinkStatusMessage: undefined,
+    VpcLinkVersion: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.createdDate !== undefined && data.createdDate !== null) {
+    contents.CreatedDate = new Date(data.createdDate);
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.Name = data.name;
+  }
+  if (data.securityGroupIds !== undefined && data.securityGroupIds !== null) {
+    contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIdList(data.securityGroupIds, context);
+  }
+  if (data.subnetIds !== undefined && data.subnetIds !== null) {
+    contents.SubnetIds = deserializeAws_restJson1SubnetIdList(data.subnetIds, context);
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
+  if (data.vpcLinkId !== undefined && data.vpcLinkId !== null) {
+    contents.VpcLinkId = data.vpcLinkId;
+  }
+  if (data.vpcLinkStatus !== undefined && data.vpcLinkStatus !== null) {
+    contents.VpcLinkStatus = data.vpcLinkStatus;
+  }
+  if (data.vpcLinkStatusMessage !== undefined && data.vpcLinkStatusMessage !== null) {
+    contents.VpcLinkStatusMessage = data.vpcLinkStatusMessage;
+  }
+  if (data.vpcLinkVersion !== undefined && data.vpcLinkVersion !== null) {
+    contents.VpcLinkVersion = data.vpcLinkVersion;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateVpcLinkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcLinkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.apigatewayv2#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.apigatewayv2#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -8632,6 +9556,10 @@ const serializeAws_restJson1RouteSettingsMap = (
   );
 };
 
+const serializeAws_restJson1SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1StageVariablesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
@@ -8640,6 +9568,10 @@ const serializeAws_restJson1StageVariablesMap = (input: { [key: string]: string 
     }),
     {}
   );
+};
+
+const serializeAws_restJson1SubnetIdList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
@@ -8660,6 +9592,12 @@ const serializeAws_restJson1TemplateMap = (input: { [key: string]: string }, con
     }),
     {}
   );
+};
+
+const serializeAws_restJson1TlsConfigInput = (input: TlsConfigInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ServerNameToVerify !== undefined && { serverNameToVerify: input.ServerNameToVerify }),
+  };
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
@@ -8711,6 +9649,10 @@ const deserializeAws_restJson1__listOfRouteResponse = (output: any, context: __S
 
 const deserializeAws_restJson1__listOfStage = (output: any, context: __SerdeContext): Stage[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Stage(entry, context));
+};
+
+const deserializeAws_restJson1__listOfVpcLink = (output: any, context: __SerdeContext): VpcLink[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1VpcLink(entry, context));
 };
 
 const deserializeAws_restJson1AccessLogSettings = (output: any, context: __SerdeContext): AccessLogSettings => {
@@ -8980,6 +9922,10 @@ const deserializeAws_restJson1Integration = (output: any, context: __SerdeContex
         : undefined,
     TimeoutInMillis:
       output.timeoutInMillis !== undefined && output.timeoutInMillis !== null ? output.timeoutInMillis : undefined,
+    TlsConfig:
+      output.tlsConfig !== undefined && output.tlsConfig !== null
+        ? deserializeAws_restJson1TlsConfig(output.tlsConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -9176,6 +10122,10 @@ const deserializeAws_restJson1RouteSettingsMap = (
   );
 };
 
+const deserializeAws_restJson1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): Stage => {
   return {
     __type: "Stage",
@@ -9234,6 +10184,10 @@ const deserializeAws_restJson1StageVariablesMap = (output: any, context: __Serde
   );
 };
 
+const deserializeAws_restJson1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
@@ -9252,6 +10206,46 @@ const deserializeAws_restJson1TemplateMap = (output: any, context: __SerdeContex
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1TlsConfig = (output: any, context: __SerdeContext): TlsConfig => {
+  return {
+    __type: "TlsConfig",
+    ServerNameToVerify:
+      output.serverNameToVerify !== undefined && output.serverNameToVerify !== null
+        ? output.serverNameToVerify
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VpcLink = (output: any, context: __SerdeContext): VpcLink => {
+  return {
+    __type: "VpcLink",
+    CreatedDate:
+      output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    SecurityGroupIds:
+      output.securityGroupIds !== undefined && output.securityGroupIds !== null
+        ? deserializeAws_restJson1SecurityGroupIdList(output.securityGroupIds, context)
+        : undefined,
+    SubnetIds:
+      output.subnetIds !== undefined && output.subnetIds !== null
+        ? deserializeAws_restJson1SubnetIdList(output.subnetIds, context)
+        : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1Tags(output.tags, context)
+        : undefined,
+    VpcLinkId: output.vpcLinkId !== undefined && output.vpcLinkId !== null ? output.vpcLinkId : undefined,
+    VpcLinkStatus:
+      output.vpcLinkStatus !== undefined && output.vpcLinkStatus !== null ? output.vpcLinkStatus : undefined,
+    VpcLinkStatusMessage:
+      output.vpcLinkStatusMessage !== undefined && output.vpcLinkStatusMessage !== null
+        ? output.vpcLinkStatusMessage
+        : undefined,
+    VpcLinkVersion:
+      output.vpcLinkVersion !== undefined && output.vpcLinkVersion !== null ? output.vpcLinkVersion : undefined,
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

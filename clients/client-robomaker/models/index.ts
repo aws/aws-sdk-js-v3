@@ -43,6 +43,45 @@ export namespace BatchDescribeSimulationJobResponse {
     __isa(o, "BatchDescribeSimulationJobResponse");
 }
 
+/**
+ * <p>Information about the batch policy.</p>
+ */
+export interface BatchPolicy {
+  __type?: "BatchPolicy";
+  /**
+   * <p>The amount of time, in seconds, to wait for the batch to complete.
+   *
+   *       </p>
+   *          <p>If a batch times out, and there are pending requests that
+   *       were failing due to an internal failure (like <code>InternalServiceError</code>),
+   *       they will be moved to the
+   *       failed list and the batch status will be <code>Failed</code>.
+   *       If the pending requests were failing for any other reason,
+   *       the failed pending requests will be moved to the failed list
+   *       and the batch status will be <code>TimedOut</code>.
+   *       </p>
+   */
+  timeoutInSeconds?: number;
+
+  /**
+   * <p>The number of active simulation jobs create as part of the batch that
+   *          can be in an active state at the same time.
+   *       </p>
+   *          <p>Active states include: <code>Pending</code>,<code>Preparing</code>,
+   *          <code>Running</code>, <code>Restarting</code>, <code>RunningFailed</code> and
+   *          <code>Terminating</code>. All other states are terminal states.
+   *       </p>
+   */
+  maxConcurrency?: number;
+}
+
+export namespace BatchPolicy {
+  export const filterSensitiveLog = (obj: BatchPolicy): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is BatchPolicy => __isa(o, "BatchPolicy");
+}
+
 export interface CancelDeploymentJobRequest {
   __type?: "CancelDeploymentJobRequest";
   /**
@@ -67,6 +106,32 @@ export namespace CancelDeploymentJobResponse {
     ...obj,
   });
   export const isa = (o: any): o is CancelDeploymentJobResponse => __isa(o, "CancelDeploymentJobResponse");
+}
+
+export interface CancelSimulationJobBatchRequest {
+  __type?: "CancelSimulationJobBatchRequest";
+  /**
+   * <p>The id of the batch to cancel.</p>
+   */
+  batch: string | undefined;
+}
+
+export namespace CancelSimulationJobBatchRequest {
+  export const filterSensitiveLog = (obj: CancelSimulationJobBatchRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CancelSimulationJobBatchRequest => __isa(o, "CancelSimulationJobBatchRequest");
+}
+
+export interface CancelSimulationJobBatchResponse {
+  __type?: "CancelSimulationJobBatchResponse";
+}
+
+export namespace CancelSimulationJobBatchResponse {
+  export const filterSensitiveLog = (obj: CancelSimulationJobBatchResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CancelSimulationJobBatchResponse => __isa(o, "CancelSimulationJobBatchResponse");
 }
 
 export interface CancelSimulationJobRequest {
@@ -96,6 +161,50 @@ export namespace CancelSimulationJobResponse {
 }
 
 /**
+ * <p>Compute information for the simulation job.</p>
+ */
+export interface Compute {
+  __type?: "Compute";
+  /**
+   * <p>The simulation unit limit. Your simulation is allocated CPU and memory
+   *         proportional to the supplied simulation unit limit. A simulation
+   *         unit is 1 vcpu and 2GB of memory. You are only billed
+   *         for the SU utilization you consume up to the maximim value provided.
+   *         </p>
+   */
+  simulationUnitLimit?: number;
+}
+
+export namespace Compute {
+  export const filterSensitiveLog = (obj: Compute): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Compute => __isa(o, "Compute");
+}
+
+/**
+ * <p>Compute information for the simulation job</p>
+ */
+export interface ComputeResponse {
+  __type?: "ComputeResponse";
+  /**
+   * <p>The simulation unit limit. Your simulation is allocated CPU and memory
+   *         proportional to the supplied simulation unit limit. A simulation
+   *         unit is 1 vcpu and 2GB of memory. You are only billed
+   *         for the SU utilization you consume up to the maximim value provided.
+   *         </p>
+   */
+  simulationUnitLimit?: number;
+}
+
+export namespace ComputeResponse {
+  export const filterSensitiveLog = (obj: ComputeResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ComputeResponse => __isa(o, "ComputeResponse");
+}
+
+/**
  * <p>The failure percentage threshold percentage was met.</p>
  */
 export interface ConcurrentDeploymentException extends __SmithyException, $MetadataBearer {
@@ -114,16 +223,6 @@ export namespace ConcurrentDeploymentException {
 export interface CreateDeploymentJobRequest {
   __type?: "CreateDeploymentJobRequest";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientRequestToken?: string;
-
-  /**
-   * <p>The deployment application configuration.</p>
-   */
-  deploymentApplicationConfigs: DeploymentApplicationConfig[] | undefined;
-
-  /**
    * <p>The requested deployment configuration.</p>
    */
   deploymentConfig?: DeploymentConfig;
@@ -132,6 +231,16 @@ export interface CreateDeploymentJobRequest {
    * <p>The Amazon Resource Name (ARN) of the fleet to deploy.</p>
    */
   fleet: string | undefined;
+
+  /**
+   * <p>The deployment application configuration.</p>
+   */
+  deploymentApplicationConfigs: DeploymentApplicationConfig[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
 
   /**
    * <p>A map that contains tag keys and tag values that are attached to the deployment job.</p>
@@ -149,24 +258,9 @@ export namespace CreateDeploymentJobRequest {
 export interface CreateDeploymentJobResponse {
   __type?: "CreateDeploymentJobResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
    * <p>The deployment application configuration.</p>
    */
   deploymentApplicationConfigs?: DeploymentApplicationConfig[];
-
-  /**
-   * <p>The deployment configuration.</p>
-   */
-  deploymentConfig?: DeploymentConfig;
 
   /**
    * <p>The failure code of the simulation job if it failed:</p>
@@ -235,9 +329,19 @@ export interface CreateDeploymentJobResponse {
   failureCode?: DeploymentJobErrorCode | string;
 
   /**
-   * <p>The failure reason of the deployment job if it failed.</p>
+   * <p>The list of all tags added to the deployment job.</p>
    */
-  failureReason?: string;
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The deployment configuration.</p>
+   */
+  deploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>
+   */
+  createdAt?: Date;
 
   /**
    * <p>The target fleet for the deployment job.</p>
@@ -250,9 +354,14 @@ export interface CreateDeploymentJobResponse {
   status?: DeploymentStatus | string;
 
   /**
-   * <p>The list of all tags added to the deployment job.</p>
+   * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
    */
-  tags?: { [key: string]: string };
+  arn?: string;
+
+  /**
+   * <p>The failure reason of the deployment job if it failed.</p>
+   */
+  failureReason?: string;
 }
 
 export namespace CreateDeploymentJobResponse {
@@ -285,24 +394,24 @@ export namespace CreateFleetRequest {
 export interface CreateFleetResponse {
   __type?: "CreateFleetResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>
    */
   createdAt?: Date;
 
   /**
-   * <p>The name of the fleet.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The list of all tags added to the fleet.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  name?: string;
 }
 
 export namespace CreateFleetResponse {
@@ -315,12 +424,7 @@ export namespace CreateFleetResponse {
 export interface CreateRobotApplicationRequest {
   __type?: "CreateRobotApplicationRequest";
   /**
-   * <p>The name of the robot application.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The robot software suite used by the robot application.</p>
+   * <p>The robot software suite (ROS distribuition) used by the robot application.</p>
    */
   robotSoftwareSuite: RobotSoftwareSuite | undefined;
 
@@ -333,6 +437,11 @@ export interface CreateRobotApplicationRequest {
    * <p>A map that contains tag keys and tag values that are attached to the robot application.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the robot application.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace CreateRobotApplicationRequest {
@@ -345,27 +454,7 @@ export namespace CreateRobotApplicationRequest {
 export interface CreateRobotApplicationResponse {
   __type?: "CreateRobotApplicationResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the robot application.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The name of the robot application.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The revision id of the robot application.</p>
-   */
-  revisionId?: string;
-
-  /**
-   * <p>The robot software suite used by the robot application.</p>
+   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
 
@@ -375,14 +464,34 @@ export interface CreateRobotApplicationResponse {
   sources?: Source[];
 
   /**
-   * <p>The list of all tags added to the robot application.</p>
+   * <p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>
    */
-  tags?: { [key: string]: string };
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the robot application.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The revision id of the robot application.</p>
+   */
+  revisionId?: string;
 
   /**
    * <p>The version of the robot application.</p>
    */
   version?: string;
+
+  /**
+   * <p>The list of all tags added to the robot application.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the robot application.</p>
+   */
+  name?: string;
 }
 
 export namespace CreateRobotApplicationResponse {
@@ -427,17 +536,7 @@ export interface CreateRobotApplicationVersionResponse {
   lastUpdatedAt?: Date;
 
   /**
-   * <p>The name of the robot application.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The revision id of the robot application.</p>
-   */
-  revisionId?: string;
-
-  /**
-   * <p>The robot software suite used by the robot application.</p>
+   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
 
@@ -450,6 +549,16 @@ export interface CreateRobotApplicationVersionResponse {
    * <p>The version of the robot application.</p>
    */
   version?: string;
+
+  /**
+   * <p>The name of the robot application.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The revision id of the robot application.</p>
+   */
+  revisionId?: string;
 }
 
 export namespace CreateRobotApplicationVersionResponse {
@@ -462,11 +571,6 @@ export namespace CreateRobotApplicationVersionResponse {
 
 export interface CreateRobotRequest {
   __type?: "CreateRobotRequest";
-  /**
-   * <p>The target architecture of the robot.</p>
-   */
-  architecture: Architecture | string | undefined;
-
   /**
    * <p>The Greengrass group id.</p>
    */
@@ -481,6 +585,11 @@ export interface CreateRobotRequest {
    * <p>A map that contains tag keys and tag values that are attached to the robot.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The target architecture of the robot.</p>
+   */
+  architecture: Architecture | string | undefined;
 }
 
 export namespace CreateRobotRequest {
@@ -498,9 +607,9 @@ export interface CreateRobotResponse {
   architecture?: Architecture | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the robot.</p>
+   * <p>The name of the robot.</p>
    */
-  arn?: string;
+  name?: string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the robot was created.</p>
@@ -508,19 +617,19 @@ export interface CreateRobotResponse {
   createdAt?: Date;
 
   /**
+   * <p>The list of all tags added to the robot.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the Greengrass group associated with the robot.</p>
    */
   greengrassGroupId?: string;
 
   /**
-   * <p>The name of the robot.</p>
+   * <p>The Amazon Resource Name (ARN) of the robot.</p>
    */
-  name?: string;
-
-  /**
-   * <p>The list of all tags added to the robot.</p>
-   */
-  tags?: { [key: string]: string };
+  arn?: string;
 }
 
 export namespace CreateRobotResponse {
@@ -533,19 +642,14 @@ export namespace CreateRobotResponse {
 export interface CreateSimulationApplicationRequest {
   __type?: "CreateSimulationApplicationRequest";
   /**
-   * <p>The name of the simulation application.</p>
+   * <p>A map that contains tag keys and tag values that are attached to the simulation application.</p>
    */
-  name: string | undefined;
+  tags?: { [key: string]: string };
 
   /**
    * <p>The rendering engine for the simulation application.</p>
    */
   renderingEngine?: RenderingEngine;
-
-  /**
-   * <p>The robot software suite of the simulation application.</p>
-   */
-  robotSoftwareSuite: RobotSoftwareSuite | undefined;
 
   /**
    * <p>The simulation software suite used by the simulation application.</p>
@@ -558,9 +662,14 @@ export interface CreateSimulationApplicationRequest {
   sources: SourceConfig[] | undefined;
 
   /**
-   * <p>A map that contains tag keys and tag values that are attached to the simulation application.</p>
+   * <p>The robot software suite (ROS distribution) used by the simulation application.</p>
    */
-  tags?: { [key: string]: string };
+  robotSoftwareSuite: RobotSoftwareSuite | undefined;
+
+  /**
+   * <p>The name of the simulation application.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace CreateSimulationApplicationRequest {
@@ -574,14 +683,9 @@ export namespace CreateSimulationApplicationRequest {
 export interface CreateSimulationApplicationResponse {
   __type?: "CreateSimulationApplicationResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
+   * <p>The list of all tags added to the simulation application.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
+  tags?: { [key: string]: string };
 
   /**
    * <p>The name of the simulation application.</p>
@@ -589,9 +693,9 @@ export interface CreateSimulationApplicationResponse {
   name?: string;
 
   /**
-   * <p>The rendering engine for the simulation application.</p>
+   * <p>The version of the simulation application.</p>
    */
-  renderingEngine?: RenderingEngine;
+  version?: string;
 
   /**
    * <p>The revision id of the simulation application.</p>
@@ -599,9 +703,9 @@ export interface CreateSimulationApplicationResponse {
   revisionId?: string;
 
   /**
-   * <p>Information about the robot software suite.</p>
+   * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
    */
-  robotSoftwareSuite?: RobotSoftwareSuite;
+  arn?: string;
 
   /**
    * <p>The simulation software suite used by the simulation application.</p>
@@ -609,19 +713,24 @@ export interface CreateSimulationApplicationResponse {
   simulationSoftwareSuite?: SimulationSoftwareSuite;
 
   /**
+   * <p>Information about the robot software suite (ROS distribution).</p>
+   */
+  robotSoftwareSuite?: RobotSoftwareSuite;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The rendering engine for the simulation application.</p>
+   */
+  renderingEngine?: RenderingEngine;
+
+  /**
    * <p>The sources of the simulation application.</p>
    */
   sources?: Source[];
-
-  /**
-   * <p>The list of all tags added to the simulation application.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The version of the simulation application.</p>
-   */
-  version?: string;
 }
 
 export namespace CreateSimulationApplicationResponse {
@@ -635,15 +744,15 @@ export namespace CreateSimulationApplicationResponse {
 export interface CreateSimulationApplicationVersionRequest {
   __type?: "CreateSimulationApplicationVersionRequest";
   /**
-   * <p>The application information for the simulation application.</p>
-   */
-  application: string | undefined;
-
-  /**
    * <p>The current revision id for the simulation application. If you provide a value and it
    *         matches the latest revision ID, a new version will be created.</p>
    */
   currentRevisionId?: string;
+
+  /**
+   * <p>The application information for the simulation application.</p>
+   */
+  application: string | undefined;
 }
 
 export namespace CreateSimulationApplicationVersionRequest {
@@ -657,6 +766,26 @@ export namespace CreateSimulationApplicationVersionRequest {
 export interface CreateSimulationApplicationVersionResponse {
   __type?: "CreateSimulationApplicationVersionResponse";
   /**
+   * <p>The rendering engine for the simulation application.</p>
+   */
+  renderingEngine?: RenderingEngine;
+
+  /**
+   * <p>The version of the simulation application.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>The name of the simulation application.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Information about the robot software suite (ROS distribution).</p>
+   */
+  robotSoftwareSuite?: RobotSoftwareSuite;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
    */
   arn?: string;
@@ -667,14 +796,9 @@ export interface CreateSimulationApplicationVersionResponse {
   lastUpdatedAt?: Date;
 
   /**
-   * <p>The name of the simulation application.</p>
+   * <p>The sources of the simulation application.</p>
    */
-  name?: string;
-
-  /**
-   * <p>The rendering engine for the simulation application.</p>
-   */
-  renderingEngine?: RenderingEngine;
+  sources?: Source[];
 
   /**
    * <p>The revision ID of the simulation application.</p>
@@ -682,24 +806,9 @@ export interface CreateSimulationApplicationVersionResponse {
   revisionId?: string;
 
   /**
-   * <p>Information about the robot software suite.</p>
-   */
-  robotSoftwareSuite?: RobotSoftwareSuite;
-
-  /**
    * <p>The simulation software suite used by the simulation application.</p>
    */
   simulationSoftwareSuite?: SimulationSoftwareSuite;
-
-  /**
-   * <p>The sources of the simulation application.</p>
-   */
-  sources?: Source[];
-
-  /**
-   * <p>The version of the simulation application.</p>
-   */
-  version?: string;
 }
 
 export namespace CreateSimulationApplicationVersionResponse {
@@ -713,12 +822,9 @@ export namespace CreateSimulationApplicationVersionResponse {
 export interface CreateSimulationJobRequest {
   __type?: "CreateSimulationJobRequest";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientRequestToken?: string;
-
-  /**
-   * <p>The data sources for the simulation job.</p>
+   * <p>Specify data sources to mount read-only files from S3 into your simulation. These files are
+   *         available under <code>/opt/robomaker/datasources/data_source_name</code>.
+   *       </p>
    *          <note>
    *             <p>There is a limit of 100 files and a combined size of 25GB for all
    *             <code>DataSourceConfig</code> objects.
@@ -726,6 +832,47 @@ export interface CreateSimulationJobRequest {
    *          </note>
    */
   dataSources?: DataSourceConfig[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The maximum simulation job duration in seconds (up to 14 days or 1,209,600 seconds.
+   *          When <code>maxJobDurationInSeconds</code> is reached, the simulation job will status will transition to
+   *          <code>Completed</code>.</p>
+   */
+  maxJobDurationInSeconds: number | undefined;
+
+  /**
+   * <p>Location for output files generated by the simulation job.</p>
+   */
+  outputLocation?: OutputLocation;
+
+  /**
+   * <p>A map that contains tag keys and tag values that are attached to the simulation job.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The IAM role name that allows the simulation instance to call the AWS APIs that
+   *          are specified in its associated policies on your behalf. This is how credentials are passed in to your
+   *          simulation job.
+   *       </p>
+   */
+  iamRole: string | undefined;
+
+  /**
+   * <p>The logging configuration.</p>
+   */
+  loggingConfig?: LoggingConfig;
+
+  /**
+   * <p>If your simulation job accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs.
+   *          These must belong to the same VPC. You must provide at least one security group and one subnet ID. </p>
+   */
+  vpcConfig?: VPCConfig;
 
   /**
    * <p>The failure behavior the simulation job.</p>
@@ -743,31 +890,6 @@ export interface CreateSimulationJobRequest {
   failureBehavior?: FailureBehavior | string;
 
   /**
-   * <p>The IAM role name that allows the simulation instance to call the AWS APIs that
-   *          are specified in its associated policies on your behalf. This is how credentials are passed in to your
-   *          simulation job.
-   *       </p>
-   */
-  iamRole: string | undefined;
-
-  /**
-   * <p>The logging configuration.</p>
-   */
-  loggingConfig?: LoggingConfig;
-
-  /**
-   * <p>The maximum simulation job duration in seconds (up to 14 days or 1,209,600 seconds.
-   *          When <code>maxJobDurationInSeconds</code> is reached, the simulation job will status will transition to
-   *          <code>Completed</code>.</p>
-   */
-  maxJobDurationInSeconds: number | undefined;
-
-  /**
-   * <p>Location for output files generated by the simulation job.</p>
-   */
-  outputLocation?: OutputLocation;
-
-  /**
    * <p>The robot application to use in the simulation job.</p>
    */
   robotApplications?: RobotApplicationConfig[];
@@ -778,15 +900,9 @@ export interface CreateSimulationJobRequest {
   simulationApplications?: SimulationApplicationConfig[];
 
   /**
-   * <p>A map that contains tag keys and tag values that are attached to the simulation job.</p>
+   * <p>Compute information for the simulation job.</p>
    */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>If your simulation job accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs.
-   *          These must belong to the same VPC. You must provide at least one security group and one subnet ID. </p>
-   */
-  vpcConfig?: VPCConfig;
+  compute?: Compute;
 }
 
 export namespace CreateSimulationJobRequest {
@@ -799,24 +915,14 @@ export namespace CreateSimulationJobRequest {
 export interface CreateSimulationJobResponse {
   __type?: "CreateSimulationJobResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
+   * <p>Simulation job output files location.</p>
    */
-  arn?: string;
+  outputLocation?: OutputLocation;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * <p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>
    */
-  clientRequestToken?: string;
-
-  /**
-   * <p>The data sources for the simulation job.</p>
-   */
-  dataSources?: DataSource[];
-
-  /**
-   * <p>the failure behavior for the simulation job.</p>
-   */
-  failureBehavior?: FailureBehavior | string;
+  lastUpdatedAt?: Date;
 
   /**
    * <p>The failure code of the simulation job if it failed:</p>
@@ -882,10 +988,9 @@ export interface CreateSimulationJobResponse {
   failureCode?: SimulationJobErrorCode | string;
 
   /**
-   * <p>The IAM role that allows the simulation job to call the AWS APIs that
-   *          are specified in its associated policies on your behalf.</p>
+   * <p>The simulation application used by the simulation job.</p>
    */
-  iamRole?: string;
+  simulationApplications?: SimulationApplicationConfig[];
 
   /**
    * <p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>
@@ -893,40 +998,14 @@ export interface CreateSimulationJobResponse {
   lastStartedAt?: Date;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>
+   * <p>the failure behavior for the simulation job.</p>
    */
-  lastUpdatedAt?: Date;
+  failureBehavior?: FailureBehavior | string;
 
   /**
-   * <p>The logging configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
    */
-  loggingConfig?: LoggingConfig;
-
-  /**
-   * <p>The maximum simulation job duration in seconds.
-   *       </p>
-   */
-  maxJobDurationInSeconds?: number;
-
-  /**
-   * <p>Simulation job output files location.</p>
-   */
-  outputLocation?: OutputLocation;
-
-  /**
-   * <p>The robot application used by the simulation job.</p>
-   */
-  robotApplications?: RobotApplicationConfig[];
-
-  /**
-   * <p>The simulation application used by the simulation job.</p>
-   */
-  simulationApplications?: SimulationApplicationConfig[];
-
-  /**
-   * <p>The simulation job execution duration in milliseconds.</p>
-   */
-  simulationTimeMillis?: number;
+  arn?: string;
 
   /**
    * <p>The status of the simulation job.</p>
@@ -934,14 +1013,56 @@ export interface CreateSimulationJobResponse {
   status?: SimulationJobStatus | string;
 
   /**
-   * <p>The list of all tags added to the simulation job.</p>
+   * <p>The robot application used by the simulation job.</p>
    */
-  tags?: { [key: string]: string };
+  robotApplications?: RobotApplicationConfig[];
+
+  /**
+   * <p>The data sources for the simulation job.</p>
+   */
+  dataSources?: DataSource[];
+
+  /**
+   * <p>Compute information for the simulation job.</p>
+   */
+  compute?: ComputeResponse;
 
   /**
    * <p>Information about the vpc configuration.</p>
    */
   vpcConfig?: VPCConfigResponse;
+
+  /**
+   * <p>The IAM role that allows the simulation job to call the AWS APIs that
+   *          are specified in its associated policies on your behalf.</p>
+   */
+  iamRole?: string;
+
+  /**
+   * <p>The simulation job execution duration in milliseconds.</p>
+   */
+  simulationTimeMillis?: number;
+
+  /**
+   * <p>The logging configuration.</p>
+   */
+  loggingConfig?: LoggingConfig;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The list of all tags added to the simulation job.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The maximum simulation job duration in seconds.
+   *       </p>
+   */
+  maxJobDurationInSeconds?: number;
 }
 
 export namespace CreateSimulationJobResponse {
@@ -1036,14 +1157,14 @@ export namespace DeleteFleetResponse {
 export interface DeleteRobotApplicationRequest {
   __type?: "DeleteRobotApplicationRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the the robot application.</p>
-   */
-  application: string | undefined;
-
-  /**
    * <p>The version of the robot application to delete.</p>
    */
   applicationVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the the robot application.</p>
+   */
+  application: string | undefined;
 }
 
 export namespace DeleteRobotApplicationRequest {
@@ -1134,14 +1255,14 @@ export interface DeploymentApplicationConfig {
   application: string | undefined;
 
   /**
-   * <p>The version of the application.</p>
-   */
-  applicationVersion: string | undefined;
-
-  /**
    * <p>The launch configuration.</p>
    */
   launchConfig: DeploymentLaunchConfig | undefined;
+
+  /**
+   * <p>The version of the application.</p>
+   */
+  applicationVersion: string | undefined;
 }
 
 export namespace DeploymentApplicationConfig {
@@ -1157,9 +1278,9 @@ export namespace DeploymentApplicationConfig {
 export interface DeploymentConfig {
   __type?: "DeploymentConfig";
   /**
-   * <p>The percentage of robots receiving the deployment at the same time.</p>
+   * <p>The percentage of deployments that need to fail before stopping deployment.</p>
    */
-  concurrentDeploymentPercentage?: number;
+  failureThresholdPercentage?: number;
 
   /**
    * <p>The download condition file.</p>
@@ -1167,15 +1288,15 @@ export interface DeploymentConfig {
   downloadConditionFile?: S3Object;
 
   /**
-   * <p>The percentage of deployments that need to fail before stopping deployment.</p>
-   */
-  failureThresholdPercentage?: number;
-
-  /**
    * <p>The amount of time, in seconds, to wait for deployment to a single robot to complete.
    *         Choose a time between 1 minute and 7 days. The default is 5 hours.</p>
    */
   robotDeploymentTimeoutInSeconds?: number;
+
+  /**
+   * <p>The percentage of robots receiving the deployment at the same time.</p>
+   */
+  concurrentDeploymentPercentage?: number;
 }
 
 export namespace DeploymentConfig {
@@ -1191,24 +1312,14 @@ export namespace DeploymentConfig {
 export interface DeploymentJob {
   __type?: "DeploymentJob";
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
+   * <p>A short description of the reason why the deployment job failed.</p>
    */
-  arn?: string;
+  failureReason?: string;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the deployment job was created.</p>
+   * <p>The status of the deployment job.</p>
    */
-  createdAt?: Date;
-
-  /**
-   * <p>The deployment application configuration.</p>
-   */
-  deploymentApplicationConfigs?: DeploymentApplicationConfig[];
-
-  /**
-   * <p>The deployment configuration.</p>
-   */
-  deploymentConfig?: DeploymentConfig;
+  status?: DeploymentStatus | string;
 
   /**
    * <p>The deployment job failure code.</p>
@@ -1216,19 +1327,29 @@ export interface DeploymentJob {
   failureCode?: DeploymentJobErrorCode | string;
 
   /**
-   * <p>A short description of the reason why the deployment job failed.</p>
+   * <p>The time, in milliseconds since the epoch, when the deployment job was created.</p>
    */
-  failureReason?: string;
+  createdAt?: Date;
+
+  /**
+   * <p>The deployment configuration.</p>
+   */
+  deploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>The deployment application configuration.</p>
+   */
+  deploymentApplicationConfigs?: DeploymentApplicationConfig[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
+   */
+  arn?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   fleet?: string;
-
-  /**
-   * <p>The status of the deployment job.</p>
-   */
-  status?: DeploymentStatus | string;
 }
 
 export namespace DeploymentJob {
@@ -1248,6 +1369,8 @@ export enum DeploymentJobErrorCode {
   GreengrassDeploymentFailed = "GreengrassDeploymentFailed",
   GreengrassGroupVersionDoesNotExist = "GreengrassGroupVersionDoesNotExist",
   InternalServerError = "InternalServerError",
+  InvalidGreengrassGroup = "InvalidGreengrassGroup",
+  LambdaDeleted = "LambdaDeleted",
   MissingRobotApplicationArchitecture = "MissingRobotApplicationArchitecture",
   MissingRobotArchitecture = "MissingRobotArchitecture",
   MissingRobotDeploymentResource = "MissingRobotDeploymentResource",
@@ -1265,19 +1388,9 @@ export enum DeploymentJobErrorCode {
 export interface DeploymentLaunchConfig {
   __type?: "DeploymentLaunchConfig";
   /**
-   * <p>An array of key/value pairs specifying environment variables for the robot application</p>
+   * <p>The deployment pre-launch file. This file will be executed prior to the launch file.</p>
    */
-  environmentVariables?: { [key: string]: string };
-
-  /**
-   * <p>The launch file name.</p>
-   */
-  launchFile: string | undefined;
-
-  /**
-   * <p>The package name.</p>
-   */
-  packageName: string | undefined;
+  preLaunchFile?: string;
 
   /**
    * <p>The deployment post-launch file. This file will be executed after the launch file.</p>
@@ -1285,9 +1398,19 @@ export interface DeploymentLaunchConfig {
   postLaunchFile?: string;
 
   /**
-   * <p>The deployment pre-launch file. This file will be executed prior to the launch file.</p>
+   * <p>The package name.</p>
    */
-  preLaunchFile?: string;
+  packageName: string | undefined;
+
+  /**
+   * <p>The launch file name.</p>
+   */
+  launchFile: string | undefined;
+
+  /**
+   * <p>An array of key/value pairs specifying environment variables for the robot application</p>
+   */
+  environmentVariables?: { [key: string]: string };
 }
 
 export namespace DeploymentLaunchConfig {
@@ -1329,14 +1452,14 @@ export namespace DeregisterRobotRequest {
 export interface DeregisterRobotResponse {
   __type?: "DeregisterRobotResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
-   */
-  fleet?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the robot.</p>
    */
   robot?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
+   */
+  fleet?: string;
 }
 
 export namespace DeregisterRobotResponse {
@@ -1364,14 +1487,24 @@ export namespace DescribeDeploymentJobRequest {
 export interface DescribeDeploymentJobResponse {
   __type?: "DescribeDeploymentJobResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
+   * <p>The deployment job failure code.</p>
    */
-  arn?: string;
+  failureCode?: DeploymentJobErrorCode | string;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the deployment job was created.</p>
+   * <p>The status of the deployment job.</p>
    */
-  createdAt?: Date;
+  status?: DeploymentStatus | string;
+
+  /**
+   * <p>A short description of the reason why the deployment job failed.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>The list of all tags added to the specified deployment job.</p>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p>The deployment application configuration.</p>
@@ -1384,19 +1517,14 @@ export interface DescribeDeploymentJobResponse {
   deploymentConfig?: DeploymentConfig;
 
   /**
-   * <p>The deployment job failure code.</p>
-   */
-  failureCode?: DeploymentJobErrorCode | string;
-
-  /**
-   * <p>A short description of the reason why the deployment job failed.</p>
-   */
-  failureReason?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   fleet?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
+   */
+  arn?: string;
 
   /**
    * <p>A list of robot deployment summaries.</p>
@@ -1404,14 +1532,9 @@ export interface DescribeDeploymentJobResponse {
   robotDeploymentSummary?: RobotDeployment[];
 
   /**
-   * <p>The status of the deployment job.</p>
+   * <p>The time, in milliseconds since the epoch, when the deployment job was created.</p>
    */
-  status?: DeploymentStatus | string;
-
-  /**
-   * <p>The list of all tags added to the specified deployment job.</p>
-   */
-  tags?: { [key: string]: string };
+  createdAt?: Date;
 }
 
 export namespace DescribeDeploymentJobResponse {
@@ -1444,16 +1567,6 @@ export interface DescribeFleetResponse {
   arn?: string;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
-   */
-  lastDeploymentJob?: string;
-
-  /**
    * <p>The status of the last deployment.</p>
    */
   lastDeploymentStatus?: DeploymentStatus | string;
@@ -1464,9 +1577,9 @@ export interface DescribeFleetResponse {
   lastDeploymentTime?: Date;
 
   /**
-   * <p>The name of the fleet.</p>
+   * <p>The list of all tags added to the specified fleet.</p>
    */
-  name?: string;
+  tags?: { [key: string]: string };
 
   /**
    * <p>A list of robots.</p>
@@ -1474,9 +1587,19 @@ export interface DescribeFleetResponse {
   robots?: Robot[];
 
   /**
-   * <p>The list of all tags added to the specified fleet.</p>
+   * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
    */
-  tags?: { [key: string]: string };
+  lastDeploymentJob?: string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  name?: string;
 }
 
 export namespace DescribeFleetResponse {
@@ -1489,14 +1612,14 @@ export namespace DescribeFleetResponse {
 export interface DescribeRobotApplicationRequest {
   __type?: "DescribeRobotApplicationRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the robot application.</p>
-   */
-  application: string | undefined;
-
-  /**
    * <p>The version of the robot application to describe.</p>
    */
   applicationVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the robot application.</p>
+   */
+  application: string | undefined;
 }
 
 export namespace DescribeRobotApplicationRequest {
@@ -1509,36 +1632,6 @@ export namespace DescribeRobotApplicationRequest {
 export interface DescribeRobotApplicationResponse {
   __type?: "DescribeRobotApplicationResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the robot application.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The name of the robot application.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The revision id of the robot application.</p>
-   */
-  revisionId?: string;
-
-  /**
-   * <p>The robot software suite used by the robot application.</p>
-   */
-  robotSoftwareSuite?: RobotSoftwareSuite;
-
-  /**
-   * <p>The sources of the robot application.</p>
-   */
-  sources?: Source[];
-
-  /**
    * <p>The list of all tags added to the specified robot application.</p>
    */
   tags?: { [key: string]: string };
@@ -1547,6 +1640,36 @@ export interface DescribeRobotApplicationResponse {
    * <p>The version of the robot application.</p>
    */
   version?: string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The sources of the robot application.</p>
+   */
+  sources?: Source[];
+
+  /**
+   * <p>The revision id of the robot application.</p>
+   */
+  revisionId?: string;
+
+  /**
+   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
+   */
+  robotSoftwareSuite?: RobotSoftwareSuite;
+
+  /**
+   * <p>The name of the robot application.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the robot application.</p>
+   */
+  arn?: string;
 }
 
 export namespace DescribeRobotApplicationResponse {
@@ -1574,29 +1697,19 @@ export namespace DescribeRobotRequest {
 export interface DescribeRobotResponse {
   __type?: "DescribeRobotResponse";
   /**
-   * <p>The target architecture of the robot application.</p>
-   */
-  architecture?: Architecture | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the robot.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The time, in milliseconds since the epoch, when the robot was created.</p>
    */
   createdAt?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
+   * <p>The status of the fleet.</p>
    */
-  fleetArn?: string;
+  status?: RobotStatus | string;
 
   /**
-   * <p>The Greengrass group id.</p>
+   * <p>The list of all tags added to the specified robot.</p>
    */
-  greengrassGroupId?: string;
+  tags?: { [key: string]: string };
 
   /**
    * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
@@ -1609,19 +1722,29 @@ export interface DescribeRobotResponse {
   lastDeploymentTime?: Date;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
+   */
+  fleetArn?: string;
+
+  /**
    * <p>The name of the robot.</p>
    */
   name?: string;
 
   /**
-   * <p>The status of the fleet.</p>
+   * <p>The Amazon Resource Name (ARN) of the robot.</p>
    */
-  status?: RobotStatus | string;
+  arn?: string;
 
   /**
-   * <p>The list of all tags added to the specified robot.</p>
+   * <p>The target architecture of the robot application.</p>
    */
-  tags?: { [key: string]: string };
+  architecture?: Architecture | string;
+
+  /**
+   * <p>The Greengrass group id.</p>
+   */
+  greengrassGroupId?: string;
 }
 
 export namespace DescribeRobotResponse {
@@ -1655,24 +1778,9 @@ export namespace DescribeSimulationApplicationRequest {
 export interface DescribeSimulationApplicationResponse {
   __type?: "DescribeSimulationApplicationResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the robot simulation application.</p>
+   * <p>The sources of the simulation application.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The name of the simulation application.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The rendering engine for the simulation application.</p>
-   */
-  renderingEngine?: RenderingEngine;
+  sources?: Source[];
 
   /**
    * <p>The revision id of the simulation application.</p>
@@ -1680,19 +1788,9 @@ export interface DescribeSimulationApplicationResponse {
   revisionId?: string;
 
   /**
-   * <p>Information about the robot software suite.</p>
+   * <p>The version of the simulation application.</p>
    */
-  robotSoftwareSuite?: RobotSoftwareSuite;
-
-  /**
-   * <p>The simulation software suite used by the simulation application.</p>
-   */
-  simulationSoftwareSuite?: SimulationSoftwareSuite;
-
-  /**
-   * <p>The sources of the simulation application.</p>
-   */
-  sources?: Source[];
+  version?: string;
 
   /**
    * <p>The list of all tags added to the specified simulation application.</p>
@@ -1700,9 +1798,34 @@ export interface DescribeSimulationApplicationResponse {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The version of the simulation application.</p>
+   * <p>The Amazon Resource Name (ARN) of the robot simulation application.</p>
    */
-  version?: string;
+  arn?: string;
+
+  /**
+   * <p>Information about the robot software suite (ROS distribution).</p>
+   */
+  robotSoftwareSuite?: RobotSoftwareSuite;
+
+  /**
+   * <p>The rendering engine for the simulation application.</p>
+   */
+  renderingEngine?: RenderingEngine;
+
+  /**
+   * <p>The name of the simulation application.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The simulation software suite used by the simulation application.</p>
+   */
+  simulationSoftwareSuite?: SimulationSoftwareSuite;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
 }
 
 export namespace DescribeSimulationApplicationResponse {
@@ -1711,6 +1834,146 @@ export namespace DescribeSimulationApplicationResponse {
   });
   export const isa = (o: any): o is DescribeSimulationApplicationResponse =>
     __isa(o, "DescribeSimulationApplicationResponse");
+}
+
+export interface DescribeSimulationJobBatchRequest {
+  __type?: "DescribeSimulationJobBatchRequest";
+  /**
+   * <p>The id of the batch to describe.</p>
+   */
+  batch: string | undefined;
+}
+
+export namespace DescribeSimulationJobBatchRequest {
+  export const filterSensitiveLog = (obj: DescribeSimulationJobBatchRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeSimulationJobBatchRequest => __isa(o, "DescribeSimulationJobBatchRequest");
+}
+
+export interface DescribeSimulationJobBatchResponse {
+  __type?: "DescribeSimulationJobBatchResponse";
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The reason the simulation job batch failed.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation job batch was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation job batch was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The status of the batch.</p>
+   *          <dl>
+   *             <dt>Pending</dt>
+   *             <dd>
+   *                <p>The simulation job batch request is pending.</p>
+   *             </dd>
+   *             <dt>InProgress</dt>
+   *             <dd>
+   *                <p>The simulation job batch is in progress. </p>
+   *             </dd>
+   *             <dt>Failed</dt>
+   *             <dd>
+   *                <p>The simulation job batch failed. One or more simulation job requests could not be completed
+   *                 due to an internal failure (like <code>InternalServiceError</code>).
+   *                 See <code>failureCode</code> and <code>failureReason</code> for more information.</p>
+   *             </dd>
+   *             <dt>Completed</dt>
+   *             <dd>
+   *                <p>The simulation batch job completed. A batch is complete when (1) there are
+   *                no pending simulation job requests in the batch and none of the
+   *                failed simulation job requests are due to <code>InternalServiceError</code> and (2)
+   *                   when all created simulation jobs have reached a terminal state (for example,
+   *                   <code>Completed</code> or <code>Failed</code>).
+   *                </p>
+   *             </dd>
+   *             <dt>Canceled</dt>
+   *             <dd>
+   *                <p>The simulation batch job was cancelled.</p>
+   *             </dd>
+   *             <dt>Canceling</dt>
+   *             <dd>
+   *                <p>The simulation batch job is being cancelled.</p>
+   *             </dd>
+   *             <dt>Completing</dt>
+   *             <dd>
+   *                <p>The simulation batch job is completing.</p>
+   *             </dd>
+   *             <dt>TimingOut</dt>
+   *             <dd>
+   *                <p>The simulation job batch is timing out.</p>
+   *                <p>If a batch timing out, and there are pending requests that
+   *                   were failing due to an internal failure (like <code>InternalServiceError</code>),
+   *                   the batch status will be <code>Failed</code>. If there are no such failing request,
+   *                   the batch status will be <code>TimedOut</code>.
+   *                </p>
+   *             </dd>
+   *             <dt>TimedOut</dt>
+   *             <dd>
+   *                <p>The simulation batch job timed out.</p>
+   *             </dd>
+   *          </dl>
+   */
+  status?: SimulationJobBatchStatus | string;
+
+  /**
+   * <p>A list of pending simulation job requests. These requests have
+   *       not yet been created into simulation jobs.</p>
+   */
+  pendingRequests?: SimulationJobRequest[];
+
+  /**
+   * <p>A list of created simulation job summaries.</p>
+   */
+  createdRequests?: SimulationJobSummary[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>A map that contains tag keys and tag values that are attached to the simulation job batch.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The failure code of the simulation job batch.</p>
+   */
+  failureCode?: SimulationJobBatchErrorCode | string;
+
+  /**
+   * <p>The batch policy.</p>
+   */
+  batchPolicy?: BatchPolicy;
+
+  /**
+   * <p>A list of failed create simulation job requests. The request failed to
+   *          be created into a simulation job. Failed requests do not
+   *          have a simulation job ID.
+   *       </p>
+   */
+  failedRequests?: FailedCreateSimulationJobRequest[];
+}
+
+export namespace DescribeSimulationJobBatchResponse {
+  export const filterSensitiveLog = (obj: DescribeSimulationJobBatchResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeSimulationJobBatchResponse =>
+    __isa(o, "DescribeSimulationJobBatchResponse");
 }
 
 export interface DescribeSimulationJobRequest {
@@ -1731,14 +1994,24 @@ export namespace DescribeSimulationJobRequest {
 export interface DescribeSimulationJobResponse {
   __type?: "DescribeSimulationJobResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
+   * <p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>
    */
-  arn?: string;
+  lastUpdatedAt?: Date;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * <p>The name of the simulation job.</p>
    */
-  clientRequestToken?: string;
+  name?: string;
+
+  /**
+   * <p>The logging configuration.</p>
+   */
+  loggingConfig?: LoggingConfig;
+
+  /**
+   * <p>A list of robot applications.</p>
+   */
+  robotApplications?: RobotApplicationConfig[];
 
   /**
    * <p>The data sources for the simulation job.</p>
@@ -1746,9 +2019,76 @@ export interface DescribeSimulationJobResponse {
   dataSources?: DataSource[];
 
   /**
+   * <p>The status of the simulation job.</p>
+   */
+  status?: SimulationJobStatus | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>A list of simulation applications.</p>
+   */
+  simulationApplications?: SimulationApplicationConfig[];
+
+  /**
+   * <p>The simulation job execution duration in milliseconds.</p>
+   */
+  simulationTimeMillis?: number;
+
+  /**
+   * <p>The IAM role that allows the simulation instance to call the AWS APIs that
+   *          are specified in its associated policies on your behalf.</p>
+   */
+  iamRole?: string;
+
+  /**
+   * <p>Compute information for the simulation job.</p>
+   */
+  compute?: ComputeResponse;
+
+  /**
+   * <p>The VPC configuration.</p>
+   */
+  vpcConfig?: VPCConfigResponse;
+
+  /**
+   * <p>The network interface information for the simulation job.</p>
+   */
+  networkInterface?: NetworkInterface;
+
+  /**
    * <p>The failure behavior for the simulation job.</p>
    */
   failureBehavior?: FailureBehavior | string;
+
+  /**
+   * <p>Details about why the simulation job failed. For more information
+   *          about troubleshooting, see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting.html">Troubleshooting</a>.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>
+   */
+  lastStartedAt?: Date;
+
+  /**
+   * <p>The maximum job duration in seconds. The value must be 8 days (691,200 seconds) or less.</p>
+   */
+  maxJobDurationInSeconds?: number;
+
+  /**
+   * <p>The list of all tags added to the specified simulation job.</p>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p>The failure code of the simulation job if it failed:</p>
@@ -1814,81 +2154,9 @@ export interface DescribeSimulationJobResponse {
   failureCode?: SimulationJobErrorCode | string;
 
   /**
-   * <p>Details about why the simulation job failed. For more information
-   *          about troubleshooting, see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting.html">Troubleshooting</a>.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The IAM role that allows the simulation instance to call the AWS APIs that
-   *          are specified in its associated policies on your behalf.</p>
-   */
-  iamRole?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>
-   */
-  lastStartedAt?: Date;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The logging configuration.</p>
-   */
-  loggingConfig?: LoggingConfig;
-
-  /**
-   * <p>The maximum job duration in seconds. The value must be 8 days (691,200 seconds) or less.</p>
-   */
-  maxJobDurationInSeconds?: number;
-
-  /**
-   * <p>The name of the simulation job.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The network interface information for the simulation job.</p>
-   */
-  networkInterface?: NetworkInterface;
-
-  /**
    * <p>Location for output files generated by the simulation job.</p>
    */
   outputLocation?: OutputLocation;
-
-  /**
-   * <p>A list of robot applications.</p>
-   */
-  robotApplications?: RobotApplicationConfig[];
-
-  /**
-   * <p>A list of simulation applications.</p>
-   */
-  simulationApplications?: SimulationApplicationConfig[];
-
-  /**
-   * <p>The simulation job execution duration in milliseconds.</p>
-   */
-  simulationTimeMillis?: number;
-
-  /**
-   * <p>The status of the simulation job.</p>
-   */
-  status?: SimulationJobStatus | string;
-
-  /**
-   * <p>The list of all tags added to the specified simulation job.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The VPC configuration.</p>
-   */
-  vpcConfig?: VPCConfigResponse;
 }
 
 export namespace DescribeSimulationJobResponse {
@@ -1896,6 +2164,39 @@ export namespace DescribeSimulationJobResponse {
     ...obj,
   });
   export const isa = (o: any): o is DescribeSimulationJobResponse => __isa(o, "DescribeSimulationJobResponse");
+}
+
+/**
+ * <p>Information about a failed create simulation job request.</p>
+ */
+export interface FailedCreateSimulationJobRequest {
+  __type?: "FailedCreateSimulationJobRequest";
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation job batch failed.</p>
+   */
+  failedAt?: Date;
+
+  /**
+   * <p>The simulation job request.</p>
+   */
+  request?: SimulationJobRequest;
+
+  /**
+   * <p>The failure code.</p>
+   */
+  failureCode?: SimulationJobErrorCode | string;
+
+  /**
+   * <p>The failure reason of the simulation job request.</p>
+   */
+  failureReason?: string;
+}
+
+export namespace FailedCreateSimulationJobRequest {
+  export const filterSensitiveLog = (obj: FailedCreateSimulationJobRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is FailedCreateSimulationJobRequest => __isa(o, "FailedCreateSimulationJobRequest");
 }
 
 export enum FailureBehavior {
@@ -1932,19 +2233,9 @@ export namespace Filter {
 export interface Fleet {
   __type?: "Fleet";
   /**
-   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>
    */
   createdAt?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
-   */
-  lastDeploymentJob?: string;
 
   /**
    * <p>The status of the last fleet deployment.</p>
@@ -1952,14 +2243,24 @@ export interface Fleet {
   lastDeploymentStatus?: DeploymentStatus | string;
 
   /**
-   * <p>The time of the last deployment.</p>
+   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
-  lastDeploymentTime?: Date;
+  arn?: string;
 
   /**
    * <p>The name of the fleet.</p>
    */
   name?: string;
+
+  /**
+   * <p>The time of the last deployment.</p>
+   */
+  lastDeploymentTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
+   */
+  lastDeploymentJob?: string;
 }
 
 export namespace Fleet {
@@ -2026,6 +2327,11 @@ export namespace InvalidParameterException {
 export interface LaunchConfig {
   __type?: "LaunchConfig";
   /**
+   * <p>The package name.</p>
+   */
+  packageName: string | undefined;
+
+  /**
    * <p>The environment variables for the application launch.</p>
    */
   environmentVariables?: { [key: string]: string };
@@ -2036,9 +2342,13 @@ export interface LaunchConfig {
   launchFile: string | undefined;
 
   /**
-   * <p>The package name.</p>
+   * <p>Boolean indicating whether a streaming session will be configured for the application. If <code>True</code>,
+   *         AWS RoboMaker will configure a connection so you can interact with your application as it is
+   *        running in the simulation. You must configure and luanch the component. It must have a graphical
+   *        user interface.
+   *        </p>
    */
-  packageName: string | undefined;
+  streamUI?: boolean;
 
   /**
    * <p>The port forwarding configuration.</p>
@@ -2082,14 +2392,13 @@ export interface ListDeploymentJobsRequest {
   filters?: Filter[];
 
   /**
-   * <p>The maximum number of deployment job results returned by <code>ListDeploymentJobs</code>
-   *          in paginated output. When this parameter is used, <code>ListDeploymentJobs</code> only returns
+   * <p>When this parameter is used, <code>ListDeploymentJobs</code> only returns
    *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
    *          element. The remaining results of the initial request
    *          can be seen by sending another <code>ListDeploymentJobs</code> request with the returned
    *          <code>nextToken</code> value.
-   *          This value can be between 1 and 100. If this parameter is not used, then <code>ListDeploymentJobs</code>
-   *          returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
+   *          This value can be between 1 and 200. If this parameter is not used, then <code>ListDeploymentJobs</code>
+   *          returns up to 200 results and a <code>nextToken</code> value if applicable. </p>
    */
   maxResults?: number;
 
@@ -2099,10 +2408,6 @@ export interface ListDeploymentJobsRequest {
    *          exceeded the value of that parameter. Pagination continues from the end of the previous results
    *          that returned the <code>nextToken</code> value.
    *       </p>
-   *          <note>
-   *             <p>This token should be treated as an opaque identifier that is only used to retrieve
-   *          the next items in a list and not for other programmatic purposes.</p>
-   *          </note>
    */
   nextToken?: string;
 }
@@ -2147,14 +2452,13 @@ export interface ListFleetsRequest {
   filters?: Filter[];
 
   /**
-   * <p>The maximum number of deployment job results returned by <code>ListFleets</code>
-   *          in paginated output. When this parameter is used, <code>ListFleets</code> only returns
+   * <p>When this parameter is used, <code>ListFleets</code> only returns
    *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
    *          element. The remaining results of the initial request
    *          can be seen by sending another <code>ListFleets</code> request with the returned
    *          <code>nextToken</code> value.
-   *          This value can be between 1 and 100. If this parameter is not used, then <code>ListFleets</code>
-   *          returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
+   *          This value can be between 1 and 200. If this parameter is not used, then <code>ListFleets</code>
+   *          returns up to 200 results and a <code>nextToken</code> value if applicable. </p>
    */
   maxResults?: number;
 
@@ -2182,17 +2486,17 @@ export namespace ListFleetsRequest {
 export interface ListFleetsResponse {
   __type?: "ListFleetsResponse";
   /**
-   * <p>A list of fleet details meeting the request criteria.</p>
-   */
-  fleetDetails?: Fleet[];
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListDeploymentJobs</code> request.
    *          When the results of a <code>ListFleets</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of fleet details meeting the request criteria.</p>
+   */
+  fleetDetails?: Fleet[];
 }
 
 export namespace ListFleetsResponse {
@@ -2212,8 +2516,7 @@ export interface ListRobotApplicationsRequest {
   filters?: Filter[];
 
   /**
-   * <p>The maximum number of deployment job results returned by <code>ListRobotApplications</code>
-   *          in paginated output. When this parameter is used, <code>ListRobotApplications</code> only returns
+   * <p>When this parameter is used, <code>ListRobotApplications</code> only returns
    *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
    *          element. The remaining results of the initial request
    *          can be seen by sending another <code>ListRobotApplications</code> request with the returned
@@ -2224,22 +2527,18 @@ export interface ListRobotApplicationsRequest {
   maxResults?: number;
 
   /**
+   * <p>The version qualifier of the robot application.</p>
+   */
+  versionQualifier?: string;
+
+  /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *          <code>ListRobotApplications</code> request where <code>maxResults</code> was used and the results
    *          exceeded the value of that parameter. Pagination continues from the end of the previous results
    *          that returned the <code>nextToken</code> value.
    *       </p>
-   *          <note>
-   *             <p>This token should be treated as an opaque identifier that is only used to retrieve
-   *          the next items in a list and not for other programmatic purposes.</p>
-   *          </note>
    */
   nextToken?: string;
-
-  /**
-   * <p>The version qualifier of the robot application.</p>
-   */
-  versionQualifier?: string;
 }
 
 export namespace ListRobotApplicationsRequest {
@@ -2252,17 +2551,17 @@ export namespace ListRobotApplicationsRequest {
 export interface ListRobotApplicationsResponse {
   __type?: "ListRobotApplicationsResponse";
   /**
+   * <p>A list of robot application summaries that meet the criteria of the request.</p>
+   */
+  robotApplicationSummaries?: RobotApplicationSummary[];
+
+  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRobotApplications</code> request.
    *          When the results of a <code>ListRobotApplications</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of robot application summaries that meet the criteria of the request.</p>
-   */
-  robotApplicationSummaries?: RobotApplicationSummary[];
 }
 
 export namespace ListRobotApplicationsResponse {
@@ -2284,29 +2583,24 @@ export interface ListRobotsRequest {
   filters?: Filter[];
 
   /**
-   * <p>The maximum number of deployment job results returned by <code>ListRobots</code>
-   *          in paginated output. When this parameter is used, <code>ListRobots</code> only returns
-   *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
-   *          element. The remaining results of the initial request
-   *          can be seen by sending another <code>ListRobots</code> request with the returned
-   *          <code>nextToken</code> value.
-   *          This value can be between 1 and 100. If this parameter is not used, then <code>ListRobots</code>
-   *          returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *          <code>ListRobots</code> request where <code>maxResults</code> was used and the results
    *          exceeded the value of that parameter. Pagination continues from the end of the previous results
    *          that returned the <code>nextToken</code> value.
    *       </p>
-   *          <note>
-   *             <p>This token should be treated as an opaque identifier that is only used to retrieve
-   *          the next items in a list and not for other programmatic purposes.</p>
-   *          </note>
    */
   nextToken?: string;
+
+  /**
+   * <p>When this parameter is used, <code>ListRobots</code> only returns
+   *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
+   *          element. The remaining results of the initial request
+   *          can be seen by sending another <code>ListRobots</code> request with the returned
+   *          <code>nextToken</code> value.
+   *          This value can be between 1 and 200. If this parameter is not used, then <code>ListRobots</code>
+   *          returns up to 200 results and a <code>nextToken</code> value if applicable. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListRobotsRequest {
@@ -2319,17 +2613,17 @@ export namespace ListRobotsRequest {
 export interface ListRobotsResponse {
   __type?: "ListRobotsResponse";
   /**
+   * <p>A list of robots that meet the criteria of the request.</p>
+   */
+  robots?: Robot[];
+
+  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRobots</code> request.
    *          When the results of a <code>ListRobot</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of robots that meet the criteria of the request.</p>
-   */
-  robots?: Robot[];
 }
 
 export namespace ListRobotsResponse {
@@ -2349,8 +2643,7 @@ export interface ListSimulationApplicationsRequest {
   filters?: Filter[];
 
   /**
-   * <p>The maximum number of deployment job results returned by <code>ListSimulationApplications</code>
-   *          in paginated output. When this parameter is used, <code>ListSimulationApplications</code> only returns
+   * <p>When this parameter is used, <code>ListSimulationApplications</code> only returns
    *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
    *          element. The remaining results of the initial request
    *          can be seen by sending another <code>ListSimulationApplications</code> request with the returned
@@ -2366,10 +2659,6 @@ export interface ListSimulationApplicationsRequest {
    *          exceeded the value of that parameter. Pagination continues from the end of the previous results
    *          that returned the <code>nextToken</code> value.
    *       </p>
-   *          <note>
-   *             <p>This token should be treated as an opaque identifier that is only used to retrieve
-   *          the next items in a list and not for other programmatic purposes.</p>
-   *          </note>
    */
   nextToken?: string;
 
@@ -2410,30 +2699,66 @@ export namespace ListSimulationApplicationsResponse {
     __isa(o, "ListSimulationApplicationsResponse");
 }
 
-export interface ListSimulationJobsRequest {
-  __type?: "ListSimulationJobsRequest";
+export interface ListSimulationJobBatchesRequest {
+  __type?: "ListSimulationJobBatchesRequest";
   /**
-   * <p>Optional filters to limit results.</p>
-   *          <p>The filter names <code>status</code> and <code>simulationApplicationName</code>
-   *         and <code>robotApplicationName</code> are supported.
-   *          When filtering, you must use the complete value of the filtered item. You can use up to three filters,
-   *          but they must be for the same named item. For example, if you are looking for items with the status
-   *          <code>Preparing</code> or the status <code>Running</code>.</p>
-   */
-  filters?: Filter[];
-
-  /**
-   * <p>The maximum number of deployment job results returned by <code>ListSimulationJobs</code>
-   *          in paginated output. When this parameter is used, <code>ListSimulationJobs</code> only returns
+   * <p>When this parameter is used, <code>ListSimulationJobBatches</code> only returns
    *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
    *          element. The remaining results of the initial request
-   *          can be seen by sending another <code>ListSimulationJobs</code> request with the returned
+   *          can be seen by sending another <code>ListSimulationJobBatches</code> request with the returned
    *          <code>nextToken</code> value.
-   *          This value can be between 1 and 100. If this parameter is not used, then <code>ListSimulationJobs</code>
-   *          returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
+   *       </p>
    */
   maxResults?: number;
 
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *          <code>ListSimulationJobBatches</code> request where <code>maxResults</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous results
+   *          that returned the <code>nextToken</code> value.
+   *       </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Optional filters to limit results.</p>
+   */
+  filters?: Filter[];
+}
+
+export namespace ListSimulationJobBatchesRequest {
+  export const filterSensitiveLog = (obj: ListSimulationJobBatchesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListSimulationJobBatchesRequest => __isa(o, "ListSimulationJobBatchesRequest");
+}
+
+export interface ListSimulationJobBatchesResponse {
+  __type?: "ListSimulationJobBatchesResponse";
+  /**
+   * <p>A list of simulation job batch summaries.</p>
+   */
+  simulationJobBatchSummaries?: SimulationJobBatchSummary[];
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListSimulationJobBatches</code> request.
+   *          When the results of a <code>ListSimulationJobBatches</code> request exceed <code>maxResults</code>, this
+   *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
+   *          results to return.
+   *       </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListSimulationJobBatchesResponse {
+  export const filterSensitiveLog = (obj: ListSimulationJobBatchesResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListSimulationJobBatchesResponse => __isa(o, "ListSimulationJobBatchesResponse");
+}
+
+export interface ListSimulationJobsRequest {
+  __type?: "ListSimulationJobsRequest";
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *          <code>ListSimulationJobs</code> request where <code>maxResults</code> was used and the results
@@ -2446,6 +2771,27 @@ export interface ListSimulationJobsRequest {
    *          </note>
    */
   nextToken?: string;
+
+  /**
+   * <p>When this parameter is used, <code>ListSimulationJobs</code> only returns
+   *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
+   *          element. The remaining results of the initial request
+   *          can be seen by sending another <code>ListSimulationJobs</code> request with the returned
+   *          <code>nextToken</code> value.
+   *          This value can be between 1 and 1000. If this parameter is not used, then <code>ListSimulationJobs</code>
+   *          returns up to 1000 results and a <code>nextToken</code> value if applicable. </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Optional filters to limit results.</p>
+   *          <p>The filter names <code>status</code> and <code>simulationApplicationName</code>
+   *         and <code>robotApplicationName</code> are supported.
+   *          When filtering, you must use the complete value of the filtered item. You can use up to three filters,
+   *          but they must be for the same named item. For example, if you are looking for items with the status
+   *          <code>Preparing</code> or the status <code>Running</code>.</p>
+   */
+  filters?: Filter[];
 }
 
 export namespace ListSimulationJobsRequest {
@@ -2458,17 +2804,17 @@ export namespace ListSimulationJobsRequest {
 export interface ListSimulationJobsResponse {
   __type?: "ListSimulationJobsResponse";
   /**
+   * <p>A list of simulation job summaries that meet the criteria of the request.</p>
+   */
+  simulationJobSummaries: SimulationJobSummary[] | undefined;
+
+  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListSimulationJobs</code> request.
    *          When the results of a <code>ListRobot</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of simulation job summaries that meet the criteria of the request.</p>
-   */
-  simulationJobSummaries: SimulationJobSummary[] | undefined;
 }
 
 export namespace ListSimulationJobsResponse {
@@ -2532,14 +2878,14 @@ export namespace LoggingConfig {
 export interface NetworkInterface {
   __type?: "NetworkInterface";
   /**
-   * <p>The ID of the network interface.</p>
-   */
-  networkInterfaceId?: string;
-
-  /**
    * <p>The IPv4 address of the network interface within the subnet.</p>
    */
   privateIpAddress?: string;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  networkInterfaceId?: string;
 
   /**
    * <p>The IPv4 public address of the network interface.</p>
@@ -2601,6 +2947,11 @@ export namespace PortForwardingConfig {
 export interface PortMapping {
   __type?: "PortMapping";
   /**
+   * <p>The port number on the simulation job instance to use as a remote connection point. </p>
+   */
+  jobPort: number | undefined;
+
+  /**
    * <p>The port number on the application.</p>
    */
   applicationPort: number | undefined;
@@ -2609,11 +2960,6 @@ export interface PortMapping {
    * <p>A Boolean indicating whether to enable this port mapping on public IP.</p>
    */
   enableOnPublicIp?: boolean;
-
-  /**
-   * <p>The port number on the simulation job instance to use as a remote connection point. </p>
-   */
-  jobPort: number | undefined;
 }
 
 export namespace PortMapping {
@@ -2628,6 +2974,12 @@ export namespace PortMapping {
  */
 export interface ProgressDetail {
   __type?: "ProgressDetail";
+  /**
+   * <p>Precentage of the step that is done. This currently only applies to the <code>Downloading/Extracting</code>
+   *         step of the deployment. It is empty for other steps.</p>
+   */
+  percentDone?: number;
+
   /**
    * <p>The current progress status.</p>
    *          <dl>
@@ -2666,12 +3018,6 @@ export interface ProgressDetail {
   estimatedTimeRemainingSeconds?: number;
 
   /**
-   * <p>Precentage of the step that is done. This currently only applies to the <code>Downloading/Extracting</code>
-   *         step of the deployment. It is empty for other steps.</p>
-   */
-  percentDone?: number;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
    */
   targetResource?: string;
@@ -2687,14 +3033,14 @@ export namespace ProgressDetail {
 export interface RegisterRobotRequest {
   __type?: "RegisterRobotRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
-   */
-  fleet: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the robot.</p>
    */
   robot: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
+   */
+  fleet: string | undefined;
 }
 
 export namespace RegisterRobotRequest {
@@ -2730,14 +3076,14 @@ export namespace RegisterRobotResponse {
 export interface RenderingEngine {
   __type?: "RenderingEngine";
   /**
-   * <p>The name of the rendering engine.</p>
-   */
-  name?: RenderingEngineType | string;
-
-  /**
    * <p>The version of the rendering engine.</p>
    */
   version?: string;
+
+  /**
+   * <p>The name of the rendering engine.</p>
+   */
+  name?: RenderingEngineType | string;
 }
 
 export namespace RenderingEngine {
@@ -2815,14 +3161,24 @@ export namespace RestartSimulationJobResponse {
 export interface Robot {
   __type?: "Robot";
   /**
+   * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
+   */
+  lastDeploymentJob?: string;
+
+  /**
    * <p>The architecture of the robot.</p>
    */
   architecture?: Architecture | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the robot.</p>
+   * <p>The time of the last deployment.</p>
    */
-  arn?: string;
+  lastDeploymentTime?: Date;
+
+  /**
+   * <p>The status of the robot.</p>
+   */
+  status?: RobotStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the robot was created.</p>
@@ -2835,29 +3191,19 @@ export interface Robot {
   fleetArn?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the robot.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The Greengrass group associated with the robot.</p>
    */
   greenGrassGroupId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
-   */
-  lastDeploymentJob?: string;
-
-  /**
-   * <p>The time of the last deployment.</p>
-   */
-  lastDeploymentTime?: Date;
-
-  /**
    * <p>The name of the robot.</p>
    */
   name?: string;
-
-  /**
-   * <p>The status of the robot.</p>
-   */
-  status?: RobotStatus | string;
 }
 
 export namespace Robot {
@@ -2873,11 +3219,6 @@ export namespace Robot {
 export interface RobotApplicationConfig {
   __type?: "RobotApplicationConfig";
   /**
-   * <p>The application information for the robot application.</p>
-   */
-  application: string | undefined;
-
-  /**
    * <p>The version of the robot application.</p>
    */
   applicationVersion?: string;
@@ -2886,6 +3227,11 @@ export interface RobotApplicationConfig {
    * <p>The launch configuration for the robot application.</p>
    */
   launchConfig: LaunchConfig | undefined;
+
+  /**
+   * <p>The application information for the robot application.</p>
+   */
+  application: string | undefined;
 }
 
 export namespace RobotApplicationConfig {
@@ -2900,6 +3246,11 @@ export namespace RobotApplicationConfig {
  */
 export interface RobotApplicationSummary {
   __type?: "RobotApplicationSummary";
+  /**
+   * <p>The version of the robot application.</p>
+   */
+  version?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the robot.</p>
    */
@@ -2916,14 +3267,9 @@ export interface RobotApplicationSummary {
   name?: string;
 
   /**
-   * <p>Information about a robot software suite.</p>
+   * <p>Information about a robot software suite (ROS distribution).</p>
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
-
-  /**
-   * <p>The version of the robot application.</p>
-   */
-  version?: string;
 }
 
 export namespace RobotApplicationSummary {
@@ -2939,14 +3285,14 @@ export namespace RobotApplicationSummary {
 export interface RobotDeployment {
   __type?: "RobotDeployment";
   /**
-   * <p>The robot deployment Amazon Resource Name (ARN).</p>
+   * <p>The status of the robot deployment.</p>
    */
-  arn?: string;
+  status?: RobotStatus | string;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the deployment finished.</p>
+   * <p>A short description of the reason why the robot deployment failed.</p>
    */
-  deploymentFinishTime?: Date;
+  failureReason?: string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the deployment was started.</p>
@@ -2959,9 +3305,9 @@ export interface RobotDeployment {
   failureCode?: DeploymentJobErrorCode | string;
 
   /**
-   * <p>A short description of the reason why the robot deployment failed.</p>
+   * <p>The robot deployment Amazon Resource Name (ARN).</p>
    */
-  failureReason?: string;
+  arn?: string;
 
   /**
    * <p>Information about how the deployment is progressing.</p>
@@ -2969,9 +3315,9 @@ export interface RobotDeployment {
   progressDetail?: ProgressDetail;
 
   /**
-   * <p>The status of the robot deployment.</p>
+   * <p>The time, in milliseconds since the epoch, when the deployment finished.</p>
    */
-  status?: RobotStatus | string;
+  deploymentFinishTime?: Date;
 }
 
 export namespace RobotDeployment {
@@ -2992,19 +3338,19 @@ export enum RobotDeploymentStep {
 }
 
 /**
- * <p>Information about a robot software suite.</p>
+ * <p>Information about a robot software suite (ROS distribution).</p>
  */
 export interface RobotSoftwareSuite {
   __type?: "RobotSoftwareSuite";
   /**
-   * <p>The name of the robot software suite.</p>
-   */
-  name?: RobotSoftwareSuiteType | string;
-
-  /**
-   * <p>The version of the robot software suite.</p>
+   * <p>The version of the robot software suite (ROS distribution).</p>
    */
   version?: RobotSoftwareSuiteVersionType | string;
+
+  /**
+   * <p>The name of the robot software suite (ROS distribution).</p>
+   */
+  name?: RobotSoftwareSuiteType | string;
 }
 
 export namespace RobotSoftwareSuite {
@@ -3041,14 +3387,14 @@ export enum RobotStatus {
 export interface S3KeyOutput {
   __type?: "S3KeyOutput";
   /**
-   * <p>The etag for the object.</p>
-   */
-  etag?: string;
-
-  /**
    * <p>The S3 key.</p>
    */
   s3Key?: string;
+
+  /**
+   * <p>The etag for the object.</p>
+   */
+  etag?: string;
 }
 
 export namespace S3KeyOutput {
@@ -3064,11 +3410,6 @@ export namespace S3KeyOutput {
 export interface S3Object {
   __type?: "S3Object";
   /**
-   * <p>The bucket containing the object.</p>
-   */
-  bucket: string | undefined;
-
-  /**
    * <p>The etag of the object.</p>
    */
   etag?: string;
@@ -3077,6 +3418,11 @@ export interface S3Object {
    * <p>The key of the object.</p>
    */
   key: string | undefined;
+
+  /**
+   * <p>The bucket containing the object.</p>
+   */
+  bucket: string | undefined;
 }
 
 export namespace S3Object {
@@ -3108,9 +3454,9 @@ export namespace ServiceUnavailableException {
 export interface SimulationApplicationConfig {
   __type?: "SimulationApplicationConfig";
   /**
-   * <p>The application information for the simulation application.</p>
+   * <p>The launch configuration for the simulation application.</p>
    */
-  application: string | undefined;
+  launchConfig: LaunchConfig | undefined;
 
   /**
    * <p>The version of the simulation application.</p>
@@ -3118,9 +3464,9 @@ export interface SimulationApplicationConfig {
   applicationVersion?: string;
 
   /**
-   * <p>The launch configuration for the simulation application.</p>
+   * <p>The application information for the simulation application.</p>
    */
-  launchConfig: LaunchConfig | undefined;
+  application: string | undefined;
 }
 
 export namespace SimulationApplicationConfig {
@@ -3136,24 +3482,14 @@ export namespace SimulationApplicationConfig {
 export interface SimulationApplicationSummary {
   __type?: "SimulationApplicationSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
    * <p>The name of the simulation application.</p>
    */
   name?: string;
 
   /**
-   * <p>Information about a robot software suite.</p>
+   * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
    */
-  robotSoftwareSuite?: RobotSoftwareSuite;
+  arn?: string;
 
   /**
    * <p>Information about a simulation software suite.</p>
@@ -3164,6 +3500,16 @@ export interface SimulationApplicationSummary {
    * <p>The version of the simulation application.</p>
    */
   version?: string;
+
+  /**
+   * <p>Information about a robot software suite (ROS distribution).</p>
+   */
+  robotSoftwareSuite?: RobotSoftwareSuite;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
 }
 
 export namespace SimulationApplicationSummary {
@@ -3179,19 +3525,42 @@ export namespace SimulationApplicationSummary {
 export interface SimulationJob {
   __type?: "SimulationJob";
   /**
-   * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
+   * <p>The logging configuration.</p>
    */
-  arn?: string;
+  loggingConfig?: LoggingConfig;
 
   /**
-   * <p>A unique identifier for this <code>SimulationJob</code> request.</p>
+   * <p>Information about a network interface.</p>
    */
-  clientRequestToken?: string;
+  networkInterface?: NetworkInterface;
 
   /**
-   * <p>The data sources for the simulation job.</p>
+   * <p>The maximum simulation job duration in seconds. The value must be 8 days (691,200 seconds) or less.</p>
    */
-  dataSources?: DataSource[];
+  maxJobDurationInSeconds?: number;
+
+  /**
+   * <p>The simulation job execution duration in milliseconds.</p>
+   */
+  simulationTimeMillis?: number;
+
+  /**
+   * <p>The IAM role that allows the simulation instance to call the AWS APIs that
+   *          are specified in its associated policies on your behalf. This is how credentials are passed in to your
+   *          simulation job.
+   *       </p>
+   */
+  iamRole?: string;
+
+  /**
+   * <p>VPC configuration information.</p>
+   */
+  vpcConfig?: VPCConfigResponse;
+
+  /**
+   * <p>Status of the simulation job.</p>
+   */
+  status?: SimulationJobStatus | string;
 
   /**
    * <p>The failure behavior the simulation job.</p>
@@ -3209,62 +3578,9 @@ export interface SimulationJob {
   failureBehavior?: FailureBehavior | string;
 
   /**
-   * <p>The failure code of the simulation job if it failed.</p>
+   * <p>A unique identifier for this <code>SimulationJob</code> request.</p>
    */
-  failureCode?: SimulationJobErrorCode | string;
-
-  /**
-   * <p>The reason why the simulation job failed.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The IAM role that allows the simulation instance to call the AWS APIs that
-   *          are specified in its associated policies on your behalf. This is how credentials are passed in to your
-   *          simulation job.
-   *       </p>
-   */
-  iamRole?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>
-   */
-  lastStartedAt?: Date;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The logging configuration.</p>
-   */
-  loggingConfig?: LoggingConfig;
-
-  /**
-   * <p>The maximum simulation job duration in seconds. The value must be 8 days (691,200 seconds) or less.</p>
-   */
-  maxJobDurationInSeconds?: number;
-
-  /**
-   * <p>The name of the simulation job.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>Information about a network interface.</p>
-   */
-  networkInterface?: NetworkInterface;
-
-  /**
-   * <p>Location for output files generated by the simulation job.</p>
-   */
-  outputLocation?: OutputLocation;
-
-  /**
-   * <p>A list of robot applications.</p>
-   */
-  robotApplications?: RobotApplicationConfig[];
+  clientRequestToken?: string;
 
   /**
    * <p>A list of simulation applications.</p>
@@ -3272,14 +3588,39 @@ export interface SimulationJob {
   simulationApplications?: SimulationApplicationConfig[];
 
   /**
-   * <p>The simulation job execution duration in milliseconds.</p>
+   * <p>Compute information for the simulation job</p>
    */
-  simulationTimeMillis?: number;
+  compute?: ComputeResponse;
 
   /**
-   * <p>Status of the simulation job.</p>
+   * <p>The name of the simulation job.</p>
    */
-  status?: SimulationJobStatus | string;
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The data sources for the simulation job.</p>
+   */
+  dataSources?: DataSource[];
+
+  /**
+   * <p>A list of robot applications.</p>
+   */
+  robotApplications?: RobotApplicationConfig[];
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The reason why the simulation job failed.</p>
+   */
+  failureReason?: string;
 
   /**
    * <p>A map that contains tag keys and tag values that are attached to the simulation job.</p>
@@ -3287,9 +3628,19 @@ export interface SimulationJob {
   tags?: { [key: string]: string };
 
   /**
-   * <p>VPC configuration information.</p>
+   * <p>The time, in milliseconds since the epoch, when the simulation job was last started.</p>
    */
-  vpcConfig?: VPCConfigResponse;
+  lastStartedAt?: Date;
+
+  /**
+   * <p>The failure code of the simulation job if it failed.</p>
+   */
+  failureCode?: SimulationJobErrorCode | string;
+
+  /**
+   * <p>Location for output files generated by the simulation job.</p>
+   */
+  outputLocation?: OutputLocation;
 }
 
 export namespace SimulationJob {
@@ -3299,6 +3650,120 @@ export namespace SimulationJob {
   export const isa = (o: any): o is SimulationJob => __isa(o, "SimulationJob");
 }
 
+export enum SimulationJobBatchErrorCode {
+  InternalServiceError = "InternalServiceError",
+}
+
+export enum SimulationJobBatchStatus {
+  Canceled = "Canceled",
+  Canceling = "Canceling",
+  Completed = "Completed",
+  Completing = "Completing",
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Pending = "Pending",
+  TimedOut = "TimedOut",
+  TimingOut = "TimingOut",
+}
+
+/**
+ * <p>Information about a simulation job batch.</p>
+ */
+export interface SimulationJobBatchSummary {
+  __type?: "SimulationJobBatchSummary";
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation job batch was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The number of failed simulation job requests.</p>
+   */
+  failedRequestCount?: number;
+
+  /**
+   * <p>The number of pending simulation job requests.</p>
+   */
+  pendingRequestCount?: number;
+
+  /**
+   * <p>The status of the simulation job batch.</p>
+   *          <dl>
+   *             <dt>Pending</dt>
+   *             <dd>
+   *                <p>The simulation job batch request is pending.</p>
+   *             </dd>
+   *             <dt>InProgress</dt>
+   *             <dd>
+   *                <p>The simulation job batch is in progress. </p>
+   *             </dd>
+   *             <dt>Failed</dt>
+   *             <dd>
+   *                <p>The simulation job batch failed. One or more simulation job requests could not be completed
+   *                 due to an internal failure (like <code>InternalServiceError</code>).
+   *                 See <code>failureCode</code> and <code>failureReason</code> for more information.</p>
+   *             </dd>
+   *             <dt>Completed</dt>
+   *             <dd>
+   *                <p>The simulation batch job completed. A batch is complete when (1) there are
+   *                no pending simulation job requests in the batch and none of the
+   *                failed simulation job requests are due to <code>InternalServiceError</code> and (2)
+   *                   when all created simulation jobs have reached a terminal state (for example,
+   *                   <code>Completed</code> or <code>Failed</code>).
+   *                </p>
+   *             </dd>
+   *             <dt>Canceled</dt>
+   *             <dd>
+   *                <p>The simulation batch job was cancelled.</p>
+   *             </dd>
+   *             <dt>Canceling</dt>
+   *             <dd>
+   *                <p>The simulation batch job is being cancelled.</p>
+   *             </dd>
+   *             <dt>Completing</dt>
+   *             <dd>
+   *                <p>The simulation batch job is completing.</p>
+   *             </dd>
+   *             <dt>TimingOut</dt>
+   *             <dd>
+   *                <p>The simulation job batch is timing out.</p>
+   *                <p>If a batch timing out, and there are pending requests that
+   *                   were failing due to an internal failure (like <code>InternalServiceError</code>),
+   *                   the batch status will be <code>Failed</code>. If there are no such failing request,
+   *                   the batch status will be <code>TimedOut</code>.
+   *                </p>
+   *             </dd>
+   *             <dt>TimedOut</dt>
+   *             <dd>
+   *                <p>The simulation batch job timed out.</p>
+   *             </dd>
+   *          </dl>
+   */
+  status?: SimulationJobBatchStatus | string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation job batch was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The number of created simulation job requests.</p>
+   */
+  createdRequestCount?: number;
+}
+
+export namespace SimulationJobBatchSummary {
+  export const filterSensitiveLog = (obj: SimulationJobBatchSummary): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SimulationJobBatchSummary => __isa(o, "SimulationJobBatchSummary");
+}
+
 export enum SimulationJobErrorCode {
   BadPermissionsCloudwatchLogs = "BadPermissionsCloudwatchLogs",
   BadPermissionsRobotApplication = "BadPermissionsRobotApplication",
@@ -3306,13 +3771,17 @@ export enum SimulationJobErrorCode {
   BadPermissionsS3Output = "BadPermissionsS3Output",
   BadPermissionsSimulationApplication = "BadPermissionsSimulationApplication",
   BadPermissionsUserCredentials = "BadPermissionsUserCredentials",
+  BatchCanceled = "BatchCanceled",
+  BatchTimedOut = "BatchTimedOut",
   ENILimitExceeded = "ENILimitExceeded",
   InternalServiceError = "InternalServiceError",
   InvalidBundleRobotApplication = "InvalidBundleRobotApplication",
   InvalidBundleSimulationApplication = "InvalidBundleSimulationApplication",
   InvalidInput = "InvalidInput",
   InvalidS3Resource = "InvalidS3Resource",
+  LimitExceeded = "LimitExceeded",
   MismatchedEtag = "MismatchedEtag",
+  RequestThrottled = "RequestThrottled",
   ResourceNotFound = "ResourceNotFound",
   RobotApplicationCrash = "RobotApplicationCrash",
   RobotApplicationVersionMismatchedEtag = "RobotApplicationVersionMismatchedEtag",
@@ -3323,6 +3792,101 @@ export enum SimulationJobErrorCode {
   WrongRegionS3Bucket = "WrongRegionS3Bucket",
   WrongRegionS3Output = "WrongRegionS3Output",
   WrongRegionSimulationApplication = "WrongRegionSimulationApplication",
+}
+
+/**
+ * <p>Information about a simulation job request.</p>
+ */
+export interface SimulationJobRequest {
+  __type?: "SimulationJobRequest";
+  /**
+   * <p>The maximum simulation job duration in seconds. The value must be 8 days (691,200 seconds) or less.</p>
+   */
+  maxJobDurationInSeconds: number | undefined;
+
+  /**
+   * <p>Compute information for the simulation job</p>
+   */
+  compute?: Compute;
+
+  /**
+   * <p>Boolean indicating whether to use default simulation tool applications.</p>
+   */
+  useDefaultApplications?: boolean;
+
+  /**
+   * <p>The logging configuration.</p>
+   */
+  loggingConfig?: LoggingConfig;
+
+  /**
+   * <p>Specify data sources to mount read-only files from S3 into your simulation. These files are
+   *         available under <code>/opt/robomaker/datasources/data_source_name</code>.
+   *       </p>
+   *          <note>
+   *             <p>There is a limit of 100 files and a combined size of 25GB for all
+   *             <code>DataSourceConfig</code> objects.
+   *          </p>
+   *          </note>
+   */
+  dataSources?: DataSourceConfig[];
+
+  /**
+   * <p>The robot applications to use in the simulation job.</p>
+   */
+  robotApplications?: RobotApplicationConfig[];
+
+  /**
+   * <p>The output location.</p>
+   */
+  outputLocation?: OutputLocation;
+
+  /**
+   * <p>A map that contains tag keys and tag values that are attached to the simulation job request.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The simulation applications to use in the simulation job.</p>
+   */
+  simulationApplications?: SimulationApplicationConfig[];
+
+  /**
+   * <p>The failure behavior the simulation job.</p>
+   *          <dl>
+   *             <dt>Continue</dt>
+   *             <dd>
+   *                <p>Restart the simulation job in the same host instance.</p>
+   *             </dd>
+   *             <dt>Fail</dt>
+   *             <dd>
+   *                <p>Stop the simulation job and terminate the instance.</p>
+   *             </dd>
+   *          </dl>
+   */
+  failureBehavior?: FailureBehavior | string;
+
+  /**
+   * <p>If your simulation job accesses resources in a VPC, you provide this parameter identifying the list of security
+   *         group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one
+   *         security group and two subnet IDs.</p>
+   */
+  vpcConfig?: VPCConfig;
+
+  /**
+   * <p>The IAM role name that allows the simulation instance to call the AWS APIs that
+   *          are specified in its associated policies on your behalf. This is how credentials are passed in to your
+   *          simulation job.
+   *       </p>
+   */
+  iamRole?: string;
+}
+
+export namespace SimulationJobRequest {
+  export const filterSensitiveLog = (obj: SimulationJobRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SimulationJobRequest => __isa(o, "SimulationJobRequest");
 }
 
 export enum SimulationJobStatus {
@@ -3344,29 +3908,9 @@ export enum SimulationJobStatus {
 export interface SimulationJobSummary {
   __type?: "SimulationJobSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The names of the data sources.</p>
-   */
-  dataSourceNames?: string[];
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
    * <p>The name of the simulation job.</p>
    */
   name?: string;
-
-  /**
-   * <p>A list of simulation job robot application names.</p>
-   */
-  robotApplicationNames?: string[];
 
   /**
    * <p>A list of simulation job simulation application names.</p>
@@ -3374,9 +3918,29 @@ export interface SimulationJobSummary {
   simulationApplicationNames?: string[];
 
   /**
+   * <p>A list of simulation job robot application names.</p>
+   */
+  robotApplicationNames?: string[];
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The names of the data sources.</p>
+   */
+  dataSourceNames?: string[];
+
+  /**
    * <p>The status of the simulation job.</p>
    */
   status?: SimulationJobStatus | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
+   */
+  arn?: string;
 }
 
 export namespace SimulationJobSummary {
@@ -3420,9 +3984,9 @@ export enum SimulationSoftwareSuiteType {
 export interface Source {
   __type?: "Source";
   /**
-   * <p>The taget processor architecture for the application.</p>
+   * <p>The s3 object key.</p>
    */
-  architecture?: Architecture | string;
+  s3Key?: string;
 
   /**
    * <p>A hash of the object specified by <code>s3Bucket</code> and <code>s3Key</code>.</p>
@@ -3435,9 +3999,9 @@ export interface Source {
   s3Bucket?: string;
 
   /**
-   * <p>The s3 object key.</p>
+   * <p>The taget processor architecture for the application.</p>
    */
-  s3Key?: string;
+  architecture?: Architecture | string;
 }
 
 export namespace Source {
@@ -3453,9 +4017,9 @@ export namespace Source {
 export interface SourceConfig {
   __type?: "SourceConfig";
   /**
-   * <p>The target processor architecture for the application.</p>
+   * <p>The s3 object key.</p>
    */
-  architecture?: Architecture | string;
+  s3Key?: string;
 
   /**
    * <p>The Amazon S3 bucket name.</p>
@@ -3463,9 +4027,9 @@ export interface SourceConfig {
   s3Bucket?: string;
 
   /**
-   * <p>The s3 object key.</p>
+   * <p>The target processor architecture for the application.</p>
    */
-  s3Key?: string;
+  architecture?: Architecture | string;
 }
 
 export namespace SourceConfig {
@@ -3473,6 +4037,155 @@ export namespace SourceConfig {
     ...obj,
   });
   export const isa = (o: any): o is SourceConfig => __isa(o, "SourceConfig");
+}
+
+export interface StartSimulationJobBatchRequest {
+  __type?: "StartSimulationJobBatchRequest";
+  /**
+   * <p>The batch policy.</p>
+   */
+  batchPolicy?: BatchPolicy;
+
+  /**
+   * <p>A map that contains tag keys and tag values that are attached to the deployment job batch.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>A list of simulation job requests to create in the batch.</p>
+   */
+  createSimulationJobRequests: SimulationJobRequest[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
+}
+
+export namespace StartSimulationJobBatchRequest {
+  export const filterSensitiveLog = (obj: StartSimulationJobBatchRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is StartSimulationJobBatchRequest => __isa(o, "StartSimulationJobBatchRequest");
+}
+
+export interface StartSimulationJobBatchResponse {
+  __type?: "StartSimulationJobBatchResponse";
+  /**
+   * <p>A list of failed simulation job requests. The request failed to
+   *          be created into a simulation job. Failed requests do not
+   *          have a simulation job ID.
+   *       </p>
+   */
+  failedRequests?: FailedCreateSimulationJobRequest[];
+
+  /**
+   * <p>The reason the simulation job batch failed.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>A list of pending simulation job requests. These requests have
+   *          not yet been created into simulation jobs.</p>
+   */
+  pendingRequests?: SimulationJobRequest[];
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the simulation job batch was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>A list of created simulation job request summaries.</p>
+   */
+  createdRequests?: SimulationJobSummary[];
+
+  /**
+   * <p>The failure code if the simulation job batch failed.</p>
+   */
+  failureCode?: SimulationJobBatchErrorCode | string;
+
+  /**
+   * <p>The status of the simulation job batch.</p>
+   *          <dl>
+   *             <dt>Pending</dt>
+   *             <dd>
+   *                <p>The simulation job batch request is pending.</p>
+   *             </dd>
+   *             <dt>InProgress</dt>
+   *             <dd>
+   *                <p>The simulation job batch is in progress. </p>
+   *             </dd>
+   *             <dt>Failed</dt>
+   *             <dd>
+   *                <p>The simulation job batch failed. One or more simulation job requests could not be completed
+   *                 due to an internal failure (like <code>InternalServiceError</code>).
+   *                 See <code>failureCode</code> and <code>failureReason</code> for more information.</p>
+   *             </dd>
+   *             <dt>Completed</dt>
+   *             <dd>
+   *                <p>The simulation batch job completed. A batch is complete when (1) there are
+   *                no pending simulation job requests in the batch and none of the
+   *                failed simulation job requests are due to <code>InternalServiceError</code> and (2)
+   *                   when all created simulation jobs have reached a terminal state (for example,
+   *                   <code>Completed</code> or <code>Failed</code>).
+   *                </p>
+   *             </dd>
+   *             <dt>Canceled</dt>
+   *             <dd>
+   *                <p>The simulation batch job was cancelled.</p>
+   *             </dd>
+   *             <dt>Canceling</dt>
+   *             <dd>
+   *                <p>The simulation batch job is being cancelled.</p>
+   *             </dd>
+   *             <dt>Completing</dt>
+   *             <dd>
+   *                <p>The simulation batch job is completing.</p>
+   *             </dd>
+   *             <dt>TimingOut</dt>
+   *             <dd>
+   *                <p>The simulation job batch is timing out.</p>
+   *                <p>If a batch timing out, and there are pending requests that
+   *                   were failing due to an internal failure (like <code>InternalServiceError</code>),
+   *                   the batch status will be <code>Failed</code>. If there are no such failing request,
+   *                   the batch status will be <code>TimedOut</code>.
+   *                </p>
+   *             </dd>
+   *             <dt>TimedOut</dt>
+   *             <dd>
+   *                <p>The simulation batch job timed out.</p>
+   *             </dd>
+   *          </dl>
+   */
+  status?: SimulationJobBatchStatus | string;
+
+  /**
+   * <p>The Amazon Resource Name (arn) of the batch.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The batch policy.</p>
+   */
+  batchPolicy?: BatchPolicy;
+
+  /**
+   * <p>A map that contains tag keys and tag values that are attached to the deployment job batch.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace StartSimulationJobBatchResponse {
+  export const filterSensitiveLog = (obj: StartSimulationJobBatchResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is StartSimulationJobBatchResponse => __isa(o, "StartSimulationJobBatchResponse");
 }
 
 export interface SyncDeploymentJobRequest {
@@ -3498,24 +4211,19 @@ export namespace SyncDeploymentJobRequest {
 export interface SyncDeploymentJobResponse {
   __type?: "SyncDeploymentJobResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the synchronization request.</p>
+   * <p>The status of the synchronization job.</p>
    */
-  arn?: string;
+  status?: DeploymentStatus | string;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>
+   * <p>The failure reason if the job fails.</p>
    */
-  createdAt?: Date;
+  failureReason?: string;
 
   /**
    * <p>Information about the deployment application configurations.</p>
    */
   deploymentApplicationConfigs?: DeploymentApplicationConfig[];
-
-  /**
-   * <p>Information about the deployment configuration.</p>
-   */
-  deploymentConfig?: DeploymentConfig;
 
   /**
    * <p>The failure code if the job fails:</p>
@@ -3581,19 +4289,24 @@ export interface SyncDeploymentJobResponse {
   failureCode?: DeploymentJobErrorCode | string;
 
   /**
-   * <p>The failure reason if the job fails.</p>
-   */
-  failureReason?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   fleet?: string;
 
   /**
-   * <p>The status of the synchronization job.</p>
+   * <p>Information about the deployment configuration.</p>
    */
-  status?: DeploymentStatus | string;
+  deploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the synchronization request.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>
+   */
+  createdAt?: Date;
 }
 
 export namespace SyncDeploymentJobResponse {
@@ -3606,14 +4319,14 @@ export namespace SyncDeploymentJobResponse {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are tagging.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>A map that contains tag keys and tag values that are attached to the resource.</p>
    */
   tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are tagging.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3684,24 +4397,24 @@ export namespace UntagResourceResponse {
 export interface UpdateRobotApplicationRequest {
   __type?: "UpdateRobotApplicationRequest";
   /**
-   * <p>The application information for the robot application.</p>
-   */
-  application: string | undefined;
-
-  /**
    * <p>The revision id for the robot application.</p>
    */
   currentRevisionId?: string;
 
   /**
-   * <p>The robot software suite used by the robot application.</p>
-   */
-  robotSoftwareSuite: RobotSoftwareSuite | undefined;
-
-  /**
    * <p>The sources of the robot application.</p>
    */
   sources: SourceConfig[] | undefined;
+
+  /**
+   * <p>The application information for the robot application.</p>
+   */
+  application: string | undefined;
+
+  /**
+   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
+   */
+  robotSoftwareSuite: RobotSoftwareSuite | undefined;
 }
 
 export namespace UpdateRobotApplicationRequest {
@@ -3714,9 +4427,9 @@ export namespace UpdateRobotApplicationRequest {
 export interface UpdateRobotApplicationResponse {
   __type?: "UpdateRobotApplicationResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated robot application.</p>
+   * <p>The sources of the robot application.</p>
    */
-  arn?: string;
+  sources?: Source[];
 
   /**
    * <p>The time, in milliseconds since the epoch, when the robot application was last updated.</p>
@@ -3724,9 +4437,9 @@ export interface UpdateRobotApplicationResponse {
   lastUpdatedAt?: Date;
 
   /**
-   * <p>The name of the robot application.</p>
+   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
    */
-  name?: string;
+  robotSoftwareSuite?: RobotSoftwareSuite;
 
   /**
    * <p>The revision id of the robot application.</p>
@@ -3734,19 +4447,19 @@ export interface UpdateRobotApplicationResponse {
   revisionId?: string;
 
   /**
-   * <p>The robot software suite used by the robot application.</p>
-   */
-  robotSoftwareSuite?: RobotSoftwareSuite;
-
-  /**
-   * <p>The sources of the robot application.</p>
-   */
-  sources?: Source[];
-
-  /**
    * <p>The version of the robot application.</p>
    */
   version?: string;
+
+  /**
+   * <p>The name of the robot application.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated robot application.</p>
+   */
+  arn?: string;
 }
 
 export namespace UpdateRobotApplicationResponse {
@@ -3759,9 +4472,9 @@ export namespace UpdateRobotApplicationResponse {
 export interface UpdateSimulationApplicationRequest {
   __type?: "UpdateSimulationApplicationRequest";
   /**
-   * <p>The application information for the simulation application.</p>
+   * <p>The simulation software suite used by the simulation application.</p>
    */
-  application: string | undefined;
+  simulationSoftwareSuite: SimulationSoftwareSuite | undefined;
 
   /**
    * <p>The revision id for the robot application.</p>
@@ -3769,24 +4482,24 @@ export interface UpdateSimulationApplicationRequest {
   currentRevisionId?: string;
 
   /**
+   * <p>Information about the robot software suite (ROS distribution).</p>
+   */
+  robotSoftwareSuite: RobotSoftwareSuite | undefined;
+
+  /**
    * <p>The rendering engine for the simulation application.</p>
    */
   renderingEngine?: RenderingEngine;
 
   /**
-   * <p>Information about the robot software suite.</p>
-   */
-  robotSoftwareSuite: RobotSoftwareSuite | undefined;
-
-  /**
-   * <p>The simulation software suite used by the simulation application.</p>
-   */
-  simulationSoftwareSuite: SimulationSoftwareSuite | undefined;
-
-  /**
    * <p>The sources of the simulation application.</p>
    */
   sources: SourceConfig[] | undefined;
+
+  /**
+   * <p>The application information for the simulation application.</p>
+   */
+  application: string | undefined;
 }
 
 export namespace UpdateSimulationApplicationRequest {
@@ -3800,34 +4513,14 @@ export namespace UpdateSimulationApplicationRequest {
 export interface UpdateSimulationApplicationResponse {
   __type?: "UpdateSimulationApplicationResponse";
   /**
+   * <p>The sources of the simulation application.</p>
+   */
+  sources?: Source[];
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the updated simulation application.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The name of the simulation application.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The rendering engine for the simulation application.</p>
-   */
-  renderingEngine?: RenderingEngine;
-
-  /**
-   * <p>The revision id of the simulation application.</p>
-   */
-  revisionId?: string;
-
-  /**
-   * <p>Information about the robot software suite.</p>
-   */
-  robotSoftwareSuite?: RobotSoftwareSuite;
 
   /**
    * <p>The simulation software suite used by the simulation application.</p>
@@ -3835,14 +4528,34 @@ export interface UpdateSimulationApplicationResponse {
   simulationSoftwareSuite?: SimulationSoftwareSuite;
 
   /**
-   * <p>The sources of the simulation application.</p>
+   * <p>The time, in milliseconds since the epoch, when the simulation application was last updated.</p>
    */
-  sources?: Source[];
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The revision id of the simulation application.</p>
+   */
+  revisionId?: string;
+
+  /**
+   * <p>The name of the simulation application.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Information about the robot software suite (ROS distribution).</p>
+   */
+  robotSoftwareSuite?: RobotSoftwareSuite;
 
   /**
    * <p>The version of the robot application.</p>
    */
   version?: string;
+
+  /**
+   * <p>The rendering engine for the simulation application.</p>
+   */
+  renderingEngine?: RenderingEngine;
 }
 
 export namespace UpdateSimulationApplicationResponse {
@@ -3861,6 +4574,11 @@ export namespace UpdateSimulationApplicationResponse {
 export interface VPCConfig {
   __type?: "VPCConfig";
   /**
+   * <p>A list of one or more subnet IDs in your VPC.</p>
+   */
+  subnets: string[] | undefined;
+
+  /**
    * <p>A boolean indicating whether to assign a public IP address.</p>
    */
   assignPublicIp?: boolean;
@@ -3869,11 +4587,6 @@ export interface VPCConfig {
    * <p>A list of one or more security groups IDs in your VPC.</p>
    */
   securityGroups?: string[];
-
-  /**
-   * <p>A list of one or more subnet IDs in your VPC.</p>
-   */
-  subnets: string[] | undefined;
 }
 
 export namespace VPCConfig {
@@ -3889,9 +4602,9 @@ export namespace VPCConfig {
 export interface VPCConfigResponse {
   __type?: "VPCConfigResponse";
   /**
-   * <p>A boolean indicating if a public IP was assigned.</p>
+   * <p>The VPC ID associated with your simulation job.</p>
    */
-  assignPublicIp?: boolean;
+  vpcId?: string;
 
   /**
    * <p>A list of security group IDs associated with the simulation job.</p>
@@ -3904,9 +4617,9 @@ export interface VPCConfigResponse {
   subnets?: string[];
 
   /**
-   * <p>The VPC ID associated with your simulation job.</p>
+   * <p>A boolean indicating if a public IP was assigned.</p>
    */
-  vpcId?: string;
+  assignPublicIp?: boolean;
 }
 
 export namespace VPCConfigResponse {

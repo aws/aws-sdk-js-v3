@@ -31,9 +31,17 @@ import {
   DeleteThreatIntelSetCommandOutput,
 } from "../commands/DeleteThreatIntelSetCommand";
 import {
+  DescribeOrganizationConfigurationCommandInput,
+  DescribeOrganizationConfigurationCommandOutput,
+} from "../commands/DescribeOrganizationConfigurationCommand";
+import {
   DescribePublishingDestinationCommandInput,
   DescribePublishingDestinationCommandOutput,
 } from "../commands/DescribePublishingDestinationCommand";
+import {
+  DisableOrganizationAdminAccountCommandInput,
+  DisableOrganizationAdminAccountCommandOutput,
+} from "../commands/DisableOrganizationAdminAccountCommand";
 import {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
@@ -42,6 +50,10 @@ import {
   DisassociateMembersCommandInput,
   DisassociateMembersCommandOutput,
 } from "../commands/DisassociateMembersCommand";
+import {
+  EnableOrganizationAdminAccountCommandInput,
+  EnableOrganizationAdminAccountCommandOutput,
+} from "../commands/EnableOrganizationAdminAccountCommand";
 import { GetDetectorCommandInput, GetDetectorCommandOutput } from "../commands/GetDetectorCommand";
 import { GetFilterCommandInput, GetFilterCommandOutput } from "../commands/GetFilterCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "../commands/GetFindingsCommand";
@@ -55,8 +67,10 @@ import {
   GetInvitationsCountCommandOutput,
 } from "../commands/GetInvitationsCountCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../commands/GetMasterAccountCommand";
+import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "../commands/GetMemberDetectorsCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
 import { GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput } from "../commands/GetThreatIntelSetCommand";
+import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "../commands/GetUsageStatisticsCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "../commands/InviteMembersCommand";
 import { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "../commands/ListDetectorsCommand";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand";
@@ -64,6 +78,10 @@ import { ListFindingsCommandInput, ListFindingsCommandOutput } from "../commands
 import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "../commands/ListIPSetsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
+import {
+  ListOrganizationAdminAccountsCommandInput,
+  ListOrganizationAdminAccountsCommandOutput,
+} from "../commands/ListOrganizationAdminAccountsCommand";
 import {
   ListPublishingDestinationsCommandInput,
   ListPublishingDestinationsCommandOutput,
@@ -95,6 +113,14 @@ import {
 } from "../commands/UpdateFindingsFeedbackCommand";
 import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "../commands/UpdateIPSetCommand";
 import {
+  UpdateMemberDetectorsCommandInput,
+  UpdateMemberDetectorsCommandOutput,
+} from "../commands/UpdateMemberDetectorsCommand";
+import {
+  UpdateOrganizationConfigurationCommandInput,
+  UpdateOrganizationConfigurationCommandOutput,
+} from "../commands/UpdateOrganizationConfigurationCommand";
+import {
   UpdatePublishingDestinationCommandInput,
   UpdatePublishingDestinationCommandOutput,
 } from "../commands/UpdatePublishingDestinationCommand";
@@ -103,14 +129,26 @@ import {
   UpdateThreatIntelSetCommandOutput,
 } from "../commands/UpdateThreatIntelSetCommand";
 import {
+  AccessControlList,
   AccessKeyDetails,
   AccountDetail,
+  AccountLevelPermissions,
   Action,
+  AdminAccount,
   AwsApiCallAction,
   BadRequestException,
+  BlockPublicAccess,
+  BucketLevelPermissions,
+  BucketPolicy,
   City,
+  CloudTrailConfigurationResult,
   Condition,
   Country,
+  DNSLogsConfigurationResult,
+  DataSource,
+  DataSourceConfigurations,
+  DataSourceConfigurationsResult,
+  DefaultServerSideEncryption,
   Destination,
   DestinationProperties,
   DnsRequestAction,
@@ -120,30 +158,49 @@ import {
   FindingCriteria,
   FindingStatisticType,
   FindingStatistics,
+  FlowLogsConfigurationResult,
   GeoLocation,
   IamInstanceProfile,
   InstanceDetails,
   InternalServerErrorException,
   Invitation,
+  LocalIpDetails,
   LocalPortDetails,
   Master,
   Member,
+  MemberDataSourceConfiguration,
   NetworkConnectionAction,
   NetworkInterface,
   Organization,
+  OrganizationDataSourceConfigurations,
+  OrganizationDataSourceConfigurationsResult,
+  OrganizationS3LogsConfiguration,
+  OrganizationS3LogsConfigurationResult,
+  Owner,
+  PermissionConfiguration,
   PortProbeAction,
   PortProbeDetail,
   PrivateIpAddressDetails,
   ProductCode,
+  PublicAccess,
   RemoteIpDetails,
   RemotePortDetails,
   Resource,
+  S3BucketDetail,
+  S3LogsConfiguration,
+  S3LogsConfigurationResult,
   SecurityGroup,
   Service,
   SortCriteria,
   Tag,
   ThreatIntelligenceDetail,
+  Total,
   UnprocessedAccount,
+  UsageAccountResult,
+  UsageCriteria,
+  UsageDataSourceResult,
+  UsageResourceResult,
+  UsageStatistics,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -236,6 +293,9 @@ export const serializeAws_restJson1CreateDetectorCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.DataSources !== undefined && {
+      dataSources: serializeAws_restJson1DataSourceConfigurations(input.DataSources, context),
+    }),
     ...(input.Enable !== undefined && { enable: input.Enable }),
     ...(input.FindingPublishingFrequency !== undefined && {
       findingPublishingFrequency: input.FindingPublishingFrequency,
@@ -745,6 +805,36 @@ export const serializeAws_restJson1DeleteThreatIntelSetCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeOrganizationConfigurationCommand = async (
+  input: DescribeOrganizationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/detector/{DetectorId}/admin";
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribePublishingDestinationCommand = async (
   input: DescribePublishingDestinationCommandInput,
   context: __SerdeContext
@@ -778,6 +868,30 @@ export const serializeAws_restJson1DescribePublishingDestinationCommand = async 
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisableOrganizationAdminAccountCommand = async (
+  input: DisableOrganizationAdminAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/admin/disable";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AdminAccountId !== undefined && { adminAccountId: input.AdminAccountId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -847,6 +961,30 @@ export const serializeAws_restJson1DisassociateMembersCommand = async (
   });
 };
 
+export const serializeAws_restJson1EnableOrganizationAdminAccountCommand = async (
+  input: EnableOrganizationAdminAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/admin/enable";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AdminAccountId !== undefined && { adminAccountId: input.AdminAccountId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetDetectorCommand = async (
   input: GetDetectorCommandInput,
   context: __SerdeContext
@@ -885,15 +1023,6 @@ export const serializeAws_restJson1GetFilterCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/detector/{DetectorId}/filter/{FilterName}";
-  if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DetectorId.");
-    }
-    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DetectorId.");
-  }
   if (input.FilterName !== undefined) {
     const labelValue: string = input.FilterName;
     if (labelValue.length <= 0) {
@@ -902,6 +1031,15 @@ export const serializeAws_restJson1GetFilterCommand = async (
     resolvedPath = resolvedPath.replace("{FilterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FilterName.");
+  }
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1081,6 +1219,39 @@ export const serializeAws_restJson1GetMasterAccountCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetMemberDetectorsCommand = async (
+  input: GetMemberDetectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/detector/{DetectorId}/member/detector/get";
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetMembersCommand = async (
   input: GetMembersCommandInput,
   context: __SerdeContext
@@ -1122,15 +1293,6 @@ export const serializeAws_restJson1GetThreatIntelSetCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}";
-  if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DetectorId.");
-    }
-    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DetectorId.");
-  }
   if (input.ThreatIntelSetId !== undefined) {
     const labelValue: string = input.ThreatIntelSetId;
     if (labelValue.length <= 0) {
@@ -1140,6 +1302,15 @@ export const serializeAws_restJson1GetThreatIntelSetCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ThreatIntelSetId.");
   }
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
+  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1147,6 +1318,45 @@ export const serializeAws_restJson1GetThreatIntelSetCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetUsageStatisticsCommand = async (
+  input: GetUsageStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/detector/{DetectorId}/usage/statistics";
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Unit !== undefined && { unit: input.Unit }),
+    ...(input.UsageCriteria !== undefined && {
+      usageCriteria: serializeAws_restJson1UsageCriteria(input.UsageCriteria, context),
+    }),
+    ...(input.UsageStatisticType !== undefined && { usageStatisticsType: input.UsageStatisticType }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1298,8 +1508,8 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   };
   let resolvedPath = "/invitation";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1333,8 +1543,8 @@ export const serializeAws_restJson1ListIPSetsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1371,6 +1581,32 @@ export const serializeAws_restJson1ListMembersCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.OnlyAssociated !== undefined && { onlyAssociated: input.OnlyAssociated }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListOrganizationAdminAccountsCommand = async (
+  input: ListOrganizationAdminAccountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/admin";
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1469,8 +1705,8 @@ export const serializeAws_restJson1ListThreatIntelSetsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1671,6 +1907,9 @@ export const serializeAws_restJson1UpdateDetectorCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.DataSources !== undefined && {
+      dataSources: serializeAws_restJson1DataSourceConfigurations(input.DataSources, context),
+    }),
     ...(input.Enable !== undefined && { enable: input.Enable }),
     ...(input.FindingPublishingFrequency !== undefined && {
       findingPublishingFrequency: input.FindingPublishingFrequency,
@@ -1778,15 +2017,6 @@ export const serializeAws_restJson1UpdateIPSetCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/detector/{DetectorId}/ipset/{IpSetId}";
-  if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DetectorId.");
-    }
-    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DetectorId.");
-  }
   if (input.IpSetId !== undefined) {
     const labelValue: string = input.IpSetId;
     if (labelValue.length <= 0) {
@@ -1796,11 +2026,92 @@ export const serializeAws_restJson1UpdateIPSetCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: IpSetId.");
   }
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
+  }
   let body: any;
   body = JSON.stringify({
     ...(input.Activate !== undefined && { activate: input.Activate }),
     ...(input.Location !== undefined && { location: input.Location }),
     ...(input.Name !== undefined && { name: input.Name }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateMemberDetectorsCommand = async (
+  input: UpdateMemberDetectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/detector/{DetectorId}/member/detector/update";
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
+    ...(input.DataSources !== undefined && {
+      dataSources: serializeAws_restJson1DataSourceConfigurations(input.DataSources, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateOrganizationConfigurationCommand = async (
+  input: UpdateOrganizationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/detector/{DetectorId}/admin";
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AutoEnable !== undefined && { autoEnable: input.AutoEnable }),
+    ...(input.DataSources !== undefined && {
+      dataSources: serializeAws_restJson1OrganizationDataSourceConfigurations(input.DataSources, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1866,15 +2177,6 @@ export const serializeAws_restJson1UpdateThreatIntelSetCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}";
-  if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DetectorId.");
-    }
-    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DetectorId.");
-  }
   if (input.ThreatIntelSetId !== undefined) {
     const labelValue: string = input.ThreatIntelSetId;
     if (labelValue.length <= 0) {
@@ -1883,6 +2185,15 @@ export const serializeAws_restJson1UpdateThreatIntelSetCommand = async (
     resolvedPath = resolvedPath.replace("{ThreatIntelSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ThreatIntelSetId.");
+  }
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2958,6 +3269,81 @@ const deserializeAws_restJson1DeleteThreatIntelSetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeOrganizationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeOrganizationConfigurationCommandError(output, context);
+  }
+  const contents: DescribeOrganizationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeOrganizationConfigurationResponse",
+    AutoEnable: undefined,
+    DataSources: undefined,
+    MemberAccountLimitReached: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.autoEnable !== undefined && data.autoEnable !== null) {
+    contents.AutoEnable = data.autoEnable;
+  }
+  if (data.dataSources !== undefined && data.dataSources !== null) {
+    contents.DataSources = deserializeAws_restJson1OrganizationDataSourceConfigurationsResult(
+      data.dataSources,
+      context
+    );
+  }
+  if (data.memberAccountLimitReached !== undefined && data.memberAccountLimitReached !== null) {
+    contents.MemberAccountLimitReached = data.memberAccountLimitReached;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeOrganizationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribePublishingDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2997,6 +3383,66 @@ const deserializeAws_restJson1DescribePublishingDestinationCommandError = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePublishingDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DisableOrganizationAdminAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableOrganizationAdminAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DisableOrganizationAdminAccountCommandError(output, context);
+  }
+  const contents: DisableOrganizationAdminAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DisableOrganizationAdminAccountResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisableOrganizationAdminAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableOrganizationAdminAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3162,6 +3608,66 @@ const deserializeAws_restJson1DisassociateMembersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1EnableOrganizationAdminAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableOrganizationAdminAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1EnableOrganizationAdminAccountCommandError(output, context);
+  }
+  const contents: EnableOrganizationAdminAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "EnableOrganizationAdminAccountResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1EnableOrganizationAdminAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableOrganizationAdminAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3173,6 +3679,7 @@ export const deserializeAws_restJson1GetDetectorCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "GetDetectorResponse",
     CreatedAt: undefined,
+    DataSources: undefined,
     FindingPublishingFrequency: undefined,
     ServiceRole: undefined,
     Status: undefined,
@@ -3182,6 +3689,9 @@ export const deserializeAws_restJson1GetDetectorCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.createdAt !== undefined && data.createdAt !== null) {
     contents.CreatedAt = data.createdAt;
+  }
+  if (data.dataSources !== undefined && data.dataSources !== null) {
+    contents.DataSources = deserializeAws_restJson1DataSourceConfigurationsResult(data.dataSources, context);
   }
   if (data.findingPublishingFrequency !== undefined && data.findingPublishingFrequency !== null) {
     contents.FindingPublishingFrequency = data.findingPublishingFrequency;
@@ -3666,6 +4176,77 @@ const deserializeAws_restJson1GetMasterAccountCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetMemberDetectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMemberDetectorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetMemberDetectorsCommandError(output, context);
+  }
+  const contents: GetMemberDetectorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetMemberDetectorsResponse",
+    MemberDataSourceConfigurations: undefined,
+    UnprocessedAccounts: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.members !== undefined && data.members !== null) {
+    contents.MemberDataSourceConfigurations = deserializeAws_restJson1MemberDataSourceConfigurations(
+      data.members,
+      context
+    );
+  }
+  if (data.unprocessedAccounts !== undefined && data.unprocessedAccounts !== null) {
+    contents.UnprocessedAccounts = deserializeAws_restJson1UnprocessedAccounts(data.unprocessedAccounts, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetMemberDetectorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMemberDetectorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3773,6 +4354,74 @@ const deserializeAws_restJson1GetThreatIntelSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThreatIntelSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetUsageStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUsageStatisticsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1GetUsageStatisticsCommandError(output, context);
+  }
+  const contents: GetUsageStatisticsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetUsageStatisticsResponse",
+    NextToken: undefined,
+    UsageStatistics: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.NextToken = data.nextToken;
+  }
+  if (data.usageStatistics !== undefined && data.usageStatistics !== null) {
+    contents.UsageStatistics = deserializeAws_restJson1UsageStatistics(data.usageStatistics, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetUsageStatisticsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUsageStatisticsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4245,6 +4894,74 @@ const deserializeAws_restJson1ListMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListOrganizationAdminAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationAdminAccountsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListOrganizationAdminAccountsCommandError(output, context);
+  }
+  const contents: ListOrganizationAdminAccountsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListOrganizationAdminAccountsResponse",
+    AdminAccounts: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.adminAccounts !== undefined && data.adminAccounts !== null) {
+    contents.AdminAccounts = deserializeAws_restJson1AdminAccounts(data.adminAccounts, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.NextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListOrganizationAdminAccountsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationAdminAccountsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5038,6 +5755,130 @@ const deserializeAws_restJson1UpdateIPSetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateMemberDetectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMemberDetectorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateMemberDetectorsCommandError(output, context);
+  }
+  const contents: UpdateMemberDetectorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateMemberDetectorsResponse",
+    UnprocessedAccounts: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.unprocessedAccounts !== undefined && data.unprocessedAccounts !== null) {
+    contents.UnprocessedAccounts = deserializeAws_restJson1UnprocessedAccounts(data.unprocessedAccounts, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateMemberDetectorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMemberDetectorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateOrganizationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOrganizationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateOrganizationConfigurationCommandError(output, context);
+  }
+  const contents: UpdateOrganizationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateOrganizationConfigurationResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateOrganizationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOrganizationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdatePublishingDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5242,6 +6083,19 @@ const serializeAws_restJson1Criterion = (input: { [key: string]: Condition }, co
   );
 };
 
+const serializeAws_restJson1DataSourceConfigurations = (
+  input: DataSourceConfigurations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3Logs !== undefined && { s3Logs: serializeAws_restJson1S3LogsConfiguration(input.S3Logs, context) }),
+  };
+};
+
+const serializeAws_restJson1DataSourceList = (input: (DataSource | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1DestinationProperties = (input: DestinationProperties, context: __SerdeContext): any => {
   return {
     ...(input.DestinationArn !== undefined && { destinationArn: input.DestinationArn }),
@@ -5286,6 +6140,36 @@ const serializeAws_restJson1NotEquals = (input: string[], context: __SerdeContex
   return input.map((entry) => entry);
 };
 
+const serializeAws_restJson1OrganizationDataSourceConfigurations = (
+  input: OrganizationDataSourceConfigurations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3Logs !== undefined && {
+      s3Logs: serializeAws_restJson1OrganizationS3LogsConfiguration(input.S3Logs, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1OrganizationS3LogsConfiguration = (
+  input: OrganizationS3LogsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutoEnable !== undefined && { autoEnable: input.AutoEnable }),
+  };
+};
+
+const serializeAws_restJson1ResourceList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1S3LogsConfiguration = (input: S3LogsConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Enable !== undefined && { enable: input.Enable }),
+  };
+};
+
 const serializeAws_restJson1SortCriteria = (input: SortCriteria, context: __SerdeContext): any => {
   return {
     ...(input.AttributeName !== undefined && { attributeName: input.AttributeName }),
@@ -5303,6 +6187,30 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
   );
 };
 
+const serializeAws_restJson1UsageCriteria = (input: UsageCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
+    ...(input.DataSources !== undefined && {
+      dataSources: serializeAws_restJson1DataSourceList(input.DataSources, context),
+    }),
+    ...(input.Resources !== undefined && { resources: serializeAws_restJson1ResourceList(input.Resources, context) }),
+  };
+};
+
+const deserializeAws_restJson1AccessControlList = (output: any, context: __SerdeContext): AccessControlList => {
+  return {
+    __type: "AccessControlList",
+    AllowsPublicReadAccess:
+      output.allowsPublicReadAccess !== undefined && output.allowsPublicReadAccess !== null
+        ? output.allowsPublicReadAccess
+        : undefined,
+    AllowsPublicWriteAccess:
+      output.allowsPublicWriteAccess !== undefined && output.allowsPublicWriteAccess !== null
+        ? output.allowsPublicWriteAccess
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AccessKeyDetails = (output: any, context: __SerdeContext): AccessKeyDetails => {
   return {
     __type: "AccessKeyDetails",
@@ -5310,6 +6218,19 @@ const deserializeAws_restJson1AccessKeyDetails = (output: any, context: __SerdeC
     PrincipalId: output.principalId !== undefined && output.principalId !== null ? output.principalId : undefined,
     UserName: output.userName !== undefined && output.userName !== null ? output.userName : undefined,
     UserType: output.userType !== undefined && output.userType !== null ? output.userType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AccountLevelPermissions = (
+  output: any,
+  context: __SerdeContext
+): AccountLevelPermissions => {
+  return {
+    __type: "AccountLevelPermissions",
+    BlockPublicAccess:
+      output.blockPublicAccess !== undefined && output.blockPublicAccess !== null
+        ? deserializeAws_restJson1BlockPublicAccess(output.blockPublicAccess, context)
+        : undefined,
   } as any;
 };
 
@@ -5336,6 +6257,19 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
   } as any;
 };
 
+const deserializeAws_restJson1AdminAccount = (output: any, context: __SerdeContext): AdminAccount => {
+  return {
+    __type: "AdminAccount",
+    AdminAccountId:
+      output.adminAccountId !== undefined && output.adminAccountId !== null ? output.adminAccountId : undefined,
+    AdminStatus: output.adminStatus !== undefined && output.adminStatus !== null ? output.adminStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AdminAccounts = (output: any, context: __SerdeContext): AdminAccount[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AdminAccount(entry, context));
+};
+
 const deserializeAws_restJson1AwsApiCallAction = (output: any, context: __SerdeContext): AwsApiCallAction => {
   return {
     __type: "AwsApiCallAction",
@@ -5353,10 +6287,73 @@ const deserializeAws_restJson1AwsApiCallAction = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1BlockPublicAccess = (output: any, context: __SerdeContext): BlockPublicAccess => {
+  return {
+    __type: "BlockPublicAccess",
+    BlockPublicAcls:
+      output.blockPublicAcls !== undefined && output.blockPublicAcls !== null ? output.blockPublicAcls : undefined,
+    BlockPublicPolicy:
+      output.blockPublicPolicy !== undefined && output.blockPublicPolicy !== null
+        ? output.blockPublicPolicy
+        : undefined,
+    IgnorePublicAcls:
+      output.ignorePublicAcls !== undefined && output.ignorePublicAcls !== null ? output.ignorePublicAcls : undefined,
+    RestrictPublicBuckets:
+      output.restrictPublicBuckets !== undefined && output.restrictPublicBuckets !== null
+        ? output.restrictPublicBuckets
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BucketLevelPermissions = (
+  output: any,
+  context: __SerdeContext
+): BucketLevelPermissions => {
+  return {
+    __type: "BucketLevelPermissions",
+    AccessControlList:
+      output.accessControlList !== undefined && output.accessControlList !== null
+        ? deserializeAws_restJson1AccessControlList(output.accessControlList, context)
+        : undefined,
+    BlockPublicAccess:
+      output.blockPublicAccess !== undefined && output.blockPublicAccess !== null
+        ? deserializeAws_restJson1BlockPublicAccess(output.blockPublicAccess, context)
+        : undefined,
+    BucketPolicy:
+      output.bucketPolicy !== undefined && output.bucketPolicy !== null
+        ? deserializeAws_restJson1BucketPolicy(output.bucketPolicy, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BucketPolicy = (output: any, context: __SerdeContext): BucketPolicy => {
+  return {
+    __type: "BucketPolicy",
+    AllowsPublicReadAccess:
+      output.allowsPublicReadAccess !== undefined && output.allowsPublicReadAccess !== null
+        ? output.allowsPublicReadAccess
+        : undefined,
+    AllowsPublicWriteAccess:
+      output.allowsPublicWriteAccess !== undefined && output.allowsPublicWriteAccess !== null
+        ? output.allowsPublicWriteAccess
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1City = (output: any, context: __SerdeContext): City => {
   return {
     __type: "City",
     CityName: output.cityName !== undefined && output.cityName !== null ? output.cityName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CloudTrailConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): CloudTrailConfigurationResult => {
+  return {
+    __type: "CloudTrailConfigurationResult",
+    Status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
@@ -5416,6 +6413,44 @@ const deserializeAws_restJson1Criterion = (output: any, context: __SerdeContext)
   );
 };
 
+const deserializeAws_restJson1DataSourceConfigurationsResult = (
+  output: any,
+  context: __SerdeContext
+): DataSourceConfigurationsResult => {
+  return {
+    __type: "DataSourceConfigurationsResult",
+    CloudTrail:
+      output.cloudTrail !== undefined && output.cloudTrail !== null
+        ? deserializeAws_restJson1CloudTrailConfigurationResult(output.cloudTrail, context)
+        : undefined,
+    DNSLogs:
+      output.dnsLogs !== undefined && output.dnsLogs !== null
+        ? deserializeAws_restJson1DNSLogsConfigurationResult(output.dnsLogs, context)
+        : undefined,
+    FlowLogs:
+      output.flowLogs !== undefined && output.flowLogs !== null
+        ? deserializeAws_restJson1FlowLogsConfigurationResult(output.flowLogs, context)
+        : undefined,
+    S3Logs:
+      output.s3Logs !== undefined && output.s3Logs !== null
+        ? deserializeAws_restJson1S3LogsConfigurationResult(output.s3Logs, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DefaultServerSideEncryption = (
+  output: any,
+  context: __SerdeContext
+): DefaultServerSideEncryption => {
+  return {
+    __type: "DefaultServerSideEncryption",
+    EncryptionType:
+      output.encryptionType !== undefined && output.encryptionType !== null ? output.encryptionType : undefined,
+    KmsMasterKeyArn:
+      output.kmsMasterKeyArn !== undefined && output.kmsMasterKeyArn !== null ? output.kmsMasterKeyArn : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Destination = (output: any, context: __SerdeContext): Destination => {
   return {
     __type: "Destination",
@@ -5442,6 +6477,16 @@ const deserializeAws_restJson1Destinations = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1DetectorIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1DNSLogsConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): DNSLogsConfigurationResult => {
+  return {
+    __type: "DNSLogsConfigurationResult",
+    Status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1DnsRequestAction = (output: any, context: __SerdeContext): DnsRequestAction => {
@@ -5536,6 +6581,16 @@ const deserializeAws_restJson1FindingStatistics = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1FlowLogsConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): FlowLogsConfigurationResult => {
+  return {
+    __type: "FlowLogsConfigurationResult",
+    Status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   return {
     __type: "GeoLocation",
@@ -5573,6 +6628,7 @@ const deserializeAws_restJson1InstanceDetails = (output: any, context: __SerdeCo
       output.networkInterfaces !== undefined && output.networkInterfaces !== null
         ? deserializeAws_restJson1NetworkInterfaces(output.networkInterfaces, context)
         : undefined,
+    OutpostArn: output.outpostArn !== undefined && output.outpostArn !== null ? output.outpostArn : undefined,
     Platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
     ProductCodes:
       output.productCodes !== undefined && output.productCodes !== null
@@ -5608,6 +6664,13 @@ const deserializeAws_restJson1IpSetIds = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Ipv6Addresses = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1LocalIpDetails = (output: any, context: __SerdeContext): LocalIpDetails => {
+  return {
+    __type: "LocalIpDetails",
+    IpAddressV4: output.ipAddressV4 !== undefined && output.ipAddressV4 !== null ? output.ipAddressV4 : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1LocalPortDetails = (output: any, context: __SerdeContext): LocalPortDetails => {
@@ -5647,6 +6710,27 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
   } as any;
 };
 
+const deserializeAws_restJson1MemberDataSourceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MemberDataSourceConfiguration => {
+  return {
+    __type: "MemberDataSourceConfiguration",
+    AccountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    DataSources:
+      output.dataSources !== undefined && output.dataSources !== null
+        ? deserializeAws_restJson1DataSourceConfigurationsResult(output.dataSources, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MemberDataSourceConfigurations = (
+  output: any,
+  context: __SerdeContext
+): MemberDataSourceConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1MemberDataSourceConfiguration(entry, context));
+};
+
 const deserializeAws_restJson1Members = (output: any, context: __SerdeContext): Member[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Member(entry, context));
 };
@@ -5665,6 +6749,10 @@ const deserializeAws_restJson1NetworkConnectionAction = (
     ConnectionDirection:
       output.connectionDirection !== undefined && output.connectionDirection !== null
         ? output.connectionDirection
+        : undefined,
+    LocalIpDetails:
+      output.localIpDetails !== undefined && output.localIpDetails !== null
+        ? deserializeAws_restJson1LocalIpDetails(output.localIpDetails, context)
         : undefined,
     LocalPortDetails:
       output.localPortDetails !== undefined && output.localPortDetails !== null
@@ -5731,6 +6819,53 @@ const deserializeAws_restJson1Organization = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1OrganizationDataSourceConfigurationsResult = (
+  output: any,
+  context: __SerdeContext
+): OrganizationDataSourceConfigurationsResult => {
+  return {
+    __type: "OrganizationDataSourceConfigurationsResult",
+    S3Logs:
+      output.s3Logs !== undefined && output.s3Logs !== null
+        ? deserializeAws_restJson1OrganizationS3LogsConfigurationResult(output.s3Logs, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OrganizationS3LogsConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): OrganizationS3LogsConfigurationResult => {
+  return {
+    __type: "OrganizationS3LogsConfigurationResult",
+    AutoEnable: output.autoEnable !== undefined && output.autoEnable !== null ? output.autoEnable : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Owner = (output: any, context: __SerdeContext): Owner => {
+  return {
+    __type: "Owner",
+    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PermissionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PermissionConfiguration => {
+  return {
+    __type: "PermissionConfiguration",
+    AccountLevelPermissions:
+      output.accountLevelPermissions !== undefined && output.accountLevelPermissions !== null
+        ? deserializeAws_restJson1AccountLevelPermissions(output.accountLevelPermissions, context)
+        : undefined,
+    BucketLevelPermissions:
+      output.bucketLevelPermissions !== undefined && output.bucketLevelPermissions !== null
+        ? deserializeAws_restJson1BucketLevelPermissions(output.bucketLevelPermissions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1PortProbeAction = (output: any, context: __SerdeContext): PortProbeAction => {
   return {
     __type: "PortProbeAction",
@@ -5745,6 +6880,10 @@ const deserializeAws_restJson1PortProbeAction = (output: any, context: __SerdeCo
 const deserializeAws_restJson1PortProbeDetail = (output: any, context: __SerdeContext): PortProbeDetail => {
   return {
     __type: "PortProbeDetail",
+    LocalIpDetails:
+      output.localIpDetails !== undefined && output.localIpDetails !== null
+        ? deserializeAws_restJson1LocalIpDetails(output.localIpDetails, context)
+        : undefined,
     LocalPortDetails:
       output.localPortDetails !== undefined && output.localPortDetails !== null
         ? deserializeAws_restJson1LocalPortDetails(output.localPortDetails, context)
@@ -5792,6 +6931,20 @@ const deserializeAws_restJson1ProductCodes = (output: any, context: __SerdeConte
   return (output || []).map((entry: any) => deserializeAws_restJson1ProductCode(entry, context));
 };
 
+const deserializeAws_restJson1PublicAccess = (output: any, context: __SerdeContext): PublicAccess => {
+  return {
+    __type: "PublicAccess",
+    EffectivePermission:
+      output.effectivePermission !== undefined && output.effectivePermission !== null
+        ? output.effectivePermission
+        : undefined,
+    PermissionConfiguration:
+      output.permissionConfiguration !== undefined && output.permissionConfiguration !== null
+        ? deserializeAws_restJson1PermissionConfiguration(output.permissionConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1RemoteIpDetails = (output: any, context: __SerdeContext): RemoteIpDetails => {
   return {
     __type: "RemoteIpDetails",
@@ -5835,6 +6988,53 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
         ? deserializeAws_restJson1InstanceDetails(output.instanceDetails, context)
         : undefined,
     ResourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    S3BucketDetails:
+      output.s3BucketDetails !== undefined && output.s3BucketDetails !== null
+        ? deserializeAws_restJson1S3BucketDetails(output.s3BucketDetails, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1S3BucketDetail = (output: any, context: __SerdeContext): S3BucketDetail => {
+  return {
+    __type: "S3BucketDetail",
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    CreatedAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    DefaultServerSideEncryption:
+      output.defaultServerSideEncryption !== undefined && output.defaultServerSideEncryption !== null
+        ? deserializeAws_restJson1DefaultServerSideEncryption(output.defaultServerSideEncryption, context)
+        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    Owner:
+      output.owner !== undefined && output.owner !== null
+        ? deserializeAws_restJson1Owner(output.owner, context)
+        : undefined,
+    PublicAccess:
+      output.publicAccess !== undefined && output.publicAccess !== null
+        ? deserializeAws_restJson1PublicAccess(output.publicAccess, context)
+        : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1Tags(output.tags, context)
+        : undefined,
+    Type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1S3BucketDetails = (output: any, context: __SerdeContext): S3BucketDetail[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1S3BucketDetail(entry, context));
+};
+
+const deserializeAws_restJson1S3LogsConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): S3LogsConfigurationResult => {
+  return {
+    __type: "S3LogsConfigurationResult",
+    Status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
@@ -5926,6 +7126,14 @@ const deserializeAws_restJson1ThreatNames = (output: any, context: __SerdeContex
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_restJson1Total = (output: any, context: __SerdeContext): Total => {
+  return {
+    __type: "Total",
+    Amount: output.amount !== undefined && output.amount !== null ? output.amount : undefined,
+    Unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1UnprocessedAccount = (output: any, context: __SerdeContext): UnprocessedAccount => {
   return {
     __type: "UnprocessedAccount",
@@ -5936,6 +7144,79 @@ const deserializeAws_restJson1UnprocessedAccount = (output: any, context: __Serd
 
 const deserializeAws_restJson1UnprocessedAccounts = (output: any, context: __SerdeContext): UnprocessedAccount[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1UnprocessedAccount(entry, context));
+};
+
+const deserializeAws_restJson1UsageAccountResult = (output: any, context: __SerdeContext): UsageAccountResult => {
+  return {
+    __type: "UsageAccountResult",
+    AccountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    Total:
+      output.total !== undefined && output.total !== null
+        ? deserializeAws_restJson1Total(output.total, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UsageAccountResultList = (output: any, context: __SerdeContext): UsageAccountResult[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1UsageAccountResult(entry, context));
+};
+
+const deserializeAws_restJson1UsageDataSourceResult = (output: any, context: __SerdeContext): UsageDataSourceResult => {
+  return {
+    __type: "UsageDataSourceResult",
+    DataSource: output.dataSource !== undefined && output.dataSource !== null ? output.dataSource : undefined,
+    Total:
+      output.total !== undefined && output.total !== null
+        ? deserializeAws_restJson1Total(output.total, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UsageDataSourceResultList = (
+  output: any,
+  context: __SerdeContext
+): UsageDataSourceResult[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1UsageDataSourceResult(entry, context));
+};
+
+const deserializeAws_restJson1UsageResourceResult = (output: any, context: __SerdeContext): UsageResourceResult => {
+  return {
+    __type: "UsageResourceResult",
+    Resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
+    Total:
+      output.total !== undefined && output.total !== null
+        ? deserializeAws_restJson1Total(output.total, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UsageResourceResultList = (
+  output: any,
+  context: __SerdeContext
+): UsageResourceResult[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1UsageResourceResult(entry, context));
+};
+
+const deserializeAws_restJson1UsageStatistics = (output: any, context: __SerdeContext): UsageStatistics => {
+  return {
+    __type: "UsageStatistics",
+    SumByAccount:
+      output.sumByAccount !== undefined && output.sumByAccount !== null
+        ? deserializeAws_restJson1UsageAccountResultList(output.sumByAccount, context)
+        : undefined,
+    SumByDataSource:
+      output.sumByDataSource !== undefined && output.sumByDataSource !== null
+        ? deserializeAws_restJson1UsageDataSourceResultList(output.sumByDataSource, context)
+        : undefined,
+    SumByResource:
+      output.sumByResource !== undefined && output.sumByResource !== null
+        ? deserializeAws_restJson1UsageResourceResultList(output.sumByResource, context)
+        : undefined,
+    TopResources:
+      output.topResources !== undefined && output.topResources !== null
+        ? deserializeAws_restJson1UsageResourceResultList(output.topResources, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -67,20 +67,9 @@ export namespace ConcurrentModificationException {
 export interface CreateIdentityPoolInput {
   __type?: "CreateIdentityPoolInput";
   /**
-   * <p>Enables or disables the Basic (Classic) authentication flow. For more information, see
-   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   * <p>A string that you provide.</p>
    */
-  AllowClassicFlow?: boolean;
-
-  /**
-   * <p>TRUE if the identity pool supports unauthenticated logins.</p>
-   */
-  AllowUnauthenticatedIdentities: boolean | undefined;
-
-  /**
-   * <p>An array of Amazon Cognito user pools and their client IDs.</p>
-   */
-  CognitoIdentityProviders?: CognitoIdentityProvider[];
+  IdentityPoolName: string | undefined;
 
   /**
    * <p>The "domain" by which Cognito will refer to your users. This name acts as a
@@ -94,16 +83,15 @@ export interface CreateIdentityPoolInput {
   DeveloperProviderName?: string;
 
   /**
-   * <p>A string that you provide.</p>
+   * <p>An array of Amazon Cognito user pools and their client IDs.</p>
    */
-  IdentityPoolName: string | undefined;
+  CognitoIdentityProviders?: CognitoIdentityProvider[];
 
   /**
-   * <p>Tags to assign to the identity pool. A tag is a label that you can apply to identity
-   *          pools to categorize and manage them in different ways, such as by purpose, owner,
-   *          environment, or other criteria.</p>
+   * <p>Enables or disables the Basic (Classic) authentication flow. For more information, see
+   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    */
-  IdentityPoolTags?: { [key: string]: string };
+  AllowClassicFlow?: boolean;
 
   /**
    * <p>A list of OpendID Connect provider ARNs.</p>
@@ -117,9 +105,21 @@ export interface CreateIdentityPoolInput {
   SamlProviderARNs?: string[];
 
   /**
+   * <p>Tags to assign to the identity pool. A tag is a label that you can apply to identity
+   *          pools to categorize and manage them in different ways, such as by purpose, owner,
+   *          environment, or other criteria.</p>
+   */
+  IdentityPoolTags?: { [key: string]: string };
+
+  /**
    * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
    */
   SupportedLoginProviders?: { [key: string]: string };
+
+  /**
+   * <p>TRUE if the identity pool supports unauthenticated logins.</p>
+   */
+  AllowUnauthenticatedIdentities: boolean | undefined;
 }
 
 export namespace CreateIdentityPoolInput {
@@ -135,6 +135,11 @@ export namespace CreateIdentityPoolInput {
 export interface Credentials {
   __type?: "Credentials";
   /**
+   * <p>The Secret Access Key portion of the credentials</p>
+   */
+  SecretKey?: string;
+
+  /**
    * <p>The Access Key portion of the credentials.</p>
    */
   AccessKeyId?: string;
@@ -143,11 +148,6 @@ export interface Credentials {
    * <p>The date at which these credentials will expire.</p>
    */
   Expiration?: Date;
-
-  /**
-   * <p>The Secret Access Key portion of the credentials</p>
-   */
-  SecretKey?: string;
 
   /**
    * <p>The Session Token portion of the credentials</p>
@@ -306,14 +306,6 @@ export namespace ExternalServiceException {
 export interface GetCredentialsForIdentityInput {
   __type?: "GetCredentialsForIdentityInput";
   /**
-   * <p>The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were
-   *          received in the token from the identity provider. For example, a SAML-based identity
-   *          provider. This parameter is optional for identity providers that do not support role
-   *          customization.</p>
-   */
-  CustomRoleArn?: string;
-
-  /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId: string | undefined;
@@ -330,6 +322,14 @@ export interface GetCredentialsForIdentityInput {
    *          Guide.</p>
    */
   Logins?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were
+   *          received in the token from the identity provider. For example, a SAML-based identity
+   *          provider. This parameter is optional for identity providers that do not support role
+   *          customization.</p>
+   */
+  CustomRoleArn?: string;
 }
 
 export namespace GetCredentialsForIdentityInput {
@@ -346,14 +346,14 @@ export namespace GetCredentialsForIdentityInput {
 export interface GetCredentialsForIdentityResponse {
   __type?: "GetCredentialsForIdentityResponse";
   /**
-   * <p>Credentials for the provided identity ID.</p>
-   */
-  Credentials?: Credentials;
-
-  /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
+
+  /**
+   * <p>Credentials for the provided identity ID.</p>
+   */
+  Credentials?: Credentials;
 }
 
 export namespace GetCredentialsForIdentityResponse {
@@ -388,17 +388,17 @@ export namespace GetIdentityPoolRolesInput {
 export interface GetIdentityPoolRolesResponse {
   __type?: "GetIdentityPoolRolesResponse";
   /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
-   */
-  IdentityPoolId?: string;
-
-  /**
    * <p>How users for a specific identity provider are to mapped to roles. This is a
    *             String-to-<a>RoleMapping</a> object map. The string identifies the identity
    *          provider, for example, "graph.facebook.com" or
    *          "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p>
    */
   RoleMappings?: { [key: string]: RoleMapping };
+
+  /**
+   * <p>An identity pool ID in the format REGION:GUID.</p>
+   */
+  IdentityPoolId?: string;
 
   /**
    * <p>The map of roles associated with this pool. Currently only authenticated and
@@ -420,14 +420,14 @@ export namespace GetIdentityPoolRolesResponse {
 export interface GetIdInput {
   __type?: "GetIdInput";
   /**
-   * <p>A standard AWS account ID (9+ digits).</p>
-   */
-  AccountId?: string;
-
-  /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
+
+  /**
+   * <p>A standard AWS account ID (9+ digits).</p>
+   */
+  AccountId?: string;
 
   /**
    * <p>A set of optional name-value pairs that map provider names to provider tokens. The
@@ -495,14 +495,14 @@ export namespace GetIdResponse {
 export interface GetOpenIdTokenForDeveloperIdentityInput {
   __type?: "GetOpenIdTokenForDeveloperIdentityInput";
   /**
-   * <p>A unique identifier in the format REGION:GUID.</p>
-   */
-  IdentityId?: string;
-
-  /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
+
+  /**
+   * <p>A unique identifier in the format REGION:GUID.</p>
+   */
+  IdentityId?: string;
 
   /**
    * <p>A set of optional name-value pairs that map provider names to provider tokens. Each
@@ -570,17 +570,17 @@ export namespace GetOpenIdTokenForDeveloperIdentityResponse {
 export interface GetOpenIdTokenInput {
   __type?: "GetOpenIdTokenInput";
   /**
-   * <p>A unique identifier in the format REGION:GUID.</p>
-   */
-  IdentityId: string | undefined;
-
-  /**
    * <p>A set of optional name-value pairs that map provider names to provider tokens. When
    *          using graph.facebook.com and www.amazon.com, supply the access_token returned from the
    *          provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any
    *          other OpenId Connect provider, always include the <code>id_token</code>.</p>
    */
   Logins?: { [key: string]: string };
+
+  /**
+   * <p>A unique identifier in the format REGION:GUID.</p>
+   */
+  IdentityId: string | undefined;
 }
 
 export namespace GetOpenIdTokenInput {
@@ -596,15 +596,15 @@ export namespace GetOpenIdTokenInput {
 export interface GetOpenIdTokenResponse {
   __type?: "GetOpenIdTokenResponse";
   /**
+   * <p>An OpenID token, valid for 10 minutes.</p>
+   */
+  Token?: string;
+
+  /**
    * <p>A unique identifier in the format REGION:GUID. Note that the IdentityId returned may
    *          not match the one passed on input.</p>
    */
   IdentityId?: string;
-
-  /**
-   * <p>An OpenID token, valid for 10 minutes.</p>
-   */
-  Token?: string;
 }
 
 export namespace GetOpenIdTokenResponse {
@@ -620,6 +620,11 @@ export namespace GetOpenIdTokenResponse {
 export interface IdentityDescription {
   __type?: "IdentityDescription";
   /**
+   * <p>Date on which the identity was last modified.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
    * <p>Date on which the identity was created.</p>
    */
   CreationDate?: Date;
@@ -628,11 +633,6 @@ export interface IdentityDescription {
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
-
-  /**
-   * <p>Date on which the identity was last modified.</p>
-   */
-  LastModifiedDate?: Date;
 
   /**
    * <p>The provider names.</p>
@@ -659,29 +659,20 @@ export interface IdentityPool {
   AllowClassicFlow?: boolean;
 
   /**
-   * <p>TRUE if the identity pool supports unauthenticated logins.</p>
-   */
-  AllowUnauthenticatedIdentities: boolean | undefined;
-
-  /**
    * <p>A list representing an Amazon Cognito user pool and its client ID.</p>
    */
   CognitoIdentityProviders?: CognitoIdentityProvider[];
 
   /**
-   * <p>The "domain" by which Cognito will refer to your users.</p>
+   * <p>An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
+   *          pool.</p>
    */
-  DeveloperProviderName?: string;
+  SamlProviderARNs?: string[];
 
   /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
+   * <p>A list of OpendID Connect provider ARNs.</p>
    */
-  IdentityPoolId: string | undefined;
-
-  /**
-   * <p>A string that you provide.</p>
-   */
-  IdentityPoolName: string | undefined;
+  OpenIdConnectProviderARNs?: string[];
 
   /**
    * <p>The tags that are assigned to the identity pool. A tag is a label that you can apply to
@@ -691,20 +682,29 @@ export interface IdentityPool {
   IdentityPoolTags?: { [key: string]: string };
 
   /**
-   * <p>A list of OpendID Connect provider ARNs.</p>
+   * <p>An identity pool ID in the format REGION:GUID.</p>
    */
-  OpenIdConnectProviderARNs?: string[];
+  IdentityPoolId: string | undefined;
 
   /**
-   * <p>An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
-   *          pool.</p>
+   * <p>The "domain" by which Cognito will refer to your users.</p>
    */
-  SamlProviderARNs?: string[];
+  DeveloperProviderName?: string;
+
+  /**
+   * <p>A string that you provide.</p>
+   */
+  IdentityPoolName: string | undefined;
 
   /**
    * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
    */
   SupportedLoginProviders?: { [key: string]: string };
+
+  /**
+   * <p>TRUE if the identity pool supports unauthenticated logins.</p>
+   */
+  AllowUnauthenticatedIdentities: boolean | undefined;
 }
 
 export namespace IdentityPool {
@@ -720,14 +720,14 @@ export namespace IdentityPool {
 export interface IdentityPoolShortDescription {
   __type?: "IdentityPoolShortDescription";
   /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
-   */
-  IdentityPoolId?: string;
-
-  /**
    * <p>A string that you provide.</p>
    */
   IdentityPoolName?: string;
+
+  /**
+   * <p>An identity pool ID in the format REGION:GUID.</p>
+   */
+  IdentityPoolId?: string;
 }
 
 export namespace IdentityPoolShortDescription {
@@ -822,15 +822,9 @@ export namespace LimitExceededException {
 export interface ListIdentitiesInput {
   __type?: "ListIdentitiesInput";
   /**
-   * <p>An optional boolean parameter that allows you to hide disabled identities. If
-   *          omitted, the ListIdentities API will include disabled identities in the response.</p>
+   * <p>A pagination token.</p>
    */
-  HideDisabled?: boolean;
-
-  /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
-   */
-  IdentityPoolId: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of identities to return.</p>
@@ -838,9 +832,15 @@ export interface ListIdentitiesInput {
   MaxResults: number | undefined;
 
   /**
-   * <p>A pagination token.</p>
+   * <p>An identity pool ID in the format REGION:GUID.</p>
    */
-  NextToken?: string;
+  IdentityPoolId: string | undefined;
+
+  /**
+   * <p>An optional boolean parameter that allows you to hide disabled identities. If
+   *          omitted, the ListIdentities API will include disabled identities in the response.</p>
+   */
+  HideDisabled?: boolean;
 }
 
 export namespace ListIdentitiesInput {
@@ -861,14 +861,14 @@ export interface ListIdentitiesResponse {
   Identities?: IdentityDescription[];
 
   /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
-   */
-  IdentityPoolId?: string;
-
-  /**
    * <p>A pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An identity pool ID in the format REGION:GUID.</p>
+   */
+  IdentityPoolId?: string;
 }
 
 export namespace ListIdentitiesResponse {
@@ -907,14 +907,14 @@ export namespace ListIdentityPoolsInput {
 export interface ListIdentityPoolsResponse {
   __type?: "ListIdentityPoolsResponse";
   /**
-   * <p>The identity pools returned by the ListIdentityPools action.</p>
-   */
-  IdentityPools?: IdentityPoolShortDescription[];
-
-  /**
    * <p>A pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The identity pools returned by the ListIdentityPools action.</p>
+   */
+  IdentityPools?: IdentityPoolShortDescription[];
 }
 
 export namespace ListIdentityPoolsResponse {
@@ -961,28 +961,6 @@ export namespace ListTagsForResourceResponse {
 export interface LookupDeveloperIdentityInput {
   __type?: "LookupDeveloperIdentityInput";
   /**
-   * <p>A unique ID used by your backend authentication process to identify a user.
-   *          Typically, a developer identity provider would issue many developer user identifiers, in
-   *          keeping with the number of users.</p>
-   */
-  DeveloperUserIdentifier?: string;
-
-  /**
-   * <p>A unique identifier in the format REGION:GUID.</p>
-   */
-  IdentityId?: string;
-
-  /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
-   */
-  IdentityPoolId: string | undefined;
-
-  /**
-   * <p>The maximum number of identities to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A pagination token. The first call you make will have <code>NextToken</code> set to
    *          null. After that the service will return <code>NextToken</code> values as needed. For
    *          example, let's say you make a request with <code>MaxResults</code> set to 10, and there are
@@ -991,6 +969,28 @@ export interface LookupDeveloperIdentityInput {
    *          11th match.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An identity pool ID in the format REGION:GUID.</p>
+   */
+  IdentityPoolId: string | undefined;
+
+  /**
+   * <p>A unique ID used by your backend authentication process to identify a user.
+   *          Typically, a developer identity provider would issue many developer user identifiers, in
+   *          keeping with the number of users.</p>
+   */
+  DeveloperUserIdentifier?: string;
+
+  /**
+   * <p>The maximum number of identities to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A unique identifier in the format REGION:GUID.</p>
+   */
+  IdentityId?: string;
 }
 
 export namespace LookupDeveloperIdentityInput {
@@ -1007,13 +1007,6 @@ export namespace LookupDeveloperIdentityInput {
 export interface LookupDeveloperIdentityResponse {
   __type?: "LookupDeveloperIdentityResponse";
   /**
-   * <p>This is the list of developer user identifiers associated with an identity ID.
-   *          Cognito supports the association of multiple developer user identifiers with an identity
-   *          ID.</p>
-   */
-  DeveloperUserIdentifierList?: string[];
-
-  /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
@@ -1027,6 +1020,13 @@ export interface LookupDeveloperIdentityResponse {
    *          11th match.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>This is the list of developer user identifiers associated with an identity ID.
+   *          Cognito supports the association of multiple developer user identifiers with an identity
+   *          ID.</p>
+   */
+  DeveloperUserIdentifierList?: string[];
 }
 
 export namespace LookupDeveloperIdentityResponse {
@@ -1049,15 +1049,15 @@ export interface MappingRule {
   Claim: string | undefined;
 
   /**
+   * <p>The role ARN.</p>
+   */
+  RoleARN: string | undefined;
+
+  /**
    * <p>The match condition that specifies how closely the claim value in the IdP token must
    *          match <code>Value</code>.</p>
    */
   MatchType: MappingRuleMatchType | string | undefined;
-
-  /**
-   * <p>The role ARN.</p>
-   */
-  RoleARN: string | undefined;
 
   /**
    * <p>A brief string that the claim must match, for example, "paid" or "yes".</p>
@@ -1100,15 +1100,15 @@ export interface MergeDeveloperIdentitiesInput {
   DeveloperProviderName: string | undefined;
 
   /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
-   */
-  IdentityPoolId: string | undefined;
-
-  /**
    * <p>User identifier for the source user. The value should be a
    *             <code>DeveloperUserIdentifier</code>.</p>
    */
   SourceUserIdentifier: string | undefined;
+
+  /**
+   * <p>An identity pool ID in the format REGION:GUID.</p>
+   */
+  IdentityPoolId: string | undefined;
 }
 
 export namespace MergeDeveloperIdentitiesInput {
@@ -1202,14 +1202,12 @@ export namespace ResourceNotFoundException {
 export interface RoleMapping {
   __type?: "RoleMapping";
   /**
-   * <p>If you specify Token or Rules as the <code>Type</code>,
-   *             <code>AmbiguousRoleResolution</code> is required.</p>
-   *          <p>Specifies the action to be taken if either no rules match the claim value for the
-   *             <code>Rules</code> type, or there is no <code>cognito:preferred_role</code> claim and
-   *          there are multiple <code>cognito:roles</code> matches for the <code>Token</code>
-   *          type.</p>
+   * <p>The role mapping type. Token will use <code>cognito:roles</code> and
+   *             <code>cognito:preferred_role</code> claims from the Cognito identity provider token to
+   *          map groups to roles. Rules will attempt to match claims from the token to map to a
+   *          role.</p>
    */
-  AmbiguousRoleResolution?: AmbiguousRoleResolutionType | string;
+  Type: RoleMappingType | string | undefined;
 
   /**
    * <p>The rules to be used for mapping users to roles.</p>
@@ -1219,12 +1217,14 @@ export interface RoleMapping {
   RulesConfiguration?: RulesConfigurationType;
 
   /**
-   * <p>The role mapping type. Token will use <code>cognito:roles</code> and
-   *             <code>cognito:preferred_role</code> claims from the Cognito identity provider token to
-   *          map groups to roles. Rules will attempt to match claims from the token to map to a
-   *          role.</p>
+   * <p>If you specify Token or Rules as the <code>Type</code>,
+   *             <code>AmbiguousRoleResolution</code> is required.</p>
+   *          <p>Specifies the action to be taken if either no rules match the claim value for the
+   *             <code>Rules</code> type, or there is no <code>cognito:preferred_role</code> claim and
+   *          there are multiple <code>cognito:roles</code> matches for the <code>Token</code>
+   *          type.</p>
    */
-  Type: RoleMappingType | string | undefined;
+  AmbiguousRoleResolution?: AmbiguousRoleResolutionType | string;
 }
 
 export namespace RoleMapping {
@@ -1264,6 +1264,12 @@ export namespace RulesConfigurationType {
 export interface SetIdentityPoolRolesInput {
   __type?: "SetIdentityPoolRolesInput";
   /**
+   * <p>The map of roles associated with this pool. For a given role, the key will be either
+   *          "authenticated" or "unauthenticated" and the value will be the Role ARN.</p>
+   */
+  Roles: { [key: string]: string } | undefined;
+
+  /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
@@ -1276,12 +1282,6 @@ export interface SetIdentityPoolRolesInput {
    *          <p>Up to 25 rules can be specified per identity provider.</p>
    */
   RoleMappings?: { [key: string]: RoleMapping };
-
-  /**
-   * <p>The map of roles associated with this pool. For a given role, the key will be either
-   *          "authenticated" or "unauthenticated" and the value will be the Role ARN.</p>
-   */
-  Roles: { [key: string]: string } | undefined;
 }
 
 export namespace SetIdentityPoolRolesInput {
@@ -1294,14 +1294,14 @@ export namespace SetIdentityPoolRolesInput {
 export interface TagResourceInput {
   __type?: "TagResourceInput";
   /**
-   * <p>The Amazon Resource Name (ARN) of the identity pool to assign the tags to.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The tags to assign to the identity pool.</p>
    */
   Tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the identity pool to assign the tags to.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceInput {
@@ -1347,14 +1347,9 @@ export namespace TooManyRequestsException {
 export interface UnlinkDeveloperIdentityInput {
   __type?: "UnlinkDeveloperIdentityInput";
   /**
-   * <p>The "domain" by which Cognito will refer to your users.</p>
+   * <p>An identity pool ID in the format REGION:GUID.</p>
    */
-  DeveloperProviderName: string | undefined;
-
-  /**
-   * <p>A unique ID used by your backend authentication process to identify a user.</p>
-   */
-  DeveloperUserIdentifier: string | undefined;
+  IdentityPoolId: string | undefined;
 
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
@@ -1362,9 +1357,14 @@ export interface UnlinkDeveloperIdentityInput {
   IdentityId: string | undefined;
 
   /**
-   * <p>An identity pool ID in the format REGION:GUID.</p>
+   * <p>A unique ID used by your backend authentication process to identify a user.</p>
    */
-  IdentityPoolId: string | undefined;
+  DeveloperUserIdentifier: string | undefined;
+
+  /**
+   * <p>The "domain" by which Cognito will refer to your users.</p>
+   */
+  DeveloperProviderName: string | undefined;
 }
 
 export namespace UnlinkDeveloperIdentityInput {
@@ -1380,15 +1380,15 @@ export namespace UnlinkDeveloperIdentityInput {
 export interface UnlinkIdentityInput {
   __type?: "UnlinkIdentityInput";
   /**
-   * <p>A unique identifier in the format REGION:GUID.</p>
-   */
-  IdentityId: string | undefined;
-
-  /**
    * <p>A set of optional name-value pairs that map provider names to provider
    *          tokens.</p>
    */
   Logins: { [key: string]: string } | undefined;
+
+  /**
+   * <p>A unique identifier in the format REGION:GUID.</p>
+   */
+  IdentityId: string | undefined;
 
   /**
    * <p>Provider names to unlink from this identity.</p>
@@ -1430,15 +1430,15 @@ export namespace UnprocessedIdentityId {
 export interface UntagResourceInput {
   __type?: "UntagResourceInput";
   /**
+   * <p>The keys of the tags to remove from the user pool.</p>
+   */
+  TagKeys: string[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the identity pool that the tags are assigned
    *          to.</p>
    */
   ResourceArn: string | undefined;
-
-  /**
-   * <p>The keys of the tags to remove from the user pool.</p>
-   */
-  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

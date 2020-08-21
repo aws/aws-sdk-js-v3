@@ -519,6 +519,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Associates the specified product with the specified portfolio.</p>
+   *          <p>A delegated admin is authorized to invoke this command.</p>
    */
   public associateProductWithPortfolio(
     args: AssociateProductWithPortfolioCommandInput,
@@ -715,6 +716,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Creates a constraint.</p>
+   *          <p>A delegated admin is authorized to invoke this command.</p>
    */
   public createConstraint(
     args: CreateConstraintCommandInput,
@@ -747,6 +749,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Creates a portfolio.</p>
+   *          <p>A delegated admin is authorized to invoke this command.</p>
    */
   public createPortfolio(
     args: CreatePortfolioCommandInput,
@@ -778,7 +781,12 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Shares the specified portfolio with the specified account or organization node. Shares to an organization node can only be created by the master account of an Organization. AWSOrganizationsAccess must be enabled in order to create a portfolio share to an organization node.</p>
+   * <p>Shares the specified portfolio with the specified account or organization node. Shares to an organization node can only be created by the master account of an organization or by a delegated
+   *          administrator. You can share portfolios to an organization, an organizational unit, or a specific account.</p>
+   *          <p>Note that if a delegated admin is de-registered, they can no longer create portfolio shares.</p>
+   *         <p>
+   *             <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio share to an organization node.</p>
+   *          <p>You can't share a shared resource. This includes portfolios that contain a shared product.</p>
    */
   public createPortfolioShare(
     args: CreatePortfolioShareCommandInput,
@@ -811,6 +819,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Creates a product.</p>
+   *          <p>A delegated admin is authorized to invoke this command.</p>
    */
   public createProduct(
     args: CreateProductCommandInput,
@@ -978,6 +987,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Deletes the specified constraint.</p>
+   *          <p>A delegated admin is authorized to invoke this command.</p>
    */
   public deleteConstraint(
     args: DeleteConstraintCommandInput,
@@ -1012,6 +1022,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
    * <p>Deletes the specified portfolio.</p>
    *          <p>You cannot delete a portfolio if it was shared with you or if it has associated
    *          products, users, constraints, or shared accounts.</p>
+   *          <p>A delegated admin is authorized to invoke this command.</p>
    */
   public deletePortfolio(
     args: DeletePortfolioCommandInput,
@@ -1043,7 +1054,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Stops sharing the specified portfolio with the specified account or organization node. Shares to an organization node can only be deleted by the master account of an Organization.</p>
+   * <p>Stops sharing the specified portfolio with the specified account or organization node. Shares to an organization node can only be deleted by the master account of an organization or by a
+   *        delegated administrator.</p>
+   *          <p>Note that if a delegated admin is de-registered, portfolio shares created from that account are removed.</p>
    */
   public deletePortfolioShare(
     args: DeletePortfolioShareCommandInput,
@@ -1077,6 +1090,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   /**
    * <p>Deletes the specified product.</p>
    *          <p>You cannot delete a product if it was shared with you or is associated with a portfolio.</p>
+   *          <p>A delegated admin is authorized to invoke this command.</p>
    */
   public deleteProduct(
     args: DeleteProductCommandInput,
@@ -1305,6 +1319,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Gets information about the specified portfolio.</p>
+   *          <p>A delegated admin is authorized to invoke this command.</p>
    */
   public describePortfolio(
     args: DescribePortfolioCommandInput,
@@ -1336,7 +1351,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Gets the status of the specified portfolio share operation. This API can only be called by the master account in the organization.</p>
+   * <p>Gets the status of the specified portfolio share operation. This API can only be called by the master account in the organization or by a delegated admin.</p>
    */
   public describePortfolioShareStatus(
     args: DescribePortfolioShareStatusCommandInput,
@@ -1670,6 +1685,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
     }
   }
 
+  /**
+   * <p>Finds the default parameters for a specific self-service action on a specific provisioned product and returns a map of the results to the user.</p>
+   */
   public describeServiceActionExecutionParameters(
     args: DescribeServiceActionExecutionParametersCommandInput,
     options?: __HttpHandlerOptions
@@ -1734,7 +1752,10 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Disable portfolio sharing through AWS Organizations feature. This feature will not delete your current shares but it will prevent you from creating new shares throughout your organization. Current shares will not be in sync with your organization structure if it changes after calling this API. This API can only be called by the master account in the organization.</p>
+   * <p>Disable portfolio sharing through AWS Organizations feature. This feature will not delete your current shares but it will prevent you from creating new shares throughout your organization.
+   *          Current shares will not be in sync with your organization structure if it changes after calling this API. This API can only be called by the master account in the organization.</p>
+   *          <p>This API can't be invoked if there are active delegated administrators in the organization.</p>
+   *          <p>Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.</p>
    */
   public disableAWSOrganizationsAccess(
     args: DisableAWSOrganizationsAccessCommandInput,
@@ -1832,6 +1853,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Disassociates the specified product from the specified portfolio. </p>
+   *          <p>A delegated admin is authorized to invoke this command.</p>
    */
   public disassociateProductFromPortfolio(
     args: DisassociateProductFromPortfolioCommandInput,
@@ -1931,6 +1953,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   /**
    * <p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the master account in the organization.</p>
    *          <p>By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.</p>
+   *          <p>Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.</p>
    */
   public enableAWSOrganizationsAccess(
     args: EnableAWSOrganizationsAccessCommandInput,
@@ -2028,7 +2051,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be called by the master account in the organization.</p>
+   * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be called by the master account in the organization or by a delegated admin.</p>
    */
   public getAWSOrganizationsAccessStatus(
     args: GetAWSOrganizationsAccessStatusCommandInput,
@@ -2190,7 +2213,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Lists the organization nodes that have access to the specified portfolio. This API can only be called by the master account in the organization.</p>
+   * <p>Lists the organization nodes that have access to the specified portfolio. This API can only be called by the master account in the organization or by a delegated admin.</p>
+   *          <p>If a delegated admin is de-registered, they can no longer perform this operation.</p>
    */
   public listOrganizationPortfolioAccess(
     args: ListOrganizationPortfolioAccessCommandInput,
@@ -2223,6 +2247,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Lists the account IDs that have access to the specified portfolio.</p>
+   *          <p>A delegated admin can list the accounts that have access to the shared portfolio. Note that if a delegated admin is de-registered, they can no longer perform this operation.</p>
    */
   public listPortfolioAccess(
     args: ListPortfolioAccessCommandInput,

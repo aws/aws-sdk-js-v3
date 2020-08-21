@@ -18,6 +18,7 @@ export * from "./commands/ListPermissionsCommand";
 export * from "./commands/ListPrincipalsCommand";
 export * from "./commands/ListResourcesCommand";
 export * from "./commands/ListResourceSharePermissionsCommand";
+export * from "./commands/ListResourceTypesCommand";
 export * from "./commands/PromoteResourceShareCreatedFromPolicyCommand";
 export * from "./commands/RejectResourceShareInvitationCommand";
 export * from "./commands/TagResourceCommand";

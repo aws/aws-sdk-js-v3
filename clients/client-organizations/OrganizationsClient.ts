@@ -19,6 +19,10 @@ import {
   DeleteOrganizationalUnitCommandOutput,
 } from "./commands/DeleteOrganizationalUnitCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import {
+  DeregisterDelegatedAdministratorCommandInput,
+  DeregisterDelegatedAdministratorCommandOutput,
+} from "./commands/DeregisterDelegatedAdministratorCommand";
 import { DescribeAccountCommandInput, DescribeAccountCommandOutput } from "./commands/DescribeAccountCommand";
 import {
   DescribeCreateAccountStatusCommandInput,
@@ -70,6 +74,14 @@ import {
   ListCreateAccountStatusCommandOutput,
 } from "./commands/ListCreateAccountStatusCommand";
 import {
+  ListDelegatedAdministratorsCommandInput,
+  ListDelegatedAdministratorsCommandOutput,
+} from "./commands/ListDelegatedAdministratorsCommand";
+import {
+  ListDelegatedServicesForAccountCommandInput,
+  ListDelegatedServicesForAccountCommandOutput,
+} from "./commands/ListDelegatedServicesForAccountCommand";
+import {
   ListHandshakesForAccountCommandInput,
   ListHandshakesForAccountCommandOutput,
 } from "./commands/ListHandshakesForAccountCommand";
@@ -97,6 +109,10 @@ import {
   ListTargetsForPolicyCommandOutput,
 } from "./commands/ListTargetsForPolicyCommand";
 import { MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand";
+import {
+  RegisterDelegatedAdministratorCommandInput,
+  RegisterDelegatedAdministratorCommandOutput,
+} from "./commands/RegisterDelegatedAdministratorCommand";
 import {
   RemoveAccountFromOrganizationCommandInput,
   RemoveAccountFromOrganizationCommandOutput,
@@ -168,6 +184,7 @@ export type ServiceInputTypes =
   | DeleteOrganizationCommandInput
   | DeleteOrganizationalUnitCommandInput
   | DeletePolicyCommandInput
+  | DeregisterDelegatedAdministratorCommandInput
   | DescribeAccountCommandInput
   | DescribeCreateAccountStatusCommandInput
   | DescribeEffectivePolicyCommandInput
@@ -188,6 +205,8 @@ export type ServiceInputTypes =
   | ListAccountsForParentCommandInput
   | ListChildrenCommandInput
   | ListCreateAccountStatusCommandInput
+  | ListDelegatedAdministratorsCommandInput
+  | ListDelegatedServicesForAccountCommandInput
   | ListHandshakesForAccountCommandInput
   | ListHandshakesForOrganizationCommandInput
   | ListOrganizationalUnitsForParentCommandInput
@@ -198,6 +217,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTargetsForPolicyCommandInput
   | MoveAccountCommandInput
+  | RegisterDelegatedAdministratorCommandInput
   | RemoveAccountFromOrganizationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -217,6 +237,7 @@ export type ServiceOutputTypes =
   | DeleteOrganizationCommandOutput
   | DeleteOrganizationalUnitCommandOutput
   | DeletePolicyCommandOutput
+  | DeregisterDelegatedAdministratorCommandOutput
   | DescribeAccountCommandOutput
   | DescribeCreateAccountStatusCommandOutput
   | DescribeEffectivePolicyCommandOutput
@@ -237,6 +258,8 @@ export type ServiceOutputTypes =
   | ListAccountsForParentCommandOutput
   | ListChildrenCommandOutput
   | ListCreateAccountStatusCommandOutput
+  | ListDelegatedAdministratorsCommandOutput
+  | ListDelegatedServicesForAccountCommandOutput
   | ListHandshakesForAccountCommandOutput
   | ListHandshakesForOrganizationCommandOutput
   | ListOrganizationalUnitsForParentCommandOutput
@@ -247,6 +270,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTargetsForPolicyCommandOutput
   | MoveAccountCommandOutput
+  | RegisterDelegatedAdministratorCommandOutput
   | RemoveAccountFromOrganizationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

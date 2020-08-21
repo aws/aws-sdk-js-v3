@@ -235,11 +235,11 @@
     "com.amazonaws.costandusagereportservice#DescribeReportDefinitionsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.costandusagereportservice#MaxResults"
-        },
         "NextToken": {
           "target": "com.amazonaws.costandusagereportservice#GenericString"
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.costandusagereportservice#MaxResults"
         }
       },
       "traits": {
@@ -333,14 +333,14 @@
     "com.amazonaws.costandusagereportservice#ModifyReportDefinitionRequest": {
       "type": "structure",
       "members": {
-        "ReportDefinition": {
-          "target": "com.amazonaws.costandusagereportservice#ReportDefinition",
+        "ReportName": {
+          "target": "com.amazonaws.costandusagereportservice#ReportName",
           "traits": {
             "smithy.api#required": {}
           }
         },
-        "ReportName": {
-          "target": "com.amazonaws.costandusagereportservice#ReportName",
+        "ReportDefinition": {
+          "target": "com.amazonaws.costandusagereportservice#ReportDefinition",
           "traits": {
             "smithy.api#required": {}
           }
@@ -408,16 +408,21 @@
     "com.amazonaws.costandusagereportservice#ReportDefinition": {
       "type": "structure",
       "members": {
-        "AdditionalArtifacts": {
-          "target": "com.amazonaws.costandusagereportservice#AdditionalArtifactList",
+        "ReportVersioning": {
+          "target": "com.amazonaws.costandusagereportservice#ReportVersioning",
           "traits": {
-            "smithy.api#documentation": "<p>A list of manifests that you want Amazon Web Services to create for this report.</p>"
+            "smithy.api#documentation": "<p>Whether you want Amazon Web Services to overwrite the previous version of each report or \n         to deliver the report in addition to the previous versions.</p>"
           }
         },
-        "AdditionalSchemaElements": {
-          "target": "com.amazonaws.costandusagereportservice#SchemaElementList",
+        "TimeUnit": {
+          "target": "com.amazonaws.costandusagereportservice#TimeUnit",
           "traits": {
-            "smithy.api#documentation": "<p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ReportName": {
+          "target": "com.amazonaws.costandusagereportservice#ReportName",
+          "traits": {
             "smithy.api#required": {}
           }
         },
@@ -433,32 +438,27 @@
             "smithy.api#required": {}
           }
         },
+        "S3Prefix": {
+          "target": "com.amazonaws.costandusagereportservice#S3Prefix",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "AdditionalSchemaElements": {
+          "target": "com.amazonaws.costandusagereportservice#SchemaElementList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>",
+            "smithy.api#required": {}
+          }
+        },
         "RefreshClosedReports": {
           "target": "com.amazonaws.costandusagereportservice#RefreshClosedReports",
           "traits": {
             "smithy.api#documentation": "<p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to \n      previous months. These charges can include refunds, credits, or support fees.</p>"
           }
         },
-        "ReportName": {
-          "target": "com.amazonaws.costandusagereportservice#ReportName",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
-        "ReportVersioning": {
-          "target": "com.amazonaws.costandusagereportservice#ReportVersioning",
-          "traits": {
-            "smithy.api#documentation": "<p>Whether you want Amazon Web Services to overwrite the previous version of each report or \n         to deliver the report in addition to the previous versions.</p>"
-          }
-        },
         "S3Bucket": {
           "target": "com.amazonaws.costandusagereportservice#S3Bucket",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
-        "S3Prefix": {
-          "target": "com.amazonaws.costandusagereportservice#S3Prefix",
           "traits": {
             "smithy.api#required": {}
           }
@@ -469,10 +469,10 @@
             "smithy.api#required": {}
           }
         },
-        "TimeUnit": {
-          "target": "com.amazonaws.costandusagereportservice#TimeUnit",
+        "AdditionalArtifacts": {
+          "target": "com.amazonaws.costandusagereportservice#AdditionalArtifactList",
           "traits": {
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A list of manifests that you want Amazon Web Services to create for this report.</p>"
           }
         }
       },

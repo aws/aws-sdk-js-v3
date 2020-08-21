@@ -741,13 +741,13 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.scheduledBefore !== undefined && {
-      scheduledBefore: (input.scheduledBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
     ...(input.scheduledOnOrAfter !== undefined && {
       scheduledOnOrAfter: (input.scheduledOnOrAfter.toISOString().split(".")[0] + "Z").toString(),
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.scheduledBefore !== undefined && {
+      scheduledBefore: (input.scheduledBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
   };
   let body: any;
@@ -773,8 +773,8 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   };
   let resolvedPath = "/datasets";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -799,8 +799,8 @@ export const serializeAws_restJson1ListDatastoresCommand = async (
   };
   let resolvedPath = "/datastores";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -825,8 +825,8 @@ export const serializeAws_restJson1ListPipelinesCommand = async (
   };
   let resolvedPath = "/pipelines";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -939,8 +939,8 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
   }
   const query: any = {
     ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.maxMessages !== undefined && { maxMessages: input.maxMessages.toString() }),
     ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxMessages !== undefined && { maxMessages: input.maxMessages.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1027,8 +1027,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let resolvedPath = "/tags";
   const query: any = {
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

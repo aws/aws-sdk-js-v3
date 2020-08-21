@@ -73,7 +73,7 @@
           "name": "aws-marketplace"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>Catalog API actions allow you to create, describe, list, and delete changes to your\n            published entities. An entity is a product or an offer on AWS Marketplace.</p>\n\n        <p>You can automate your entity update process by integrating the AWS Marketplace Catalog\n            API with your AWS Marketplace product build or deployment pipelines. You can also create\n            your own applications on top of the Catalog API to manage your products on AWS\n            Marketplace.</p>",
+        "smithy.api#documentation": "<p>Catalog API actions allow you to manage your entities through list, describe, and update\n            capabilities. An entity can be a product or an offer on AWS Marketplace.</p>\n\n        <p>You can automate your entity update process by integrating the AWS Marketplace Catalog\n            API with your AWS Marketplace product build or deployment pipelines. You can also create\n            your own applications on top of the Catalog API to manage your products on AWS\n            Marketplace.</p>",
         "smithy.api#title": "AWS Marketplace Catalog Service"
       }
     },
@@ -130,19 +130,19 @@
     "com.amazonaws.marketplacecatalog#CancelChangeSetRequest": {
       "type": "structure",
       "members": {
-        "Catalog": {
-          "target": "com.amazonaws.marketplacecatalog#Catalog",
-          "traits": {
-            "smithy.api#documentation": "<p>Required. The catalog related to the request. Fixed value:\n            <code>AWSMarketplace</code>.</p>",
-            "smithy.api#httpQuery": "catalog",
-            "smithy.api#required": {}
-          }
-        },
         "ChangeSetId": {
           "target": "com.amazonaws.marketplacecatalog#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>Required. The unique identifier of the <code>StartChangeSet</code> request that you\n            want to cancel.</p>",
             "smithy.api#httpQuery": "changeSetId",
+            "smithy.api#required": {}
+          }
+        },
+        "Catalog": {
+          "target": "com.amazonaws.marketplacecatalog#Catalog",
+          "traits": {
+            "smithy.api#documentation": "<p>Required. The catalog related to the request. Fixed value:\n            <code>AWSMarketplace</code>.</p>",
+            "smithy.api#httpQuery": "catalog",
             "smithy.api#required": {}
           }
         }
@@ -151,16 +151,16 @@
     "com.amazonaws.marketplacecatalog#CancelChangeSetResponse": {
       "type": "structure",
       "members": {
-        "ChangeSetArn": {
-          "target": "com.amazonaws.marketplacecatalog#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN associated with the change set referenced in this request.</p>"
-          }
-        },
         "ChangeSetId": {
           "target": "com.amazonaws.marketplacecatalog#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the change set referenced in this request.</p>"
+          }
+        },
+        "ChangeSetArn": {
+          "target": "com.amazonaws.marketplacecatalog#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN associated with the change set referenced in this request.</p>"
           }
         }
       }
@@ -178,10 +178,10 @@
     "com.amazonaws.marketplacecatalog#Change": {
       "type": "structure",
       "members": {
-        "ChangeType": {
-          "target": "com.amazonaws.marketplacecatalog#ChangeType",
+        "Entity": {
+          "target": "com.amazonaws.marketplacecatalog#Entity",
           "traits": {
-            "smithy.api#documentation": "<p>Change types are single string values that describe your intention for the change.\n            Each change type is unique for each <code>EntityType</code> provided in the change's\n            scope.</p>",
+            "smithy.api#documentation": "<p>The entity to be changed.</p>",
             "smithy.api#required": {}
           }
         },
@@ -192,10 +192,10 @@
             "smithy.api#required": {}
           }
         },
-        "Entity": {
-          "target": "com.amazonaws.marketplacecatalog#Entity",
+        "ChangeType": {
+          "target": "com.amazonaws.marketplacecatalog#ChangeType",
           "traits": {
-            "smithy.api#documentation": "<p>The entity to be changed.</p>",
+            "smithy.api#documentation": "<p>Change types are single string values that describe your intention for the change.\n            Each change type is unique for each <code>EntityType</code> provided in the change's\n            scope.</p>",
             "smithy.api#required": {}
           }
         }
@@ -229,12 +229,6 @@
     "com.amazonaws.marketplacecatalog#ChangeSetSummaryListItem": {
       "type": "structure",
       "members": {
-        "ChangeSetArn": {
-          "target": "com.amazonaws.marketplacecatalog#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN associated with the unique identifier for the change set referenced in this\n            request.</p>"
-          }
-        },
         "ChangeSetId": {
           "target": "com.amazonaws.marketplacecatalog#ResourceId",
           "traits": {
@@ -247,12 +241,6 @@
             "smithy.api#documentation": "<p>The non-unique name for the change set.</p>"
           }
         },
-        "EndTime": {
-          "target": "com.amazonaws.marketplacecatalog#DateTimeISO8601",
-          "traits": {
-            "smithy.api#documentation": "<p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was\n            finished.</p>"
-          }
-        },
         "EntityIdList": {
           "target": "com.amazonaws.marketplacecatalog#ResourceIdList",
           "traits": {
@@ -263,6 +251,18 @@
           "target": "com.amazonaws.marketplacecatalog#DateTimeISO8601",
           "traits": {
             "smithy.api#documentation": "<p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was\n            started.</p>"
+          }
+        },
+        "ChangeSetArn": {
+          "target": "com.amazonaws.marketplacecatalog#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN associated with the unique identifier for the change set referenced in this\n            request.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.marketplacecatalog#DateTimeISO8601",
+          "traits": {
+            "smithy.api#documentation": "<p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was\n            finished.</p>"
           }
         },
         "Status": {
@@ -306,10 +306,10 @@
     "com.amazonaws.marketplacecatalog#ChangeSummary": {
       "type": "structure",
       "members": {
-        "ChangeType": {
-          "target": "com.amazonaws.marketplacecatalog#ChangeType",
+        "Details": {
+          "target": "com.amazonaws.marketplacecatalog#Json",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the change.</p>"
+            "smithy.api#documentation": "<p>This object contains details specific to the change type of the requested\n            change.</p>"
           }
         },
         "Entity": {
@@ -322,6 +322,12 @@
           "target": "com.amazonaws.marketplacecatalog#ErrorDetailList",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>ErrorDetail</code> objects associated with the change.</p>"
+          }
+        },
+        "ChangeType": {
+          "target": "com.amazonaws.marketplacecatalog#ChangeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the change.</p>"
           }
         }
       },
@@ -417,22 +423,10 @@
     "com.amazonaws.marketplacecatalog#DescribeChangeSetResponse": {
       "type": "structure",
       "members": {
-        "ChangeSet": {
-          "target": "com.amazonaws.marketplacecatalog#ChangeSetDescription",
+        "EndTime": {
+          "target": "com.amazonaws.marketplacecatalog#DateTimeISO8601",
           "traits": {
-            "smithy.api#documentation": "<p>An array of <code>ChangeSummary</code> objects.</p>"
-          }
-        },
-        "ChangeSetArn": {
-          "target": "com.amazonaws.marketplacecatalog#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN associated with the unique identifier for the change set referenced in this\n            request.</p>"
-          }
-        },
-        "ChangeSetId": {
-          "target": "com.amazonaws.marketplacecatalog#ResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>Required. The unique identifier for the change set referenced in this request.</p>"
+            "smithy.api#documentation": "<p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned\n            to a terminal state. The change cannot transition to a different state. Null if the\n            request is not in a terminal state. </p>"
           }
         },
         "ChangeSetName": {
@@ -441,16 +435,16 @@
             "smithy.api#documentation": "<p>The optional name provided in the <code>StartChangeSet</code> request. If you do not\n            provide a name, one is set by default.</p>"
           }
         },
-        "EndTime": {
-          "target": "com.amazonaws.marketplacecatalog#DateTimeISO8601",
+        "Status": {
+          "target": "com.amazonaws.marketplacecatalog#ChangeStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned\n            to a terminal state. The change cannot transition to a different state. Null if the\n            request is not in a terminal state. </p>"
+            "smithy.api#documentation": "<p>The status of the change request.</p>"
           }
         },
-        "FailureDescription": {
-          "target": "com.amazonaws.marketplacecatalog#StringValue",
+        "ChangeSetId": {
+          "target": "com.amazonaws.marketplacecatalog#ResourceId",
           "traits": {
-            "smithy.api#documentation": "<p>Returned if there is a failure on the change set, but that failure is not related to\n            any of the changes in the request.</p>"
+            "smithy.api#documentation": "<p>Required. The unique identifier for the change set referenced in this request.</p>"
           }
         },
         "StartTime": {
@@ -459,10 +453,22 @@
             "smithy.api#documentation": "<p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.\n        </p>"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.marketplacecatalog#ChangeStatus",
+        "ChangeSetArn": {
+          "target": "com.amazonaws.marketplacecatalog#ARN",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the change request.</p>"
+            "smithy.api#documentation": "<p>The ARN associated with the unique identifier for the change set referenced in this\n            request.</p>"
+          }
+        },
+        "FailureDescription": {
+          "target": "com.amazonaws.marketplacecatalog#StringValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Returned if there is a failure on the change set, but that failure is not related to\n            any of the changes in the request.</p>"
+          }
+        },
+        "ChangeSet": {
+          "target": "com.amazonaws.marketplacecatalog#ChangeSetDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <code>ChangeSummary</code> objects.</p>"
           }
         }
       }
@@ -528,6 +534,24 @@
     "com.amazonaws.marketplacecatalog#DescribeEntityResponse": {
       "type": "structure",
       "members": {
+        "LastModifiedDate": {
+          "target": "com.amazonaws.marketplacecatalog#StringValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The last modified date of the entity, in ISO 8601 format\n            (2018-02-27T13:45:22Z).</p>"
+          }
+        },
+        "EntityType": {
+          "target": "com.amazonaws.marketplacecatalog#EntityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>"
+          }
+        },
+        "EntityIdentifier": {
+          "target": "com.amazonaws.marketplacecatalog#Identifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the entity, in the format of\n            <code>EntityId@RevisionId</code>.</p>"
+          }
+        },
         "Details": {
           "target": "com.amazonaws.marketplacecatalog#Json",
           "traits": {
@@ -538,24 +562,6 @@
           "target": "com.amazonaws.marketplacecatalog#ARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN associated to the unique identifier for the change set referenced in this\n            request.</p>"
-          }
-        },
-        "EntityIdentifier": {
-          "target": "com.amazonaws.marketplacecatalog#Identifier",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the entity, in the format of\n            <code>EntityId@RevisionId</code>.</p>"
-          }
-        },
-        "EntityType": {
-          "target": "com.amazonaws.marketplacecatalog#EntityType",
-          "traits": {
-            "smithy.api#documentation": "<p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>"
-          }
-        },
-        "LastModifiedDate": {
-          "target": "com.amazonaws.marketplacecatalog#StringValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The last modified date of the entity, in ISO 8601 format\n            (2018-02-27T13:45:22Z).</p>"
           }
         }
       }
@@ -584,22 +590,16 @@
     "com.amazonaws.marketplacecatalog#EntitySummary": {
       "type": "structure",
       "members": {
-        "EntityArn": {
-          "target": "com.amazonaws.marketplacecatalog#ARN",
+        "Name": {
+          "target": "com.amazonaws.marketplacecatalog#StringValue",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN associated with the unique identifier for the entity.</p>"
+            "smithy.api#documentation": "<p>The name for the entity. This value is not unique. It is defined by the\n            seller.</p>"
           }
         },
-        "EntityId": {
-          "target": "com.amazonaws.marketplacecatalog#ResourceId",
+        "Visibility": {
+          "target": "com.amazonaws.marketplacecatalog#StringValue",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the entity.</p>"
-          }
-        },
-        "EntityType": {
-          "target": "com.amazonaws.marketplacecatalog#EntityType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the entity.</p>"
+            "smithy.api#documentation": "<p>The visibility status of the entity to\n            buyers.\n            This value can be <code>Public</code> (everyone can view the entity),\n                <code>Limited</code> (the entity is visible to limited accounts only), or\n                <code>Restricted</code> (the entity was published and then unpublished and only\n            existing\n            buyers\n            can view it). </p>"
           }
         },
         "LastModifiedDate": {
@@ -608,16 +608,22 @@
             "smithy.api#documentation": "<p>The last time the entity was published, using ISO 8601 format\n            (2018-02-27T13:45:22Z).</p>"
           }
         },
-        "Name": {
-          "target": "com.amazonaws.marketplacecatalog#StringValue",
+        "EntityArn": {
+          "target": "com.amazonaws.marketplacecatalog#ARN",
           "traits": {
-            "smithy.api#documentation": "<p>The name for the entity. This value is not unique. It is defined by the\n            provider.</p>"
+            "smithy.api#documentation": "<p>The ARN associated with the unique identifier for the entity.</p>"
           }
         },
-        "Visibility": {
-          "target": "com.amazonaws.marketplacecatalog#StringValue",
+        "EntityType": {
+          "target": "com.amazonaws.marketplacecatalog#EntityType",
           "traits": {
-            "smithy.api#documentation": "<p>The visibility status of the entity to subscribers. This value can be\n                <code>Public</code> (everyone can view the entity), <code>Limited</code> (the entity\n            is visible to limited accounts only), or <code>Restricted</code> (the entity was\n            published and then unpublished and only existing subscribers can view it). </p>"
+            "smithy.api#documentation": "<p>The type of the entity.</p>"
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.marketplacecatalog#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the entity.</p>"
           }
         }
       },
@@ -670,16 +676,16 @@
     "com.amazonaws.marketplacecatalog#Filter": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.marketplacecatalog#FilterName",
-          "traits": {
-            "smithy.api#documentation": "<p>For <code>ListEntities</code>, the supported value for this is an\n                <code>EntityId</code>.</p>\n        <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>"
-          }
-        },
         "ValueList": {
           "target": "com.amazonaws.marketplacecatalog#ValueList",
           "traits": {
             "smithy.api#documentation": "<p>\n            <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p>\n\n        <p>\n            <code>ListChangeSets</code> - The supported filter names and associated\n                <code>ValueList</code>s is as follows:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ChangeSetName</code> - The supported <code>ValueList</code> is a list of\n                    non-unique <code>ChangeSetName</code>s. These are defined when you call the\n                        <code>StartChangeSet</code> action.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Status</code> - The supported <code>ValueList</code> is a list of\n                    statuses for all change set requests.</p>\n            </li>\n            <li>\n                <p>\n                  <code>EntityId</code> - The supported <code>ValueList</code> is a list of\n                    unique <code>EntityId</code>s.</p>\n            </li>\n            <li>\n                <p>\n                  <code>BeforeStartTime</code> - The supported <code>ValueList</code> is a list\n                    of all change sets that started before the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>AfterStartTime</code> - The supported <code>ValueList</code> is a list\n                    of all change sets that started after the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>BeforeEndTime</code> - The supported <code>ValueList</code> is a list of\n                    all change sets that ended before the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>AfterEndTime</code> - The supported <code>ValueList</code> is a list of\n                    all change sets that ended after the filter value.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.marketplacecatalog#FilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>For <code>ListEntities</code>, the supported value for this is an\n                <code>EntityId</code>.</p>\n        <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>"
           }
         }
       },
@@ -781,25 +787,6 @@
     "com.amazonaws.marketplacecatalog#ListChangeSetsRequest": {
       "type": "structure",
       "members": {
-        "Catalog": {
-          "target": "com.amazonaws.marketplacecatalog#Catalog",
-          "traits": {
-            "smithy.api#documentation": "<p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>\n         </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "FilterList": {
-          "target": "com.amazonaws.marketplacecatalog#FilterList",
-          "traits": {
-            "smithy.api#documentation": "<p>An array of filter objects.</p>"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.marketplacecatalog#MaxResultInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results returned by a single call. This value must be provided\n            in the next call to retrieve the next set of results. By default, this value is\n            20.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.marketplacecatalog#NextToken",
           "traits": {
@@ -809,7 +796,26 @@
         "Sort": {
           "target": "com.amazonaws.marketplacecatalog#Sort",
           "traits": {
-            "smithy.api#documentation": "<p>An object that contains two attributes, <code>sortBy</code> and\n            <code>sortOrder</code>.</p>"
+            "smithy.api#documentation": "<p>An object that contains two attributes, <code>SortBy</code> and\n            <code>SortOrder</code>.</p>"
+          }
+        },
+        "FilterList": {
+          "target": "com.amazonaws.marketplacecatalog#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of filter objects.</p>"
+          }
+        },
+        "Catalog": {
+          "target": "com.amazonaws.marketplacecatalog#Catalog",
+          "traits": {
+            "smithy.api#documentation": "<p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.marketplacecatalog#MaxResultInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results returned by a single call. This value must be provided\n            in the next call to retrieve the next set of results. By default, this value is\n            20.</p>"
           }
         }
       }
@@ -817,16 +823,16 @@
     "com.amazonaws.marketplacecatalog#ListChangeSetsResponse": {
       "type": "structure",
       "members": {
-        "ChangeSetSummaryList": {
-          "target": "com.amazonaws.marketplacecatalog#ChangeSetSummaryList",
-          "traits": {
-            "smithy.api#documentation": "<p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.marketplacecatalog#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The value of the next token, if it exists. Null if there are no more results.</p>"
+          }
+        },
+        "ChangeSetSummaryList": {
+          "target": "com.amazonaws.marketplacecatalog#ChangeSetSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>"
           }
         }
       }
@@ -873,13 +879,6 @@
     "com.amazonaws.marketplacecatalog#ListEntitiesRequest": {
       "type": "structure",
       "members": {
-        "Catalog": {
-          "target": "com.amazonaws.marketplacecatalog#Catalog",
-          "traits": {
-            "smithy.api#documentation": "<p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>\n         </p>",
-            "smithy.api#required": {}
-          }
-        },
         "EntityType": {
           "target": "com.amazonaws.marketplacecatalog#EntityType",
           "traits": {
@@ -887,16 +886,11 @@
             "smithy.api#required": {}
           }
         },
-        "FilterList": {
-          "target": "com.amazonaws.marketplacecatalog#FilterList",
+        "Catalog": {
+          "target": "com.amazonaws.marketplacecatalog#Catalog",
           "traits": {
-            "smithy.api#documentation": "<p>An array of filter objects. Each filter object contains two attributes,\n                <code>filterName</code> and <code>filterValues</code>.</p>"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.marketplacecatalog#MaxResultInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the upper limit of the elements on a single page. If a value isn't provided,\n            the default value is 20.</p>"
+            "smithy.api#documentation": "<p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>\n         </p>",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -905,10 +899,22 @@
             "smithy.api#documentation": "<p>The value of the next token, if it exists. Null if there are no more results.</p>"
           }
         },
+        "MaxResults": {
+          "target": "com.amazonaws.marketplacecatalog#MaxResultInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the upper limit of the elements on a single page. If a value isn't provided,\n            the default value is 20.</p>"
+          }
+        },
         "Sort": {
           "target": "com.amazonaws.marketplacecatalog#Sort",
           "traits": {
-            "smithy.api#documentation": "<p>An object that contains two attributes, <code>sortBy</code> and\n            <code>sortOrder</code>.</p>"
+            "smithy.api#documentation": "<p>An object that contains two attributes, <code>SortBy</code> and\n            <code>SortOrder</code>.</p>"
+          }
+        },
+        "FilterList": {
+          "target": "com.amazonaws.marketplacecatalog#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of filter objects. Each filter object contains two attributes,\n                <code>filterName</code> and <code>filterValues</code>.</p>"
           }
         }
       }
@@ -1047,7 +1053,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An object that contains two attributes, <code>sortBy</code> and\n            <code>sortOrder</code>.</p>"
+        "smithy.api#documentation": "<p>An object that contains two attributes, <code>SortBy</code> and\n            <code>SortOrder</code>.</p>"
       }
     },
     "com.amazonaws.marketplacecatalog#SortBy": {
@@ -1107,7 +1113,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This operation allows you to request changes in your entities.</p>",
+        "smithy.api#documentation": "<p>This operation allows you to request changes for your entities. Within a single\n            ChangeSet, you cannot start the same change type against the same entity multiple times.\n            Additionally, when a ChangeSet is running, all the entities targeted by the different\n            changes are locked until the ChangeSet has completed (either succeeded, cancelled, or failed). If \n            you try to start a ChangeSet containing a change against an entity that is already\n            locked, you will receive a <code>ResourceInUseException</code>.</p>\n\n\n        <p>For example, you cannot start the ChangeSet described in the <a href=\"https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples\">example</a> below because it contains two changes to execute the same change\n            type (<code>AddRevisions</code>) against the same entity\n            (<code>entity-id@1)</code>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/StartChangeSet",
@@ -1118,13 +1124,6 @@
     "com.amazonaws.marketplacecatalog#StartChangeSetRequest": {
       "type": "structure",
       "members": {
-        "Catalog": {
-          "target": "com.amazonaws.marketplacecatalog#Catalog",
-          "traits": {
-            "smithy.api#documentation": "<p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>\n         </p>",
-            "smithy.api#required": {}
-          }
-        },
         "ChangeSet": {
           "target": "com.amazonaws.marketplacecatalog#RequestedChangeList",
           "traits": {
@@ -1143,22 +1142,29 @@
           "traits": {
             "smithy.api#documentation": "<p>A unique token to identify the request to ensure idempotency.</p>"
           }
+        },
+        "Catalog": {
+          "target": "com.amazonaws.marketplacecatalog#Catalog",
+          "traits": {
+            "smithy.api#documentation": "<p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>\n         </p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.marketplacecatalog#StartChangeSetResponse": {
       "type": "structure",
       "members": {
-        "ChangeSetArn": {
-          "target": "com.amazonaws.marketplacecatalog#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN associated to the unique identifier generated for the request.</p>"
-          }
-        },
         "ChangeSetId": {
           "target": "com.amazonaws.marketplacecatalog#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>Unique identifier generated for the request.</p>"
+          }
+        },
+        "ChangeSetArn": {
+          "target": "com.amazonaws.marketplacecatalog#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN associated to the unique identifier generated for the request.</p>"
           }
         }
       }

@@ -3864,13 +3864,6 @@ const serializeAws_queryActionsList = (input: string[], context: __SerdeContext)
 
 const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AWSAccountId !== undefined) {
-    const memberEntries = serializeAws_queryDelegatesList(input.AWSAccountId, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `AWSAccountId.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.ActionName !== undefined) {
     const memberEntries = serializeAws_queryActionsList(input.ActionName, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3878,11 +3871,18 @@ const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context
       entries[loc] = value;
     });
   }
-  if (input.Label !== undefined) {
-    entries["Label"] = input.Label;
-  }
   if (input.TopicArn !== undefined) {
     entries["TopicArn"] = input.TopicArn;
+  }
+  if (input.AWSAccountId !== undefined) {
+    const memberEntries = serializeAws_queryDelegatesList(input.AWSAccountId, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AWSAccountId.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Label !== undefined) {
+    entries["Label"] = input.Label;
   }
   return entries;
 };
@@ -3900,11 +3900,11 @@ const serializeAws_queryCheckIfPhoneNumberIsOptedOutInput = (
 
 const serializeAws_queryConfirmSubscriptionInput = (input: ConfirmSubscriptionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AuthenticateOnUnsubscribe !== undefined) {
-    entries["AuthenticateOnUnsubscribe"] = input.AuthenticateOnUnsubscribe;
-  }
   if (input.Token !== undefined) {
     entries["Token"] = input.Token;
+  }
+  if (input.AuthenticateOnUnsubscribe !== undefined) {
+    entries["AuthenticateOnUnsubscribe"] = input.AuthenticateOnUnsubscribe;
   }
   if (input.TopicArn !== undefined) {
     entries["TopicArn"] = input.TopicArn;
@@ -3924,11 +3924,11 @@ const serializeAws_queryCreatePlatformApplicationInput = (
       entries[loc] = value;
     });
   }
-  if (input.Name !== undefined) {
-    entries["Name"] = input.Name;
-  }
   if (input.Platform !== undefined) {
     entries["Platform"] = input.Platform;
+  }
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
   }
   return entries;
 };
@@ -3945,11 +3945,11 @@ const serializeAws_queryCreatePlatformEndpointInput = (
       entries[loc] = value;
     });
   }
-  if (input.CustomUserData !== undefined) {
-    entries["CustomUserData"] = input.CustomUserData;
-  }
   if (input.PlatformApplicationArn !== undefined) {
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
+  }
+  if (input.CustomUserData !== undefined) {
+    entries["CustomUserData"] = input.CustomUserData;
   }
   if (input.Token !== undefined) {
     entries["Token"] = input.Token;
@@ -3959,6 +3959,13 @@ const serializeAws_queryCreatePlatformEndpointInput = (
 
 const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.Attributes !== undefined) {
     const memberEntries = serializeAws_queryTopicAttributesMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3968,13 +3975,6 @@ const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __
   }
   if (input.Name !== undefined) {
     entries["Name"] = input.Name;
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
   }
   return entries;
 };
@@ -4074,11 +4074,11 @@ const serializeAws_queryListEndpointsByPlatformApplicationInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
   if (input.PlatformApplicationArn !== undefined) {
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -4186,14 +4186,14 @@ const serializeAws_queryMessageAttributeMap = (
 
 const serializeAws_queryMessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.BinaryValue !== undefined) {
-    entries["BinaryValue"] = context.base64Encoder(input.BinaryValue);
+  if (input.StringValue !== undefined) {
+    entries["StringValue"] = input.StringValue;
   }
   if (input.DataType !== undefined) {
     entries["DataType"] = input.DataType;
   }
-  if (input.StringValue !== undefined) {
-    entries["StringValue"] = input.StringValue;
+  if (input.BinaryValue !== undefined) {
+    entries["BinaryValue"] = context.base64Encoder(input.BinaryValue);
   }
   return entries;
 };
@@ -4211,6 +4211,12 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
   if (input.Message !== undefined) {
     entries["Message"] = input.Message;
   }
+  if (input.Subject !== undefined) {
+    entries["Subject"] = input.Subject;
+  }
+  if (input.TargetArn !== undefined) {
+    entries["TargetArn"] = input.TargetArn;
+  }
   if (input.MessageAttributes !== undefined) {
     const memberEntries = serializeAws_queryMessageAttributeMap(input.MessageAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4218,17 +4224,11 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
       entries[loc] = value;
     });
   }
-  if (input.MessageStructure !== undefined) {
-    entries["MessageStructure"] = input.MessageStructure;
-  }
   if (input.PhoneNumber !== undefined) {
     entries["PhoneNumber"] = input.PhoneNumber;
   }
-  if (input.Subject !== undefined) {
-    entries["Subject"] = input.Subject;
-  }
-  if (input.TargetArn !== undefined) {
-    entries["TargetArn"] = input.TargetArn;
+  if (input.MessageStructure !== undefined) {
+    entries["MessageStructure"] = input.MessageStructure;
   }
   if (input.TopicArn !== undefined) {
     entries["TopicArn"] = input.TopicArn;
@@ -4238,11 +4238,11 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
 
 const serializeAws_queryRemovePermissionInput = (input: RemovePermissionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Label !== undefined) {
-    entries["Label"] = input.Label;
-  }
   if (input.TopicArn !== undefined) {
     entries["TopicArn"] = input.TopicArn;
+  }
+  if (input.Label !== undefined) {
+    entries["Label"] = input.Label;
   }
   return entries;
 };
@@ -4252,15 +4252,15 @@ const serializeAws_querySetEndpointAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.EndpointArn !== undefined) {
+    entries["EndpointArn"] = input.EndpointArn;
+  }
   if (input.Attributes !== undefined) {
     const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.EndpointArn !== undefined) {
-    entries["EndpointArn"] = input.EndpointArn;
   }
   return entries;
 };
@@ -4270,15 +4270,15 @@ const serializeAws_querySetPlatformApplicationAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.PlatformApplicationArn !== undefined) {
+    entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
+  }
   if (input.Attributes !== undefined) {
     const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.PlatformApplicationArn !== undefined) {
-    entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
   }
   return entries;
 };
@@ -4300,52 +4300,52 @@ const serializeAws_querySetSubscriptionAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.SubscriptionArn !== undefined) {
+    entries["SubscriptionArn"] = input.SubscriptionArn;
+  }
   if (input.AttributeName !== undefined) {
     entries["AttributeName"] = input.AttributeName;
   }
   if (input.AttributeValue !== undefined) {
     entries["AttributeValue"] = input.AttributeValue;
-  }
-  if (input.SubscriptionArn !== undefined) {
-    entries["SubscriptionArn"] = input.SubscriptionArn;
   }
   return entries;
 };
 
 const serializeAws_querySetTopicAttributesInput = (input: SetTopicAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AttributeName !== undefined) {
-    entries["AttributeName"] = input.AttributeName;
+  if (input.TopicArn !== undefined) {
+    entries["TopicArn"] = input.TopicArn;
   }
   if (input.AttributeValue !== undefined) {
     entries["AttributeValue"] = input.AttributeValue;
   }
-  if (input.TopicArn !== undefined) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input.AttributeName !== undefined) {
+    entries["AttributeName"] = input.AttributeName;
   }
   return entries;
 };
 
 const serializeAws_querySubscribeInput = (input: SubscribeInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.TopicArn !== undefined) {
+    entries["TopicArn"] = input.TopicArn;
+  }
+  if (input.Protocol !== undefined) {
+    entries["Protocol"] = input.Protocol;
+  }
+  if (input.Endpoint !== undefined) {
+    entries["Endpoint"] = input.Endpoint;
+  }
+  if (input.ReturnSubscriptionArn !== undefined) {
+    entries["ReturnSubscriptionArn"] = input.ReturnSubscriptionArn;
+  }
   if (input.Attributes !== undefined) {
     const memberEntries = serializeAws_querySubscriptionAttributesMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.Endpoint !== undefined) {
-    entries["Endpoint"] = input.Endpoint;
-  }
-  if (input.Protocol !== undefined) {
-    entries["Protocol"] = input.Protocol;
-  }
-  if (input.ReturnSubscriptionArn !== undefined) {
-    entries["ReturnSubscriptionArn"] = input.ReturnSubscriptionArn;
-  }
-  if (input.TopicArn !== undefined) {
-    entries["TopicArn"] = input.TopicArn;
   }
   return entries;
 };
@@ -4400,15 +4400,15 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
 
 const serializeAws_queryTagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn !== undefined) {
-    entries["ResourceArn"] = input.ResourceArn;
-  }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.ResourceArn !== undefined) {
+    entries["ResourceArn"] = input.ResourceArn;
   }
   return entries;
 };
@@ -4434,15 +4434,15 @@ const serializeAws_queryUnsubscribeInput = (input: UnsubscribeInput, context: __
 
 const serializeAws_queryUntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn !== undefined) {
-    entries["ResourceArn"] = input.ResourceArn;
-  }
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.ResourceArn !== undefined) {
+    entries["ResourceArn"] = input.ResourceArn;
   }
   return entries;
 };
@@ -4819,9 +4819,12 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
 ): ListEndpointsByPlatformApplicationResponse => {
   let contents: any = {
     __type: "ListEndpointsByPlatformApplicationResponse",
-    Endpoints: undefined,
     NextToken: undefined,
+    Endpoints: undefined,
   };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   if (output.Endpoints === "") {
     contents.Endpoints = [];
   }
@@ -4830,9 +4833,6 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
       __getArrayIfSingleItem(output["Endpoints"]["member"]),
       context
     );
-  }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -4964,17 +4964,17 @@ const deserializeAws_queryListTagsForResourceResponse = (
 const deserializeAws_queryListTopicsResponse = (output: any, context: __SerdeContext): ListTopicsResponse => {
   let contents: any = {
     __type: "ListTopicsResponse",
-    NextToken: undefined,
     Topics: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.Topics === "") {
     contents.Topics = [];
   }
   if (output["Topics"] !== undefined && output["Topics"]["member"] !== undefined) {
     contents.Topics = deserializeAws_queryTopicsList(__getArrayIfSingleItem(output["Topics"]["member"]), context);
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -5109,23 +5109,23 @@ const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeCont
 const deserializeAws_querySubscription = (output: any, context: __SerdeContext): Subscription => {
   let contents: any = {
     __type: "Subscription",
-    Endpoint: undefined,
-    Owner: undefined,
     Protocol: undefined,
+    Owner: undefined,
     SubscriptionArn: undefined,
+    Endpoint: undefined,
     TopicArn: undefined,
   };
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = output["Endpoint"];
+  if (output["Protocol"] !== undefined) {
+    contents.Protocol = output["Protocol"];
   }
   if (output["Owner"] !== undefined) {
     contents.Owner = output["Owner"];
   }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = output["Protocol"];
-  }
   if (output["SubscriptionArn"] !== undefined) {
     contents.SubscriptionArn = output["SubscriptionArn"];
+  }
+  if (output["Endpoint"] !== undefined) {
+    contents.Endpoint = output["Endpoint"];
   }
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = output["TopicArn"];

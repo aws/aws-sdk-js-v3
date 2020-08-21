@@ -27,14 +27,14 @@ export interface ApprovalThresholdPolicy {
   ProposalDurationInHours?: number;
 
   /**
-   * <p>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</p>
-   */
-  ThresholdComparator?: ThresholdComparator | string;
-
-  /**
    * <p>The percentage of votes among all members that must be <code>YES</code> for a proposal to be approved. For example, a <code>ThresholdPercentage</code> value of <code>50</code> indicates 50%. The <code>ThresholdComparator</code> determines the precise comparison. If a <code>ThresholdPercentage</code> value of <code>50</code> is specified on a network with 10 members, along with a <code>ThresholdComparator</code> value of <code>GREATER_THAN</code>, this indicates that 6 <code>YES</code> votes are required for the proposal to be approved.</p>
    */
   ThresholdPercentage?: number;
+
+  /**
+   * <p>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</p>
+   */
+  ThresholdComparator?: ThresholdComparator | string;
 }
 
 export namespace ApprovalThresholdPolicy {
@@ -47,14 +47,9 @@ export namespace ApprovalThresholdPolicy {
 export interface CreateMemberInput {
   __type?: "CreateMemberInput";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
+   * <p>The unique identifier of the network in which the member is created.</p>
    */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The unique identifier of the invitation that is sent to the member to join the network.</p>
-   */
-  InvitationId: string | undefined;
+  NetworkId: string | undefined;
 
   /**
    * <p>Member configuration parameters.</p>
@@ -62,9 +57,14 @@ export interface CreateMemberInput {
   MemberConfiguration: MemberConfiguration | undefined;
 
   /**
-   * <p>The unique identifier of the network in which the member is created.</p>
+   * <p>The unique identifier of the invitation that is sent to the member to join the network.</p>
    */
-  NetworkId: string | undefined;
+  InvitationId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
+   */
+  ClientRequestToken?: string;
 }
 
 export namespace CreateMemberInput {
@@ -105,6 +105,23 @@ export interface CreateNetworkInput {
   Description?: string;
 
   /**
+   * <p>The name of the network.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Configuration properties for the first member within the network.</p>
+   */
+  MemberConfiguration: MemberConfiguration | undefined;
+
+  /**
+   * <p>
+   *          The voting rules used by the network to determine if a proposal is approved.
+   *       </p>
+   */
+  VotingPolicy: VotingPolicy | undefined;
+
+  /**
    * <p>The blockchain framework that the network uses.</p>
    */
   Framework: Framework | string | undefined;
@@ -120,23 +137,6 @@ export interface CreateNetworkInput {
    * <p>The version of the blockchain framework that the network uses.</p>
    */
   FrameworkVersion: string | undefined;
-
-  /**
-   * <p>Configuration properties for the first member within the network.</p>
-   */
-  MemberConfiguration: MemberConfiguration | undefined;
-
-  /**
-   * <p>The name of the network.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>
-   *          The voting rules used by the network to determine if a proposal is approved.
-   *       </p>
-   */
-  VotingPolicy: VotingPolicy | undefined;
 }
 
 export namespace CreateNetworkInput {
@@ -152,14 +152,14 @@ export namespace CreateNetworkInput {
 export interface CreateNetworkOutput {
   __type?: "CreateNetworkOutput";
   /**
-   * <p>The unique identifier for the first member within the network.</p>
-   */
-  MemberId?: string;
-
-  /**
    * <p>The unique identifier for the network.</p>
    */
   NetworkId?: string;
+
+  /**
+   * <p>The unique identifier for the first member within the network.</p>
+   */
+  MemberId?: string;
 }
 
 export namespace CreateNetworkOutput {
@@ -182,14 +182,14 @@ export interface CreateNodeInput {
   MemberId: string | undefined;
 
   /**
-   * <p>The unique identifier of the network in which this node runs.</p>
-   */
-  NetworkId: string | undefined;
-
-  /**
    * <p>The properties of a node configuration.</p>
    */
   NodeConfiguration: NodeConfiguration | undefined;
+
+  /**
+   * <p>The unique identifier of the network in which this node runs.</p>
+   */
+  NetworkId: string | undefined;
 }
 
 export namespace CreateNodeInput {
@@ -217,9 +217,15 @@ export namespace CreateNodeOutput {
 export interface CreateProposalInput {
   __type?: "CreateProposalInput";
   /**
-   * <p>The type of actions proposed, such as inviting a member or removing a member. The types of <code>Actions</code> in a proposal are mutually exclusive. For example, a proposal with <code>Invitations</code> actions cannot also contain <code>Removals</code> actions.</p>
+   * <p>A description for the proposal that is visible to voting members, for example, "Proposal to add Example Corp. as member."</p>
    */
-  Actions: ProposalActions | undefined;
+  Description?: string;
+
+  /**
+   * <p>
+   *          The unique identifier of the network for which the proposal is made.</p>
+   */
+  NetworkId: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
@@ -227,20 +233,14 @@ export interface CreateProposalInput {
   ClientRequestToken?: string;
 
   /**
-   * <p>A description for the proposal that is visible to voting members, for example, "Proposal to add Example Corp. as member."</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single AWS account.</p>
    */
   MemberId: string | undefined;
 
   /**
-   * <p>
-   *          The unique identifier of the network for which the proposal is made.</p>
+   * <p>The type of actions proposed, such as inviting a member or removing a member. The types of <code>Actions</code> in a proposal are mutually exclusive. For example, a proposal with <code>Invitations</code> actions cannot also contain <code>Removals</code> actions.</p>
    */
-  NetworkId: string | undefined;
+  Actions: ProposalActions | undefined;
 }
 
 export namespace CreateProposalInput {
@@ -268,14 +268,14 @@ export namespace CreateProposalOutput {
 export interface DeleteMemberInput {
   __type?: "DeleteMemberInput";
   /**
-   * <p>The unique identifier of the member to remove.</p>
-   */
-  MemberId: string | undefined;
-
-  /**
    * <p>The unique identifier of the network from which the member is removed.</p>
    */
   NetworkId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the member to remove.</p>
+   */
+  MemberId: string | undefined;
 }
 
 export namespace DeleteMemberInput {
@@ -299,11 +299,6 @@ export namespace DeleteMemberOutput {
 export interface DeleteNodeInput {
   __type?: "DeleteNodeInput";
   /**
-   * <p>The unique identifier of the member that owns this node.</p>
-   */
-  MemberId: string | undefined;
-
-  /**
    * <p>The unique identifier of the network that the node belongs to.</p>
    */
   NetworkId: string | undefined;
@@ -312,6 +307,11 @@ export interface DeleteNodeInput {
    * <p>The unique identifier of the node.</p>
    */
   NodeId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the member that owns this node.</p>
+   */
+  MemberId: string | undefined;
 }
 
 export namespace DeleteNodeInput {
@@ -409,6 +409,11 @@ export namespace GetNetworkOutput {
 export interface GetNodeInput {
   __type?: "GetNodeInput";
   /**
+   * <p>The unique identifier of the node.</p>
+   */
+  NodeId: string | undefined;
+
+  /**
    * <p>The unique identifier of the member that owns the node.</p>
    */
   MemberId: string | undefined;
@@ -417,11 +422,6 @@ export interface GetNodeInput {
    * <p>The unique identifier of the network to which the node belongs.</p>
    */
   NetworkId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the node.</p>
-   */
-  NodeId: string | undefined;
 }
 
 export namespace GetNodeInput {
@@ -449,14 +449,14 @@ export namespace GetNodeOutput {
 export interface GetProposalInput {
   __type?: "GetProposalInput";
   /**
-   * <p>The unique identifier of the network for which the proposal is made.</p>
-   */
-  NetworkId: string | undefined;
-
-  /**
    * <p>The unique identifier of the proposal.</p>
    */
   ProposalId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network for which the proposal is made.</p>
+   */
+  NetworkId: string | undefined;
 }
 
 export namespace GetProposalInput {
@@ -534,19 +534,14 @@ export namespace InvalidRequestException {
 export interface Invitation {
   __type?: "Invitation";
   /**
-   * <p>The date and time that the invitation was created.</p>
-   */
-  CreationDate?: Date;
-
-  /**
    * <p>The date and time that the invitation expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, the invitee can no longer create a member and join the network using this <code>InvitationId</code>.</p>
    */
   ExpirationDate?: Date;
 
   /**
-   * <p>The unique identifier for the invitation.</p>
+   * <p>The date and time that the invitation was created.</p>
    */
-  InvitationId?: string;
+  CreationDate?: Date;
 
   /**
    * <p>A summary of network configuration properties.</p>
@@ -579,6 +574,11 @@ export interface Invitation {
    *          </ul>
    */
   Status?: InvitationStatus | string;
+
+  /**
+   * <p>The unique identifier for the invitation.</p>
+   */
+  InvitationId?: string;
 }
 
 export namespace Invitation {
@@ -657,21 +657,9 @@ export namespace ListInvitationsOutput {
 export interface ListMembersInput {
   __type?: "ListMembersInput";
   /**
-   * <p>An optional Boolean value. If provided, the request is limited either to
-   *          members that the current AWS account owns (<code>true</code>) or that other AWS accounts
-   *          own (<code>false</code>). If omitted, all members are listed.</p>
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
-  IsOwned?: boolean;
-
-  /**
-   * <p>The maximum number of members to return in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The optional name of the member to list.</p>
-   */
-  Name?: string;
+  NextToken?: string;
 
   /**
    * <p>The unique identifier of the network for which to list members.</p>
@@ -679,9 +667,21 @@ export interface ListMembersInput {
   NetworkId: string | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * <p>An optional Boolean value. If provided, the request is limited either to
+   *          members that the current AWS account owns (<code>true</code>) or that other AWS accounts
+   *          own (<code>false</code>). If omitted, all members are listed.</p>
    */
-  NextToken?: string;
+  IsOwned?: boolean;
+
+  /**
+   * <p>The optional name of the member to list.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The maximum number of members to return in the request.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>An optional status specifier. If provided, only members currently in this status are listed.</p>
@@ -699,14 +699,14 @@ export namespace ListMembersInput {
 export interface ListMembersOutput {
   __type?: "ListMembersOutput";
   /**
-   * <p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>
-   */
-  Members?: MemberSummary[];
-
-  /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>
+   */
+  Members?: MemberSummary[];
 }
 
 export namespace ListMembersOutput {
@@ -719,14 +719,14 @@ export namespace ListMembersOutput {
 export interface ListNetworksInput {
   __type?: "ListNetworksInput";
   /**
+   * <p>An optional status specifier. If provided, only networks currently in this status are listed.</p>
+   */
+  Status?: NetworkStatus | string;
+
+  /**
    * <p>An optional framework specifier. If provided, only networks of this framework type are listed.</p>
    */
   Framework?: Framework | string;
-
-  /**
-   * <p>The maximum number of networks to list.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The name of the network.</p>
@@ -734,14 +734,14 @@ export interface ListNetworksInput {
   Name?: string;
 
   /**
+   * <p>The maximum number of networks to list.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>An optional status specifier. If provided, only networks currently in this status are listed.</p>
-   */
-  Status?: NetworkStatus | string;
 }
 
 export namespace ListNetworksInput {
@@ -754,14 +754,14 @@ export namespace ListNetworksInput {
 export interface ListNetworksOutput {
   __type?: "ListNetworksOutput";
   /**
-   * <p>An array of <code>NetworkSummary</code> objects that contain configuration properties for each network.</p>
-   */
-  Networks?: NetworkSummary[];
-
-  /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of <code>NetworkSummary</code> objects that contain configuration properties for each network.</p>
+   */
+  Networks?: NetworkSummary[];
 }
 
 export namespace ListNetworksOutput {
@@ -774,14 +774,14 @@ export namespace ListNetworksOutput {
 export interface ListNodesInput {
   __type?: "ListNodesInput";
   /**
-   * <p>The maximum number of nodes to list.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The unique identifier of the member who owns the nodes to list.</p>
    */
   MemberId: string | undefined;
+
+  /**
+   * <p>An optional status specifier. If provided, only nodes currently in this status are listed.</p>
+   */
+  Status?: NodeStatus | string;
 
   /**
    * <p>The unique identifier of the network for which to list nodes.</p>
@@ -794,9 +794,9 @@ export interface ListNodesInput {
   NextToken?: string;
 
   /**
-   * <p>An optional status specifier. If provided, only nodes currently in this status are listed.</p>
+   * <p>The maximum number of nodes to list.</p>
    */
-  Status?: NodeStatus | string;
+  MaxResults?: number;
 }
 
 export namespace ListNodesInput {
@@ -809,14 +809,14 @@ export namespace ListNodesInput {
 export interface ListNodesOutput {
   __type?: "ListNodesOutput";
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>An array of <code>NodeSummary</code> objects that contain configuration properties for each node.</p>
    */
   Nodes?: NodeSummary[];
+
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListNodesOutput {
@@ -830,13 +830,6 @@ export interface ListProposalsInput {
   __type?: "ListProposalsInput";
   /**
    * <p>
-   *          The maximum number of proposals to return.
-   *       </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>
    *          The unique identifier of the network.
    *       </p>
    */
@@ -848,6 +841,13 @@ export interface ListProposalsInput {
    *       </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>
+   *          The maximum number of proposals to return.
+   *       </p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListProposalsInput {
@@ -860,14 +860,14 @@ export namespace ListProposalsInput {
 export interface ListProposalsOutput {
   __type?: "ListProposalsOutput";
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The summary of each proposal made on the network.</p>
    */
   Proposals?: ProposalSummary[];
+
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListProposalsOutput {
@@ -881,13 +881,6 @@ export interface ListProposalVotesInput {
   __type?: "ListProposalVotesInput";
   /**
    * <p>
-   *          The maximum number of votes to return.
-   *       </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>
    *          The unique identifier of the network.
    *       </p>
    */
@@ -899,6 +892,13 @@ export interface ListProposalVotesInput {
    *       </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>
+   *          The maximum number of votes to return.
+   *       </p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>
@@ -940,14 +940,50 @@ export namespace ListProposalVotesOutput {
 }
 
 /**
+ * <p>A configuration for logging events.</p>
+ */
+export interface LogConfiguration {
+  __type?: "LogConfiguration";
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace LogConfiguration {
+  export const filterSensitiveLog = (obj: LogConfiguration): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is LogConfiguration => __isa(o, "LogConfiguration");
+}
+
+/**
+ * <p>A collection of log configurations.</p>
+ */
+export interface LogConfigurations {
+  __type?: "LogConfigurations";
+  /**
+   * <p>Parameters for publishing logs to Amazon CloudWatch Logs.</p>
+   */
+  Cloudwatch?: LogConfiguration;
+}
+
+export namespace LogConfigurations {
+  export const filterSensitiveLog = (obj: LogConfigurations): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is LogConfigurations => __isa(o, "LogConfigurations");
+}
+
+/**
  * <p>Member configuration properties.</p>
  */
 export interface Member {
   __type?: "Member";
   /**
-   * <p>The date and time that the member was created.</p>
+   * <p>The unique identifier of the member.</p>
    */
-  CreationDate?: Date;
+  Id?: string;
 
   /**
    * <p>An optional description for the member.</p>
@@ -955,24 +991,24 @@ export interface Member {
   Description?: string;
 
   /**
-   * <p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
-   */
-  FrameworkAttributes?: MemberFrameworkAttributes;
-
-  /**
-   * <p>The unique identifier of the member.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The name of the member.</p>
    */
   Name?: string;
 
   /**
+   * <p>Configuration properties for logging events associated with a member.</p>
+   */
+  LogPublishingConfiguration?: MemberLogPublishingConfiguration;
+
+  /**
    * <p>The unique identifier of the network to which the member belongs.</p>
    */
   NetworkId?: string;
+
+  /**
+   * <p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
+   */
+  FrameworkAttributes?: MemberFrameworkAttributes;
 
   /**
    * <p>The status of a member.</p>
@@ -1002,6 +1038,11 @@ export interface Member {
    *          </ul>
    */
   Status?: MemberStatus | string;
+
+  /**
+   * <p>The date and time that the member was created.</p>
+   */
+  CreationDate?: Date;
 }
 
 export namespace Member {
@@ -1017,19 +1058,24 @@ export namespace Member {
 export interface MemberConfiguration {
   __type?: "MemberConfiguration";
   /**
-   * <p>An optional description of the member.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>Configuration properties of the blockchain framework relevant to the member.</p>
    */
   FrameworkConfiguration: MemberFrameworkConfiguration | undefined;
 
   /**
+   * <p>An optional description of the member.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The name of the member.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p></p>
+   */
+  LogPublishingConfiguration?: MemberLogPublishingConfiguration;
 }
 
 export namespace MemberConfiguration {
@@ -1090,6 +1136,25 @@ export namespace MemberFabricConfiguration {
 }
 
 /**
+ * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
+ */
+export interface MemberFabricLogPublishingConfiguration {
+  __type?: "MemberFabricLogPublishingConfiguration";
+  /**
+   * <p>Configuration properties for logging events associated with a member's Certificate Authority (CA). CA logs help you determine when a member in your account joins the network, or when new peers register with a member CA.</p>
+   */
+  CaLogs?: LogConfigurations;
+}
+
+export namespace MemberFabricLogPublishingConfiguration {
+  export const filterSensitiveLog = (obj: MemberFabricLogPublishingConfiguration): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is MemberFabricLogPublishingConfiguration =>
+    __isa(o, "MemberFabricLogPublishingConfiguration");
+}
+
+/**
  * <p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
  */
 export interface MemberFrameworkAttributes {
@@ -1126,12 +1191,31 @@ export namespace MemberFrameworkConfiguration {
   export const isa = (o: any): o is MemberFrameworkConfiguration => __isa(o, "MemberFrameworkConfiguration");
 }
 
+/**
+ * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network.</p>
+ */
+export interface MemberLogPublishingConfiguration {
+  __type?: "MemberLogPublishingConfiguration";
+  /**
+   * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
+   */
+  Fabric?: MemberFabricLogPublishingConfiguration;
+}
+
+export namespace MemberLogPublishingConfiguration {
+  export const filterSensitiveLog = (obj: MemberLogPublishingConfiguration): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is MemberLogPublishingConfiguration => __isa(o, "MemberLogPublishingConfiguration");
+}
+
 export enum MemberStatus {
   AVAILABLE = "AVAILABLE",
   CREATE_FAILED = "CREATE_FAILED",
   CREATING = "CREATING",
   DELETED = "DELETED",
   DELETING = "DELETING",
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -1139,21 +1223,6 @@ export enum MemberStatus {
  */
 export interface MemberSummary {
   __type?: "MemberSummary";
-  /**
-   * <p>The date and time that the member was created.</p>
-   */
-  CreationDate?: Date;
-
-  /**
-   * <p>An optional description of the member.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The unique identifier of the member.</p>
-   */
-  Id?: string;
-
   /**
    * <p>An indicator of whether the member is owned by your AWS account or a different AWS account.</p>
    */
@@ -1163,6 +1232,11 @@ export interface MemberSummary {
    * <p>The name of the member.</p>
    */
   Name?: string;
+
+  /**
+   * <p>An optional description of the member.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The status of the member.</p>
@@ -1192,6 +1266,16 @@ export interface MemberSummary {
    *          </ul>
    */
   Status?: MemberStatus | string;
+
+  /**
+   * <p>The unique identifier of the member.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The date and time that the member was created.</p>
+   */
+  CreationDate?: Date;
 }
 
 export namespace MemberSummary {
@@ -1207,46 +1291,6 @@ export namespace MemberSummary {
 export interface Network {
   __type?: "Network";
   /**
-   * <p>The date and time that the network was created.</p>
-   */
-  CreationDate?: Date;
-
-  /**
-   * <p>Attributes of the blockchain framework for the network.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The blockchain framework that the network uses.</p>
-   */
-  Framework?: Framework | string;
-
-  /**
-   * <p>Attributes of the blockchain framework that the network uses.</p>
-   */
-  FrameworkAttributes?: NetworkFrameworkAttributes;
-
-  /**
-   * <p>The version of the blockchain framework that the network uses.</p>
-   */
-  FrameworkVersion?: string;
-
-  /**
-   * <p>The unique identifier of the network.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the network.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The current status of the network.</p>
-   */
-  Status?: NetworkStatus | string;
-
-  /**
    * <p>The voting rules for the network to decide if a proposal is accepted.</p>
    */
   VotingPolicy?: VotingPolicy;
@@ -1255,6 +1299,46 @@ export interface Network {
    * <p>The VPC endpoint service name of the VPC endpoint service of the network. Members use the VPC endpoint service name to create a VPC endpoint to access network resources.</p>
    */
   VpcEndpointServiceName?: string;
+
+  /**
+   * <p>Attributes of the blockchain framework that the network uses.</p>
+   */
+  FrameworkAttributes?: NetworkFrameworkAttributes;
+
+  /**
+   * <p>The current status of the network.</p>
+   */
+  Status?: NetworkStatus | string;
+
+  /**
+   * <p>The name of the network.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The blockchain framework that the network uses.</p>
+   */
+  Framework?: Framework | string;
+
+  /**
+   * <p>The unique identifier of the network.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>Attributes of the blockchain framework for the network.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The version of the blockchain framework that the network uses.</p>
+   */
+  FrameworkVersion?: string;
+
+  /**
+   * <p>The date and time that the network was created.</p>
+   */
+  CreationDate?: Date;
 }
 
 export namespace Network {
@@ -1270,14 +1354,14 @@ export namespace Network {
 export interface NetworkFabricAttributes {
   __type?: "NetworkFabricAttributes";
   /**
-   * <p>The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see <a href="https://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
-   */
-  Edition?: Edition | string;
-
-  /**
    * <p>The endpoint of the ordering service for the network.</p>
    */
   OrderingServiceEndpoint?: string;
+
+  /**
+   * <p>The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
+   */
+  Edition?: Edition | string;
 }
 
 export namespace NetworkFabricAttributes {
@@ -1293,7 +1377,7 @@ export namespace NetworkFabricAttributes {
 export interface NetworkFabricConfiguration {
   __type?: "NetworkFabricConfiguration";
   /**
-   * <p>The edition of Amazon Managed Blockchain that the network uses. For more information, see <a href="https://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
+   * <p>The edition of Amazon Managed Blockchain that the network uses. For more information, see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
    */
   Edition: Edition | string | undefined;
 }
@@ -1359,19 +1443,9 @@ export enum NetworkStatus {
 export interface NetworkSummary {
   __type?: "NetworkSummary";
   /**
-   * <p>The date and time that the network was created.</p>
+   * <p>The unique identifier of the network.</p>
    */
-  CreationDate?: Date;
-
-  /**
-   * <p>An optional description of the network.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The blockchain framework that the network uses.</p>
-   */
-  Framework?: Framework | string;
+  Id?: string;
 
   /**
    * <p>The version of the blockchain framework that the network uses.</p>
@@ -1379,9 +1453,19 @@ export interface NetworkSummary {
   FrameworkVersion?: string;
 
   /**
-   * <p>The unique identifier of the network.</p>
+   * <p>The date and time that the network was created.</p>
    */
-  Id?: string;
+  CreationDate?: Date;
+
+  /**
+   * <p>The current status of the network.</p>
+   */
+  Status?: NetworkStatus | string;
+
+  /**
+   * <p>An optional description of the network.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The name of the network.</p>
@@ -1389,9 +1473,9 @@ export interface NetworkSummary {
   Name?: string;
 
   /**
-   * <p>The current status of the network.</p>
+   * <p>The blockchain framework that the network uses.</p>
    */
-  Status?: NetworkStatus | string;
+  Framework?: Framework | string;
 }
 
 export namespace NetworkSummary {
@@ -1407,6 +1491,36 @@ export namespace NetworkSummary {
 export interface Node {
   __type?: "Node";
   /**
+   * <p>The instance type of the node.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The unique identifier of the node.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p></p>
+   */
+  LogPublishingConfiguration?: NodeLogPublishingConfiguration;
+
+  /**
+   * <p>The unique identifier of the network that the node is in.</p>
+   */
+  NetworkId?: string;
+
+  /**
+   * <p>Attributes of the blockchain framework being used.</p>
+   */
+  FrameworkAttributes?: NodeFrameworkAttributes;
+
+  /**
+   * <p>The unique identifier of the member to which the node belongs.</p>
+   */
+  MemberId?: string;
+
+  /**
    * <p>The Availability Zone in which the node exists.</p>
    */
   AvailabilityZone?: string;
@@ -1415,31 +1529,6 @@ export interface Node {
    * <p>The date and time that the node was created.</p>
    */
   CreationDate?: Date;
-
-  /**
-   * <p>Attributes of the blockchain framework being used.</p>
-   */
-  FrameworkAttributes?: NodeFrameworkAttributes;
-
-  /**
-   * <p>The unique identifier of the node.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The instance type of the node.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The unique identifier of the member to which the node belongs.</p>
-   */
-  MemberId?: string;
-
-  /**
-   * <p>The unique identifier of the network that the node is in.</p>
-   */
-  NetworkId?: string;
 
   /**
    * <p>The status of the node.</p>
@@ -1468,6 +1557,11 @@ export interface NodeConfiguration {
    * <p>The Amazon Managed Blockchain instance type for the node.</p>
    */
   InstanceType: string | undefined;
+
+  /**
+   * <p></p>
+   */
+  LogPublishingConfiguration?: NodeLogPublishingConfiguration;
 }
 
 export namespace NodeConfiguration {
@@ -1483,14 +1577,14 @@ export namespace NodeConfiguration {
 export interface NodeFabricAttributes {
   __type?: "NodeFabricAttributes";
   /**
-   * <p>The endpoint that identifies the peer node for all services except peer channel-based event services.</p>
-   */
-  PeerEndpoint?: string;
-
-  /**
    * <p>The endpoint that identifies the peer node for peer channel-based event services.</p>
    */
   PeerEventEndpoint?: string;
+
+  /**
+   * <p>The endpoint that identifies the peer node for all services except peer channel-based event services.</p>
+   */
+  PeerEndpoint?: string;
 }
 
 export namespace NodeFabricAttributes {
@@ -1498,6 +1592,30 @@ export namespace NodeFabricAttributes {
     ...obj,
   });
   export const isa = (o: any): o is NodeFabricAttributes => __isa(o, "NodeFabricAttributes");
+}
+
+/**
+ * <p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>
+ */
+export interface NodeFabricLogPublishingConfiguration {
+  __type?: "NodeFabricLogPublishingConfiguration";
+  /**
+   * <p>Configuration properties for a peer node log. Peer node logs contain messages generated when your client submits transaction proposals to peer nodes, requests to join channels, enrolls an admin peer, and lists the chaincode instances on a peer node. </p>
+   */
+  PeerLogs?: LogConfigurations;
+
+  /**
+   * <p>Configuration properties for logging events associated with chaincode execution on a peer node. Chaincode logs contain the results of instantiating, invoking, and querying the chaincode. A peer can run multiple instances of chaincode. When enabled, a log stream is created for all chaincodes, with an individual log stream for each chaincode.</p>
+   */
+  ChaincodeLogs?: LogConfigurations;
+}
+
+export namespace NodeFabricLogPublishingConfiguration {
+  export const filterSensitiveLog = (obj: NodeFabricLogPublishingConfiguration): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is NodeFabricLogPublishingConfiguration =>
+    __isa(o, "NodeFabricLogPublishingConfiguration");
 }
 
 /**
@@ -1518,6 +1636,24 @@ export namespace NodeFrameworkAttributes {
   export const isa = (o: any): o is NodeFrameworkAttributes => __isa(o, "NodeFrameworkAttributes");
 }
 
+/**
+ * <p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>
+ */
+export interface NodeLogPublishingConfiguration {
+  __type?: "NodeLogPublishingConfiguration";
+  /**
+   * <p>Configuration properties for logging events associated with a node that is owned by a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
+   */
+  Fabric?: NodeFabricLogPublishingConfiguration;
+}
+
+export namespace NodeLogPublishingConfiguration {
+  export const filterSensitiveLog = (obj: NodeLogPublishingConfiguration): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is NodeLogPublishingConfiguration => __isa(o, "NodeLogPublishingConfiguration");
+}
+
 export enum NodeStatus {
   AVAILABLE = "AVAILABLE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -1525,6 +1661,7 @@ export enum NodeStatus {
   DELETED = "DELETED",
   DELETING = "DELETING",
   FAILED = "FAILED",
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -1536,11 +1673,6 @@ export interface NodeSummary {
    * <p>The Availability Zone in which the node exists.</p>
    */
   AvailabilityZone?: string;
-
-  /**
-   * <p>The date and time that the node was created.</p>
-   */
-  CreationDate?: Date;
 
   /**
    * <p>The unique identifier of the node.</p>
@@ -1556,6 +1688,11 @@ export interface NodeSummary {
    * <p>The status of the node.</p>
    */
   Status?: NodeStatus | string;
+
+  /**
+   * <p>The date and time that the node was created.</p>
+   */
+  CreationDate?: Date;
 }
 
 export namespace NodeSummary {
@@ -1571,9 +1708,11 @@ export namespace NodeSummary {
 export interface Proposal {
   __type?: "Proposal";
   /**
-   * <p>The actions to perform on the network if the proposal is <code>APPROVED</code>.</p>
+   * <p>
+   *          The current total of <code>NO</code> votes cast on the proposal by members.
+   *       </p>
    */
-  Actions?: ProposalActions;
+  NoVoteCount?: number;
 
   /**
    * <p>
@@ -1583,40 +1722,11 @@ export interface Proposal {
   CreationDate?: Date;
 
   /**
-   * <p>The description of the proposal.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>
-   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.
-   *       </p>
-   */
-  ExpirationDate?: Date;
-
-  /**
-   * <p>The unique identifier of the network for which the proposal is made.</p>
-   */
-  NetworkId?: string;
-
-  /**
-   * <p>
-   *          The current total of <code>NO</code> votes cast on the proposal by members.
-   *       </p>
-   */
-  NoVoteCount?: number;
-
-  /**
    * <p>
    *          The number of votes remaining to be cast on the proposal by members. In other words, the number of members minus the sum of <code>YES</code> votes and <code>NO</code> votes.
    *       </p>
    */
   OutstandingVoteCount?: number;
-
-  /**
-   * <p>The unique identifier of the proposal.</p>
-   */
-  ProposalId?: string;
 
   /**
    * <p>The unique identifier of the member that created the proposal.</p>
@@ -1627,6 +1737,40 @@ export interface Proposal {
    * <p>The name of the member that created the proposal.</p>
    */
   ProposedByMemberName?: string;
+
+  /**
+   * <p>
+   *          The current total of <code>YES</code> votes cast on the proposal by members.
+   *       </p>
+   */
+  YesVoteCount?: number;
+
+  /**
+   * <p>The unique identifier of the network for which the proposal is made.</p>
+   */
+  NetworkId?: string;
+
+  /**
+   * <p>The description of the proposal.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The unique identifier of the proposal.</p>
+   */
+  ProposalId?: string;
+
+  /**
+   * <p>
+   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.
+   *       </p>
+   */
+  ExpirationDate?: Date;
+
+  /**
+   * <p>The actions to perform on the network if the proposal is <code>APPROVED</code>.</p>
+   */
+  Actions?: ProposalActions;
 
   /**
    * <p>The status of the proposal. Values are as follows:</p>
@@ -1649,18 +1793,11 @@ export interface Proposal {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error.</p>
+   *                   <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error. The <code>ACTION_FAILED</code> status occurs even if only one ProposalAction fails and other actions are successful.</p>
    *             </li>
    *          </ul>
    */
   Status?: ProposalStatus | string;
-
-  /**
-   * <p>
-   *          The current total of <code>YES</code> votes cast on the proposal by members.
-   *       </p>
-   */
-  YesVoteCount?: number;
 }
 
 export namespace Proposal {
@@ -1679,17 +1816,17 @@ export interface ProposalActions {
   __type?: "ProposalActions";
   /**
    * <p>
-   *          The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account to create a member and join the network.
-   *       </p>
-   */
-  Invitations?: InviteAction[];
-
-  /**
-   * <p>
    *          The actions to perform for an <code>APPROVED</code> proposal to remove a member from the network, which deletes the member and all associated member resources from the network.
    *       </p>
    */
   Removals?: RemoveAction[];
+
+  /**
+   * <p>
+   *          The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account to create a member and join the network.
+   *       </p>
+   */
+  Invitations?: InviteAction[];
 }
 
 export namespace ProposalActions {
@@ -1713,48 +1850,6 @@ export enum ProposalStatus {
 export interface ProposalSummary {
   __type?: "ProposalSummary";
   /**
-   * <p>
-   *          The date and time that the proposal was created.
-   *       </p>
-   */
-  CreationDate?: Date;
-
-  /**
-   * <p>
-   *          The description of the proposal.
-   *       </p>
-   */
-  Description?: string;
-
-  /**
-   * <p>
-   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>.  After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.
-   *       </p>
-   */
-  ExpirationDate?: Date;
-
-  /**
-   * <p>
-   *          The unique identifier of the proposal.
-   *       </p>
-   */
-  ProposalId?: string;
-
-  /**
-   * <p>
-   *          The unique identifier of the member that created the proposal.
-   *       </p>
-   */
-  ProposedByMemberId?: string;
-
-  /**
-   * <p>
-   *          The name of the member that created the proposal.
-   *       </p>
-   */
-  ProposedByMemberName?: string;
-
-  /**
    * <p>The status of the proposal. Values are as follows:</p>
    *          <ul>
    *             <li>
@@ -1780,6 +1875,48 @@ export interface ProposalSummary {
    *          </ul>
    */
   Status?: ProposalStatus | string;
+
+  /**
+   * <p>
+   *          The date and time that the proposal was created.
+   *       </p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>
+   *          The description of the proposal.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>
+   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>.  After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.
+   *       </p>
+   */
+  ExpirationDate?: Date;
+
+  /**
+   * <p>
+   *          The name of the member that created the proposal.
+   *       </p>
+   */
+  ProposedByMemberName?: string;
+
+  /**
+   * <p>
+   *          The unique identifier of the member that created the proposal.
+   *       </p>
+   */
+  ProposedByMemberId?: string;
+
+  /**
+   * <p>
+   *          The unique identifier of the proposal.
+   *       </p>
+   */
+  ProposalId?: string;
 }
 
 export namespace ProposalSummary {
@@ -1917,6 +2054,83 @@ export namespace ThrottlingException {
   export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
+export interface UpdateMemberInput {
+  __type?: "UpdateMemberInput";
+  /**
+   * <p>The unique ID of the Managed Blockchain network to which the member belongs.</p>
+   */
+  NetworkId: string | undefined;
+
+  /**
+   * <p>The unique ID of the member.</p>
+   */
+  MemberId: string | undefined;
+
+  /**
+   * <p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>
+   */
+  LogPublishingConfiguration?: MemberLogPublishingConfiguration;
+}
+
+export namespace UpdateMemberInput {
+  export const filterSensitiveLog = (obj: UpdateMemberInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateMemberInput => __isa(o, "UpdateMemberInput");
+}
+
+export interface UpdateMemberOutput {
+  __type?: "UpdateMemberOutput";
+}
+
+export namespace UpdateMemberOutput {
+  export const filterSensitiveLog = (obj: UpdateMemberOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateMemberOutput => __isa(o, "UpdateMemberOutput");
+}
+
+export interface UpdateNodeInput {
+  __type?: "UpdateNodeInput";
+  /**
+   * <p>The unique ID of the node.</p>
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p>The unique ID of the member that owns the node.</p>
+   */
+  MemberId: string | undefined;
+
+  /**
+   * <p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>
+   */
+  LogPublishingConfiguration?: NodeLogPublishingConfiguration;
+
+  /**
+   * <p>The unique ID of the Managed Blockchain network to which the node belongs.</p>
+   */
+  NetworkId: string | undefined;
+}
+
+export namespace UpdateNodeInput {
+  export const filterSensitiveLog = (obj: UpdateNodeInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateNodeInput => __isa(o, "UpdateNodeInput");
+}
+
+export interface UpdateNodeOutput {
+  __type?: "UpdateNodeOutput";
+}
+
+export namespace UpdateNodeOutput {
+  export const filterSensitiveLog = (obj: UpdateNodeOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateNodeOutput => __isa(o, "UpdateNodeOutput");
+}
+
 export interface VoteOnProposalInput {
   __type?: "VoteOnProposalInput";
   /**
@@ -1925,13 +2139,6 @@ export interface VoteOnProposalInput {
    *       </p>
    */
   NetworkId: string | undefined;
-
-  /**
-   * <p>
-   *          The unique identifier of the proposal.
-   *       </p>
-   */
-  ProposalId: string | undefined;
 
   /**
    * <p>
@@ -1945,6 +2152,13 @@ export interface VoteOnProposalInput {
    *       </p>
    */
   VoterMemberId: string | undefined;
+
+  /**
+   * <p>
+   *          The unique identifier of the proposal.
+   *       </p>
+   */
+  ProposalId: string | undefined;
 }
 
 export namespace VoteOnProposalInput {
@@ -1974,13 +2188,6 @@ export interface VoteSummary {
   __type?: "VoteSummary";
   /**
    * <p>
-   *          The unique identifier of the member that cast the vote.
-   *       </p>
-   */
-  MemberId?: string;
-
-  /**
-   * <p>
    *          The name of the member that cast the vote.
    *       </p>
    */
@@ -1992,6 +2199,13 @@ export interface VoteSummary {
    *       </p>
    */
   Vote?: VoteValue | string;
+
+  /**
+   * <p>
+   *          The unique identifier of the member that cast the vote.
+   *       </p>
+   */
+  MemberId?: string;
 }
 
 export namespace VoteSummary {

@@ -130,17 +130,17 @@
     "com.amazonaws.pricing#DescribeServicesRequest": {
       "type": "structure",
       "members": {
-        "FormatVersion": {
-          "target": "com.amazonaws.pricing#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The format version that you want the response to be in.</p>\n         <p>Valid values are: <code>aws_v1</code>\n         </p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.pricing#BoxedInteger",
           "traits": {
             "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum number of results that you want returned in the response.</p>"
+          }
+        },
+        "ServiceCode": {
+          "target": "com.amazonaws.pricing#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.\n          You can use \n         the <code>ServiceCode</code> to filter the results in a <code>GetProducts</code> call.\n      To retrieve a list of all services, leave this blank.</p>"
           }
         },
         "NextToken": {
@@ -149,10 +149,10 @@
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results that you want to retrieve.</p>"
           }
         },
-        "ServiceCode": {
+        "FormatVersion": {
           "target": "com.amazonaws.pricing#String",
           "traits": {
-            "smithy.api#documentation": "<p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.\n          You can use \n         the <code>ServiceCode</code> to filter the results in a <code>GetProducts</code> call.\n      To retrieve a list of all services, leave this blank.</p>"
+            "smithy.api#documentation": "<p>The format version that you want the response to be in.</p>\n         <p>Valid values are: <code>aws_v1</code>\n         </p>"
           }
         }
       }
@@ -160,6 +160,12 @@
     "com.amazonaws.pricing#DescribeServicesResponse": {
       "type": "structure",
       "members": {
+        "Services": {
+          "target": "com.amazonaws.pricing#ServiceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The service metadata for the service or services in the response.</p>"
+          }
+        },
         "FormatVersion": {
           "target": "com.amazonaws.pricing#String",
           "traits": {
@@ -170,12 +176,6 @@
           "target": "com.amazonaws.pricing#String",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token for the next set of retreivable results.</p>"
-          }
-        },
-        "Services": {
-          "target": "com.amazonaws.pricing#ServiceList",
-          "traits": {
-            "smithy.api#documentation": "<p>The service metadata for the service or services in the response.</p>"
           }
         }
       }
@@ -196,10 +196,10 @@
     "com.amazonaws.pricing#Filter": {
       "type": "structure",
       "members": {
-        "Field": {
+        "Value": {
           "target": "com.amazonaws.pricing#String",
           "traits": {
-            "smithy.api#documentation": "<p>The product metadata field that you want to filter on. You can filter by just the \n         service code to see all products for a specific service, filter \n         by just the attribute name to see a specific attribute for multiple services, or use both a service code\n         and an attribute name to retrieve only products that match both fields.</p>\n         <p>Valid values include: <code>ServiceCode</code>, and all attribute names</p>\n         \n         <p>For example, you can filter by the <code>AmazonEC2</code> service code and the \n         <code>volumeType</code> attribute name to get the prices for only Amazon EC2 volumes.</p>",
+            "smithy.api#documentation": "<p>The service code or attribute value that you want to filter by. If you are filtering by \n         service code this is the actual service code, such as <code>AmazonEC2</code>. If you are \n         filtering by attribute name, this is the attribute value that you want the returned products\n         to match, such as a <code>Provisioned IOPS</code> volume.</p>",
             "smithy.api#required": {}
           }
         },
@@ -210,10 +210,10 @@
             "smithy.api#required": {}
           }
         },
-        "Value": {
+        "Field": {
           "target": "com.amazonaws.pricing#String",
           "traits": {
-            "smithy.api#documentation": "<p>The service code or attribute value that you want to filter by. If you are filtering by \n         service code this is the actual service code, such as <code>AmazonEC2</code>. If you are \n         filtering by attribute name, this is the attribute value that you want the returned products\n         to match, such as a <code>Provisioned IOPS</code> volume.</p>",
+            "smithy.api#documentation": "<p>The product metadata field that you want to filter on. You can filter by just the \n         service code to see all products for a specific service, filter \n         by just the attribute name to see a specific attribute for multiple services, or use both a service code\n         and an attribute name to retrieve only products that match both fields.</p>\n         <p>Valid values include: <code>ServiceCode</code>, and all attribute names</p>\n         \n         <p>For example, you can filter by the <code>AmazonEC2</code> service code and the \n         <code>volumeType</code> attribute name to get the prices for only Amazon EC2 volumes.</p>",
             "smithy.api#required": {}
           }
         }
@@ -283,17 +283,17 @@
             "smithy.api#required": {}
           }
         },
+        "NextToken": {
+          "target": "com.amazonaws.pricing#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results that you want to retrieve.</p>"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.pricing#BoxedInteger",
           "traits": {
             "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum number of results to return in response.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.pricing#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The pagination token that indicates the next set of results that you want to retrieve.</p>"
           }
         },
         "ServiceCode": {
@@ -308,16 +308,16 @@
     "com.amazonaws.pricing#GetAttributeValuesResponse": {
       "type": "structure",
       "members": {
-        "AttributeValues": {
-          "target": "com.amazonaws.pricing#AttributeValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and \n      <code>Provisioned IOPS</code> are two available values for the <code>AmazonEC2</code> \n            <code>volumeType</code>.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.pricing#String",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
+          }
+        },
+        "AttributeValues": {
+          "target": "com.amazonaws.pricing#AttributeValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and \n      <code>Provisioned IOPS</code> are two available values for the <code>AmazonEC2</code> \n            <code>volumeType</code>.</p>"
           }
         }
       }
@@ -359,23 +359,17 @@
     "com.amazonaws.pricing#GetProductsRequest": {
       "type": "structure",
       "members": {
-        "Filters": {
-          "target": "com.amazonaws.pricing#Filters",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of filters that limit the returned products. only products that match all filters\n         are returned.</p>"
-          }
-        },
-        "FormatVersion": {
-          "target": "com.amazonaws.pricing#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The format version that you want the response to be in.</p>\n         <p>Valid values are: <code>aws_v1</code>\n         </p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.pricing#BoxedInteger",
           "traits": {
             "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.pricing#Filters",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of filters that limit the returned products. only products that match all filters\n         are returned.</p>"
           }
         },
         "NextToken": {
@@ -389,18 +383,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The code for the service whose products you want to retrieve. </p>"
           }
+        },
+        "FormatVersion": {
+          "target": "com.amazonaws.pricing#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The format version that you want the response to be in.</p>\n         <p>Valid values are: <code>aws_v1</code>\n         </p>"
+          }
         }
       }
     },
     "com.amazonaws.pricing#GetProductsResponse": {
       "type": "structure",
       "members": {
-        "FormatVersion": {
-          "target": "com.amazonaws.pricing#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The format version of the response. For example, aws_v1.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.pricing#String",
           "traits": {
@@ -411,6 +405,12 @@
           "target": "com.amazonaws.pricing#PriceList",
           "traits": {
             "smithy.api#documentation": "<p>The list of products that match your filters. The list contains both the product metadata and \n         the price information.</p>"
+          }
+        },
+        "FormatVersion": {
+          "target": "com.amazonaws.pricing#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The format version of the response. For example, aws_v1.</p>"
           }
         }
       }
@@ -476,16 +476,16 @@
     "com.amazonaws.pricing#Service": {
       "type": "structure",
       "members": {
-        "AttributeNames": {
-          "target": "com.amazonaws.pricing#AttributeNameList",
-          "traits": {
-            "smithy.api#documentation": "<p>The attributes that are available for this service.</p>"
-          }
-        },
         "ServiceCode": {
           "target": "com.amazonaws.pricing#String",
           "traits": {
             "smithy.api#documentation": "<p>The code for the AWS service.</p>"
+          }
+        },
+        "AttributeNames": {
+          "target": "com.amazonaws.pricing#AttributeNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>The attributes that are available for this service.</p>"
           }
         }
       },

@@ -255,10 +255,10 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or more tables. A
-   *       single call to <code>BatchWriteItem</code> can write up to 16 MB of data, which can
-   *       comprise as many as 25 put or delete requests. Individual items
-   *       to be written can be as large as 400 KB.</p>
+   * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or more
+   *             tables. A single call to <code>BatchWriteItem</code> can write up to 16 MB of data,
+   *             which can comprise as many as 25 put or delete requests. Individual items to be written
+   *             can be as large as 400 KB.</p>
    *          <note>
    *             <p>
    *                <code>BatchWriteItem</code> cannot update items. To update items, use the <code>UpdateItem</code>
@@ -423,7 +423,7 @@ export class DynamoDB extends DynamoDBClient {
    *             relationship between two or more DynamoDB tables with the same table name in the
    *             provided Regions. </p>
    *          <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
    *          </note>
    *
    *          <p>If you want to add a new replica table to a global table, each of the following conditions
@@ -458,6 +458,22 @@ export class DynamoDB extends DynamoDBClient {
    *             </p>
    *             </li>
    *          </ul>
+   *          <p>
+   *      If local secondary indexes are specified, then the following conditions must also be met:
+   *    </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                The local secondary indexes must have the same name.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                The local secondary indexes must have the same hash key and sort key (if present).
+   *             </p>
+   *             </li>
+   *          </ul>
+   *
    *          <important>
    *             <p>
    *        Write capacity settings should be set consistently across your replica tables and
@@ -784,7 +800,8 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Returns information about the specified global table.</p>
    *           <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.
+   *                    If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a> instead.</p>
    *          </note>
    */
   public describeGlobalTable(
@@ -819,7 +836,7 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Describes Region-specific settings for a global table.</p>
    *           <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
    *          </note>
    */
   public describeGlobalTableSettings(
@@ -986,7 +1003,7 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Describes auto scaling settings across replicas of the global table at once.</p>
    *          <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
    *          </note>
    */
   public describeTableReplicaAutoScaling(
@@ -1149,7 +1166,7 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Lists all global tables that have a replica in the specified Region.</p>
    *           <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
    *          </note>
    */
   public listGlobalTables(
@@ -1300,8 +1317,10 @@ export class DynamoDB extends DynamoDBClient {
    *          </important>
    *
    *          <p>When you add an item, the primary key attributes are the only required attributes.
-   *             Attribute values cannot be null. String and Binary type attributes must have lengths
-   *             greater than zero. Set type attributes cannot be empty. Requests with empty values will
+   *             Attribute values cannot be null.</p>
+   *             <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.
+   *             Set type attributes cannot be empty. </p>
+   *             <p>Invalid Requests with empty values will
    *             be rejected with a <code>ValidationException</code> exception.</p>
    *          <note>
    *             <p>To prevent a new item from replacing an existing item, use a conditional expression
@@ -2085,7 +2104,7 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>Updates auto scaling settings on your global tables at once.</p>
    *          <note>
-   *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
+   *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
    *          </note>
    */
   public updateTableReplicaAutoScaling(

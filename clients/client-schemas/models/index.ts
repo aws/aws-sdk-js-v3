@@ -1,4 +1,9 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import {
+  SENSITIVE_STRING,
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException,
+  isa as __isa,
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface BadRequestException extends __SmithyException, $MetadataBearer {
@@ -77,9 +82,9 @@ export namespace CreateDiscovererRequest {
 export interface CreateDiscovererResponse {
   __type?: "CreateDiscovererResponse";
   /**
-   * <p>The description of the discoverer.</p>
+   * <p>Tags associated with the resource.</p>
    */
-  Description?: string;
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The ARN of the discoverer.</p>
@@ -92,6 +97,11 @@ export interface CreateDiscovererResponse {
   DiscovererId?: string;
 
   /**
+   * <p>The description of the discoverer.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The ARN of the event bus.</p>
    */
   SourceArn?: string;
@@ -100,11 +110,6 @@ export interface CreateDiscovererResponse {
    * <p>The state of the discoverer.</p>
    */
   State?: DiscovererState | string;
-
-  /**
-   * <p>Tags associated with the resource.</p>
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace CreateDiscovererResponse {
@@ -117,15 +122,19 @@ export namespace CreateDiscovererResponse {
 export interface CreateRegistryRequest {
   __type?: "CreateRegistryRequest";
   /**
+   * <p>Tags to associate with the registry.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>A description of the registry to be created.</p>
    */
   Description?: string;
 
-  RegistryName: string | undefined;
   /**
-   * <p>Tags to associate with the registry.</p>
+   * <p>The name of the registry.</p>
    */
-  Tags?: { [key: string]: string };
+  RegistryName: string | undefined;
 }
 
 export namespace CreateRegistryRequest {
@@ -148,14 +157,14 @@ export interface CreateRegistryResponse {
   RegistryArn?: string;
 
   /**
-   * <p>The name of the registry.</p>
-   */
-  RegistryName?: string;
-
-  /**
    * <p>Tags associated with the registry.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
 }
 
 export namespace CreateRegistryResponse {
@@ -167,20 +176,35 @@ export namespace CreateRegistryResponse {
 
 export interface CreateSchemaRequest {
   __type?: "CreateSchemaRequest";
-  Content: string | undefined;
   /**
-   * <p>A description of the schema.</p>
+   * <p>The source of the schema definition.</p>
    */
-  Description?: string;
+  Content: string | undefined;
 
-  RegistryName: string | undefined;
+  /**
+   * <p>The name of the schema.</p>
+   */
   SchemaName: string | undefined;
+
   /**
    * <p>Tags associated with the schema.</p>
    */
   Tags?: { [key: string]: string };
 
+  /**
+   * <p>The type of schema.</p>
+   */
   Type: Type | string | undefined;
+
+  /**
+   * <p>A description of the schema.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName: string | undefined;
 }
 
 export namespace CreateSchemaRequest {
@@ -193,6 +217,26 @@ export namespace CreateSchemaRequest {
 export interface CreateSchemaResponse {
   __type?: "CreateSchemaResponse";
   /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The ARN of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The date the schema version was created.</p>
+   */
+  VersionCreatedDate?: Date;
+
+  /**
+   * <p>The version number of the schema</p>
+   */
+  SchemaVersion?: string;
+
+  /**
    * <p>The description of the schema.</p>
    */
   Description?: string;
@@ -203,34 +247,14 @@ export interface CreateSchemaResponse {
   LastModified?: Date;
 
   /**
-   * <p>The ARN of the schema.</p>
-   */
-  SchemaArn?: string;
-
-  /**
-   * <p>The name of the schema.</p>
-   */
-  SchemaName?: string;
-
-  /**
-   * <p>The version number of the schema</p>
-   */
-  SchemaVersion?: string;
-
-  /**
-   * <p>Key-value pairs associated with a resource.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>The type of the schema.</p>
    */
   Type?: string;
 
   /**
-   * <p>The date the schema version was created.</p>
+   * <p>Key-value pairs associated with a resource.</p>
    */
-  VersionCreatedDate?: Date;
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateSchemaResponse {
@@ -242,6 +266,9 @@ export namespace CreateSchemaResponse {
 
 export interface DeleteDiscovererRequest {
   __type?: "DeleteDiscovererRequest";
+  /**
+   * <p>The ID of the discoverer.</p>
+   */
   DiscovererId: string | undefined;
 }
 
@@ -254,6 +281,9 @@ export namespace DeleteDiscovererRequest {
 
 export interface DeleteRegistryRequest {
   __type?: "DeleteRegistryRequest";
+  /**
+   * <p>The name of the registry.</p>
+   */
   RegistryName: string | undefined;
 }
 
@@ -264,9 +294,31 @@ export namespace DeleteRegistryRequest {
   export const isa = (o: any): o is DeleteRegistryRequest => __isa(o, "DeleteRegistryRequest");
 }
 
+export interface DeleteResourcePolicyRequest {
+  __type?: "DeleteResourcePolicyRequest";
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+}
+
+export namespace DeleteResourcePolicyRequest {
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteResourcePolicyRequest => __isa(o, "DeleteResourcePolicyRequest");
+}
+
 export interface DeleteSchemaRequest {
   __type?: "DeleteSchemaRequest";
+  /**
+   * <p>The name of the registry.</p>
+   */
   RegistryName: string | undefined;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
   SchemaName: string | undefined;
 }
 
@@ -279,8 +331,19 @@ export namespace DeleteSchemaRequest {
 
 export interface DeleteSchemaVersionRequest {
   __type?: "DeleteSchemaVersionRequest";
-  RegistryName: string | undefined;
+  /**
+   * <p>The name of the schema.</p>
+   */
   SchemaName: string | undefined;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName: string | undefined;
+
+  /**
+   * The version number of the schema
+   */
   SchemaVersion: string | undefined;
 }
 
@@ -293,10 +356,25 @@ export namespace DeleteSchemaVersionRequest {
 
 export interface DescribeCodeBindingRequest {
   __type?: "DescribeCodeBindingRequest";
-  Language: string | undefined;
-  RegistryName: string | undefined;
-  SchemaName: string | undefined;
+  /**
+   * <p>Specifying this limits the results to only this schema version.</p>
+   */
   SchemaVersion?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName: string | undefined;
+
+  /**
+   * <p>The language of the code binding.</p>
+   */
+  Language: string | undefined;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName: string | undefined;
 }
 
 export namespace DescribeCodeBindingRequest {
@@ -309,6 +387,11 @@ export namespace DescribeCodeBindingRequest {
 export interface DescribeCodeBindingResponse {
   __type?: "DescribeCodeBindingResponse";
   /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersion?: string;
+
+  /**
    * <p>The time and date that the code binding was created.</p>
    */
   CreationDate?: Date;
@@ -317,11 +400,6 @@ export interface DescribeCodeBindingResponse {
    * <p>The date and time that code bindings were modified.</p>
    */
   LastModified?: Date;
-
-  /**
-   * <p>The version number of the schema.</p>
-   */
-  SchemaVersion?: string;
 
   /**
    * <p>The current status of code binding generation.</p>
@@ -338,6 +416,9 @@ export namespace DescribeCodeBindingResponse {
 
 export interface DescribeDiscovererRequest {
   __type?: "DescribeDiscovererRequest";
+  /**
+   * <p>The ID of the discoverer.</p>
+   */
   DiscovererId: string | undefined;
 }
 
@@ -351,6 +432,11 @@ export namespace DescribeDiscovererRequest {
 export interface DescribeDiscovererResponse {
   __type?: "DescribeDiscovererResponse";
   /**
+   * <p>The state of the discoverer.</p>
+   */
+  State?: DiscovererState | string;
+
+  /**
    * <p>The description of the discoverer.</p>
    */
   Description?: string;
@@ -361,6 +447,11 @@ export interface DescribeDiscovererResponse {
   DiscovererArn?: string;
 
   /**
+   * <p>Tags associated with the resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>The ID of the discoverer.</p>
    */
   DiscovererId?: string;
@@ -369,16 +460,6 @@ export interface DescribeDiscovererResponse {
    * <p>The ARN of the event bus.</p>
    */
   SourceArn?: string;
-
-  /**
-   * <p>The state of the discoverer.</p>
-   */
-  State?: DiscovererState | string;
-
-  /**
-   * <p>Tags associated with the resource.</p>
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace DescribeDiscovererResponse {
@@ -390,6 +471,9 @@ export namespace DescribeDiscovererResponse {
 
 export interface DescribeRegistryRequest {
   __type?: "DescribeRegistryRequest";
+  /**
+   * <p>The name of the registry.</p>
+   */
   RegistryName: string | undefined;
 }
 
@@ -402,6 +486,11 @@ export namespace DescribeRegistryRequest {
 
 export interface DescribeRegistryResponse {
   __type?: "DescribeRegistryResponse";
+  /**
+   * <p>Tags associated with the registry.</p>
+   */
+  Tags?: { [key: string]: string };
+
   /**
    * <p>The description of the registry.</p>
    */
@@ -416,11 +505,6 @@ export interface DescribeRegistryResponse {
    * <p>The name of the registry.</p>
    */
   RegistryName?: string;
-
-  /**
-   * <p>Tags associated with the registry.</p>
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace DescribeRegistryResponse {
@@ -432,9 +516,20 @@ export namespace DescribeRegistryResponse {
 
 export interface DescribeSchemaRequest {
   __type?: "DescribeSchemaRequest";
-  RegistryName: string | undefined;
-  SchemaName: string | undefined;
+  /**
+   * <p>Specifying this limits the results to only this schema version.</p>
+   */
   SchemaVersion?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName: string | undefined;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName: string | undefined;
 }
 
 export namespace DescribeSchemaRequest {
@@ -446,16 +541,20 @@ export namespace DescribeSchemaRequest {
 
 export interface DescribeSchemaResponse {
   __type?: "DescribeSchemaResponse";
-  Content?: string;
   /**
-   * <p>The description of the schema.</p>
+   * <p>The version number of the schema</p>
    */
-  Description?: string;
+  SchemaVersion?: string;
 
   /**
-   * <p>The date and time that schema was modified.</p>
+   * <p>The type of the schema.</p>
    */
-  LastModified?: Date;
+  Type?: string;
+
+  /**
+   * <p>Tags associated with the resource.</p>
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The ARN of the schema.</p>
@@ -468,19 +567,19 @@ export interface DescribeSchemaResponse {
   SchemaName?: string;
 
   /**
-   * <p>The version number of the schema</p>
+   * <p>The date and time that schema was modified.</p>
    */
-  SchemaVersion?: string;
+  LastModified?: Date;
 
   /**
-   * <p>Tags associated with the resource.</p>
+   * <p>The description of the schema.</p>
    */
-  Tags?: { [key: string]: string };
+  Description?: string;
 
   /**
-   * <p>The type of the schema.</p>
+   * <p>The source of the schema definition.</p>
    */
-  Type?: string;
+  Content?: string;
 
   /**
    * <p>The date the schema version was created.</p>
@@ -503,9 +602,14 @@ export enum DiscovererState {
 export interface DiscovererSummary {
   __type?: "DiscovererSummary";
   /**
-   * <p>The ARN of the discoverer.</p>
+   * <p>The state of the discoverer.</p>
    */
-  DiscovererArn?: string;
+  State?: DiscovererState | string;
+
+  /**
+   * <p>The ARN of the event bus.</p>
+   */
+  SourceArn?: string;
 
   /**
    * <p>The ID of the discoverer.</p>
@@ -513,15 +617,14 @@ export interface DiscovererSummary {
   DiscovererId?: string;
 
   /**
-   * <p>The ARN of the event bus.</p>
-   */
-  SourceArn?: string;
-
-  State?: DiscovererState | string;
-  /**
    * <p>Tags associated with the resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The ARN of the discoverer.</p>
+   */
+  DiscovererArn?: string;
 }
 
 export namespace DiscovererSummary {
@@ -535,14 +638,14 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   /**
-   * <p>The error code.</p>
-   */
-  Code: string | undefined;
-
-  /**
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   */
+  Code: string | undefined;
 }
 
 export namespace ForbiddenException {
@@ -554,9 +657,24 @@ export namespace ForbiddenException {
 
 export interface GetCodeBindingSourceRequest {
   __type?: "GetCodeBindingSourceRequest";
-  Language: string | undefined;
+  /**
+   * <p>The name of the registry.</p>
+   */
   RegistryName: string | undefined;
+
+  /**
+   * <p>The language of the code binding.</p>
+   */
+  Language: string | undefined;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
   SchemaName: string | undefined;
+
+  /**
+   * <p>Specifying this limits the results to only this schema version.</p>
+   */
   SchemaVersion?: string;
 }
 
@@ -582,7 +700,7 @@ export namespace GetCodeBindingSourceResponse {
 export interface GetDiscoveredSchemaRequest {
   __type?: "GetDiscoveredSchemaRequest";
   /**
-   * <p>An array of strings that</p>
+   * <p>An array of strings where each string is a JSON event. These are the events that were used to generate the schema. The array includes a single type of event and has a maximum size of 10 events.</p>
    */
   Events: string[] | undefined;
 
@@ -601,6 +719,9 @@ export namespace GetDiscoveredSchemaRequest {
 
 export interface GetDiscoveredSchemaResponse {
   __type?: "GetDiscoveredSchemaResponse";
+  /**
+   * <p>The source of the schema definition.</p>
+   */
   Content?: string;
 }
 
@@ -609,6 +730,41 @@ export namespace GetDiscoveredSchemaResponse {
     ...obj,
   });
   export const isa = (o: any): o is GetDiscoveredSchemaResponse => __isa(o, "GetDiscoveredSchemaResponse");
+}
+
+export interface GetResourcePolicyRequest {
+  __type?: "GetResourcePolicyRequest";
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+}
+
+export namespace GetResourcePolicyRequest {
+  export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetResourcePolicyRequest => __isa(o, "GetResourcePolicyRequest");
+}
+
+export interface GetResourcePolicyResponse {
+  __type?: "GetResourcePolicyResponse";
+  /**
+   * <p>The revision ID.</p>
+   */
+  RevisionId?: string;
+
+  /**
+   * <p>The resource-based policy.</p>
+   */
+  Policy?: __LazyJsonString | string;
+}
+
+export namespace GetResourcePolicyResponse {
+  export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetResourcePolicyResponse => __isa(o, "GetResourcePolicyResponse");
 }
 
 export interface GoneException extends __SmithyException, $MetadataBearer {
@@ -636,14 +792,14 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   name: "InternalServerErrorException";
   $fault: "server";
   /**
-   * <p>The error code.</p>
-   */
-  Code: string | undefined;
-
-  /**
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   */
+  Code: string | undefined;
 }
 
 export namespace InternalServerErrorException {
@@ -655,9 +811,20 @@ export namespace InternalServerErrorException {
 
 export interface ListDiscoverersRequest {
   __type?: "ListDiscoverersRequest";
-  DiscovererIdPrefix?: string;
   Limit?: number;
+  /**
+   * <p>Specifying this limits the results to only those discoverer IDs that start with the specified prefix.</p>
+   */
+  DiscovererIdPrefix?: string;
+
+  /**
+   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
+   */
   NextToken?: string;
+
+  /**
+   * <p>Specifying this limits the results to only those ARNs that start with the specified prefix.</p>
+   */
   SourceArnPrefix?: string;
 }
 
@@ -690,9 +857,20 @@ export namespace ListDiscoverersResponse {
 
 export interface ListRegistriesRequest {
   __type?: "ListRegistriesRequest";
-  Limit?: number;
+  /**
+   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
+   */
   NextToken?: string;
+
+  /**
+   * <p>Specifying this limits the results to only those registry names that start with the specified prefix.</p>
+   */
   RegistryNamePrefix?: string;
+
+  Limit?: number;
+  /**
+   * <p>Can be set to Local or AWS to limit responses to your custom registries, or the ones provided by AWS.</p>
+   */
   Scope?: string;
 }
 
@@ -706,14 +884,14 @@ export namespace ListRegistriesRequest {
 export interface ListRegistriesResponse {
   __type?: "ListRegistriesResponse";
   /**
-   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>An array of registry summaries.</p>
    */
   Registries?: RegistrySummary[];
+
+  /**
+   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListRegistriesResponse {
@@ -725,10 +903,22 @@ export namespace ListRegistriesResponse {
 
 export interface ListSchemasRequest {
   __type?: "ListSchemasRequest";
-  Limit?: number;
+  /**
+   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
+   */
   NextToken?: string;
-  RegistryName: string | undefined;
+
+  /**
+   * <p>Specifying this limits the results to only those schema names that start with the specified prefix.</p>
+   */
   SchemaNamePrefix?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName: string | undefined;
+
+  Limit?: number;
 }
 
 export namespace ListSchemasRequest {
@@ -741,14 +931,14 @@ export namespace ListSchemasRequest {
 export interface ListSchemasResponse {
   __type?: "ListSchemasResponse";
   /**
-   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>An array of schema summaries.</p>
    */
   Schemas?: SchemaSummary[];
+
+  /**
+   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListSchemasResponse {
@@ -760,10 +950,22 @@ export namespace ListSchemasResponse {
 
 export interface ListSchemaVersionsRequest {
   __type?: "ListSchemaVersionsRequest";
-  Limit?: number;
-  NextToken?: string;
+  /**
+   * <p>The name of the registry.</p>
+   */
   RegistryName: string | undefined;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
   SchemaName: string | undefined;
+
+  /**
+   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
+   */
+  NextToken?: string;
+
+  Limit?: number;
 }
 
 export namespace ListSchemaVersionsRequest {
@@ -795,6 +997,9 @@ export namespace ListSchemaVersionsResponse {
 
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
+  /**
+   * <p>The ARN of the resource.</p>
+   */
   ResourceArn: string | undefined;
 }
 
@@ -810,7 +1015,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Key-value pairs associated with a resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags?: { [key: string]: string };
 }
 
 export namespace ListTagsForResourceResponse {
@@ -818,33 +1023,6 @@ export namespace ListTagsForResourceResponse {
     ...obj,
   });
   export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
-}
-
-export interface LockServiceLinkedRoleRequest {
-  __type?: "LockServiceLinkedRoleRequest";
-  RoleArn: string | undefined;
-  Timeout: number | undefined;
-}
-
-export namespace LockServiceLinkedRoleRequest {
-  export const filterSensitiveLog = (obj: LockServiceLinkedRoleRequest): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is LockServiceLinkedRoleRequest => __isa(o, "LockServiceLinkedRoleRequest");
-}
-
-export interface LockServiceLinkedRoleResponse {
-  __type?: "LockServiceLinkedRoleResponse";
-  CanBeDeleted?: boolean;
-  ReasonOfFailure?: string;
-  RelatedResources?: DiscovererSummary[];
-}
-
-export namespace LockServiceLinkedRoleResponse {
-  export const filterSensitiveLog = (obj: LockServiceLinkedRoleResponse): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is LockServiceLinkedRoleResponse => __isa(o, "LockServiceLinkedRoleResponse");
 }
 
 export interface NotFoundException extends __SmithyException, $MetadataBearer {
@@ -868,12 +1046,48 @@ export namespace NotFoundException {
   export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
+export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
+  name: "PreconditionFailedException";
+  $fault: "client";
+  /**
+   * <p>The error code.</p>
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The message string of the error output.</p>
+   */
+  Message: string | undefined;
+}
+
+export namespace PreconditionFailedException {
+  export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PreconditionFailedException => __isa(o, "PreconditionFailedException");
+}
+
 export interface PutCodeBindingRequest {
   __type?: "PutCodeBindingRequest";
-  Language: string | undefined;
-  RegistryName: string | undefined;
-  SchemaName: string | undefined;
+  /**
+   * <p>Specifying this limits the results to only this schema version.</p>
+   */
   SchemaVersion?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName: string | undefined;
+
+  /**
+   * <p>The language of the code binding.</p>
+   */
+  Language: string | undefined;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName: string | undefined;
 }
 
 export namespace PutCodeBindingRequest {
@@ -913,6 +1127,54 @@ export namespace PutCodeBindingResponse {
   export const isa = (o: any): o is PutCodeBindingResponse => __isa(o, "PutCodeBindingResponse");
 }
 
+/**
+ * <p>The name of the policy.</p>
+ */
+export interface PutResourcePolicyRequest {
+  __type?: "PutResourcePolicyRequest";
+  /**
+   * <p>The revision ID of the policy.</p>
+   */
+  RevisionId?: string;
+
+  /**
+   * <p>The resource-based policy.</p>
+   */
+  Policy: __LazyJsonString | string | undefined;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+}
+
+export namespace PutResourcePolicyRequest {
+  export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutResourcePolicyRequest => __isa(o, "PutResourcePolicyRequest");
+}
+
+export interface PutResourcePolicyResponse {
+  __type?: "PutResourcePolicyResponse";
+  /**
+   * <p>The revision ID of the policy.</p>
+   */
+  RevisionId?: string;
+
+  /**
+   * <p>The resource-based policy.</p>
+   */
+  Policy?: __LazyJsonString | string;
+}
+
+export namespace PutResourcePolicyResponse {
+  export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutResourcePolicyResponse => __isa(o, "PutResourcePolicyResponse");
+}
+
 export interface RegistrySummary {
   __type?: "RegistrySummary";
   /**
@@ -944,9 +1206,9 @@ export namespace RegistrySummary {
 export interface SchemaSummary {
   __type?: "SchemaSummary";
   /**
-   * <p>The date and time that schema was modified.</p>
+   * <p>The name of the schema.</p>
    */
-  LastModified?: Date;
+  SchemaName?: string;
 
   /**
    * <p>The ARN of the schema.</p>
@@ -954,19 +1216,19 @@ export interface SchemaSummary {
   SchemaArn?: string;
 
   /**
-   * <p>The name of the schema.</p>
+   * <p>The number of versions available for the schema.</p>
    */
-  SchemaName?: string;
+  VersionCount?: number;
+
+  /**
+   * <p>The date and time that schema was modified.</p>
+   */
+  LastModified?: Date;
 
   /**
    * <p>Tags associated with the schema.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The number of versions available for the schema.</p>
-   */
-  VersionCount?: number;
 }
 
 export namespace SchemaSummary {
@@ -979,9 +1241,9 @@ export namespace SchemaSummary {
 export interface SchemaVersionSummary {
   __type?: "SchemaVersionSummary";
   /**
-   * <p>The ARN of the schema version.</p>
+   * <p>The version number of the schema.</p>
    */
-  SchemaArn?: string;
+  SchemaVersion?: string;
 
   /**
    * <p>The name of the schema.</p>
@@ -989,9 +1251,9 @@ export interface SchemaVersionSummary {
   SchemaName?: string;
 
   /**
-   * <p>The version number of the schema.</p>
+   * <p>The ARN of the schema version.</p>
    */
-  SchemaVersion?: string;
+  SchemaArn?: string;
 }
 
 export namespace SchemaVersionSummary {
@@ -1003,10 +1265,22 @@ export namespace SchemaVersionSummary {
 
 export interface SearchSchemasRequest {
   __type?: "SearchSchemasRequest";
+  /**
+   * <p>Specifying this limits the results to only schemas that include the provided keywords.</p>
+   */
   Keywords: string | undefined;
-  Limit?: number;
-  NextToken?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
   RegistryName: string | undefined;
+
+  /**
+   * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
+   */
+  NextToken?: string;
+
+  Limit?: number;
 }
 
 export namespace SearchSchemasRequest {
@@ -1039,14 +1313,9 @@ export namespace SearchSchemasResponse {
 export interface SearchSchemaSummary {
   __type?: "SearchSchemaSummary";
   /**
-   * <p>The name of the registry.</p>
+   * <p>An array of schema version summaries.</p>
    */
-  RegistryName?: string;
-
-  /**
-   * <p>The ARN of the schema.</p>
-   */
-  SchemaArn?: string;
+  SchemaVersions?: SearchSchemaVersionSummary[];
 
   /**
    * <p>The name of the schema.</p>
@@ -1054,9 +1323,14 @@ export interface SearchSchemaSummary {
   SchemaName?: string;
 
   /**
-   * <p>An array of schema version summaries.</p>
+   * <p>The ARN of the schema.</p>
    */
-  SchemaVersions?: SearchSchemaVersionSummary[];
+  SchemaArn?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
 }
 
 export namespace SearchSchemaSummary {
@@ -1068,11 +1342,15 @@ export namespace SearchSchemaSummary {
 
 export interface SearchSchemaVersionSummary {
   __type?: "SearchSchemaVersionSummary";
-  CreatedDate?: Date;
   /**
    * <p>The version number of the schema</p>
    */
   SchemaVersion?: string;
+
+  /**
+   * <p>The date the schema version was created.</p>
+   */
+  CreatedDate?: Date;
 }
 
 export namespace SearchSchemaVersionSummary {
@@ -1086,14 +1364,14 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
-   * <p>The error code.</p>
-   */
-  Code: string | undefined;
-
-  /**
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   */
+  Code: string | undefined;
 }
 
 export namespace ServiceUnavailableException {
@@ -1105,6 +1383,9 @@ export namespace ServiceUnavailableException {
 
 export interface StartDiscovererRequest {
   __type?: "StartDiscovererRequest";
+  /**
+   * <p>The ID of the discoverer.</p>
+   */
   DiscovererId: string | undefined;
 }
 
@@ -1118,14 +1399,14 @@ export namespace StartDiscovererRequest {
 export interface StartDiscovererResponse {
   __type?: "StartDiscovererResponse";
   /**
-   * <p>The ID of the discoverer.</p>
-   */
-  DiscovererId?: string;
-
-  /**
    * <p>The state of the discoverer.</p>
    */
   State?: DiscovererState | string;
+
+  /**
+   * <p>The ID of the discoverer.</p>
+   */
+  DiscovererId?: string;
 }
 
 export namespace StartDiscovererResponse {
@@ -1137,6 +1418,9 @@ export namespace StartDiscovererResponse {
 
 export interface StopDiscovererRequest {
   __type?: "StopDiscovererRequest";
+  /**
+   * <p>The ID of the discoverer.</p>
+   */
   DiscovererId: string | undefined;
 }
 
@@ -1150,14 +1434,14 @@ export namespace StopDiscovererRequest {
 export interface StopDiscovererResponse {
   __type?: "StopDiscovererResponse";
   /**
-   * <p>The ID of the discoverer.</p>
-   */
-  DiscovererId?: string;
-
-  /**
    * <p>The state of the discoverer.</p>
    */
   State?: DiscovererState | string;
+
+  /**
+   * <p>The ID of the discoverer.</p>
+   */
+  DiscovererId?: string;
 }
 
 export namespace StopDiscovererResponse {
@@ -1167,11 +1451,18 @@ export namespace StopDiscovererResponse {
   export const isa = (o: any): o is StopDiscovererResponse => __isa(o, "StopDiscovererResponse");
 }
 
+/**
+ * <p></p>
+ */
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
-  ResourceArn: string | undefined;
   /**
-   * <p>Key-value pairs associated with a resource.</p>
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Tags associated with the resource.</p>
    */
   Tags: { [key: string]: string } | undefined;
 }
@@ -1187,14 +1478,14 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   name: "TooManyRequestsException";
   $fault: "client";
   /**
-   * <p>The error code.</p>
-   */
-  Code: string | undefined;
-
-  /**
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   */
+  Code: string | undefined;
 }
 
 export namespace TooManyRequestsException {
@@ -1212,14 +1503,14 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   name: "UnauthorizedException";
   $fault: "client";
   /**
-   * <p>The error code.</p>
-   */
-  Code: string | undefined;
-
-  /**
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   */
+  Code: string | undefined;
 }
 
 export namespace UnauthorizedException {
@@ -1229,32 +1520,16 @@ export namespace UnauthorizedException {
   export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
-export interface UnlockServiceLinkedRoleRequest {
-  __type?: "UnlockServiceLinkedRoleRequest";
-  RoleArn: string | undefined;
-}
-
-export namespace UnlockServiceLinkedRoleRequest {
-  export const filterSensitiveLog = (obj: UnlockServiceLinkedRoleRequest): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is UnlockServiceLinkedRoleRequest => __isa(o, "UnlockServiceLinkedRoleRequest");
-}
-
-export interface UnlockServiceLinkedRoleResponse {
-  __type?: "UnlockServiceLinkedRoleResponse";
-}
-
-export namespace UnlockServiceLinkedRoleResponse {
-  export const filterSensitiveLog = (obj: UnlockServiceLinkedRoleResponse): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is UnlockServiceLinkedRoleResponse => __isa(o, "UnlockServiceLinkedRoleResponse");
-}
-
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
+  /**
+   * <p>The ARN of the resource.</p>
+   */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Keys of key-value pairs.</p>
+   */
   TagKeys: string[] | undefined;
 }
 
@@ -1272,6 +1547,9 @@ export interface UpdateDiscovererRequest {
    */
   Description?: string;
 
+  /**
+   * <p>The ID of the discoverer.</p>
+   */
   DiscovererId: string | undefined;
 }
 
@@ -1285,6 +1563,11 @@ export namespace UpdateDiscovererRequest {
 export interface UpdateDiscovererResponse {
   __type?: "UpdateDiscovererResponse";
   /**
+   * <p>Tags associated with the resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>The description of the discoverer.</p>
    */
   Description?: string;
@@ -1295,9 +1578,9 @@ export interface UpdateDiscovererResponse {
   DiscovererArn?: string;
 
   /**
-   * <p>The ID of the discoverer.</p>
+   * <p>The state of the discoverer.</p>
    */
-  DiscovererId?: string;
+  State?: DiscovererState | string;
 
   /**
    * <p>The ARN of the event bus.</p>
@@ -1305,14 +1588,9 @@ export interface UpdateDiscovererResponse {
   SourceArn?: string;
 
   /**
-   * <p>The state of the discoverer.</p>
+   * <p>The ID of the discoverer.</p>
    */
-  State?: DiscovererState | string;
-
-  /**
-   * <p>Tags associated with the resource.</p>
-   */
-  Tags?: { [key: string]: string };
+  DiscovererId?: string;
 }
 
 export namespace UpdateDiscovererResponse {
@@ -1322,14 +1600,20 @@ export namespace UpdateDiscovererResponse {
   export const isa = (o: any): o is UpdateDiscovererResponse => __isa(o, "UpdateDiscovererResponse");
 }
 
+/**
+ * <p>Updates the registry.</p>
+ */
 export interface UpdateRegistryRequest {
   __type?: "UpdateRegistryRequest";
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName: string | undefined;
+
   /**
    * <p>The description of the registry to update.</p>
    */
   Description?: string;
-
-  RegistryName: string | undefined;
 }
 
 export namespace UpdateRegistryRequest {
@@ -1342,16 +1626,6 @@ export namespace UpdateRegistryRequest {
 export interface UpdateRegistryResponse {
   __type?: "UpdateRegistryResponse";
   /**
-   * <p>The description of the registry.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ARN of the registry.</p>
-   */
-  RegistryArn?: string;
-
-  /**
    * <p>The name of the registry.</p>
    */
   RegistryName?: string;
@@ -1360,6 +1634,16 @@ export interface UpdateRegistryResponse {
    * <p>Tags associated with the registry.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The description of the registry.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the registry.</p>
+   */
+  RegistryArn?: string;
 }
 
 export namespace UpdateRegistryResponse {
@@ -1372,26 +1656,34 @@ export namespace UpdateRegistryResponse {
 export interface UpdateSchemaRequest {
   __type?: "UpdateSchemaRequest";
   /**
-   * <p>The ID of the client token.</p>
-   */
-  ClientTokenId?: string;
-
-  /**
    * <p>The source of the schema definition.</p>
    */
   Content?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName: string | undefined;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName: string | undefined;
 
   /**
    * <p>The description of the schema.</p>
    */
   Description?: string;
 
-  RegistryName: string | undefined;
-  SchemaName: string | undefined;
   /**
    * <p>The schema type for the events schema.</p>
    */
   Type?: Type | string;
+
+  /**
+   * <p>The ID of the client token.</p>
+   */
+  ClientTokenId?: string;
 }
 
 export namespace UpdateSchemaRequest {
@@ -1429,6 +1721,11 @@ export interface UpdateSchemaResponse {
   SchemaVersion?: string;
 
   /**
+   * <p>The date the schema version was created.</p>
+   */
+  VersionCreatedDate?: Date;
+
+  /**
    * <p>Key-value pairs associated with a resource.</p>
    */
   Tags?: { [key: string]: string };
@@ -1437,11 +1734,6 @@ export interface UpdateSchemaResponse {
    * <p>The type of the schema.</p>
    */
   Type?: string;
-
-  /**
-   * <p>The date the schema version was created.</p>
-   */
-  VersionCreatedDate?: Date;
 }
 
 export namespace UpdateSchemaResponse {

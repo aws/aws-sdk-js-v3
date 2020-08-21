@@ -34,6 +34,7 @@ import {
   PutApplicationPolicyCommandInput,
   PutApplicationPolicyCommandOutput,
 } from "../commands/PutApplicationPolicyCommand";
+import { UnshareApplicationCommandInput, UnshareApplicationCommandOutput } from "../commands/UnshareApplicationCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import {
   ApplicationDependencySummary,
@@ -112,15 +113,6 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/applications/{ApplicationId}/versions/{SemanticVersion}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.SemanticVersion !== undefined) {
     const labelValue: string = input.SemanticVersion;
     if (labelValue.length <= 0) {
@@ -129,6 +121,15 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
     resolvedPath = resolvedPath.replace("{SemanticVersion}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SemanticVersion.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -414,8 +415,8 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   };
   let resolvedPath = "/applications";
   const query: any = {
-    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -495,6 +496,39 @@ export const serializeAws_restJson1PutApplicationPolicyCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UnshareApplicationCommand = async (
+  input: UnshareApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/applications/{ApplicationId}/unshare";
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.OrganizationId !== undefined && { organizationId: input.OrganizationId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1785,6 +1819,89 @@ const deserializeAws_restJson1PutApplicationPolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UnshareApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnshareApplicationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UnshareApplicationCommandError(output, context);
+  }
+  const contents: UnshareApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UnshareApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnshareApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2084,6 +2201,9 @@ const serializeAws_restJson1ApplicationPolicyStatement = (
 ): any => {
   return {
     ...(input.Actions !== undefined && { actions: serializeAws_restJson1__listOf__string(input.Actions, context) }),
+    ...(input.PrincipalOrgIDs !== undefined && {
+      principalOrgIDs: serializeAws_restJson1__listOf__string(input.PrincipalOrgIDs, context),
+    }),
     ...(input.Principals !== undefined && {
       principals: serializeAws_restJson1__listOf__string(input.Principals, context),
     }),
@@ -2183,6 +2303,10 @@ const deserializeAws_restJson1ApplicationPolicyStatement = (
     Actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1__listOf__string(output.actions, context)
+        : undefined,
+    PrincipalOrgIDs:
+      output.principalOrgIDs !== undefined && output.principalOrgIDs !== null
+        ? deserializeAws_restJson1__listOf__string(output.principalOrgIDs, context)
         : undefined,
     Principals:
       output.principals !== undefined && output.principals !== null

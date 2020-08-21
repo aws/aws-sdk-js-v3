@@ -2782,6 +2782,10 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
   return {
     __type: "DescribeStateMachineForExecutionOutput",
     definition: output.definition !== undefined && output.definition !== null ? output.definition : undefined,
+    loggingConfiguration:
+      output.loggingConfiguration !== undefined && output.loggingConfiguration !== null
+        ? deserializeAws_json1_0LoggingConfiguration(output.loggingConfiguration, context)
+        : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     stateMachineArn:

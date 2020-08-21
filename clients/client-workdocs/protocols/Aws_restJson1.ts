@@ -269,15 +269,6 @@ export const serializeAws_restJson1CreateCommentCommand = async (
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment";
-  if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DocumentId.");
-    }
-    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DocumentId.");
-  }
   if (input.VersionId !== undefined) {
     const labelValue: string = input.VersionId;
     if (labelValue.length <= 0) {
@@ -286,6 +277,15 @@ export const serializeAws_restJson1CreateCommentCommand = async (
     resolvedPath = resolvedPath.replace("{VersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
+  }
+  if (input.DocumentId !== undefined) {
+    const labelValue: string = input.DocumentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
+    }
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -525,15 +525,6 @@ export const serializeAws_restJson1DeleteCommentCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: CommentId.");
   }
-  if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DocumentId.");
-    }
-    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DocumentId.");
-  }
   if (input.VersionId !== undefined) {
     const labelValue: string = input.VersionId;
     if (labelValue.length <= 0) {
@@ -542,6 +533,15 @@ export const serializeAws_restJson1DeleteCommentCommand = async (
     resolvedPath = resolvedPath.replace("{VersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
+  }
+  if (input.DocumentId !== undefined) {
+    const labelValue: string = input.DocumentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
+    }
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -576,8 +576,8 @@ export const serializeAws_restJson1DeleteCustomMetadataCommand = async (
   }
   const query: any = {
     ...(input.DeleteAll !== undefined && { deleteAll: input.DeleteAll.toString() }),
-    ...(input.Keys !== undefined && { keys: (input.Keys || []).map((_entry) => _entry) }),
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
+    ...(input.Keys !== undefined && { keys: (input.Keys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -730,15 +730,6 @@ export const serializeAws_restJson1DeleteNotificationSubscriptionCommand = async
     "Content-Type": "",
   };
   let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}";
-  if (input.OrganizationId !== undefined) {
-    const labelValue: string = input.OrganizationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: OrganizationId.");
-    }
-    resolvedPath = resolvedPath.replace("{OrganizationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: OrganizationId.");
-  }
   if (input.SubscriptionId !== undefined) {
     const labelValue: string = input.SubscriptionId;
     if (labelValue.length <= 0) {
@@ -747,6 +738,15 @@ export const serializeAws_restJson1DeleteNotificationSubscriptionCommand = async
     resolvedPath = resolvedPath.replace("{SubscriptionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SubscriptionId.");
+  }
+  if (input.OrganizationId !== undefined) {
+    const labelValue: string = input.OrganizationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: OrganizationId.");
+    }
+    resolvedPath = resolvedPath.replace("{OrganizationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: OrganizationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -803,16 +803,16 @@ export const serializeAws_restJson1DescribeActivitiesCommand = async (
   let resolvedPath = "/api/v1/activities";
   const query: any = {
     ...(input.ActivityTypes !== undefined && { activityTypes: input.ActivityTypes }),
-    ...(input.EndTime !== undefined && { endTime: (input.EndTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.OrganizationId !== undefined && { organizationId: input.OrganizationId }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
     ...(input.IncludeIndirectActivities !== undefined && {
       includeIndirectActivities: input.IncludeIndirectActivities.toString(),
     }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
-    ...(input.Marker !== undefined && { marker: input.Marker }),
-    ...(input.OrganizationId !== undefined && { organizationId: input.OrganizationId }),
-    ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
-    ...(input.StartTime !== undefined && { startTime: (input.StartTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.EndTime !== undefined && { endTime: (input.EndTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.UserId !== undefined && { userId: input.UserId }),
+    ...(input.StartTime !== undefined && { startTime: (input.StartTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -892,10 +892,10 @@ export const serializeAws_restJson1DescribeDocumentVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   const query: any = {
-    ...(input.Fields !== undefined && { fields: input.Fields }),
     ...(input.Include !== undefined && { include: input.Include }),
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Fields !== undefined && { fields: input.Fields }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -930,11 +930,11 @@ export const serializeAws_restJson1DescribeFolderContentsCommand = async (
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
   const query: any = {
+    ...(input.Sort !== undefined && { sort: input.Sort }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
     ...(input.Include !== undefined && { include: input.Include }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
-    ...(input.Marker !== undefined && { marker: input.Marker }),
     ...(input.Order !== undefined && { order: input.Order }),
-    ...(input.Sort !== undefined && { sort: input.Sort }),
     ...(input.Type !== undefined && { type: input.Type }),
   };
   let body: any;
@@ -961,10 +961,10 @@ export const serializeAws_restJson1DescribeGroupsCommand = async (
   };
   let resolvedPath = "/api/v1/groups";
   const query: any = {
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
-    ...(input.Marker !== undefined && { marker: input.Marker }),
-    ...(input.OrganizationId !== undefined && { organizationId: input.OrganizationId }),
     ...(input.SearchQuery !== undefined && { searchQuery: input.SearchQuery }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.OrganizationId !== undefined && { organizationId: input.OrganizationId }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -998,8 +998,8 @@ export const serializeAws_restJson1DescribeNotificationSubscriptionsCommand = as
     throw new Error("No value provided for input HTTP label: OrganizationId.");
   }
   const query: any = {
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1034,9 +1034,9 @@ export const serializeAws_restJson1DescribeResourcePermissionsCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {
+    ...(input.PrincipalId !== undefined && { principalId: input.PrincipalId }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.Marker !== undefined && { marker: input.Marker }),
-    ...(input.PrincipalId !== undefined && { principalId: input.PrincipalId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1090,14 +1090,14 @@ export const serializeAws_restJson1DescribeUsersCommand = async (
   let resolvedPath = "/api/v1/users";
   const query: any = {
     ...(input.Fields !== undefined && { fields: input.Fields }),
-    ...(input.Include !== undefined && { include: input.Include }),
+    ...(input.Order !== undefined && { order: input.Order }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.Marker !== undefined && { marker: input.Marker }),
-    ...(input.Order !== undefined && { order: input.Order }),
-    ...(input.OrganizationId !== undefined && { organizationId: input.OrganizationId }),
-    ...(input.Query !== undefined && { query: input.Query }),
+    ...(input.Include !== undefined && { include: input.Include }),
     ...(input.Sort !== undefined && { sort: input.Sort }),
     ...(input.UserIds !== undefined && { userIds: input.UserIds }),
+    ...(input.Query !== undefined && { query: input.Query }),
+    ...(input.OrganizationId !== undefined && { organizationId: input.OrganizationId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1189,9 +1189,9 @@ export const serializeAws_restJson1GetDocumentPathCommand = async (
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   const query: any = {
-    ...(input.Fields !== undefined && { fields: input.Fields }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.Fields !== undefined && { fields: input.Fields }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1216,15 +1216,6 @@ export const serializeAws_restJson1GetDocumentVersionCommand = async (
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
-  if (input.DocumentId !== undefined) {
-    const labelValue: string = input.DocumentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DocumentId.");
-    }
-    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DocumentId.");
-  }
   if (input.VersionId !== undefined) {
     const labelValue: string = input.VersionId;
     if (labelValue.length <= 0) {
@@ -1234,9 +1225,18 @@ export const serializeAws_restJson1GetDocumentVersionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
+  if (input.DocumentId !== undefined) {
+    const labelValue: string = input.DocumentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
+    }
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DocumentId.");
+  }
   const query: any = {
-    ...(input.Fields !== undefined && { fields: input.Fields }),
     ...(input.IncludeCustomMetadata !== undefined && { includeCustomMetadata: input.IncludeCustomMetadata.toString() }),
+    ...(input.Fields !== undefined && { fields: input.Fields }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1307,8 +1307,8 @@ export const serializeAws_restJson1GetFolderPathCommand = async (
   }
   const query: any = {
     ...(input.Fields !== undefined && { fields: input.Fields }),
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1335,9 +1335,9 @@ export const serializeAws_restJson1GetResourcesCommand = async (
   let resolvedPath = "/api/v1/resources";
   const query: any = {
     ...(input.CollectionType !== undefined && { collectionType: input.CollectionType }),
-    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.Marker !== undefined && { marker: input.Marker }),
     ...(input.UserId !== undefined && { userId: input.UserId }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

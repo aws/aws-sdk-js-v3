@@ -33,6 +33,8 @@ import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "../
 import {
   ActiveDirectoryBackupAttributes,
   ActiveDirectoryError,
+  AdministrativeAction,
+  AdministrativeActionFailureDetails,
   Backup,
   BackupFailureDetails,
   BackupInProgress,
@@ -53,6 +55,7 @@ import {
   CreateFileSystemResponse,
   CreateFileSystemWindowsConfiguration,
   DataRepositoryConfiguration,
+  DataRepositoryFailureDetails,
   DataRepositoryTask,
   DataRepositoryTaskEnded,
   DataRepositoryTaskExecuting,
@@ -62,6 +65,8 @@ import {
   DataRepositoryTaskStatus,
   DeleteBackupRequest,
   DeleteBackupResponse,
+  DeleteFileSystemLustreConfiguration,
+  DeleteFileSystemLustreResponse,
   DeleteFileSystemRequest,
   DeleteFileSystemResponse,
   DeleteFileSystemWindowsConfiguration,
@@ -82,6 +87,7 @@ import {
   InvalidExportPath,
   InvalidImportPath,
   InvalidNetworkSettings,
+  InvalidPerUnitStorageThroughput,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   LustreFileSystemConfiguration,
@@ -681,6 +687,14 @@ const deserializeAws_json1_1CreateFileSystemCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidPerUnitStorageThroughput":
+    case "com.amazonaws.fsx#InvalidPerUnitStorageThroughput":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPerUnitStorageThroughputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "MissingFileSystemConfiguration":
     case "com.amazonaws.fsx#MissingFileSystemConfiguration":
       response = {
@@ -789,6 +803,14 @@ const deserializeAws_json1_1CreateFileSystemFromBackupCommandError = async (
     case "com.amazonaws.fsx#InvalidNetworkSettings":
       response = {
         ...(await deserializeAws_json1_1InvalidNetworkSettingsResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPerUnitStorageThroughput":
+    case "com.amazonaws.fsx#InvalidPerUnitStorageThroughput":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPerUnitStorageThroughputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1577,6 +1599,14 @@ const deserializeAws_json1_1UpdateFileSystemCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnsupportedOperation":
     case "com.amazonaws.fsx#UnsupportedOperation":
       response = {
@@ -1812,6 +1842,21 @@ const deserializeAws_json1_1InvalidNetworkSettingsResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1InvalidPerUnitStorageThroughputResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidPerUnitStorageThroughput> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidPerUnitStorageThroughput(body, context);
+  const contents: InvalidPerUnitStorageThroughput = {
+    name: "InvalidPerUnitStorageThroughput",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1MissingFileSystemConfigurationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1953,9 +1998,13 @@ const serializeAws_json1_1CreateFileSystemFromBackupRequest = (
   return {
     ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.LustreConfiguration !== undefined && {
+      LustreConfiguration: serializeAws_json1_1CreateFileSystemLustreConfiguration(input.LustreConfiguration, context),
+    }),
     ...(input.SecurityGroupIds !== undefined && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
+    ...(input.StorageType !== undefined && { StorageType: input.StorageType }),
     ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.WindowsConfiguration !== undefined && {
@@ -1972,9 +2021,19 @@ const serializeAws_json1_1CreateFileSystemLustreConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AutoImportPolicy !== undefined && { AutoImportPolicy: input.AutoImportPolicy }),
+    ...(input.AutomaticBackupRetentionDays !== undefined && {
+      AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
+    }),
+    ...(input.CopyTagsToBackups !== undefined && { CopyTagsToBackups: input.CopyTagsToBackups }),
+    ...(input.DailyAutomaticBackupStartTime !== undefined && {
+      DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
+    }),
+    ...(input.DeploymentType !== undefined && { DeploymentType: input.DeploymentType }),
     ...(input.ExportPath !== undefined && { ExportPath: input.ExportPath }),
     ...(input.ImportPath !== undefined && { ImportPath: input.ImportPath }),
     ...(input.ImportedFileChunkSize !== undefined && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
+    ...(input.PerUnitStorageThroughput !== undefined && { PerUnitStorageThroughput: input.PerUnitStorageThroughput }),
     ...(input.WeeklyMaintenanceStartTime !== undefined && {
       WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
     }),
@@ -1993,6 +2052,7 @@ const serializeAws_json1_1CreateFileSystemRequest = (input: CreateFileSystemRequ
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
     ...(input.StorageCapacity !== undefined && { StorageCapacity: input.StorageCapacity }),
+    ...(input.StorageType !== undefined && { StorageType: input.StorageType }),
     ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.WindowsConfiguration !== undefined && {
@@ -2066,10 +2126,25 @@ const serializeAws_json1_1DeleteBackupRequest = (input: DeleteBackupRequest, con
   };
 };
 
+const serializeAws_json1_1DeleteFileSystemLustreConfiguration = (
+  input: DeleteFileSystemLustreConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FinalBackupTags !== undefined && {
+      FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context),
+    }),
+    ...(input.SkipFinalBackup !== undefined && { SkipFinalBackup: input.SkipFinalBackup }),
+  };
+};
+
 const serializeAws_json1_1DeleteFileSystemRequest = (input: DeleteFileSystemRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
+    ...(input.LustreConfiguration !== undefined && {
+      LustreConfiguration: serializeAws_json1_1DeleteFileSystemLustreConfiguration(input.LustreConfiguration, context),
+    }),
     ...(input.WindowsConfiguration !== undefined && {
       WindowsConfiguration: serializeAws_json1_1DeleteFileSystemWindowsConfiguration(
         input.WindowsConfiguration,
@@ -2236,6 +2311,13 @@ const serializeAws_json1_1UpdateFileSystemLustreConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AutoImportPolicy !== undefined && { AutoImportPolicy: input.AutoImportPolicy }),
+    ...(input.AutomaticBackupRetentionDays !== undefined && {
+      AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
+    }),
+    ...(input.DailyAutomaticBackupStartTime !== undefined && {
+      DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
+    }),
     ...(input.WeeklyMaintenanceStartTime !== undefined && {
       WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
     }),
@@ -2249,6 +2331,7 @@ const serializeAws_json1_1UpdateFileSystemRequest = (input: UpdateFileSystemRequ
     ...(input.LustreConfiguration !== undefined && {
       LustreConfiguration: serializeAws_json1_1UpdateFileSystemLustreConfiguration(input.LustreConfiguration, context),
     }),
+    ...(input.StorageCapacity !== undefined && { StorageCapacity: input.StorageCapacity }),
     ...(input.WindowsConfiguration !== undefined && {
       WindowsConfiguration: serializeAws_json1_1UpdateFileSystemWindowsConfiguration(
         input.WindowsConfiguration,
@@ -2275,6 +2358,7 @@ const serializeAws_json1_1UpdateFileSystemWindowsConfiguration = (
         context
       ),
     }),
+    ...(input.ThroughputCapacity !== undefined && { ThroughputCapacity: input.ThroughputCapacity }),
     ...(input.WeeklyMaintenanceStartTime !== undefined && {
       WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
     }),
@@ -2305,6 +2389,45 @@ const deserializeAws_json1_1ActiveDirectoryError = (output: any, context: __Serd
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1AdministrativeAction = (output: any, context: __SerdeContext): AdministrativeAction => {
+  return {
+    __type: "AdministrativeAction",
+    AdministrativeActionType:
+      output.AdministrativeActionType !== undefined && output.AdministrativeActionType !== null
+        ? output.AdministrativeActionType
+        : undefined,
+    FailureDetails:
+      output.FailureDetails !== undefined && output.FailureDetails !== null
+        ? deserializeAws_json1_1AdministrativeActionFailureDetails(output.FailureDetails, context)
+        : undefined,
+    ProgressPercent:
+      output.ProgressPercent !== undefined && output.ProgressPercent !== null ? output.ProgressPercent : undefined,
+    RequestTime:
+      output.RequestTime !== undefined && output.RequestTime !== null
+        ? new Date(Math.round(output.RequestTime * 1000))
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    TargetFileSystemValues:
+      output.TargetFileSystemValues !== undefined && output.TargetFileSystemValues !== null
+        ? deserializeAws_json1_1FileSystem(output.TargetFileSystemValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AdministrativeActionFailureDetails = (
+  output: any,
+  context: __SerdeContext
+): AdministrativeActionFailureDetails => {
+  return {
+    __type: "AdministrativeActionFailureDetails",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AdministrativeActions = (output: any, context: __SerdeContext): AdministrativeAction[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AdministrativeAction(entry, context));
 };
 
 const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Backup => {
@@ -2454,12 +2577,29 @@ const deserializeAws_json1_1DataRepositoryConfiguration = (
 ): DataRepositoryConfiguration => {
   return {
     __type: "DataRepositoryConfiguration",
+    AutoImportPolicy:
+      output.AutoImportPolicy !== undefined && output.AutoImportPolicy !== null ? output.AutoImportPolicy : undefined,
     ExportPath: output.ExportPath !== undefined && output.ExportPath !== null ? output.ExportPath : undefined,
+    FailureDetails:
+      output.FailureDetails !== undefined && output.FailureDetails !== null
+        ? deserializeAws_json1_1DataRepositoryFailureDetails(output.FailureDetails, context)
+        : undefined,
     ImportPath: output.ImportPath !== undefined && output.ImportPath !== null ? output.ImportPath : undefined,
     ImportedFileChunkSize:
       output.ImportedFileChunkSize !== undefined && output.ImportedFileChunkSize !== null
         ? output.ImportedFileChunkSize
         : undefined,
+    Lifecycle: output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DataRepositoryFailureDetails = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryFailureDetails => {
+  return {
+    __type: "DataRepositoryFailureDetails",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -2575,6 +2715,21 @@ const deserializeAws_json1_1DeleteBackupResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1DeleteFileSystemLustreResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteFileSystemLustreResponse => {
+  return {
+    __type: "DeleteFileSystemLustreResponse",
+    FinalBackupId:
+      output.FinalBackupId !== undefined && output.FinalBackupId !== null ? output.FinalBackupId : undefined,
+    FinalBackupTags:
+      output.FinalBackupTags !== undefined && output.FinalBackupTags !== null
+        ? deserializeAws_json1_1Tags(output.FinalBackupTags, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteFileSystemResponse = (
   output: any,
   context: __SerdeContext
@@ -2583,6 +2738,10 @@ const deserializeAws_json1_1DeleteFileSystemResponse = (
     __type: "DeleteFileSystemResponse",
     FileSystemId: output.FileSystemId !== undefined && output.FileSystemId !== null ? output.FileSystemId : undefined,
     Lifecycle: output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
+    LustreResponse:
+      output.LustreResponse !== undefined && output.LustreResponse !== null
+        ? deserializeAws_json1_1DeleteFileSystemLustreResponse(output.LustreResponse, context)
+        : undefined,
     WindowsResponse:
       output.WindowsResponse !== undefined && output.WindowsResponse !== null
         ? deserializeAws_json1_1DeleteFileSystemWindowsResponse(output.WindowsResponse, context)
@@ -2654,6 +2813,10 @@ const deserializeAws_json1_1DnsIps = (output: any, context: __SerdeContext): str
 const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext): FileSystem => {
   return {
     __type: "FileSystem",
+    AdministrativeActions:
+      output.AdministrativeActions !== undefined && output.AdministrativeActions !== null
+        ? deserializeAws_json1_1AdministrativeActions(output.AdministrativeActions, context)
+        : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -2680,6 +2843,7 @@ const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext):
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
     StorageCapacity:
       output.StorageCapacity !== undefined && output.StorageCapacity !== null ? output.StorageCapacity : undefined,
+    StorageType: output.StorageType !== undefined && output.StorageType !== null ? output.StorageType : undefined,
     SubnetIds:
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
@@ -2767,6 +2931,16 @@ const deserializeAws_json1_1InvalidNetworkSettings = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1InvalidPerUnitStorageThroughput = (
+  output: any,
+  context: __SerdeContext
+): InvalidPerUnitStorageThroughput => {
+  return {
+    __type: "InvalidPerUnitStorageThroughput",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -2785,9 +2959,28 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
 ): LustreFileSystemConfiguration => {
   return {
     __type: "LustreFileSystemConfiguration",
+    AutomaticBackupRetentionDays:
+      output.AutomaticBackupRetentionDays !== undefined && output.AutomaticBackupRetentionDays !== null
+        ? output.AutomaticBackupRetentionDays
+        : undefined,
+    CopyTagsToBackups:
+      output.CopyTagsToBackups !== undefined && output.CopyTagsToBackups !== null
+        ? output.CopyTagsToBackups
+        : undefined,
+    DailyAutomaticBackupStartTime:
+      output.DailyAutomaticBackupStartTime !== undefined && output.DailyAutomaticBackupStartTime !== null
+        ? output.DailyAutomaticBackupStartTime
+        : undefined,
     DataRepositoryConfiguration:
       output.DataRepositoryConfiguration !== undefined && output.DataRepositoryConfiguration !== null
         ? deserializeAws_json1_1DataRepositoryConfiguration(output.DataRepositoryConfiguration, context)
+        : undefined,
+    DeploymentType:
+      output.DeploymentType !== undefined && output.DeploymentType !== null ? output.DeploymentType : undefined,
+    MountName: output.MountName !== undefined && output.MountName !== null ? output.MountName : undefined,
+    PerUnitStorageThroughput:
+      output.PerUnitStorageThroughput !== undefined && output.PerUnitStorageThroughput !== null
+        ? output.PerUnitStorageThroughput
         : undefined,
     WeeklyMaintenanceStartTime:
       output.WeeklyMaintenanceStartTime !== undefined && output.WeeklyMaintenanceStartTime !== null

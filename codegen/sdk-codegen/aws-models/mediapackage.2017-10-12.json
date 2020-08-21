@@ -44,6 +44,10 @@
           {
             "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
+          },
+          {
+            "value": "DATERANGE",
+            "name": "DATERANGE"
           }
         ]
       }
@@ -84,19 +88,19 @@
     "com.amazonaws.mediapackage#Authorization": {
       "type": "structure",
       "members": {
-        "CdnIdentifierSecret": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.",
-            "smithy.api#jsonName": "cdnIdentifierSecret",
-            "smithy.api#required": {}
-          }
-        },
         "SecretsRoleArn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.",
             "smithy.api#jsonName": "secretsRoleArn",
+            "smithy.api#required": {}
+          }
+        },
+        "CdnIdentifierSecret": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.",
+            "smithy.api#jsonName": "cdnIdentifierSecret",
             "smithy.api#required": {}
           }
         }
@@ -108,6 +112,12 @@
     "com.amazonaws.mediapackage#Channel": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "target": "com.amazonaws.mediapackage#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
         "Arn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -134,12 +144,6 @@
             "smithy.api#documentation": "The ID of the Channel.",
             "smithy.api#jsonName": "id"
           }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackage#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
-          }
         }
       },
       "traits": {
@@ -149,18 +153,18 @@
     "com.amazonaws.mediapackage#CmafEncryption": {
       "type": "structure",
       "members": {
-        "KeyRotationIntervalSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Time (in seconds) between each encryption key rotation.",
-            "smithy.api#jsonName": "keyRotationIntervalSeconds"
-          }
-        },
         "SpekeKeyProvider": {
           "target": "com.amazonaws.mediapackage#SpekeKeyProvider",
           "traits": {
             "smithy.api#jsonName": "spekeKeyProvider",
             "smithy.api#required": {}
+          }
+        },
+        "KeyRotationIntervalSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Time (in seconds) between each encryption key rotation.",
+            "smithy.api#jsonName": "keyRotationIntervalSeconds"
           }
         }
       },
@@ -171,12 +175,6 @@
     "com.amazonaws.mediapackage#CmafPackage": {
       "type": "structure",
       "members": {
-        "Encryption": {
-          "target": "com.amazonaws.mediapackage#CmafEncryption",
-          "traits": {
-            "smithy.api#jsonName": "encryption"
-          }
-        },
         "HlsManifests": {
           "target": "com.amazonaws.mediapackage#__listOfHlsManifest",
           "traits": {
@@ -191,6 +189,12 @@
             "smithy.api#jsonName": "segmentDurationSeconds"
           }
         },
+        "StreamSelection": {
+          "target": "com.amazonaws.mediapackage#StreamSelection",
+          "traits": {
+            "smithy.api#jsonName": "streamSelection"
+          }
+        },
         "SegmentPrefix": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -198,10 +202,10 @@
             "smithy.api#jsonName": "segmentPrefix"
           }
         },
-        "StreamSelection": {
-          "target": "com.amazonaws.mediapackage#StreamSelection",
+        "Encryption": {
+          "target": "com.amazonaws.mediapackage#CmafEncryption",
           "traits": {
-            "smithy.api#jsonName": "streamSelection"
+            "smithy.api#jsonName": "encryption"
           }
         }
       },
@@ -212,17 +216,10 @@
     "com.amazonaws.mediapackage#CmafPackageCreateOrUpdateParameters": {
       "type": "structure",
       "members": {
-        "Encryption": {
-          "target": "com.amazonaws.mediapackage#CmafEncryption",
+        "StreamSelection": {
+          "target": "com.amazonaws.mediapackage#StreamSelection",
           "traits": {
-            "smithy.api#jsonName": "encryption"
-          }
-        },
-        "HlsManifests": {
-          "target": "com.amazonaws.mediapackage#__listOfHlsManifestCreateOrUpdateParameters",
-          "traits": {
-            "smithy.api#documentation": "A list of HLS manifest configurations",
-            "smithy.api#jsonName": "hlsManifests"
+            "smithy.api#jsonName": "streamSelection"
           }
         },
         "SegmentDurationSeconds": {
@@ -232,6 +229,13 @@
             "smithy.api#jsonName": "segmentDurationSeconds"
           }
         },
+        "HlsManifests": {
+          "target": "com.amazonaws.mediapackage#__listOfHlsManifestCreateOrUpdateParameters",
+          "traits": {
+            "smithy.api#documentation": "A list of HLS manifest configurations",
+            "smithy.api#jsonName": "hlsManifests"
+          }
+        },
         "SegmentPrefix": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -239,10 +243,10 @@
             "smithy.api#jsonName": "segmentPrefix"
           }
         },
-        "StreamSelection": {
-          "target": "com.amazonaws.mediapackage#StreamSelection",
+        "Encryption": {
+          "target": "com.amazonaws.mediapackage#CmafEncryption",
           "traits": {
-            "smithy.api#jsonName": "streamSelection"
+            "smithy.api#jsonName": "encryption"
           }
         }
       },
@@ -290,19 +294,19 @@
     "com.amazonaws.mediapackage#CreateChannelRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A short text description of the Channel.",
-            "smithy.api#jsonName": "description"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the Channel. The ID must be unique within the region and it\ncannot be changed after a Channel is created.",
             "smithy.api#jsonName": "id",
             "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "A short text description of the Channel.",
+            "smithy.api#jsonName": "description"
           }
         },
         "Tags": {
@@ -319,11 +323,16 @@
     "com.amazonaws.mediapackage#CreateChannelResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.mediapackage#__string",
+        "Tags": {
+          "target": "com.amazonaws.mediapackage#Tags",
           "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the Channel.",
-            "smithy.api#jsonName": "arn"
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "HlsIngest": {
+          "target": "com.amazonaws.mediapackage#HlsIngest",
+          "traits": {
+            "smithy.api#jsonName": "hlsIngest"
           }
         },
         "Description": {
@@ -333,10 +342,11 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "HlsIngest": {
-          "target": "com.amazonaws.mediapackage#HlsIngest",
+        "Arn": {
+          "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#jsonName": "hlsIngest"
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the Channel.",
+            "smithy.api#jsonName": "arn"
           }
         },
         "Id": {
@@ -344,12 +354,6 @@
           "traits": {
             "smithy.api#documentation": "The ID of the Channel.",
             "smithy.api#jsonName": "id"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackage#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
           }
         }
       }
@@ -402,14 +406,6 @@
             "smithy.api#required": {}
           }
         },
-        "Id": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the HarvestJob. The ID must be unique within the region\nand it cannot be changed after the HarvestJob is submitted",
-            "smithy.api#jsonName": "id",
-            "smithy.api#required": {}
-          }
-        },
         "OriginEndpointId": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -418,18 +414,26 @@
             "smithy.api#required": {}
           }
         },
-        "S3Destination": {
-          "target": "com.amazonaws.mediapackage#S3Destination",
-          "traits": {
-            "smithy.api#jsonName": "s3Destination",
-            "smithy.api#required": {}
-          }
-        },
         "StartTime": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The start of the time-window which will be harvested",
             "smithy.api#jsonName": "startTime",
+            "smithy.api#required": {}
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the HarvestJob. The ID must be unique within the region\nand it cannot be changed after the HarvestJob is submitted",
+            "smithy.api#jsonName": "id",
+            "smithy.api#required": {}
+          }
+        },
+        "S3Destination": {
+          "target": "com.amazonaws.mediapackage#S3Destination",
+          "traits": {
+            "smithy.api#jsonName": "s3Destination",
             "smithy.api#required": {}
           }
         }
@@ -441,25 +445,18 @@
     "com.amazonaws.mediapackage#CreateHarvestJobResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "Id": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the HarvestJob.",
-            "smithy.api#jsonName": "arn"
+            "smithy.api#documentation": "The ID of the HarvestJob. The ID must be unique within the region\nand it cannot be changed after the HarvestJob is submitted.",
+            "smithy.api#jsonName": "id"
           }
         },
-        "ChannelId": {
+        "StartTime": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the Channel that the HarvestJob will harvest from.",
-            "smithy.api#jsonName": "channelId"
-          }
-        },
-        "CreatedAt": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The time the HarvestJob was submitted",
-            "smithy.api#jsonName": "createdAt"
+            "smithy.api#documentation": "The start of the time-window which will be harvested.",
+            "smithy.api#jsonName": "startTime"
           }
         },
         "EndTime": {
@@ -469,11 +466,18 @@
             "smithy.api#jsonName": "endTime"
           }
         },
-        "Id": {
+        "Arn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the HarvestJob. The ID must be unique within the region\nand it cannot be changed after the HarvestJob is submitted.",
-            "smithy.api#jsonName": "id"
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the HarvestJob.",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The time the HarvestJob was submitted",
+            "smithy.api#jsonName": "createdAt"
           }
         },
         "OriginEndpointId": {
@@ -489,18 +493,18 @@
             "smithy.api#jsonName": "s3Destination"
           }
         },
-        "StartTime": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The start of the time-window which will be harvested.",
-            "smithy.api#jsonName": "startTime"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.mediapackage#Status",
           "traits": {
             "smithy.api#documentation": "The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for\nHarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will\ninclude an explanation of why the HarvestJob failed.",
             "smithy.api#jsonName": "status"
+          }
+        },
+        "ChannelId": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the Channel that the HarvestJob will harvest from.",
+            "smithy.api#jsonName": "channelId"
           }
         }
       }
@@ -545,10 +549,17 @@
     "com.amazonaws.mediapackage#CreateOriginEndpointRequest": {
       "type": "structure",
       "members": {
-        "Authorization": {
-          "target": "com.amazonaws.mediapackage#Authorization",
+        "TimeDelaySeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
-            "smithy.api#jsonName": "authorization"
+            "smithy.api#documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.",
+            "smithy.api#jsonName": "timeDelaySeconds"
+          }
+        },
+        "DashPackage": {
+          "target": "com.amazonaws.mediapackage#DashPackage",
+          "traits": {
+            "smithy.api#jsonName": "dashPackage"
           }
         },
         "ChannelId": {
@@ -559,29 +570,56 @@
             "smithy.api#required": {}
           }
         },
+        "HlsPackage": {
+          "target": "com.amazonaws.mediapackage#HlsPackage",
+          "traits": {
+            "smithy.api#jsonName": "hlsPackage"
+          }
+        },
+        "Whitelist": {
+          "target": "com.amazonaws.mediapackage#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.",
+            "smithy.api#jsonName": "whitelist"
+          }
+        },
         "CmafPackage": {
           "target": "com.amazonaws.mediapackage#CmafPackageCreateOrUpdateParameters",
           "traits": {
             "smithy.api#jsonName": "cmafPackage"
           }
         },
-        "DashPackage": {
-          "target": "com.amazonaws.mediapackage#DashPackage",
+        "Tags": {
+          "target": "com.amazonaws.mediapackage#Tags",
           "traits": {
-            "smithy.api#jsonName": "dashPackage"
+            "smithy.api#jsonName": "tags"
           }
         },
-        "Description": {
+        "ManifestName": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
-            "smithy.api#jsonName": "description"
+            "smithy.api#documentation": "A short string that will be used as the filename of the OriginEndpoint URL (defaults to \"index\").",
+            "smithy.api#jsonName": "manifestName"
           }
         },
-        "HlsPackage": {
-          "target": "com.amazonaws.mediapackage#HlsPackage",
+        "Authorization": {
+          "target": "com.amazonaws.mediapackage#Authorization",
           "traits": {
-            "smithy.api#jsonName": "hlsPackage"
+            "smithy.api#jsonName": "authorization"
+          }
+        },
+        "StartoverWindowSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.",
+            "smithy.api#jsonName": "startoverWindowSeconds"
+          }
+        },
+        "Origination": {
+          "target": "com.amazonaws.mediapackage#Origination",
+          "traits": {
+            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
+            "smithy.api#jsonName": "origination"
           }
         },
         "Id": {
@@ -592,51 +630,17 @@
             "smithy.api#required": {}
           }
         },
-        "ManifestName": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A short string that will be used as the filename of the OriginEndpoint URL (defaults to \"index\").",
-            "smithy.api#jsonName": "manifestName"
-          }
-        },
         "MssPackage": {
           "target": "com.amazonaws.mediapackage#MssPackage",
           "traits": {
             "smithy.api#jsonName": "mssPackage"
           }
         },
-        "Origination": {
-          "target": "com.amazonaws.mediapackage#Origination",
+        "Description": {
+          "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
-            "smithy.api#jsonName": "origination"
-          }
-        },
-        "StartoverWindowSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.",
-            "smithy.api#jsonName": "startoverWindowSeconds"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackage#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "TimeDelaySeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.",
-            "smithy.api#jsonName": "timeDelaySeconds"
-          }
-        },
-        "Whitelist": {
-          "target": "com.amazonaws.mediapackage#__listOf__string",
-          "traits": {
-            "smithy.api#documentation": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.",
-            "smithy.api#jsonName": "whitelist"
+            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
+            "smithy.api#jsonName": "description"
           }
         }
       },
@@ -647,78 +651,6 @@
     "com.amazonaws.mediapackage#CreateOriginEndpointResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the OriginEndpoint.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "Authorization": {
-          "target": "com.amazonaws.mediapackage#Authorization",
-          "traits": {
-            "smithy.api#jsonName": "authorization"
-          }
-        },
-        "ChannelId": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the Channel the OriginEndpoint is associated with.",
-            "smithy.api#jsonName": "channelId"
-          }
-        },
-        "CmafPackage": {
-          "target": "com.amazonaws.mediapackage#CmafPackage",
-          "traits": {
-            "smithy.api#jsonName": "cmafPackage"
-          }
-        },
-        "DashPackage": {
-          "target": "com.amazonaws.mediapackage#DashPackage",
-          "traits": {
-            "smithy.api#jsonName": "dashPackage"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
-            "smithy.api#jsonName": "description"
-          }
-        },
-        "HlsPackage": {
-          "target": "com.amazonaws.mediapackage#HlsPackage",
-          "traits": {
-            "smithy.api#jsonName": "hlsPackage"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the OriginEndpoint.",
-            "smithy.api#jsonName": "id"
-          }
-        },
-        "ManifestName": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A short string appended to the end of the OriginEndpoint URL.",
-            "smithy.api#jsonName": "manifestName"
-          }
-        },
-        "MssPackage": {
-          "target": "com.amazonaws.mediapackage#MssPackage",
-          "traits": {
-            "smithy.api#jsonName": "mssPackage"
-          }
-        },
-        "Origination": {
-          "target": "com.amazonaws.mediapackage#Origination",
-          "traits": {
-            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
-            "smithy.api#jsonName": "origination"
-          }
-        },
         "StartoverWindowSeconds": {
           "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
@@ -732,6 +664,72 @@
             "smithy.api#jsonName": "tags"
           }
         },
+        "Url": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The URL of the packaged OriginEndpoint for consumption.",
+            "smithy.api#jsonName": "url"
+          }
+        },
+        "Origination": {
+          "target": "com.amazonaws.mediapackage#Origination",
+          "traits": {
+            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
+            "smithy.api#jsonName": "origination"
+          }
+        },
+        "HlsPackage": {
+          "target": "com.amazonaws.mediapackage#HlsPackage",
+          "traits": {
+            "smithy.api#jsonName": "hlsPackage"
+          }
+        },
+        "ManifestName": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "A short string appended to the end of the OriginEndpoint URL.",
+            "smithy.api#jsonName": "manifestName"
+          }
+        },
+        "Authorization": {
+          "target": "com.amazonaws.mediapackage#Authorization",
+          "traits": {
+            "smithy.api#jsonName": "authorization"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the OriginEndpoint.",
+            "smithy.api#jsonName": "id"
+          }
+        },
+        "DashPackage": {
+          "target": "com.amazonaws.mediapackage#DashPackage",
+          "traits": {
+            "smithy.api#jsonName": "dashPackage"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the OriginEndpoint.",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
+            "smithy.api#jsonName": "description"
+          }
+        },
+        "CmafPackage": {
+          "target": "com.amazonaws.mediapackage#CmafPackage",
+          "traits": {
+            "smithy.api#jsonName": "cmafPackage"
+          }
+        },
         "TimeDelaySeconds": {
           "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
@@ -739,11 +737,17 @@
             "smithy.api#jsonName": "timeDelaySeconds"
           }
         },
-        "Url": {
+        "MssPackage": {
+          "target": "com.amazonaws.mediapackage#MssPackage",
+          "traits": {
+            "smithy.api#jsonName": "mssPackage"
+          }
+        },
+        "ChannelId": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The URL of the packaged OriginEndpoint for consumption.",
-            "smithy.api#jsonName": "url"
+            "smithy.api#documentation": "The ID of the Channel the OriginEndpoint is associated with.",
+            "smithy.api#jsonName": "channelId"
           }
         },
         "Whitelist": {
@@ -758,18 +762,18 @@
     "com.amazonaws.mediapackage#DashEncryption": {
       "type": "structure",
       "members": {
-        "KeyRotationIntervalSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Time (in seconds) between each encryption key rotation.",
-            "smithy.api#jsonName": "keyRotationIntervalSeconds"
-          }
-        },
         "SpekeKeyProvider": {
           "target": "com.amazonaws.mediapackage#SpekeKeyProvider",
           "traits": {
             "smithy.api#jsonName": "spekeKeyProvider",
             "smithy.api#required": {}
+          }
+        },
+        "KeyRotationIntervalSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Time (in seconds) between each encryption key rotation.",
+            "smithy.api#jsonName": "keyRotationIntervalSeconds"
           }
         }
       },
@@ -780,66 +784,6 @@
     "com.amazonaws.mediapackage#DashPackage": {
       "type": "structure",
       "members": {
-        "AdTriggers": {
-          "target": "com.amazonaws.mediapackage#AdTriggers",
-          "traits": {
-            "smithy.api#jsonName": "adTriggers"
-          }
-        },
-        "AdsOnDeliveryRestrictions": {
-          "target": "com.amazonaws.mediapackage#AdsOnDeliveryRestrictions",
-          "traits": {
-            "smithy.api#jsonName": "adsOnDeliveryRestrictions"
-          }
-        },
-        "Encryption": {
-          "target": "com.amazonaws.mediapackage#DashEncryption",
-          "traits": {
-            "smithy.api#jsonName": "encryption"
-          }
-        },
-        "ManifestLayout": {
-          "target": "com.amazonaws.mediapackage#ManifestLayout",
-          "traits": {
-            "smithy.api#documentation": "Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.",
-            "smithy.api#jsonName": "manifestLayout"
-          }
-        },
-        "ManifestWindowSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Time window (in seconds) contained in each manifest.",
-            "smithy.api#jsonName": "manifestWindowSeconds"
-          }
-        },
-        "MinBufferTimeSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Minimum duration (in seconds) that a player will buffer media before starting the presentation.",
-            "smithy.api#jsonName": "minBufferTimeSeconds"
-          }
-        },
-        "MinUpdatePeriodSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).",
-            "smithy.api#jsonName": "minUpdatePeriodSeconds"
-          }
-        },
-        "PeriodTriggers": {
-          "target": "com.amazonaws.mediapackage#__listOf__PeriodTriggersElement",
-          "traits": {
-            "smithy.api#documentation": "A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)\nMedia Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not\nbe partitioned into more than one period. If the list contains \"ADS\", new periods will be created where\nthe Channel source contains SCTE-35 ad markers.",
-            "smithy.api#jsonName": "periodTriggers"
-          }
-        },
-        "Profile": {
-          "target": "com.amazonaws.mediapackage#Profile",
-          "traits": {
-            "smithy.api#documentation": "The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.",
-            "smithy.api#jsonName": "profile"
-          }
-        },
         "SegmentDurationSeconds": {
           "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
@@ -854,6 +798,20 @@
             "smithy.api#jsonName": "segmentTemplateFormat"
           }
         },
+        "ManifestWindowSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Time window (in seconds) contained in each manifest.",
+            "smithy.api#jsonName": "manifestWindowSeconds"
+          }
+        },
+        "MinUpdatePeriodSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).",
+            "smithy.api#jsonName": "minUpdatePeriodSeconds"
+          }
+        },
         "StreamSelection": {
           "target": "com.amazonaws.mediapackage#StreamSelection",
           "traits": {
@@ -865,6 +823,52 @@
           "traits": {
             "smithy.api#documentation": "Duration (in seconds) to delay live content before presentation.",
             "smithy.api#jsonName": "suggestedPresentationDelaySeconds"
+          }
+        },
+        "MinBufferTimeSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Minimum duration (in seconds) that a player will buffer media before starting the presentation.",
+            "smithy.api#jsonName": "minBufferTimeSeconds"
+          }
+        },
+        "ManifestLayout": {
+          "target": "com.amazonaws.mediapackage#ManifestLayout",
+          "traits": {
+            "smithy.api#documentation": "Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.",
+            "smithy.api#jsonName": "manifestLayout"
+          }
+        },
+        "AdsOnDeliveryRestrictions": {
+          "target": "com.amazonaws.mediapackage#AdsOnDeliveryRestrictions",
+          "traits": {
+            "smithy.api#jsonName": "adsOnDeliveryRestrictions"
+          }
+        },
+        "PeriodTriggers": {
+          "target": "com.amazonaws.mediapackage#__listOf__PeriodTriggersElement",
+          "traits": {
+            "smithy.api#documentation": "A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)\nMedia Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not\nbe partitioned into more than one period. If the list contains \"ADS\", new periods will be created where\nthe Channel source contains SCTE-35 ad markers.",
+            "smithy.api#jsonName": "periodTriggers"
+          }
+        },
+        "AdTriggers": {
+          "target": "com.amazonaws.mediapackage#AdTriggers",
+          "traits": {
+            "smithy.api#jsonName": "adTriggers"
+          }
+        },
+        "Encryption": {
+          "target": "com.amazonaws.mediapackage#DashEncryption",
+          "traits": {
+            "smithy.api#jsonName": "encryption"
+          }
+        },
+        "Profile": {
+          "target": "com.amazonaws.mediapackage#Profile",
+          "traits": {
+            "smithy.api#documentation": "The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.",
+            "smithy.api#jsonName": "profile"
           }
         }
       },
@@ -1033,13 +1037,6 @@
     "com.amazonaws.mediapackage#DescribeChannelResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the Channel.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -1047,10 +1044,10 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "HlsIngest": {
-          "target": "com.amazonaws.mediapackage#HlsIngest",
+        "Tags": {
+          "target": "com.amazonaws.mediapackage#Tags",
           "traits": {
-            "smithy.api#jsonName": "hlsIngest"
+            "smithy.api#jsonName": "tags"
           }
         },
         "Id": {
@@ -1060,10 +1057,17 @@
             "smithy.api#jsonName": "id"
           }
         },
-        "Tags": {
-          "target": "com.amazonaws.mediapackage#Tags",
+        "HlsIngest": {
+          "target": "com.amazonaws.mediapackage#HlsIngest",
           "traits": {
-            "smithy.api#jsonName": "tags"
+            "smithy.api#jsonName": "hlsIngest"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the Channel.",
+            "smithy.api#jsonName": "arn"
           }
         }
       }
@@ -1128,25 +1132,10 @@
             "smithy.api#jsonName": "arn"
           }
         },
-        "ChannelId": {
-          "target": "com.amazonaws.mediapackage#__string",
+        "S3Destination": {
+          "target": "com.amazonaws.mediapackage#S3Destination",
           "traits": {
-            "smithy.api#documentation": "The ID of the Channel that the HarvestJob will harvest from.",
-            "smithy.api#jsonName": "channelId"
-          }
-        },
-        "CreatedAt": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The time the HarvestJob was submitted",
-            "smithy.api#jsonName": "createdAt"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The end of the time-window which will be harvested.",
-            "smithy.api#jsonName": "endTime"
+            "smithy.api#jsonName": "s3Destination"
           }
         },
         "Id": {
@@ -1156,17 +1145,18 @@
             "smithy.api#jsonName": "id"
           }
         },
-        "OriginEndpointId": {
-          "target": "com.amazonaws.mediapackage#__string",
+        "Status": {
+          "target": "com.amazonaws.mediapackage#Status",
           "traits": {
-            "smithy.api#documentation": "The ID of the OriginEndpoint that the HarvestJob will harvest from.\nThis cannot be changed after the HarvestJob is submitted.",
-            "smithy.api#jsonName": "originEndpointId"
+            "smithy.api#documentation": "The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for\nHarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will\ninclude an explanation of why the HarvestJob failed.",
+            "smithy.api#jsonName": "status"
           }
         },
-        "S3Destination": {
-          "target": "com.amazonaws.mediapackage#S3Destination",
+        "EndTime": {
+          "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#jsonName": "s3Destination"
+            "smithy.api#documentation": "The end of the time-window which will be harvested.",
+            "smithy.api#jsonName": "endTime"
           }
         },
         "StartTime": {
@@ -1176,11 +1166,25 @@
             "smithy.api#jsonName": "startTime"
           }
         },
-        "Status": {
-          "target": "com.amazonaws.mediapackage#Status",
+        "CreatedAt": {
+          "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for\nHarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will\ninclude an explanation of why the HarvestJob failed.",
-            "smithy.api#jsonName": "status"
+            "smithy.api#documentation": "The time the HarvestJob was submitted",
+            "smithy.api#jsonName": "createdAt"
+          }
+        },
+        "OriginEndpointId": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the OriginEndpoint that the HarvestJob will harvest from.\nThis cannot be changed after the HarvestJob is submitted.",
+            "smithy.api#jsonName": "originEndpointId"
+          }
+        },
+        "ChannelId": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the Channel that the HarvestJob will harvest from.",
+            "smithy.api#jsonName": "channelId"
           }
         }
       }
@@ -1238,24 +1242,11 @@
     "com.amazonaws.mediapackage#DescribeOriginEndpointResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.mediapackage#__string",
+        "StartoverWindowSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the OriginEndpoint.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "Authorization": {
-          "target": "com.amazonaws.mediapackage#Authorization",
-          "traits": {
-            "smithy.api#jsonName": "authorization"
-          }
-        },
-        "ChannelId": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the Channel the OriginEndpoint is associated with.",
-            "smithy.api#jsonName": "channelId"
+            "smithy.api#documentation": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.",
+            "smithy.api#jsonName": "startoverWindowSeconds"
           }
         },
         "CmafPackage": {
@@ -1264,17 +1255,29 @@
             "smithy.api#jsonName": "cmafPackage"
           }
         },
+        "Tags": {
+          "target": "com.amazonaws.mediapackage#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "Authorization": {
+          "target": "com.amazonaws.mediapackage#Authorization",
+          "traits": {
+            "smithy.api#jsonName": "authorization"
+          }
+        },
+        "ManifestName": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "A short string appended to the end of the OriginEndpoint URL.",
+            "smithy.api#jsonName": "manifestName"
+          }
+        },
         "DashPackage": {
           "target": "com.amazonaws.mediapackage#DashPackage",
           "traits": {
             "smithy.api#jsonName": "dashPackage"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
-            "smithy.api#jsonName": "description"
           }
         },
         "HlsPackage": {
@@ -1290,17 +1293,31 @@
             "smithy.api#jsonName": "id"
           }
         },
-        "ManifestName": {
+        "Arn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "A short string appended to the end of the OriginEndpoint URL.",
-            "smithy.api#jsonName": "manifestName"
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the OriginEndpoint.",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
+            "smithy.api#jsonName": "description"
           }
         },
         "MssPackage": {
           "target": "com.amazonaws.mediapackage#MssPackage",
           "traits": {
             "smithy.api#jsonName": "mssPackage"
+          }
+        },
+        "Whitelist": {
+          "target": "com.amazonaws.mediapackage#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.",
+            "smithy.api#jsonName": "whitelist"
           }
         },
         "Origination": {
@@ -1310,26 +1327,6 @@
             "smithy.api#jsonName": "origination"
           }
         },
-        "StartoverWindowSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.",
-            "smithy.api#jsonName": "startoverWindowSeconds"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackage#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
-          }
-        },
-        "TimeDelaySeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.",
-            "smithy.api#jsonName": "timeDelaySeconds"
-          }
-        },
         "Url": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -1337,11 +1334,18 @@
             "smithy.api#jsonName": "url"
           }
         },
-        "Whitelist": {
-          "target": "com.amazonaws.mediapackage#__listOf__string",
+        "ChannelId": {
+          "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.",
-            "smithy.api#jsonName": "whitelist"
+            "smithy.api#documentation": "The ID of the Channel the OriginEndpoint is associated with.",
+            "smithy.api#jsonName": "channelId"
+          }
+        },
+        "TimeDelaySeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.",
+            "smithy.api#jsonName": "timeDelaySeconds"
           }
         }
       }
@@ -1380,13 +1384,6 @@
     "com.amazonaws.mediapackage#HarvestJob": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the HarvestJob.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
         "ChannelId": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -1394,38 +1391,11 @@
             "smithy.api#jsonName": "channelId"
           }
         },
-        "CreatedAt": {
+        "Arn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The time the HarvestJob was submitted",
-            "smithy.api#jsonName": "createdAt"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The end of the time-window which will be harvested.",
-            "smithy.api#jsonName": "endTime"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the HarvestJob. The ID must be unique within the region\nand it cannot be changed after the HarvestJob is submitted.",
-            "smithy.api#jsonName": "id"
-          }
-        },
-        "OriginEndpointId": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the OriginEndpoint that the HarvestJob will harvest from.\nThis cannot be changed after the HarvestJob is submitted.",
-            "smithy.api#jsonName": "originEndpointId"
-          }
-        },
-        "S3Destination": {
-          "target": "com.amazonaws.mediapackage#S3Destination",
-          "traits": {
-            "smithy.api#jsonName": "s3Destination"
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the HarvestJob.",
+            "smithy.api#jsonName": "arn"
           }
         },
         "StartTime": {
@@ -1440,6 +1410,40 @@
           "traits": {
             "smithy.api#documentation": "The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for\nHarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will\ninclude an explanation of why the HarvestJob failed.",
             "smithy.api#jsonName": "status"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The end of the time-window which will be harvested.",
+            "smithy.api#jsonName": "endTime"
+          }
+        },
+        "OriginEndpointId": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the OriginEndpoint that the HarvestJob will harvest from.\nThis cannot be changed after the HarvestJob is submitted.",
+            "smithy.api#jsonName": "originEndpointId"
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The time the HarvestJob was submitted",
+            "smithy.api#jsonName": "createdAt"
+          }
+        },
+        "S3Destination": {
+          "target": "com.amazonaws.mediapackage#S3Destination",
+          "traits": {
+            "smithy.api#jsonName": "s3Destination"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the HarvestJob. The ID must be unique within the region\nand it cannot be changed after the HarvestJob is submitted.",
+            "smithy.api#jsonName": "id"
           }
         }
       },
@@ -1457,18 +1461,11 @@
             "smithy.api#jsonName": "constantInitializationVector"
           }
         },
-        "EncryptionMethod": {
-          "target": "com.amazonaws.mediapackage#EncryptionMethod",
+        "SpekeKeyProvider": {
+          "target": "com.amazonaws.mediapackage#SpekeKeyProvider",
           "traits": {
-            "smithy.api#documentation": "The encryption method to use.",
-            "smithy.api#jsonName": "encryptionMethod"
-          }
-        },
-        "KeyRotationIntervalSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Interval (in seconds) between each encryption key rotation.",
-            "smithy.api#jsonName": "keyRotationIntervalSeconds"
+            "smithy.api#jsonName": "spekeKeyProvider",
+            "smithy.api#required": {}
           }
         },
         "RepeatExtXKey": {
@@ -1478,11 +1475,18 @@
             "smithy.api#jsonName": "repeatExtXKey"
           }
         },
-        "SpekeKeyProvider": {
-          "target": "com.amazonaws.mediapackage#SpekeKeyProvider",
+        "KeyRotationIntervalSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
-            "smithy.api#jsonName": "spekeKeyProvider",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "Interval (in seconds) between each encryption key rotation.",
+            "smithy.api#jsonName": "keyRotationIntervalSeconds"
+          }
+        },
+        "EncryptionMethod": {
+          "target": "com.amazonaws.mediapackage#EncryptionMethod",
+          "traits": {
+            "smithy.api#documentation": "The encryption method to use.",
+            "smithy.api#jsonName": "encryptionMethod"
           }
         }
       },
@@ -1508,21 +1512,6 @@
     "com.amazonaws.mediapackage#HlsManifest": {
       "type": "structure",
       "members": {
-        "AdMarkers": {
-          "target": "com.amazonaws.mediapackage#AdMarkers",
-          "traits": {
-            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.",
-            "smithy.api#jsonName": "adMarkers"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.",
-            "smithy.api#jsonName": "id",
-            "smithy.api#required": {}
-          }
-        },
         "IncludeIframeOnlyStream": {
           "target": "com.amazonaws.mediapackage#__boolean",
           "traits": {
@@ -1537,11 +1526,11 @@
             "smithy.api#jsonName": "manifestName"
           }
         },
-        "PlaylistType": {
-          "target": "com.amazonaws.mediapackage#PlaylistType",
+        "Url": {
+          "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The HTTP Live Streaming (HLS) playlist type.\nWhen either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE\nentry will be included in the media playlist.",
-            "smithy.api#jsonName": "playlistType"
+            "smithy.api#documentation": "The URL of the packaged OriginEndpoint for consumption.",
+            "smithy.api#jsonName": "url"
           }
         },
         "PlaylistWindowSeconds": {
@@ -1551,6 +1540,13 @@
             "smithy.api#jsonName": "playlistWindowSeconds"
           }
         },
+        "PlaylistType": {
+          "target": "com.amazonaws.mediapackage#PlaylistType",
+          "traits": {
+            "smithy.api#documentation": "The HTTP Live Streaming (HLS) playlist type.\nWhen either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE\nentry will be included in the media playlist.",
+            "smithy.api#jsonName": "playlistType"
+          }
+        },
         "ProgramDateTimeIntervalSeconds": {
           "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
@@ -1558,11 +1554,19 @@
             "smithy.api#jsonName": "programDateTimeIntervalSeconds"
           }
         },
-        "Url": {
+        "AdMarkers": {
+          "target": "com.amazonaws.mediapackage#AdMarkers",
+          "traits": {
+            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.\n\"DATERANGE\" inserts EXT-X-DATERANGE tags to signal ad and program transition events \nin HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value \nthat is greater than 0.",
+            "smithy.api#jsonName": "adMarkers"
+          }
+        },
+        "Id": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The URL of the packaged OriginEndpoint for consumption.",
-            "smithy.api#jsonName": "url"
+            "smithy.api#documentation": "The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.",
+            "smithy.api#jsonName": "id",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1573,23 +1577,24 @@
     "com.amazonaws.mediapackage#HlsManifestCreateOrUpdateParameters": {
       "type": "structure",
       "members": {
-        "AdMarkers": {
-          "target": "com.amazonaws.mediapackage#AdMarkers",
-          "traits": {
-            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.",
-            "smithy.api#jsonName": "adMarkers"
-          }
-        },
         "AdTriggers": {
           "target": "com.amazonaws.mediapackage#AdTriggers",
           "traits": {
             "smithy.api#jsonName": "adTriggers"
           }
         },
-        "AdsOnDeliveryRestrictions": {
-          "target": "com.amazonaws.mediapackage#AdsOnDeliveryRestrictions",
+        "IncludeIframeOnlyStream": {
+          "target": "com.amazonaws.mediapackage#__boolean",
           "traits": {
-            "smithy.api#jsonName": "adsOnDeliveryRestrictions"
+            "smithy.api#documentation": "When enabled, an I-Frame only stream will be included in the output.",
+            "smithy.api#jsonName": "includeIframeOnlyStream"
+          }
+        },
+        "ProgramDateTimeIntervalSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.",
+            "smithy.api#jsonName": "programDateTimeIntervalSeconds"
           }
         },
         "Id": {
@@ -1600,11 +1605,18 @@
             "smithy.api#required": {}
           }
         },
-        "IncludeIframeOnlyStream": {
-          "target": "com.amazonaws.mediapackage#__boolean",
+        "PlaylistType": {
+          "target": "com.amazonaws.mediapackage#PlaylistType",
           "traits": {
-            "smithy.api#documentation": "When enabled, an I-Frame only stream will be included in the output.",
-            "smithy.api#jsonName": "includeIframeOnlyStream"
+            "smithy.api#documentation": "The HTTP Live Streaming (HLS) playlist type.\nWhen either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE\nentry will be included in the media playlist.",
+            "smithy.api#jsonName": "playlistType"
+          }
+        },
+        "AdMarkers": {
+          "target": "com.amazonaws.mediapackage#AdMarkers",
+          "traits": {
+            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.\n\"DATERANGE\" inserts EXT-X-DATERANGE tags to signal ad and program transition events \nin HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value \nthat is greater than 0.",
+            "smithy.api#jsonName": "adMarkers"
           }
         },
         "ManifestName": {
@@ -1614,13 +1626,6 @@
             "smithy.api#jsonName": "manifestName"
           }
         },
-        "PlaylistType": {
-          "target": "com.amazonaws.mediapackage#PlaylistType",
-          "traits": {
-            "smithy.api#documentation": "The HTTP Live Streaming (HLS) playlist type.\nWhen either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE\nentry will be included in the media playlist.",
-            "smithy.api#jsonName": "playlistType"
-          }
-        },
         "PlaylistWindowSeconds": {
           "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
@@ -1628,11 +1633,10 @@
             "smithy.api#jsonName": "playlistWindowSeconds"
           }
         },
-        "ProgramDateTimeIntervalSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
+        "AdsOnDeliveryRestrictions": {
+          "target": "com.amazonaws.mediapackage#AdsOnDeliveryRestrictions",
           "traits": {
-            "smithy.api#documentation": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.",
-            "smithy.api#jsonName": "programDateTimeIntervalSeconds"
+            "smithy.api#jsonName": "adsOnDeliveryRestrictions"
           }
         }
       },
@@ -1643,38 +1647,6 @@
     "com.amazonaws.mediapackage#HlsPackage": {
       "type": "structure",
       "members": {
-        "AdMarkers": {
-          "target": "com.amazonaws.mediapackage#AdMarkers",
-          "traits": {
-            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.",
-            "smithy.api#jsonName": "adMarkers"
-          }
-        },
-        "AdTriggers": {
-          "target": "com.amazonaws.mediapackage#AdTriggers",
-          "traits": {
-            "smithy.api#jsonName": "adTriggers"
-          }
-        },
-        "AdsOnDeliveryRestrictions": {
-          "target": "com.amazonaws.mediapackage#AdsOnDeliveryRestrictions",
-          "traits": {
-            "smithy.api#jsonName": "adsOnDeliveryRestrictions"
-          }
-        },
-        "Encryption": {
-          "target": "com.amazonaws.mediapackage#HlsEncryption",
-          "traits": {
-            "smithy.api#jsonName": "encryption"
-          }
-        },
-        "IncludeIframeOnlyStream": {
-          "target": "com.amazonaws.mediapackage#__boolean",
-          "traits": {
-            "smithy.api#documentation": "When enabled, an I-Frame only stream will be included in the output.",
-            "smithy.api#jsonName": "includeIframeOnlyStream"
-          }
-        },
         "PlaylistType": {
           "target": "com.amazonaws.mediapackage#PlaylistType",
           "traits": {
@@ -1682,11 +1654,10 @@
             "smithy.api#jsonName": "playlistType"
           }
         },
-        "PlaylistWindowSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
+        "AdTriggers": {
+          "target": "com.amazonaws.mediapackage#AdTriggers",
           "traits": {
-            "smithy.api#documentation": "Time window (in seconds) contained in each parent manifest.",
-            "smithy.api#jsonName": "playlistWindowSeconds"
+            "smithy.api#jsonName": "adTriggers"
           }
         },
         "ProgramDateTimeIntervalSeconds": {
@@ -1696,11 +1667,45 @@
             "smithy.api#jsonName": "programDateTimeIntervalSeconds"
           }
         },
+        "UseAudioRenditionGroup": {
+          "target": "com.amazonaws.mediapackage#__boolean",
+          "traits": {
+            "smithy.api#documentation": "When enabled, audio streams will be placed in rendition groups in the output.",
+            "smithy.api#jsonName": "useAudioRenditionGroup"
+          }
+        },
+        "IncludeIframeOnlyStream": {
+          "target": "com.amazonaws.mediapackage#__boolean",
+          "traits": {
+            "smithy.api#documentation": "When enabled, an I-Frame only stream will be included in the output.",
+            "smithy.api#jsonName": "includeIframeOnlyStream"
+          }
+        },
+        "Encryption": {
+          "target": "com.amazonaws.mediapackage#HlsEncryption",
+          "traits": {
+            "smithy.api#jsonName": "encryption"
+          }
+        },
         "SegmentDurationSeconds": {
           "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
             "smithy.api#documentation": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.",
             "smithy.api#jsonName": "segmentDurationSeconds"
+          }
+        },
+        "AdMarkers": {
+          "target": "com.amazonaws.mediapackage#AdMarkers",
+          "traits": {
+            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.\n\"DATERANGE\" inserts EXT-X-DATERANGE tags to signal ad and program transition events \nin HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value \nthat is greater than 0.",
+            "smithy.api#jsonName": "adMarkers"
+          }
+        },
+        "PlaylistWindowSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Time window (in seconds) contained in each parent manifest.",
+            "smithy.api#jsonName": "playlistWindowSeconds"
           }
         },
         "StreamSelection": {
@@ -1709,11 +1714,10 @@
             "smithy.api#jsonName": "streamSelection"
           }
         },
-        "UseAudioRenditionGroup": {
-          "target": "com.amazonaws.mediapackage#__boolean",
+        "AdsOnDeliveryRestrictions": {
+          "target": "com.amazonaws.mediapackage#AdsOnDeliveryRestrictions",
           "traits": {
-            "smithy.api#documentation": "When enabled, audio streams will be placed in rendition groups in the output.",
-            "smithy.api#jsonName": "useAudioRenditionGroup"
+            "smithy.api#jsonName": "adsOnDeliveryRestrictions"
           }
         }
       },
@@ -1724,13 +1728,6 @@
     "com.amazonaws.mediapackage#IngestEndpoint": {
       "type": "structure",
       "members": {
-        "Id": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The system generated unique identifier for the IngestEndpoint",
-            "smithy.api#jsonName": "id"
-          }
-        },
         "Password": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -1738,18 +1735,25 @@
             "smithy.api#jsonName": "password"
           }
         },
-        "Url": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ingest URL to which the source stream should be sent.",
-            "smithy.api#jsonName": "url"
-          }
-        },
         "Username": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The system generated username for ingest authentication.",
             "smithy.api#jsonName": "username"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The system generated unique identifier for the IngestEndpoint",
+            "smithy.api#jsonName": "id"
+          }
+        },
+        "Url": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ingest URL to which the source stream should be sent.",
+            "smithy.api#jsonName": "url"
           }
         }
       },
@@ -1832,18 +1836,18 @@
     "com.amazonaws.mediapackage#ListChannelsResponse": {
       "type": "structure",
       "members": {
-        "Channels": {
-          "target": "com.amazonaws.mediapackage#__listOfChannel",
-          "traits": {
-            "smithy.api#documentation": "A list of Channel records.",
-            "smithy.api#jsonName": "channels"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "A token that can be used to resume pagination from the end of the collection.",
             "smithy.api#jsonName": "nextToken"
+          }
+        },
+        "Channels": {
+          "target": "com.amazonaws.mediapackage#__listOfChannel",
+          "traits": {
+            "smithy.api#documentation": "A list of Channel records.",
+            "smithy.api#jsonName": "channels"
           }
         }
       }
@@ -1888,11 +1892,11 @@
     "com.amazonaws.mediapackage#ListHarvestJobsRequest": {
       "type": "structure",
       "members": {
-        "IncludeChannelId": {
-          "target": "com.amazonaws.mediapackage#__string",
+        "MaxResults": {
+          "target": "com.amazonaws.mediapackage#MaxResults",
           "traits": {
-            "smithy.api#documentation": "When specified, the request will return only HarvestJobs associated with the given Channel ID.",
-            "smithy.api#httpQuery": "includeChannelId"
+            "smithy.api#documentation": "The upper bound on the number of records to return.",
+            "smithy.api#httpQuery": "maxResults"
           }
         },
         "IncludeStatus": {
@@ -1902,18 +1906,18 @@
             "smithy.api#httpQuery": "includeStatus"
           }
         },
-        "MaxResults": {
-          "target": "com.amazonaws.mediapackage#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "The upper bound on the number of records to return.",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "A token used to resume pagination from the end of a previous request.",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "IncludeChannelId": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "When specified, the request will return only HarvestJobs associated with the given Channel ID.",
+            "smithy.api#httpQuery": "includeChannelId"
           }
         }
       }
@@ -2003,18 +2007,18 @@
     "com.amazonaws.mediapackage#ListOriginEndpointsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A token that can be used to resume pagination from the end of the collection.",
-            "smithy.api#jsonName": "nextToken"
-          }
-        },
         "OriginEndpoints": {
           "target": "com.amazonaws.mediapackage#__listOfOriginEndpoint",
           "traits": {
             "smithy.api#documentation": "A list of OriginEndpoint records.",
             "smithy.api#jsonName": "originEndpoints"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "A token that can be used to resume pagination from the end of the collection.",
+            "smithy.api#jsonName": "nextToken"
           }
         }
       }
@@ -2174,12 +2178,6 @@
     "com.amazonaws.mediapackage#MssPackage": {
       "type": "structure",
       "members": {
-        "Encryption": {
-          "target": "com.amazonaws.mediapackage#MssEncryption",
-          "traits": {
-            "smithy.api#jsonName": "encryption"
-          }
-        },
         "ManifestWindowSeconds": {
           "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
@@ -2187,17 +2185,23 @@
             "smithy.api#jsonName": "manifestWindowSeconds"
           }
         },
-        "SegmentDurationSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
+        "Encryption": {
+          "target": "com.amazonaws.mediapackage#MssEncryption",
           "traits": {
-            "smithy.api#documentation": "The duration (in seconds) of each segment.",
-            "smithy.api#jsonName": "segmentDurationSeconds"
+            "smithy.api#jsonName": "encryption"
           }
         },
         "StreamSelection": {
           "target": "com.amazonaws.mediapackage#StreamSelection",
           "traits": {
             "smithy.api#jsonName": "streamSelection"
+          }
+        },
+        "SegmentDurationSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "The duration (in seconds) of each segment.",
+            "smithy.api#jsonName": "segmentDurationSeconds"
           }
         }
       },
@@ -2224,56 +2228,17 @@
     "com.amazonaws.mediapackage#OriginEndpoint": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "Url": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the OriginEndpoint.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "Authorization": {
-          "target": "com.amazonaws.mediapackage#Authorization",
-          "traits": {
-            "smithy.api#jsonName": "authorization"
-          }
-        },
-        "ChannelId": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the Channel the OriginEndpoint is associated with.",
-            "smithy.api#jsonName": "channelId"
-          }
-        },
-        "CmafPackage": {
-          "target": "com.amazonaws.mediapackage#CmafPackage",
-          "traits": {
-            "smithy.api#jsonName": "cmafPackage"
+            "smithy.api#documentation": "The URL of the packaged OriginEndpoint for consumption.",
+            "smithy.api#jsonName": "url"
           }
         },
         "DashPackage": {
           "target": "com.amazonaws.mediapackage#DashPackage",
           "traits": {
             "smithy.api#jsonName": "dashPackage"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
-            "smithy.api#jsonName": "description"
-          }
-        },
-        "HlsPackage": {
-          "target": "com.amazonaws.mediapackage#HlsPackage",
-          "traits": {
-            "smithy.api#jsonName": "hlsPackage"
-          }
-        },
-        "Id": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the OriginEndpoint.",
-            "smithy.api#jsonName": "id"
           }
         },
         "ManifestName": {
@@ -2283,17 +2248,10 @@
             "smithy.api#jsonName": "manifestName"
           }
         },
-        "MssPackage": {
-          "target": "com.amazonaws.mediapackage#MssPackage",
+        "HlsPackage": {
+          "target": "com.amazonaws.mediapackage#HlsPackage",
           "traits": {
-            "smithy.api#jsonName": "mssPackage"
-          }
-        },
-        "Origination": {
-          "target": "com.amazonaws.mediapackage#Origination",
-          "traits": {
-            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
-            "smithy.api#jsonName": "origination"
+            "smithy.api#jsonName": "hlsPackage"
           }
         },
         "StartoverWindowSeconds": {
@@ -2303,24 +2261,63 @@
             "smithy.api#jsonName": "startoverWindowSeconds"
           }
         },
+        "Authorization": {
+          "target": "com.amazonaws.mediapackage#Authorization",
+          "traits": {
+            "smithy.api#jsonName": "authorization"
+          }
+        },
+        "Origination": {
+          "target": "com.amazonaws.mediapackage#Origination",
+          "traits": {
+            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
+            "smithy.api#jsonName": "origination"
+          }
+        },
+        "ChannelId": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the Channel the OriginEndpoint is associated with.",
+            "smithy.api#jsonName": "channelId"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.mediapackage#Tags",
           "traits": {
             "smithy.api#jsonName": "tags"
           }
         },
-        "TimeDelaySeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.",
-            "smithy.api#jsonName": "timeDelaySeconds"
-          }
-        },
-        "Url": {
+        "Id": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The URL of the packaged OriginEndpoint for consumption.",
-            "smithy.api#jsonName": "url"
+            "smithy.api#documentation": "The ID of the OriginEndpoint.",
+            "smithy.api#jsonName": "id"
+          }
+        },
+        "CmafPackage": {
+          "target": "com.amazonaws.mediapackage#CmafPackage",
+          "traits": {
+            "smithy.api#jsonName": "cmafPackage"
+          }
+        },
+        "MssPackage": {
+          "target": "com.amazonaws.mediapackage#MssPackage",
+          "traits": {
+            "smithy.api#jsonName": "mssPackage"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
+            "smithy.api#jsonName": "description"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the OriginEndpoint.",
+            "smithy.api#jsonName": "arn"
           }
         },
         "Whitelist": {
@@ -2328,6 +2325,13 @@
           "traits": {
             "smithy.api#documentation": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.",
             "smithy.api#jsonName": "whitelist"
+          }
+        },
+        "TimeDelaySeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.",
+            "smithy.api#jsonName": "timeDelaySeconds"
           }
         }
       },
@@ -2443,24 +2447,11 @@
     "com.amazonaws.mediapackage#RotateChannelCredentialsResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the Channel.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "A short text description of the Channel.",
             "smithy.api#jsonName": "description"
-          }
-        },
-        "HlsIngest": {
-          "target": "com.amazonaws.mediapackage#HlsIngest",
-          "traits": {
-            "smithy.api#jsonName": "hlsIngest"
           }
         },
         "Id": {
@@ -2474,6 +2465,19 @@
           "target": "com.amazonaws.mediapackage#Tags",
           "traits": {
             "smithy.api#jsonName": "tags"
+          }
+        },
+        "HlsIngest": {
+          "target": "com.amazonaws.mediapackage#HlsIngest",
+          "traits": {
+            "smithy.api#jsonName": "hlsIngest"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the Channel.",
+            "smithy.api#jsonName": "arn"
           }
         }
       },
@@ -2542,6 +2546,18 @@
     "com.amazonaws.mediapackage#RotateIngestEndpointCredentialsResponse": {
       "type": "structure",
       "members": {
+        "HlsIngest": {
+          "target": "com.amazonaws.mediapackage#HlsIngest",
+          "traits": {
+            "smithy.api#jsonName": "hlsIngest"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackage#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
         "Arn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -2556,23 +2572,11 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "HlsIngest": {
-          "target": "com.amazonaws.mediapackage#HlsIngest",
-          "traits": {
-            "smithy.api#jsonName": "hlsIngest"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the Channel.",
             "smithy.api#jsonName": "id"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackage#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
           }
         }
       }
@@ -2588,19 +2592,19 @@
             "smithy.api#required": {}
           }
         },
-        "ManifestKey": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The key in the specified S3 bucket where the harvested top-level manifest will be placed.",
-            "smithy.api#jsonName": "manifestKey",
-            "smithy.api#required": {}
-          }
-        },
         "RoleArn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The IAM role used to write to the specified S3 bucket",
             "smithy.api#jsonName": "roleArn",
+            "smithy.api#required": {}
+          }
+        },
+        "ManifestKey": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The key in the specified S3 bucket where the harvested top-level manifest will be placed.",
+            "smithy.api#jsonName": "manifestKey",
             "smithy.api#required": {}
           }
         }
@@ -2647,26 +2651,11 @@
     "com.amazonaws.mediapackage#SpekeKeyProvider": {
       "type": "structure",
       "members": {
-        "CertificateArn": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "An Amazon Resource Name (ARN) of a Certificate Manager certificate\nthat MediaPackage will use for enforcing secure end-to-end data\ntransfer with the key provider service.",
-            "smithy.api#jsonName": "certificateArn"
-          }
-        },
         "ResourceId": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The resource ID to include in key requests.",
             "smithy.api#jsonName": "resourceId",
-            "smithy.api#required": {}
-          }
-        },
-        "RoleArn": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "An Amazon Resource Name (ARN) of an IAM role that AWS Elemental\nMediaPackage will assume when accessing the key provider service.",
-            "smithy.api#jsonName": "roleArn",
             "smithy.api#required": {}
           }
         },
@@ -2684,6 +2673,21 @@
             "smithy.api#documentation": "The URL of the external key provider service.",
             "smithy.api#jsonName": "url",
             "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "An Amazon Resource Name (ARN) of an IAM role that AWS Elemental\nMediaPackage will assume when accessing the key provider service.",
+            "smithy.api#jsonName": "roleArn",
+            "smithy.api#required": {}
+          }
+        },
+        "CertificateArn": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "An Amazon Resource Name (ARN) of a Certificate Manager certificate\nthat MediaPackage will use for enforcing secure end-to-end data\ntransfer with the key provider service.",
+            "smithy.api#jsonName": "certificateArn"
           }
         }
       },
@@ -2732,13 +2736,6 @@
     "com.amazonaws.mediapackage#StreamSelection": {
       "type": "structure",
       "members": {
-        "MaxVideoBitsPerSecond": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "The maximum video bitrate (bps) to include in output.",
-            "smithy.api#jsonName": "maxVideoBitsPerSecond"
-          }
-        },
         "MinVideoBitsPerSecond": {
           "target": "com.amazonaws.mediapackage#__integer",
           "traits": {
@@ -2751,6 +2748,13 @@
           "traits": {
             "smithy.api#documentation": "A directive that determines the order of streams in the output.",
             "smithy.api#jsonName": "streamOrder"
+          }
+        },
+        "MaxVideoBitsPerSecond": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "The maximum video bitrate (bps) to include in output.",
+            "smithy.api#jsonName": "maxVideoBitsPerSecond"
           }
         }
       },
@@ -2850,18 +2854,18 @@
     "com.amazonaws.mediapackage#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "ResourceArn": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "TagKeys": {
           "target": "com.amazonaws.mediapackage#__listOf__string",
           "traits": {
             "smithy.api#documentation": "The key(s) of tag to be deleted",
             "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -2907,19 +2911,19 @@
     "com.amazonaws.mediapackage#UpdateChannelRequest": {
       "type": "structure",
       "members": {
-        "Description": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A short text description of the Channel.",
-            "smithy.api#jsonName": "description"
-          }
-        },
         "Id": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the Channel to update.",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "A short text description of the Channel.",
+            "smithy.api#jsonName": "description"
           }
         }
       },
@@ -2930,11 +2934,17 @@
     "com.amazonaws.mediapackage#UpdateChannelResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
+        "Id": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the Channel.",
-            "smithy.api#jsonName": "arn"
+            "smithy.api#documentation": "The ID of the Channel.",
+            "smithy.api#jsonName": "id"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackage#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
           }
         },
         "Description": {
@@ -2950,17 +2960,11 @@
             "smithy.api#jsonName": "hlsIngest"
           }
         },
-        "Id": {
+        "Arn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "The ID of the Channel.",
-            "smithy.api#jsonName": "id"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackage#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the Channel.",
+            "smithy.api#jsonName": "arn"
           }
         }
       }
@@ -3005,35 +3009,24 @@
     "com.amazonaws.mediapackage#UpdateOriginEndpointRequest": {
       "type": "structure",
       "members": {
-        "Authorization": {
-          "target": "com.amazonaws.mediapackage#Authorization",
+        "Whitelist": {
+          "target": "com.amazonaws.mediapackage#__listOf__string",
           "traits": {
-            "smithy.api#jsonName": "authorization"
+            "smithy.api#documentation": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.",
+            "smithy.api#jsonName": "whitelist"
+          }
+        },
+        "TimeDelaySeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Amount of delay (in seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.",
+            "smithy.api#jsonName": "timeDelaySeconds"
           }
         },
         "CmafPackage": {
           "target": "com.amazonaws.mediapackage#CmafPackageCreateOrUpdateParameters",
           "traits": {
             "smithy.api#jsonName": "cmafPackage"
-          }
-        },
-        "DashPackage": {
-          "target": "com.amazonaws.mediapackage#DashPackage",
-          "traits": {
-            "smithy.api#jsonName": "dashPackage"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
-            "smithy.api#jsonName": "description"
-          }
-        },
-        "HlsPackage": {
-          "target": "com.amazonaws.mediapackage#HlsPackage",
-          "traits": {
-            "smithy.api#jsonName": "hlsPackage"
           }
         },
         "Id": {
@@ -3044,24 +3037,23 @@
             "smithy.api#required": {}
           }
         },
-        "ManifestName": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "A short string that will be appended to the end of the Endpoint URL.",
-            "smithy.api#jsonName": "manifestName"
-          }
-        },
         "MssPackage": {
           "target": "com.amazonaws.mediapackage#MssPackage",
           "traits": {
             "smithy.api#jsonName": "mssPackage"
           }
         },
-        "Origination": {
-          "target": "com.amazonaws.mediapackage#Origination",
+        "Description": {
+          "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
-            "smithy.api#jsonName": "origination"
+            "smithy.api#documentation": "A short text description of the OriginEndpoint.",
+            "smithy.api#jsonName": "description"
+          }
+        },
+        "DashPackage": {
+          "target": "com.amazonaws.mediapackage#DashPackage",
+          "traits": {
+            "smithy.api#jsonName": "dashPackage"
           }
         },
         "StartoverWindowSeconds": {
@@ -3071,18 +3063,30 @@
             "smithy.api#jsonName": "startoverWindowSeconds"
           }
         },
-        "TimeDelaySeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
+        "ManifestName": {
+          "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "Amount of delay (in seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.",
-            "smithy.api#jsonName": "timeDelaySeconds"
+            "smithy.api#documentation": "A short string that will be appended to the end of the Endpoint URL.",
+            "smithy.api#jsonName": "manifestName"
           }
         },
-        "Whitelist": {
-          "target": "com.amazonaws.mediapackage#__listOf__string",
+        "HlsPackage": {
+          "target": "com.amazonaws.mediapackage#HlsPackage",
           "traits": {
-            "smithy.api#documentation": "A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.",
-            "smithy.api#jsonName": "whitelist"
+            "smithy.api#jsonName": "hlsPackage"
+          }
+        },
+        "Origination": {
+          "target": "com.amazonaws.mediapackage#Origination",
+          "traits": {
+            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
+            "smithy.api#jsonName": "origination"
+          }
+        },
+        "Authorization": {
+          "target": "com.amazonaws.mediapackage#Authorization",
+          "traits": {
+            "smithy.api#jsonName": "authorization"
           }
         }
       },
@@ -3093,38 +3097,6 @@
     "com.amazonaws.mediapackage#UpdateOriginEndpointResponse": {
       "type": "structure",
       "members": {
-        "Arn": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the OriginEndpoint.",
-            "smithy.api#jsonName": "arn"
-          }
-        },
-        "Authorization": {
-          "target": "com.amazonaws.mediapackage#Authorization",
-          "traits": {
-            "smithy.api#jsonName": "authorization"
-          }
-        },
-        "ChannelId": {
-          "target": "com.amazonaws.mediapackage#__string",
-          "traits": {
-            "smithy.api#documentation": "The ID of the Channel the OriginEndpoint is associated with.",
-            "smithy.api#jsonName": "channelId"
-          }
-        },
-        "CmafPackage": {
-          "target": "com.amazonaws.mediapackage#CmafPackage",
-          "traits": {
-            "smithy.api#jsonName": "cmafPackage"
-          }
-        },
-        "DashPackage": {
-          "target": "com.amazonaws.mediapackage#DashPackage",
-          "traits": {
-            "smithy.api#jsonName": "dashPackage"
-          }
-        },
         "Description": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
@@ -3132,10 +3104,10 @@
             "smithy.api#jsonName": "description"
           }
         },
-        "HlsPackage": {
-          "target": "com.amazonaws.mediapackage#HlsPackage",
+        "MssPackage": {
+          "target": "com.amazonaws.mediapackage#MssPackage",
           "traits": {
-            "smithy.api#jsonName": "hlsPackage"
+            "smithy.api#jsonName": "mssPackage"
           }
         },
         "Id": {
@@ -3145,37 +3117,11 @@
             "smithy.api#jsonName": "id"
           }
         },
-        "ManifestName": {
+        "Arn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#documentation": "A short string appended to the end of the OriginEndpoint URL.",
-            "smithy.api#jsonName": "manifestName"
-          }
-        },
-        "MssPackage": {
-          "target": "com.amazonaws.mediapackage#MssPackage",
-          "traits": {
-            "smithy.api#jsonName": "mssPackage"
-          }
-        },
-        "Origination": {
-          "target": "com.amazonaws.mediapackage#Origination",
-          "traits": {
-            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
-            "smithy.api#jsonName": "origination"
-          }
-        },
-        "StartoverWindowSeconds": {
-          "target": "com.amazonaws.mediapackage#__integer",
-          "traits": {
-            "smithy.api#documentation": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.",
-            "smithy.api#jsonName": "startoverWindowSeconds"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.mediapackage#Tags",
-          "traits": {
-            "smithy.api#jsonName": "tags"
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) assigned to the OriginEndpoint.",
+            "smithy.api#jsonName": "arn"
           }
         },
         "TimeDelaySeconds": {
@@ -3185,11 +3131,69 @@
             "smithy.api#jsonName": "timeDelaySeconds"
           }
         },
+        "CmafPackage": {
+          "target": "com.amazonaws.mediapackage#CmafPackage",
+          "traits": {
+            "smithy.api#jsonName": "cmafPackage"
+          }
+        },
         "Url": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The URL of the packaged OriginEndpoint for consumption.",
             "smithy.api#jsonName": "url"
+          }
+        },
+        "Authorization": {
+          "target": "com.amazonaws.mediapackage#Authorization",
+          "traits": {
+            "smithy.api#jsonName": "authorization"
+          }
+        },
+        "HlsPackage": {
+          "target": "com.amazonaws.mediapackage#HlsPackage",
+          "traits": {
+            "smithy.api#jsonName": "hlsPackage"
+          }
+        },
+        "ChannelId": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "The ID of the Channel the OriginEndpoint is associated with.",
+            "smithy.api#jsonName": "channelId"
+          }
+        },
+        "Origination": {
+          "target": "com.amazonaws.mediapackage#Origination",
+          "traits": {
+            "smithy.api#documentation": "Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint\nmay by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be\nrequested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination",
+            "smithy.api#jsonName": "origination"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.mediapackage#Tags",
+          "traits": {
+            "smithy.api#jsonName": "tags"
+          }
+        },
+        "StartoverWindowSeconds": {
+          "target": "com.amazonaws.mediapackage#__integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.",
+            "smithy.api#jsonName": "startoverWindowSeconds"
+          }
+        },
+        "DashPackage": {
+          "target": "com.amazonaws.mediapackage#DashPackage",
+          "traits": {
+            "smithy.api#jsonName": "dashPackage"
+          }
+        },
+        "ManifestName": {
+          "target": "com.amazonaws.mediapackage#__string",
+          "traits": {
+            "smithy.api#documentation": "A short string appended to the end of the OriginEndpoint URL.",
+            "smithy.api#jsonName": "manifestName"
           }
         },
         "Whitelist": {

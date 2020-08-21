@@ -2,6 +2,11 @@ import {
   AssociateRepositoryCommandInput,
   AssociateRepositoryCommandOutput,
 } from "./commands/AssociateRepositoryCommand";
+import { DescribeCodeReviewCommandInput, DescribeCodeReviewCommandOutput } from "./commands/DescribeCodeReviewCommand";
+import {
+  DescribeRecommendationFeedbackCommandInput,
+  DescribeRecommendationFeedbackCommandOutput,
+} from "./commands/DescribeRecommendationFeedbackCommand";
 import {
   DescribeRepositoryAssociationCommandInput,
   DescribeRepositoryAssociationCommandOutput,
@@ -10,10 +15,23 @@ import {
   DisassociateRepositoryCommandInput,
   DisassociateRepositoryCommandOutput,
 } from "./commands/DisassociateRepositoryCommand";
+import { ListCodeReviewsCommandInput, ListCodeReviewsCommandOutput } from "./commands/ListCodeReviewsCommand";
+import {
+  ListRecommendationFeedbackCommandInput,
+  ListRecommendationFeedbackCommandOutput,
+} from "./commands/ListRecommendationFeedbackCommand";
+import {
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "./commands/ListRecommendationsCommand";
 import {
   ListRepositoryAssociationsCommandInput,
   ListRepositoryAssociationsCommandOutput,
 } from "./commands/ListRepositoryAssociationsCommand";
+import {
+  PutRecommendationFeedbackCommandInput,
+  PutRecommendationFeedbackCommandOutput,
+} from "./commands/PutRecommendationFeedbackCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -63,15 +81,27 @@ import {
 
 export type ServiceInputTypes =
   | AssociateRepositoryCommandInput
+  | DescribeCodeReviewCommandInput
+  | DescribeRecommendationFeedbackCommandInput
   | DescribeRepositoryAssociationCommandInput
   | DisassociateRepositoryCommandInput
-  | ListRepositoryAssociationsCommandInput;
+  | ListCodeReviewsCommandInput
+  | ListRecommendationFeedbackCommandInput
+  | ListRecommendationsCommandInput
+  | ListRepositoryAssociationsCommandInput
+  | PutRecommendationFeedbackCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateRepositoryCommandOutput
+  | DescribeCodeReviewCommandOutput
+  | DescribeRecommendationFeedbackCommandOutput
   | DescribeRepositoryAssociationCommandOutput
   | DisassociateRepositoryCommandOutput
-  | ListRepositoryAssociationsCommandOutput;
+  | ListCodeReviewsCommandOutput
+  | ListRecommendationFeedbackCommandOutput
+  | ListRecommendationsCommandOutput
+  | ListRepositoryAssociationsCommandOutput
+  | PutRecommendationFeedbackCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -181,7 +211,15 @@ export type CodeGuruReviewerClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations.</p>
+ * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a service
+ *          that uses program analysis and machine learning to detect potential defects that are difficult for developers to find and recommends
+ *          fixes in your Java code.</p>
+ *
+ *          <p>By proactively detecting and providing recommendations for addressing code defects and implementing best practices, CodeGuru Reviewer
+ *             improves the overall quality and maintainability of your code base during the code review stage. For more information about CodeGuru Reviewer, see the
+ *             <i>
+ *                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html">Amazon CodeGuru Reviewer User Guide</a>.</i>
+ *          </p>
  */
 export class CodeGuruReviewerClient extends __Client<
   __HttpHandlerOptions,

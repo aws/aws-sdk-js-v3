@@ -198,6 +198,13 @@
     "com.amazonaws.marketplacecommerceanalytics#GenerateDataSetRequest": {
       "type": "structure",
       "members": {
+        "snsTopicArn": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#SnsTopicArn",
+          "traits": {
+            "smithy.api#documentation": "Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an\n        error has occurred.",
+            "smithy.api#required": {}
+          }
+        },
         "customerDefinedValues": {
           "target": "com.amazonaws.marketplacecommerceanalytics#CustomerDefinedValues",
           "traits": {
@@ -207,7 +214,20 @@
         "dataSetPublicationDate": {
           "target": "com.amazonaws.marketplacecommerceanalytics#DataSetPublicationDate",
           "traits": {
-            "smithy.api#documentation": "The date a data set was published.\n        For daily data sets, provide a date with day-level granularity for the desired day.\n        For weekly data sets, provide a date with day-level granularity within the desired week (the day value will be ignored).\n        For monthly data sets, provide a date with month-level granularity for the desired month (the day value will be ignored).",
+            "smithy.api#documentation": "The date a data set was published.\n        For daily data sets, provide a date with day-level granularity for the desired day.\n        For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored).\n        For data sets with prefix disbursed_amount, provide a date with day-level granularity for the desired day. For these data sets we will look backwards in time over the range of 31 days until the first data set is found (the latest one).",
+            "smithy.api#required": {}
+          }
+        },
+        "destinationS3Prefix": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3Prefix",
+          "traits": {
+            "smithy.api#documentation": "(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.\n        For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file\n        \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\".\n        If the prefix directory structure does not exist, it will be created.\n        If no prefix is provided, the data set will be published to the S3 bucket root."
+          }
+        },
+        "destinationS3BucketName": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3BucketName",
+          "traits": {
+            "smithy.api#documentation": "The name (friendly name, not ARN) of the destination S3 bucket.",
             "smithy.api#required": {}
           }
         },
@@ -218,30 +238,10 @@
             "smithy.api#required": {}
           }
         },
-        "destinationS3BucketName": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3BucketName",
-          "traits": {
-            "smithy.api#documentation": "The name (friendly name, not ARN) of the destination S3 bucket.",
-            "smithy.api#required": {}
-          }
-        },
-        "destinationS3Prefix": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3Prefix",
-          "traits": {
-            "smithy.api#documentation": "(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.\n        For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file\n        \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\".\n        If the prefix directory structure does not exist, it will be created.\n        If no prefix is provided, the data set will be published to the S3 bucket root."
-          }
-        },
         "roleNameArn": {
           "target": "com.amazonaws.marketplacecommerceanalytics#RoleNameArn",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided\n        AWS services.",
-            "smithy.api#required": {}
-          }
-        },
-        "snsTopicArn": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#SnsTopicArn",
-          "traits": {
-            "smithy.api#documentation": "Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an\n        error has occurred.",
             "smithy.api#required": {}
           }
         }
@@ -359,10 +359,18 @@
     "com.amazonaws.marketplacecommerceanalytics#StartSupportDataExportRequest": {
       "type": "structure",
       "members": {
-        "customerDefinedValues": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#CustomerDefinedValues",
+        "fromDate": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#FromDate",
           "traits": {
-            "smithy.api#documentation": "(Optional) Key-value pairs which will be returned, unmodified, in the\n        Amazon SNS notification message and the data set metadata file."
+            "smithy.api#documentation": "The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.",
+            "smithy.api#required": {}
+          }
+        },
+        "snsTopicArn": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#SnsTopicArn",
+          "traits": {
+            "smithy.api#documentation": "Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an\n        error has occurred.",
+            "smithy.api#required": {}
           }
         },
         "dataSetType": {
@@ -372,11 +380,10 @@
             "smithy.api#required": {}
           }
         },
-        "destinationS3BucketName": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3BucketName",
+        "customerDefinedValues": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#CustomerDefinedValues",
           "traits": {
-            "smithy.api#documentation": "The name (friendly name, not ARN) of the destination S3 bucket.",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "(Optional) Key-value pairs which will be returned, unmodified, in the\n        Amazon SNS notification message and the data set metadata file."
           }
         },
         "destinationS3Prefix": {
@@ -385,10 +392,10 @@
             "smithy.api#documentation": "(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.\n        For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file\n        \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\".\n        If the prefix directory structure does not exist, it will be created.\n        If no prefix is provided, the data set will be published to the S3 bucket root."
           }
         },
-        "fromDate": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#FromDate",
+        "destinationS3BucketName": {
+          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3BucketName",
           "traits": {
-            "smithy.api#documentation": "The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.",
+            "smithy.api#documentation": "The name (friendly name, not ARN) of the destination S3 bucket.",
             "smithy.api#required": {}
           }
         },
@@ -396,13 +403,6 @@
           "target": "com.amazonaws.marketplacecommerceanalytics#RoleNameArn",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided\n        AWS services.",
-            "smithy.api#required": {}
-          }
-        },
-        "snsTopicArn": {
-          "target": "com.amazonaws.marketplacecommerceanalytics#SnsTopicArn",
-          "traits": {
-            "smithy.api#documentation": "Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an\n        error has occurred.",
             "smithy.api#required": {}
           }
         }

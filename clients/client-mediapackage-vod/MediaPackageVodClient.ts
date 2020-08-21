@@ -34,6 +34,16 @@ import {
   ListPackagingGroupsCommandInput,
   ListPackagingGroupsCommandOutput,
 } from "./commands/ListPackagingGroupsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdatePackagingGroupCommandInput,
+  UpdatePackagingGroupCommandOutput,
+} from "./commands/UpdatePackagingGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -93,7 +103,11 @@ export type ServiceInputTypes =
   | DescribePackagingGroupCommandInput
   | ListAssetsCommandInput
   | ListPackagingConfigurationsCommandInput
-  | ListPackagingGroupsCommandInput;
+  | ListPackagingGroupsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdatePackagingGroupCommandInput;
 
 export type ServiceOutputTypes =
   | CreateAssetCommandOutput
@@ -107,7 +121,11 @@ export type ServiceOutputTypes =
   | DescribePackagingGroupCommandOutput
   | ListAssetsCommandOutput
   | ListPackagingConfigurationsCommandOutput
-  | ListPackagingGroupsCommandOutput;
+  | ListPackagingGroupsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdatePackagingGroupCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

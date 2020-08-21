@@ -22,6 +22,10 @@ import {
   GetBootstrapBrokersCommandOutput,
 } from "./commands/GetBootstrapBrokersCommand";
 import {
+  GetCompatibleKafkaVersionsCommandInput,
+  GetCompatibleKafkaVersionsCommandOutput,
+} from "./commands/GetCompatibleKafkaVersionsCommand";
+import {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
 } from "./commands/ListClusterOperationsCommand";
@@ -31,11 +35,13 @@ import {
   ListConfigurationRevisionsCommandOutput,
 } from "./commands/ListConfigurationRevisionsCommand";
 import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
+import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "./commands/ListKafkaVersionsCommand";
 import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput } from "./commands/UpdateBrokerCountCommand";
@@ -47,6 +53,10 @@ import {
   UpdateClusterConfigurationCommandInput,
   UpdateClusterConfigurationCommandOutput,
 } from "./commands/UpdateClusterConfigurationCommand";
+import {
+  UpdateClusterKafkaVersionCommandInput,
+  UpdateClusterKafkaVersionCommandOutput,
+} from "./commands/UpdateClusterKafkaVersionCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -104,17 +114,21 @@ export type ServiceInputTypes =
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
   | GetBootstrapBrokersCommandInput
+  | GetCompatibleKafkaVersionsCommandInput
   | ListClusterOperationsCommandInput
   | ListClustersCommandInput
   | ListConfigurationRevisionsCommandInput
   | ListConfigurationsCommandInput
+  | ListKafkaVersionsCommandInput
   | ListNodesCommandInput
   | ListTagsForResourceCommandInput
+  | RebootBrokerCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBrokerCountCommandInput
   | UpdateBrokerStorageCommandInput
   | UpdateClusterConfigurationCommandInput
+  | UpdateClusterKafkaVersionCommandInput
   | UpdateMonitoringCommandInput;
 
 export type ServiceOutputTypes =
@@ -126,17 +140,21 @@ export type ServiceOutputTypes =
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
   | GetBootstrapBrokersCommandOutput
+  | GetCompatibleKafkaVersionsCommandOutput
   | ListClusterOperationsCommandOutput
   | ListClustersCommandOutput
   | ListConfigurationRevisionsCommandOutput
   | ListConfigurationsCommandOutput
+  | ListKafkaVersionsCommandOutput
   | ListNodesCommandOutput
   | ListTagsForResourceCommandOutput
+  | RebootBrokerCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBrokerCountCommandOutput
   | UpdateBrokerStorageCommandOutput
   | UpdateClusterConfigurationCommandOutput
+  | UpdateClusterKafkaVersionCommandOutput
   | UpdateMonitoringCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -192,11 +192,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p> Amazon Elastic Compute Cloud Image Builder provides a one-stop-shop to automate the image management processes. You configure an automated pipeline that creates images for use on AWS. As software updates become available, Image Builder automatically produces a new image based on a customizable schedule and distributes it to stipulated AWS Regions after running tests on it. With the Image Builder, organizations can capture their internal or industry-specific compliance policies as a vetted template that can be consistently applied to every new image. Built-in integration with AWS Organizations provides customers with a centralized way to enforce image distribution and access policies across their AWS accounts and Regions. Image Builder supports multiple image format AMIs on AWS.</p>
+ * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date “golden” server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.</p>
  */
 export class Imagebuilder extends ImagebuilderClient {
   /**
-   * <p>CancelImageCreation cancels the creation of Image. This operation may only be used on images in a non-terminal state.</p>
+   * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on images in a non-terminal state.</p>
    */
   public cancelImageCreation(
     args: CancelImageCreationCommandInput,
@@ -228,7 +228,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Creates a new component that can be used to build, validate, test and assess your image.</p>
+   * <p>Creates a new component that can be used to build, validate, test, and assess your image.</p>
    */
   public createComponent(
     args: CreateComponentCommandInput,
@@ -260,7 +260,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>
+   * <p>Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>
    */
   public createDistributionConfiguration(
     args: CreateDistributionConfigurationCommandInput,
@@ -350,7 +350,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new image recipe. Image Recipes defines how images are configured, tested and assessed. </p>
+   * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and assessed. </p>
    */
   public createImageRecipe(
     args: CreateImageRecipeCommandInput,
@@ -847,7 +847,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets a infrastructure configuration. </p>
+   * <p> Gets an infrastructure configuration. </p>
    */
   public getInfrastructureConfiguration(
     args: GetInfrastructureConfigurationCommandInput,
@@ -879,7 +879,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Imports a component and transforms its data into a component document. </p>
+   * <p>Imports a component and transforms its data into a component document. </p>
    */
   public importComponent(
     args: ImportComponentCommandInput,
@@ -943,7 +943,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns the list of component build versions for the specified semantic version. </p>
+   * <p>Returns the list of component build versions for the specified semantic version. </p>
    */
   public listComponents(
     args: ListComponentsCommandInput,
@@ -1007,7 +1007,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns a list of distribution configurations. </p>
+   * <p> Returns a list of image build versions. </p>
    */
   public listImageBuildVersions(
     args: ListImageBuildVersionsCommandInput,
@@ -1135,7 +1135,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns the list of image build versions for the specified semantic version. </p>
+   * <p> Returns the list of images that you have access to. </p>
    */
   public listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
   public listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
@@ -1225,7 +1225,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Applies a policy to a component. </p>
+   * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>
    */
   public putComponentPolicy(
     args: PutComponentPolicyCommandInput,
@@ -1257,7 +1257,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Applies a policy to an image. </p>
+   * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>
    */
   public putImagePolicy(
     args: PutImagePolicyCommandInput,
@@ -1289,7 +1289,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Applies a policy to an image recipe. </p>
+   * <p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>
    */
   public putImageRecipePolicy(
     args: PutImageRecipePolicyCommandInput,

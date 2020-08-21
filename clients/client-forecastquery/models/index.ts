@@ -8,14 +8,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface DataPoint {
   __type?: "DataPoint";
   /**
-   * <p>The timestamp of the specific forecast.</p>
-   */
-  Timestamp?: string;
-
-  /**
    * <p>The forecast value.</p>
    */
   Value?: number;
+
+  /**
+   * <p>The timestamp of the specific forecast.</p>
+   */
+  Timestamp?: string;
 }
 
 export namespace DataPoint {
@@ -45,6 +45,8 @@ export interface Forecast {
    *                <p>p90</p>
    *             </li>
    *          </ul>
+   *          <p>The default setting is <code>["0.1", "0.5", "0.9"]</code>. Use the optional <code>ForecastTypes</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateForecast.html">CreateForecast</a> operation to change the values. The values will vary depending on how this is set, with a minimum of <code>1</code> and a maximum of <code>5.</code>
+   *          </p>
    */
   Predictions?: { [key: string]: DataPoint[] };
 }
@@ -107,12 +109,6 @@ export namespace LimitExceededException {
 export interface QueryForecastRequest {
   __type?: "QueryForecastRequest";
   /**
-   * <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
-   *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
-   */
-  EndDate?: string;
-
-  /**
    * <p>The filtering criteria to apply when retrieving the forecast. For example, to get the
    *       forecast for <code>client_21</code> in the electricity usage dataset, specify the
    *       following:</p>
@@ -126,11 +122,6 @@ export interface QueryForecastRequest {
   Filters: { [key: string]: string } | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
-   */
-  ForecastArn: string | undefined;
-
-  /**
    * <p>If the result of the previous request was truncated, the response includes a
    *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
    *       request. Tokens expire after 24 hours.</p>
@@ -138,10 +129,21 @@ export interface QueryForecastRequest {
   NextToken?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
+   */
+  ForecastArn: string | undefined;
+
+  /**
    * <p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
    */
   StartDate?: string;
+
+  /**
+   * <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
+   *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
+   */
+  EndDate?: string;
 }
 
 export namespace QueryForecastRequest {

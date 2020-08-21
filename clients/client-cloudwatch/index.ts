@@ -22,6 +22,7 @@ export * from "./commands/ListDashboardsCommand";
 export * from "./commands/ListMetricsCommand";
 export * from "./commands/ListTagsForResourceCommand";
 export * from "./commands/PutAnomalyDetectorCommand";
+export * from "./commands/PutCompositeAlarmCommand";
 export * from "./commands/PutDashboardCommand";
 export * from "./commands/PutInsightRuleCommand";
 export * from "./commands/PutMetricAlarmCommand";

@@ -5,6 +5,7 @@ import {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand";
+import { DeleteJobTaggingCommandInput, DeleteJobTaggingCommandOutput } from "./commands/DeleteJobTaggingCommand";
 import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput,
@@ -19,6 +20,7 @@ import {
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand";
+import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand";
 import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
@@ -29,6 +31,7 @@ import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand";
+import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "./commands/PutJobTaggingCommand";
 import {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
@@ -88,15 +91,18 @@ export type ServiceInputTypes =
   | CreateJobCommandInput
   | DeleteAccessPointCommandInput
   | DeleteAccessPointPolicyCommandInput
+  | DeleteJobTaggingCommandInput
   | DeletePublicAccessBlockCommandInput
   | DescribeJobCommandInput
   | GetAccessPointCommandInput
   | GetAccessPointPolicyCommandInput
   | GetAccessPointPolicyStatusCommandInput
+  | GetJobTaggingCommandInput
   | GetPublicAccessBlockCommandInput
   | ListAccessPointsCommandInput
   | ListJobsCommandInput
   | PutAccessPointPolicyCommandInput
+  | PutJobTaggingCommandInput
   | PutPublicAccessBlockCommandInput
   | UpdateJobPriorityCommandInput
   | UpdateJobStatusCommandInput;
@@ -106,15 +112,18 @@ export type ServiceOutputTypes =
   | CreateJobCommandOutput
   | DeleteAccessPointCommandOutput
   | DeleteAccessPointPolicyCommandOutput
+  | DeleteJobTaggingCommandOutput
   | DeletePublicAccessBlockCommandOutput
   | DescribeJobCommandOutput
   | GetAccessPointCommandOutput
   | GetAccessPointPolicyCommandOutput
   | GetAccessPointPolicyStatusCommandOutput
+  | GetJobTaggingCommandOutput
   | GetPublicAccessBlockCommandOutput
   | ListAccessPointsCommandOutput
   | ListJobsCommandOutput
   | PutAccessPointPolicyCommandOutput
+  | PutJobTaggingCommandOutput
   | PutPublicAccessBlockCommandOutput
   | UpdateJobPriorityCommandOutput
   | UpdateJobStatusCommandOutput;

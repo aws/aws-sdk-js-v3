@@ -61,12 +61,6 @@
     "com.amazonaws.personalizeevents#Event": {
       "type": "structure",
       "members": {
-        "eventId": {
-          "target": "com.amazonaws.personalizeevents#StringType",
-          "traits": {
-            "smithy.api#documentation": "<p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates\n      a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses\n      the event ID to distinquish unique events. Any subsequent events after the first with the\n      same event ID are not used in model training.</p>"
-          }
-        },
         "eventType": {
           "target": "com.amazonaws.personalizeevents#StringType",
           "traits": {
@@ -86,6 +80,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The timestamp on the client side when the event occurred.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "eventId": {
+          "target": "com.amazonaws.personalizeevents#StringType",
+          "traits": {
+            "smithy.api#documentation": "<p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates\n      a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses\n      the event ID to distinquish unique events. Any subsequent events after the first with the\n      same event ID are not used in model training.</p>"
           }
         }
       },
@@ -147,11 +147,10 @@
             "smithy.api#required": {}
           }
         },
-        "sessionId": {
-          "target": "com.amazonaws.personalizeevents#StringType",
+        "userId": {
+          "target": "com.amazonaws.personalizeevents#UserId",
           "traits": {
-            "smithy.api#documentation": "<p>The session ID associated with the user's visit.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The user associated with the event.</p>"
           }
         },
         "trackingId": {
@@ -161,10 +160,11 @@
             "smithy.api#required": {}
           }
         },
-        "userId": {
-          "target": "com.amazonaws.personalizeevents#UserId",
+        "sessionId": {
+          "target": "com.amazonaws.personalizeevents#StringType",
           "traits": {
-            "smithy.api#documentation": "<p>The user associated with the event.</p>"
+            "smithy.api#documentation": "<p>The session ID associated with the user's visit.</p>",
+            "smithy.api#required": {}
           }
         }
       }

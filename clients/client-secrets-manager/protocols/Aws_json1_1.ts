@@ -26,6 +26,10 @@ import {
   UpdateSecretVersionStageCommandOutput,
 } from "../commands/UpdateSecretVersionStageCommand";
 import {
+  ValidateResourcePolicyCommandInput,
+  ValidateResourcePolicyCommandOutput,
+} from "../commands/ValidateResourcePolicyCommand";
+import {
   CancelRotateSecretRequest,
   CancelRotateSecretResponse,
   CreateSecretRequest,
@@ -38,6 +42,7 @@ import {
   DescribeSecretRequest,
   DescribeSecretResponse,
   EncryptionFailure,
+  Filter,
   GetRandomPasswordRequest,
   GetRandomPasswordResponse,
   GetResourcePolicyRequest,
@@ -55,6 +60,7 @@ import {
   ListSecretsResponse,
   MalformedPolicyDocumentException,
   PreconditionNotMetException,
+  PublicPolicyException,
   PutResourcePolicyRequest,
   PutResourcePolicyResponse,
   PutSecretValueRequest,
@@ -75,6 +81,9 @@ import {
   UpdateSecretResponse,
   UpdateSecretVersionStageRequest,
   UpdateSecretVersionStageResponse,
+  ValidateResourcePolicyRequest,
+  ValidateResourcePolicyResponse,
+  ValidationErrorsEntry,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -318,6 +327,19 @@ export const serializeAws_json1_1UpdateSecretVersionStageCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateSecretVersionStageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ValidateResourcePolicyCommand = async (
+  input: ValidateResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.ValidateResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ValidateResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1176,6 +1198,14 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PublicPolicyException":
+    case "com.amazonaws.secretsmanager#PublicPolicyException":
+      response = {
+        ...(await deserializeAws_json1_1PublicPolicyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
@@ -1825,6 +1855,94 @@ const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ValidateResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ValidateResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ValidateResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ValidateResourcePolicyResponse(data, context);
+  const response: ValidateResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ValidateResourcePolicyResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ValidateResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ValidateResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
+      response = {
+        ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_1DecryptionFailureResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1960,6 +2078,21 @@ const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1PublicPolicyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PublicPolicyException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1PublicPolicyException(body, context);
+  const contents: PublicPolicyException = {
+    name: "PublicPolicyException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2036,6 +2169,21 @@ const serializeAws_json1_1DescribeSecretRequest = (input: DescribeSecretRequest,
   };
 };
 
+const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1FilterValuesStringList(input.Values, context) }),
+  };
+};
+
+const serializeAws_json1_1FiltersListType = (input: Filter[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1Filter(entry, context));
+};
+
+const serializeAws_json1_1FilterValuesStringList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1GetRandomPasswordRequest = (
   input: GetRandomPasswordRequest,
   context: __SerdeContext
@@ -2071,8 +2219,10 @@ const serializeAws_json1_1GetSecretValueRequest = (input: GetSecretValueRequest,
 
 const serializeAws_json1_1ListSecretsRequest = (input: ListSecretsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1FiltersListType(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -2093,6 +2243,7 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.BlockPublicPolicy !== undefined && { BlockPublicPolicy: input.BlockPublicPolicy }),
     ...(input.ResourcePolicy !== undefined && { ResourcePolicy: input.ResourcePolicy }),
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
   };
@@ -2189,6 +2340,16 @@ const serializeAws_json1_1UpdateSecretVersionStageRequest = (
   };
 };
 
+const serializeAws_json1_1ValidateResourcePolicyRequest = (
+  input: ValidateResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourcePolicy !== undefined && { ResourcePolicy: input.ResourcePolicy }),
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+  };
+};
+
 const deserializeAws_json1_1CancelRotateSecretResponse = (
   output: any,
   context: __SerdeContext
@@ -2244,6 +2405,10 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
   return {
     __type: "DescribeSecretResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    CreatedDate:
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? new Date(Math.round(output.CreatedDate * 1000))
+        : undefined,
     DeletedDate:
       output.DeletedDate !== undefined && output.DeletedDate !== null
         ? new Date(Math.round(output.DeletedDate * 1000))
@@ -2430,6 +2595,13 @@ const deserializeAws_json1_1PreconditionNotMetException = (
   } as any;
 };
 
+const deserializeAws_json1_1PublicPolicyException = (output: any, context: __SerdeContext): PublicPolicyException => {
+  return {
+    __type: "PublicPolicyException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1PutResourcePolicyResponse = (
   output: any,
   context: __SerdeContext
@@ -2505,6 +2677,10 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
   return {
     __type: "SecretListEntry",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    CreatedDate:
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? new Date(Math.round(output.CreatedDate * 1000))
+        : undefined,
     DeletedDate:
       output.DeletedDate !== undefined && output.DeletedDate !== null
         ? new Date(Math.round(output.DeletedDate * 1000))
@@ -2627,6 +2803,35 @@ const deserializeAws_json1_1UpdateSecretVersionStageResponse = (
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ValidateResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): ValidateResourcePolicyResponse => {
+  return {
+    __type: "ValidateResourcePolicyResponse",
+    PolicyValidationPassed:
+      output.PolicyValidationPassed !== undefined && output.PolicyValidationPassed !== null
+        ? output.PolicyValidationPassed
+        : undefined,
+    ValidationErrors:
+      output.ValidationErrors !== undefined && output.ValidationErrors !== null
+        ? deserializeAws_json1_1ValidationErrorsType(output.ValidationErrors, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ValidationErrorsEntry = (output: any, context: __SerdeContext): ValidationErrorsEntry => {
+  return {
+    __type: "ValidationErrorsEntry",
+    CheckName: output.CheckName !== undefined && output.CheckName !== null ? output.CheckName : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ValidationErrorsType = (output: any, context: __SerdeContext): ValidationErrorsEntry[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ValidationErrorsEntry(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

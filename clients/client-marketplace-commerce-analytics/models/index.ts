@@ -35,6 +35,12 @@ export enum DataSetType {
 export interface GenerateDataSetRequest {
   __type?: "GenerateDataSetRequest";
   /**
+   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
+   *         error has occurred.
+   */
+  snsTopicArn: string | undefined;
+
+  /**
    * (Optional) Key-value pairs which will be returned, unmodified, in the
    *         Amazon SNS notification message and the data set metadata file. These
    *         key-value pairs can be used to correlated responses with tracking
@@ -45,10 +51,24 @@ export interface GenerateDataSetRequest {
   /**
    * The date a data set was published.
    *         For daily data sets, provide a date with day-level granularity for the desired day.
-   *         For weekly data sets, provide a date with day-level granularity within the desired week (the day value will be ignored).
-   *         For monthly data sets, provide a date with month-level granularity for the desired month (the day value will be ignored).
+   *         For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored).
+   *         For data sets with prefix disbursed_amount, provide a date with day-level granularity for the desired day. For these data sets we will look backwards in time over the range of 31 days until the first data set is found (the latest one).
    */
   dataSetPublicationDate: Date | undefined;
+
+  /**
+   * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
+   *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
+   *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
+   *         If the prefix directory structure does not exist, it will be created.
+   *         If no prefix is provided, the data set will be published to the S3 bucket root.
+   */
+  destinationS3Prefix?: string;
+
+  /**
+   * The name (friendly name, not ARN) of the destination S3 bucket.
+   */
+  destinationS3BucketName: string | undefined;
 
   /**
    * <p>The desired data set type.</p>
@@ -144,30 +164,10 @@ export interface GenerateDataSetRequest {
   dataSetType: DataSetType | string | undefined;
 
   /**
-   * The name (friendly name, not ARN) of the destination S3 bucket.
-   */
-  destinationS3BucketName: string | undefined;
-
-  /**
-   * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
-   *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
-   *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
-   *         If the prefix directory structure does not exist, it will be created.
-   *         If no prefix is provided, the data set will be published to the S3 bucket root.
-   */
-  destinationS3Prefix?: string;
-
-  /**
    * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
    */
   roleNameArn: string | undefined;
-
-  /**
-   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
-   *         error has occurred.
-   */
-  snsTopicArn: string | undefined;
 }
 
 export namespace GenerateDataSetRequest {
@@ -222,10 +222,15 @@ export namespace MarketplaceCommerceAnalyticsException {
 export interface StartSupportDataExportRequest {
   __type?: "StartSupportDataExportRequest";
   /**
-   * (Optional) Key-value pairs which will be returned, unmodified, in the
-   *         Amazon SNS notification message and the data set metadata file.
+   * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
    */
-  customerDefinedValues?: { [key: string]: string };
+  fromDate: Date | undefined;
+
+  /**
+   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
+   *         error has occurred.
+   */
+  snsTopicArn: string | undefined;
 
   /**
    * <p>
@@ -244,9 +249,10 @@ export interface StartSupportDataExportRequest {
   dataSetType: SupportDataSetType | string | undefined;
 
   /**
-   * The name (friendly name, not ARN) of the destination S3 bucket.
+   * (Optional) Key-value pairs which will be returned, unmodified, in the
+   *         Amazon SNS notification message and the data set metadata file.
    */
-  destinationS3BucketName: string | undefined;
+  customerDefinedValues?: { [key: string]: string };
 
   /**
    * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
@@ -258,21 +264,15 @@ export interface StartSupportDataExportRequest {
   destinationS3Prefix?: string;
 
   /**
-   * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
+   * The name (friendly name, not ARN) of the destination S3 bucket.
    */
-  fromDate: Date | undefined;
+  destinationS3BucketName: string | undefined;
 
   /**
    * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
    */
   roleNameArn: string | undefined;
-
-  /**
-   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
-   *         error has occurred.
-   */
-  snsTopicArn: string | undefined;
 }
 
 export namespace StartSupportDataExportRequest {

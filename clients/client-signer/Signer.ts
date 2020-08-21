@@ -314,9 +314,7 @@ export class Signer extends SignerClient {
   }
 
   /**
-   * <p>Returns a list of
-   * 			the tags associated with a signing profile
-   * 			resource.</p>
+   * <p>Returns a list of the tags associated with a signing profile resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -441,12 +439,10 @@ export class Signer extends SignerClient {
   }
 
   /**
-   * <p>Adds one or more
-   * 			tags to a signing profile. Tags are labels that you can use to identify and organize
-   * 			your AWS resources. Each tag consists of a key and an optional value. You specify the
-   * 			signing profile using its Amazon Resource Name (ARN). You specify the tag by using a
-   * 			key-value
-   * 			pair.</p>
+   * <p>Adds one or more tags to a signing profile. Tags are labels that you can use to
+   * 			identify and organize your AWS resources. Each tag consists of a key and an optional
+   * 			value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify
+   * 			the tag, use a key-value pair.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -472,9 +468,8 @@ export class Signer extends SignerClient {
   }
 
   /**
-   * <p>Remove one or more
-   * 			tags from a signing profile. Specify a list of tag keys to remove the
-   * 			tags.</p>
+   * <p>Removes one or more tags from a signing profile. To remove the tags, specify a list of
+   * 			tag keys.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

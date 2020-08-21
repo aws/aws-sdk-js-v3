@@ -7,6 +7,10 @@ import {
   CancelDeploymentJobCommandOutput,
 } from "../commands/CancelDeploymentJobCommand";
 import {
+  CancelSimulationJobBatchCommandInput,
+  CancelSimulationJobBatchCommandOutput,
+} from "../commands/CancelSimulationJobBatchCommand";
+import {
   CancelSimulationJobCommandInput,
   CancelSimulationJobCommandOutput,
 } from "../commands/CancelSimulationJobCommand";
@@ -62,6 +66,10 @@ import {
   DescribeSimulationApplicationCommandOutput,
 } from "../commands/DescribeSimulationApplicationCommand";
 import {
+  DescribeSimulationJobBatchCommandInput,
+  DescribeSimulationJobBatchCommandOutput,
+} from "../commands/DescribeSimulationJobBatchCommand";
+import {
   DescribeSimulationJobCommandInput,
   DescribeSimulationJobCommandOutput,
 } from "../commands/DescribeSimulationJobCommand";
@@ -76,6 +84,10 @@ import {
   ListSimulationApplicationsCommandInput,
   ListSimulationApplicationsCommandOutput,
 } from "../commands/ListSimulationApplicationsCommand";
+import {
+  ListSimulationJobBatchesCommandInput,
+  ListSimulationJobBatchesCommandOutput,
+} from "../commands/ListSimulationJobBatchesCommand";
 import { ListSimulationJobsCommandInput, ListSimulationJobsCommandOutput } from "../commands/ListSimulationJobsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -86,6 +98,10 @@ import {
   RestartSimulationJobCommandInput,
   RestartSimulationJobCommandOutput,
 } from "../commands/RestartSimulationJobCommand";
+import {
+  StartSimulationJobBatchCommandInput,
+  StartSimulationJobBatchCommandOutput,
+} from "../commands/StartSimulationJobBatchCommand";
 import { SyncDeploymentJobCommandInput, SyncDeploymentJobCommandOutput } from "../commands/SyncDeploymentJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -98,6 +114,9 @@ import {
   UpdateSimulationApplicationCommandOutput,
 } from "../commands/UpdateSimulationApplicationCommand";
 import {
+  BatchPolicy,
+  Compute,
+  ComputeResponse,
   ConcurrentDeploymentException,
   DataSource,
   DataSourceConfig,
@@ -105,6 +124,7 @@ import {
   DeploymentConfig,
   DeploymentJob,
   DeploymentLaunchConfig,
+  FailedCreateSimulationJobRequest,
   Filter,
   Fleet,
   IdempotentParameterMismatchException,
@@ -132,6 +152,8 @@ import {
   SimulationApplicationConfig,
   SimulationApplicationSummary,
   SimulationJob,
+  SimulationJobBatchSummary,
+  SimulationJobRequest,
   SimulationJobSummary,
   SimulationSoftwareSuite,
   Source,
@@ -212,6 +234,30 @@ export const serializeAws_restJson1CancelSimulationJobCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && { job: input.job }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CancelSimulationJobBatchCommand = async (
+  input: CancelSimulationJobBatchCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/cancelSimulationJobBatch";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.batch !== undefined && { batch: input.batch }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -437,6 +483,7 @@ export const serializeAws_restJson1CreateSimulationJobCommand = async (
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.compute !== undefined && { compute: serializeAws_restJson1Compute(input.compute, context) }),
     ...(input.dataSources !== undefined && {
       dataSources: serializeAws_restJson1DataSourceConfigs(input.dataSources, context),
     }),
@@ -739,6 +786,30 @@ export const serializeAws_restJson1DescribeSimulationJobCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeSimulationJobBatchCommand = async (
+  input: DescribeSimulationJobBatchCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/describeSimulationJobBatch";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.batch !== undefined && { batch: input.batch }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListDeploymentJobsCommand = async (
   input: ListDeploymentJobsCommandInput,
   context: __SerdeContext
@@ -871,6 +942,32 @@ export const serializeAws_restJson1ListSimulationApplicationsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListSimulationJobBatchesCommand = async (
+  input: ListSimulationJobBatchesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/listSimulationJobBatches";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListSimulationJobsCommand = async (
   input: ListSimulationJobsCommandInput,
   context: __SerdeContext
@@ -963,6 +1060,40 @@ export const serializeAws_restJson1RestartSimulationJobCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && { job: input.job }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartSimulationJobBatchCommand = async (
+  input: StartSimulationJobBatchCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/startSimulationJobBatch";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.batchPolicy !== undefined && {
+      batchPolicy: serializeAws_restJson1BatchPolicy(input.batchPolicy, context),
+    }),
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.createSimulationJobRequests !== undefined && {
+      createSimulationJobRequests: serializeAws_restJson1CreateSimulationJobRequests(
+        input.createSimulationJobRequests,
+        context
+      ),
+    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1311,6 +1442,82 @@ const deserializeAws_restJson1CancelSimulationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelSimulationJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CancelSimulationJobBatchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelSimulationJobBatchCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CancelSimulationJobBatchCommandError(output, context);
+  }
+  const contents: CancelSimulationJobBatchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CancelSimulationJobBatchResponse",
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CancelSimulationJobBatchCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelSimulationJobBatchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2213,6 +2420,7 @@ export const deserializeAws_restJson1CreateSimulationJobCommand = async (
     __type: "CreateSimulationJobResponse",
     arn: undefined,
     clientRequestToken: undefined,
+    compute: undefined,
     dataSources: undefined,
     failureBehavior: undefined,
     failureCode: undefined,
@@ -2235,6 +2443,9 @@ export const deserializeAws_restJson1CreateSimulationJobCommand = async (
   }
   if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
     contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.compute !== undefined && data.compute !== null) {
+    contents.compute = deserializeAws_restJson1ComputeResponse(data.compute, context);
   }
   if (data.dataSources !== undefined && data.dataSources !== null) {
     contents.dataSources = deserializeAws_restJson1DataSources(data.dataSources, context);
@@ -3313,6 +3524,7 @@ export const deserializeAws_restJson1DescribeSimulationJobCommand = async (
     __type: "DescribeSimulationJobResponse",
     arn: undefined,
     clientRequestToken: undefined,
+    compute: undefined,
     dataSources: undefined,
     failureBehavior: undefined,
     failureCode: undefined,
@@ -3338,6 +3550,9 @@ export const deserializeAws_restJson1DescribeSimulationJobCommand = async (
   }
   if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
     contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.compute !== undefined && data.compute !== null) {
+    contents.compute = deserializeAws_restJson1ComputeResponse(data.compute, context);
   }
   if (data.dataSources !== undefined && data.dataSources !== null) {
     contents.dataSources = deserializeAws_restJson1DataSources(data.dataSources, context);
@@ -3439,6 +3654,122 @@ const deserializeAws_restJson1DescribeSimulationJobCommandError = async (
     case "com.amazonaws.robomaker#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeSimulationJobBatchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSimulationJobBatchCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeSimulationJobBatchCommandError(output, context);
+  }
+  const contents: DescribeSimulationJobBatchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeSimulationJobBatchResponse",
+    arn: undefined,
+    batchPolicy: undefined,
+    clientRequestToken: undefined,
+    createdAt: undefined,
+    createdRequests: undefined,
+    failedRequests: undefined,
+    failureCode: undefined,
+    failureReason: undefined,
+    lastUpdatedAt: undefined,
+    pendingRequests: undefined,
+    status: undefined,
+    tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.batchPolicy !== undefined && data.batchPolicy !== null) {
+    contents.batchPolicy = deserializeAws_restJson1BatchPolicy(data.batchPolicy, context);
+  }
+  if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
+    contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.createdRequests !== undefined && data.createdRequests !== null) {
+    contents.createdRequests = deserializeAws_restJson1SimulationJobSummaries(data.createdRequests, context);
+  }
+  if (data.failedRequests !== undefined && data.failedRequests !== null) {
+    contents.failedRequests = deserializeAws_restJson1FailedCreateSimulationJobRequests(data.failedRequests, context);
+  }
+  if (data.failureCode !== undefined && data.failureCode !== null) {
+    contents.failureCode = data.failureCode;
+  }
+  if (data.failureReason !== undefined && data.failureReason !== null) {
+    contents.failureReason = data.failureReason;
+  }
+  if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
+    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+  }
+  if (data.pendingRequests !== undefined && data.pendingRequests !== null) {
+    contents.pendingRequests = deserializeAws_restJson1CreateSimulationJobRequests(data.pendingRequests, context);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = data.status;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeSimulationJobBatchCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSimulationJobBatchCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3870,6 +4201,77 @@ const deserializeAws_restJson1ListSimulationApplicationsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListSimulationJobBatchesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSimulationJobBatchesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListSimulationJobBatchesCommandError(output, context);
+  }
+  const contents: ListSimulationJobBatchesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListSimulationJobBatchesResponse",
+    nextToken: undefined,
+    simulationJobBatchSummaries: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.simulationJobBatchSummaries !== undefined && data.simulationJobBatchSummaries !== null) {
+    contents.simulationJobBatchSummaries = deserializeAws_restJson1SimulationJobBatchSummaries(
+      data.simulationJobBatchSummaries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListSimulationJobBatchesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSimulationJobBatchesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListSimulationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4176,6 +4578,134 @@ const deserializeAws_restJson1RestartSimulationJobCommandError = async (
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StartSimulationJobBatchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSimulationJobBatchCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1StartSimulationJobBatchCommandError(output, context);
+  }
+  const contents: StartSimulationJobBatchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartSimulationJobBatchResponse",
+    arn: undefined,
+    batchPolicy: undefined,
+    clientRequestToken: undefined,
+    createdAt: undefined,
+    createdRequests: undefined,
+    failedRequests: undefined,
+    failureCode: undefined,
+    failureReason: undefined,
+    pendingRequests: undefined,
+    status: undefined,
+    tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.batchPolicy !== undefined && data.batchPolicy !== null) {
+    contents.batchPolicy = deserializeAws_restJson1BatchPolicy(data.batchPolicy, context);
+  }
+  if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
+    contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.createdRequests !== undefined && data.createdRequests !== null) {
+    contents.createdRequests = deserializeAws_restJson1SimulationJobSummaries(data.createdRequests, context);
+  }
+  if (data.failedRequests !== undefined && data.failedRequests !== null) {
+    contents.failedRequests = deserializeAws_restJson1FailedCreateSimulationJobRequests(data.failedRequests, context);
+  }
+  if (data.failureCode !== undefined && data.failureCode !== null) {
+    contents.failureCode = data.failureCode;
+  }
+  if (data.failureReason !== undefined && data.failureReason !== null) {
+    contents.failureReason = data.failureReason;
+  }
+  if (data.pendingRequests !== undefined && data.pendingRequests !== null) {
+    contents.pendingRequests = deserializeAws_restJson1CreateSimulationJobRequests(data.pendingRequests, context);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = data.status;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartSimulationJobBatchCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSimulationJobBatchCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
+      response = {
+        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.robomaker#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4884,6 +5414,26 @@ const serializeAws_restJson1Arns = (input: string[], context: __SerdeContext): a
   return input.map((entry) => entry);
 };
 
+const serializeAws_restJson1BatchPolicy = (input: BatchPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.maxConcurrency !== undefined && { maxConcurrency: input.maxConcurrency }),
+    ...(input.timeoutInSeconds !== undefined && { timeoutInSeconds: input.timeoutInSeconds }),
+  };
+};
+
+const serializeAws_restJson1Compute = (input: Compute, context: __SerdeContext): any => {
+  return {
+    ...(input.simulationUnitLimit !== undefined && { simulationUnitLimit: input.simulationUnitLimit }),
+  };
+};
+
+const serializeAws_restJson1CreateSimulationJobRequests = (
+  input: SimulationJobRequest[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1SimulationJobRequest(entry, context));
+};
+
 const serializeAws_restJson1DataSourceConfig = (input: DataSourceConfig, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
@@ -4983,6 +5533,7 @@ const serializeAws_restJson1LaunchConfig = (input: LaunchConfig, context: __Serd
     ...(input.portForwardingConfig !== undefined && {
       portForwardingConfig: serializeAws_restJson1PortForwardingConfig(input.portForwardingConfig, context),
     }),
+    ...(input.streamUI !== undefined && { streamUI: input.streamUI }),
   };
 };
 
@@ -5086,6 +5637,33 @@ const serializeAws_restJson1SimulationApplicationConfigs = (
   return input.map((entry) => serializeAws_restJson1SimulationApplicationConfig(entry, context));
 };
 
+const serializeAws_restJson1SimulationJobRequest = (input: SimulationJobRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.compute !== undefined && { compute: serializeAws_restJson1Compute(input.compute, context) }),
+    ...(input.dataSources !== undefined && {
+      dataSources: serializeAws_restJson1DataSourceConfigs(input.dataSources, context),
+    }),
+    ...(input.failureBehavior !== undefined && { failureBehavior: input.failureBehavior }),
+    ...(input.iamRole !== undefined && { iamRole: input.iamRole }),
+    ...(input.loggingConfig !== undefined && {
+      loggingConfig: serializeAws_restJson1LoggingConfig(input.loggingConfig, context),
+    }),
+    ...(input.maxJobDurationInSeconds !== undefined && { maxJobDurationInSeconds: input.maxJobDurationInSeconds }),
+    ...(input.outputLocation !== undefined && {
+      outputLocation: serializeAws_restJson1OutputLocation(input.outputLocation, context),
+    }),
+    ...(input.robotApplications !== undefined && {
+      robotApplications: serializeAws_restJson1RobotApplicationConfigs(input.robotApplications, context),
+    }),
+    ...(input.simulationApplications !== undefined && {
+      simulationApplications: serializeAws_restJson1SimulationApplicationConfigs(input.simulationApplications, context),
+    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.useDefaultApplications !== undefined && { useDefaultApplications: input.useDefaultApplications }),
+    ...(input.vpcConfig !== undefined && { vpcConfig: serializeAws_restJson1VPCConfig(input.vpcConfig, context) }),
+  };
+};
+
 const serializeAws_restJson1SimulationSoftwareSuite = (
   input: SimulationSoftwareSuite,
   context: __SerdeContext
@@ -5136,6 +5714,43 @@ const deserializeAws_restJson1Arns = (output: any, context: __SerdeContext): str
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_restJson1BatchPolicy = (output: any, context: __SerdeContext): BatchPolicy => {
+  return {
+    __type: "BatchPolicy",
+    maxConcurrency:
+      output.maxConcurrency !== undefined && output.maxConcurrency !== null ? output.maxConcurrency : undefined,
+    timeoutInSeconds:
+      output.timeoutInSeconds !== undefined && output.timeoutInSeconds !== null ? output.timeoutInSeconds : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Compute = (output: any, context: __SerdeContext): Compute => {
+  return {
+    __type: "Compute",
+    simulationUnitLimit:
+      output.simulationUnitLimit !== undefined && output.simulationUnitLimit !== null
+        ? output.simulationUnitLimit
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ComputeResponse = (output: any, context: __SerdeContext): ComputeResponse => {
+  return {
+    __type: "ComputeResponse",
+    simulationUnitLimit:
+      output.simulationUnitLimit !== undefined && output.simulationUnitLimit !== null
+        ? output.simulationUnitLimit
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CreateSimulationJobRequests = (
+  output: any,
+  context: __SerdeContext
+): SimulationJobRequest[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1SimulationJobRequest(entry, context));
+};
+
 const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
     __type: "DataSource",
@@ -5146,6 +5761,22 @@ const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext
         ? deserializeAws_restJson1S3KeyOutputs(output.s3Keys, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1DataSourceConfig = (output: any, context: __SerdeContext): DataSourceConfig => {
+  return {
+    __type: "DataSourceConfig",
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    s3Bucket: output.s3Bucket !== undefined && output.s3Bucket !== null ? output.s3Bucket : undefined,
+    s3Keys:
+      output.s3Keys !== undefined && output.s3Keys !== null
+        ? deserializeAws_restJson1S3Keys(output.s3Keys, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DataSourceConfigs = (output: any, context: __SerdeContext): DataSourceConfig[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DataSourceConfig(entry, context));
 };
 
 const deserializeAws_restJson1DataSourceNames = (output: any, context: __SerdeContext): string[] => {
@@ -5263,6 +5894,33 @@ const deserializeAws_restJson1EnvironmentVariableMap = (
   );
 };
 
+const deserializeAws_restJson1FailedCreateSimulationJobRequest = (
+  output: any,
+  context: __SerdeContext
+): FailedCreateSimulationJobRequest => {
+  return {
+    __type: "FailedCreateSimulationJobRequest",
+    failedAt:
+      output.failedAt !== undefined && output.failedAt !== null
+        ? new Date(Math.round(output.failedAt * 1000))
+        : undefined,
+    failureCode: output.failureCode !== undefined && output.failureCode !== null ? output.failureCode : undefined,
+    failureReason:
+      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    request:
+      output.request !== undefined && output.request !== null
+        ? deserializeAws_restJson1SimulationJobRequest(output.request, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FailedCreateSimulationJobRequests = (
+  output: any,
+  context: __SerdeContext
+): FailedCreateSimulationJobRequest[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1FailedCreateSimulationJobRequest(entry, context));
+};
+
 const deserializeAws_restJson1Fleet = (output: any, context: __SerdeContext): Fleet => {
   return {
     __type: "Fleet",
@@ -5304,6 +5962,7 @@ const deserializeAws_restJson1LaunchConfig = (output: any, context: __SerdeConte
       output.portForwardingConfig !== undefined && output.portForwardingConfig !== null
         ? deserializeAws_restJson1PortForwardingConfig(output.portForwardingConfig, context)
         : undefined,
+    streamUI: output.streamUI !== undefined && output.streamUI !== null ? output.streamUI : undefined,
   } as any;
 };
 
@@ -5521,6 +6180,10 @@ const deserializeAws_restJson1S3KeyOutputs = (output: any, context: __SerdeConte
   return (output || []).map((entry: any) => deserializeAws_restJson1S3KeyOutput(entry, context));
 };
 
+const deserializeAws_restJson1S3Keys = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_restJson1S3Object = (output: any, context: __SerdeContext): S3Object => {
   return {
     __type: "S3Object",
@@ -5602,6 +6265,10 @@ const deserializeAws_restJson1SimulationJob = (output: any, context: __SerdeCont
       output.clientRequestToken !== undefined && output.clientRequestToken !== null
         ? output.clientRequestToken
         : undefined,
+    compute:
+      output.compute !== undefined && output.compute !== null
+        ? deserializeAws_restJson1ComputeResponse(output.compute, context)
+        : undefined,
     dataSources:
       output.dataSources !== undefined && output.dataSources !== null
         ? deserializeAws_restJson1DataSources(output.dataSources, context)
@@ -5657,6 +6324,93 @@ const deserializeAws_restJson1SimulationJob = (output: any, context: __SerdeCont
     vpcConfig:
       output.vpcConfig !== undefined && output.vpcConfig !== null
         ? deserializeAws_restJson1VPCConfigResponse(output.vpcConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SimulationJobBatchSummaries = (
+  output: any,
+  context: __SerdeContext
+): SimulationJobBatchSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1SimulationJobBatchSummary(entry, context));
+};
+
+const deserializeAws_restJson1SimulationJobBatchSummary = (
+  output: any,
+  context: __SerdeContext
+): SimulationJobBatchSummary => {
+  return {
+    __type: "SimulationJobBatchSummary",
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    createdRequestCount:
+      output.createdRequestCount !== undefined && output.createdRequestCount !== null
+        ? output.createdRequestCount
+        : undefined,
+    failedRequestCount:
+      output.failedRequestCount !== undefined && output.failedRequestCount !== null
+        ? output.failedRequestCount
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    pendingRequestCount:
+      output.pendingRequestCount !== undefined && output.pendingRequestCount !== null
+        ? output.pendingRequestCount
+        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SimulationJobRequest = (output: any, context: __SerdeContext): SimulationJobRequest => {
+  return {
+    __type: "SimulationJobRequest",
+    compute:
+      output.compute !== undefined && output.compute !== null
+        ? deserializeAws_restJson1Compute(output.compute, context)
+        : undefined,
+    dataSources:
+      output.dataSources !== undefined && output.dataSources !== null
+        ? deserializeAws_restJson1DataSourceConfigs(output.dataSources, context)
+        : undefined,
+    failureBehavior:
+      output.failureBehavior !== undefined && output.failureBehavior !== null ? output.failureBehavior : undefined,
+    iamRole: output.iamRole !== undefined && output.iamRole !== null ? output.iamRole : undefined,
+    loggingConfig:
+      output.loggingConfig !== undefined && output.loggingConfig !== null
+        ? deserializeAws_restJson1LoggingConfig(output.loggingConfig, context)
+        : undefined,
+    maxJobDurationInSeconds:
+      output.maxJobDurationInSeconds !== undefined && output.maxJobDurationInSeconds !== null
+        ? output.maxJobDurationInSeconds
+        : undefined,
+    outputLocation:
+      output.outputLocation !== undefined && output.outputLocation !== null
+        ? deserializeAws_restJson1OutputLocation(output.outputLocation, context)
+        : undefined,
+    robotApplications:
+      output.robotApplications !== undefined && output.robotApplications !== null
+        ? deserializeAws_restJson1RobotApplicationConfigs(output.robotApplications, context)
+        : undefined,
+    simulationApplications:
+      output.simulationApplications !== undefined && output.simulationApplications !== null
+        ? deserializeAws_restJson1SimulationApplicationConfigs(output.simulationApplications, context)
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+    useDefaultApplications:
+      output.useDefaultApplications !== undefined && output.useDefaultApplications !== null
+        ? output.useDefaultApplications
+        : undefined,
+    vpcConfig:
+      output.vpcConfig !== undefined && output.vpcConfig !== null
+        ? deserializeAws_restJson1VPCConfig(output.vpcConfig, context)
         : undefined,
   } as any;
 };
@@ -5734,6 +6488,22 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1VPCConfig = (output: any, context: __SerdeContext): VPCConfig => {
+  return {
+    __type: "VPCConfig",
+    assignPublicIp:
+      output.assignPublicIp !== undefined && output.assignPublicIp !== null ? output.assignPublicIp : undefined,
+    securityGroups:
+      output.securityGroups !== undefined && output.securityGroups !== null
+        ? deserializeAws_restJson1SecurityGroups(output.securityGroups, context)
+        : undefined,
+    subnets:
+      output.subnets !== undefined && output.subnets !== null
+        ? deserializeAws_restJson1Subnets(output.subnets, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1VPCConfigResponse = (output: any, context: __SerdeContext): VPCConfigResponse => {

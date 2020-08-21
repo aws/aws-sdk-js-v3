@@ -6,6 +6,7 @@ import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./c
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
@@ -18,6 +19,10 @@ import {
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommandInput,
@@ -28,6 +33,8 @@ import {
   StopDataSourceSyncJobCommandOutput,
 } from "./commands/StopDataSourceSyncJobCommand";
 import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -83,6 +90,7 @@ export type ServiceInputTypes =
   | CreateDataSourceCommandInput
   | CreateFaqCommandInput
   | CreateIndexCommandInput
+  | DeleteDataSourceCommandInput
   | DeleteFaqCommandInput
   | DeleteIndexCommandInput
   | DescribeDataSourceCommandInput
@@ -92,10 +100,13 @@ export type ServiceInputTypes =
   | ListDataSourcesCommandInput
   | ListFaqsCommandInput
   | ListIndicesCommandInput
+  | ListTagsForResourceCommandInput
   | QueryCommandInput
   | StartDataSourceSyncJobCommandInput
   | StopDataSourceSyncJobCommandInput
   | SubmitFeedbackCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateDataSourceCommandInput
   | UpdateIndexCommandInput;
 
@@ -105,6 +116,7 @@ export type ServiceOutputTypes =
   | CreateDataSourceCommandOutput
   | CreateFaqCommandOutput
   | CreateIndexCommandOutput
+  | DeleteDataSourceCommandOutput
   | DeleteFaqCommandOutput
   | DeleteIndexCommandOutput
   | DescribeDataSourceCommandOutput
@@ -114,10 +126,13 @@ export type ServiceOutputTypes =
   | ListDataSourcesCommandOutput
   | ListFaqsCommandOutput
   | ListIndicesCommandOutput
+  | ListTagsForResourceCommandOutput
   | QueryCommandOutput
   | StartDataSourceSyncJobCommandOutput
   | StopDataSourceSyncJobCommandOutput
   | SubmitFeedbackCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateIndexCommandOutput;
 

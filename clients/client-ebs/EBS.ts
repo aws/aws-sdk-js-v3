@@ -1,5 +1,10 @@
 import { EBSClient } from "./EBSClient";
 import {
+  CompleteSnapshotCommand,
+  CompleteSnapshotCommandInput,
+  CompleteSnapshotCommandOutput,
+} from "./commands/CompleteSnapshotCommand";
+import {
   GetSnapshotBlockCommand,
   GetSnapshotBlockCommandInput,
   GetSnapshotBlockCommandOutput,
@@ -14,28 +19,70 @@ import {
   ListSnapshotBlocksCommandInput,
   ListSnapshotBlocksCommandOutput,
 } from "./commands/ListSnapshotBlocksCommand";
+import {
+  PutSnapshotBlockCommand,
+  PutSnapshotBlockCommandInput,
+  PutSnapshotBlockCommandOutput,
+} from "./commands/PutSnapshotBlockCommand";
+import {
+  StartSnapshotCommand,
+  StartSnapshotCommandInput,
+  StartSnapshotCommandOutput,
+} from "./commands/StartSnapshotCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>You can use the Amazon Elastic Block Store (EBS) direct APIs to directly read the data on your EBS
  *             snapshots, and identify the difference between two snapshots. You can view the details
  *             of blocks in an EBS snapshot, compare the block difference between two snapshots, and
- *             directly access the data in a snapshot. If you’re an independent software vendor (ISV)
- *             who offers backup services for EBS, the EBS direct APIs makes it easier and more
- *             cost-effective to track incremental changes on your EBS volumes via EBS snapshots. This
- *             can be done without having to create new volumes from EBS snapshots, and then use EC2
- *             instances to compare the differences.</p>
+ *             directly access the data in a snapshot. If you're an independent software vendor (ISV)
+ *             who offers backup services for EBS, the EBS direct APIs make it easier and more cost-effective
+ *             to track incremental changes on your EBS volumes via EBS snapshots. This can be done
+ *             without having to create new volumes from EBS snapshots.</p>
  *
  *
  *         <p>This API reference provides detailed information about the actions, data types,
  *             parameters, and errors of the EBS direct APIs. For more information about the elements that
- *             make up the EBS direct APIs, and examples of how to use them effectively, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html">Accessing the Contents of an EBS Snapshot</a>. For more information about how
- *             to use the EBS direct APIs, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshots.html">EBS direct APIs User Guide</a>. To view the currently supported AWS Regions and
- *             endpoints for the EBS direct APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ebs_region">AWS
- *                 Service Endpoints</a> in the <i>AWS General
- *             Reference</i>.</p>
+ *             make up the EBS direct APIs, and examples of how to use them effectively, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html">Accessing the Contents of an EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User
+ *                 Guide</i>. For more information about the supported AWS Regions, endpoints,
+ *             and service quotas for the EBS direct APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/ebs-service.html">Amazon Elastic Block Store Endpoints and Quotas</a> in
+ *             the <i>AWS General Reference</i>.</p>
  */
 export class EBS extends EBSClient {
+  /**
+   * <p>Seals and completes the snapshot after all of the required blocks of data have been
+   *             written to it. Completing the snapshot changes the status to <code>completed</code>. You
+   *             cannot write new blocks to a snapshot after it has been completed.</p>
+   */
+  public completeSnapshot(
+    args: CompleteSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CompleteSnapshotCommandOutput>;
+  public completeSnapshot(
+    args: CompleteSnapshotCommandInput,
+    cb: (err: any, data?: CompleteSnapshotCommandOutput) => void
+  ): void;
+  public completeSnapshot(
+    args: CompleteSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CompleteSnapshotCommandOutput) => void
+  ): void;
+  public completeSnapshot(
+    args: CompleteSnapshotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompleteSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: CompleteSnapshotCommandOutput) => void
+  ): Promise<CompleteSnapshotCommandOutput> | void {
+    const command = new CompleteSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>
    */
@@ -123,6 +170,76 @@ export class EBS extends EBSClient {
     cb?: (err: any, data?: ListSnapshotBlocksCommandOutput) => void
   ): Promise<ListSnapshotBlocksCommandOutput> | void {
     const command = new ListSnapshotBlocksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Writes a block of data to a block in the snapshot. If the specified block contains
+   *             data, the existing data is overwritten. The target snapshot must be in the
+   *                 <code>pending</code> state.</p>
+   *     	    <p>Data written to a snapshot must be aligned with 512-byte sectors.</p>
+   */
+  public putSnapshotBlock(
+    args: PutSnapshotBlockCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSnapshotBlockCommandOutput>;
+  public putSnapshotBlock(
+    args: PutSnapshotBlockCommandInput,
+    cb: (err: any, data?: PutSnapshotBlockCommandOutput) => void
+  ): void;
+  public putSnapshotBlock(
+    args: PutSnapshotBlockCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSnapshotBlockCommandOutput) => void
+  ): void;
+  public putSnapshotBlock(
+    args: PutSnapshotBlockCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSnapshotBlockCommandOutput) => void),
+    cb?: (err: any, data?: PutSnapshotBlockCommandOutput) => void
+  ): Promise<PutSnapshotBlockCommandOutput> | void {
+    const command = new PutSnapshotBlockCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state
+   *             after the request completes. </p>
+   *         <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
+   *             write blocks of data to the snapshot.</p>
+   */
+  public startSnapshot(
+    args: StartSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSnapshotCommandOutput>;
+  public startSnapshot(
+    args: StartSnapshotCommandInput,
+    cb: (err: any, data?: StartSnapshotCommandOutput) => void
+  ): void;
+  public startSnapshot(
+    args: StartSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSnapshotCommandOutput) => void
+  ): void;
+  public startSnapshot(
+    args: StartSnapshotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: StartSnapshotCommandOutput) => void
+  ): Promise<StartSnapshotCommandOutput> | void {
+    const command = new StartSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

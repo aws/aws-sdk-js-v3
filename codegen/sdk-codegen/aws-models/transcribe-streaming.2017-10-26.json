@@ -136,10 +136,10 @@
     "com.amazonaws.transcribestreaming#Item": {
       "type": "structure",
       "members": {
-        "Content": {
-          "target": "com.amazonaws.transcribestreaming#String",
+        "Type": {
+          "target": "com.amazonaws.transcribestreaming#ItemType",
           "traits": {
-            "smithy.api#documentation": "<p>The word or punctuation that was recognized in the input audio.</p>"
+            "smithy.api#documentation": "<p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that\n      was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item was\n      interpreted as a pause in the input audio.</p>"
           }
         },
         "EndTime": {
@@ -148,16 +148,22 @@
             "smithy.api#documentation": "<p>The offset from the beginning of the audio stream to the end of the audio that resulted in\n      the item.</p>"
           }
         },
+        "Content": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The word or punctuation that was recognized in the input audio.</p>"
+          }
+        },
         "StartTime": {
           "target": "com.amazonaws.transcribestreaming#Double",
           "traits": {
             "smithy.api#documentation": "<p>The offset from the beginning of the audio stream to the beginning of the audio that\n      resulted in the item.</p>"
           }
         },
-        "Type": {
-          "target": "com.amazonaws.transcribestreaming#ItemType",
+        "VocabularyFilterMatch": {
+          "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that\n      was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item was\n      interpreted as a pause in the input audio.</p>"
+            "smithy.api#documentation": "<p>Indicates whether a word in the item matches a word in the vocabulary filter you've chosen\n      for your real-time stream. If <code>true</code> then a word in the item matches your\n      vocabulary filter.</p>"
           }
         }
       },
@@ -257,10 +263,10 @@
     "com.amazonaws.transcribestreaming#Result": {
       "type": "structure",
       "members": {
-        "Alternatives": {
-          "target": "com.amazonaws.transcribestreaming#AlternativeList",
+        "IsPartial": {
+          "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>A list of possible transcriptions for the audio. Each alternative typically contains one\n        <code>item</code> that contains the result of the transcription.</p>"
+            "smithy.api#documentation": "<p>Amazon Transcribe divides the incoming audio stream into segments at natural points in the audio.\n      Transcription results are returned based on these segments. </p>\n         <p>The <code>IsPartial</code> field is <code>true</code> to indicate that Amazon Transcribe has\n      additional transcription data to send, <code>false</code> to indicate that this is the last\n      transcription result for the segment.</p>"
           }
         },
         "EndTime": {
@@ -269,22 +275,22 @@
             "smithy.api#documentation": "<p>The offset in seconds from the beginning of the audio stream to the end of the\n      result.</p>"
           }
         },
-        "IsPartial": {
-          "target": "com.amazonaws.transcribestreaming#Boolean",
+        "StartTime": {
+          "target": "com.amazonaws.transcribestreaming#Double",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Transcribe divides the incoming audio stream into segments at natural points in the audio.\n      Transcription results are returned based on these segments. </p>\n         <p>The <code>IsPartial</code> field is <code>true</code> to indicate that Amazon Transcribe has\n      additional transcription data to send, <code>false</code> to indicate that this is the last\n      transcription result for the segment.</p>"
+            "smithy.api#documentation": "<p>The offset in seconds from the beginning of the audio stream to the beginning of the\n      result.</p>"
+          }
+        },
+        "Alternatives": {
+          "target": "com.amazonaws.transcribestreaming#AlternativeList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of possible transcriptions for the audio. Each alternative typically contains one\n        <code>item</code> that contains the result of the transcription.</p>"
           }
         },
         "ResultId": {
           "target": "com.amazonaws.transcribestreaming#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the result. </p>"
-          }
-        },
-        "StartTime": {
-          "target": "com.amazonaws.transcribestreaming#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>The offset in seconds from the beginning of the audio stream to the beginning of the\n      result.</p>"
           }
         }
       },
@@ -296,6 +302,19 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.transcribestreaming#Result"
+      }
+    },
+    "com.amazonaws.transcribestreaming#ServiceUnavailableException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.transcribestreaming#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Service is currently unavailable. Try your request later.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.transcribestreaming#SessionId": {
@@ -324,6 +343,9 @@
         },
         {
           "target": "com.amazonaws.transcribestreaming#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.transcribestreaming#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -338,11 +360,18 @@
     "com.amazonaws.transcribestreaming#StartStreamTranscriptionRequest": {
       "type": "structure",
       "members": {
-        "AudioStream": {
-          "target": "com.amazonaws.transcribestreaming#AudioStream",
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyFilterName",
           "traits": {
-            "smithy.api#documentation": "<p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data\n      frame.</p>",
-            "smithy.api#httpPayload": {},
+            "smithy.api#documentation": "<p>The name of the vocabulary filter you've created that is unique to your AWS accountf.\n      Provide the name in this field to successfully use it in a stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-filter-name"
+          }
+        },
+        "MediaEncoding": {
+          "target": "com.amazonaws.transcribestreaming#MediaEncoding",
+          "traits": {
+            "smithy.api#documentation": "<p>The encoding used for the input audio. </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-media-encoding",
             "smithy.api#required": {}
           }
         },
@@ -354,19 +383,11 @@
             "smithy.api#required": {}
           }
         },
-        "MediaEncoding": {
-          "target": "com.amazonaws.transcribestreaming#MediaEncoding",
+        "AudioStream": {
+          "target": "com.amazonaws.transcribestreaming#AudioStream",
           "traits": {
-            "smithy.api#documentation": "<p>The encoding used for the input audio. </p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-media-encoding",
-            "smithy.api#required": {}
-          }
-        },
-        "MediaSampleRateHertz": {
-          "target": "com.amazonaws.transcribestreaming#MediaSampleRateHertz",
-          "traits": {
-            "smithy.api#documentation": "<p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low\n      quality audio and 16000 Hz for high quality audio.</p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-sample-rate",
+            "smithy.api#documentation": "<p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data\n      frame.</p>",
+            "smithy.api#httpPayload": {},
             "smithy.api#required": {}
           }
         },
@@ -383,17 +404,32 @@
             "smithy.api#documentation": "<p>The name of the vocabulary to use when processing the transcription job.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-name"
           }
+        },
+        "VocabularyFilterMethod": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyFilterMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The manner in which you use your vocabulary filter to filter words in your transcript.\n        <code>Remove</code> removes filtered words from your transcription results.\n        <code>Mask</code> masks those words with a <code>***</code> in your transcription results.\n        <code>Tag</code> keeps the filtered words in your transcription results and tags them. The\n      tag appears as <code>VocabularyFilterMatch</code> equal to <code>True</code>\n         </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-filter-method"
+          }
+        },
+        "MediaSampleRateHertz": {
+          "target": "com.amazonaws.transcribestreaming#MediaSampleRateHertz",
+          "traits": {
+            "smithy.api#documentation": "<p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low\n      quality audio and 16000 Hz for high quality audio.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-sample-rate",
+            "smithy.api#required": {}
+          }
         }
       }
     },
     "com.amazonaws.transcribestreaming#StartStreamTranscriptionResponse": {
       "type": "structure",
       "members": {
-        "LanguageCode": {
-          "target": "com.amazonaws.transcribestreaming#LanguageCode",
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyFilterName",
           "traits": {
-            "smithy.api#documentation": "<p>The language code for the input audio stream.</p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-language-code"
+            "smithy.api#documentation": "<p>The name of the vocabulary filter used in your real-time stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-filter-name"
           }
         },
         "MediaEncoding": {
@@ -403,11 +439,25 @@
             "smithy.api#httpHeader": "x-amzn-transcribe-media-encoding"
           }
         },
-        "MediaSampleRateHertz": {
-          "target": "com.amazonaws.transcribestreaming#MediaSampleRateHertz",
+        "VocabularyName": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "<p>The sample rate for the input audio stream. Use 8000 Hz for low quality audio and 16000 Hz\n      for high quality audio.</p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-sample-rate"
+            "smithy.api#documentation": "<p>The name of the vocabulary used when processing the stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-name"
+          }
+        },
+        "VocabularyFilterMethod": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyFilterMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The vocabulary filtering method used in the real-time stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-filter-method"
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribestreaming#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code for the input audio stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-language-code"
           }
         },
         "RequestId": {
@@ -415,6 +465,13 @@
           "traits": {
             "smithy.api#documentation": "<p>An identifier for the streaming transcription.</p>",
             "smithy.api#httpHeader": "x-amzn-request-id"
+          }
+        },
+        "MediaSampleRateHertz": {
+          "target": "com.amazonaws.transcribestreaming#MediaSampleRateHertz",
+          "traits": {
+            "smithy.api#documentation": "<p>The sample rate for the input audio stream. Use 8000 Hz for low quality audio and 16000 Hz\n      for high quality audio.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-sample-rate"
           }
         },
         "SessionId": {
@@ -429,13 +486,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Represents the stream of transcription events from Amazon Transcribe to your application.</p>",
             "smithy.api#httpPayload": {}
-          }
-        },
-        "VocabularyName": {
-          "target": "com.amazonaws.transcribestreaming#VocabularyName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the vocabulary used when processing the job.</p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-name"
           }
         }
       }
@@ -497,16 +547,16 @@
     "com.amazonaws.transcribestreaming#TranscriptResultStream": {
       "type": "union",
       "members": {
+        "TranscriptEvent": {
+          "target": "com.amazonaws.transcribestreaming#TranscriptEvent",
+          "traits": {
+            "smithy.api#documentation": "<p>A portion of the transcription of the audio stream. Events are sent periodically from\n      Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio\n      stream, or it can be the entire transcription of that portion of the audio stream.\n      </p>"
+          }
+        },
         "BadRequestException": {
           "target": "com.amazonaws.transcribestreaming#BadRequestException",
           "traits": {
             "smithy.api#documentation": "<p>A client error occurred when the stream was created. Check the parameters of the request\n      and try your request again.</p>"
-          }
-        },
-        "ConflictException": {
-          "target": "com.amazonaws.transcribestreaming#ConflictException",
-          "traits": {
-            "smithy.api#documentation": "<p>A new stream started with the same session ID. The current stream has been\n      terminated.</p>"
           }
         },
         "InternalFailureException": {
@@ -515,22 +565,57 @@
             "smithy.api#documentation": "<p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>"
           }
         },
+        "ConflictException": {
+          "target": "com.amazonaws.transcribestreaming#ConflictException",
+          "traits": {
+            "smithy.api#documentation": "<p>A new stream started with the same session ID. The current stream has been\n      terminated.</p>"
+          }
+        },
+        "ServiceUnavailableException": {
+          "target": "com.amazonaws.transcribestreaming#ServiceUnavailableException",
+          "traits": {
+            "smithy.api#documentation": "<p>Service is currently unavailable. Try your request later.</p>"
+          }
+        },
         "LimitExceededException": {
           "target": "com.amazonaws.transcribestreaming#LimitExceededException",
           "traits": {
             "smithy.api#documentation": "<p>Your client has exceeded one of the Amazon Transcribe limits, typically the limit on audio length.\n      Break your audio stream into smaller chunks and try your request again.</p>"
-          }
-        },
-        "TranscriptEvent": {
-          "target": "com.amazonaws.transcribestreaming#TranscriptEvent",
-          "traits": {
-            "smithy.api#documentation": "<p>A portion of the transcription of the audio stream. Events are sent periodically from\n      Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio\n      stream, or it can be the entire transcription of that portion of the audio stream.\n      </p>"
           }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Represents the transcription result stream from Amazon Transcribe to your application.</p>",
         "smithy.api#streaming": {}
+      }
+    },
+    "com.amazonaws.transcribestreaming#VocabularyFilterMethod": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "remove",
+            "name": "REMOVE"
+          },
+          {
+            "value": "mask",
+            "name": "MASK"
+          },
+          {
+            "value": "tag",
+            "name": "TAG"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.transcribestreaming#VocabularyFilterName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 200
+        },
+        "smithy.api#pattern": "^[0-9a-zA-Z._-]+"
       }
     },
     "com.amazonaws.transcribestreaming#VocabularyName": {

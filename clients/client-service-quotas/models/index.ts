@@ -62,11 +62,6 @@ export namespace AWSServiceAccessNotEnabledException {
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
   __type?: "DeleteServiceQuotaIncreaseRequestFromTemplateRequest";
   /**
-   * <p>Specifies the AWS Region for the quota that you want to delete.</p>
-   */
-  AwsRegion: string | undefined;
-
-  /**
    * <p>Specifies the code for the quota that you want to delete.</p>
    */
   QuotaCode: string | undefined;
@@ -75,6 +70,11 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
    * <p>Specifies the code for the service that you want to delete.</p>
    */
   ServiceCode: string | undefined;
+
+  /**
+   * <p>Specifies the AWS Region for the quota that you want to delete.</p>
+   */
+  AwsRegion: string | undefined;
 }
 
 export namespace DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
@@ -283,14 +283,14 @@ export namespace GetRequestedServiceQuotaChangeResponse {
 export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
   __type?: "GetServiceQuotaIncreaseRequestFromTemplateRequest";
   /**
-   * <p>Specifies the AWS Region for the quota that you want to use.</p>
-   */
-  AwsRegion: string | undefined;
-
-  /**
    * <p>Specifies the quota you want.</p>
    */
   QuotaCode: string | undefined;
+
+  /**
+   * <p>Specifies the AWS Region for the quota that you want to use.</p>
+   */
+  AwsRegion: string | undefined;
 
   /**
    * <p>Specifies the service that you want to use.</p>
@@ -325,14 +325,14 @@ export namespace GetServiceQuotaIncreaseRequestFromTemplateResponse {
 export interface GetServiceQuotaRequest {
   __type?: "GetServiceQuotaRequest";
   /**
-   * <p>Identifies the service quota you want to select.</p>
-   */
-  QuotaCode: string | undefined;
-
-  /**
    * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
+
+  /**
+   * <p>Identifies the service quota you want to select.</p>
+   */
+  QuotaCode: string | undefined;
 }
 
 export namespace GetServiceQuotaRequest {
@@ -448,17 +448,17 @@ export namespace ListAWSDefaultServiceQuotasRequest {
 export interface ListAWSDefaultServiceQuotasResponse {
   __type?: "ListAWSDefaultServiceQuotasResponse";
   /**
+   * <p>A list of the quotas in the account with the AWS default values. </p>
+   */
+  Quotas?: ServiceQuota[];
+
+  /**
    * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
    *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
    *       indicate where the output should continue from.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of the quotas in the account with the AWS default values. </p>
-   */
-  Quotas?: ServiceQuota[];
 }
 
 export namespace ListAWSDefaultServiceQuotasResponse {
@@ -471,6 +471,21 @@ export namespace ListAWSDefaultServiceQuotasResponse {
 
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
   __type?: "ListRequestedServiceQuotaChangeHistoryByQuotaRequest";
+  /**
+   * <p>Specifies the service that you want to use.</p>
+   */
+  ServiceCode: string | undefined;
+
+  /**
+   * <p>Specifies the status value of the quota increase request.</p>
+   */
+  Status?: RequestStatus | string;
+
+  /**
+   * <p>Specifies the service quota that you want to use</p>
+   */
+  QuotaCode: string | undefined;
+
   /**
    * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
@@ -489,21 +504,6 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
    *       indicate where the output should continue from.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Specifies the service quota that you want to use</p>
-   */
-  QuotaCode: string | undefined;
-
-  /**
-   * <p>Specifies the service that you want to use.</p>
-   */
-  ServiceCode: string | undefined;
-
-  /**
-   * <p>Specifies the status value of the quota increase request.</p>
-   */
-  Status?: RequestStatus | string;
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
@@ -543,15 +543,14 @@ export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
 export interface ListRequestedServiceQuotaChangeHistoryRequest {
   __type?: "ListRequestedServiceQuotaChangeHistoryRequest";
   /**
-   * <p>(Optional) Limits the number of results that you want to include in the response. If you
-   *       don't include this parameter, the response defaults to a value that's specific to the
-   *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
-   *       element is present and has a value (isn't null). Include that value as the
-   *         <code>NextToken</code> request parameter in the call to the operation to get the next part
-   *       of the results. You should check <code>NextToken</code> after every operation to ensure that
-   *       you receive all of the results.</p>
+   * <p>Specifies the status value of the quota increase request.</p>
    */
-  MaxResults?: number;
+  Status?: RequestStatus | string;
+
+  /**
+   * <p>Specifies the service that you want to use.</p>
+   */
+  ServiceCode?: string;
 
   /**
    * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
@@ -562,14 +561,15 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
   NextToken?: string;
 
   /**
-   * <p>Specifies the service that you want to use.</p>
+   * <p>(Optional) Limits the number of results that you want to include in the response. If you
+   *       don't include this parameter, the response defaults to a value that's specific to the
+   *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
+   *       element is present and has a value (isn't null). Include that value as the
+   *         <code>NextToken</code> request parameter in the call to the operation to get the next part
+   *       of the results. You should check <code>NextToken</code> after every operation to ensure that
+   *       you receive all of the results.</p>
    */
-  ServiceCode?: string;
-
-  /**
-   * <p>Specifies the status value of the quota increase request.</p>
-   */
-  Status?: RequestStatus | string;
+  MaxResults?: number;
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryRequest {
@@ -609,11 +609,6 @@ export namespace ListRequestedServiceQuotaChangeHistoryResponse {
 export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
   __type?: "ListServiceQuotaIncreaseRequestsInTemplateRequest";
   /**
-   * <p>Specifies the AWS Region for the quota that you want to use.</p>
-   */
-  AwsRegion?: string;
-
-  /**
    * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
    *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
@@ -631,6 +626,11 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
    *       indicate where the output should continue from.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Specifies the AWS Region for the quota that you want to use.</p>
+   */
+  AwsRegion?: string;
 
   /**
    * <p>The identifier for a service. When performing an operation, use the
@@ -676,17 +676,6 @@ export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
 export interface ListServiceQuotasRequest {
   __type?: "ListServiceQuotasRequest";
   /**
-   * <p>(Optional) Limits the number of results that you want to include in the response. If you
-   *       don't include this parameter, the response defaults to a value that's specific to the
-   *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
-   *       element is present and has a value (isn't null). Include that value as the
-   *         <code>NextToken</code> request parameter in the call to the operation to get the next part
-   *       of the results. You should check <code>NextToken</code> after every operation to ensure that
-   *       you receive all of the results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
    *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
@@ -699,6 +688,17 @@ export interface ListServiceQuotasRequest {
    *         <code>ServiceCode</code> to specify a particular service. </p>
    */
   ServiceCode: string | undefined;
+
+  /**
+   * <p>(Optional) Limits the number of results that you want to include in the response. If you
+   *       don't include this parameter, the response defaults to a value that's specific to the
+   *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
+   *       element is present and has a value (isn't null). Include that value as the
+   *         <code>NextToken</code> request parameter in the call to the operation to get the next part
+   *       of the results. You should check <code>NextToken</code> after every operation to ensure that
+   *       you receive all of the results.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListServiceQuotasRequest {
@@ -737,6 +737,14 @@ export namespace ListServiceQuotasResponse {
 export interface ListServicesRequest {
   __type?: "ListServicesRequest";
   /**
+   * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
+   *       response in a previous request that indicates that there's more output available. In a
+   *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
+   *       indicate where the output should continue from.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
    *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
@@ -746,14 +754,6 @@ export interface ListServicesRequest {
    *       you receive all of the results.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
-   *       response in a previous request that indicates that there's more output available. In a
-   *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
-   *       indicate where the output should continue from.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListServicesRequest {
@@ -766,6 +766,11 @@ export namespace ListServicesRequest {
 export interface ListServicesResponse {
   __type?: "ListServicesResponse";
   /**
+   * <p>Returns a list of services. </p>
+   */
+  Services?: ServiceInfo[];
+
+  /**
    * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
    *       all, such as when you ask for a filtered view of a very long list. Use this value in the
@@ -774,11 +779,6 @@ export interface ListServicesResponse {
    *         <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Returns a list of services. </p>
-   */
-  Services?: ServiceInfo[];
 }
 
 export namespace ListServicesResponse {
@@ -794,6 +794,12 @@ export namespace ListServicesResponse {
 export interface MetricInfo {
   __type?: "MetricInfo";
   /**
+   * <p>The namespace of the metric. The namespace is a container for CloudWatch metrics. You can
+   *       specify a name for the namespace when you create a metric.</p>
+   */
+  MetricNamespace?: string;
+
+  /**
    * <p>A dimension is a name/value pair that is part of the identity of a metric. Every metric
    *       has specific characteristics that describe it, and you can think of dimensions as categories
    *       for those characteristics. These dimensions are part of the CloudWatch Metric Identity that
@@ -802,23 +808,17 @@ export interface MetricInfo {
   MetricDimensions?: { [key: string]: string };
 
   /**
-   * <p>The name of the CloudWatch metric that measures usage of a service quota. This is a
-   *       required field.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * <p>The namespace of the metric. The namespace is a container for CloudWatch metrics. You can
-   *       specify a name for the namespace when you create a metric.</p>
-   */
-  MetricNamespace?: string;
-
-  /**
    * <p>Statistics are metric data aggregations over specified periods of time. This is the
    *       recommended statistic to use when comparing usage in the CloudWatch Metric against your
    *       Service Quota.</p>
    */
   MetricStatisticRecommendation?: string;
+
+  /**
+   * <p>The name of the CloudWatch metric that measures usage of a service quota. This is a
+   *       required field.</p>
+   */
+  MetricName?: string;
 }
 
 export namespace MetricInfo {
@@ -891,24 +891,24 @@ export enum PeriodUnit {
 export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
   __type?: "PutServiceQuotaIncreaseRequestIntoTemplateRequest";
   /**
-   * <p>Specifies the AWS Region for the quota. </p>
-   */
-  AwsRegion: string | undefined;
-
-  /**
    * <p>Specifies the new, increased value for the quota. </p>
    */
   DesiredValue: number | undefined;
 
   /**
-   * <p>Specifies the service quota that you want to use.</p>
+   * <p>Specifies the AWS Region for the quota. </p>
    */
-  QuotaCode: string | undefined;
+  AwsRegion: string | undefined;
 
   /**
    * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
+
+  /**
+   * <p>Specifies the service quota that you want to use.</p>
+   */
+  QuotaCode: string | undefined;
 }
 
 export namespace PutServiceQuotaIncreaseRequestIntoTemplateRequest {
@@ -981,9 +981,49 @@ export namespace QuotaPeriod {
 export interface RequestedServiceQuotaChange {
   __type?: "RequestedServiceQuotaChange";
   /**
-   * <p>The case Id for the service quota increase request.</p>
+   * <p>The IAM identity who submitted the service quota increase request.</p>
    */
-  CaseId?: string;
+  Requester?: string;
+
+  /**
+   * <p>The name of the AWS service specified in the increase request. </p>
+   */
+  ServiceName?: string;
+
+  /**
+   * <p>Specifies the service that you want to use.</p>
+   */
+  ServiceCode?: string;
+
+  /**
+   * <p>Name of the service quota.</p>
+   */
+  QuotaName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service quota.</p>
+   */
+  QuotaArn?: string;
+
+  /**
+   * <p>The unique identifier of a requested service quota change.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>New increased value for the service quota.</p>
+   */
+  DesiredValue?: number;
+
+  /**
+   * <p>Specifies the unit used for the quota.</p>
+   */
+  Unit?: string;
+
+  /**
+   * <p>State of the service quota increase request.</p>
+   */
+  Status?: RequestStatus | string;
 
   /**
    * <p>The date and time when the service quota increase request was received and the case Id was
@@ -992,9 +1032,9 @@ export interface RequestedServiceQuotaChange {
   Created?: Date;
 
   /**
-   * <p>New increased value for the service quota.</p>
+   * <p>Specifies the service quota that you want to use.</p>
    */
-  DesiredValue?: number;
+  QuotaCode?: string;
 
   /**
    * <p>Identifies if the quota is global.</p>
@@ -1002,54 +1042,14 @@ export interface RequestedServiceQuotaChange {
   GlobalQuota?: boolean;
 
   /**
-   * <p>The unique identifier of a requested service quota change.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The date and time of the most recent change in the service quota increase request.</p>
    */
   LastUpdated?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service quota.</p>
+   * <p>The case Id for the service quota increase request.</p>
    */
-  QuotaArn?: string;
-
-  /**
-   * <p>Specifies the service quota that you want to use.</p>
-   */
-  QuotaCode?: string;
-
-  /**
-   * <p>Name of the service quota.</p>
-   */
-  QuotaName?: string;
-
-  /**
-   * <p>The IAM identity who submitted the service quota increase request.</p>
-   */
-  Requester?: string;
-
-  /**
-   * <p>Specifies the service that you want to use.</p>
-   */
-  ServiceCode?: string;
-
-  /**
-   * <p>The name of the AWS service specified in the increase request. </p>
-   */
-  ServiceName?: string;
-
-  /**
-   * <p>State of the service quota increase request.</p>
-   */
-  Status?: RequestStatus | string;
-
-  /**
-   * <p>Specifies the unit used for the quota.</p>
-   */
-  Unit?: string;
+  CaseId?: string;
 }
 
 export namespace RequestedServiceQuotaChange {
@@ -1067,14 +1067,14 @@ export interface RequestServiceQuotaIncreaseRequest {
   DesiredValue: number | undefined;
 
   /**
-   * <p>Specifies the service quota that you want to use.</p>
-   */
-  QuotaCode: string | undefined;
-
-  /**
    * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
+
+  /**
+   * <p>Specifies the service quota that you want to use.</p>
+   */
+  QuotaCode: string | undefined;
 }
 
 export namespace RequestServiceQuotaIncreaseRequest {
@@ -1148,14 +1148,14 @@ export namespace ServiceException {
 export interface ServiceInfo {
   __type?: "ServiceInfo";
   /**
-   * <p>Specifies the service that you want to use.</p>
-   */
-  ServiceCode?: string;
-
-  /**
    * <p>The name of the AWS service specified in the increase request. </p>
    */
   ServiceName?: string;
+
+  /**
+   * <p>Specifies the service that you want to use.</p>
+   */
+  ServiceCode?: string;
 }
 
 export namespace ServiceInfo {
@@ -1171,15 +1171,24 @@ export namespace ServiceInfo {
 export interface ServiceQuota {
   __type?: "ServiceQuota";
   /**
+   * <p>The unit of measurement for the value of the service quota.</p>
+   */
+  Unit?: string;
+
+  /**
    * <p>Specifies if the quota value can be increased.</p>
    */
   Adjustable?: boolean;
 
   /**
-   * <p>Specifies the <code>ErrorCode</code> and <code>ErrorMessage</code> when success isn't
-   *       achieved.</p>
+   * <p>The value of service quota.</p>
    */
-  ErrorReason?: ErrorReason;
+  Value?: number;
+
+  /**
+   * <p>The code identifier for the service quota specified.</p>
+   */
+  QuotaCode?: string;
 
   /**
    * <p>Specifies if the quota is global.</p>
@@ -1192,24 +1201,10 @@ export interface ServiceQuota {
   Period?: QuotaPeriod;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service quota.</p>
+   * <p>Specifies the <code>ErrorCode</code> and <code>ErrorMessage</code> when success isn't
+   *       achieved.</p>
    */
-  QuotaArn?: string;
-
-  /**
-   * <p>The code identifier for the service quota specified.</p>
-   */
-  QuotaCode?: string;
-
-  /**
-   * <p>The name identifier of the service quota.</p>
-   */
-  QuotaName?: string;
-
-  /**
-   * <p>Specifies the service that you want to use.</p>
-   */
-  ServiceCode?: string;
+  ErrorReason?: ErrorReason;
 
   /**
    * <p>The name of the AWS service specified in the increase request. </p>
@@ -1217,9 +1212,14 @@ export interface ServiceQuota {
   ServiceName?: string;
 
   /**
-   * <p>The unit of measurement for the value of the service quota.</p>
+   * <p>The Amazon Resource Name (ARN) of the service quota.</p>
    */
-  Unit?: string;
+  QuotaArn?: string;
+
+  /**
+   * <p>Specifies the service that you want to use.</p>
+   */
+  ServiceCode?: string;
 
   /**
    * <p>Specifies the details about the measurement. </p>
@@ -1227,9 +1227,9 @@ export interface ServiceQuota {
   UsageMetric?: MetricInfo;
 
   /**
-   * <p>The value of service quota.</p>
+   * <p>The name identifier of the service quota.</p>
    */
-  Value?: number;
+  QuotaName?: string;
 }
 
 export namespace ServiceQuota {
@@ -1245,14 +1245,9 @@ export namespace ServiceQuota {
 export interface ServiceQuotaIncreaseRequestInTemplate {
   __type?: "ServiceQuotaIncreaseRequestInTemplate";
   /**
-   * <p>The AWS Region where the increase request occurs.</p>
+   * <p>The code identifier for the service quota specified in the increase request.</p>
    */
-  AwsRegion?: string;
-
-  /**
-   * <p>Identifies the new, increased value of the service quota in the increase request. </p>
-   */
-  DesiredValue?: number;
+  QuotaCode?: string;
 
   /**
    * <p>Specifies if the quota is a global quota.</p>
@@ -1260,14 +1255,19 @@ export interface ServiceQuotaIncreaseRequestInTemplate {
   GlobalQuota?: boolean;
 
   /**
-   * <p>The code identifier for the service quota specified in the increase request.</p>
+   * <p>The AWS Region where the increase request occurs.</p>
    */
-  QuotaCode?: string;
+  AwsRegion?: string;
 
   /**
-   * <p>The name of the service quota in the increase request.</p>
+   * <p>The name of the AWS service specified in the increase request. </p>
    */
-  QuotaName?: string;
+  ServiceName?: string;
+
+  /**
+   * <p>Identifies the new, increased value of the service quota in the increase request. </p>
+   */
+  DesiredValue?: number;
 
   /**
    * <p>The code identifier for the AWS service specified in the increase request.</p>
@@ -1275,9 +1275,9 @@ export interface ServiceQuotaIncreaseRequestInTemplate {
   ServiceCode?: string;
 
   /**
-   * <p>The name of the AWS service specified in the increase request. </p>
+   * <p>The name of the service quota in the increase request.</p>
    */
-  ServiceName?: string;
+  QuotaName?: string;
 
   /**
    * <p>The unit of measure for the increase request.</p>

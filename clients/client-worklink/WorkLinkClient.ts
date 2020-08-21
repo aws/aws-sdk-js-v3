@@ -48,6 +48,10 @@ import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/Li
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListWebsiteAuthorizationProvidersCommandInput,
   ListWebsiteAuthorizationProvidersCommandOutput,
 } from "./commands/ListWebsiteAuthorizationProvidersCommand";
@@ -61,6 +65,8 @@ import {
 } from "./commands/RestoreDomainAccessCommand";
 import { RevokeDomainAccessCommandInput, RevokeDomainAccessCommandOutput } from "./commands/RevokeDomainAccessCommand";
 import { SignOutUserCommandInput, SignOutUserCommandOutput } from "./commands/SignOutUserCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateAuditStreamConfigurationCommandInput,
   UpdateAuditStreamConfigurationCommandOutput,
@@ -152,11 +158,14 @@ export type ServiceInputTypes =
   | ListDevicesCommandInput
   | ListDomainsCommandInput
   | ListFleetsCommandInput
+  | ListTagsForResourceCommandInput
   | ListWebsiteAuthorizationProvidersCommandInput
   | ListWebsiteCertificateAuthoritiesCommandInput
   | RestoreDomainAccessCommandInput
   | RevokeDomainAccessCommandInput
   | SignOutUserCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateAuditStreamConfigurationCommandInput
   | UpdateCompanyNetworkConfigurationCommandInput
   | UpdateDevicePolicyConfigurationCommandInput
@@ -184,11 +193,14 @@ export type ServiceOutputTypes =
   | ListDevicesCommandOutput
   | ListDomainsCommandOutput
   | ListFleetsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListWebsiteAuthorizationProvidersCommandOutput
   | ListWebsiteCertificateAuthoritiesCommandOutput
   | RestoreDomainAccessCommandOutput
   | RevokeDomainAccessCommandOutput
   | SignOutUserCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAuditStreamConfigurationCommandOutput
   | UpdateCompanyNetworkConfigurationCommandOutput
   | UpdateDevicePolicyConfigurationCommandOutput
@@ -305,7 +317,7 @@ export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
 
 /**
  * <p>Amazon WorkLink is a cloud-based service that provides secure access
- *             to internal websites and web apps from iOS phones. In a single step, your users, such as
+ *             to internal websites and web apps from iOS and Android phones. In a single step, your users, such as
  *             employees, can access internal websites as efficiently as they access any other public website.
  *             They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink
  *             authenticates the user's access and securely renders authorized internal web content in a secure

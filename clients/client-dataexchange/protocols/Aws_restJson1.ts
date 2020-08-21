@@ -39,6 +39,7 @@ import {
   ExportAssetToSignedUrlResponseDetails,
   ExportAssetsToS3RequestDetails,
   ExportAssetsToS3ResponseDetails,
+  ExportServerSideEncryption,
   ImportAssetFromSignedUrlJobErrorDetails,
   ImportAssetFromSignedUrlRequestDetails,
   ImportAssetFromSignedUrlResponseDetails,
@@ -193,15 +194,6 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  if (input.AssetId !== undefined) {
-    const labelValue: string = input.AssetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AssetId.");
-    }
-    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AssetId.");
-  }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
@@ -219,6 +211,15 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
     resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
+  if (input.AssetId !== undefined) {
+    const labelValue: string = input.AssetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AssetId.");
+    }
+    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AssetId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -418,15 +419,6 @@ export const serializeAws_restJson1GetRevisionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
-  if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DataSetId.");
-    }
-    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DataSetId.");
-  }
   if (input.RevisionId !== undefined) {
     const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
@@ -435,6 +427,15 @@ export const serializeAws_restJson1GetRevisionCommand = async (
     resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
+  if (input.DataSetId !== undefined) {
+    const labelValue: string = input.DataSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -520,9 +521,9 @@ export const serializeAws_restJson1ListJobsCommand = async (
   };
   let resolvedPath = "/v1/jobs";
   const query: any = {
-    ...(input.DataSetId !== undefined && { dataSetId: input.DataSetId }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.DataSetId !== undefined && { dataSetId: input.DataSetId }),
     ...(input.RevisionId !== undefined && { revisionId: input.RevisionId }),
   };
   let body: any;
@@ -547,15 +548,6 @@ export const serializeAws_restJson1ListRevisionAssetsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets";
-  if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DataSetId.");
-    }
-    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DataSetId.");
-  }
   if (input.RevisionId !== undefined) {
     const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
@@ -564,6 +556,15 @@ export const serializeAws_restJson1ListRevisionAssetsCommand = async (
     resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
+  if (input.DataSetId !== undefined) {
+    const labelValue: string = input.DataSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -727,15 +728,6 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: AssetId.");
   }
-  if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DataSetId.");
-    }
-    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DataSetId.");
-  }
   if (input.RevisionId !== undefined) {
     const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
@@ -744,6 +736,15 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
     resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
+  if (input.DataSetId !== undefined) {
+    const labelValue: string = input.DataSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -3123,6 +3124,9 @@ const serializeAws_restJson1ExportAssetsToS3RequestDetails = (
       AssetDestinations: serializeAws_restJson1ListOfAssetDestinationEntry(input.AssetDestinations, context),
     }),
     ...(input.DataSetId !== undefined && { DataSetId: input.DataSetId }),
+    ...(input.Encryption !== undefined && {
+      Encryption: serializeAws_restJson1ExportServerSideEncryption(input.Encryption, context),
+    }),
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
   };
 };
@@ -3135,6 +3139,16 @@ const serializeAws_restJson1ExportAssetToSignedUrlRequestDetails = (
     ...(input.AssetId !== undefined && { AssetId: input.AssetId }),
     ...(input.DataSetId !== undefined && { DataSetId: input.DataSetId }),
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
+  };
+};
+
+const serializeAws_restJson1ExportServerSideEncryption = (
+  input: ExportServerSideEncryption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.KmsKeyArn !== undefined && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
 
@@ -3301,6 +3315,10 @@ const deserializeAws_restJson1ExportAssetsToS3ResponseDetails = (
         ? deserializeAws_restJson1ListOfAssetDestinationEntry(output.AssetDestinations, context)
         : undefined,
     DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
+    Encryption:
+      output.Encryption !== undefined && output.Encryption !== null
+        ? deserializeAws_restJson1ExportServerSideEncryption(output.Encryption, context)
+        : undefined,
     RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
   } as any;
 };
@@ -3319,6 +3337,17 @@ const deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails = (
       output.SignedUrlExpiresAt !== undefined && output.SignedUrlExpiresAt !== null
         ? new Date(output.SignedUrlExpiresAt)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ExportServerSideEncryption = (
+  output: any,
+  context: __SerdeContext
+): ExportServerSideEncryption => {
+  return {
+    __type: "ExportServerSideEncryption",
+    KmsKeyArn: output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 

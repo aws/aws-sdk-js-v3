@@ -13,6 +13,10 @@ import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../co
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "../commands/RejectInvitationCommand";
 import {
+  StartMonitoringMemberCommandInput,
+  StartMonitoringMemberCommandOutput,
+} from "../commands/StartMonitoringMemberCommand";
+import {
   Account,
   ConflictException,
   Graph,
@@ -306,6 +310,31 @@ export const serializeAws_restJson1RejectInvitationCommand = async (
   });
 };
 
+export const serializeAws_restJson1StartMonitoringMemberCommand = async (
+  input: StartMonitoringMemberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/graph/member/monitoringstate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const deserializeAws_restJson1AcceptInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -424,6 +453,14 @@ const deserializeAws_restJson1CreateGraphCommandError = async (
     case "com.amazonaws.detective#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.detective#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1118,6 +1155,89 @@ const deserializeAws_restJson1RejectInvitationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1StartMonitoringMemberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMonitoringMemberCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1StartMonitoringMemberCommandError(output, context);
+  }
+  const contents: StartMonitoringMemberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartMonitoringMemberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMonitoringMemberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.detective#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.detective#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1ConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1241,6 +1361,8 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
   return {
     __type: "MemberDetail",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    DisabledReason:
+      output.DisabledReason !== undefined && output.DisabledReason !== null ? output.DisabledReason : undefined,
     EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
     GraphArn: output.GraphArn !== undefined && output.GraphArn !== null ? output.GraphArn : undefined,
     InvitedTime:
@@ -1248,6 +1370,14 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
         ? new Date(Math.round(output.InvitedTime * 1000))
         : undefined,
     MasterId: output.MasterId !== undefined && output.MasterId !== null ? output.MasterId : undefined,
+    PercentOfGraphUtilization:
+      output.PercentOfGraphUtilization !== undefined && output.PercentOfGraphUtilization !== null
+        ? output.PercentOfGraphUtilization
+        : undefined,
+    PercentOfGraphUtilizationUpdatedTime:
+      output.PercentOfGraphUtilizationUpdatedTime !== undefined && output.PercentOfGraphUtilizationUpdatedTime !== null
+        ? new Date(Math.round(output.PercentOfGraphUtilizationUpdatedTime * 1000))
+        : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     UpdatedTime:
       output.UpdatedTime !== undefined && output.UpdatedTime !== null

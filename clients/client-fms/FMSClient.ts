@@ -2,16 +2,22 @@ import {
   AssociateAdminAccountCommandInput,
   AssociateAdminAccountCommandOutput,
 } from "./commands/AssociateAdminAccountCommand";
+import { DeleteAppsListCommandInput, DeleteAppsListCommandOutput } from "./commands/DeleteAppsListCommand";
 import {
   DeleteNotificationChannelCommandInput,
   DeleteNotificationChannelCommandOutput,
 } from "./commands/DeleteNotificationChannelCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
+  DeleteProtocolsListCommandInput,
+  DeleteProtocolsListCommandOutput,
+} from "./commands/DeleteProtocolsListCommand";
+import {
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput,
 } from "./commands/DisassociateAdminAccountCommand";
 import { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "./commands/GetAdminAccountCommand";
+import { GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand";
 import {
   GetComplianceDetailCommandInput,
   GetComplianceDetailCommandOutput,
@@ -25,21 +31,30 @@ import {
   GetProtectionStatusCommandInput,
   GetProtectionStatusCommandOutput,
 } from "./commands/GetProtectionStatusCommand";
+import { GetProtocolsListCommandInput, GetProtocolsListCommandOutput } from "./commands/GetProtocolsListCommand";
+import {
+  GetViolationDetailsCommandInput,
+  GetViolationDetailsCommandOutput,
+} from "./commands/GetViolationDetailsCommand";
+import { ListAppsListsCommandInput, ListAppsListsCommandOutput } from "./commands/ListAppsListsCommand";
 import {
   ListComplianceStatusCommandInput,
   ListComplianceStatusCommandOutput,
 } from "./commands/ListComplianceStatusCommand";
 import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "./commands/ListMemberAccountsCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import { ListProtocolsListsCommandInput, ListProtocolsListsCommandOutput } from "./commands/ListProtocolsListsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
 import {
   PutNotificationChannelCommandInput,
   PutNotificationChannelCommandOutput,
 } from "./commands/PutNotificationChannelCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import { PutProtocolsListCommandInput, PutProtocolsListCommandOutput } from "./commands/PutProtocolsListCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -91,39 +106,57 @@ import {
 
 export type ServiceInputTypes =
   | AssociateAdminAccountCommandInput
+  | DeleteAppsListCommandInput
   | DeleteNotificationChannelCommandInput
   | DeletePolicyCommandInput
+  | DeleteProtocolsListCommandInput
   | DisassociateAdminAccountCommandInput
   | GetAdminAccountCommandInput
+  | GetAppsListCommandInput
   | GetComplianceDetailCommandInput
   | GetNotificationChannelCommandInput
   | GetPolicyCommandInput
   | GetProtectionStatusCommandInput
+  | GetProtocolsListCommandInput
+  | GetViolationDetailsCommandInput
+  | ListAppsListsCommandInput
   | ListComplianceStatusCommandInput
   | ListMemberAccountsCommandInput
   | ListPoliciesCommandInput
+  | ListProtocolsListsCommandInput
   | ListTagsForResourceCommandInput
+  | PutAppsListCommandInput
   | PutNotificationChannelCommandInput
   | PutPolicyCommandInput
+  | PutProtocolsListCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateAdminAccountCommandOutput
+  | DeleteAppsListCommandOutput
   | DeleteNotificationChannelCommandOutput
   | DeletePolicyCommandOutput
+  | DeleteProtocolsListCommandOutput
   | DisassociateAdminAccountCommandOutput
   | GetAdminAccountCommandOutput
+  | GetAppsListCommandOutput
   | GetComplianceDetailCommandOutput
   | GetNotificationChannelCommandOutput
   | GetPolicyCommandOutput
   | GetProtectionStatusCommandOutput
+  | GetProtocolsListCommandOutput
+  | GetViolationDetailsCommandOutput
+  | ListAppsListsCommandOutput
   | ListComplianceStatusCommandOutput
   | ListMemberAccountsCommandOutput
   | ListPoliciesCommandOutput
+  | ListProtocolsListsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutAppsListCommandOutput
   | PutNotificationChannelCommandOutput
   | PutPolicyCommandOutput
+  | PutProtocolsListCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
@@ -239,8 +272,7 @@ export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *          <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for
  *       developers who need detailed information about the AWS Firewall Manager API actions, data
  *       types, and errors. For detailed information about AWS Firewall Manager features, see the
- *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">AWS Firewall
- *         Manager Developer Guide</a>.</p>
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">AWS Firewall Manager Developer Guide</a>.</p>
  */
 export class FMSClient extends __Client<
   __HttpHandlerOptions,

@@ -102,22 +102,16 @@
     "com.amazonaws.sts#AssumeRoleRequest": {
       "type": "structure",
       "members": {
-        "DurationSeconds": {
-          "target": "com.amazonaws.sts#roleDurationSecondsType",
-          "traits": {
-            "smithy.api#documentation": "<p>The duration, in seconds, of the role session. The value can range from 900 seconds (15\n         minutes) up to the maximum session duration setting for the role. This setting can have a\n         value from 1 hour to 12 hours. If you specify a value higher than this setting, the\n         operation fails. For example, if you specify a session duration of 12 hours, but your\n         administrator set the maximum session duration to 6 hours, your operation fails. To learn\n         how to view the maximum value for your role, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session\">View the\n            Maximum Session Duration Setting for a Role</a> in the\n            <i>IAM User Guide</i>.</p>\n         <p>By default, the value is set to <code>3600</code> seconds. </p>\n         <note>\n            <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console\n            session that you might request using the returned credentials. The request to the\n            federation endpoint for a console sign-in token takes a <code>SessionDuration</code>\n            parameter that specifies the maximum length of the console session. For more\n            information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html\">Creating a URL\n               that Enables Federated Users to Access the AWS Management Console</a> in the\n               <i>IAM User Guide</i>.</p>\n         </note>"
-          }
-        },
         "ExternalId": {
           "target": "com.amazonaws.sts#externalIdType",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier that might be required when you assume a role in another account. If\n         the administrator of the account to which the role belongs provided you with an external\n         ID, then provide that value in the <code>ExternalId</code> parameter. This value can be any\n         string, such as a passphrase or account number. A cross-account role is usually set up to\n         trust everyone in an account. Therefore, the administrator of the trusting account might\n         send an external ID to the administrator of the trusted account. That way, only someone\n         with the ID can assume the role, rather than everyone in the account. For more information\n         about the external ID, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html\">How to Use an External ID\n            When Granting Access to Your AWS Resources to a Third Party</a> in the\n            <i>IAM User Guide</i>.</p>\n         <p>The regex used to validate this parameter is a string of \n    characters consisting of upper- and lower-case alphanumeric characters with no spaces. \n    You can also include underscores or any of the following characters: =,.@:/-</p>"
           }
         },
-        "Policy": {
-          "target": "com.amazonaws.sts#sessionPolicyDocumentType",
+        "SerialNumber": {
+          "target": "com.amazonaws.sts#serialNumberType",
           "traits": {
-            "smithy.api#documentation": "<p>An IAM policy in JSON format that you want to use as an inline session policy.</p>\n         <p>This parameter is optional. Passing policies to this operation returns new \n         temporary credentials. The resulting session's permissions are the intersection of the \n         role's identity-based policy and the session policies. You can use the role's temporary \n         credentials in subsequent AWS API calls to access resources in the account that owns \n         the role. You cannot use session policies to grant more permissions than those allowed \n         by the identity-based policy of the role that is being assumed. For more information, see\n            <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session\n            Policies</a> in the <i>IAM User Guide</i>.</p>\n         <p>The plain text that you use for both inline and managed session policies can't exceed\n         2,048 characters. The JSON policy characters can be any ASCII character from the space\n         character to the end of the valid character list (\\u0020 through \\u00FF). It can also\n         include the tab (\\u0009), linefeed (\\u000A), and carriage return (\\u000D)\n         characters.</p>\n      \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>"
+            "smithy.api#documentation": "<p>The identification number of the MFA device that is associated with the user who is\n         making the <code>AssumeRole</code> call. Specify this value if the trust policy of the role\n         being assumed includes a condition that requires MFA authentication. The value is either\n         the serial number for a hardware device (such as <code>GAHT12345678</code>) or an Amazon\n         Resource Name (ARN) for a virtual device (such as\n            <code>arn:aws:iam::123456789012:mfa/user</code>).</p>\n         <p>The regex used to validate this parameter is a string of characters \n    consisting of upper- and lower-case alphanumeric characters with no spaces. You can \n    also include underscores or any of the following characters: =,.@-</p>"
           }
         },
         "PolicyArns": {
@@ -126,11 +120,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as\n         managed session policies. The policies must exist in the same account as the role.</p>\n         <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the\n         plain text that you use for both inline and managed session policies can't exceed 2,048\n         characters. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS\n            Service Namespaces</a> in the AWS General Reference.</p>\n      \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>\n  \n         <p>Passing policies to this operation returns new \n         temporary credentials. The resulting session's permissions are the intersection of the \n         role's identity-based policy and the session policies. You can use the role's temporary \n         credentials in subsequent AWS API calls to access resources in the account that owns \n         the role. You cannot use session policies to grant more permissions than those allowed \n         by the identity-based policy of the role that is being assumed. For more information, see\n            <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session\n            Policies</a> in the <i>IAM User Guide</i>.</p>"
           }
         },
-        "RoleArn": {
-          "target": "com.amazonaws.sts#arnType",
+        "TransitiveTagKeys": {
+          "target": "com.amazonaws.sts#tagKeyListType",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role to assume.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A list of keys for session tags that you want to set as transitive. If you set a tag key\n         as transitive, the corresponding key and value passes to subsequent sessions in a role\n         chain. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining\">Chaining Roles\n            with Session Tags</a> in the <i>IAM User Guide</i>.</p>\n         <p>This parameter is optional. When you set session tags as transitive, the session policy\n         and session tags packed binary limit is not affected.</p>\n         <p>If you choose not to specify a transitive tag key, then no tags are passed from this\n         session to any subsequent sessions.</p>"
           }
         },
         "RoleSessionName": {
@@ -140,10 +133,22 @@
             "smithy.api#required": {}
           }
         },
-        "SerialNumber": {
-          "target": "com.amazonaws.sts#serialNumberType",
+        "TokenCode": {
+          "target": "com.amazonaws.sts#tokenCodeType",
           "traits": {
-            "smithy.api#documentation": "<p>The identification number of the MFA device that is associated with the user who is\n         making the <code>AssumeRole</code> call. Specify this value if the trust policy of the role\n         being assumed includes a condition that requires MFA authentication. The value is either\n         the serial number for a hardware device (such as <code>GAHT12345678</code>) or an Amazon\n         Resource Name (ARN) for a virtual device (such as\n            <code>arn:aws:iam::123456789012:mfa/user</code>).</p>\n         <p>The regex used to validate this parameter is a string of characters \n    consisting of upper- and lower-case alphanumeric characters with no spaces. You can \n    also include underscores or any of the following characters: =,.@-</p>"
+            "smithy.api#documentation": "<p>The value provided by the MFA device, if the trust policy of the role being assumed\n         requires MFA (that is, if the policy includes a condition that tests for MFA). If the role\n         being assumed requires MFA and if the <code>TokenCode</code> value is missing or expired,\n         the <code>AssumeRole</code> call returns an \"access denied\" error.</p>\n         <p>The format for this parameter, as described by its regex pattern, is a sequence of six\n         numeric digits.</p>"
+          }
+        },
+        "Policy": {
+          "target": "com.amazonaws.sts#sessionPolicyDocumentType",
+          "traits": {
+            "smithy.api#documentation": "<p>An IAM policy in JSON format that you want to use as an inline session policy.</p>\n         <p>This parameter is optional. Passing policies to this operation returns new \n         temporary credentials. The resulting session's permissions are the intersection of the \n         role's identity-based policy and the session policies. You can use the role's temporary \n         credentials in subsequent AWS API calls to access resources in the account that owns \n         the role. You cannot use session policies to grant more permissions than those allowed \n         by the identity-based policy of the role that is being assumed. For more information, see\n            <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session\n            Policies</a> in the <i>IAM User Guide</i>.</p>\n         <p>The plain text that you use for both inline and managed session policies can't exceed\n         2,048 characters. The JSON policy characters can be any ASCII character from the space\n         character to the end of the valid character list (\\u0020 through \\u00FF). It can also\n         include the tab (\\u0009), linefeed (\\u000A), and carriage return (\\u000D)\n         characters.</p>\n      \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>"
+          }
+        },
+        "DurationSeconds": {
+          "target": "com.amazonaws.sts#roleDurationSecondsType",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration, in seconds, of the role session. The value can range from 900 seconds (15\n         minutes) up to the maximum session duration setting for the role. This setting can have a\n         value from 1 hour to 12 hours. If you specify a value higher than this setting, the\n         operation fails. For example, if you specify a session duration of 12 hours, but your\n         administrator set the maximum session duration to 6 hours, your operation fails. To learn\n         how to view the maximum value for your role, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session\">View the\n            Maximum Session Duration Setting for a Role</a> in the\n            <i>IAM User Guide</i>.</p>\n         <p>By default, the value is set to <code>3600</code> seconds. </p>\n         <note>\n            <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console\n            session that you might request using the returned credentials. The request to the\n            federation endpoint for a console sign-in token takes a <code>SessionDuration</code>\n            parameter that specifies the maximum length of the console session. For more\n            information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html\">Creating a URL\n               that Enables Federated Users to Access the AWS Management Console</a> in the\n               <i>IAM User Guide</i>.</p>\n         </note>"
           }
         },
         "Tags": {
@@ -152,16 +157,11 @@
             "smithy.api#documentation": "<p>A list of session tags that you want to pass. Each session tag consists of a key name\n         and an associated value. For more information about session tags, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html\">Tagging AWS STS\n            Sessions</a> in the <i>IAM User Guide</i>.</p>\n         <p>This parameter is optional. You can pass up to 50 session tags. The plain text session\n         tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters. For these\n         and additional limits, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length\">IAM\n            and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>\n      \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>\n  \n         <p>You can pass a session tag with the same key as a tag that is already attached to the\n         role. When you do, session tags override a role tag with the same key. </p>\n         <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you\n         cannot have separate <code>Department</code> and <code>department</code> tag keys. Assume\n         that the role has the <code>Department</code>=<code>Marketing</code> tag and you pass the\n            <code>department</code>=<code>engineering</code> session tag. <code>Department</code>\n         and <code>department</code> are not saved as separate tags, and the session tag passed in\n         the request takes precedence over the role tag.</p>\n         <p>Additionally, if you used temporary credentials to perform this operation, the new\n         session inherits any transitive session tags from the calling session. If you pass a\n         session tag with the same key as an inherited tag, the operation fails. To view the\n         inherited tags for a session, see the AWS CloudTrail logs. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs\">Viewing Session Tags in CloudTrail</a> in the\n         <i>IAM User Guide</i>.</p>"
           }
         },
-        "TokenCode": {
-          "target": "com.amazonaws.sts#tokenCodeType",
+        "RoleArn": {
+          "target": "com.amazonaws.sts#arnType",
           "traits": {
-            "smithy.api#documentation": "<p>The value provided by the MFA device, if the trust policy of the role being assumed\n         requires MFA (that is, if the policy includes a condition that tests for MFA). If the role\n         being assumed requires MFA and if the <code>TokenCode</code> value is missing or expired,\n         the <code>AssumeRole</code> call returns an \"access denied\" error.</p>\n         <p>The format for this parameter, as described by its regex pattern, is a sequence of six\n         numeric digits.</p>"
-          }
-        },
-        "TransitiveTagKeys": {
-          "target": "com.amazonaws.sts#tagKeyListType",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of keys for session tags that you want to set as transitive. If you set a tag key\n         as transitive, the corresponding key and value passes to subsequent sessions in a role\n         chain. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining\">Chaining Roles\n            with Session Tags</a> in the <i>IAM User Guide</i>.</p>\n         <p>This parameter is optional. When you set session tags as transitive, the session policy\n         and session tags packed binary limit is not affected.</p>\n         <p>If you choose not to specify a transitive tag key, then no tags are passed from this\n         session to any subsequent sessions.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role to assume.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -169,16 +169,16 @@
     "com.amazonaws.sts#AssumeRoleResponse": {
       "type": "structure",
       "members": {
-        "AssumedRoleUser": {
-          "target": "com.amazonaws.sts#AssumedRoleUser",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you\n         can use to refer to the resulting temporary security credentials. For example, you can\n         reference these credentials as a principal in a resource-based policy by using the ARN or\n         assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified\n         when you called <code>AssumeRole</code>. </p>"
-          }
-        },
         "Credentials": {
           "target": "com.amazonaws.sts#Credentials",
           "traits": {
             "smithy.api#documentation": "<p>The temporary security credentials, which include an access key ID, a secret access key,\n         and a security (or session) token.</p> \n         <note>\n            <p>The size of the security token that STS API operations return is not fixed. We\n        strongly recommend that you make no assumptions about the maximum size.</p>\n         </note>"
+          }
+        },
+        "AssumedRoleUser": {
+          "target": "com.amazonaws.sts#AssumedRoleUser",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you\n         can use to refer to the resulting temporary security credentials. For example, you can\n         reference these credentials as a principal in a resource-based policy by using the ARN or\n         assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified\n         when you called <code>AssumeRole</code>. </p>"
           }
         },
         "PackedPolicySize": {
@@ -227,16 +227,11 @@
     "com.amazonaws.sts#AssumeRoleWithSAMLRequest": {
       "type": "structure",
       "members": {
-        "DurationSeconds": {
-          "target": "com.amazonaws.sts#roleDurationSecondsType",
+        "PrincipalArn": {
+          "target": "com.amazonaws.sts#arnType",
           "traits": {
-            "smithy.api#documentation": "<p>The duration, in seconds, of the role session. Your role session lasts for the duration\n         that you specify for the <code>DurationSeconds</code> parameter, or until the time\n         specified in the SAML authentication response's <code>SessionNotOnOrAfter</code> value,\n         whichever is shorter. You can provide a <code>DurationSeconds</code> value from 900 seconds\n         (15 minutes) up to the maximum session duration setting for the role. This setting can have\n         a value from 1 hour to 12 hours. If you specify a value higher than this setting, the\n         operation fails. For example, if you specify a session duration of 12 hours, but your\n         administrator set the maximum session duration to 6 hours, your operation fails. To learn\n         how to view the maximum value for your role, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session\">View the\n            Maximum Session Duration Setting for a Role</a> in the\n            <i>IAM User Guide</i>.</p>\n         <p>By default, the value is set to <code>3600</code> seconds. </p>\n         <note>\n            <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console\n            session that you might request using the returned credentials. The request to the\n            federation endpoint for a console sign-in token takes a <code>SessionDuration</code>\n            parameter that specifies the maximum length of the console session. For more\n            information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html\">Creating a URL\n               that Enables Federated Users to Access the AWS Management Console</a> in the\n               <i>IAM User Guide</i>.</p>\n         </note>"
-          }
-        },
-        "Policy": {
-          "target": "com.amazonaws.sts#sessionPolicyDocumentType",
-          "traits": {
-            "smithy.api#documentation": "<p>An IAM policy in JSON format that you want to use as an inline session policy.</p>\n         <p>This parameter is optional. Passing policies to this operation returns new \n         temporary credentials. The resulting session's permissions are the intersection of the \n         role's identity-based policy and the session policies. You can use the role's temporary \n         credentials in subsequent AWS API calls to access resources in the account that owns \n         the role. You cannot use session policies to grant more permissions than those allowed \n         by the identity-based policy of the role that is being assumed. For more information, see\n            <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session\n            Policies</a> in the <i>IAM User Guide</i>. </p>\n         <p>The plain text that you use for both inline and managed session policies can't exceed\n         2,048 characters. The JSON policy characters can be any ASCII character from the space\n         character to the end of the valid character list (\\u0020 through \\u00FF). It can also\n         include the tab (\\u0009), linefeed (\\u000A), and carriage return (\\u000D)\n         characters.</p> \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the\n         IdP.</p>",
+            "smithy.api#required": {}
           }
         },
         "PolicyArns": {
@@ -245,11 +240,10 @@
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as\n         managed session policies. The policies must exist in the same account as the role.</p>\n         <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the\n         plain text that you use for both inline and managed session policies can't exceed 2,048\n         characters. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS\n            Service Namespaces</a> in the AWS General Reference.</p> \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>\n  \n         <p>Passing policies to this operation returns new \n         temporary credentials. The resulting session's permissions are the intersection of the \n         role's identity-based policy and the session policies. You can use the role's temporary \n         credentials in subsequent AWS API calls to access resources in the account that owns \n         the role. You cannot use session policies to grant more permissions than those allowed \n         by the identity-based policy of the role that is being assumed. For more information, see\n            <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session\n            Policies</a> in the <i>IAM User Guide</i>.</p>"
           }
         },
-        "PrincipalArn": {
-          "target": "com.amazonaws.sts#arnType",
+        "Policy": {
+          "target": "com.amazonaws.sts#sessionPolicyDocumentType",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the\n         IdP.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>An IAM policy in JSON format that you want to use as an inline session policy.</p>\n         <p>This parameter is optional. Passing policies to this operation returns new \n         temporary credentials. The resulting session's permissions are the intersection of the \n         role's identity-based policy and the session policies. You can use the role's temporary \n         credentials in subsequent AWS API calls to access resources in the account that owns \n         the role. You cannot use session policies to grant more permissions than those allowed \n         by the identity-based policy of the role that is being assumed. For more information, see\n            <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session\n            Policies</a> in the <i>IAM User Guide</i>. </p>\n         <p>The plain text that you use for both inline and managed session policies can't exceed\n         2,048 characters. The JSON policy characters can be any ASCII character from the space\n         character to the end of the valid character list (\\u0020 through \\u00FF). It can also\n         include the tab (\\u0009), linefeed (\\u000A), and carriage return (\\u000D)\n         characters.</p> \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>"
           }
         },
         "RoleArn": {
@@ -265,28 +259,40 @@
             "smithy.api#documentation": "<p>The base-64 encoded SAML authentication response provided by the IdP.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html\">Configuring a Relying Party and\n            Adding Claims</a> in the <i>IAM User Guide</i>. </p>",
             "smithy.api#required": {}
           }
+        },
+        "DurationSeconds": {
+          "target": "com.amazonaws.sts#roleDurationSecondsType",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration, in seconds, of the role session. Your role session lasts for the duration\n         that you specify for the <code>DurationSeconds</code> parameter, or until the time\n         specified in the SAML authentication response's <code>SessionNotOnOrAfter</code> value,\n         whichever is shorter. You can provide a <code>DurationSeconds</code> value from 900 seconds\n         (15 minutes) up to the maximum session duration setting for the role. This setting can have\n         a value from 1 hour to 12 hours. If you specify a value higher than this setting, the\n         operation fails. For example, if you specify a session duration of 12 hours, but your\n         administrator set the maximum session duration to 6 hours, your operation fails. To learn\n         how to view the maximum value for your role, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session\">View the\n            Maximum Session Duration Setting for a Role</a> in the\n            <i>IAM User Guide</i>.</p>\n         <p>By default, the value is set to <code>3600</code> seconds. </p>\n         <note>\n            <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console\n            session that you might request using the returned credentials. The request to the\n            federation endpoint for a console sign-in token takes a <code>SessionDuration</code>\n            parameter that specifies the maximum length of the console session. For more\n            information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html\">Creating a URL\n               that Enables Federated Users to Access the AWS Management Console</a> in the\n               <i>IAM User Guide</i>.</p>\n         </note>"
+          }
         }
       }
     },
     "com.amazonaws.sts#AssumeRoleWithSAMLResponse": {
       "type": "structure",
       "members": {
-        "AssumedRoleUser": {
-          "target": "com.amazonaws.sts#AssumedRoleUser",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifiers for the temporary security credentials that the operation\n         returns.</p>"
-          }
-        },
         "Audience": {
           "target": "com.amazonaws.sts#Audience",
           "traits": {
             "smithy.api#documentation": "<p> The value of the <code>Recipient</code> attribute of the\n            <code>SubjectConfirmationData</code> element of the SAML assertion. </p>"
           }
         },
-        "Credentials": {
-          "target": "com.amazonaws.sts#Credentials",
+        "PackedPolicySize": {
+          "target": "com.amazonaws.sts#nonNegativeIntegerType",
           "traits": {
-            "smithy.api#documentation": "<p>The temporary security credentials, which include an access key ID, a secret access key,\n         and a security (or session) token.</p> \n         <note>\n            <p>The size of the security token that STS API operations return is not fixed. We\n        strongly recommend that you make no assumptions about the maximum size.</p>\n         </note>"
+            "smithy.api#documentation": "<p>A percentage value that indicates the packed size of the session policies and session \n      tags combined passed in the request. The request fails if the packed size is greater than 100 percent, \n      which means the policies and tags exceeded the allowed space.</p>"
+          }
+        },
+        "SubjectType": {
+          "target": "com.amazonaws.sts#SubjectType",
+          "traits": {
+            "smithy.api#documentation": "<p> The format of the name ID, as defined by the <code>Format</code> attribute in the\n            <code>NameID</code> element of the SAML assertion. Typical examples of the format are\n            <code>transient</code> or <code>persistent</code>. </p>\n         <p> If the format includes the prefix\n            <code>urn:oasis:names:tc:SAML:2.0:nameid-format</code>, that prefix is removed. For\n         example, <code>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</code> is returned as\n            <code>transient</code>. If the format includes any other prefix, the format is returned\n         with no modifications.</p>"
+          }
+        },
+        "AssumedRoleUser": {
+          "target": "com.amazonaws.sts#AssumedRoleUser",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifiers for the temporary security credentials that the operation\n         returns.</p>"
           }
         },
         "Issuer": {
@@ -301,22 +307,16 @@
             "smithy.api#documentation": "<p>A hash value based on the concatenation of the <code>Issuer</code> response value, the\n         AWS account ID, and the friendly name (the last part of the ARN) of the SAML provider in\n         IAM. The combination of <code>NameQualifier</code> and <code>Subject</code> can be used\n         to uniquely identify a federated user. </p>\n         <p>The following pseudocode shows how the hash value is calculated:</p>\n         <p>\n            <code>BASE64 ( SHA1 ( \"https://example.com/saml\" + \"123456789012\" + \"/MySAMLIdP\" ) )</code>\n         </p>"
           }
         },
-        "PackedPolicySize": {
-          "target": "com.amazonaws.sts#nonNegativeIntegerType",
+        "Credentials": {
+          "target": "com.amazonaws.sts#Credentials",
           "traits": {
-            "smithy.api#documentation": "<p>A percentage value that indicates the packed size of the session policies and session \n      tags combined passed in the request. The request fails if the packed size is greater than 100 percent, \n      which means the policies and tags exceeded the allowed space.</p>"
+            "smithy.api#documentation": "<p>The temporary security credentials, which include an access key ID, a secret access key,\n         and a security (or session) token.</p> \n         <note>\n            <p>The size of the security token that STS API operations return is not fixed. We\n        strongly recommend that you make no assumptions about the maximum size.</p>\n         </note>"
           }
         },
         "Subject": {
           "target": "com.amazonaws.sts#Subject",
           "traits": {
             "smithy.api#documentation": "<p>The value of the <code>NameID</code> element in the <code>Subject</code> element of the\n         SAML assertion.</p>"
-          }
-        },
-        "SubjectType": {
-          "target": "com.amazonaws.sts#SubjectType",
-          "traits": {
-            "smithy.api#documentation": "<p> The format of the name ID, as defined by the <code>Format</code> attribute in the\n            <code>NameID</code> element of the SAML assertion. Typical examples of the format are\n            <code>transient</code> or <code>persistent</code>. </p>\n         <p> If the format includes the prefix\n            <code>urn:oasis:names:tc:SAML:2.0:nameid-format</code>, that prefix is removed. For\n         example, <code>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</code> is returned as\n            <code>transient</code>. If the format includes any other prefix, the format is returned\n         with no modifications.</p>"
           }
         }
       },
@@ -362,35 +362,17 @@
     "com.amazonaws.sts#AssumeRoleWithWebIdentityRequest": {
       "type": "structure",
       "members": {
-        "DurationSeconds": {
-          "target": "com.amazonaws.sts#roleDurationSecondsType",
+        "RoleArn": {
+          "target": "com.amazonaws.sts#arnType",
           "traits": {
-            "smithy.api#documentation": "<p>The duration, in seconds, of the role session. The value can range from 900 seconds (15\n         minutes) up to the maximum session duration setting for the role. This setting can have a\n         value from 1 hour to 12 hours. If you specify a value higher than this setting, the\n         operation fails. For example, if you specify a session duration of 12 hours, but your\n         administrator set the maximum session duration to 6 hours, your operation fails. To learn\n         how to view the maximum value for your role, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session\">View the\n            Maximum Session Duration Setting for a Role</a> in the\n            <i>IAM User Guide</i>.</p>\n         <p>By default, the value is set to <code>3600</code> seconds. </p>\n         <note>\n            <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console\n            session that you might request using the returned credentials. The request to the\n            federation endpoint for a console sign-in token takes a <code>SessionDuration</code>\n            parameter that specifies the maximum length of the console session. For more\n            information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html\">Creating a URL\n               that Enables Federated Users to Access the AWS Management Console</a> in the\n               <i>IAM User Guide</i>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>",
+            "smithy.api#required": {}
           }
         },
         "Policy": {
           "target": "com.amazonaws.sts#sessionPolicyDocumentType",
           "traits": {
             "smithy.api#documentation": "<p>An IAM policy in JSON format that you want to use as an inline session policy.</p>\n         <p>This parameter is optional. Passing policies to this operation returns new \n         temporary credentials. The resulting session's permissions are the intersection of the \n         role's identity-based policy and the session policies. You can use the role's temporary \n         credentials in subsequent AWS API calls to access resources in the account that owns \n         the role. You cannot use session policies to grant more permissions than those allowed \n         by the identity-based policy of the role that is being assumed. For more information, see\n            <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session\n            Policies</a> in the <i>IAM User Guide</i>.</p>\n         <p>The plain text that you use for both inline and managed session policies can't exceed\n         2,048 characters. The JSON policy characters can be any ASCII character from the space\n         character to the end of the valid character list (\\u0020 through \\u00FF). It can also\n         include the tab (\\u0009), linefeed (\\u000A), and carriage return (\\u000D)\n         characters.</p> \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>"
-          }
-        },
-        "PolicyArns": {
-          "target": "com.amazonaws.sts#policyDescriptorListType",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as\n         managed session policies. The policies must exist in the same account as the role.</p>\n         <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the\n         plain text that you use for both inline and managed session policies can't exceed 2,048\n         characters. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS\n            Service Namespaces</a> in the AWS General Reference.</p> \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>\n  \n         <p>Passing policies to this operation returns new \n         temporary credentials. The resulting session's permissions are the intersection of the \n         role's identity-based policy and the session policies. You can use the role's temporary \n         credentials in subsequent AWS API calls to access resources in the account that owns \n         the role. You cannot use session policies to grant more permissions than those allowed \n         by the identity-based policy of the role that is being assumed. For more information, see\n            <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session\n            Policies</a> in the <i>IAM User Guide</i>.</p>"
-          }
-        },
-        "ProviderId": {
-          "target": "com.amazonaws.sts#urlType",
-          "traits": {
-            "smithy.api#documentation": "<p>The fully qualified host component of the domain name of the identity provider.</p>\n         <p>Specify this value only for OAuth 2.0 access tokens. Currently\n            <code>www.amazon.com</code> and <code>graph.facebook.com</code> are the only supported\n         identity providers for OAuth 2.0 access tokens. Do not include URL schemes and port\n         numbers.</p>\n         <p>Do not specify this value for OpenID Connect ID tokens.</p>"
-          }
-        },
-        "RoleArn": {
-          "target": "com.amazonaws.sts#arnType",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>",
-            "smithy.api#required": {}
           }
         },
         "RoleSessionName": {
@@ -400,11 +382,29 @@
             "smithy.api#required": {}
           }
         },
+        "DurationSeconds": {
+          "target": "com.amazonaws.sts#roleDurationSecondsType",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration, in seconds, of the role session. The value can range from 900 seconds (15\n         minutes) up to the maximum session duration setting for the role. This setting can have a\n         value from 1 hour to 12 hours. If you specify a value higher than this setting, the\n         operation fails. For example, if you specify a session duration of 12 hours, but your\n         administrator set the maximum session duration to 6 hours, your operation fails. To learn\n         how to view the maximum value for your role, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session\">View the\n            Maximum Session Duration Setting for a Role</a> in the\n            <i>IAM User Guide</i>.</p>\n         <p>By default, the value is set to <code>3600</code> seconds. </p>\n         <note>\n            <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console\n            session that you might request using the returned credentials. The request to the\n            federation endpoint for a console sign-in token takes a <code>SessionDuration</code>\n            parameter that specifies the maximum length of the console session. For more\n            information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html\">Creating a URL\n               that Enables Federated Users to Access the AWS Management Console</a> in the\n               <i>IAM User Guide</i>.</p>\n         </note>"
+          }
+        },
+        "PolicyArns": {
+          "target": "com.amazonaws.sts#policyDescriptorListType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as\n         managed session policies. The policies must exist in the same account as the role.</p>\n         <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the\n         plain text that you use for both inline and managed session policies can't exceed 2,048\n         characters. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS\n            Service Namespaces</a> in the AWS General Reference.</p> \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>\n  \n         <p>Passing policies to this operation returns new \n         temporary credentials. The resulting session's permissions are the intersection of the \n         role's identity-based policy and the session policies. You can use the role's temporary \n         credentials in subsequent AWS API calls to access resources in the account that owns \n         the role. You cannot use session policies to grant more permissions than those allowed \n         by the identity-based policy of the role that is being assumed. For more information, see\n            <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session\n            Policies</a> in the <i>IAM User Guide</i>.</p>"
+          }
+        },
         "WebIdentityToken": {
           "target": "com.amazonaws.sts#clientTokenType",
           "traits": {
             "smithy.api#documentation": "<p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity\n         provider. Your application must get this token by authenticating the user who is using your\n         application with a web identity provider before the application makes an\n            <code>AssumeRoleWithWebIdentity</code> call. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "ProviderId": {
+          "target": "com.amazonaws.sts#urlType",
+          "traits": {
+            "smithy.api#documentation": "<p>The fully qualified host component of the domain name of the identity provider.</p>\n         <p>Specify this value only for OAuth 2.0 access tokens. Currently\n            <code>www.amazon.com</code> and <code>graph.facebook.com</code> are the only supported\n         identity providers for OAuth 2.0 access tokens. Do not include URL schemes and port\n         numbers.</p>\n         <p>Do not specify this value for OpenID Connect ID tokens.</p>"
           }
         }
       }
@@ -412,10 +412,10 @@
     "com.amazonaws.sts#AssumeRoleWithWebIdentityResponse": {
       "type": "structure",
       "members": {
-        "AssumedRoleUser": {
-          "target": "com.amazonaws.sts#AssumedRoleUser",
+        "PackedPolicySize": {
+          "target": "com.amazonaws.sts#nonNegativeIntegerType",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you\n         can use to refer to the resulting temporary security credentials. For example, you can\n         reference these credentials as a principal in a resource-based policy by using the ARN or\n         assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified\n         when you called <code>AssumeRole</code>. </p>"
+            "smithy.api#documentation": "<p>A percentage value that indicates the packed size of the session policies and session \n      tags combined passed in the request. The request fails if the packed size is greater than 100 percent, \n      which means the policies and tags exceeded the allowed space.</p>"
           }
         },
         "Audience": {
@@ -424,22 +424,22 @@
             "smithy.api#documentation": "<p>The intended audience (also known as client ID) of the web identity token. This is\n         traditionally the client identifier issued to the application that requested the web\n         identity token.</p>"
           }
         },
-        "Credentials": {
-          "target": "com.amazonaws.sts#Credentials",
-          "traits": {
-            "smithy.api#documentation": "<p>The temporary security credentials, which include an access key ID, a secret access key,\n         and a security token.</p> \n         <note>\n            <p>The size of the security token that STS API operations return is not fixed. We\n        strongly recommend that you make no assumptions about the maximum size.</p>\n         </note>"
-          }
-        },
-        "PackedPolicySize": {
-          "target": "com.amazonaws.sts#nonNegativeIntegerType",
-          "traits": {
-            "smithy.api#documentation": "<p>A percentage value that indicates the packed size of the session policies and session \n      tags combined passed in the request. The request fails if the packed size is greater than 100 percent, \n      which means the policies and tags exceeded the allowed space.</p>"
-          }
-        },
         "Provider": {
           "target": "com.amazonaws.sts#Issuer",
           "traits": {
             "smithy.api#documentation": "<p> The issuing authority of the web identity token presented. For OpenID Connect ID\n         tokens, this contains the value of the <code>iss</code> field. For OAuth 2.0 access tokens,\n         this contains the value of the <code>ProviderId</code> parameter that was passed in the\n            <code>AssumeRoleWithWebIdentity</code> request.</p>"
+          }
+        },
+        "AssumedRoleUser": {
+          "target": "com.amazonaws.sts#AssumedRoleUser",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you\n         can use to refer to the resulting temporary security credentials. For example, you can\n         reference these credentials as a principal in a resource-based policy by using the ARN or\n         assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified\n         when you called <code>AssumeRole</code>. </p>"
+          }
+        },
+        "Credentials": {
+          "target": "com.amazonaws.sts#Credentials",
+          "traits": {
+            "smithy.api#documentation": "<p>The temporary security credentials, which include an access key ID, a secret access key,\n         and a security token.</p> \n         <note>\n            <p>The size of the security token that STS API operations return is not fixed. We\n        strongly recommend that you make no assumptions about the maximum size.</p>\n         </note>"
           }
         },
         "SubjectFromWebIdentityToken": {
@@ -488,10 +488,10 @@
             "smithy.api#required": {}
           }
         },
-        "Expiration": {
-          "target": "com.amazonaws.sts#dateType",
+        "SessionToken": {
+          "target": "com.amazonaws.sts#tokenType",
           "traits": {
-            "smithy.api#documentation": "<p>The date on which the current credentials expire.</p>",
+            "smithy.api#documentation": "<p>The token that users must pass to the service API to use the temporary\n         credentials.</p>",
             "smithy.api#required": {}
           }
         },
@@ -502,10 +502,10 @@
             "smithy.api#required": {}
           }
         },
-        "SessionToken": {
-          "target": "com.amazonaws.sts#tokenType",
+        "Expiration": {
+          "target": "com.amazonaws.sts#dateType",
           "traits": {
-            "smithy.api#documentation": "<p>The token that users must pass to the service API to use the temporary\n         credentials.</p>",
+            "smithy.api#documentation": "<p>The date on which the current credentials expire.</p>",
             "smithy.api#required": {}
           }
         }
@@ -646,16 +646,16 @@
     "com.amazonaws.sts#GetCallerIdentityResponse": {
       "type": "structure",
       "members": {
-        "Account": {
-          "target": "com.amazonaws.sts#accountType",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID number of the account that owns or contains the calling\n         entity.</p>"
-          }
-        },
         "Arn": {
           "target": "com.amazonaws.sts#arnType",
           "traits": {
             "smithy.api#documentation": "<p>The AWS ARN associated with the calling entity.</p>"
+          }
+        },
+        "Account": {
+          "target": "com.amazonaws.sts#accountType",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID number of the account that owns or contains the calling\n         entity.</p>"
           }
         },
         "UserId": {
@@ -708,12 +708,6 @@
             "smithy.api#required": {}
           }
         },
-        "Policy": {
-          "target": "com.amazonaws.sts#sessionPolicyDocumentType",
-          "traits": {
-            "smithy.api#documentation": "<p>An IAM policy in JSON format that you want to use as an inline session policy.</p>\n         <p>You must pass an inline or managed <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">session policy</a> to\n         this operation. You can pass a single JSON policy document to use as an inline session\n         policy. You can also specify up to 10 managed policies to use as managed session\n         policies.</p>\n         <p>This parameter is optional. However, if you do not pass any session policies, then the\n         resulting federated user session has no permissions.</p>\n         <p>When you pass session policies, the session permissions are the intersection of the\n         IAM user policies and the session policies that you pass. This gives you a way to further\n         restrict the permissions for a federated user. You cannot use session policies to grant\n         more permissions than those that are defined in the permissions policy of the IAM user.\n         For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session Policies</a> in\n         the <i>IAM User Guide</i>.</p>\n         <p>The resulting credentials can be used to access a resource that has a resource-based\n         policy. If that policy specifically references the federated user session in the\n            <code>Principal</code> element of the policy, the session has the permissions allowed by\n         the policy. These permissions are granted in addition to the permissions that are granted\n         by the session policies.</p>\n         <p>The plain text that you use for both inline and managed session policies can't exceed\n         2,048 characters. The JSON policy characters can be any ASCII character from the space\n         character to the end of the valid character list (\\u0020 through \\u00FF). It can also\n         include the tab (\\u0009), linefeed (\\u000A), and carriage return (\\u000D)\n         characters.</p> \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>"
-          }
-        },
         "PolicyArns": {
           "target": "com.amazonaws.sts#policyDescriptorListType",
           "traits": {
@@ -725,22 +719,28 @@
           "traits": {
             "smithy.api#documentation": "<p>A list of session tags. Each session tag consists of a key name and an associated value.\n         For more information about session tags, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html\">Passing Session Tags in STS</a> in the\n            <i>IAM User Guide</i>.</p>\n         <p>This parameter is optional. You can pass up to 50 session tags. The plain text session\n         tag keys can’t exceed 128 characters and the values can’t exceed 256 characters. For these\n         and additional limits, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length\">IAM\n            and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>\n      \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>\n  \n         <p>You can pass a session tag with the same key as a tag that is already attached to the\n         user you are federating. When you do, session tags override a user tag with the same key. </p>\n         <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you\n         cannot have separate <code>Department</code> and <code>department</code> tag keys. Assume\n         that the role has the <code>Department</code>=<code>Marketing</code> tag and you pass the\n            <code>department</code>=<code>engineering</code> session tag. <code>Department</code>\n         and <code>department</code> are not saved as separate tags, and the session tag passed in\n         the request takes precedence over the role tag.</p>"
           }
+        },
+        "Policy": {
+          "target": "com.amazonaws.sts#sessionPolicyDocumentType",
+          "traits": {
+            "smithy.api#documentation": "<p>An IAM policy in JSON format that you want to use as an inline session policy.</p>\n         <p>You must pass an inline or managed <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">session policy</a> to\n         this operation. You can pass a single JSON policy document to use as an inline session\n         policy. You can also specify up to 10 managed policies to use as managed session\n         policies.</p>\n         <p>This parameter is optional. However, if you do not pass any session policies, then the\n         resulting federated user session has no permissions.</p>\n         <p>When you pass session policies, the session permissions are the intersection of the\n         IAM user policies and the session policies that you pass. This gives you a way to further\n         restrict the permissions for a federated user. You cannot use session policies to grant\n         more permissions than those that are defined in the permissions policy of the IAM user.\n         For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session Policies</a> in\n         the <i>IAM User Guide</i>.</p>\n         <p>The resulting credentials can be used to access a resource that has a resource-based\n         policy. If that policy specifically references the federated user session in the\n            <code>Principal</code> element of the policy, the session has the permissions allowed by\n         the policy. These permissions are granted in addition to the permissions that are granted\n         by the session policies.</p>\n         <p>The plain text that you use for both inline and managed session policies can't exceed\n         2,048 characters. The JSON policy characters can be any ASCII character from the space\n         character to the end of the valid character list (\\u0020 through \\u00FF). It can also\n         include the tab (\\u0009), linefeed (\\u000A), and carriage return (\\u000D)\n         characters.</p> \n         <note>\n            <p>An AWS conversion compresses the passed session policies and session tags into a\n            packed binary format that has a separate limit. Your request can fail for this limit\n            even if your plain text meets the other requirements. The <code>PackedPolicySize</code>\n            response element indicates by percentage how close the policies and tags for your\n            request are to the upper size limit.\n            </p>\n         </note>"
+          }
         }
       }
     },
     "com.amazonaws.sts#GetFederationTokenResponse": {
       "type": "structure",
       "members": {
-        "Credentials": {
-          "target": "com.amazonaws.sts#Credentials",
-          "traits": {
-            "smithy.api#documentation": "<p>The temporary security credentials, which include an access key ID, a secret access key,\n         and a security (or session) token.</p> \n         <note>\n            <p>The size of the security token that STS API operations return is not fixed. We\n        strongly recommend that you make no assumptions about the maximum size.</p>\n         </note>"
-          }
-        },
         "FederatedUser": {
           "target": "com.amazonaws.sts#FederatedUser",
           "traits": {
             "smithy.api#documentation": "<p>Identifiers for the federated user associated with the credentials (such as\n            <code>arn:aws:sts::123456789012:federated-user/Bob</code> or\n            <code>123456789012:Bob</code>). You can use the federated user's ARN in your\n         resource-based policies, such as an Amazon S3 bucket policy. </p>"
+          }
+        },
+        "Credentials": {
+          "target": "com.amazonaws.sts#Credentials",
+          "traits": {
+            "smithy.api#documentation": "<p>The temporary security credentials, which include an access key ID, a secret access key,\n         and a security (or session) token.</p> \n         <note>\n            <p>The size of the security token that STS API operations return is not fixed. We\n        strongly recommend that you make no assumptions about the maximum size.</p>\n         </note>"
           }
         },
         "PackedPolicySize": {
@@ -774,6 +774,12 @@
     "com.amazonaws.sts#GetSessionTokenRequest": {
       "type": "structure",
       "members": {
+        "TokenCode": {
+          "target": "com.amazonaws.sts#tokenCodeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The value provided by the MFA device, if MFA is required. If any policy requires the\n         IAM user to submit an MFA code, specify this value. If MFA authentication is required,\n         the user must provide a code when requesting a set of temporary security credentials. A\n         user who fails to provide the code receives an \"access denied\" response when requesting\n         resources that require MFA authentication.</p>\n         <p>The format for this parameter, as described by its regex pattern, is a sequence of six\n         numeric digits.</p>"
+          }
+        },
         "DurationSeconds": {
           "target": "com.amazonaws.sts#durationSecondsType",
           "traits": {
@@ -784,12 +790,6 @@
           "target": "com.amazonaws.sts#serialNumberType",
           "traits": {
             "smithy.api#documentation": "<p>The identification number of the MFA device that is associated with the IAM user who\n         is making the <code>GetSessionToken</code> call. Specify this value if the IAM user has a\n         policy that requires MFA authentication. The value is either the serial number for a\n         hardware device (such as <code>GAHT12345678</code>) or an Amazon Resource Name (ARN) for a\n         virtual device (such as <code>arn:aws:iam::123456789012:mfa/user</code>). You can find the\n         device for an IAM user by going to the AWS Management Console and viewing the user's security\n         credentials. </p>\n         <p>The regex used to validate this parameter is a string of \n    characters consisting of upper- and lower-case alphanumeric characters with no spaces. \n    You can also include underscores or any of the following characters: =,.@:/-</p>"
-          }
-        },
-        "TokenCode": {
-          "target": "com.amazonaws.sts#tokenCodeType",
-          "traits": {
-            "smithy.api#documentation": "<p>The value provided by the MFA device, if MFA is required. If any policy requires the\n         IAM user to submit an MFA code, specify this value. If MFA authentication is required,\n         the user must provide a code when requesting a set of temporary security credentials. A\n         user who fails to provide the code receives an \"access denied\" response when requesting\n         resources that require MFA authentication.</p>\n         <p>The format for this parameter, as described by its regex pattern, is a sequence of six\n         numeric digits.</p>"
           }
         }
       }
@@ -925,7 +925,8 @@
         "smithy.api#length": {
           "min": 4,
           "max": 100000
-        }
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.sts#Subject": {
@@ -937,17 +938,17 @@
     "com.amazonaws.sts#Tag": {
       "type": "structure",
       "members": {
-        "Key": {
-          "target": "com.amazonaws.sts#tagKeyType",
-          "traits": {
-            "smithy.api#documentation": "<p>The key for a session tag.</p>\n         <p>You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128\n         characters. For these and additional limits, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length\">IAM\n            and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "Value": {
           "target": "com.amazonaws.sts#tagValueType",
           "traits": {
             "smithy.api#documentation": "<p>The value for a session tag.</p>\n         <p>You can pass up to 50 session tags. The plain text session tag values can’t exceed 256\n         characters. For these and additional limits, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length\">IAM\n            and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.sts#tagKeyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The key for a session tag.</p>\n         <p>You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128\n         characters. For these and additional limits, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length\">IAM\n            and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -998,7 +999,8 @@
         "smithy.api#length": {
           "min": 4,
           "max": 2048
-        }
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.sts#dateType": {

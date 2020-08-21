@@ -852,14 +852,11 @@ const deserializeAws_queryRegionDisabledExceptionResponse = async (
 
 const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DurationSeconds !== undefined) {
-    entries["DurationSeconds"] = input.DurationSeconds;
-  }
   if (input.ExternalId !== undefined) {
     entries["ExternalId"] = input.ExternalId;
   }
-  if (input.Policy !== undefined) {
-    entries["Policy"] = input.Policy;
+  if (input.SerialNumber !== undefined) {
+    entries["SerialNumber"] = input.SerialNumber;
   }
   if (input.PolicyArns !== undefined) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
@@ -868,14 +865,24 @@ const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: 
       entries[loc] = value;
     });
   }
-  if (input.RoleArn !== undefined) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input.TransitiveTagKeys !== undefined) {
+    const memberEntries = serializeAws_querytagKeyListType(input.TransitiveTagKeys, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TransitiveTagKeys.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.RoleSessionName !== undefined) {
     entries["RoleSessionName"] = input.RoleSessionName;
   }
-  if (input.SerialNumber !== undefined) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input.TokenCode !== undefined) {
+    entries["TokenCode"] = input.TokenCode;
+  }
+  if (input.Policy !== undefined) {
+    entries["Policy"] = input.Policy;
+  }
+  if (input.DurationSeconds !== undefined) {
+    entries["DurationSeconds"] = input.DurationSeconds;
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
@@ -884,15 +891,8 @@ const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: 
       entries[loc] = value;
     });
   }
-  if (input.TokenCode !== undefined) {
-    entries["TokenCode"] = input.TokenCode;
-  }
-  if (input.TransitiveTagKeys !== undefined) {
-    const memberEntries = serializeAws_querytagKeyListType(input.TransitiveTagKeys, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TransitiveTagKeys.${key}`;
-      entries[loc] = value;
-    });
+  if (input.RoleArn !== undefined) {
+    entries["RoleArn"] = input.RoleArn;
   }
   return entries;
 };
@@ -902,11 +902,8 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DurationSeconds !== undefined) {
-    entries["DurationSeconds"] = input.DurationSeconds;
-  }
-  if (input.Policy !== undefined) {
-    entries["Policy"] = input.Policy;
+  if (input.PrincipalArn !== undefined) {
+    entries["PrincipalArn"] = input.PrincipalArn;
   }
   if (input.PolicyArns !== undefined) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
@@ -915,14 +912,17 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (
       entries[loc] = value;
     });
   }
-  if (input.PrincipalArn !== undefined) {
-    entries["PrincipalArn"] = input.PrincipalArn;
+  if (input.Policy !== undefined) {
+    entries["Policy"] = input.Policy;
   }
   if (input.RoleArn !== undefined) {
     entries["RoleArn"] = input.RoleArn;
   }
   if (input.SAMLAssertion !== undefined) {
     entries["SAMLAssertion"] = input.SAMLAssertion;
+  }
+  if (input.DurationSeconds !== undefined) {
+    entries["DurationSeconds"] = input.DurationSeconds;
   }
   return entries;
 };
@@ -932,11 +932,17 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DurationSeconds !== undefined) {
-    entries["DurationSeconds"] = input.DurationSeconds;
+  if (input.RoleArn !== undefined) {
+    entries["RoleArn"] = input.RoleArn;
   }
   if (input.Policy !== undefined) {
     entries["Policy"] = input.Policy;
+  }
+  if (input.RoleSessionName !== undefined) {
+    entries["RoleSessionName"] = input.RoleSessionName;
+  }
+  if (input.DurationSeconds !== undefined) {
+    entries["DurationSeconds"] = input.DurationSeconds;
   }
   if (input.PolicyArns !== undefined) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
@@ -945,17 +951,11 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (
       entries[loc] = value;
     });
   }
-  if (input.ProviderId !== undefined) {
-    entries["ProviderId"] = input.ProviderId;
-  }
-  if (input.RoleArn !== undefined) {
-    entries["RoleArn"] = input.RoleArn;
-  }
-  if (input.RoleSessionName !== undefined) {
-    entries["RoleSessionName"] = input.RoleSessionName;
-  }
   if (input.WebIdentityToken !== undefined) {
     entries["WebIdentityToken"] = input.WebIdentityToken;
+  }
+  if (input.ProviderId !== undefined) {
+    entries["ProviderId"] = input.ProviderId;
   }
   return entries;
 };
@@ -995,9 +995,6 @@ const serializeAws_queryGetFederationTokenRequest = (
   if (input.Name !== undefined) {
     entries["Name"] = input.Name;
   }
-  if (input.Policy !== undefined) {
-    entries["Policy"] = input.Policy;
-  }
   if (input.PolicyArns !== undefined) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -1012,19 +1009,22 @@ const serializeAws_queryGetFederationTokenRequest = (
       entries[loc] = value;
     });
   }
+  if (input.Policy !== undefined) {
+    entries["Policy"] = input.Policy;
+  }
   return entries;
 };
 
 const serializeAws_queryGetSessionTokenRequest = (input: GetSessionTokenRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.TokenCode !== undefined) {
+    entries["TokenCode"] = input.TokenCode;
+  }
   if (input.DurationSeconds !== undefined) {
     entries["DurationSeconds"] = input.DurationSeconds;
   }
   if (input.SerialNumber !== undefined) {
     entries["SerialNumber"] = input.SerialNumber;
-  }
-  if (input.TokenCode !== undefined) {
-    entries["TokenCode"] = input.TokenCode;
   }
   return entries;
 };
@@ -1052,11 +1052,11 @@ const serializeAws_queryPolicyDescriptorType = (input: PolicyDescriptorType, con
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
-    entries["Key"] = input.Key;
-  }
   if (input.Value !== undefined) {
     entries["Value"] = input.Value;
+  }
+  if (input.Key !== undefined) {
+    entries["Key"] = input.Key;
   }
   return entries;
 };
@@ -1102,15 +1102,15 @@ const deserializeAws_queryAssumedRoleUser = (output: any, context: __SerdeContex
 const deserializeAws_queryAssumeRoleResponse = (output: any, context: __SerdeContext): AssumeRoleResponse => {
   let contents: any = {
     __type: "AssumeRoleResponse",
-    AssumedRoleUser: undefined,
     Credentials: undefined,
+    AssumedRoleUser: undefined,
     PackedPolicySize: undefined,
   };
-  if (output["AssumedRoleUser"] !== undefined) {
-    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
-  }
   if (output["Credentials"] !== undefined) {
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
+  }
+  if (output["AssumedRoleUser"] !== undefined) {
+    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
   }
   if (output["PackedPolicySize"] !== undefined) {
     contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
@@ -1124,23 +1124,26 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
 ): AssumeRoleWithSAMLResponse => {
   let contents: any = {
     __type: "AssumeRoleWithSAMLResponse",
-    AssumedRoleUser: undefined,
     Audience: undefined,
-    Credentials: undefined,
+    PackedPolicySize: undefined,
+    SubjectType: undefined,
+    AssumedRoleUser: undefined,
     Issuer: undefined,
     NameQualifier: undefined,
-    PackedPolicySize: undefined,
+    Credentials: undefined,
     Subject: undefined,
-    SubjectType: undefined,
   };
-  if (output["AssumedRoleUser"] !== undefined) {
-    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
-  }
   if (output["Audience"] !== undefined) {
     contents.Audience = output["Audience"];
   }
-  if (output["Credentials"] !== undefined) {
-    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
+  if (output["PackedPolicySize"] !== undefined) {
+    contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
+  }
+  if (output["SubjectType"] !== undefined) {
+    contents.SubjectType = output["SubjectType"];
+  }
+  if (output["AssumedRoleUser"] !== undefined) {
+    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
   }
   if (output["Issuer"] !== undefined) {
     contents.Issuer = output["Issuer"];
@@ -1148,14 +1151,11 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
   if (output["NameQualifier"] !== undefined) {
     contents.NameQualifier = output["NameQualifier"];
   }
-  if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
+  if (output["Credentials"] !== undefined) {
+    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
   if (output["Subject"] !== undefined) {
     contents.Subject = output["Subject"];
-  }
-  if (output["SubjectType"] !== undefined) {
-    contents.SubjectType = output["SubjectType"];
   }
   return contents;
 };
@@ -1166,27 +1166,27 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
 ): AssumeRoleWithWebIdentityResponse => {
   let contents: any = {
     __type: "AssumeRoleWithWebIdentityResponse",
-    AssumedRoleUser: undefined,
-    Audience: undefined,
-    Credentials: undefined,
     PackedPolicySize: undefined,
+    Audience: undefined,
     Provider: undefined,
+    AssumedRoleUser: undefined,
+    Credentials: undefined,
     SubjectFromWebIdentityToken: undefined,
   };
-  if (output["AssumedRoleUser"] !== undefined) {
-    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
+  if (output["PackedPolicySize"] !== undefined) {
+    contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
   }
   if (output["Audience"] !== undefined) {
     contents.Audience = output["Audience"];
   }
-  if (output["Credentials"] !== undefined) {
-    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
-  }
-  if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
-  }
   if (output["Provider"] !== undefined) {
     contents.Provider = output["Provider"];
+  }
+  if (output["AssumedRoleUser"] !== undefined) {
+    contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
+  }
+  if (output["Credentials"] !== undefined) {
+    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
   if (output["SubjectFromWebIdentityToken"] !== undefined) {
     contents.SubjectFromWebIdentityToken = output["SubjectFromWebIdentityToken"];
@@ -1198,21 +1198,21 @@ const deserializeAws_queryCredentials = (output: any, context: __SerdeContext): 
   let contents: any = {
     __type: "Credentials",
     AccessKeyId: undefined,
-    Expiration: undefined,
-    SecretAccessKey: undefined,
     SessionToken: undefined,
+    SecretAccessKey: undefined,
+    Expiration: undefined,
   };
   if (output["AccessKeyId"] !== undefined) {
     contents.AccessKeyId = output["AccessKeyId"];
   }
-  if (output["Expiration"] !== undefined) {
-    contents.Expiration = new Date(output["Expiration"]);
+  if (output["SessionToken"] !== undefined) {
+    contents.SessionToken = output["SessionToken"];
   }
   if (output["SecretAccessKey"] !== undefined) {
     contents.SecretAccessKey = output["SecretAccessKey"];
   }
-  if (output["SessionToken"] !== undefined) {
-    contents.SessionToken = output["SessionToken"];
+  if (output["Expiration"] !== undefined) {
+    contents.Expiration = new Date(output["Expiration"]);
   }
   return contents;
 };
@@ -1277,15 +1277,15 @@ const deserializeAws_queryGetCallerIdentityResponse = (
 ): GetCallerIdentityResponse => {
   let contents: any = {
     __type: "GetCallerIdentityResponse",
-    Account: undefined,
     Arn: undefined,
+    Account: undefined,
     UserId: undefined,
   };
-  if (output["Account"] !== undefined) {
-    contents.Account = output["Account"];
-  }
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
+  }
+  if (output["Account"] !== undefined) {
+    contents.Account = output["Account"];
   }
   if (output["UserId"] !== undefined) {
     contents.UserId = output["UserId"];
@@ -1299,15 +1299,15 @@ const deserializeAws_queryGetFederationTokenResponse = (
 ): GetFederationTokenResponse => {
   let contents: any = {
     __type: "GetFederationTokenResponse",
-    Credentials: undefined,
     FederatedUser: undefined,
+    Credentials: undefined,
     PackedPolicySize: undefined,
   };
-  if (output["Credentials"] !== undefined) {
-    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
-  }
   if (output["FederatedUser"] !== undefined) {
     contents.FederatedUser = deserializeAws_queryFederatedUser(output["FederatedUser"], context);
+  }
+  if (output["Credentials"] !== undefined) {
+    contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
   if (output["PackedPolicySize"] !== undefined) {
     contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);

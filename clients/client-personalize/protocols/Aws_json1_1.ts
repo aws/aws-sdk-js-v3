@@ -10,6 +10,7 @@ import {
   CreateDatasetImportJobCommandOutput,
 } from "../commands/CreateDatasetImportJobCommand";
 import { CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput } from "../commands/CreateEventTrackerCommand";
+import { CreateFilterCommandInput, CreateFilterCommandOutput } from "../commands/CreateFilterCommand";
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "../commands/CreateSchemaCommand";
 import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "../commands/CreateSolutionCommand";
 import {
@@ -20,6 +21,7 @@ import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "../comm
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand";
 import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "../commands/DeleteDatasetGroupCommand";
 import { DeleteEventTrackerCommandInput, DeleteEventTrackerCommandOutput } from "../commands/DeleteEventTrackerCommand";
+import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "../commands/DeleteFilterCommand";
 import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "../commands/DeleteSchemaCommand";
 import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "../commands/DeleteSolutionCommand";
 import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "../commands/DescribeAlgorithmCommand";
@@ -45,6 +47,7 @@ import {
   DescribeFeatureTransformationCommandInput,
   DescribeFeatureTransformationCommandOutput,
 } from "../commands/DescribeFeatureTransformationCommand";
+import { DescribeFilterCommandInput, DescribeFilterCommandOutput } from "../commands/DescribeFilterCommand";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "../commands/DescribeRecipeCommand";
 import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "../commands/DescribeSchemaCommand";
 import { DescribeSolutionCommandInput, DescribeSolutionCommandOutput } from "../commands/DescribeSolutionCommand";
@@ -65,6 +68,7 @@ import {
 } from "../commands/ListDatasetImportJobsCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import { ListEventTrackersCommandInput, ListEventTrackersCommandOutput } from "../commands/ListEventTrackersCommand";
+import { ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand";
 import { ListRecipesCommandInput, ListRecipesCommandOutput } from "../commands/ListRecipesCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
 import {
@@ -99,6 +103,8 @@ import {
   CreateDatasetResponse,
   CreateEventTrackerRequest,
   CreateEventTrackerResponse,
+  CreateFilterRequest,
+  CreateFilterResponse,
   CreateSchemaRequest,
   CreateSchemaResponse,
   CreateSolutionRequest,
@@ -122,6 +128,7 @@ import {
   DeleteDatasetGroupRequest,
   DeleteDatasetRequest,
   DeleteEventTrackerRequest,
+  DeleteFilterRequest,
   DeleteSchemaRequest,
   DeleteSolutionRequest,
   DescribeAlgorithmRequest,
@@ -140,6 +147,8 @@ import {
   DescribeEventTrackerResponse,
   DescribeFeatureTransformationRequest,
   DescribeFeatureTransformationResponse,
+  DescribeFilterRequest,
+  DescribeFilterResponse,
   DescribeRecipeRequest,
   DescribeRecipeResponse,
   DescribeSchemaRequest,
@@ -151,6 +160,8 @@ import {
   EventTracker,
   EventTrackerSummary,
   FeatureTransformation,
+  Filter,
+  FilterSummary,
   GetSolutionMetricsRequest,
   GetSolutionMetricsResponse,
   HPOConfig,
@@ -173,6 +184,8 @@ import {
   ListDatasetsResponse,
   ListEventTrackersRequest,
   ListEventTrackersResponse,
+  ListFiltersRequest,
+  ListFiltersResponse,
   ListRecipesRequest,
   ListRecipesResponse,
   ListSchemasRequest,
@@ -192,6 +205,7 @@ import {
   SolutionSummary,
   SolutionVersion,
   SolutionVersionSummary,
+  TunedHPOParams,
   UpdateCampaignRequest,
   UpdateCampaignResponse,
 } from "../models/index";
@@ -283,6 +297,19 @@ export const serializeAws_json1_1CreateEventTrackerCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateFilterCommand = async (
+  input: CreateFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonPersonalize.CreateFilter",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateFilterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
@@ -371,6 +398,19 @@ export const serializeAws_json1_1DeleteEventTrackerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEventTrackerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteFilterCommand = async (
+  input: DeleteFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonPersonalize.DeleteFilter",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -501,6 +541,19 @@ export const serializeAws_json1_1DescribeFeatureTransformationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFeatureTransformationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFilterCommand = async (
+  input: DescribeFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonPersonalize.DescribeFilter",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -644,6 +697,19 @@ export const serializeAws_json1_1ListEventTrackersCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEventTrackersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListFiltersCommand = async (
+  input: ListFiltersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonPersonalize.ListFilters",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListFiltersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1224,6 +1290,86 @@ const deserializeAws_json1_1CreateEventTrackerCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateFilterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFilterCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateFilterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateFilterResponse(data, context);
+  const response: CreateFilterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateFilterResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateFilterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFilterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1699,6 +1845,66 @@ const deserializeAws_json1_1DeleteEventTrackerCommandError = async (
     case "com.amazonaws.personalize#ResourceInUseException":
       response = {
         ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteFilterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFilterCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteFilterCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteFilterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteFilterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFilterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2334,6 +2540,70 @@ const deserializeAws_json1_1DescribeFeatureTransformationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFeatureTransformationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeFilterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFilterCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeFilterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFilterResponse(data, context);
+  const response: DescribeFilterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeFilterResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFilterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3080,6 +3350,70 @@ const deserializeAws_json1_1ListEventTrackersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListFiltersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFiltersCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListFiltersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListFiltersResponse(data, context);
+  const response: ListFiltersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListFiltersResponse",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListFiltersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFiltersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListRecipesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3561,6 +3895,7 @@ const serializeAws_json1_1CreateBatchInferenceJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
     ...(input.jobInput !== undefined && {
       jobInput: serializeAws_json1_1BatchInferenceJobInput(input.jobInput, context),
     }),
@@ -3620,6 +3955,14 @@ const serializeAws_json1_1CreateEventTrackerRequest = (
 ): any => {
   return {
     ...(input.datasetGroupArn !== undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.name !== undefined && { name: input.name }),
+  };
+};
+
+const serializeAws_json1_1CreateFilterRequest = (input: CreateFilterRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.datasetGroupArn !== undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.filterExpression !== undefined && { filterExpression: input.filterExpression }),
     ...(input.name !== undefined && { name: input.name }),
   };
 };
@@ -3688,6 +4031,12 @@ const serializeAws_json1_1DeleteEventTrackerRequest = (
 ): any => {
   return {
     ...(input.eventTrackerArn !== undefined && { eventTrackerArn: input.eventTrackerArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteFilterRequest = (input: DeleteFilterRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
   };
 };
 
@@ -3766,6 +4115,12 @@ const serializeAws_json1_1DescribeFeatureTransformationRequest = (
 ): any => {
   return {
     ...(input.featureTransformationArn !== undefined && { featureTransformationArn: input.featureTransformationArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeFilterRequest = (input: DescribeFilterRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
   };
 };
 
@@ -3960,6 +4315,14 @@ const serializeAws_json1_1ListEventTrackersRequest = (
   };
 };
 
+const serializeAws_json1_1ListFiltersRequest = (input: ListFiltersRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.datasetGroupArn !== undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+};
+
 const serializeAws_json1_1ListRecipesRequest = (input: ListRecipesRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
@@ -4109,6 +4472,7 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
         : undefined,
     failureReason:
       output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    filterArn: output.filterArn !== undefined && output.filterArn !== null ? output.filterArn : undefined,
     jobInput:
       output.jobInput !== undefined && output.jobInput !== null
         ? deserializeAws_json1_1BatchInferenceJobInput(output.jobInput, context)
@@ -4179,6 +4543,10 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        : undefined,
+    solutionVersionArn:
+      output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
+        ? output.solutionVersionArn
         : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
@@ -4367,6 +4735,13 @@ const deserializeAws_json1_1CreateEventTrackerResponse = (
     eventTrackerArn:
       output.eventTrackerArn !== undefined && output.eventTrackerArn !== null ? output.eventTrackerArn : undefined,
     trackingId: output.trackingId !== undefined && output.trackingId !== null ? output.trackingId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateFilterResponse = (output: any, context: __SerdeContext): CreateFilterResponse => {
+  return {
+    __type: "CreateFilterResponse",
+    filterArn: output.filterArn !== undefined && output.filterArn !== null ? output.filterArn : undefined,
   } as any;
 };
 
@@ -4772,6 +5147,16 @@ const deserializeAws_json1_1DescribeFeatureTransformationResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeFilterResponse = (output: any, context: __SerdeContext): DescribeFilterResponse => {
+  return {
+    __type: "DescribeFilterResponse",
+    filter:
+      output.filter !== undefined && output.filter !== null
+        ? deserializeAws_json1_1Filter(output.filter, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeRecipeResponse = (output: any, context: __SerdeContext): DescribeRecipeResponse => {
   return {
     __type: "DescribeRecipeResponse",
@@ -4910,6 +5295,54 @@ const deserializeAws_json1_1FeaturizationParameters = (
     }),
     {}
   );
+};
+
+const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Filter => {
+  return {
+    __type: "Filter",
+    creationDateTime:
+      output.creationDateTime !== undefined && output.creationDateTime !== null
+        ? new Date(Math.round(output.creationDateTime * 1000))
+        : undefined,
+    datasetGroupArn:
+      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
+    failureReason:
+      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    filterArn: output.filterArn !== undefined && output.filterArn !== null ? output.filterArn : undefined,
+    filterExpression:
+      output.filterExpression !== undefined && output.filterExpression !== null ? output.filterExpression : undefined,
+    lastUpdatedDateTime:
+      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Filters = (output: any, context: __SerdeContext): FilterSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1FilterSummary(entry, context));
+};
+
+const deserializeAws_json1_1FilterSummary = (output: any, context: __SerdeContext): FilterSummary => {
+  return {
+    __type: "FilterSummary",
+    creationDateTime:
+      output.creationDateTime !== undefined && output.creationDateTime !== null
+        ? new Date(Math.round(output.creationDateTime * 1000))
+        : undefined,
+    datasetGroupArn:
+      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
+    failureReason:
+      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    filterArn: output.filterArn !== undefined && output.filterArn !== null ? output.filterArn : undefined,
+    lastUpdatedDateTime:
+      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1GetSolutionMetricsResponse = (
@@ -5114,6 +5547,17 @@ const deserializeAws_json1_1ListEventTrackersResponse = (
     eventTrackers:
       output.eventTrackers !== undefined && output.eventTrackers !== null
         ? deserializeAws_json1_1EventTrackers(output.eventTrackers, context)
+        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListFiltersResponse = (output: any, context: __SerdeContext): ListFiltersResponse => {
+  return {
+    __type: "ListFiltersResponse",
+    Filters:
+      output.Filters !== undefined && output.Filters !== null
+        ? deserializeAws_json1_1Filters(output.Filters, context)
         : undefined,
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
   } as any;
@@ -5386,6 +5830,10 @@ const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeCont
     trainingHours:
       output.trainingHours !== undefined && output.trainingHours !== null ? output.trainingHours : undefined,
     trainingMode: output.trainingMode !== undefined && output.trainingMode !== null ? output.trainingMode : undefined,
+    tunedHPOParams:
+      output.tunedHPOParams !== undefined && output.tunedHPOParams !== null
+        ? deserializeAws_json1_1TunedHPOParams(output.tunedHPOParams, context)
+        : undefined,
   } as any;
 };
 
@@ -5411,6 +5859,16 @@ const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __Se
         ? output.solutionVersionArn
         : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TunedHPOParams = (output: any, context: __SerdeContext): TunedHPOParams => {
+  return {
+    __type: "TunedHPOParams",
+    algorithmHyperParameters:
+      output.algorithmHyperParameters !== undefined && output.algorithmHyperParameters !== null
+        ? deserializeAws_json1_1HyperParameters(output.algorithmHyperParameters, context)
+        : undefined,
   } as any;
 };
 

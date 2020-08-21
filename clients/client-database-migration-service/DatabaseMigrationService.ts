@@ -10,6 +10,11 @@ import {
   ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
 import {
+  CancelReplicationTaskAssessmentRunCommand,
+  CancelReplicationTaskAssessmentRunCommandInput,
+  CancelReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/CancelReplicationTaskAssessmentRunCommand";
+import {
   CreateEndpointCommand,
   CreateEndpointCommandInput,
   CreateEndpointCommandOutput,
@@ -65,6 +70,11 @@ import {
   DeleteReplicationSubnetGroupCommandOutput,
 } from "./commands/DeleteReplicationSubnetGroupCommand";
 import {
+  DeleteReplicationTaskAssessmentRunCommand,
+  DeleteReplicationTaskAssessmentRunCommandInput,
+  DeleteReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/DeleteReplicationTaskAssessmentRunCommand";
+import {
   DeleteReplicationTaskCommand,
   DeleteReplicationTaskCommandInput,
   DeleteReplicationTaskCommandOutput,
@@ -74,6 +84,11 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeApplicableIndividualAssessmentsCommand,
+  DescribeApplicableIndividualAssessmentsCommandInput,
+  DescribeApplicableIndividualAssessmentsCommandOutput,
+} from "./commands/DescribeApplicableIndividualAssessmentsCommand";
 import {
   DescribeCertificatesCommand,
   DescribeCertificatesCommandInput,
@@ -144,6 +159,16 @@ import {
   DescribeReplicationTaskAssessmentResultsCommandInput,
   DescribeReplicationTaskAssessmentResultsCommandOutput,
 } from "./commands/DescribeReplicationTaskAssessmentResultsCommand";
+import {
+  DescribeReplicationTaskAssessmentRunsCommand,
+  DescribeReplicationTaskAssessmentRunsCommandInput,
+  DescribeReplicationTaskAssessmentRunsCommandOutput,
+} from "./commands/DescribeReplicationTaskAssessmentRunsCommand";
+import {
+  DescribeReplicationTaskIndividualAssessmentsCommand,
+  DescribeReplicationTaskIndividualAssessmentsCommandInput,
+  DescribeReplicationTaskIndividualAssessmentsCommandOutput,
+} from "./commands/DescribeReplicationTaskIndividualAssessmentsCommand";
 import {
   DescribeReplicationTasksCommand,
   DescribeReplicationTasksCommandInput,
@@ -219,6 +244,11 @@ import {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentCommand";
+import {
+  StartReplicationTaskAssessmentRunCommand,
+  StartReplicationTaskAssessmentRunCommandInput,
+  StartReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/StartReplicationTaskAssessmentRunCommand";
 import {
   StartReplicationTaskCommand,
   StartReplicationTaskCommandInput,
@@ -306,6 +336,41 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> | void {
     const command = new ApplyPendingMaintenanceActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels a single premigration assessment run.</p>
+   *          <p>This operation prevents any individual assessments from running if they haven't started
+   *          running. It also attempts to cancel any individual assessments that are currently
+   *          running.</p>
+   */
+  public cancelReplicationTaskAssessmentRun(
+    args: CancelReplicationTaskAssessmentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelReplicationTaskAssessmentRunCommandOutput>;
+  public cancelReplicationTaskAssessmentRun(
+    args: CancelReplicationTaskAssessmentRunCommandInput,
+    cb: (err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public cancelReplicationTaskAssessmentRun(
+    args: CancelReplicationTaskAssessmentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public cancelReplicationTaskAssessmentRun(
+    args: CancelReplicationTaskAssessmentRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void),
+    cb?: (err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void
+  ): Promise<CancelReplicationTaskAssessmentRunCommandOutput> | void {
+    const command = new CancelReplicationTaskAssessmentRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -730,6 +795,41 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * <p>Deletes the record of a single premigration assessment run.</p>
+   *          <p>This operation removes all metadata that AWS DMS maintains about this assessment run.
+   *          However, the operation leaves untouched all information about this assessment run that is
+   *          stored in your Amazon S3 bucket.</p>
+   */
+  public deleteReplicationTaskAssessmentRun(
+    args: DeleteReplicationTaskAssessmentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteReplicationTaskAssessmentRunCommandOutput>;
+  public deleteReplicationTaskAssessmentRun(
+    args: DeleteReplicationTaskAssessmentRunCommandInput,
+    cb: (err: any, data?: DeleteReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public deleteReplicationTaskAssessmentRun(
+    args: DeleteReplicationTaskAssessmentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public deleteReplicationTaskAssessmentRun(
+    args: DeleteReplicationTaskAssessmentRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReplicationTaskAssessmentRunCommandOutput) => void),
+    cb?: (err: any, data?: DeleteReplicationTaskAssessmentRunCommandOutput) => void
+  ): Promise<DeleteReplicationTaskAssessmentRunCommandOutput> | void {
+    const command = new DeleteReplicationTaskAssessmentRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists all of the AWS DMS attributes for a customer account. These attributes include AWS
    *          DMS quotas for the account and a unique account identifier in a particular DMS region. DMS
    *          quotas include a list of resource quotas supported by the account, such as the number of
@@ -757,6 +857,54 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): Promise<DescribeAccountAttributesCommandOutput> | void {
     const command = new DescribeAccountAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a list of individual assessments that you can specify for a new premigration
+   *          assessment run, given one or more parameters.</p>
+   *          <p>If you specify an existing migration task, this operation provides the default individual
+   *          assessments you can specify for that task. Otherwise, the specified parameters model elements
+   *          of a possible migration task on which to base a premigration assessment run.</p>
+   *          <p>To use these migration task modeling parameters, you must specify an existing replication instance,
+   *          a source database engine, a target database engine, and a migration type. This combination of
+   *          parameters potentially limits the default individual assessments available for an assessment run
+   *          created for a corresponding migration task.</p>
+   *          <p>If you specify no parameters, this operation provides a list of all possible individual assessments
+   *          that you can specify for an assessment run. If you specify any one of the task modeling parameters, you must
+   *          specify all of them or the operation cannot provide a list of individual assessments.
+   *          The only parameter that you can specify alone is for an existing migration task. The specified task
+   *          definition then determines the default list of individual assessments that you can specify in an
+   *          assessment run for the task.</p>
+   */
+  public describeApplicableIndividualAssessments(
+    args: DescribeApplicableIndividualAssessmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicableIndividualAssessmentsCommandOutput>;
+  public describeApplicableIndividualAssessments(
+    args: DescribeApplicableIndividualAssessmentsCommandInput,
+    cb: (err: any, data?: DescribeApplicableIndividualAssessmentsCommandOutput) => void
+  ): void;
+  public describeApplicableIndividualAssessments(
+    args: DescribeApplicableIndividualAssessmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicableIndividualAssessmentsCommandOutput) => void
+  ): void;
+  public describeApplicableIndividualAssessments(
+    args: DescribeApplicableIndividualAssessmentsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeApplicableIndividualAssessmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeApplicableIndividualAssessmentsCommandOutput) => void
+  ): Promise<DescribeApplicableIndividualAssessmentsCommandOutput> | void {
+    const command = new DescribeApplicableIndividualAssessmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1226,6 +1374,84 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void
   ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput> | void {
     const command = new DescribeReplicationTaskAssessmentResultsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of premigration assessment runs based on filter
+   *          settings.</p>
+   *          <p>These filter settings can specify a combination of premigration assessment runs,
+   *          migration tasks, replication instances, and assessment run status values.</p>
+   *          <note>
+   *             <p>This operation doesn't return information about individual assessments. For this
+   *             information, see the <code>DescribeReplicationTaskIndividualAssessments</code>
+   *             operation. </p>
+   *          </note>
+   */
+  public describeReplicationTaskAssessmentRuns(
+    args: DescribeReplicationTaskAssessmentRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput>;
+  public describeReplicationTaskAssessmentRuns(
+    args: DescribeReplicationTaskAssessmentRunsCommandInput,
+    cb: (err: any, data?: DescribeReplicationTaskAssessmentRunsCommandOutput) => void
+  ): void;
+  public describeReplicationTaskAssessmentRuns(
+    args: DescribeReplicationTaskAssessmentRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicationTaskAssessmentRunsCommandOutput) => void
+  ): void;
+  public describeReplicationTaskAssessmentRuns(
+    args: DescribeReplicationTaskAssessmentRunsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeReplicationTaskAssessmentRunsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationTaskAssessmentRunsCommandOutput) => void
+  ): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput> | void {
+    const command = new DescribeReplicationTaskAssessmentRunsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of individual assessments based on filter settings.</p>
+   *          <p>These filter settings can specify a combination of premigration assessment runs,
+   *          migration tasks, and assessment status values.</p>
+   */
+  public describeReplicationTaskIndividualAssessments(
+    args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput>;
+  public describeReplicationTaskIndividualAssessments(
+    args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
+    cb: (err: any, data?: DescribeReplicationTaskIndividualAssessmentsCommandOutput) => void
+  ): void;
+  public describeReplicationTaskIndividualAssessments(
+    args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicationTaskIndividualAssessmentsCommandOutput) => void
+  ): void;
+  public describeReplicationTaskIndividualAssessments(
+    args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeReplicationTaskIndividualAssessmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationTaskIndividualAssessmentsCommandOutput) => void
+  ): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput> | void {
+    const command = new DescribeReplicationTaskIndividualAssessmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1767,9 +1993,45 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * <p>Starts a new premigration assessment run for one or more individual assessments
+   *          of a migration task.</p>
+   *          <p>The assessments that you can specify depend on the source and target database engine and
+   *          the migration type defined for the given task. To run this operation, your migration task
+   *          must already be created. After you run this operation, you can review the status of each
+   *          individual assessment. You can also run the migration task manually after the assessment
+   *          run and its individual assessments complete.</p>
+   */
+  public startReplicationTaskAssessmentRun(
+    args: StartReplicationTaskAssessmentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartReplicationTaskAssessmentRunCommandOutput>;
+  public startReplicationTaskAssessmentRun(
+    args: StartReplicationTaskAssessmentRunCommandInput,
+    cb: (err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public startReplicationTaskAssessmentRun(
+    args: StartReplicationTaskAssessmentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public startReplicationTaskAssessmentRun(
+    args: StartReplicationTaskAssessmentRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void),
+    cb?: (err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void
+  ): Promise<StartReplicationTaskAssessmentRunCommandOutput> | void {
+    const command = new StartReplicationTaskAssessmentRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Stops the replication task.</p>
-   *
-   *          <p></p>
    */
   public stopReplicationTask(
     args: StopReplicationTaskCommandInput,

@@ -55,13 +55,6 @@
     "com.amazonaws.directconnect#AcceptDirectConnectGatewayAssociationProposalRequest": {
       "type": "structure",
       "members": {
-        "associatedGatewayOwnerAccount": {
-          "target": "com.amazonaws.directconnect#OwnerAccount",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account that owns the virtual private gateway or transit gateway.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "directConnectGatewayId": {
           "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
           "traits": {
@@ -73,6 +66,13 @@
           "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
           "traits": {
             "smithy.api#documentation": "<p>Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.</p>\n         <p>For information about how to set the prefixes, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes\">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>"
+          }
+        },
+        "associatedGatewayOwnerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the virtual private gateway or transit gateway.</p>",
+            "smithy.api#required": {}
           }
         },
         "proposalId": {
@@ -131,17 +131,24 @@
     "com.amazonaws.directconnect#AllocateConnectionOnInterconnectRequest": {
       "type": "structure",
       "members": {
-        "bandwidth": {
-          "target": "com.amazonaws.directconnect#Bandwidth",
-          "traits": {
-            "smithy.api#documentation": "<p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,\n      300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners\n      who have met specific requirements\n    are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "connectionName": {
           "target": "com.amazonaws.directconnect#ConnectionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the provisioned connection.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "vlan": {
+          "target": "com.amazonaws.directconnect#VLAN",
+          "traits": {
+            "smithy.api#documentation": "<p>The dedicated VLAN provisioned to the connection.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "bandwidth": {
+          "target": "com.amazonaws.directconnect#Bandwidth",
+          "traits": {
+            "smithy.api#documentation": "<p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,\n      300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners\n      who have met specific requirements\n    are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</p>",
             "smithy.api#required": {}
           }
         },
@@ -156,13 +163,6 @@
           "target": "com.amazonaws.directconnect#OwnerAccount",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS account of the customer for whom the connection will be provisioned.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "vlan": {
-          "target": "com.amazonaws.directconnect#VLAN",
-          "traits": {
-            "smithy.api#documentation": "<p>The dedicated VLAN provisioned to the connection.</p>",
             "smithy.api#required": {}
           }
         }
@@ -197,17 +197,16 @@
     "com.amazonaws.directconnect#AllocateHostedConnectionRequest": {
       "type": "structure",
       "members": {
-        "bandwidth": {
-          "target": "com.amazonaws.directconnect#Bandwidth",
+        "tags": {
+          "target": "com.amazonaws.directconnect#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The tags associated with the connection.</p>"
           }
         },
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
+        "ownerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the interconnect or LAG.</p>",
+            "smithy.api#documentation": "<p>The ID of the AWS account ID of the customer for the connection.</p>",
             "smithy.api#required": {}
           }
         },
@@ -218,23 +217,24 @@
             "smithy.api#required": {}
           }
         },
-        "ownerAccount": {
-          "target": "com.amazonaws.directconnect#OwnerAccount",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account ID of the customer for the connection.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.directconnect#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the connection.</p>"
-          }
-        },
         "vlan": {
           "target": "com.amazonaws.directconnect#VLAN",
           "traits": {
             "smithy.api#documentation": "<p>The dedicated VLAN provisioned to the hosted connection.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the interconnect or LAG.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "bandwidth": {
+          "target": "com.amazonaws.directconnect#Bandwidth",
+          "traits": {
+            "smithy.api#documentation": "<p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>",
             "smithy.api#required": {}
           }
         }
@@ -276,17 +276,17 @@
             "smithy.api#required": {}
           }
         },
-        "newPrivateVirtualInterfaceAllocation": {
-          "target": "com.amazonaws.directconnect#NewPrivateVirtualInterfaceAllocation",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the private virtual interface.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ownerAccount": {
           "target": "com.amazonaws.directconnect#OwnerAccount",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS account that owns the virtual private interface.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "newPrivateVirtualInterfaceAllocation": {
+          "target": "com.amazonaws.directconnect#NewPrivateVirtualInterfaceAllocation",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the private virtual interface.</p>",
             "smithy.api#required": {}
           }
         }
@@ -321,10 +321,10 @@
     "com.amazonaws.directconnect#AllocatePublicVirtualInterfaceRequest": {
       "type": "structure",
       "members": {
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
+        "ownerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the connection on which the public virtual interface is provisioned.</p>",
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the public virtual interface.</p>",
             "smithy.api#required": {}
           }
         },
@@ -335,10 +335,10 @@
             "smithy.api#required": {}
           }
         },
-        "ownerAccount": {
-          "target": "com.amazonaws.directconnect#OwnerAccount",
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account that owns the public virtual interface.</p>",
+            "smithy.api#documentation": "<p>The ID of the connection on which the public virtual interface is provisioned.</p>",
             "smithy.api#required": {}
           }
         }
@@ -373,10 +373,10 @@
     "com.amazonaws.directconnect#AllocateTransitVirtualInterfaceRequest": {
       "type": "structure",
       "members": {
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
+        "ownerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the connection on which the transit virtual interface is provisioned.</p>",
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the transit virtual interface.</p>",
             "smithy.api#required": {}
           }
         },
@@ -387,10 +387,10 @@
             "smithy.api#required": {}
           }
         },
-        "ownerAccount": {
-          "target": "com.amazonaws.directconnect#OwnerAccount",
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account that owns the transit virtual interface.</p>",
+            "smithy.api#documentation": "<p>The ID of the connection on which the transit virtual interface is provisioned.</p>",
             "smithy.api#required": {}
           }
         }
@@ -430,17 +430,17 @@
     "com.amazonaws.directconnect#AssociateConnectionWithLagRequest": {
       "type": "structure",
       "members": {
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the connection.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "lagId": {
           "target": "com.amazonaws.directconnect#LagId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the LAG with which to associate the connection.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the connection.</p>",
             "smithy.api#required": {}
           }
         }
@@ -508,17 +508,17 @@
     "com.amazonaws.directconnect#AssociateVirtualInterfaceRequest": {
       "type": "structure",
       "members": {
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the LAG or connection.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "virtualInterfaceId": {
           "target": "com.amazonaws.directconnect#VirtualInterfaceId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the virtual interface.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the LAG or connection.</p>",
             "smithy.api#required": {}
           }
         }
@@ -527,10 +527,10 @@
     "com.amazonaws.directconnect#AssociatedGateway": {
       "type": "structure",
       "members": {
-        "id": {
-          "target": "com.amazonaws.directconnect#GatewayIdentifier",
+        "type": {
+          "target": "com.amazonaws.directconnect#GatewayType",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the associated gateway.</p>"
+            "smithy.api#documentation": "<p>The type of associated gateway.</p>"
           }
         },
         "ownerAccount": {
@@ -539,16 +539,16 @@
             "smithy.api#documentation": "<p>The ID of the AWS account that owns the associated virtual private gateway or transit gateway.</p>"
           }
         },
+        "id": {
+          "target": "com.amazonaws.directconnect#GatewayIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the associated gateway.</p>"
+          }
+        },
         "region": {
           "target": "com.amazonaws.directconnect#Region",
           "traits": {
             "smithy.api#documentation": "<p>The Region where the associated gateway is located.</p>"
-          }
-        },
-        "type": {
-          "target": "com.amazonaws.directconnect#GatewayType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of associated gateway.</p>"
           }
         }
       },
@@ -580,34 +580,10 @@
     "com.amazonaws.directconnect#BGPPeer": {
       "type": "structure",
       "members": {
-        "addressFamily": {
-          "target": "com.amazonaws.directconnect#AddressFamily",
+        "customerAddress": {
+          "target": "com.amazonaws.directconnect#CustomerAddress",
           "traits": {
-            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
-          }
-        },
-        "amazonAddress": {
-          "target": "com.amazonaws.directconnect#AmazonAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
-          }
-        },
-        "asn": {
-          "target": "com.amazonaws.directconnect#ASN",
-          "traits": {
-            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>"
-          }
-        },
-        "authKey": {
-          "target": "com.amazonaws.directconnect#BGPAuthKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
-          }
-        },
-        "awsDeviceV2": {
-          "target": "com.amazonaws.directconnect#AwsDeviceV2",
-          "traits": {
-            "smithy.api#documentation": "<p>The Direct Connect endpoint on which the BGP peer terminates.</p>"
+            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
           }
         },
         "bgpPeerId": {
@@ -622,16 +598,40 @@
             "smithy.api#documentation": "<p>The state of the BGP peer. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>verifying</code>: The BGP peering addresses or ASN require validation before the BGP peer can be created. This state applies only to public virtual interfaces.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending</code>: The BGP peer is created, and remains in this state until it is ready to be established.</p>\n            </li>\n            <li>\n               <p>\n                  <code>available</code>: The BGP peer is ready to be established.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleting</code>:  The BGP peer is being deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted</code>:  The BGP peer is deleted and cannot be established.</p>\n            </li>\n         </ul>"
           }
         },
+        "authKey": {
+          "target": "com.amazonaws.directconnect#BGPAuthKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
+          }
+        },
+        "asn": {
+          "target": "com.amazonaws.directconnect#ASN",
+          "traits": {
+            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>"
+          }
+        },
+        "addressFamily": {
+          "target": "com.amazonaws.directconnect#AddressFamily",
+          "traits": {
+            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
+          }
+        },
+        "amazonAddress": {
+          "target": "com.amazonaws.directconnect#AmazonAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
+          }
+        },
+        "awsDeviceV2": {
+          "target": "com.amazonaws.directconnect#AwsDeviceV2",
+          "traits": {
+            "smithy.api#documentation": "<p>The Direct Connect endpoint on which the BGP peer terminates.</p>"
+          }
+        },
         "bgpStatus": {
           "target": "com.amazonaws.directconnect#BGPStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the BGP peer. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>up</code>: The BGP peer is established. This state does not indicate the \n        state of the routing function. Ensure that you are receiving routes over the BGP session.</p>\n            </li>\n            <li>\n               <p>\n                  <code>down</code>: The BGP peer is down.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unknown</code>: The BGP peer status is not available.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "customerAddress": {
-          "target": "com.amazonaws.directconnect#CustomerAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
           }
         }
       },
@@ -641,6 +641,12 @@
     },
     "com.amazonaws.directconnect#BGPPeerId": {
       "type": "string"
+    },
+    "com.amazonaws.directconnect#BGPPeerIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.directconnect#BGPPeerId"
+      }
     },
     "com.amazonaws.directconnect#BGPPeerList": {
       "type": "list",
@@ -769,12 +775,6 @@
     "com.amazonaws.directconnect#ConfirmPrivateVirtualInterfaceRequest": {
       "type": "structure",
       "members": {
-        "directConnectGatewayId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
-          }
-        },
         "virtualGatewayId": {
           "target": "com.amazonaws.directconnect#VirtualGatewayId",
           "traits": {
@@ -786,6 +786,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the virtual interface.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "directConnectGatewayId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
           }
         }
       }
@@ -867,17 +873,17 @@
     "com.amazonaws.directconnect#ConfirmTransitVirtualInterfaceRequest": {
       "type": "structure",
       "members": {
-        "directConnectGatewayId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "virtualInterfaceId": {
           "target": "com.amazonaws.directconnect#VirtualInterfaceId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the virtual interface.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "directConnectGatewayId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>",
             "smithy.api#required": {}
           }
         }
@@ -897,10 +903,10 @@
     "com.amazonaws.directconnect#Connection": {
       "type": "structure",
       "members": {
-        "awsDevice": {
-          "target": "com.amazonaws.directconnect#AwsDevice",
+        "jumboFrameCapable": {
+          "target": "com.amazonaws.directconnect#JumboFrameCapable",
           "traits": {
-            "smithy.api#documentation": "<p>The Direct Connect endpoint on which the physical connection terminates.</p>"
+            "smithy.api#documentation": "<p>Indicates whether jumbo frames (9001 MTU) are supported.</p>"
           }
         },
         "awsDeviceV2": {
@@ -909,16 +915,10 @@
             "smithy.api#documentation": "<p>The Direct Connect endpoint on which the physical connection terminates.</p>"
           }
         },
-        "bandwidth": {
-          "target": "com.amazonaws.directconnect#Bandwidth",
+        "vlan": {
+          "target": "com.amazonaws.directconnect#VLAN",
           "traits": {
-            "smithy.api#documentation": "<p>The bandwidth of the connection.</p>"
-          }
-        },
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the connection.</p>"
+            "smithy.api#documentation": "<p>The ID of the VLAN.</p>"
           }
         },
         "connectionName": {
@@ -927,22 +927,10 @@
             "smithy.api#documentation": "<p>The name of the connection.</p>"
           }
         },
-        "connectionState": {
-          "target": "com.amazonaws.directconnect#ConnectionState",
+        "region": {
+          "target": "com.amazonaws.directconnect#Region",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the connection. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.</p>\n            </li>\n            <li>\n               <p>\n                  <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending</code>: The connection has been approved and is being initialized.</p>\n            </li>\n            <li>\n               <p>\n                  <code>available</code>: The network link is up and the connection is ready for use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>down</code>: The network link is down.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleting</code>: The connection is being deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted</code>: The connection has been deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code> state if it is deleted by the customer.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unknown</code>: The state of the connection is not available.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "hasLogicalRedundancy": {
-          "target": "com.amazonaws.directconnect#HasLogicalRedundancy",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>"
-          }
-        },
-        "jumboFrameCapable": {
-          "target": "com.amazonaws.directconnect#JumboFrameCapable",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether jumbo frames (9001 MTU) are supported.</p>"
+            "smithy.api#documentation": "<p>The AWS Region where the connection is located.</p>"
           }
         },
         "lagId": {
@@ -951,40 +939,10 @@
             "smithy.api#documentation": "<p>The ID of the LAG.</p>"
           }
         },
-        "loaIssueTime": {
-          "target": "com.amazonaws.directconnect#LoaIssueTime",
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
           "traits": {
-            "smithy.api#documentation": "<p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>"
-          }
-        },
-        "location": {
-          "target": "com.amazonaws.directconnect#LocationCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The location of the connection.</p>"
-          }
-        },
-        "ownerAccount": {
-          "target": "com.amazonaws.directconnect#OwnerAccount",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account that owns the connection.</p>"
-          }
-        },
-        "partnerName": {
-          "target": "com.amazonaws.directconnect#PartnerName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the AWS Direct Connect service provider associated with the connection.</p>"
-          }
-        },
-        "providerName": {
-          "target": "com.amazonaws.directconnect#ProviderName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the service provider associated with the connection.</p>"
-          }
-        },
-        "region": {
-          "target": "com.amazonaws.directconnect#Region",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Region where the connection is located.</p>"
+            "smithy.api#documentation": "<p>The ID of the connection.</p>"
           }
         },
         "tags": {
@@ -993,10 +951,58 @@
             "smithy.api#documentation": "<p>The tags associated with the connection.</p>"
           }
         },
-        "vlan": {
-          "target": "com.amazonaws.directconnect#VLAN",
+        "ownerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the VLAN.</p>"
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the connection.</p>"
+          }
+        },
+        "connectionState": {
+          "target": "com.amazonaws.directconnect#ConnectionState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the connection. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.</p>\n            </li>\n            <li>\n               <p>\n                  <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending</code>: The connection has been approved and is being initialized.</p>\n            </li>\n            <li>\n               <p>\n                  <code>available</code>: The network link is up and the connection is ready for use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>down</code>: The network link is down.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleting</code>: The connection is being deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted</code>: The connection has been deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code> state if it is deleted by the customer.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unknown</code>: The state of the connection is not available.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "awsDevice": {
+          "target": "com.amazonaws.directconnect#AwsDevice",
+          "traits": {
+            "smithy.api#documentation": "<p>The Direct Connect endpoint on which the physical connection terminates.</p>"
+          }
+        },
+        "partnerName": {
+          "target": "com.amazonaws.directconnect#PartnerName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the AWS Direct Connect service provider associated with the connection.</p>"
+          }
+        },
+        "loaIssueTime": {
+          "target": "com.amazonaws.directconnect#LoaIssueTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>"
+          }
+        },
+        "hasLogicalRedundancy": {
+          "target": "com.amazonaws.directconnect#HasLogicalRedundancy",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>"
+          }
+        },
+        "providerName": {
+          "target": "com.amazonaws.directconnect#ProviderName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the service provider associated with the connection.</p>"
+          }
+        },
+        "bandwidth": {
+          "target": "com.amazonaws.directconnect#Bandwidth",
+          "traits": {
+            "smithy.api#documentation": "<p>The bandwidth of the connection.</p>"
+          }
+        },
+        "location": {
+          "target": "com.amazonaws.directconnect#LocationCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The location of the connection.</p>"
           }
         }
       },
@@ -1141,11 +1147,30 @@
     "com.amazonaws.directconnect#CreateConnectionRequest": {
       "type": "structure",
       "members": {
+        "providerName": {
+          "target": "com.amazonaws.directconnect#ProviderName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the service provider associated with the requested connection.</p>"
+          }
+        },
         "bandwidth": {
           "target": "com.amazonaws.directconnect#Bandwidth",
           "traits": {
             "smithy.api#documentation": "<p>The bandwidth of the connection.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "location": {
+          "target": "com.amazonaws.directconnect#LocationCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The location of the connection.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.directconnect#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to associate with the lag.</p>"
           }
         },
         "connectionName": {
@@ -1159,25 +1184,6 @@
           "target": "com.amazonaws.directconnect#LagId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the LAG.</p>"
-          }
-        },
-        "location": {
-          "target": "com.amazonaws.directconnect#LocationCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The location of the connection.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "providerName": {
-          "target": "com.amazonaws.directconnect#ProviderName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the service provider associated with the requested connection.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.directconnect#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to associate with the lag.</p>"
           }
         }
       }
@@ -1239,16 +1245,17 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>\n         <p>You can only associate a Direct Connect gateway and virtual private gateway or transit gateway when the account that owns the Direct Connect gateway  and the account that owns the virtual private gateway or transit gateway have the same AWS Payer ID.</p>"
+        "smithy.api#documentation": "<p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>\n         <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any AWS account. </p>"
       }
     },
     "com.amazonaws.directconnect#CreateDirectConnectGatewayAssociationProposalRequest": {
       "type": "structure",
       "members": {
-        "addAllowedPrefixesToDirectConnectGateway": {
-          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
+        "gatewayId": {
+          "target": "com.amazonaws.directconnect#GatewayIdToAssociate",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>"
+            "smithy.api#documentation": "<p>The ID of the virtual private gateway or transit gateway.</p>",
+            "smithy.api#required": {}
           }
         },
         "directConnectGatewayId": {
@@ -1258,24 +1265,23 @@
             "smithy.api#required": {}
           }
         },
-        "directConnectGatewayOwnerAccount": {
-          "target": "com.amazonaws.directconnect#OwnerAccount",
+        "addAllowedPrefixesToDirectConnectGateway": {
+          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account that owns the Direct Connect gateway.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "gatewayId": {
-          "target": "com.amazonaws.directconnect#GatewayIdToAssociate",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual private gateway or transit gateway.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>"
           }
         },
         "removeAllowedPrefixesToDirectConnectGateway": {
           "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>"
+          }
+        },
+        "directConnectGatewayOwnerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the Direct Connect gateway.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -1294,10 +1300,16 @@
     "com.amazonaws.directconnect#CreateDirectConnectGatewayAssociationRequest": {
       "type": "structure",
       "members": {
-        "addAllowedPrefixesToDirectConnectGateway": {
-          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
+        "virtualGatewayId": {
+          "target": "com.amazonaws.directconnect#VirtualGatewayId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p>\n         <p>This parameter is required when you create an association to a transit gateway.</p>\n         <p>For information about how to set the prefixes, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes\">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The ID of the virtual private gateway.</p>"
+          }
+        },
+        "gatewayId": {
+          "target": "com.amazonaws.directconnect#GatewayIdToAssociate",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual private gateway or transit gateway.</p>"
           }
         },
         "directConnectGatewayId": {
@@ -1307,16 +1319,10 @@
             "smithy.api#required": {}
           }
         },
-        "gatewayId": {
-          "target": "com.amazonaws.directconnect#GatewayIdToAssociate",
+        "addAllowedPrefixesToDirectConnectGateway": {
+          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual private gateway or transit gateway.</p>"
-          }
-        },
-        "virtualGatewayId": {
-          "target": "com.amazonaws.directconnect#VirtualGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual private gateway.</p>"
+            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p>\n         <p>This parameter is required when you create an association to a transit gateway.</p>\n         <p>For information about how to set the prefixes, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes\">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>"
           }
         }
       }
@@ -1390,11 +1396,23 @@
     "com.amazonaws.directconnect#CreateInterconnectRequest": {
       "type": "structure",
       "members": {
+        "lagId": {
+          "target": "com.amazonaws.directconnect#LagId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the LAG.</p>"
+          }
+        },
         "bandwidth": {
           "target": "com.amazonaws.directconnect#Bandwidth",
           "traits": {
             "smithy.api#documentation": "<p>The port bandwidth, in Gbps. The possible values are 1 and 10.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "providerName": {
+          "target": "com.amazonaws.directconnect#ProviderName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the service provider associated with the interconnect.</p>"
           }
         },
         "interconnectName": {
@@ -1404,23 +1422,11 @@
             "smithy.api#required": {}
           }
         },
-        "lagId": {
-          "target": "com.amazonaws.directconnect#LagId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the LAG.</p>"
-          }
-        },
         "location": {
           "target": "com.amazonaws.directconnect#LocationCode",
           "traits": {
             "smithy.api#documentation": "<p>The location of the interconnect.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "providerName": {
-          "target": "com.amazonaws.directconnect#ProviderName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the service provider associated with the interconnect.</p>"
           }
         },
         "tags": {
@@ -1460,16 +1466,42 @@
     "com.amazonaws.directconnect#CreateLagRequest": {
       "type": "structure",
       "members": {
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of an existing connection to migrate to the LAG.</p>"
+          }
+        },
+        "providerName": {
+          "target": "com.amazonaws.directconnect#ProviderName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the service provider associated with the LAG.</p>"
+          }
+        },
+        "numberOfConnections": {
+          "target": "com.amazonaws.directconnect#Count",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of physical connections initially provisioned and bundled by the LAG.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.directconnect#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to associate with the LAG.</p>"
+          }
+        },
         "childConnectionTags": {
           "target": "com.amazonaws.directconnect#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to associate with the automtically created LAGs.</p>"
           }
         },
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
+        "location": {
+          "target": "com.amazonaws.directconnect#LocationCode",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of an existing connection to migrate to the LAG.</p>"
+            "smithy.api#documentation": "<p>The location for the LAG.</p>",
+            "smithy.api#required": {}
           }
         },
         "connectionsBandwidth": {
@@ -1484,32 +1516,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the LAG.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "location": {
-          "target": "com.amazonaws.directconnect#LocationCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The location for the LAG.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "numberOfConnections": {
-          "target": "com.amazonaws.directconnect#Count",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of physical connections initially provisioned and bundled by the LAG.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "providerName": {
-          "target": "com.amazonaws.directconnect#ProviderName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the service provider associated with the LAG.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.directconnect#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to associate with the LAG.</p>"
           }
         }
       }
@@ -1537,7 +1543,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a private virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic.\n      A private virtual interface can be connected to either a Direct Connect gateway or a Virtual Private Gateway (VGW).\n      Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple \n      VPCs, including VPCs in different AWS Regions. Connecting the private virtual interface to a VGW only \n      provides access to a single VPC within the same Region.</p>"
+        "smithy.api#documentation": "<p>Creates a private virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic.\n      A private virtual interface can be connected to either a Direct Connect gateway or a Virtual Private Gateway (VGW).\n      Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple \n      VPCs, including VPCs in different AWS Regions. Connecting the private virtual interface to a VGW only \n      provides access to a single VPC within the same Region.</p>\n         <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to\n      the underlying physical connection if it wasn't updated to support jumbo frames. Updating \n      the connection disrupts network connectivity for all virtual interfaces associated with \n      the connection for up to 30 seconds. To check whether your connection supports jumbo \n      frames, call <a>DescribeConnections</a>. To check whether your virtual \n      interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>"
       }
     },
     "com.amazonaws.directconnect#CreatePrivateVirtualInterfaceRequest": {
@@ -1627,23 +1633,23 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.</p>\n         <important>\n            <p>If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.</p>\n         </important>"
+        "smithy.api#documentation": "<p>Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.</p>\n         <important>\n            <p>If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.</p>\n         </important>\n         <p>Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to\n      the underlying physical connection if it wasn't updated to support jumbo frames. Updating \n      the connection disrupts network connectivity for all virtual interfaces associated with \n      the connection for up to 30 seconds. To check whether your connection supports jumbo \n      frames, call <a>DescribeConnections</a>. To check whether your virtual \n      interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>"
       }
     },
     "com.amazonaws.directconnect#CreateTransitVirtualInterfaceRequest": {
       "type": "structure",
       "members": {
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the connection.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "newTransitVirtualInterface": {
           "target": "com.amazonaws.directconnect#NewTransitVirtualInterface",
           "traits": {
             "smithy.api#documentation": "<p>Information about the transit virtual interface.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the connection.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1683,28 +1689,28 @@
     "com.amazonaws.directconnect#DeleteBGPPeerRequest": {
       "type": "structure",
       "members": {
-        "asn": {
-          "target": "com.amazonaws.directconnect#ASN",
-          "traits": {
-            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>"
-          }
-        },
-        "bgpPeerId": {
-          "target": "com.amazonaws.directconnect#BGPPeerId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the BGP peer.</p>"
-          }
-        },
         "customerAddress": {
           "target": "com.amazonaws.directconnect#CustomerAddress",
           "traits": {
             "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
           }
         },
+        "asn": {
+          "target": "com.amazonaws.directconnect#ASN",
+          "traits": {
+            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>"
+          }
+        },
         "virtualInterfaceId": {
           "target": "com.amazonaws.directconnect#VirtualInterfaceId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the virtual interface.</p>"
+          }
+        },
+        "bgpPeerId": {
+          "target": "com.amazonaws.directconnect#BGPPeerId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the BGP peer.</p>"
           }
         }
       }
@@ -1838,10 +1844,10 @@
     "com.amazonaws.directconnect#DeleteDirectConnectGatewayAssociationRequest": {
       "type": "structure",
       "members": {
-        "associationId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationId",
+        "virtualGatewayId": {
+          "target": "com.amazonaws.directconnect#VirtualGatewayId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway association.</p>"
+            "smithy.api#documentation": "<p>The ID of the virtual private gateway.</p>"
           }
         },
         "directConnectGatewayId": {
@@ -1850,10 +1856,10 @@
             "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
           }
         },
-        "virtualGatewayId": {
-          "target": "com.amazonaws.directconnect#VirtualGatewayId",
+        "associationId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual private gateway.</p>"
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway association.</p>"
           }
         }
       }
@@ -2034,11 +2040,10 @@
     "com.amazonaws.directconnect#DescribeConnectionLoaRequest": {
       "type": "structure",
       "members": {
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
+        "providerName": {
+          "target": "com.amazonaws.directconnect#ProviderName",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the connection.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter, \n      the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>"
           }
         },
         "loaContentType": {
@@ -2047,10 +2052,11 @@
             "smithy.api#documentation": "<p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>"
           }
         },
-        "providerName": {
-          "target": "com.amazonaws.directconnect#ProviderName",
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter, \n      the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>"
+            "smithy.api#documentation": "<p>The ID of the connection.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -2153,16 +2159,16 @@
     "com.amazonaws.directconnect#DescribeDirectConnectGatewayAssociationProposalsRequest": {
       "type": "structure",
       "members": {
-        "associatedGatewayId": {
-          "target": "com.amazonaws.directconnect#AssociatedGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the associated gateway.</p>"
-          }
-        },
         "directConnectGatewayId": {
           "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
+          }
+        },
+        "proposalId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationProposalId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the proposal.</p>"
           }
         },
         "maxResults": {
@@ -2177,10 +2183,10 @@
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
-        "proposalId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationProposalId",
+        "associatedGatewayId": {
+          "target": "com.amazonaws.directconnect#AssociatedGatewayId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the proposal.</p>"
+            "smithy.api#documentation": "<p>The ID of the associated gateway.</p>"
           }
         }
       }
@@ -2188,16 +2194,16 @@
     "com.amazonaws.directconnect#DescribeDirectConnectGatewayAssociationProposalsResult": {
       "type": "structure",
       "members": {
-        "directConnectGatewayAssociationProposals": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationProposalList",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the Direct Connect gateway association proposals.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.directconnect#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
+          }
+        },
+        "directConnectGatewayAssociationProposals": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationProposalList",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the Direct Connect gateway association proposals.</p>"
           }
         }
       }
@@ -2225,16 +2231,16 @@
     "com.amazonaws.directconnect#DescribeDirectConnectGatewayAssociationsRequest": {
       "type": "structure",
       "members": {
-        "associatedGatewayId": {
-          "target": "com.amazonaws.directconnect#AssociatedGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the associated gateway.</p>"
-          }
-        },
         "associationId": {
           "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the Direct Connect gateway association.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.directconnect#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token provided in the previous call to retrieve the next page.</p>"
           }
         },
         "directConnectGatewayId": {
@@ -2243,16 +2249,16 @@
             "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
           }
         },
+        "associatedGatewayId": {
+          "target": "com.amazonaws.directconnect#AssociatedGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the associated gateway.</p>"
+          }
+        },
         "maxResults": {
           "target": "com.amazonaws.directconnect#MaxResultSetSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n\tTo retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>\n\t        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are\n      returned.</p>"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.directconnect#PaginationToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token provided in the previous call to retrieve the next page.</p>"
           }
         },
         "virtualGatewayId": {
@@ -2266,16 +2272,16 @@
     "com.amazonaws.directconnect#DescribeDirectConnectGatewayAssociationsResult": {
       "type": "structure",
       "members": {
-        "directConnectGatewayAssociations": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationList",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the associations.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.directconnect#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to retrieve the next page.</p>"
+          }
+        },
+        "directConnectGatewayAssociations": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the associations.</p>"
           }
         }
       }
@@ -2332,16 +2338,16 @@
     "com.amazonaws.directconnect#DescribeDirectConnectGatewayAttachmentsResult": {
       "type": "structure",
       "members": {
-        "directConnectGatewayAttachments": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayAttachmentList",
-          "traits": {
-            "smithy.api#documentation": "<p>The attachments.</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.directconnect#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to retrieve the next page.</p>"
+          }
+        },
+        "directConnectGatewayAttachments": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayAttachmentList",
+          "traits": {
+            "smithy.api#documentation": "<p>The attachments.</p>"
           }
         }
       }
@@ -2469,16 +2475,16 @@
             "smithy.api#required": {}
           }
         },
-        "loaContentType": {
-          "target": "com.amazonaws.directconnect#LoaContentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>"
-          }
-        },
         "providerName": {
           "target": "com.amazonaws.directconnect#ProviderName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>"
+          }
+        },
+        "loaContentType": {
+          "target": "com.amazonaws.directconnect#LoaContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>"
           }
         }
       }
@@ -2586,16 +2592,16 @@
             "smithy.api#required": {}
           }
         },
-        "loaContentType": {
-          "target": "com.amazonaws.directconnect#LoaContentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>"
-          }
-        },
         "providerName": {
           "target": "com.amazonaws.directconnect#ProviderName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the \n      LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>"
+          }
+        },
+        "loaContentType": {
+          "target": "com.amazonaws.directconnect#LoaContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>"
           }
         }
       }
@@ -2700,16 +2706,16 @@
     "com.amazonaws.directconnect#DescribeVirtualInterfacesRequest": {
       "type": "structure",
       "members": {
-        "connectionId": {
-          "target": "com.amazonaws.directconnect#ConnectionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the connection.</p>"
-          }
-        },
         "virtualInterfaceId": {
           "target": "com.amazonaws.directconnect#VirtualInterfaceId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the virtual interface.</p>"
+          }
+        },
+        "connectionId": {
+          "target": "com.amazonaws.directconnect#ConnectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the connection.</p>"
           }
         }
       }
@@ -2729,16 +2735,10 @@
     "com.amazonaws.directconnect#DirectConnectGateway": {
       "type": "structure",
       "members": {
-        "amazonSideAsn": {
-          "target": "com.amazonaws.directconnect#LongAsn",
+        "stateChangeError": {
+          "target": "com.amazonaws.directconnect#StateChangeError",
           "traits": {
-            "smithy.api#documentation": "<p>The autonomous system number (ASN) for the Amazon side of the connection.</p>"
-          }
-        },
-        "directConnectGatewayId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
+            "smithy.api#documentation": "<p>The error message if the state of an object failed to advance.</p>"
           }
         },
         "directConnectGatewayName": {
@@ -2753,16 +2753,22 @@
             "smithy.api#documentation": "<p>The state of the Direct Connect gateway. The following are the possible values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>available</code>: The Direct Connect gateway is ready for use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.</p>\n            </li>\n         </ul>"
           }
         },
+        "amazonSideAsn": {
+          "target": "com.amazonaws.directconnect#LongAsn",
+          "traits": {
+            "smithy.api#documentation": "<p>The autonomous system number (ASN) for the Amazon side of the connection.</p>"
+          }
+        },
         "ownerAccount": {
           "target": "com.amazonaws.directconnect#OwnerAccount",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS account that owns the Direct Connect gateway.</p>"
           }
         },
-        "stateChangeError": {
-          "target": "com.amazonaws.directconnect#StateChangeError",
+        "directConnectGatewayId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
           "traits": {
-            "smithy.api#documentation": "<p>The error message if the state of an object failed to advance.</p>"
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
           }
         }
       },
@@ -2773,52 +2779,16 @@
     "com.amazonaws.directconnect#DirectConnectGatewayAssociation": {
       "type": "structure",
       "members": {
-        "allowedPrefixesToDirectConnectGateway": {
-          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>"
-          }
-        },
-        "associatedGateway": {
-          "target": "com.amazonaws.directconnect#AssociatedGateway",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the associated gateway.</p>"
-          }
-        },
-        "associationId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway association.</p>"
-          }
-        },
         "associationState": {
           "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the association. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>associated</code>: The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic.</p>\n            </li>\n            <li>\n               <p>\n                  <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>disassociated</code>: The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.</p>\n            </li>\n         </ul>"
           }
         },
-        "directConnectGatewayId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
-          }
-        },
-        "directConnectGatewayOwnerAccount": {
-          "target": "com.amazonaws.directconnect#OwnerAccount",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account that owns the associated gateway.</p>"
-          }
-        },
         "stateChangeError": {
           "target": "com.amazonaws.directconnect#StateChangeError",
           "traits": {
             "smithy.api#documentation": "<p>The error message if the state of an object failed to advance.</p>"
-          }
-        },
-        "virtualGatewayId": {
-          "target": "com.amazonaws.directconnect#VirtualGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>"
           }
         },
         "virtualGatewayOwnerAccount": {
@@ -2831,6 +2801,42 @@
           "target": "com.amazonaws.directconnect#VirtualGatewayRegion",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Region where the virtual private gateway is located.</p>"
+          }
+        },
+        "allowedPrefixesToDirectConnectGateway": {
+          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>"
+          }
+        },
+        "virtualGatewayId": {
+          "target": "com.amazonaws.directconnect#VirtualGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>"
+          }
+        },
+        "associatedGateway": {
+          "target": "com.amazonaws.directconnect#AssociatedGateway",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the associated gateway.</p>"
+          }
+        },
+        "directConnectGatewayOwnerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the associated gateway.</p>"
+          }
+        },
+        "directConnectGatewayId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
+          }
+        },
+        "associationId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway association.</p>"
           }
         }
       },
@@ -2850,22 +2856,16 @@
     "com.amazonaws.directconnect#DirectConnectGatewayAssociationProposal": {
       "type": "structure",
       "members": {
-        "associatedGateway": {
-          "target": "com.amazonaws.directconnect#AssociatedGateway",
+        "proposalState": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationProposalState",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the associated gateway.</p>"
+            "smithy.api#documentation": "<p>The state of the proposal. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>accepted</code>: The proposal has been accepted. The Direct Connect gateway association is available to use in this state.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted</code>: The proposal has been deleted by the owner that made the proposal.  The Direct Connect gateway association cannot be used in this state.</p>\n            </li>\n            <li>\n               <p>\n                  <code>requested</code>: The proposal has been requested. The Direct Connect gateway association cannot be used in this state.</p>\n            </li>\n         </ul>"
           }
         },
-        "directConnectGatewayId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
+        "requestedAllowedPrefixesToDirectConnectGateway": {
+          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
-          }
-        },
-        "directConnectGatewayOwnerAccount": {
-          "target": "com.amazonaws.directconnect#OwnerAccount",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account that owns the Direct Connect gateway.</p>"
+            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>"
           }
         },
         "existingAllowedPrefixesToDirectConnectGateway": {
@@ -2880,16 +2880,22 @@
             "smithy.api#documentation": "<p>The ID of the association proposal.</p>"
           }
         },
-        "proposalState": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayAssociationProposalState",
+        "directConnectGatewayId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the proposal. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>accepted</code>: The proposal has been accepted. The Direct Connect gateway association is available to use in this state.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted</code>: The proposal has been deleted by the owner that made the proposal.  The Direct Connect gateway association cannot be used in this state.</p>\n            </li>\n            <li>\n               <p>\n                  <code>requested</code>: The proposal has been requested. The Direct Connect gateway association cannot be used in this state.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
           }
         },
-        "requestedAllowedPrefixesToDirectConnectGateway": {
-          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
+        "associatedGateway": {
+          "target": "com.amazonaws.directconnect#AssociatedGateway",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>"
+            "smithy.api#documentation": "<p>Information about the associated gateway.</p>"
+          }
+        },
+        "directConnectGatewayOwnerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the Direct Connect gateway.</p>"
           }
         }
       },
@@ -2947,34 +2953,10 @@
     "com.amazonaws.directconnect#DirectConnectGatewayAttachment": {
       "type": "structure",
       "members": {
-        "attachmentState": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayAttachmentState",
-          "traits": {
-            "smithy.api#documentation": "<p>The state of the attachment. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>attaching</code>: The initial state after a virtual interface is created using the Direct Connect gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attached</code>: The Direct Connect gateway and virtual interface are attached and ready to pass traffic.</p>\n            </li>\n            <li>\n               <p>\n                  <code>detaching</code>: The initial state after calling <a>DeleteVirtualInterface</a>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>detached</code>: The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.</p>\n            </li>\n         </ul>"
-          }
-        },
-        "attachmentType": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayAttachmentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of attachment.</p>"
-          }
-        },
-        "directConnectGatewayId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
-          }
-        },
         "stateChangeError": {
           "target": "com.amazonaws.directconnect#StateChangeError",
           "traits": {
             "smithy.api#documentation": "<p>The error message if the state of an object failed to advance.</p>"
-          }
-        },
-        "virtualInterfaceId": {
-          "target": "com.amazonaws.directconnect#VirtualInterfaceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual interface.</p>"
           }
         },
         "virtualInterfaceOwnerAccount": {
@@ -2983,10 +2965,34 @@
             "smithy.api#documentation": "<p>The ID of the AWS account that owns the virtual interface.</p>"
           }
         },
+        "directConnectGatewayId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
+          }
+        },
+        "virtualInterfaceId": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual interface.</p>"
+          }
+        },
+        "attachmentState": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayAttachmentState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the attachment. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>attaching</code>: The initial state after a virtual interface is created using the Direct Connect gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>attached</code>: The Direct Connect gateway and virtual interface are attached and ready to pass traffic.</p>\n            </li>\n            <li>\n               <p>\n                  <code>detaching</code>: The initial state after calling <a>DeleteVirtualInterface</a>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>detached</code>: The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.</p>\n            </li>\n         </ul>"
+          }
+        },
         "virtualInterfaceRegion": {
           "target": "com.amazonaws.directconnect#VirtualInterfaceRegion",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Region where the virtual interface is located.</p>"
+          }
+        },
+        "attachmentType": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayAttachmentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of attachment.</p>"
           }
         }
       },
@@ -3126,7 +3132,13 @@
         "smithy.api#error": "client"
       }
     },
+    "com.amazonaws.directconnect#EndTime": {
+      "type": "timestamp"
+    },
     "com.amazonaws.directconnect#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.directconnect#FailureTestHistoryStatus": {
       "type": "string"
     },
     "com.amazonaws.directconnect#GatewayIdToAssociate": {
@@ -3172,16 +3184,10 @@
     "com.amazonaws.directconnect#Interconnect": {
       "type": "structure",
       "members": {
-        "awsDevice": {
-          "target": "com.amazonaws.directconnect#AwsDevice",
+        "interconnectId": {
+          "target": "com.amazonaws.directconnect#InterconnectId",
           "traits": {
-            "smithy.api#documentation": "<p>The Direct Connect endpoint on which the physical connection terminates.</p>"
-          }
-        },
-        "awsDeviceV2": {
-          "target": "com.amazonaws.directconnect#AwsDeviceV2",
-          "traits": {
-            "smithy.api#documentation": "<p>The Direct Connect endpoint on which the physical connection terminates.</p>"
+            "smithy.api#documentation": "<p>The ID of the interconnect.</p>"
           }
         },
         "bandwidth": {
@@ -3196,16 +3202,10 @@
             "smithy.api#documentation": "<p>Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).</p>"
           }
         },
-        "interconnectId": {
-          "target": "com.amazonaws.directconnect#InterconnectId",
+        "providerName": {
+          "target": "com.amazonaws.directconnect#ProviderName",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the interconnect.</p>"
-          }
-        },
-        "interconnectName": {
-          "target": "com.amazonaws.directconnect#InterconnectName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the interconnect.</p>"
+            "smithy.api#documentation": "<p>The name of the service provider associated with the interconnect.</p>"
           }
         },
         "interconnectState": {
@@ -3214,16 +3214,16 @@
             "smithy.api#documentation": "<p>The state of the interconnect. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>requested</code>: The initial state of an interconnect. The interconnect stays in the\n        requested state until the Letter of Authorization (LOA) is sent to the customer.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending</code>: The interconnect is approved, and is being initialized.</p>\n            </li>\n            <li>\n               <p>\n                  <code>available</code>: The network link is up, and the interconnect is ready for use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>down</code>: The network link is down.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleting</code>: The interconnect is being deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted</code>: The interconnect is deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unknown</code>: The state of the interconnect is not available.</p>\n            </li>\n         </ul>"
           }
         },
+        "tags": {
+          "target": "com.amazonaws.directconnect#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the interconnect.</p>"
+          }
+        },
         "jumboFrameCapable": {
           "target": "com.amazonaws.directconnect#JumboFrameCapable",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether jumbo frames (9001 MTU) are supported.</p>"
-          }
-        },
-        "lagId": {
-          "target": "com.amazonaws.directconnect#LagId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the LAG.</p>"
           }
         },
         "loaIssueTime": {
@@ -3232,16 +3232,16 @@
             "smithy.api#documentation": "<p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>"
           }
         },
-        "location": {
-          "target": "com.amazonaws.directconnect#LocationCode",
+        "lagId": {
+          "target": "com.amazonaws.directconnect#LagId",
           "traits": {
-            "smithy.api#documentation": "<p>The location of the connection.</p>"
+            "smithy.api#documentation": "<p>The ID of the LAG.</p>"
           }
         },
-        "providerName": {
-          "target": "com.amazonaws.directconnect#ProviderName",
+        "awsDevice": {
+          "target": "com.amazonaws.directconnect#AwsDevice",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the service provider associated with the interconnect.</p>"
+            "smithy.api#documentation": "<p>The Direct Connect endpoint on which the physical connection terminates.</p>"
           }
         },
         "region": {
@@ -3250,10 +3250,22 @@
             "smithy.api#documentation": "<p>The AWS Region where the connection is located.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.directconnect#TagList",
+        "awsDeviceV2": {
+          "target": "com.amazonaws.directconnect#AwsDeviceV2",
           "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the interconnect.</p>"
+            "smithy.api#documentation": "<p>The Direct Connect endpoint on which the physical connection terminates.</p>"
+          }
+        },
+        "location": {
+          "target": "com.amazonaws.directconnect#LocationCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The location of the connection.</p>"
+          }
+        },
+        "interconnectName": {
+          "target": "com.amazonaws.directconnect#InterconnectName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the interconnect.</p>"
           }
         }
       },
@@ -3321,34 +3333,10 @@
     "com.amazonaws.directconnect#Lag": {
       "type": "structure",
       "members": {
-        "allowsHostedConnections": {
-          "target": "com.amazonaws.directconnect#BooleanFlag",
+        "providerName": {
+          "target": "com.amazonaws.directconnect#ProviderName",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the LAG can host other connections.</p>"
-          }
-        },
-        "awsDevice": {
-          "target": "com.amazonaws.directconnect#AwsDevice",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Direct Connect endpoint that hosts the LAG.</p>"
-          }
-        },
-        "awsDeviceV2": {
-          "target": "com.amazonaws.directconnect#AwsDeviceV2",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Direct Connect endpoint that hosts the LAG.</p>"
-          }
-        },
-        "connections": {
-          "target": "com.amazonaws.directconnect#ConnectionList",
-          "traits": {
-            "smithy.api#documentation": "<p>The connections bundled by the LAG.</p>"
-          }
-        },
-        "connectionsBandwidth": {
-          "target": "com.amazonaws.directconnect#Bandwidth",
-          "traits": {
-            "smithy.api#documentation": "<p>The individual bandwidth of the physical connections bundled by the LAG. The possible\n      values are 1Gbps and 10Gbps. </p>"
+            "smithy.api#documentation": "<p>The name of the service provider associated with the LAG.</p>"
           }
         },
         "hasLogicalRedundancy": {
@@ -3357,10 +3345,16 @@
             "smithy.api#documentation": "<p>Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>"
           }
         },
-        "jumboFrameCapable": {
-          "target": "com.amazonaws.directconnect#JumboFrameCapable",
+        "awsDeviceV2": {
+          "target": "com.amazonaws.directconnect#AwsDeviceV2",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether jumbo frames (9001 MTU) are supported.</p>"
+            "smithy.api#documentation": "<p>The AWS Direct Connect endpoint that hosts the LAG.</p>"
+          }
+        },
+        "awsDevice": {
+          "target": "com.amazonaws.directconnect#AwsDevice",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Direct Connect endpoint that hosts the LAG.</p>"
           }
         },
         "lagId": {
@@ -3369,16 +3363,34 @@
             "smithy.api#documentation": "<p>The ID of the LAG.</p>"
           }
         },
-        "lagName": {
-          "target": "com.amazonaws.directconnect#LagName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the LAG.</p>"
-          }
-        },
         "lagState": {
           "target": "com.amazonaws.directconnect#LagState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the LAG. The following are the possible values:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>requested</code>: The initial state of a LAG. The LAG stays in the\n                requested state until the Letter of Authorization (LOA) is available.</p>\n            </li>\n            <li>\n               <p>\n                  <code>pending</code>: The LAG has been approved and is being initialized.</p>\n            </li>\n            <li>\n               <p>\n                  <code>available</code>: The network link is established and the LAG is ready for use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>down</code>: The network link is down.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleting</code>: The LAG is being deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted</code>: The LAG is deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>unknown</code>: The state of the LAG is not available.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "jumboFrameCapable": {
+          "target": "com.amazonaws.directconnect#JumboFrameCapable",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether jumbo frames (9001 MTU) are supported.</p>"
+          }
+        },
+        "allowsHostedConnections": {
+          "target": "com.amazonaws.directconnect#BooleanFlag",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the LAG can host other connections.</p>"
+          }
+        },
+        "connectionsBandwidth": {
+          "target": "com.amazonaws.directconnect#Bandwidth",
+          "traits": {
+            "smithy.api#documentation": "<p>The individual bandwidth of the physical connections bundled by the LAG. The possible\n      values are 1Gbps and 10Gbps. </p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.directconnect#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the LAG.</p>"
           }
         },
         "location": {
@@ -3387,10 +3399,10 @@
             "smithy.api#documentation": "<p>The location of the LAG.</p>"
           }
         },
-        "minimumLinks": {
-          "target": "com.amazonaws.directconnect#Count",
+        "lagName": {
+          "target": "com.amazonaws.directconnect#LagName",
           "traits": {
-            "smithy.api#documentation": "<p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>"
+            "smithy.api#documentation": "<p>The name of the LAG.</p>"
           }
         },
         "numberOfConnections": {
@@ -3405,10 +3417,10 @@
             "smithy.api#documentation": "<p>The ID of the AWS account that owns the LAG.</p>"
           }
         },
-        "providerName": {
-          "target": "com.amazonaws.directconnect#ProviderName",
+        "connections": {
+          "target": "com.amazonaws.directconnect#ConnectionList",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the service provider associated with the LAG.</p>"
+            "smithy.api#documentation": "<p>The connections bundled by the LAG.</p>"
           }
         },
         "region": {
@@ -3417,10 +3429,10 @@
             "smithy.api#documentation": "<p>The AWS Region where the connection is located.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.directconnect#TagList",
+        "minimumLinks": {
+          "target": "com.amazonaws.directconnect#Count",
           "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the LAG.</p>"
+            "smithy.api#documentation": "<p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>"
           }
         }
       },
@@ -3479,6 +3491,84 @@
         }
       }
     },
+    "com.amazonaws.directconnect#ListVirtualInterfaceTestHistory": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.directconnect#ListVirtualInterfaceTestHistoryRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.directconnect#ListVirtualInterfaceTestHistoryResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.directconnect#DirectConnectClientException"
+        },
+        {
+          "target": "com.amazonaws.directconnect#DirectConnectServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the virtual interface failover test history.</p>"
+      }
+    },
+    "com.amazonaws.directconnect#ListVirtualInterfaceTestHistoryRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.directconnect#MaxResultSetSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n\tTo retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>\n\t        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are\n      returned.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.directconnect#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "testId": {
+          "target": "com.amazonaws.directconnect#TestId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual interface failover test.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.directconnect#FailureTestHistoryStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the virtual interface failover test.</p>"
+          }
+        },
+        "bgpPeers": {
+          "target": "com.amazonaws.directconnect#BGPPeerIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The BGP peers that were placed in the DOWN state during the virtual interface failover test.</p>"
+          }
+        },
+        "virtualInterfaceId": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual interface that was tested.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.directconnect#ListVirtualInterfaceTestHistoryResponse": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.directconnect#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
+          }
+        },
+        "virtualInterfaceTestHistory": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceTestHistoryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the tested virtual interface.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.directconnect#Loa": {
       "type": "structure",
       "members": {
@@ -3519,22 +3609,16 @@
     "com.amazonaws.directconnect#Location": {
       "type": "structure",
       "members": {
-        "availablePortSpeeds": {
-          "target": "com.amazonaws.directconnect#AvailablePortSpeeds",
-          "traits": {
-            "smithy.api#documentation": "<p>The available port speeds for the location.</p>"
-          }
-        },
         "availableProviders": {
           "target": "com.amazonaws.directconnect#ProviderList",
           "traits": {
             "smithy.api#documentation": "<p>The name of the service provider for the location.</p>"
           }
         },
-        "locationCode": {
-          "target": "com.amazonaws.directconnect#LocationCode",
+        "availablePortSpeeds": {
+          "target": "com.amazonaws.directconnect#AvailablePortSpeeds",
           "traits": {
-            "smithy.api#documentation": "<p>The code for the location.</p>"
+            "smithy.api#documentation": "<p>The available port speeds for the location.</p>"
           }
         },
         "locationName": {
@@ -3547,6 +3631,12 @@
           "target": "com.amazonaws.directconnect#Region",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Region for the location.</p>"
+          }
+        },
+        "locationCode": {
+          "target": "com.amazonaws.directconnect#LocationCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The code for the location.</p>"
           }
         }
       },
@@ -3598,22 +3688,10 @@
     "com.amazonaws.directconnect#NewBGPPeer": {
       "type": "structure",
       "members": {
-        "addressFamily": {
-          "target": "com.amazonaws.directconnect#AddressFamily",
+        "customerAddress": {
+          "target": "com.amazonaws.directconnect#CustomerAddress",
           "traits": {
-            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
-          }
-        },
-        "amazonAddress": {
-          "target": "com.amazonaws.directconnect#AmazonAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
-          }
-        },
-        "asn": {
-          "target": "com.amazonaws.directconnect#ASN",
-          "traits": {
-            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>"
+            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
           }
         },
         "authKey": {
@@ -3622,10 +3700,22 @@
             "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
           }
         },
-        "customerAddress": {
-          "target": "com.amazonaws.directconnect#CustomerAddress",
+        "asn": {
+          "target": "com.amazonaws.directconnect#ASN",
           "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
+            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>"
+          }
+        },
+        "amazonAddress": {
+          "target": "com.amazonaws.directconnect#AmazonAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
+          }
+        },
+        "addressFamily": {
+          "target": "com.amazonaws.directconnect#AddressFamily",
+          "traits": {
+            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
           }
         }
       },
@@ -3636,16 +3726,42 @@
     "com.amazonaws.directconnect#NewPrivateVirtualInterface": {
       "type": "structure",
       "members": {
-        "addressFamily": {
-          "target": "com.amazonaws.directconnect#AddressFamily",
+        "authKey": {
+          "target": "com.amazonaws.directconnect#BGPAuthKey",
           "traits": {
-            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
+            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
           }
         },
-        "amazonAddress": {
-          "target": "com.amazonaws.directconnect#AmazonAddress",
+        "virtualInterfaceName": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
           "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
+            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "virtualGatewayId": {
+          "target": "com.amazonaws.directconnect#VirtualGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual private gateway.</p>"
+          }
+        },
+        "directConnectGatewayId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
+          }
+        },
+        "vlan": {
+          "target": "com.amazonaws.directconnect#VLAN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the VLAN.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "mtu": {
+          "target": "com.amazonaws.directconnect#MTU",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
           }
         },
         "asn": {
@@ -3655,10 +3771,10 @@
             "smithy.api#required": {}
           }
         },
-        "authKey": {
-          "target": "com.amazonaws.directconnect#BGPAuthKey",
+        "addressFamily": {
+          "target": "com.amazonaws.directconnect#AddressFamily",
           "traits": {
-            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
+            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
           }
         },
         "customerAddress": {
@@ -3667,42 +3783,16 @@
             "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
           }
         },
-        "directConnectGatewayId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
-          }
-        },
-        "mtu": {
-          "target": "com.amazonaws.directconnect#MTU",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.directconnect#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags associated with the private virtual interface.</p>"
           }
         },
-        "virtualGatewayId": {
-          "target": "com.amazonaws.directconnect#VirtualGatewayId",
+        "amazonAddress": {
+          "target": "com.amazonaws.directconnect#AmazonAddress",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual private gateway.</p>"
-          }
-        },
-        "virtualInterfaceName": {
-          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "vlan": {
-          "target": "com.amazonaws.directconnect#VLAN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the VLAN.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
           }
         }
       },
@@ -3713,16 +3803,17 @@
     "com.amazonaws.directconnect#NewPrivateVirtualInterfaceAllocation": {
       "type": "structure",
       "members": {
-        "addressFamily": {
-          "target": "com.amazonaws.directconnect#AddressFamily",
+        "mtu": {
+          "target": "com.amazonaws.directconnect#MTU",
           "traits": {
-            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
+            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
           }
         },
-        "amazonAddress": {
-          "target": "com.amazonaws.directconnect#AmazonAddress",
+        "vlan": {
+          "target": "com.amazonaws.directconnect#VLAN",
           "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
+            "smithy.api#documentation": "<p>The ID of the VLAN.</p>",
+            "smithy.api#required": {}
           }
         },
         "asn": {
@@ -3744,30 +3835,29 @@
             "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
           }
         },
-        "mtu": {
-          "target": "com.amazonaws.directconnect#MTU",
+        "addressFamily": {
+          "target": "com.amazonaws.directconnect#AddressFamily",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
+            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
+          }
+        },
+        "virtualInterfaceName": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "amazonAddress": {
+          "target": "com.amazonaws.directconnect#AmazonAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.directconnect#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags associated with the private virtual interface.</p>"
-          }
-        },
-        "virtualInterfaceName": {
-          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "vlan": {
-          "target": "com.amazonaws.directconnect#VLAN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the VLAN.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -3778,35 +3868,11 @@
     "com.amazonaws.directconnect#NewPublicVirtualInterface": {
       "type": "structure",
       "members": {
-        "addressFamily": {
-          "target": "com.amazonaws.directconnect#AddressFamily",
-          "traits": {
-            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
-          }
-        },
-        "amazonAddress": {
-          "target": "com.amazonaws.directconnect#AmazonAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
-          }
-        },
         "asn": {
           "target": "com.amazonaws.directconnect#ASN",
           "traits": {
             "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>\n         <p>The valid values are 1-2147483647.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "authKey": {
-          "target": "com.amazonaws.directconnect#BGPAuthKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
-          }
-        },
-        "customerAddress": {
-          "target": "com.amazonaws.directconnect#CustomerAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
           }
         },
         "routeFilterPrefixes": {
@@ -3815,17 +3881,41 @@
             "smithy.api#documentation": "<p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>"
           }
         },
+        "virtualInterfaceName": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "customerAddress": {
+          "target": "com.amazonaws.directconnect#CustomerAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
+          }
+        },
         "tags": {
           "target": "com.amazonaws.directconnect#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags associated with the public virtual interface.</p>"
           }
         },
-        "virtualInterfaceName": {
-          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
+        "addressFamily": {
+          "target": "com.amazonaws.directconnect#AddressFamily",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
+          }
+        },
+        "authKey": {
+          "target": "com.amazonaws.directconnect#BGPAuthKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
+          }
+        },
+        "amazonAddress": {
+          "target": "com.amazonaws.directconnect#AmazonAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
           }
         },
         "vlan": {
@@ -3843,16 +3933,48 @@
     "com.amazonaws.directconnect#NewPublicVirtualInterfaceAllocation": {
       "type": "structure",
       "members": {
-        "addressFamily": {
-          "target": "com.amazonaws.directconnect#AddressFamily",
+        "routeFilterPrefixes": {
+          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
           "traits": {
-            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
+            "smithy.api#documentation": "<p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>"
+          }
+        },
+        "vlan": {
+          "target": "com.amazonaws.directconnect#VLAN",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the VLAN.</p>",
+            "smithy.api#required": {}
           }
         },
         "amazonAddress": {
           "target": "com.amazonaws.directconnect#AmazonAddress",
           "traits": {
             "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
+          }
+        },
+        "virtualInterfaceName": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.directconnect#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the public virtual interface.</p>"
+          }
+        },
+        "customerAddress": {
+          "target": "com.amazonaws.directconnect#CustomerAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
+          }
+        },
+        "authKey": {
+          "target": "com.amazonaws.directconnect#BGPAuthKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
           }
         },
         "asn": {
@@ -3862,42 +3984,10 @@
             "smithy.api#required": {}
           }
         },
-        "authKey": {
-          "target": "com.amazonaws.directconnect#BGPAuthKey",
+        "addressFamily": {
+          "target": "com.amazonaws.directconnect#AddressFamily",
           "traits": {
-            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
-          }
-        },
-        "customerAddress": {
-          "target": "com.amazonaws.directconnect#CustomerAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
-          }
-        },
-        "routeFilterPrefixes": {
-          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
-          "traits": {
-            "smithy.api#documentation": "<p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.directconnect#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the public virtual interface.</p>"
-          }
-        },
-        "virtualInterfaceName": {
-          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "vlan": {
-          "target": "com.amazonaws.directconnect#VLAN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the VLAN.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
           }
         }
       },
@@ -3908,24 +3998,6 @@
     "com.amazonaws.directconnect#NewTransitVirtualInterface": {
       "type": "structure",
       "members": {
-        "addressFamily": {
-          "target": "com.amazonaws.directconnect#AddressFamily",
-          "traits": {
-            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
-          }
-        },
-        "amazonAddress": {
-          "target": "com.amazonaws.directconnect#AmazonAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
-          }
-        },
-        "asn": {
-          "target": "com.amazonaws.directconnect#ASN",
-          "traits": {
-            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>\n         <p>The valid values are 1-2147483647.</p>"
-          }
-        },
         "authKey": {
           "target": "com.amazonaws.directconnect#BGPAuthKey",
           "traits": {
@@ -3938,16 +4010,34 @@
             "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
           }
         },
-        "directConnectGatewayId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
+        "vlan": {
+          "target": "com.amazonaws.directconnect#VLAN",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
+            "smithy.api#documentation": "<p>The ID of the VLAN.</p>"
           }
         },
-        "mtu": {
-          "target": "com.amazonaws.directconnect#MTU",
+        "addressFamily": {
+          "target": "com.amazonaws.directconnect#AddressFamily",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
+            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
+          }
+        },
+        "virtualInterfaceName": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>"
+          }
+        },
+        "asn": {
+          "target": "com.amazonaws.directconnect#ASN",
+          "traits": {
+            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>\n         <p>The valid values are 1-2147483647.</p>"
+          }
+        },
+        "amazonAddress": {
+          "target": "com.amazonaws.directconnect#AmazonAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
           }
         },
         "tags": {
@@ -3956,16 +4046,16 @@
             "smithy.api#documentation": "<p>The tags associated with the transitive virtual interface.</p>"
           }
         },
-        "virtualInterfaceName": {
-          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
+        "mtu": {
+          "target": "com.amazonaws.directconnect#MTU",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network.</p>"
+            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
           }
         },
-        "vlan": {
-          "target": "com.amazonaws.directconnect#VLAN",
+        "directConnectGatewayId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the VLAN.</p>"
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
           }
         }
       },
@@ -3982,10 +4072,22 @@
             "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
           }
         },
+        "tags": {
+          "target": "com.amazonaws.directconnect#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the transitive virtual interface.</p>"
+          }
+        },
         "amazonAddress": {
           "target": "com.amazonaws.directconnect#AmazonAddress",
           "traits": {
             "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
+          }
+        },
+        "virtualInterfaceName": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>"
           }
         },
         "asn": {
@@ -3994,16 +4096,10 @@
             "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>\n         <p>The valid values are 1-2147483647.</p>"
           }
         },
-        "authKey": {
-          "target": "com.amazonaws.directconnect#BGPAuthKey",
+        "vlan": {
+          "target": "com.amazonaws.directconnect#VLAN",
           "traits": {
-            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
-          }
-        },
-        "customerAddress": {
-          "target": "com.amazonaws.directconnect#CustomerAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
+            "smithy.api#documentation": "<p>The ID of the VLAN.</p>"
           }
         },
         "mtu": {
@@ -4012,22 +4108,16 @@
             "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500. </p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.directconnect#TagList",
+        "customerAddress": {
+          "target": "com.amazonaws.directconnect#CustomerAddress",
           "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the transitive virtual interface.</p>"
+            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
           }
         },
-        "virtualInterfaceName": {
-          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
+        "authKey": {
+          "target": "com.amazonaws.directconnect#BGPAuthKey",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network.</p>"
-          }
-        },
-        "vlan": {
-          "target": "com.amazonaws.directconnect#VLAN",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the VLAN.</p>"
+            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
           }
         }
       },
@@ -4184,6 +4274,15 @@
           "target": "com.amazonaws.directconnect#DisassociateConnectionFromLag"
         },
         {
+          "target": "com.amazonaws.directconnect#ListVirtualInterfaceTestHistory"
+        },
+        {
+          "target": "com.amazonaws.directconnect#StartBgpFailoverTest"
+        },
+        {
+          "target": "com.amazonaws.directconnect#StopBgpFailoverTest"
+        },
+        {
           "target": "com.amazonaws.directconnect#TagResource"
         },
         {
@@ -4253,16 +4352,16 @@
     "com.amazonaws.directconnect#ResourceTag": {
       "type": "structure",
       "members": {
-        "resourceArn": {
-          "target": "com.amazonaws.directconnect#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
-          }
-        },
         "tags": {
           "target": "com.amazonaws.directconnect#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags.</p>"
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.directconnect#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
           }
         }
       },
@@ -4299,8 +4398,109 @@
     "com.amazonaws.directconnect#RouterConfig": {
       "type": "string"
     },
+    "com.amazonaws.directconnect#StartBgpFailoverTest": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.directconnect#StartBgpFailoverTestRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.directconnect#StartBgpFailoverTestResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.directconnect#DirectConnectClientException"
+        },
+        {
+          "target": "com.amazonaws.directconnect#DirectConnectServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts the virtual interface failover test that verifies your configuration meets your resiliency requirements by placing the BGP peering session in the DOWN state. You can then send traffic to verify that there are no outages.</p>\n         <p>You can run the test on public, private, transit, and hosted virtual interfaces.</p>\n         <p>You can use <a href=\"https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.html\">ListVirtualInterfaceTestHistory</a> to view the virtual interface test history.</p> \n         <p>If you need to stop the test before the test interval completes, use <a href=\"https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StopBgpFailoverTest.html\">StopBgpFailoverTest</a>.</p>"
+      }
+    },
+    "com.amazonaws.directconnect#StartBgpFailoverTestRequest": {
+      "type": "structure",
+      "members": {
+        "testDurationInMinutes": {
+          "target": "com.amazonaws.directconnect#TestDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The time in minutes that the virtual interface failover test will last.</p>\n         <p>Maximum value: 180 minutes (3 hours).</p>\n         <p>Default: 180 minutes (3 hours).</p>"
+          }
+        },
+        "virtualInterfaceId": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual interface you want to test.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "bgpPeers": {
+          "target": "com.amazonaws.directconnect#BGPPeerIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The BGP peers to place in the DOWN state.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.directconnect#StartBgpFailoverTestResponse": {
+      "type": "structure",
+      "members": {
+        "virtualInterfaceTest": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceTestHistory",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the virtual interface failover test.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.directconnect#StartTime": {
+      "type": "timestamp"
+    },
     "com.amazonaws.directconnect#StateChangeError": {
       "type": "string"
+    },
+    "com.amazonaws.directconnect#StopBgpFailoverTest": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.directconnect#StopBgpFailoverTestRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.directconnect#StopBgpFailoverTestResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.directconnect#DirectConnectClientException"
+        },
+        {
+          "target": "com.amazonaws.directconnect#DirectConnectServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops the virtual interface failover test.</p>"
+      }
+    },
+    "com.amazonaws.directconnect#StopBgpFailoverTestRequest": {
+      "type": "structure",
+      "members": {
+        "virtualInterfaceId": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual interface you no longer want to test.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.directconnect#StopBgpFailoverTestResponse": {
+      "type": "structure",
+      "members": {
+        "virtualInterfaceTest": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceTestHistory",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the virtual interface failover test.</p>"
+          }
+        }
+      }
     },
     "com.amazonaws.directconnect#Tag": {
       "type": "structure",
@@ -4379,17 +4579,17 @@
     "com.amazonaws.directconnect#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "resourceArn": {
-          "target": "com.amazonaws.directconnect#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "tags": {
           "target": "com.amazonaws.directconnect#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to add.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.directconnect#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4408,6 +4608,15 @@
         },
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
+    },
+    "com.amazonaws.directconnect#TestDuration": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {}
+      }
+    },
+    "com.amazonaws.directconnect#TestId": {
+      "type": "string"
     },
     "com.amazonaws.directconnect#TooManyTagsException": {
       "type": "structure",
@@ -4444,17 +4653,17 @@
     "com.amazonaws.directconnect#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "resourceArn": {
-          "target": "com.amazonaws.directconnect#ResourceArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "tagKeys": {
           "target": "com.amazonaws.directconnect#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The tag keys of the tags to remove.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazonaws.directconnect#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4487,10 +4696,10 @@
     "com.amazonaws.directconnect#UpdateDirectConnectGatewayAssociationRequest": {
       "type": "structure",
       "members": {
-        "addAllowedPrefixesToDirectConnectGateway": {
+        "removeAllowedPrefixesToDirectConnectGateway": {
           "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>"
+            "smithy.api#documentation": "<p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>"
           }
         },
         "associationId": {
@@ -4499,10 +4708,10 @@
             "smithy.api#documentation": "<p>The ID of the Direct Connect gateway association.</p>"
           }
         },
-        "removeAllowedPrefixesToDirectConnectGateway": {
+        "addAllowedPrefixesToDirectConnectGateway": {
           "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>"
+            "smithy.api#documentation": "<p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>"
           }
         }
       }
@@ -4538,13 +4747,6 @@
     "com.amazonaws.directconnect#UpdateLagRequest": {
       "type": "structure",
       "members": {
-        "lagId": {
-          "target": "com.amazonaws.directconnect#LagId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the LAG.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "lagName": {
           "target": "com.amazonaws.directconnect#LagName",
           "traits": {
@@ -4555,6 +4757,13 @@
           "target": "com.amazonaws.directconnect#Count",
           "traits": {
             "smithy.api#documentation": "<p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>"
+          }
+        },
+        "lagId": {
+          "target": "com.amazonaws.directconnect#LagId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the LAG.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -4576,23 +4785,23 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the specified attributes of the specified virtual private interface.</p>\n         <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to\n      the underlying physical connection if it wasn't updated to support jumbo frames. Updating \n      the connection disrupts network connectivity for all virtual interfaces associated with \n      the connection for up to 30 seconds. To check whether your connection supports jumbo \n      frames, call <a>DescribeConnections</a>. To check whether your virtual \n      interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>"
+        "smithy.api#documentation": "<p>Updates the specified attributes of the specified virtual private interface.</p>\n         <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to\n      the underlying physical connection if it wasn't updated to support jumbo frames. Updating \n      the connection disrupts network connectivity for all virtual interfaces associated with \n      the connection for up to 30 seconds. To check whether your connection supports jumbo \n      frames, call <a>DescribeConnections</a>. To check whether your virtual q\n      interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>"
       }
     },
     "com.amazonaws.directconnect#UpdateVirtualInterfaceAttributesRequest": {
       "type": "structure",
       "members": {
-        "mtu": {
-          "target": "com.amazonaws.directconnect#MTU",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
-          }
-        },
         "virtualInterfaceId": {
           "target": "com.amazonaws.directconnect#VirtualInterfaceId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the virtual private interface.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "mtu": {
+          "target": "com.amazonaws.directconnect#MTU",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
           }
         }
       }
@@ -4652,130 +4861,16 @@
     "com.amazonaws.directconnect#VirtualInterface": {
       "type": "structure",
       "members": {
-        "addressFamily": {
-          "target": "com.amazonaws.directconnect#AddressFamily",
-          "traits": {
-            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
-          }
-        },
-        "amazonAddress": {
-          "target": "com.amazonaws.directconnect#AmazonAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
-          }
-        },
-        "amazonSideAsn": {
-          "target": "com.amazonaws.directconnect#LongAsn",
-          "traits": {
-            "smithy.api#documentation": "<p>The autonomous system number (ASN) for the Amazon side of the connection.</p>"
-          }
-        },
-        "asn": {
-          "target": "com.amazonaws.directconnect#ASN",
-          "traits": {
-            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>\n         <p>The valid values are 1-2147483647.</p>"
-          }
-        },
-        "authKey": {
-          "target": "com.amazonaws.directconnect#BGPAuthKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
-          }
-        },
-        "awsDeviceV2": {
-          "target": "com.amazonaws.directconnect#AwsDeviceV2",
-          "traits": {
-            "smithy.api#documentation": "<p>The\n      Direct Connect endpoint on which the virtual interface terminates.</p>"
-          }
-        },
-        "bgpPeers": {
-          "target": "com.amazonaws.directconnect#BGPPeerList",
-          "traits": {
-            "smithy.api#documentation": "<p>The BGP peers configured on this virtual interface.</p>"
-          }
-        },
         "connectionId": {
           "target": "com.amazonaws.directconnect#ConnectionId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the connection.</p>"
           }
         },
-        "customerAddress": {
-          "target": "com.amazonaws.directconnect#CustomerAddress",
+        "bgpPeers": {
+          "target": "com.amazonaws.directconnect#BGPPeerList",
           "traits": {
-            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
-          }
-        },
-        "customerRouterConfig": {
-          "target": "com.amazonaws.directconnect#RouterConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The customer router configuration.</p>"
-          }
-        },
-        "directConnectGatewayId": {
-          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
-          }
-        },
-        "jumboFrameCapable": {
-          "target": "com.amazonaws.directconnect#JumboFrameCapable",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether jumbo frames (9001 MTU) are supported.</p>"
-          }
-        },
-        "location": {
-          "target": "com.amazonaws.directconnect#LocationCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The location of the connection.</p>"
-          }
-        },
-        "mtu": {
-          "target": "com.amazonaws.directconnect#MTU",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
-          }
-        },
-        "ownerAccount": {
-          "target": "com.amazonaws.directconnect#OwnerAccount",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the AWS account that owns the virtual interface.</p>"
-          }
-        },
-        "region": {
-          "target": "com.amazonaws.directconnect#Region",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Region where the virtual interface is located.</p>"
-          }
-        },
-        "routeFilterPrefixes": {
-          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
-          "traits": {
-            "smithy.api#documentation": "<p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.directconnect#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags associated with the virtual interface.</p>"
-          }
-        },
-        "virtualGatewayId": {
-          "target": "com.amazonaws.directconnect#VirtualGatewayId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>"
-          }
-        },
-        "virtualInterfaceId": {
-          "target": "com.amazonaws.directconnect#VirtualInterfaceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual interface.</p>"
-          }
-        },
-        "virtualInterfaceName": {
-          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network.</p>"
+            "smithy.api#documentation": "<p>The BGP peers configured on this virtual interface.</p>"
           }
         },
         "virtualInterfaceState": {
@@ -4790,10 +4885,124 @@
             "smithy.api#documentation": "<p>The type of virtual interface. The possible values are <code>private</code> and <code>public</code>.</p>"
           }
         },
+        "routeFilterPrefixes": {
+          "target": "com.amazonaws.directconnect#RouteFilterPrefixList",
+          "traits": {
+            "smithy.api#documentation": "<p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>"
+          }
+        },
+        "authKey": {
+          "target": "com.amazonaws.directconnect#BGPAuthKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>"
+          }
+        },
+        "awsDeviceV2": {
+          "target": "com.amazonaws.directconnect#AwsDeviceV2",
+          "traits": {
+            "smithy.api#documentation": "<p>The\n      Direct Connect endpoint on which the virtual interface terminates.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.directconnect#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the virtual interface.</p>"
+          }
+        },
+        "jumboFrameCapable": {
+          "target": "com.amazonaws.directconnect#JumboFrameCapable",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether jumbo frames (9001 MTU) are supported.</p>"
+          }
+        },
+        "ownerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the virtual interface.</p>"
+          }
+        },
+        "mtu": {
+          "target": "com.amazonaws.directconnect#MTU",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>"
+          }
+        },
+        "customerAddress": {
+          "target": "com.amazonaws.directconnect#CustomerAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address assigned to the customer interface.</p>"
+          }
+        },
+        "directConnectGatewayId": {
+          "target": "com.amazonaws.directconnect#DirectConnectGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Direct Connect gateway.</p>"
+          }
+        },
+        "customerRouterConfig": {
+          "target": "com.amazonaws.directconnect#RouterConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The customer router configuration.</p>"
+          }
+        },
+        "location": {
+          "target": "com.amazonaws.directconnect#LocationCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The location of the connection.</p>"
+          }
+        },
+        "virtualInterfaceId": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual interface.</p>"
+          }
+        },
+        "amazonSideAsn": {
+          "target": "com.amazonaws.directconnect#LongAsn",
+          "traits": {
+            "smithy.api#documentation": "<p>The autonomous system number (ASN) for the Amazon side of the connection.</p>"
+          }
+        },
+        "amazonAddress": {
+          "target": "com.amazonaws.directconnect#AmazonAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP address assigned to the Amazon interface.</p>"
+          }
+        },
+        "virtualGatewayId": {
+          "target": "com.amazonaws.directconnect#VirtualGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>"
+          }
+        },
+        "virtualInterfaceName": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>"
+          }
+        },
         "vlan": {
           "target": "com.amazonaws.directconnect#VLAN",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the VLAN.</p>"
+          }
+        },
+        "asn": {
+          "target": "com.amazonaws.directconnect#ASN",
+          "traits": {
+            "smithy.api#documentation": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>\n         <p>The valid values are 1-2147483647.</p>"
+          }
+        },
+        "addressFamily": {
+          "target": "com.amazonaws.directconnect#AddressFamily",
+          "traits": {
+            "smithy.api#documentation": "<p>The address family for the BGP peer.</p>"
+          }
+        },
+        "region": {
+          "target": "com.amazonaws.directconnect#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region where the virtual interface is located.</p>"
           }
         }
       },
@@ -4848,6 +5057,68 @@
             "value": "unknown"
           }
         ]
+      }
+    },
+    "com.amazonaws.directconnect#VirtualInterfaceTestHistory": {
+      "type": "structure",
+      "members": {
+        "testId": {
+          "target": "com.amazonaws.directconnect#TestId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the virtual interface failover test.</p>"
+          }
+        },
+        "ownerAccount": {
+          "target": "com.amazonaws.directconnect#OwnerAccount",
+          "traits": {
+            "smithy.api#documentation": "<p>The owner ID of the tested virtual interface.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.directconnect#FailureTestHistoryStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the virtual interface failover test.</p>"
+          }
+        },
+        "endTime": {
+          "target": "com.amazonaws.directconnect#EndTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the virtual interface moves out of the DOWN state.</p>"
+          }
+        },
+        "bgpPeers": {
+          "target": "com.amazonaws.directconnect#BGPPeerIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The BGP peers that were put in the DOWN state as part of the virtual interface failover test.</p>"
+          }
+        },
+        "startTime": {
+          "target": "com.amazonaws.directconnect#StartTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the virtual interface moves to the DOWN state.</p>"
+          }
+        },
+        "virtualInterfaceId": {
+          "target": "com.amazonaws.directconnect#VirtualInterfaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the tested virtual interface.</p>"
+          }
+        },
+        "testDurationInMinutes": {
+          "target": "com.amazonaws.directconnect#TestDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the virtual interface failover test ran in minutes.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the virtual interface failover test.</p>"
+      }
+    },
+    "com.amazonaws.directconnect#VirtualInterfaceTestHistoryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.directconnect#VirtualInterfaceTestHistory"
       }
     },
     "com.amazonaws.directconnect#VirtualInterfaceType": {

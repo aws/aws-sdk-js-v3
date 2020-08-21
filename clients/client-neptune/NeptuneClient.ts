@@ -190,6 +190,8 @@ import {
   RestoreDBClusterToPointInTimeCommandInput,
   RestoreDBClusterToPointInTimeCommandOutput,
 } from "./commands/RestoreDBClusterToPointInTimeCommand";
+import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand";
+import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -294,7 +296,9 @@ export type ServiceInputTypes =
   | ResetDBClusterParameterGroupCommandInput
   | ResetDBParameterGroupCommandInput
   | RestoreDBClusterFromSnapshotCommandInput
-  | RestoreDBClusterToPointInTimeCommandInput;
+  | RestoreDBClusterToPointInTimeCommandInput
+  | StartDBClusterCommandInput
+  | StopDBClusterCommandInput;
 
 export type ServiceOutputTypes =
   | AddRoleToDBClusterCommandOutput
@@ -353,7 +357,9 @@ export type ServiceOutputTypes =
   | ResetDBClusterParameterGroupCommandOutput
   | ResetDBParameterGroupCommandOutput
   | RestoreDBClusterFromSnapshotCommandOutput
-  | RestoreDBClusterToPointInTimeCommandOutput;
+  | RestoreDBClusterToPointInTimeCommandOutput
+  | StartDBClusterCommandOutput
+  | StopDBClusterCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

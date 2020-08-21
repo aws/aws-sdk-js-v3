@@ -1,4 +1,8 @@
 import { AllocateStaticIpCommandInput, AllocateStaticIpCommandOutput } from "./commands/AllocateStaticIpCommand";
+import {
+  AttachCertificateToDistributionCommandInput,
+  AttachCertificateToDistributionCommandOutput,
+} from "./commands/AttachCertificateToDistributionCommand";
 import { AttachDiskCommandInput, AttachDiskCommandOutput } from "./commands/AttachDiskCommand";
 import {
   AttachInstancesToLoadBalancerCommandInput,
@@ -14,16 +18,22 @@ import {
   CloseInstancePublicPortsCommandOutput,
 } from "./commands/CloseInstancePublicPortsCommand";
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
+import { CreateCertificateCommandInput, CreateCertificateCommandOutput } from "./commands/CreateCertificateCommand";
 import {
   CreateCloudFormationStackCommandInput,
   CreateCloudFormationStackCommandOutput,
 } from "./commands/CreateCloudFormationStackCommand";
+import {
+  CreateContactMethodCommandInput,
+  CreateContactMethodCommandOutput,
+} from "./commands/CreateContactMethodCommand";
 import { CreateDiskCommandInput, CreateDiskCommandOutput } from "./commands/CreateDiskCommand";
 import {
   CreateDiskFromSnapshotCommandInput,
   CreateDiskFromSnapshotCommandOutput,
 } from "./commands/CreateDiskFromSnapshotCommand";
 import { CreateDiskSnapshotCommandInput, CreateDiskSnapshotCommandOutput } from "./commands/CreateDiskSnapshotCommand";
+import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import { CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput } from "./commands/CreateDomainEntryCommand";
 import {
@@ -53,9 +63,16 @@ import {
   CreateRelationalDatabaseSnapshotCommandInput,
   CreateRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/CreateRelationalDatabaseSnapshotCommand";
+import { DeleteAlarmCommandInput, DeleteAlarmCommandOutput } from "./commands/DeleteAlarmCommand";
 import { DeleteAutoSnapshotCommandInput, DeleteAutoSnapshotCommandOutput } from "./commands/DeleteAutoSnapshotCommand";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
+import {
+  DeleteContactMethodCommandInput,
+  DeleteContactMethodCommandOutput,
+} from "./commands/DeleteContactMethodCommand";
 import { DeleteDiskCommandInput, DeleteDiskCommandOutput } from "./commands/DeleteDiskCommand";
 import { DeleteDiskSnapshotCommandInput, DeleteDiskSnapshotCommandOutput } from "./commands/DeleteDiskSnapshotCommand";
+import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "./commands/DeleteDistributionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import { DeleteDomainEntryCommandInput, DeleteDomainEntryCommandOutput } from "./commands/DeleteDomainEntryCommand";
 import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
@@ -81,6 +98,10 @@ import {
   DeleteRelationalDatabaseSnapshotCommandInput,
   DeleteRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/DeleteRelationalDatabaseSnapshotCommand";
+import {
+  DetachCertificateFromDistributionCommandInput,
+  DetachCertificateFromDistributionCommandOutput,
+} from "./commands/DetachCertificateFromDistributionCommand";
 import { DetachDiskCommandInput, DetachDiskCommandOutput } from "./commands/DetachDiskCommand";
 import {
   DetachInstancesFromLoadBalancerCommandInput,
@@ -95,17 +116,33 @@ import {
 import { EnableAddOnCommandInput, EnableAddOnCommandOutput } from "./commands/EnableAddOnCommand";
 import { ExportSnapshotCommandInput, ExportSnapshotCommandOutput } from "./commands/ExportSnapshotCommand";
 import { GetActiveNamesCommandInput, GetActiveNamesCommandOutput } from "./commands/GetActiveNamesCommand";
+import { GetAlarmsCommandInput, GetAlarmsCommandOutput } from "./commands/GetAlarmsCommand";
 import { GetAutoSnapshotsCommandInput, GetAutoSnapshotsCommandOutput } from "./commands/GetAutoSnapshotsCommand";
 import { GetBlueprintsCommandInput, GetBlueprintsCommandOutput } from "./commands/GetBlueprintsCommand";
 import { GetBundlesCommandInput, GetBundlesCommandOutput } from "./commands/GetBundlesCommand";
+import { GetCertificatesCommandInput, GetCertificatesCommandOutput } from "./commands/GetCertificatesCommand";
 import {
   GetCloudFormationStackRecordsCommandInput,
   GetCloudFormationStackRecordsCommandOutput,
 } from "./commands/GetCloudFormationStackRecordsCommand";
+import { GetContactMethodsCommandInput, GetContactMethodsCommandOutput } from "./commands/GetContactMethodsCommand";
 import { GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
 import { GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput } from "./commands/GetDiskSnapshotCommand";
 import { GetDiskSnapshotsCommandInput, GetDiskSnapshotsCommandOutput } from "./commands/GetDiskSnapshotsCommand";
 import { GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
+import {
+  GetDistributionBundlesCommandInput,
+  GetDistributionBundlesCommandOutput,
+} from "./commands/GetDistributionBundlesCommand";
+import {
+  GetDistributionLatestCacheResetCommandInput,
+  GetDistributionLatestCacheResetCommandOutput,
+} from "./commands/GetDistributionLatestCacheResetCommand";
+import {
+  GetDistributionMetricDataCommandInput,
+  GetDistributionMetricDataCommandOutput,
+} from "./commands/GetDistributionMetricDataCommand";
+import { GetDistributionsCommandInput, GetDistributionsCommandOutput } from "./commands/GetDistributionsCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import { GetDomainsCommandInput, GetDomainsCommandOutput } from "./commands/GetDomainsCommand";
 import {
@@ -211,6 +248,7 @@ import {
   OpenInstancePublicPortsCommandOutput,
 } from "./commands/OpenInstancePublicPortsCommand";
 import { PeerVpcCommandInput, PeerVpcCommandOutput } from "./commands/PeerVpcCommand";
+import { PutAlarmCommandInput, PutAlarmCommandOutput } from "./commands/PutAlarmCommand";
 import {
   PutInstancePublicPortsCommandInput,
   PutInstancePublicPortsCommandOutput,
@@ -221,6 +259,14 @@ import {
   RebootRelationalDatabaseCommandOutput,
 } from "./commands/RebootRelationalDatabaseCommand";
 import { ReleaseStaticIpCommandInput, ReleaseStaticIpCommandOutput } from "./commands/ReleaseStaticIpCommand";
+import {
+  ResetDistributionCacheCommandInput,
+  ResetDistributionCacheCommandOutput,
+} from "./commands/ResetDistributionCacheCommand";
+import {
+  SendContactMethodVerificationCommandInput,
+  SendContactMethodVerificationCommandOutput,
+} from "./commands/SendContactMethodVerificationCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "./commands/StartInstanceCommand";
 import {
   StartRelationalDatabaseCommandInput,
@@ -232,8 +278,14 @@ import {
   StopRelationalDatabaseCommandOutput,
 } from "./commands/StopRelationalDatabaseCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestAlarmCommandInput, TestAlarmCommandOutput } from "./commands/TestAlarmCommand";
 import { UnpeerVpcCommandInput, UnpeerVpcCommandOutput } from "./commands/UnpeerVpcCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateDistributionBundleCommandInput,
+  UpdateDistributionBundleCommandOutput,
+} from "./commands/UpdateDistributionBundleCommand";
+import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "./commands/UpdateDistributionCommand";
 import { UpdateDomainEntryCommandInput, UpdateDomainEntryCommandOutput } from "./commands/UpdateDomainEntryCommand";
 import {
   UpdateLoadBalancerAttributeCommandInput,
@@ -296,16 +348,20 @@ import {
 
 export type ServiceInputTypes =
   | AllocateStaticIpCommandInput
+  | AttachCertificateToDistributionCommandInput
   | AttachDiskCommandInput
   | AttachInstancesToLoadBalancerCommandInput
   | AttachLoadBalancerTlsCertificateCommandInput
   | AttachStaticIpCommandInput
   | CloseInstancePublicPortsCommandInput
   | CopySnapshotCommandInput
+  | CreateCertificateCommandInput
   | CreateCloudFormationStackCommandInput
+  | CreateContactMethodCommandInput
   | CreateDiskCommandInput
   | CreateDiskFromSnapshotCommandInput
   | CreateDiskSnapshotCommandInput
+  | CreateDistributionCommandInput
   | CreateDomainCommandInput
   | CreateDomainEntryCommandInput
   | CreateInstanceSnapshotCommandInput
@@ -317,9 +373,13 @@ export type ServiceInputTypes =
   | CreateRelationalDatabaseCommandInput
   | CreateRelationalDatabaseFromSnapshotCommandInput
   | CreateRelationalDatabaseSnapshotCommandInput
+  | DeleteAlarmCommandInput
   | DeleteAutoSnapshotCommandInput
+  | DeleteCertificateCommandInput
+  | DeleteContactMethodCommandInput
   | DeleteDiskCommandInput
   | DeleteDiskSnapshotCommandInput
+  | DeleteDistributionCommandInput
   | DeleteDomainCommandInput
   | DeleteDomainEntryCommandInput
   | DeleteInstanceCommandInput
@@ -330,6 +390,7 @@ export type ServiceInputTypes =
   | DeleteLoadBalancerTlsCertificateCommandInput
   | DeleteRelationalDatabaseCommandInput
   | DeleteRelationalDatabaseSnapshotCommandInput
+  | DetachCertificateFromDistributionCommandInput
   | DetachDiskCommandInput
   | DetachInstancesFromLoadBalancerCommandInput
   | DetachStaticIpCommandInput
@@ -338,14 +399,21 @@ export type ServiceInputTypes =
   | EnableAddOnCommandInput
   | ExportSnapshotCommandInput
   | GetActiveNamesCommandInput
+  | GetAlarmsCommandInput
   | GetAutoSnapshotsCommandInput
   | GetBlueprintsCommandInput
   | GetBundlesCommandInput
+  | GetCertificatesCommandInput
   | GetCloudFormationStackRecordsCommandInput
+  | GetContactMethodsCommandInput
   | GetDiskCommandInput
   | GetDiskSnapshotCommandInput
   | GetDiskSnapshotsCommandInput
   | GetDisksCommandInput
+  | GetDistributionBundlesCommandInput
+  | GetDistributionLatestCacheResetCommandInput
+  | GetDistributionMetricDataCommandInput
+  | GetDistributionsCommandInput
   | GetDomainCommandInput
   | GetDomainsCommandInput
   | GetExportSnapshotRecordsCommandInput
@@ -385,17 +453,23 @@ export type ServiceInputTypes =
   | IsVpcPeeredCommandInput
   | OpenInstancePublicPortsCommandInput
   | PeerVpcCommandInput
+  | PutAlarmCommandInput
   | PutInstancePublicPortsCommandInput
   | RebootInstanceCommandInput
   | RebootRelationalDatabaseCommandInput
   | ReleaseStaticIpCommandInput
+  | ResetDistributionCacheCommandInput
+  | SendContactMethodVerificationCommandInput
   | StartInstanceCommandInput
   | StartRelationalDatabaseCommandInput
   | StopInstanceCommandInput
   | StopRelationalDatabaseCommandInput
   | TagResourceCommandInput
+  | TestAlarmCommandInput
   | UnpeerVpcCommandInput
   | UntagResourceCommandInput
+  | UpdateDistributionBundleCommandInput
+  | UpdateDistributionCommandInput
   | UpdateDomainEntryCommandInput
   | UpdateLoadBalancerAttributeCommandInput
   | UpdateRelationalDatabaseCommandInput
@@ -403,16 +477,20 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AllocateStaticIpCommandOutput
+  | AttachCertificateToDistributionCommandOutput
   | AttachDiskCommandOutput
   | AttachInstancesToLoadBalancerCommandOutput
   | AttachLoadBalancerTlsCertificateCommandOutput
   | AttachStaticIpCommandOutput
   | CloseInstancePublicPortsCommandOutput
   | CopySnapshotCommandOutput
+  | CreateCertificateCommandOutput
   | CreateCloudFormationStackCommandOutput
+  | CreateContactMethodCommandOutput
   | CreateDiskCommandOutput
   | CreateDiskFromSnapshotCommandOutput
   | CreateDiskSnapshotCommandOutput
+  | CreateDistributionCommandOutput
   | CreateDomainCommandOutput
   | CreateDomainEntryCommandOutput
   | CreateInstanceSnapshotCommandOutput
@@ -424,9 +502,13 @@ export type ServiceOutputTypes =
   | CreateRelationalDatabaseCommandOutput
   | CreateRelationalDatabaseFromSnapshotCommandOutput
   | CreateRelationalDatabaseSnapshotCommandOutput
+  | DeleteAlarmCommandOutput
   | DeleteAutoSnapshotCommandOutput
+  | DeleteCertificateCommandOutput
+  | DeleteContactMethodCommandOutput
   | DeleteDiskCommandOutput
   | DeleteDiskSnapshotCommandOutput
+  | DeleteDistributionCommandOutput
   | DeleteDomainCommandOutput
   | DeleteDomainEntryCommandOutput
   | DeleteInstanceCommandOutput
@@ -437,6 +519,7 @@ export type ServiceOutputTypes =
   | DeleteLoadBalancerTlsCertificateCommandOutput
   | DeleteRelationalDatabaseCommandOutput
   | DeleteRelationalDatabaseSnapshotCommandOutput
+  | DetachCertificateFromDistributionCommandOutput
   | DetachDiskCommandOutput
   | DetachInstancesFromLoadBalancerCommandOutput
   | DetachStaticIpCommandOutput
@@ -445,14 +528,21 @@ export type ServiceOutputTypes =
   | EnableAddOnCommandOutput
   | ExportSnapshotCommandOutput
   | GetActiveNamesCommandOutput
+  | GetAlarmsCommandOutput
   | GetAutoSnapshotsCommandOutput
   | GetBlueprintsCommandOutput
   | GetBundlesCommandOutput
+  | GetCertificatesCommandOutput
   | GetCloudFormationStackRecordsCommandOutput
+  | GetContactMethodsCommandOutput
   | GetDiskCommandOutput
   | GetDiskSnapshotCommandOutput
   | GetDiskSnapshotsCommandOutput
   | GetDisksCommandOutput
+  | GetDistributionBundlesCommandOutput
+  | GetDistributionLatestCacheResetCommandOutput
+  | GetDistributionMetricDataCommandOutput
+  | GetDistributionsCommandOutput
   | GetDomainCommandOutput
   | GetDomainsCommandOutput
   | GetExportSnapshotRecordsCommandOutput
@@ -492,17 +582,23 @@ export type ServiceOutputTypes =
   | IsVpcPeeredCommandOutput
   | OpenInstancePublicPortsCommandOutput
   | PeerVpcCommandOutput
+  | PutAlarmCommandOutput
   | PutInstancePublicPortsCommandOutput
   | RebootInstanceCommandOutput
   | RebootRelationalDatabaseCommandOutput
   | ReleaseStaticIpCommandOutput
+  | ResetDistributionCacheCommandOutput
+  | SendContactMethodVerificationCommandOutput
   | StartInstanceCommandOutput
   | StartRelationalDatabaseCommandOutput
   | StopInstanceCommandOutput
   | StopRelationalDatabaseCommandOutput
   | TagResourceCommandOutput
+  | TestAlarmCommandOutput
   | UnpeerVpcCommandOutput
   | UntagResourceCommandOutput
+  | UpdateDistributionBundleCommandOutput
+  | UpdateDistributionCommandOutput
   | UpdateDomainEntryCommandOutput
   | UpdateLoadBalancerAttributeCommandOutput
   | UpdateRelationalDatabaseCommandOutput
@@ -616,16 +712,21 @@ export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig;
 
 /**
- * <p>Amazon Lightsail is the easiest way to get started with AWS for developers who just need
- *       virtual private servers. Lightsail includes everything you need to launch your project
- *       quickly - a virtual machine, a managed database, SSD-based storage, data transfer, DNS
- *       management, and a static IP - for a low, predictable price. You manage those Lightsail
- *       servers through the Lightsail console or by using the API or command-line interface
- *       (CLI).</p>
- *          <p>For more information about Lightsail concepts and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/all">Lightsail Dev Guide</a>.</p>
- *          <p>To use the Lightsail API or the CLI, you will need to use AWS Identity and
- *       Access Management (IAM) to generate access keys. For details about how to set this up, see the
- *         <a href="http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Lightsail Dev Guide</a>.</p>
+ * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers
+ *       who need to build websites or web applications. It includes everything you need to launch your
+ *       project quickly – instances (virtual private servers), managed databases, SSD-based block
+ *       storage, static IP addresses, load balancers, content delivery network (CDN) distributions,
+ *       DNS management of registered domains, and snapshots (backups) – for a low, predictable monthly
+ *       price.</p>
+ *
+ *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
+ *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
+ *       and tasks, see the <a href="http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Lightsail Dev Guide</a>.</p>
+ *
+ *          <p>This API Reference provides detailed information about the actions, data types,
+ *       parameters, and errors of the Lightsail service. For more information about the supported
+ *       AWS Regions, endpoints, and service quotas for the Lightsail service, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints and
+ *         Quotas</a> in the <i>AWS General Reference</i>.</p>
  */
 export class LightsailClient extends __Client<
   __HttpHandlerOptions,

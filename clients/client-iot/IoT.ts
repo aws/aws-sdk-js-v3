@@ -86,6 +86,11 @@ import {
   CreateCertificateFromCsrCommandOutput,
 } from "./commands/CreateCertificateFromCsrCommand";
 import {
+  CreateDimensionCommand,
+  CreateDimensionCommandInput,
+  CreateDimensionCommandOutput,
+} from "./commands/CreateDimensionCommand";
+import {
   CreateDomainConfigurationCommand,
   CreateDomainConfigurationCommandInput,
   CreateDomainConfigurationCommandOutput,
@@ -202,6 +207,11 @@ import {
   DeleteCertificateCommandInput,
   DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand";
+import {
+  DeleteDimensionCommand,
+  DeleteDimensionCommandInput,
+  DeleteDimensionCommandOutput,
+} from "./commands/DeleteDimensionCommand";
 import {
   DeleteDomainConfigurationCommand,
   DeleteDomainConfigurationCommandInput,
@@ -349,6 +359,11 @@ import {
   DescribeDefaultAuthorizerCommandInput,
   DescribeDefaultAuthorizerCommandOutput,
 } from "./commands/DescribeDefaultAuthorizerCommand";
+import {
+  DescribeDimensionCommand,
+  DescribeDimensionCommandInput,
+  DescribeDimensionCommandOutput,
+} from "./commands/DescribeDimensionCommand";
 import {
   DescribeDomainConfigurationCommand,
   DescribeDomainConfigurationCommandInput,
@@ -582,6 +597,11 @@ import {
   ListCertificatesCommandOutput,
 } from "./commands/ListCertificatesCommand";
 import {
+  ListDimensionsCommand,
+  ListDimensionsCommandInput,
+  ListDimensionsCommandOutput,
+} from "./commands/ListDimensionsCommand";
+import {
   ListDomainConfigurationsCommand,
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput,
@@ -756,6 +776,11 @@ import {
   RegisterCertificateCommandOutput,
 } from "./commands/RegisterCertificateCommand";
 import {
+  RegisterCertificateWithoutCACommand,
+  RegisterCertificateWithoutCACommandInput,
+  RegisterCertificateWithoutCACommandOutput,
+} from "./commands/RegisterCertificateWithoutCACommand";
+import {
   RegisterThingCommand,
   RegisterThingCommandInput,
   RegisterThingCommandOutput,
@@ -873,6 +898,11 @@ import {
   UpdateCertificateCommandOutput,
 } from "./commands/UpdateCertificateCommand";
 import {
+  UpdateDimensionCommand,
+  UpdateDimensionCommandInput,
+  UpdateDimensionCommandOutput,
+} from "./commands/UpdateDimensionCommand";
+import {
   UpdateDomainConfigurationCommand,
   UpdateDomainConfigurationCommandInput,
   UpdateDomainConfigurationCommandOutput,
@@ -954,6 +984,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             rules for data processing and integration with other services, organize resources
  *             associated with each device (Registry), configure logging, and create and manage
  *             policies and credentials to authenticate devices.</p>
+ *         <p>The service endpoints that expose this API are listed in
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">AWS IoT Core Endpoints and Quotas</a>.
+ *             You must use the endpoint for the region that has the resources you want to access.</p>
+ *         <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">AWS
+ *                 Signature Version 4</a> to sign the request is:
+ *             <i>execute-api</i>.</p>
  *         <p>For more information about how AWS IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
  *             Guide</a>.</p>
  *         <p>For information about how to use the credentials provider for AWS IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to AWS Services</a>.</p>
@@ -1593,6 +1629,38 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for AWS IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+   */
+  public createDimension(
+    args: CreateDimensionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDimensionCommandOutput>;
+  public createDimension(
+    args: CreateDimensionCommandInput,
+    cb: (err: any, data?: CreateDimensionCommandOutput) => void
+  ): void;
+  public createDimension(
+    args: CreateDimensionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDimensionCommandOutput) => void
+  ): void;
+  public createDimension(
+    args: CreateDimensionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDimensionCommandOutput) => void),
+    cb?: (err: any, data?: CreateDimensionCommandOutput) => void
+  ): Promise<CreateDimensionCommandOutput> | void {
+    const command = new CreateDimensionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a domain configuration.</p>
    *          <note>
    *             <p>The domain configuration feature is in public preview and is subject to change.</p>
@@ -2086,7 +2154,7 @@ export class IoT extends IoTClient {
    * 			the same thing name but different configuration a
    * 				<code>ResourceAlreadyExistsException</code> is thrown.</p>
    * 		       <note>
-   * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for
+   * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for
    * 				information about authorizing control plane actions.</p>
    * 		       </note>
    */
@@ -2116,7 +2184,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Create a thing group.</p>
    * 		       <note>
-   * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for
+   * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for
    * 				information about authorizing control plane actions.</p>
    * 		       </note>
    */
@@ -2401,6 +2469,38 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DeleteCertificateCommandOutput) => void
   ): Promise<DeleteCertificateCommandOutput> | void {
     const command = new DeleteCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the specified dimension from your AWS account.</p>
+   */
+  public deleteDimension(
+    args: DeleteDimensionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDimensionCommandOutput>;
+  public deleteDimension(
+    args: DeleteDimensionCommandInput,
+    cb: (err: any, data?: DeleteDimensionCommandOutput) => void
+  ): void;
+  public deleteDimension(
+    args: DeleteDimensionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDimensionCommandOutput) => void
+  ): void;
+  public deleteDimension(
+    args: DeleteDimensionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDimensionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDimensionCommandOutput) => void
+  ): Promise<DeleteDimensionCommandOutput> | void {
+    const command = new DeleteDimensionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3400,6 +3500,38 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DescribeDefaultAuthorizerCommandOutput) => void
   ): Promise<DescribeDefaultAuthorizerCommandOutput> | void {
     const command = new DescribeDefaultAuthorizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides details about a dimension that is defined in your AWS account.</p>
+   */
+  public describeDimension(
+    args: DescribeDimensionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDimensionCommandOutput>;
+  public describeDimension(
+    args: DescribeDimensionCommandInput,
+    cb: (err: any, data?: DescribeDimensionCommandOutput) => void
+  ): void;
+  public describeDimension(
+    args: DescribeDimensionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDimensionCommandOutput) => void
+  ): void;
+  public describeDimension(
+    args: DescribeDimensionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDimensionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDimensionCommandOutput) => void
+  ): Promise<DescribeDimensionCommandOutput> | void {
+    const command = new DescribeDimensionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4957,6 +5089,38 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>List the set of dimensions that are defined for your AWS account.</p>
+   */
+  public listDimensions(
+    args: ListDimensionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDimensionsCommandOutput>;
+  public listDimensions(
+    args: ListDimensionsCommandInput,
+    cb: (err: any, data?: ListDimensionsCommandOutput) => void
+  ): void;
+  public listDimensions(
+    args: ListDimensionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDimensionsCommandOutput) => void
+  ): void;
+  public listDimensions(
+    args: ListDimensionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDimensionsCommandOutput) => void),
+    cb?: (err: any, data?: ListDimensionsCommandOutput) => void
+  ): Promise<ListDimensionsCommandOutput> | void {
+    const command = new ListDimensionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
    *          <note>
    *             <p>The domain configuration feature is in public preview and is subject to change.</p>
@@ -6173,6 +6337,38 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Register a certificate that does not have a certificate authority (CA).</p>
+   */
+  public registerCertificateWithoutCA(
+    args: RegisterCertificateWithoutCACommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterCertificateWithoutCACommandOutput>;
+  public registerCertificateWithoutCA(
+    args: RegisterCertificateWithoutCACommandInput,
+    cb: (err: any, data?: RegisterCertificateWithoutCACommandOutput) => void
+  ): void;
+  public registerCertificateWithoutCA(
+    args: RegisterCertificateWithoutCACommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterCertificateWithoutCACommandOutput) => void
+  ): void;
+  public registerCertificateWithoutCA(
+    args: RegisterCertificateWithoutCACommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterCertificateWithoutCACommandOutput) => void),
+    cb?: (err: any, data?: RegisterCertificateWithoutCACommandOutput) => void
+  ): Promise<RegisterCertificateWithoutCACommandOutput> | void {
+    const command = new RegisterCertificateWithoutCACommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control
    *          plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
    *             AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise
@@ -6279,6 +6475,11 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Remove the specified thing from the specified group.</p>
+   * 		       <p>You must specify either a <code>thingGroupArn</code> or a
+   * 			<code>thingGroupName</code> to identify the thing group and
+   * 			either a <code>thingArn</code> or a <code>thingName</code> to
+   * 			identify the thing to remove from the thing group.
+   * 		</p>
    */
   public removeThingFromThingGroup(
     args: RemoveThingFromThingGroupCommandInput,
@@ -6986,6 +7187,38 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: UpdateCertificateCommandOutput) => void
   ): Promise<UpdateCertificateCommandOutput> | void {
     const command = new UpdateCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and re-create it).</p>
+   */
+  public updateDimension(
+    args: UpdateDimensionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDimensionCommandOutput>;
+  public updateDimension(
+    args: UpdateDimensionCommandInput,
+    cb: (err: any, data?: UpdateDimensionCommandOutput) => void
+  ): void;
+  public updateDimension(
+    args: UpdateDimensionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDimensionCommandOutput) => void
+  ): void;
+  public updateDimension(
+    args: UpdateDimensionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDimensionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDimensionCommandOutput) => void
+  ): Promise<UpdateDimensionCommandOutput> | void {
+    const command = new UpdateDimensionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

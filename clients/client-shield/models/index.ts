@@ -18,7 +18,7 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>In order to grant the necessary access to the DDoS Response Team, the user submitting  <code>AssociateDRTRole</code> must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>
+ * <p>In order to grant the necessary access to the DDoS Response Team (DRT), the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>
  */
 export interface AccessDeniedForDependencyException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedForDependencyException";
@@ -87,41 +87,74 @@ export namespace AssociateDRTRoleResponse {
   export const isa = (o: any): o is AssociateDRTRoleResponse => __isa(o, "AssociateDRTRoleResponse");
 }
 
+export interface AssociateHealthCheckRequest {
+  __type?: "AssociateHealthCheckRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the health check to associate with the protection.</p>
+   */
+  HealthCheckArn: string | undefined;
+
+  /**
+   * <p>The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. </p>
+   */
+  ProtectionId: string | undefined;
+}
+
+export namespace AssociateHealthCheckRequest {
+  export const filterSensitiveLog = (obj: AssociateHealthCheckRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssociateHealthCheckRequest => __isa(o, "AssociateHealthCheckRequest");
+}
+
+export interface AssociateHealthCheckResponse {
+  __type?: "AssociateHealthCheckResponse";
+}
+
+export namespace AssociateHealthCheckResponse {
+  export const filterSensitiveLog = (obj: AssociateHealthCheckResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssociateHealthCheckResponse => __isa(o, "AssociateHealthCheckResponse");
+}
+
+export interface AssociateProactiveEngagementDetailsRequest {
+  __type?: "AssociateProactiveEngagementDetailsRequest";
+  /**
+   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support. </p>
+   *          <p>To enable proactive engagement, the contact list must include at least one phone number.</p>
+   *          <note>
+   *             <p>The contacts that you provide here replace any contacts that were already defined. If you already have contacts defined and want to use them, retrieve the list using <code>DescribeEmergencyContactSettings</code> and then provide it here.  </p>
+   *          </note>
+   */
+  EmergencyContactList: EmergencyContact[] | undefined;
+}
+
+export namespace AssociateProactiveEngagementDetailsRequest {
+  export const filterSensitiveLog = (obj: AssociateProactiveEngagementDetailsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssociateProactiveEngagementDetailsRequest =>
+    __isa(o, "AssociateProactiveEngagementDetailsRequest");
+}
+
+export interface AssociateProactiveEngagementDetailsResponse {
+  __type?: "AssociateProactiveEngagementDetailsResponse";
+}
+
+export namespace AssociateProactiveEngagementDetailsResponse {
+  export const filterSensitiveLog = (obj: AssociateProactiveEngagementDetailsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssociateProactiveEngagementDetailsResponse =>
+    __isa(o, "AssociateProactiveEngagementDetailsResponse");
+}
+
 /**
  * <p>The details of a DDoS attack.</p>
  */
 export interface AttackDetail {
   __type?: "AttackDetail";
-  /**
-   * <p>List of counters that describe the attack for the specified time period.</p>
-   */
-  AttackCounters?: SummarizedCounter[];
-
-  /**
-   * <p>The unique identifier (ID) of the attack.</p>
-   */
-  AttackId?: string;
-
-  /**
-   * <p>The array of <a>AttackProperty</a> objects.</p>
-   */
-  AttackProperties?: AttackProperty[];
-
-  /**
-   * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>List of mitigation actions taken for the attack.</p>
-   */
-  Mitigations?: Mitigation[];
-
-  /**
-   * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
-   */
-  ResourceArn?: string;
-
   /**
    * <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
@@ -132,6 +165,36 @@ export interface AttackDetail {
    *          address or URL.</p>
    */
   SubResources?: SubResourceSummary[];
+
+  /**
+   * <p>The array of <a>AttackProperty</a> objects.</p>
+   */
+  AttackProperties?: AttackProperty[];
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The unique identifier (ID) of the attack.</p>
+   */
+  AttackId?: string;
+
+  /**
+   * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>List of counters that describe the attack for the specified time period.</p>
+   */
+  AttackCounters?: SummarizedCounter[];
+
+  /**
+   * <p>List of mitigation actions taken for the attack.</p>
+   */
+  Mitigations?: Mitigation[];
 }
 
 export namespace AttackDetail {
@@ -152,11 +215,21 @@ export enum AttackLayer {
 export interface AttackProperty {
   __type?: "AttackProperty";
   /**
+   * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
+   */
+  Total?: number;
+
+  /**
    * <p>The type of distributed denial of service (DDoS) event that was observed.
    *             <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>
    *          indicates layer 7 events.</p>
    */
   AttackLayer?: AttackLayer | string;
+
+  /**
+   * <p>The unit of the <code>Value</code> of the contributions.</p>
+   */
+  Unit?: Unit | string;
 
   /**
    * <p>Defines the DDoS attack property information that is provided. The
@@ -169,16 +242,6 @@ export interface AttackProperty {
    * <p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>
    */
   TopContributors?: Contributor[];
-
-  /**
-   * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
-   */
-  Total?: number;
-
-  /**
-   * <p>The unit of the <code>Value</code> of the contributions.</p>
-   */
-  Unit?: Unit | string;
 }
 
 export namespace AttackProperty {
@@ -215,11 +278,6 @@ export interface AttackSummary {
   AttackVectors?: AttackVectorDescription[];
 
   /**
-   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  EndTime?: Date;
-
-  /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
    */
   ResourceArn?: string;
@@ -228,6 +286,11 @@ export interface AttackSummary {
    * <p>The start time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
   StartTime?: Date;
+
+  /**
+   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  EndTime?: Date;
 }
 
 export namespace AttackSummary {
@@ -342,11 +405,6 @@ export namespace Contributor {
 export interface CreateProtectionRequest {
   __type?: "CreateProtectionRequest";
   /**
-   * <p>Friendly name for the <code>Protection</code> you are creating.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The ARN (Amazon Resource Name) of the resource to be protected.</p>
    *          <p>The ARN should be in one of the following formats:</p>
    *          <ul>
@@ -383,6 +441,11 @@ export interface CreateProtectionRequest {
    *          </ul>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Friendly name for the <code>Protection</code> you are creating.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateProtectionRequest {
@@ -395,8 +458,7 @@ export namespace CreateProtectionRequest {
 export interface CreateProtectionResponse {
   __type?: "CreateProtectionResponse";
   /**
-   * <p>The unique identifier (ID) for the <a>Protection</a> object that is
-   *          created.</p>
+   * <p>The unique identifier (ID) for the <a>Protection</a> object that is created.</p>
    */
   ProtectionId?: string;
 }
@@ -523,14 +585,14 @@ export namespace DescribeDRTAccessRequest {
 export interface DescribeDRTAccessResponse {
   __type?: "DescribeDRTAccessResponse";
   /**
-   * <p>The list of Amazon S3 buckets accessed by the DRT.</p>
-   */
-  LogBucketList?: string[];
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>
    */
   RoleArn?: string;
+
+  /**
+   * <p>The list of Amazon S3 buckets accessed by the DRT.</p>
+   */
+  LogBucketList?: string[];
 }
 
 export namespace DescribeDRTAccessResponse {
@@ -555,7 +617,7 @@ export namespace DescribeEmergencyContactSettingsRequest {
 export interface DescribeEmergencyContactSettingsResponse {
   __type?: "DescribeEmergencyContactSettingsResponse";
   /**
-   * <p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>
+   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
    */
   EmergencyContactList?: EmergencyContact[];
 }
@@ -571,16 +633,16 @@ export namespace DescribeEmergencyContactSettingsResponse {
 export interface DescribeProtectionRequest {
   __type?: "DescribeProtectionRequest";
   /**
-   * <p>The unique identifier (ID) for the <a>Protection</a> object that is
-   *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
-   */
-  ProtectionId?: string;
-
-  /**
    * <p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is
    *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
    */
   ResourceArn?: string;
+
+  /**
+   * <p>The unique identifier (ID) for the <a>Protection</a> object that is
+   *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
+   */
+  ProtectionId?: string;
 }
 
 export namespace DescribeProtectionRequest {
@@ -631,6 +693,29 @@ export namespace DescribeSubscriptionResponse {
   export const isa = (o: any): o is DescribeSubscriptionResponse => __isa(o, "DescribeSubscriptionResponse");
 }
 
+export interface DisableProactiveEngagementRequest {
+  __type?: "DisableProactiveEngagementRequest";
+}
+
+export namespace DisableProactiveEngagementRequest {
+  export const filterSensitiveLog = (obj: DisableProactiveEngagementRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DisableProactiveEngagementRequest => __isa(o, "DisableProactiveEngagementRequest");
+}
+
+export interface DisableProactiveEngagementResponse {
+  __type?: "DisableProactiveEngagementResponse";
+}
+
+export namespace DisableProactiveEngagementResponse {
+  export const filterSensitiveLog = (obj: DisableProactiveEngagementResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DisableProactiveEngagementResponse =>
+    __isa(o, "DisableProactiveEngagementResponse");
+}
+
 export interface DisassociateDRTLogBucketRequest {
   __type?: "DisassociateDRTLogBucketRequest";
   /**
@@ -679,15 +764,56 @@ export namespace DisassociateDRTRoleResponse {
   export const isa = (o: any): o is DisassociateDRTRoleResponse => __isa(o, "DisassociateDRTRoleResponse");
 }
 
+export interface DisassociateHealthCheckRequest {
+  __type?: "DisassociateHealthCheckRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the health check that is associated with the protection.</p>
+   */
+  HealthCheckArn: string | undefined;
+
+  /**
+   * <p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>
+   */
+  ProtectionId: string | undefined;
+}
+
+export namespace DisassociateHealthCheckRequest {
+  export const filterSensitiveLog = (obj: DisassociateHealthCheckRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DisassociateHealthCheckRequest => __isa(o, "DisassociateHealthCheckRequest");
+}
+
+export interface DisassociateHealthCheckResponse {
+  __type?: "DisassociateHealthCheckResponse";
+}
+
+export namespace DisassociateHealthCheckResponse {
+  export const filterSensitiveLog = (obj: DisassociateHealthCheckResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DisassociateHealthCheckResponse => __isa(o, "DisassociateHealthCheckResponse");
+}
+
 /**
- * <p>Contact information that the DRT can use to contact you during a suspected attack.</p>
+ * <p>Contact information that the DRT can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
  */
 export interface EmergencyContact {
   __type?: "EmergencyContact";
   /**
-   * <p>An email address that the DRT can use to contact you during a suspected attack.</p>
+   * <p>The phone number for the contact.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The email address for the contact.</p>
    */
   EmailAddress: string | undefined;
+
+  /**
+   * <p>Additional notes regarding the contact. </p>
+   */
+  ContactNotes?: string;
 }
 
 export namespace EmergencyContact {
@@ -695,6 +821,28 @@ export namespace EmergencyContact {
     ...obj,
   });
   export const isa = (o: any): o is EmergencyContact => __isa(o, "EmergencyContact");
+}
+
+export interface EnableProactiveEngagementRequest {
+  __type?: "EnableProactiveEngagementRequest";
+}
+
+export namespace EnableProactiveEngagementRequest {
+  export const filterSensitiveLog = (obj: EnableProactiveEngagementRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EnableProactiveEngagementRequest => __isa(o, "EnableProactiveEngagementRequest");
+}
+
+export interface EnableProactiveEngagementResponse {
+  __type?: "EnableProactiveEngagementResponse";
+}
+
+export namespace EnableProactiveEngagementResponse {
+  export const filterSensitiveLog = (obj: EnableProactiveEngagementResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EnableProactiveEngagementResponse => __isa(o, "EnableProactiveEngagementResponse");
 }
 
 export interface GetSubscriptionStateRequest {
@@ -810,14 +958,14 @@ export namespace InvalidResourceException {
 export interface Limit {
   __type?: "Limit";
   /**
-   * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
-   */
-  Max?: number;
-
-  /**
    * <p>The type of protection.</p>
    */
   Type?: string;
+
+  /**
+   * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
+   */
+  Max?: number;
 }
 
 export namespace Limit {
@@ -852,17 +1000,6 @@ export namespace LimitsExceededException {
 export interface ListAttacksRequest {
   __type?: "ListAttacksRequest";
   /**
-   * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
-   */
-  EndTime?: TimeRange;
-
-  /**
-   * <p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>
-   *          <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>
    */
   NextToken?: string;
@@ -872,6 +1009,17 @@ export interface ListAttacksRequest {
    *          blank, all applicable resources for this account will be included.</p>
    */
   ResourceArns?: string[];
+
+  /**
+   * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
+   */
+  EndTime?: TimeRange;
+
+  /**
+   * <p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>
+   *          <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
@@ -889,11 +1037,6 @@ export namespace ListAttacksRequest {
 export interface ListAttacksResponse {
   __type?: "ListAttacksResponse";
   /**
-   * <p>The attack information for the specified time range.</p>
-   */
-  AttackSummaries?: AttackSummary[];
-
-  /**
    * <p>The token returned by a previous call to indicate that there is more data available.
    *          If not null, more results are available. Pass this value for the <code>NextMarker</code>
    *          parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of
@@ -901,6 +1044,11 @@ export interface ListAttacksResponse {
    *          <p>AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The attack information for the specified time range.</p>
+   */
+  AttackSummaries?: AttackSummary[];
 }
 
 export namespace ListAttacksResponse {
@@ -913,16 +1061,16 @@ export namespace ListAttacksResponse {
 export interface ListProtectionsRequest {
   __type?: "ListProtectionsRequest";
   /**
+   * <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of <a>Protection</a> objects to be returned. If this is
    *          left blank the first 20 results will be returned.</p>
    *          <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>Protection</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>Protection</a> objects yet to return. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListProtectionsRequest {
@@ -1004,8 +1152,8 @@ export namespace NoAssociatedRoleException {
 }
 
 /**
- * <p>Exception that indicates that the protection state has been modified by another
- *          client. You can retry the request.</p>
+ * <p>Exception that indicates that the resource state has been modified by another
+ *          client. Retrieve the resource and then retry your request.</p>
  */
 export interface OptimisticLockException extends __SmithyException, $MetadataBearer {
   name: "OptimisticLockException";
@@ -1020,15 +1168,26 @@ export namespace OptimisticLockException {
   export const isa = (o: any): o is OptimisticLockException => __isa(o, "OptimisticLockException");
 }
 
+export enum ProactiveEngagementStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  PENDING = "PENDING",
+}
+
 /**
  * <p>An object that represents a resource that is under DDoS protection.</p>
  */
 export interface Protection {
   __type?: "Protection";
   /**
-   * <p>The unique identifier (ID) of the protection.</p>
+   * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
    */
-  Id?: string;
+  HealthCheckIds?: string[];
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>
+   */
+  ResourceArn?: string;
 
   /**
    * <p>The friendly name of the protection. For example, <code>My CloudFront distributions</code>.</p>
@@ -1036,9 +1195,9 @@ export interface Protection {
   Name?: string;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>
+   * <p>The unique identifier (ID) of the protection.</p>
    */
-  ResourceArn?: string;
+  Id?: string;
 }
 
 export namespace Protection {
@@ -1086,24 +1245,24 @@ export namespace ResourceNotFoundException {
 export interface SubResourceSummary {
   __type?: "SubResourceSummary";
   /**
-   * <p>The list of attack types and associated counters.</p>
-   */
-  AttackVectors?: SummarizedAttackVector[];
-
-  /**
    * <p>The counters that describe the details of the attack.</p>
    */
   Counters?: SummarizedCounter[];
 
   /**
-   * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The <code>SubResource</code> type.</p>
    */
   Type?: SubResourceType | string;
+
+  /**
+   * <p>The list of attack types and associated counters.</p>
+   */
+  AttackVectors?: SummarizedAttackVector[];
+
+  /**
+   * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
+   */
+  Id?: string;
 }
 
 export namespace SubResourceSummary {
@@ -1124,6 +1283,16 @@ export enum SubResourceType {
 export interface Subscription {
   __type?: "Subscription";
   /**
+   * <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Specifies how many protections of a given type you can create.</p>
+   */
+  Limits?: Limit[];
+
+  /**
    * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
    *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
    */
@@ -1135,19 +1304,16 @@ export interface Subscription {
   EndTime?: Date;
 
   /**
-   * <p>Specifies how many protections of a given type you can create.</p>
-   */
-  Limits?: Limit[];
-
-  /**
-   * <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  StartTime?: Date;
-
-  /**
    * <p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>
    */
   TimeCommitmentInSeconds?: number;
+
+  /**
+   * <p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+   *          <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>
+   *          <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
+   */
+  ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
 }
 
 export namespace Subscription {
@@ -1191,6 +1357,16 @@ export namespace SummarizedAttackVector {
 export interface SummarizedCounter {
   __type?: "SummarizedCounter";
   /**
+   * <p>The number of counters for a specified time period.</p>
+   */
+  N?: number;
+
+  /**
+   * <p>The unit of the counters.</p>
+   */
+  Unit?: string;
+
+  /**
    * <p>The average value of the counter for a specified time period.</p>
    */
   Average?: number;
@@ -1201,24 +1377,14 @@ export interface SummarizedCounter {
   Max?: number;
 
   /**
-   * <p>The number of counters for a specified time period.</p>
-   */
-  N?: number;
-
-  /**
-   * <p>The counter name.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The total of counter values for a specified time period.</p>
    */
   Sum?: number;
 
   /**
-   * <p>The unit of the counters.</p>
+   * <p>The counter name.</p>
    */
-  Unit?: string;
+  Name?: string;
 }
 
 export namespace SummarizedCounter {
@@ -1261,7 +1427,8 @@ export enum Unit {
 export interface UpdateEmergencyContactSettingsRequest {
   __type?: "UpdateEmergencyContactSettingsRequest";
   /**
-   * <p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>
+   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
+   *          <p>If you have proactive engagement enabled, the contact list must include at least one phone number.</p>
    */
   EmergencyContactList?: EmergencyContact[];
 }

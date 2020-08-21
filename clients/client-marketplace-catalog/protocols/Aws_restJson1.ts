@@ -43,8 +43,8 @@ export const serializeAws_restJson1CancelChangeSetCommand = async (
   };
   let resolvedPath = "/CancelChangeSet";
   const query: any = {
-    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
     ...(input.ChangeSetId !== undefined && { changeSetId: input.ChangeSetId }),
+    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1022,6 +1022,7 @@ const deserializeAws_restJson1ChangeSummary = (output: any, context: __SerdeCont
   return {
     __type: "ChangeSummary",
     ChangeType: output.ChangeType !== undefined && output.ChangeType !== null ? output.ChangeType : undefined,
+    Details: output.Details !== undefined && output.Details !== null ? output.Details : undefined,
     Entity:
       output.Entity !== undefined && output.Entity !== null
         ? deserializeAws_restJson1Entity(output.Entity, context)

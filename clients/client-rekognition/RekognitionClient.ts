@@ -11,6 +11,11 @@ import {
 } from "./commands/CreateStreamProcessorCommand";
 import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
 import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import {
+  DeleteProjectVersionCommandInput,
+  DeleteProjectVersionCommandOutput,
+} from "./commands/DeleteProjectVersionCommand";
 import {
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput,
@@ -46,6 +51,11 @@ import { GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput } from "./c
 import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "./commands/GetFaceSearchCommand";
 import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "./commands/GetLabelDetectionCommand";
 import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "./commands/GetPersonTrackingCommand";
+import {
+  GetSegmentDetectionCommandInput,
+  GetSegmentDetectionCommandOutput,
+} from "./commands/GetSegmentDetectionCommand";
+import { GetTextDetectionCommandInput, GetTextDetectionCommandOutput } from "./commands/GetTextDetectionCommand";
 import { IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand";
 import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
 import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
@@ -82,9 +92,14 @@ import {
   StartProjectVersionCommandOutput,
 } from "./commands/StartProjectVersionCommand";
 import {
+  StartSegmentDetectionCommandInput,
+  StartSegmentDetectionCommandOutput,
+} from "./commands/StartSegmentDetectionCommand";
+import {
   StartStreamProcessorCommandInput,
   StartStreamProcessorCommandOutput,
 } from "./commands/StartStreamProcessorCommand";
+import { StartTextDetectionCommandInput, StartTextDetectionCommandOutput } from "./commands/StartTextDetectionCommand";
 import { StopProjectVersionCommandInput, StopProjectVersionCommandOutput } from "./commands/StopProjectVersionCommand";
 import {
   StopStreamProcessorCommandInput,
@@ -145,6 +160,8 @@ export type ServiceInputTypes =
   | CreateStreamProcessorCommandInput
   | DeleteCollectionCommandInput
   | DeleteFacesCommandInput
+  | DeleteProjectCommandInput
+  | DeleteProjectVersionCommandInput
   | DeleteStreamProcessorCommandInput
   | DescribeCollectionCommandInput
   | DescribeProjectVersionsCommandInput
@@ -162,6 +179,8 @@ export type ServiceInputTypes =
   | GetFaceSearchCommandInput
   | GetLabelDetectionCommandInput
   | GetPersonTrackingCommandInput
+  | GetSegmentDetectionCommandInput
+  | GetTextDetectionCommandInput
   | IndexFacesCommandInput
   | ListCollectionsCommandInput
   | ListFacesCommandInput
@@ -176,7 +195,9 @@ export type ServiceInputTypes =
   | StartLabelDetectionCommandInput
   | StartPersonTrackingCommandInput
   | StartProjectVersionCommandInput
+  | StartSegmentDetectionCommandInput
   | StartStreamProcessorCommandInput
+  | StartTextDetectionCommandInput
   | StopProjectVersionCommandInput
   | StopStreamProcessorCommandInput;
 
@@ -188,6 +209,8 @@ export type ServiceOutputTypes =
   | CreateStreamProcessorCommandOutput
   | DeleteCollectionCommandOutput
   | DeleteFacesCommandOutput
+  | DeleteProjectCommandOutput
+  | DeleteProjectVersionCommandOutput
   | DeleteStreamProcessorCommandOutput
   | DescribeCollectionCommandOutput
   | DescribeProjectVersionsCommandOutput
@@ -205,6 +228,8 @@ export type ServiceOutputTypes =
   | GetFaceSearchCommandOutput
   | GetLabelDetectionCommandOutput
   | GetPersonTrackingCommandOutput
+  | GetSegmentDetectionCommandOutput
+  | GetTextDetectionCommandOutput
   | IndexFacesCommandOutput
   | ListCollectionsCommandOutput
   | ListFacesCommandOutput
@@ -219,7 +244,9 @@ export type ServiceOutputTypes =
   | StartLabelDetectionCommandOutput
   | StartPersonTrackingCommandOutput
   | StartProjectVersionCommandOutput
+  | StartSegmentDetectionCommandOutput
   | StartStreamProcessorCommandOutput
+  | StartTextDetectionCommandOutput
   | StopProjectVersionCommandOutput
   | StopStreamProcessorCommandOutput;
 

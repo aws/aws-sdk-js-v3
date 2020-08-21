@@ -15,6 +15,10 @@ import {
   DescribeAccessPointsCommandOutput,
 } from "../commands/DescribeAccessPointsCommand";
 import {
+  DescribeBackupPolicyCommandInput,
+  DescribeBackupPolicyCommandOutput,
+} from "../commands/DescribeBackupPolicyCommand";
+import {
   DescribeFileSystemPolicyCommandInput,
   DescribeFileSystemPolicyCommandOutput,
 } from "../commands/DescribeFileSystemPolicyCommand";
@@ -43,6 +47,7 @@ import {
   ModifyMountTargetSecurityGroupsCommandInput,
   ModifyMountTargetSecurityGroupsCommandOutput,
 } from "../commands/ModifyMountTargetSecurityGroupsCommand";
+import { PutBackupPolicyCommandInput, PutBackupPolicyCommandOutput } from "../commands/PutBackupPolicyCommand";
 import {
   PutFileSystemPolicyCommandInput,
   PutFileSystemPolicyCommandOutput,
@@ -59,6 +64,7 @@ import {
   AccessPointDescription,
   AccessPointLimitExceeded,
   AccessPointNotFound,
+  BackupPolicy,
   BadRequest,
   CreationInfo,
   DependencyTimeout,
@@ -90,6 +96,7 @@ import {
   ThroughputLimitExceeded,
   TooManyRequests,
   UnsupportedAvailabilityZone,
+  ValidationException,
 } from "../models/index";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -390,10 +397,10 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
   };
   let resolvedPath = "/2015-02-01/access-points";
   const query: any = {
-    ...(input.AccessPointId !== undefined && { AccessPointId: input.AccessPointId }),
-    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AccessPointId !== undefined && { AccessPointId: input.AccessPointId }),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -405,6 +412,36 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeBackupPolicyCommand = async (
+  input: DescribeBackupPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
+  if (input.FileSystemId !== undefined) {
+    const labelValue: string = input.FileSystemId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
+    }
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FileSystemId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -449,8 +486,8 @@ export const serializeAws_restJson1DescribeFileSystemsCommand = async (
   let resolvedPath = "/2015-02-01/file-systems";
   const query: any = {
     ...(input.CreationToken !== undefined && { CreationToken: input.CreationToken }),
-    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
@@ -506,11 +543,11 @@ export const serializeAws_restJson1DescribeMountTargetsCommand = async (
   };
   let resolvedPath = "/2015-02-01/mount-targets";
   const query: any = {
-    ...(input.AccessPointId !== undefined && { AccessPointId: input.AccessPointId }),
-    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
     ...(input.MountTargetId !== undefined && { MountTargetId: input.MountTargetId }),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.AccessPointId !== undefined && { AccessPointId: input.AccessPointId }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -574,8 +611,8 @@ export const serializeAws_restJson1DescribeTagsCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -609,8 +646,8 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -647,6 +684,41 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
   body = JSON.stringify({
     ...(input.SecurityGroups !== undefined && {
       SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutBackupPolicyCommand = async (
+  input: PutBackupPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
+  if (input.FileSystemId !== undefined) {
+    const labelValue: string = input.FileSystemId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
+    }
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FileSystemId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.BackupPolicy !== undefined && {
+      BackupPolicy: serializeAws_restJson1BackupPolicy(input.BackupPolicy, context),
     }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -770,7 +842,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
@@ -782,10 +854,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
+  const query: any = {
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+  };
   let body: any;
-  body = JSON.stringify({
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -794,6 +866,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -933,6 +1006,14 @@ const deserializeAws_restJson1CreateAccessPointCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "IncorrectFileSystemLifeCycleState":
+    case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
+      response = {
+        ...(await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
       response = {
@@ -971,6 +1052,7 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
     CreationTime: undefined,
     CreationToken: undefined,
     Encrypted: undefined,
+    FileSystemArn: undefined,
     FileSystemId: undefined,
     KmsKeyId: undefined,
     LifeCycleState: undefined,
@@ -992,6 +1074,9 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
   }
   if (data.Encrypted !== undefined && data.Encrypted !== null) {
     contents.Encrypted = data.Encrypted;
+  }
+  if (data.FileSystemArn !== undefined && data.FileSystemArn !== null) {
+    contents.FileSystemArn = data.FileSystemArn;
   }
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
     contents.FileSystemId = data.FileSystemId;
@@ -1125,6 +1210,7 @@ export const deserializeAws_restJson1CreateMountTargetCommand = async (
     NetworkInterfaceId: undefined,
     OwnerId: undefined,
     SubnetId: undefined,
+    VpcId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AvailabilityZoneId !== undefined && data.AvailabilityZoneId !== null) {
@@ -1153,6 +1239,9 @@ export const deserializeAws_restJson1CreateMountTargetCommand = async (
   }
   if (data.SubnetId !== undefined && data.SubnetId !== null) {
     contents.SubnetId = data.SubnetId;
+  }
+  if (data.VpcId !== undefined && data.VpcId !== null) {
+    contents.VpcId = data.VpcId;
   }
   return Promise.resolve(contents);
 };
@@ -1763,6 +1852,94 @@ const deserializeAws_restJson1DescribeAccessPointsCommandError = async (
     case "com.amazonaws.efs#InternalServerError":
       response = {
         ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeBackupPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBackupPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeBackupPolicyCommandError(output, context);
+  }
+  const contents: DescribeBackupPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "BackupPolicyDescription",
+    BackupPolicy: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.BackupPolicy !== undefined && data.BackupPolicy !== null) {
+    contents.BackupPolicy = deserializeAws_restJson1BackupPolicy(data.BackupPolicy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeBackupPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBackupPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.efs#BadRequest":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.efs#FileSystemNotFound":
+      response = {
+        ...(await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.efs#InternalServerError":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PolicyNotFound":
+    case "com.amazonaws.efs#PolicyNotFound":
+      response = {
+        ...(await deserializeAws_restJson1PolicyNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.efs#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2443,6 +2620,94 @@ const deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1PutBackupPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutBackupPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1PutBackupPolicyCommandError(output, context);
+  }
+  const contents: PutBackupPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "BackupPolicyDescription",
+    BackupPolicy: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.BackupPolicy !== undefined && data.BackupPolicy !== null) {
+    contents.BackupPolicy = deserializeAws_restJson1BackupPolicy(data.BackupPolicy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutBackupPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutBackupPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.efs#BadRequest":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.efs#FileSystemNotFound":
+      response = {
+        ...(await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncorrectFileSystemLifeCycleState":
+    case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
+      response = {
+        ...(await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.efs#InternalServerError":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.efs#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1PutFileSystemPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2770,6 +3035,7 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
     CreationTime: undefined,
     CreationToken: undefined,
     Encrypted: undefined,
+    FileSystemArn: undefined,
     FileSystemId: undefined,
     KmsKeyId: undefined,
     LifeCycleState: undefined,
@@ -2791,6 +3057,9 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
   }
   if (data.Encrypted !== undefined && data.Encrypted !== null) {
     contents.Encrypted = data.Encrypted;
+  }
+  if (data.FileSystemArn !== undefined && data.FileSystemArn !== null) {
+    contents.FileSystemArn = data.FileSystemArn;
   }
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
     contents.FileSystemId = data.FileSystemId;
@@ -3467,6 +3736,33 @@ const deserializeAws_restJson1UnsupportedAvailabilityZoneResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1ValidationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ValidationException> => {
+  const contents: ValidationException = {
+    name: "ValidationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ErrorCode: undefined,
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
+    contents.ErrorCode = data.ErrorCode;
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const serializeAws_restJson1BackupPolicy = (input: BackupPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
 const serializeAws_restJson1CreationInfo = (input: CreationInfo, context: __SerdeContext): any => {
   return {
     ...(input.OwnerGid !== undefined && { OwnerGid: input.OwnerGid }),
@@ -3565,6 +3861,13 @@ const deserializeAws_restJson1AccessPointDescriptions = (
   return (output || []).map((entry: any) => deserializeAws_restJson1AccessPointDescription(entry, context));
 };
 
+const deserializeAws_restJson1BackupPolicy = (output: any, context: __SerdeContext): BackupPolicy => {
+  return {
+    __type: "BackupPolicy",
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1CreationInfo = (output: any, context: __SerdeContext): CreationInfo => {
   return {
     __type: "CreationInfo",
@@ -3584,6 +3887,8 @@ const deserializeAws_restJson1FileSystemDescription = (output: any, context: __S
     CreationToken:
       output.CreationToken !== undefined && output.CreationToken !== null ? output.CreationToken : undefined,
     Encrypted: output.Encrypted !== undefined && output.Encrypted !== null ? output.Encrypted : undefined,
+    FileSystemArn:
+      output.FileSystemArn !== undefined && output.FileSystemArn !== null ? output.FileSystemArn : undefined,
     FileSystemId: output.FileSystemId !== undefined && output.FileSystemId !== null ? output.FileSystemId : undefined,
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     LifeCycleState:
@@ -3672,6 +3977,7 @@ const deserializeAws_restJson1MountTargetDescription = (
         : undefined,
     OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
     SubnetId: output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
   } as any;
 };
 

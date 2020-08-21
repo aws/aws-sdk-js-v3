@@ -1,7 +1,12 @@
 import { AcceptMatchCommandInput, AcceptMatchCommandOutput } from "../commands/AcceptMatchCommand";
+import { ClaimGameServerCommandInput, ClaimGameServerCommandOutput } from "../commands/ClaimGameServerCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "../commands/CreateAliasCommand";
 import { CreateBuildCommandInput, CreateBuildCommandOutput } from "../commands/CreateBuildCommand";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "../commands/CreateFleetCommand";
+import {
+  CreateGameServerGroupCommandInput,
+  CreateGameServerGroupCommandOutput,
+} from "../commands/CreateGameServerGroupCommand";
 import { CreateGameSessionCommandInput, CreateGameSessionCommandOutput } from "../commands/CreateGameSessionCommand";
 import {
   CreateGameSessionQueueCommandInput,
@@ -36,6 +41,10 @@ import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "../commands/D
 import { DeleteBuildCommandInput, DeleteBuildCommandOutput } from "../commands/DeleteBuildCommand";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "../commands/DeleteFleetCommand";
 import {
+  DeleteGameServerGroupCommandInput,
+  DeleteGameServerGroupCommandOutput,
+} from "../commands/DeleteGameServerGroupCommand";
+import {
   DeleteGameSessionQueueCommandInput,
   DeleteGameSessionQueueCommandOutput,
 } from "../commands/DeleteGameSessionQueueCommand";
@@ -60,6 +69,10 @@ import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
 } from "../commands/DeleteVpcPeeringConnectionCommand";
+import {
+  DeregisterGameServerCommandInput,
+  DeregisterGameServerCommandOutput,
+} from "../commands/DeregisterGameServerCommand";
 import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "../commands/DescribeAliasCommand";
 import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "../commands/DescribeBuildCommand";
 import {
@@ -86,6 +99,11 @@ import {
   DescribeFleetUtilizationCommandInput,
   DescribeFleetUtilizationCommandOutput,
 } from "../commands/DescribeFleetUtilizationCommand";
+import { DescribeGameServerCommandInput, DescribeGameServerCommandOutput } from "../commands/DescribeGameServerCommand";
+import {
+  DescribeGameServerGroupCommandInput,
+  DescribeGameServerGroupCommandOutput,
+} from "../commands/DescribeGameServerGroupCommand";
 import {
   DescribeGameSessionDetailsCommandInput,
   DescribeGameSessionDetailsCommandOutput,
@@ -144,17 +162,27 @@ import { GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput } from ".
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "../commands/ListBuildsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
+import {
+  ListGameServerGroupsCommandInput,
+  ListGameServerGroupsCommandOutput,
+} from "../commands/ListGameServerGroupsCommand";
+import { ListGameServersCommandInput, ListGameServersCommandOutput } from "../commands/ListGameServersCommand";
 import { ListScriptsCommandInput, ListScriptsCommandOutput } from "../commands/ListScriptsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "../commands/PutScalingPolicyCommand";
+import { RegisterGameServerCommandInput, RegisterGameServerCommandOutput } from "../commands/RegisterGameServerCommand";
 import {
   RequestUploadCredentialsCommandInput,
   RequestUploadCredentialsCommandOutput,
 } from "../commands/RequestUploadCredentialsCommand";
 import { ResolveAliasCommandInput, ResolveAliasCommandOutput } from "../commands/ResolveAliasCommand";
+import {
+  ResumeGameServerGroupCommandInput,
+  ResumeGameServerGroupCommandOutput,
+} from "../commands/ResumeGameServerGroupCommand";
 import { SearchGameSessionsCommandInput, SearchGameSessionsCommandOutput } from "../commands/SearchGameSessionsCommand";
 import { StartFleetActionsCommandInput, StartFleetActionsCommandOutput } from "../commands/StartFleetActionsCommand";
 import {
@@ -169,6 +197,10 @@ import {
   StopGameSessionPlacementCommandOutput,
 } from "../commands/StopGameSessionPlacementCommand";
 import { StopMatchmakingCommandInput, StopMatchmakingCommandOutput } from "../commands/StopMatchmakingCommand";
+import {
+  SuspendGameServerGroupCommandInput,
+  SuspendGameServerGroupCommandOutput,
+} from "../commands/SuspendGameServerGroupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "../commands/UpdateAliasCommand";
@@ -185,6 +217,11 @@ import {
   UpdateFleetPortSettingsCommandInput,
   UpdateFleetPortSettingsCommandOutput,
 } from "../commands/UpdateFleetPortSettingsCommand";
+import { UpdateGameServerCommandInput, UpdateGameServerCommandOutput } from "../commands/UpdateGameServerCommand";
+import {
+  UpdateGameServerGroupCommandInput,
+  UpdateGameServerGroupCommandOutput,
+} from "../commands/UpdateGameServerGroupCommand";
 import { UpdateGameSessionCommandInput, UpdateGameSessionCommandOutput } from "../commands/UpdateGameSessionCommand";
 import {
   UpdateGameSessionQueueCommandInput,
@@ -211,6 +248,8 @@ import {
   AwsCredentials,
   Build,
   CertificateConfiguration,
+  ClaimGameServerInput,
+  ClaimGameServerOutput,
   ConflictException,
   CreateAliasInput,
   CreateAliasOutput,
@@ -218,6 +257,8 @@ import {
   CreateBuildOutput,
   CreateFleetInput,
   CreateFleetOutput,
+  CreateGameServerGroupInput,
+  CreateGameServerGroupOutput,
   CreateGameSessionInput,
   CreateGameSessionOutput,
   CreateGameSessionQueueInput,
@@ -239,6 +280,8 @@ import {
   DeleteAliasInput,
   DeleteBuildInput,
   DeleteFleetInput,
+  DeleteGameServerGroupInput,
+  DeleteGameServerGroupOutput,
   DeleteGameSessionQueueInput,
   DeleteGameSessionQueueOutput,
   DeleteMatchmakingConfigurationInput,
@@ -251,6 +294,7 @@ import {
   DeleteVpcPeeringAuthorizationOutput,
   DeleteVpcPeeringConnectionInput,
   DeleteVpcPeeringConnectionOutput,
+  DeregisterGameServerInput,
   DescribeAliasInput,
   DescribeAliasOutput,
   DescribeBuildInput,
@@ -267,6 +311,10 @@ import {
   DescribeFleetPortSettingsOutput,
   DescribeFleetUtilizationInput,
   DescribeFleetUtilizationOutput,
+  DescribeGameServerGroupInput,
+  DescribeGameServerGroupOutput,
+  DescribeGameServerInput,
+  DescribeGameServerOutput,
   DescribeGameSessionDetailsInput,
   DescribeGameSessionDetailsOutput,
   DescribeGameSessionPlacementInput,
@@ -305,6 +353,10 @@ import {
   FleetCapacityExceededException,
   FleetUtilization,
   GameProperty,
+  GameServer,
+  GameServerGroup,
+  GameServerGroupAction,
+  GameServerGroupAutoScalingPolicy,
   GameSession,
   GameSessionConnectionInfo,
   GameSessionDetail,
@@ -320,11 +372,13 @@ import {
   Instance,
   InstanceAccess,
   InstanceCredentials,
+  InstanceDefinition,
   InternalServiceException,
   InvalidFleetStatusException,
   InvalidGameSessionStatusException,
   InvalidRequestException,
   IpPermission,
+  LaunchTemplateSpecification,
   LimitExceededException,
   ListAliasesInput,
   ListAliasesOutput,
@@ -332,6 +386,10 @@ import {
   ListBuildsOutput,
   ListFleetsInput,
   ListFleetsOutput,
+  ListGameServerGroupsInput,
+  ListGameServerGroupsOutput,
+  ListGameServersInput,
+  ListGameServersOutput,
   ListScriptsInput,
   ListScriptsOutput,
   ListTagsForResourceRequest,
@@ -341,6 +399,7 @@ import {
   MatchmakingRuleSet,
   MatchmakingTicket,
   NotFoundException,
+  OutOfCapacityException,
   PlacedPlayerSession,
   Player,
   PlayerLatency,
@@ -348,11 +407,15 @@ import {
   PlayerSession,
   PutScalingPolicyInput,
   PutScalingPolicyOutput,
+  RegisterGameServerInput,
+  RegisterGameServerOutput,
   RequestUploadCredentialsInput,
   RequestUploadCredentialsOutput,
   ResolveAliasInput,
   ResolveAliasOutput,
   ResourceCreationLimitPolicy,
+  ResumeGameServerGroupInput,
+  ResumeGameServerGroupOutput,
   RoutingStrategy,
   RuntimeConfiguration,
   S3Location,
@@ -375,11 +438,14 @@ import {
   StopGameSessionPlacementOutput,
   StopMatchmakingInput,
   StopMatchmakingOutput,
+  SuspendGameServerGroupInput,
+  SuspendGameServerGroupOutput,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
   TaggingFailedException,
   TargetConfiguration,
+  TargetTrackingConfiguration,
   TerminalRoutingStrategyException,
   UnauthorizedException,
   UnsupportedRegionException,
@@ -395,6 +461,10 @@ import {
   UpdateFleetCapacityOutput,
   UpdateFleetPortSettingsInput,
   UpdateFleetPortSettingsOutput,
+  UpdateGameServerGroupInput,
+  UpdateGameServerGroupOutput,
+  UpdateGameServerInput,
+  UpdateGameServerOutput,
   UpdateGameSessionInput,
   UpdateGameSessionOutput,
   UpdateGameSessionQueueInput,
@@ -434,6 +504,19 @@ export const serializeAws_json1_1AcceptMatchCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ClaimGameServerCommand = async (
+  input: ClaimGameServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.ClaimGameServer",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ClaimGameServerInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
@@ -470,6 +553,19 @@ export const serializeAws_json1_1CreateFleetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateFleetInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateGameServerGroupCommand = async (
+  input: CreateGameServerGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.CreateGameServerGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -629,6 +725,19 @@ export const serializeAws_json1_1DeleteFleetCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteGameServerGroupCommand = async (
+  input: DeleteGameServerGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.DeleteGameServerGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteGameServerGroupInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteGameSessionQueueCommand = async (
   input: DeleteGameSessionQueueCommandInput,
   context: __SerdeContext
@@ -717,6 +826,19 @@ export const serializeAws_json1_1DeleteVpcPeeringConnectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteVpcPeeringConnectionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeregisterGameServerCommand = async (
+  input: DeregisterGameServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.DeregisterGameServer",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeregisterGameServerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -821,6 +943,32 @@ export const serializeAws_json1_1DescribeFleetUtilizationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFleetUtilizationInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeGameServerCommand = async (
+  input: DescribeGameServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.DescribeGameServer",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeGameServerInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeGameServerGroupCommand = async (
+  input: DescribeGameServerGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.DescribeGameServerGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1071,6 +1219,32 @@ export const serializeAws_json1_1ListFleetsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListGameServerGroupsCommand = async (
+  input: ListGameServerGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.ListGameServerGroups",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListGameServerGroupsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListGameServersCommand = async (
+  input: ListGameServersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.ListGameServers",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListGameServersInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListScriptsCommand = async (
   input: ListScriptsCommandInput,
   context: __SerdeContext
@@ -1110,6 +1284,19 @@ export const serializeAws_json1_1PutScalingPolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1RegisterGameServerCommand = async (
+  input: RegisterGameServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.RegisterGameServer",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RegisterGameServerInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RequestUploadCredentialsCommand = async (
   input: RequestUploadCredentialsCommandInput,
   context: __SerdeContext
@@ -1133,6 +1320,19 @@ export const serializeAws_json1_1ResolveAliasCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResolveAliasInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ResumeGameServerGroupCommand = async (
+  input: ResumeGameServerGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.ResumeGameServerGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ResumeGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1240,6 +1440,19 @@ export const serializeAws_json1_1StopMatchmakingCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1SuspendGameServerGroupCommand = async (
+  input: SuspendGameServerGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.SuspendGameServerGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SuspendGameServerGroupInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -1328,6 +1541,32 @@ export const serializeAws_json1_1UpdateFleetPortSettingsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateFleetPortSettingsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateGameServerCommand = async (
+  input: UpdateGameServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.UpdateGameServer",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateGameServerInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateGameServerGroupCommand = async (
+  input: UpdateGameServerGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.UpdateGameServerGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1468,6 +1707,102 @@ const deserializeAws_json1_1AcceptMatchCommandError = async (
     case "com.amazonaws.gamelift#UnsupportedRegionException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ClaimGameServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ClaimGameServerCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ClaimGameServerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ClaimGameServerOutput(data, context);
+  const response: ClaimGameServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ClaimGameServerOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ClaimGameServerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ClaimGameServerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OutOfCapacityException":
+    case "com.amazonaws.gamelift#OutOfCapacityException":
+      response = {
+        ...(await deserializeAws_json1_1OutOfCapacityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1748,6 +2083,94 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
     case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateGameServerGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGameServerGroupCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateGameServerGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateGameServerGroupOutput(data, context);
+  const response: CreateGameServerGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateGameServerGroupOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateGameServerGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGameServerGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2885,6 +3308,86 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteGameServerGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGameServerGroupCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteGameServerGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteGameServerGroupOutput(data, context);
+  const response: DeleteGameServerGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteGameServerGroupOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteGameServerGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGameServerGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteGameSessionQueueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3411,6 +3914,82 @@ const deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcPeeringConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeregisterGameServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterGameServerCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeregisterGameServerCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeregisterGameServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeregisterGameServerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterGameServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4043,6 +4622,166 @@ const deserializeAws_json1_1DescribeFleetUtilizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetUtilizationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeGameServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGameServerCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeGameServerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeGameServerOutput(data, context);
+  const response: DescribeGameServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeGameServerOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeGameServerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGameServerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeGameServerGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGameServerGroupCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeGameServerGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeGameServerGroupOutput(data, context);
+  const response: DescribeGameServerGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeGameServerGroupOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeGameServerGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGameServerGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5597,6 +6336,150 @@ const deserializeAws_json1_1ListFleetsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListGameServerGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGameServerGroupsCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListGameServerGroupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListGameServerGroupsOutput(data, context);
+  const response: ListGameServerGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListGameServerGroupsOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListGameServerGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGameServerGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListGameServersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGameServersCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListGameServersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListGameServersOutput(data, context);
+  const response: ListGameServersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListGameServersOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListGameServersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGameServersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListScriptsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5829,6 +6712,94 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RegisterGameServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterGameServerCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1RegisterGameServerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RegisterGameServerOutput(data, context);
+  const response: RegisterGameServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "RegisterGameServerOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RegisterGameServerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterGameServerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RequestUploadCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5968,6 +6939,86 @@ const deserializeAws_json1_1ResolveAliasCommandError = async (
     case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
       response = {
         ...(await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ResumeGameServerGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeGameServerGroupCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ResumeGameServerGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ResumeGameServerGroupOutput(data, context);
+  const response: ResumeGameServerGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ResumeGameServerGroupOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ResumeGameServerGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeGameServerGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6645,6 +7696,86 @@ const deserializeAws_json1_1StopMatchmakingCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1SuspendGameServerGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SuspendGameServerGroupCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1SuspendGameServerGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SuspendGameServerGroupOutput(data, context);
+  const response: SuspendGameServerGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "SuspendGameServerGroupOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SuspendGameServerGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SuspendGameServerGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7240,6 +8371,166 @@ const deserializeAws_json1_1UpdateFleetPortSettingsCommandError = async (
     case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateGameServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGameServerCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateGameServerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateGameServerOutput(data, context);
+  const response: UpdateGameServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateGameServerOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateGameServerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGameServerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateGameServerGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGameServerGroupCommandOutput> => {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateGameServerGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateGameServerGroupOutput(data, context);
+  const response: UpdateGameServerGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateGameServerGroupOutput",
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateGameServerGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGameServerGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7923,6 +9214,21 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1OutOfCapacityExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OutOfCapacityException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OutOfCapacityException(body, context);
+  const contents: OutOfCapacityException = {
+    name: "OutOfCapacityException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1TaggingFailedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -8009,6 +9315,14 @@ const serializeAws_json1_1CertificateConfiguration = (
   };
 };
 
+const serializeAws_json1_1ClaimGameServerInput = (input: ClaimGameServerInput, context: __SerdeContext): any => {
+  return {
+    ...(input.GameServerData !== undefined && { GameServerData: input.GameServerData }),
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.GameServerId !== undefined && { GameServerId: input.GameServerId }),
+  };
+};
+
 const serializeAws_json1_1CreateAliasInput = (input: CreateAliasInput, context: __SerdeContext): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
@@ -8068,6 +9382,33 @@ const serializeAws_json1_1CreateFleetInput = (input: CreateFleetInput, context: 
     ...(input.ServerLaunchParameters !== undefined && { ServerLaunchParameters: input.ServerLaunchParameters }),
     ...(input.ServerLaunchPath !== undefined && { ServerLaunchPath: input.ServerLaunchPath }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateGameServerGroupInput = (
+  input: CreateGameServerGroupInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutoScalingPolicy !== undefined && {
+      AutoScalingPolicy: serializeAws_json1_1GameServerGroupAutoScalingPolicy(input.AutoScalingPolicy, context),
+    }),
+    ...(input.BalancingStrategy !== undefined && { BalancingStrategy: input.BalancingStrategy }),
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.GameServerProtectionPolicy !== undefined && {
+      GameServerProtectionPolicy: input.GameServerProtectionPolicy,
+    }),
+    ...(input.InstanceDefinitions !== undefined && {
+      InstanceDefinitions: serializeAws_json1_1InstanceDefinitions(input.InstanceDefinitions, context),
+    }),
+    ...(input.LaunchTemplate !== undefined && {
+      LaunchTemplate: serializeAws_json1_1LaunchTemplateSpecification(input.LaunchTemplate, context),
+    }),
+    ...(input.MaxSize !== undefined && { MaxSize: input.MaxSize }),
+    ...(input.MinSize !== undefined && { MinSize: input.MinSize }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VpcSubnets !== undefined && { VpcSubnets: serializeAws_json1_1VpcSubnets(input.VpcSubnets, context) }),
   };
 };
 
@@ -8218,6 +9559,16 @@ const serializeAws_json1_1DeleteFleetInput = (input: DeleteFleetInput, context: 
   };
 };
 
+const serializeAws_json1_1DeleteGameServerGroupInput = (
+  input: DeleteGameServerGroupInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeleteOption !== undefined && { DeleteOption: input.DeleteOption }),
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+  };
+};
+
 const serializeAws_json1_1DeleteGameSessionQueueInput = (
   input: DeleteGameSessionQueueInput,
   context: __SerdeContext
@@ -8281,6 +9632,16 @@ const serializeAws_json1_1DeleteVpcPeeringConnectionInput = (
   };
 };
 
+const serializeAws_json1_1DeregisterGameServerInput = (
+  input: DeregisterGameServerInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.GameServerId !== undefined && { GameServerId: input.GameServerId }),
+  };
+};
+
 const serializeAws_json1_1DescribeAliasInput = (input: DescribeAliasInput, context: __SerdeContext): any => {
   return {
     ...(input.AliasId !== undefined && { AliasId: input.AliasId }),
@@ -8307,7 +9668,7 @@ const serializeAws_json1_1DescribeFleetAttributesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FleetIds !== undefined && { FleetIds: serializeAws_json1_1FleetIdList(input.FleetIds, context) }),
+    ...(input.FleetIds !== undefined && { FleetIds: serializeAws_json1_1FleetIdOrArnList(input.FleetIds, context) }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -8318,7 +9679,7 @@ const serializeAws_json1_1DescribeFleetCapacityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FleetIds !== undefined && { FleetIds: serializeAws_json1_1FleetIdList(input.FleetIds, context) }),
+    ...(input.FleetIds !== undefined && { FleetIds: serializeAws_json1_1FleetIdOrArnList(input.FleetIds, context) }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -8351,9 +9712,25 @@ const serializeAws_json1_1DescribeFleetUtilizationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FleetIds !== undefined && { FleetIds: serializeAws_json1_1FleetIdList(input.FleetIds, context) }),
+    ...(input.FleetIds !== undefined && { FleetIds: serializeAws_json1_1FleetIdOrArnList(input.FleetIds, context) }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeGameServerGroupInput = (
+  input: DescribeGameServerGroupInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+  };
+};
+
+const serializeAws_json1_1DescribeGameServerInput = (input: DescribeGameServerInput, context: __SerdeContext): any => {
+  return {
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.GameServerId !== undefined && { GameServerId: input.GameServerId }),
   };
 };
 
@@ -8386,7 +9763,9 @@ const serializeAws_json1_1DescribeGameSessionQueuesInput = (
 ): any => {
   return {
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Names !== undefined && { Names: serializeAws_json1_1GameSessionQueueNameList(input.Names, context) }),
+    ...(input.Names !== undefined && {
+      Names: serializeAws_json1_1GameSessionQueueNameOrArnList(input.Names, context),
+    }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
@@ -8524,7 +9903,7 @@ const serializeAws_json1_1FleetActionList = (input: (FleetAction | string)[], co
   return input.map((entry) => entry);
 };
 
-const serializeAws_json1_1FleetIdList = (input: string[], context: __SerdeContext): any => {
+const serializeAws_json1_1FleetIdOrArnList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
 
@@ -8537,6 +9916,28 @@ const serializeAws_json1_1GameProperty = (input: GameProperty, context: __SerdeC
 
 const serializeAws_json1_1GamePropertyList = (input: GameProperty[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_json1_1GameProperty(entry, context));
+};
+
+const serializeAws_json1_1GameServerGroupActions = (
+  input: (GameServerGroupAction | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1GameServerGroupAutoScalingPolicy = (
+  input: GameServerGroupAutoScalingPolicy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EstimatedInstanceWarmup !== undefined && { EstimatedInstanceWarmup: input.EstimatedInstanceWarmup }),
+    ...(input.TargetTrackingConfiguration !== undefined && {
+      TargetTrackingConfiguration: serializeAws_json1_1TargetTrackingConfiguration(
+        input.TargetTrackingConfiguration,
+        context
+      ),
+    }),
+  };
 };
 
 const serializeAws_json1_1GameSessionQueueDestination = (
@@ -8555,7 +9956,7 @@ const serializeAws_json1_1GameSessionQueueDestinationList = (
   return input.map((entry) => serializeAws_json1_1GameSessionQueueDestination(entry, context));
 };
 
-const serializeAws_json1_1GameSessionQueueNameList = (input: string[], context: __SerdeContext): any => {
+const serializeAws_json1_1GameSessionQueueNameOrArnList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
 
@@ -8573,6 +9974,17 @@ const serializeAws_json1_1GetInstanceAccessInput = (input: GetInstanceAccessInpu
     ...(input.FleetId !== undefined && { FleetId: input.FleetId }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
   };
+};
+
+const serializeAws_json1_1InstanceDefinition = (input: InstanceDefinition, context: __SerdeContext): any => {
+  return {
+    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
+    ...(input.WeightedCapacity !== undefined && { WeightedCapacity: input.WeightedCapacity }),
+  };
+};
+
+const serializeAws_json1_1InstanceDefinitions = (input: InstanceDefinition[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1InstanceDefinition(entry, context));
 };
 
 const serializeAws_json1_1IpPermission = (input: IpPermission, context: __SerdeContext): any => {
@@ -8598,6 +10010,17 @@ const serializeAws_json1_1LatencyMap = (input: { [key: string]: number }, contex
   );
 };
 
+const serializeAws_json1_1LaunchTemplateSpecification = (
+  input: LaunchTemplateSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LaunchTemplateId !== undefined && { LaunchTemplateId: input.LaunchTemplateId }),
+    ...(input.LaunchTemplateName !== undefined && { LaunchTemplateName: input.LaunchTemplateName }),
+    ...(input.Version !== undefined && { Version: input.Version }),
+  };
+};
+
 const serializeAws_json1_1ListAliasesInput = (input: ListAliasesInput, context: __SerdeContext): any => {
   return {
     ...(input.Limit !== undefined && { Limit: input.Limit }),
@@ -8621,6 +10044,25 @@ const serializeAws_json1_1ListFleetsInput = (input: ListFleetsInput, context: __
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ScriptId !== undefined && { ScriptId: input.ScriptId }),
+  };
+};
+
+const serializeAws_json1_1ListGameServerGroupsInput = (
+  input: ListGameServerGroupsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListGameServersInput = (input: ListGameServersInput, context: __SerdeContext): any => {
+  return {
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -8744,6 +10186,18 @@ const serializeAws_json1_1QueueArnsList = (input: string[], context: __SerdeCont
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1RegisterGameServerInput = (input: RegisterGameServerInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectionInfo !== undefined && { ConnectionInfo: input.ConnectionInfo }),
+    ...(input.CustomSortKey !== undefined && { CustomSortKey: input.CustomSortKey }),
+    ...(input.GameServerData !== undefined && { GameServerData: input.GameServerData }),
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.GameServerId !== undefined && { GameServerId: input.GameServerId }),
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1RequestUploadCredentialsInput = (
   input: RequestUploadCredentialsInput,
   context: __SerdeContext
@@ -8768,6 +10222,18 @@ const serializeAws_json1_1ResourceCreationLimitPolicy = (
       NewGameSessionsPerCreator: input.NewGameSessionsPerCreator,
     }),
     ...(input.PolicyPeriodInMinutes !== undefined && { PolicyPeriodInMinutes: input.PolicyPeriodInMinutes }),
+  };
+};
+
+const serializeAws_json1_1ResumeGameServerGroupInput = (
+  input: ResumeGameServerGroupInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.ResumeActions !== undefined && {
+      ResumeActions: serializeAws_json1_1GameServerGroupActions(input.ResumeActions, context),
+    }),
   };
 };
 
@@ -8909,6 +10375,18 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1SuspendGameServerGroupInput = (
+  input: SuspendGameServerGroupInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.SuspendActions !== undefined && {
+      SuspendActions: serializeAws_json1_1GameServerGroupActions(input.SuspendActions, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
@@ -8932,6 +10410,15 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
 };
 
 const serializeAws_json1_1TargetConfiguration = (input: TargetConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.TargetValue !== undefined && { TargetValue: input.TargetValue }),
+  };
+};
+
+const serializeAws_json1_1TargetTrackingConfiguration = (
+  input: TargetTrackingConfiguration,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.TargetValue !== undefined && { TargetValue: input.TargetValue }),
   };
@@ -9013,6 +10500,34 @@ const serializeAws_json1_1UpdateFleetPortSettingsInput = (
     ...(input.InboundPermissionRevocations !== undefined && {
       InboundPermissionRevocations: serializeAws_json1_1IpPermissionsList(input.InboundPermissionRevocations, context),
     }),
+  };
+};
+
+const serializeAws_json1_1UpdateGameServerGroupInput = (
+  input: UpdateGameServerGroupInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BalancingStrategy !== undefined && { BalancingStrategy: input.BalancingStrategy }),
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.GameServerProtectionPolicy !== undefined && {
+      GameServerProtectionPolicy: input.GameServerProtectionPolicy,
+    }),
+    ...(input.InstanceDefinitions !== undefined && {
+      InstanceDefinitions: serializeAws_json1_1InstanceDefinitions(input.InstanceDefinitions, context),
+    }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateGameServerInput = (input: UpdateGameServerInput, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomSortKey !== undefined && { CustomSortKey: input.CustomSortKey }),
+    ...(input.GameServerData !== undefined && { GameServerData: input.GameServerData }),
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.GameServerId !== undefined && { GameServerId: input.GameServerId }),
+    ...(input.HealthCheck !== undefined && { HealthCheck: input.HealthCheck }),
+    ...(input.UtilizationStatus !== undefined && { UtilizationStatus: input.UtilizationStatus }),
   };
 };
 
@@ -9104,6 +10619,10 @@ const serializeAws_json1_1ValidateMatchmakingRuleSetInput = (
   };
 };
 
+const serializeAws_json1_1VpcSubnets = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const deserializeAws_json1_1AcceptMatchOutput = (output: any, context: __SerdeContext): AcceptMatchOutput => {
   return {
     __type: "AcceptMatchOutput",
@@ -9193,6 +10712,16 @@ const deserializeAws_json1_1CertificateConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1ClaimGameServerOutput = (output: any, context: __SerdeContext): ClaimGameServerOutput => {
+  return {
+    __type: "ClaimGameServerOutput",
+    GameServer:
+      output.GameServer !== undefined && output.GameServer !== null
+        ? deserializeAws_json1_1GameServer(output.GameServer, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     __type: "ConflictException",
@@ -9234,6 +10763,19 @@ const deserializeAws_json1_1CreateFleetOutput = (output: any, context: __SerdeCo
     FleetAttributes:
       output.FleetAttributes !== undefined && output.FleetAttributes !== null
         ? deserializeAws_json1_1FleetAttributes(output.FleetAttributes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateGameServerGroupOutput = (
+  output: any,
+  context: __SerdeContext
+): CreateGameServerGroupOutput => {
+  return {
+    __type: "CreateGameServerGroupOutput",
+    GameServerGroup:
+      output.GameServerGroup !== undefined && output.GameServerGroup !== null
+        ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
         : undefined,
   } as any;
 };
@@ -9345,6 +10887,19 @@ const deserializeAws_json1_1CreateVpcPeeringConnectionOutput = (
 ): CreateVpcPeeringConnectionOutput => {
   return {
     __type: "CreateVpcPeeringConnectionOutput",
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteGameServerGroupOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteGameServerGroupOutput => {
+  return {
+    __type: "DeleteGameServerGroupOutput",
+    GameServerGroup:
+      output.GameServerGroup !== undefined && output.GameServerGroup !== null
+        ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
+        : undefined,
   } as any;
 };
 
@@ -9492,6 +11047,32 @@ const deserializeAws_json1_1DescribeFleetUtilizationOutput = (
         ? deserializeAws_json1_1FleetUtilizationList(output.FleetUtilization, context)
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeGameServerGroupOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeGameServerGroupOutput => {
+  return {
+    __type: "DescribeGameServerGroupOutput",
+    GameServerGroup:
+      output.GameServerGroup !== undefined && output.GameServerGroup !== null
+        ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeGameServerOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeGameServerOutput => {
+  return {
+    __type: "DescribeGameServerOutput",
+    GameServer:
+      output.GameServer !== undefined && output.GameServer !== null
+        ? deserializeAws_json1_1GameServer(output.GameServer, context)
+        : undefined,
   } as any;
 };
 
@@ -9867,6 +11448,105 @@ const deserializeAws_json1_1GamePropertyList = (output: any, context: __SerdeCon
   return (output || []).map((entry: any) => deserializeAws_json1_1GameProperty(entry, context));
 };
 
+const deserializeAws_json1_1GameServer = (output: any, context: __SerdeContext): GameServer => {
+  return {
+    __type: "GameServer",
+    ClaimStatus: output.ClaimStatus !== undefined && output.ClaimStatus !== null ? output.ClaimStatus : undefined,
+    ConnectionInfo:
+      output.ConnectionInfo !== undefined && output.ConnectionInfo !== null ? output.ConnectionInfo : undefined,
+    CustomSortKey:
+      output.CustomSortKey !== undefined && output.CustomSortKey !== null ? output.CustomSortKey : undefined,
+    GameServerData:
+      output.GameServerData !== undefined && output.GameServerData !== null ? output.GameServerData : undefined,
+    GameServerGroupArn:
+      output.GameServerGroupArn !== undefined && output.GameServerGroupArn !== null
+        ? output.GameServerGroupArn
+        : undefined,
+    GameServerGroupName:
+      output.GameServerGroupName !== undefined && output.GameServerGroupName !== null
+        ? output.GameServerGroupName
+        : undefined,
+    GameServerId: output.GameServerId !== undefined && output.GameServerId !== null ? output.GameServerId : undefined,
+    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
+    LastClaimTime:
+      output.LastClaimTime !== undefined && output.LastClaimTime !== null
+        ? new Date(Math.round(output.LastClaimTime * 1000))
+        : undefined,
+    LastHealthCheckTime:
+      output.LastHealthCheckTime !== undefined && output.LastHealthCheckTime !== null
+        ? new Date(Math.round(output.LastHealthCheckTime * 1000))
+        : undefined,
+    RegistrationTime:
+      output.RegistrationTime !== undefined && output.RegistrationTime !== null
+        ? new Date(Math.round(output.RegistrationTime * 1000))
+        : undefined,
+    UtilizationStatus:
+      output.UtilizationStatus !== undefined && output.UtilizationStatus !== null
+        ? output.UtilizationStatus
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GameServerGroup = (output: any, context: __SerdeContext): GameServerGroup => {
+  return {
+    __type: "GameServerGroup",
+    AutoScalingGroupArn:
+      output.AutoScalingGroupArn !== undefined && output.AutoScalingGroupArn !== null
+        ? output.AutoScalingGroupArn
+        : undefined,
+    BalancingStrategy:
+      output.BalancingStrategy !== undefined && output.BalancingStrategy !== null
+        ? output.BalancingStrategy
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    GameServerGroupArn:
+      output.GameServerGroupArn !== undefined && output.GameServerGroupArn !== null
+        ? output.GameServerGroupArn
+        : undefined,
+    GameServerGroupName:
+      output.GameServerGroupName !== undefined && output.GameServerGroupName !== null
+        ? output.GameServerGroupName
+        : undefined,
+    GameServerProtectionPolicy:
+      output.GameServerProtectionPolicy !== undefined && output.GameServerProtectionPolicy !== null
+        ? output.GameServerProtectionPolicy
+        : undefined,
+    InstanceDefinitions:
+      output.InstanceDefinitions !== undefined && output.InstanceDefinitions !== null
+        ? deserializeAws_json1_1InstanceDefinitions(output.InstanceDefinitions, context)
+        : undefined,
+    LastUpdatedTime:
+      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StatusReason: output.StatusReason !== undefined && output.StatusReason !== null ? output.StatusReason : undefined,
+    SuspendedActions:
+      output.SuspendedActions !== undefined && output.SuspendedActions !== null
+        ? deserializeAws_json1_1GameServerGroupActions(output.SuspendedActions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GameServerGroupActions = (
+  output: any,
+  context: __SerdeContext
+): (GameServerGroupAction | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1GameServerGroups = (output: any, context: __SerdeContext): GameServerGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1GameServerGroup(entry, context));
+};
+
+const deserializeAws_json1_1GameServers = (output: any, context: __SerdeContext): GameServer[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1GameServer(entry, context));
+};
+
 const deserializeAws_json1_1GameSession = (output: any, context: __SerdeContext): GameSession => {
   return {
     __type: "GameSession",
@@ -10128,6 +11808,19 @@ const deserializeAws_json1_1InstanceCredentials = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1InstanceDefinition = (output: any, context: __SerdeContext): InstanceDefinition => {
+  return {
+    __type: "InstanceDefinition",
+    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
+    WeightedCapacity:
+      output.WeightedCapacity !== undefined && output.WeightedCapacity !== null ? output.WeightedCapacity : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InstanceDefinitions = (output: any, context: __SerdeContext): InstanceDefinition[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1InstanceDefinition(entry, context));
+};
+
 const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext): Instance[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Instance(entry, context));
 };
@@ -10231,6 +11924,31 @@ const deserializeAws_json1_1ListFleetsOutput = (output: any, context: __SerdeCon
     FleetIds:
       output.FleetIds !== undefined && output.FleetIds !== null
         ? deserializeAws_json1_1FleetIdList(output.FleetIds, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListGameServerGroupsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListGameServerGroupsOutput => {
+  return {
+    __type: "ListGameServerGroupsOutput",
+    GameServerGroups:
+      output.GameServerGroups !== undefined && output.GameServerGroups !== null
+        ? deserializeAws_json1_1GameServerGroups(output.GameServerGroups, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListGameServersOutput = (output: any, context: __SerdeContext): ListGameServersOutput => {
+  return {
+    __type: "ListGameServersOutput",
+    GameServers:
+      output.GameServers !== undefined && output.GameServers !== null
+        ? deserializeAws_json1_1GameServers(output.GameServers, context)
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
@@ -10402,6 +12120,13 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1OutOfCapacityException = (output: any, context: __SerdeContext): OutOfCapacityException => {
+  return {
+    __type: "OutOfCapacityException",
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1PlacedPlayerSession = (output: any, context: __SerdeContext): PlacedPlayerSession => {
   return {
     __type: "PlacedPlayerSession",
@@ -10525,6 +12250,19 @@ const deserializeAws_json1_1QueueArnsList = (output: any, context: __SerdeContex
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1RegisterGameServerOutput = (
+  output: any,
+  context: __SerdeContext
+): RegisterGameServerOutput => {
+  return {
+    __type: "RegisterGameServerOutput",
+    GameServer:
+      output.GameServer !== undefined && output.GameServer !== null
+        ? deserializeAws_json1_1GameServer(output.GameServer, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RequestUploadCredentialsOutput = (
   output: any,
   context: __SerdeContext
@@ -10563,6 +12301,19 @@ const deserializeAws_json1_1ResourceCreationLimitPolicy = (
     PolicyPeriodInMinutes:
       output.PolicyPeriodInMinutes !== undefined && output.PolicyPeriodInMinutes !== null
         ? output.PolicyPeriodInMinutes
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResumeGameServerGroupOutput = (
+  output: any,
+  context: __SerdeContext
+): ResumeGameServerGroupOutput => {
+  return {
+    __type: "ResumeGameServerGroupOutput",
+    GameServerGroup:
+      output.GameServerGroup !== undefined && output.GameServerGroup !== null
+        ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
         : undefined,
   } as any;
 };
@@ -10778,6 +12529,19 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1SuspendGameServerGroupOutput = (
+  output: any,
+  context: __SerdeContext
+): SuspendGameServerGroupOutput => {
+  return {
+    __type: "SuspendGameServerGroupOutput",
+    GameServerGroup:
+      output.GameServerGroup !== undefined && output.GameServerGroup !== null
+        ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
@@ -10890,6 +12654,29 @@ const deserializeAws_json1_1UpdateFleetPortSettingsOutput = (
   return {
     __type: "UpdateFleetPortSettingsOutput",
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateGameServerGroupOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateGameServerGroupOutput => {
+  return {
+    __type: "UpdateGameServerGroupOutput",
+    GameServerGroup:
+      output.GameServerGroup !== undefined && output.GameServerGroup !== null
+        ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateGameServerOutput = (output: any, context: __SerdeContext): UpdateGameServerOutput => {
+  return {
+    __type: "UpdateGameServerOutput",
+    GameServer:
+      output.GameServer !== undefined && output.GameServer !== null
+        ? deserializeAws_json1_1GameServer(output.GameServer, context)
+        : undefined,
   } as any;
 };
 

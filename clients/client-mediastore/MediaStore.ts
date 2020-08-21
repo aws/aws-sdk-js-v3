@@ -25,6 +25,11 @@ import {
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import {
+  DeleteMetricPolicyCommand,
+  DeleteMetricPolicyCommandInput,
+  DeleteMetricPolicyCommandOutput,
+} from "./commands/DeleteMetricPolicyCommand";
+import {
   DescribeContainerCommand,
   DescribeContainerCommandInput,
   DescribeContainerCommandOutput,
@@ -44,6 +49,11 @@ import {
   GetLifecyclePolicyCommandInput,
   GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
+import {
+  GetMetricPolicyCommand,
+  GetMetricPolicyCommandInput,
+  GetMetricPolicyCommandOutput,
+} from "./commands/GetMetricPolicyCommand";
 import {
   ListContainersCommand,
   ListContainersCommandInput,
@@ -69,6 +79,11 @@ import {
   PutLifecyclePolicyCommandInput,
   PutLifecyclePolicyCommandOutput,
 } from "./commands/PutLifecyclePolicyCommand";
+import {
+  PutMetricPolicyCommand,
+  PutMetricPolicyCommandInput,
+  PutMetricPolicyCommandOutput,
+} from "./commands/PutMetricPolicyCommand";
 import {
   StartAccessLoggingCommand,
   StartAccessLoggingCommandInput,
@@ -260,6 +275,38 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * <p>Deletes the metric policy that is associated with the specified container. If there is no metric policy associated with the container, MediaStore doesn't send metrics to CloudWatch.</p>
+   */
+  public deleteMetricPolicy(
+    args: DeleteMetricPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMetricPolicyCommandOutput>;
+  public deleteMetricPolicy(
+    args: DeleteMetricPolicyCommandInput,
+    cb: (err: any, data?: DeleteMetricPolicyCommandOutput) => void
+  ): void;
+  public deleteMetricPolicy(
+    args: DeleteMetricPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMetricPolicyCommandOutput) => void
+  ): void;
+  public deleteMetricPolicy(
+    args: DeleteMetricPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMetricPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMetricPolicyCommandOutput) => void
+  ): Promise<DeleteMetricPolicyCommandOutput> | void {
+    const command = new DeleteMetricPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the properties of the requested container. This request is commonly used to
    *          retrieve the endpoint of a container. An endpoint is a value assigned by the service when a
    *          new container is created. A container's endpoint does not change after it has been
@@ -389,6 +436,38 @@ export class MediaStore extends MediaStoreClient {
     cb?: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
   ): Promise<GetLifecyclePolicyCommandOutput> | void {
     const command = new GetLifecyclePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the metric policy for the specified container. </p>
+   */
+  public getMetricPolicy(
+    args: GetMetricPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetricPolicyCommandOutput>;
+  public getMetricPolicy(
+    args: GetMetricPolicyCommandInput,
+    cb: (err: any, data?: GetMetricPolicyCommandOutput) => void
+  ): void;
+  public getMetricPolicy(
+    args: GetMetricPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetricPolicyCommandOutput) => void
+  ): void;
+  public getMetricPolicy(
+    args: GetMetricPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetMetricPolicyCommandOutput) => void
+  ): Promise<GetMetricPolicyCommandOutput> | void {
+    const command = new GetMetricPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -574,6 +653,38 @@ export class MediaStore extends MediaStoreClient {
     cb?: (err: any, data?: PutLifecyclePolicyCommandOutput) => void
   ): Promise<PutLifecyclePolicyCommandOutput> | void {
     const command = new PutLifecyclePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.</p>
+   */
+  public putMetricPolicy(
+    args: PutMetricPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutMetricPolicyCommandOutput>;
+  public putMetricPolicy(
+    args: PutMetricPolicyCommandInput,
+    cb: (err: any, data?: PutMetricPolicyCommandOutput) => void
+  ): void;
+  public putMetricPolicy(
+    args: PutMetricPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutMetricPolicyCommandOutput) => void
+  ): void;
+  public putMetricPolicy(
+    args: PutMetricPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutMetricPolicyCommandOutput) => void
+  ): Promise<PutMetricPolicyCommandOutput> | void {
+    const command = new PutMetricPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

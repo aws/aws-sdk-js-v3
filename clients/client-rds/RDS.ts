@@ -35,6 +35,11 @@ import {
   BacktrackDBClusterCommandOutput,
 } from "./commands/BacktrackDBClusterCommand";
 import {
+  CancelExportTaskCommand,
+  CancelExportTaskCommandInput,
+  CancelExportTaskCommandOutput,
+} from "./commands/CancelExportTaskCommand";
+import {
   CopyDBClusterParameterGroupCommand,
   CopyDBClusterParameterGroupCommandInput,
   CopyDBClusterParameterGroupCommandOutput,
@@ -360,6 +365,11 @@ import {
   DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
+  DescribeExportTasksCommand,
+  DescribeExportTasksCommandInput,
+  DescribeExportTasksCommandOutput,
+} from "./commands/DescribeExportTasksCommand";
+import {
   DescribeGlobalClustersCommand,
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput,
@@ -620,6 +630,11 @@ import {
   StartDBInstanceCommandOutput,
 } from "./commands/StartDBInstanceCommand";
 import {
+  StartExportTaskCommand,
+  StartExportTaskCommandInput,
+  StartExportTaskCommandOutput,
+} from "./commands/StartExportTaskCommand";
+import {
   StopActivityStreamCommand,
   StopActivityStreamCommandInput,
   StopActivityStreamCommandOutput,
@@ -651,7 +666,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *           application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for
  *           the resources you use.</p>
  *          <p>This interface reference for Amazon RDS contains documentation for a programming or command line interface
- *           you can use to manage Amazon RDS. Note that Amazon RDS is asynchronous, which means that some interfaces might
+ *           you can use to manage Amazon RDS. Amazon RDS is asynchronous, which means that some interfaces might
  *           require techniques such as polling or callback functions to determine when a command has been applied. In this
  *           reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot,
  *           or during the maintenance window. The reference structure is as follows, and we list following some related topics
@@ -917,7 +932,7 @@ export class RDS extends RDSClient {
    *             <i>Amazon Aurora User Guide.</i>
    *         </p>
    *         <note>
-   *             <p>This action only applies to Aurora DB clusters.</p>
+   *             <p>This action only applies to Aurora MySQL DB clusters.</p>
    *         </note>
    */
   public backtrackDBCluster(
@@ -939,6 +954,40 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: BacktrackDBClusterCommandOutput) => void
   ): Promise<BacktrackDBClusterCommandOutput> | void {
     const command = new BacktrackDBClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels an export task in progress that is exporting a snapshot to Amazon S3.
+   *             Any data that has already been written to the S3 bucket isn't removed.
+   *         </p>
+   */
+  public cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelExportTaskCommandOutput>;
+  public cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    cb: (err: any, data?: CancelExportTaskCommandOutput) => void
+  ): void;
+  public cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelExportTaskCommandOutput) => void
+  ): void;
+  public cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelExportTaskCommandOutput) => void),
+    cb?: (err: any, data?: CancelExportTaskCommandOutput) => void
+  ): Promise<CancelExportTaskCommandOutput> | void {
+    const command = new CancelExportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1015,7 +1064,7 @@ export class RDS extends RDSClient {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot will be created in.</p>
+   *                         <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot is to be created in.</p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -1234,10 +1283,11 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Creates a new Amazon Aurora DB cluster.</p>
-   *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB cluster as a
-   *           Read Replica of another DB cluster or Amazon RDS MySQL DB instance. For cross-region replication
-   *           where the DB cluster identified by <code>ReplicationSourceIdentifier</code> is encrypted,
-   *       you must also specify the <code>PreSignedUrl</code> parameter.</p>
+   *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
+   *             cluster as a read replica of another DB cluster or Amazon RDS MySQL DB instance. For
+   *             cross-region replication where the DB cluster identified by
+   *                 <code>ReplicationSourceIdentifier</code> is encrypted, you must also specify the
+   *                 <code>PreSignedUrl</code> parameter.</p>
    *
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -1445,19 +1495,17 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Creates a new DB instance that acts as a Read Replica for an existing source DB instance.
-   *           You can create a Read Replica for a DB instance running MySQL, MariaDB, Oracle, or PostgreSQL.
-   *           For more information, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read Replicas</a> in the <i>Amazon RDS User Guide</i>.
-   *       </p>
+   * <p>Creates a new DB instance that acts as a read replica for an existing source DB
+   *             instance. You can create a read replica for a DB instance running MySQL, MariaDB,
+   *             Oracle, PostgreSQL, or SQL Server. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read
+   *                 Replicas</a> in the <i>Amazon RDS User Guide</i>. </p>
    *
-   *          <p>Amazon Aurora doesn't support this action. You must call the <code>CreateDBInstance</code> action to create a DB instance for an Aurora DB cluster.
-   *       </p>
+   *          <p>Amazon Aurora doesn't support this action. Call the <code>CreateDBInstance</code>
+   *             action to create a DB instance for an Aurora DB cluster.</p>
    *
-   *          <p>All Read Replica DB instances are created with backups disabled.
-   *           All other DB instance attributes (including DB security groups and DB parameter groups)
-   *           are inherited from the source DB instance, except as specified following.
-   *       </p>
+   *          <p>All read replica DB instances are created with backups disabled. All other DB
+   *             instance attributes (including DB security groups and DB parameter groups) are inherited
+   *             from the source DB instance, except as specified.</p>
    *
    *          <important>
    *             <p>Your source DB instance must have backup retention enabled.
@@ -1546,11 +1594,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Creates a new DB proxy.</p>
+   * <p>Creates a new DB proxy.</p>
    */
   public createDBProxy(
     args: CreateDBProxyCommandInput,
@@ -1681,18 +1725,21 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Creates an RDS event notification subscription. This action requires a topic ARN (Amazon Resource Name) created by
-   *           either the RDS console, the SNS console, or the SNS API. To obtain an ARN with SNS, you must create a topic in
-   *           Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS console.</p>
+   * <p>Creates an RDS event notification subscription. This action requires a topic Amazon
+   *             Resource Name (ARN) created by either the RDS console, the SNS console, or the SNS API.
+   *             To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the
+   *             topic. The ARN is displayed in the SNS console.</p>
    *          <p>You can specify the type of source (SourceType) you want to be notified of, provide a list of RDS sources
    *           (SourceIds) that triggers the events, and provide a list of event categories (EventCategories) for events you want to
    *           be notified of. For example, you can specify SourceType = db-instance, SourceIds = mydbinstance1, mydbinstance2 and
    *           EventCategories = Availability, Backup.</p>
-   *          <p>If you specify both the SourceType and SourceIds, such as SourceType = db-instance and SourceIdentifier = myDBInstance1,
-   *           you are notified of all the db-instance events for the specified source. If you specify a SourceType but do not specify
-   *           a SourceIdentifier, you receive notice of the events for that source type for all your RDS sources. If you do not specify
-   *           either the SourceType nor the SourceIdentifier, you are notified of events generated from all RDS sources belonging to
-   *           your customer account.</p>
+   *
+   *          <p>If you specify both the SourceType and SourceIds, such as SourceType = db-instance
+   *           and SourceIdentifier = myDBInstance1, you are notified of all the db-instance events for
+   *           the specified source. If you specify a SourceType but do not specify a SourceIdentifier,
+   *           you receive notice of the events for that source type for all your RDS sources. If you
+   *           don't specify either the SourceType or the SourceIdentifier, you are notified of events
+   *           generated from all RDS sources belonging to your customer account.</p>
    *          <note>
    *             <p>RDS event notification is only available for unencrypted SNS topics. If you specify an
    *               encrypted SNS topic, event notifications aren't sent for the topic.</p>
@@ -1729,8 +1776,6 @@ export class RDS extends RDSClient {
 
   /**
    * <p>
-   *       </p>
-   *          <p>
    *         Creates an Aurora global database
    *         spread across multiple regions. The global database
    *         contains a single primary cluster with read-write capability,
@@ -2015,22 +2060,24 @@ export class RDS extends RDSClient {
    *         the status of the Amazon RDS DB instance is <code>deleting</code> until the DB snapshot is created. The API action <code>DescribeDBInstance</code>
    *         is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.
    *         </p>
-   *          <p>Note that when a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>,
+   *          <p>When a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>,
    *           or <code>incompatible-network</code>, you can only delete it when you skip creation of the final snapshot with the <code>SkipFinalSnapshot</code> parameter.</p>
    *
    *          <p>If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of the following
    *       conditions are true:</p>
    *          <ul>
    *             <li>
-   *                <p>The DB cluster is a Read Replica of another Amazon Aurora DB cluster.</p>
+   *                <p>The DB cluster is a read replica of another Amazon Aurora DB cluster.</p>
    *             </li>
    *             <li>
    *                <p>The DB instance is the only instance in the DB cluster.</p>
    *             </li>
    *          </ul>
-   *          <p>To delete a DB instance in this case, first call the <code>PromoteReadReplicaDBCluster</code> API action to
-   *       promote the DB cluster so it's no longer a Read Replica. After the promotion completes, then call the <code>DeleteDBInstance</code>
-   *       API action to delete the final instance in the DB cluster.</p>
+   *          <p>To delete a DB instance in this case, first call the
+   *                 <code>PromoteReadReplicaDBCluster</code> API action to promote the DB cluster so
+   *             it's no longer a read replica. After the promotion completes, then call the
+   *                 <code>DeleteDBInstance</code> API action to delete the final instance in the DB
+   *             cluster.</p>
    */
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
@@ -2127,11 +2174,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Deletes an existing proxy.</p>
+   * <p>Deletes an existing proxy.</p>
    */
   public deleteDBProxy(
     args: DeleteDBProxyCommandInput,
@@ -2404,11 +2447,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
+   * <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
    */
   public deregisterDBProxyTargets(
     args: DeregisterDBProxyTargetsCommandInput,
@@ -2549,7 +2588,7 @@ export class RDS extends RDSClient {
    *                 What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
    *         </p>
    *         <note>
-   *             <p>This action only applies to Aurora DB clusters.</p>
+   *             <p>This action only applies to Aurora MySQL DB clusters.</p>
    *         </note>
    */
   public describeDBClusterBacktracks(
@@ -3023,11 +3062,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Returns information about DB proxies.</p>
+   * <p>Returns information about DB proxies.</p>
    */
   public describeDBProxies(
     args: DescribeDBProxiesCommandInput,
@@ -3059,11 +3094,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
+   * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
    */
   public describeDBProxyTargetGroups(
     args: DescribeDBProxyTargetGroupsCommandInput,
@@ -3095,11 +3126,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
+   * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
    */
   public describeDBProxyTargets(
     args: DescribeDBProxyTargetsCommandInput,
@@ -3443,6 +3470,39 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * <p>Returns information about a snapshot export to Amazon S3. This API operation supports
+   *             pagination. </p>
+   */
+  public describeExportTasks(
+    args: DescribeExportTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExportTasksCommandOutput>;
+  public describeExportTasks(
+    args: DescribeExportTasksCommandInput,
+    cb: (err: any, data?: DescribeExportTasksCommandOutput) => void
+  ): void;
+  public describeExportTasks(
+    args: DescribeExportTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExportTasksCommandOutput) => void
+  ): void;
+  public describeExportTasks(
+    args: DescribeExportTasksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportTasksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExportTasksCommandOutput) => void
+  ): Promise<DescribeExportTasksCommandOutput> | void {
+    const command = new DescribeExportTasksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>
    *         Returns information about Aurora global database clusters. This API supports pagination.
    *       </p>
@@ -3709,8 +3769,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Returns a list of the source AWS Regions where the current AWS Region can create a Read Replica
-   *             or copy a DB snapshot from. This API action supports pagination.</p>
+   * <p>Returns a list of the source AWS Regions where the current AWS Region can create a
+   *             read replica or copy a DB snapshot from. This API action supports pagination.</p>
    */
   public describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,
@@ -3924,7 +3984,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
-   *           certificate for Amazon RDS for new DB instances, or remove the override.</p>
+   *           certificate for Amazon RDS for new DB instances temporarily, or remove the override.</p>
    *          <p>By using this operation, you can specify an RDS-approved SSL/TLS certificate for new DB
    *             instances that is different from the default certificate provided by RDS. You can also
    *             use this operation to remove the override, so that new DB instances use the default
@@ -4167,18 +4227,24 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
-   *         <p>To share a manual DB cluster snapshot with other AWS accounts, specify <code>restore</code>
-   *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
-   *             a list of IDs of the AWS accounts that are
+   *         <p>To share a manual DB cluster snapshot with other AWS accounts, specify
+   *                 <code>restore</code> as the <code>AttributeName</code> and use the
+   *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the AWS accounts that are
    *             authorized to restore the manual DB cluster snapshot. Use the value <code>all</code> to
    *             make the manual DB cluster snapshot public, which means that it can be copied or
-   *             restored by all AWS accounts. Do not add the <code>all</code> value for any
-   *             manual DB cluster snapshots that contain private information that you don't want available
-   *             to all AWS accounts. If a manual DB cluster snapshot is encrypted, it can be shared, but only by specifying
-   *             a list of authorized AWS account IDs for the <code>ValuesToAdd</code> parameter. You can't use
-   *             <code>all</code> as a value for that parameter in this case.</p>
-   *         <p>To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or whether a
-   *             manual DB cluster snapshot public or private, use the <code>DescribeDBClusterSnapshotAttributes</code> API action.</p>
+   *             restored by all AWS accounts.</p>
+   *         <note>
+   *             <p>Don't add the <code>all</code> value for any manual DB cluster snapshots
+   *                 that contain private information that you don't want available to all AWS
+   *                 accounts.</p>
+   *         </note>
+   *         <p>If a manual DB cluster snapshot is encrypted, it can be shared, but only by
+   *             specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
+   *             parameter. You can't use <code>all</code> as a value for that parameter in this
+   *             case.</p>
+   *         <p>To view which AWS accounts have access to copy or restore a manual DB cluster
+   *             snapshot, or whether a manual DB cluster snapshot is public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API action. The accounts are
+   *             returned as values for the <code>restore</code> attribute.</p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
@@ -4301,11 +4367,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Changes the settings for an existing DB proxy.</p>
+   * <p>Changes the settings for an existing DB proxy.</p>
    */
   public modifyDBProxy(
     args: ModifyDBProxyCommandInput,
@@ -4337,11 +4399,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
+   * <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
    */
   public modifyDBProxyTargetGroup(
     args: ModifyDBProxyTargetGroupCommandInput,
@@ -4373,9 +4431,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Updates a manual DB snapshot, which can be encrypted or not encrypted, with a new engine version.
+   * <p>Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted
+   *             or unencrypted, but not shared or public.
    *
-   *       </p>
+   *         </p>
    *
    *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL.
    *       </p>
@@ -4412,17 +4471,21 @@ export class RDS extends RDSClient {
   /**
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
    *          <p>To share a manual DB snapshot with other AWS accounts, specify <code>restore</code>
-   *       as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
-   *       a list of IDs of the AWS accounts that are
-   *       authorized to restore the manual DB snapshot. Uses the value <code>all</code> to
-   *       make the manual DB snapshot public, which means it can be copied or
-   *       restored by all AWS accounts. Do not add the <code>all</code> value for any
-   *       manual DB snapshots that contain private information that you don't want available
-   *       to all AWS accounts. If the manual DB snapshot is encrypted, it can be shared, but only by specifying
-   *       a list of authorized AWS account IDs for the <code>ValuesToAdd</code> parameter. You can't use
-   *           <code>all</code> as a value for that parameter in this case.</p>
-   *          <p>To view which AWS accounts have access to copy or restore a manual DB snapshot, or whether a
-   *       manual DB snapshot public or private, use the <code>DescribeDBSnapshotAttributes</code> API action.</p>
+   *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
+   *             a list of IDs of the AWS accounts that are authorized to restore the manual DB snapshot.
+   *             Uses the value <code>all</code> to make the manual DB snapshot public, which means it
+   *             can be copied or restored by all AWS accounts.</p>
+   *         <note>
+   *             <p>Don't add the <code>all</code> value for any manual DB snapshots that
+   *                 contain private information that you don't want available to all AWS
+   *                 accounts.</p>
+   *         </note>
+   *         <p>If the manual DB snapshot is encrypted, it can be shared, but only by specifying a
+   *             list of authorized AWS account IDs for the <code>ValuesToAdd</code> parameter. You
+   *             can't use <code>all</code> as a value for that parameter in this case.</p>
+   *          <p>To view which AWS accounts have access to copy or restore a manual DB snapshot, or
+   *             whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a> API action. The accounts are returned as
+   *             values for the <code>restore</code> attribute.</p>
    */
   public modifyDBSnapshotAttribute(
     args: ModifyDBSnapshotAttributeCommandInput,
@@ -4486,7 +4549,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Modifies an existing RDS event notification subscription. Note that you can't modify the source identifiers using this call; to change
+   * <p>Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change
    *         source identifiers for a subscription, use the <code>AddSourceIdentifierToSubscription</code> and <code>RemoveSourceIdentifierFromSubscription</code> calls.</p>
    *          <p>You can see a list of the event categories for a given SourceType
    *           in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> topic  in the <i>Amazon RDS User Guide</i>
@@ -4594,16 +4657,18 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Promotes a Read Replica DB instance to a standalone DB instance.</p>
+   * <p>Promotes a read replica DB instance to a standalone DB instance.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>Backup duration is a function of the amount of changes to the database since the previous backup.
-   *                   If you plan to promote a Read Replica to a standalone instance, we recommend that you enable backups
-   *                   and complete at least one backup prior to promotion. In addition, a Read Replica cannot be promoted
-   *                   to a standalone instance when it is in the <code>backing-up</code> status. If you have enabled backups
-   *                   on your Read Replica, configure the automated backup window so that daily backups do not
-   *                   interfere with Read Replica promotion.</p>
+   *                   <p>Backup duration is a function of the amount of changes to the database since the previous
+   *                         backup. If you plan to promote a read replica to a standalone instance, we
+   *                         recommend that you enable backups and complete at least one backup prior to
+   *                         promotion. In addition, a read replica cannot be promoted to a standalone
+   *                         instance when it is in the <code>backing-up</code> status. If you have
+   *                         enabled backups on your read replica, configure the automated backup window
+   *                         so that daily backups do not interfere with read replica
+   *                         promotion.</p>
    *                </li>
    *                <li>
    *                   <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.</p>
@@ -4642,7 +4707,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Promotes a Read Replica DB cluster to a standalone DB cluster.</p>
+   * <p>Promotes a read replica DB cluster to a standalone DB cluster.</p>
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
@@ -4752,11 +4817,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
+   * <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
    */
   public registerDBProxyTargets(
     args: RegisterDBProxyTargetsCommandInput,
@@ -5061,6 +5122,18 @@ export class RDS extends RDSClient {
    *         described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html">
    *             Migrating Data to an Amazon Aurora MySQL DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <note>
+   *               <p>This action only restores the DB cluster, not the DB instances for that DB
+   *                   cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
+   *                   instances for the restored DB cluster, specifying the identifier of the restored DB
+   *                   cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
+   *                   the <code>RestoreDBClusterFromS3</code> action has completed and the DB
+   *                   cluster is available.</p>
+   *         </note>
+   *         <p>For more information on Amazon Aurora, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *                 What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *         </p>
+   *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
    */
@@ -5094,13 +5167,19 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
-   *         <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
-   *             snapshot with a default configuration and default security group.</p>
-   *          <p>If a DB cluster snapshot is specified, the target DB
-   *             cluster is created from the source DB cluster restore point with the same configuration
-   *             as the original source DB cluster. If you don't specify a security group, the new DB cluster
-   *             is associated with the default security group.</p>
+   * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot. This action
+   *             only applies to Aurora DB clusters.</p>
+   *         <p>The target DB cluster is created from the source snapshot with a default
+   *             configuration. If you don't specify a security group, the new DB cluster is
+   *             associated with the default security group.</p>
+   *          <note>
+   *             <p>This action only restores the DB cluster, not the DB instances for that DB
+   *                 cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
+   *                 instances for the restored DB cluster, specifying the identifier of the restored DB
+   *                 cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
+   *                 the <code>RestoreDBClusterFromSnapshot</code> action has completed and the DB
+   *                 cluster is available.</p>
+   *          </note>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
@@ -5451,6 +5530,40 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: StartDBInstanceCommandOutput) => void
   ): Promise<StartDBInstanceCommandOutput> | void {
     const command = new StartDBInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts an export of a snapshot to Amazon S3.
+   *             The provided IAM role must have access to the S3 bucket.
+   *         </p>
+   */
+  public startExportTask(
+    args: StartExportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartExportTaskCommandOutput>;
+  public startExportTask(
+    args: StartExportTaskCommandInput,
+    cb: (err: any, data?: StartExportTaskCommandOutput) => void
+  ): void;
+  public startExportTask(
+    args: StartExportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExportTaskCommandOutput) => void
+  ): void;
+  public startExportTask(
+    args: StartExportTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartExportTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartExportTaskCommandOutput) => void
+  ): Promise<StartExportTaskCommandOutput> | void {
+    const command = new StartExportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

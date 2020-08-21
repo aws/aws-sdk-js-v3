@@ -9,6 +9,13 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface Entitlement {
   __type?: "Entitlement";
   /**
+   * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
+   *       capacity in a product and are specified when the product is listed in AWS
+   *       Marketplace.</p>
+   */
+  Dimension?: string;
+
+  /**
    * <p>The customer identifier is a handle to each unique customer in an application. Customer
    *    identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering
    *    Service.</p>
@@ -16,11 +23,10 @@ export interface Entitlement {
   CustomerIdentifier?: string;
 
   /**
-   * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
-   *       capacity in a product and are specified when the product is listed in AWS
-   *       Marketplace.</p>
+   * <p>The product code for which the given entitlement applies. Product codes are provided by
+   *    AWS Marketplace when the product listing is created.</p>
    */
-  Dimension?: string;
+  ProductCode?: string;
 
   /**
    * <p>The expiration date represents the minimum date through which this entitlement is
@@ -29,12 +35,6 @@ export interface Entitlement {
    *    to renew their contract will still have entitlements with an expiration date.</p>
    */
   ExpirationDate?: Date;
-
-  /**
-   * <p>The product code for which the given entitlement applies. Product codes are provided by
-   *    AWS Marketplace when the product listing is created.</p>
-   */
-  ProductCode?: string;
 
   /**
    * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
@@ -57,16 +57,16 @@ export namespace Entitlement {
 export interface EntitlementValue {
   __type?: "EntitlementValue";
   /**
-   * <p>The BooleanValue field will be populated with a boolean value when the entitlement is a
-   *       boolean type. Otherwise, the field will not be set.</p>
-   */
-  BooleanValue?: boolean;
-
-  /**
    * <p>The DoubleValue field will be populated with a double value when the entitlement is a
    *    double type. Otherwise, the field will not be set.</p>
    */
   DoubleValue?: number;
+
+  /**
+   * <p>The BooleanValue field will be populated with a boolean value when the entitlement is a
+   *       boolean type. Otherwise, the field will not be set.</p>
+   */
+  BooleanValue?: boolean;
 
   /**
    * <p>The IntegerValue field will be populated with an integer value when the entitlement is an
@@ -100,14 +100,6 @@ export enum GetEntitlementFilterName {
 export interface GetEntitlementsRequest {
   __type?: "GetEntitlementsRequest";
   /**
-   * <p>Filter is used to return entitlements for a specific customer or for a specific
-   *       dimension. Filters are described as keys mapped to a lists of values. Filtered requests are
-   *         <i>unioned</i> for each value in the value list, and then
-   *         <i>intersected</i> for each filter key.</p>
-   */
-  Filter?: { [key: string]: string[] };
-
-  /**
    * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
    *    pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
    */
@@ -118,6 +110,14 @@ export interface GetEntitlementsRequest {
    *    GetEntitlementsResult.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Filter is used to return entitlements for a specific customer or for a specific
+   *       dimension. Filters are described as keys mapped to a lists of values. Filtered requests are
+   *         <i>unioned</i> for each value in the value list, and then
+   *         <i>intersected</i> for each filter key.</p>
+   */
+  Filter?: { [key: string]: string[] };
 
   /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code

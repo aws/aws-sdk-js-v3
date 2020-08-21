@@ -65,6 +65,7 @@ import {
   CreateSnapshotScheduleCommandOutput,
 } from "./commands/CreateSnapshotScheduleCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "./commands/CreateUsageLimitCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
   DeleteClusterParameterGroupCommandInput,
@@ -107,6 +108,7 @@ import {
   DeleteSnapshotScheduleCommandOutput,
 } from "./commands/DeleteSnapshotScheduleCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "./commands/DeleteUsageLimitCommand";
 import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
@@ -204,6 +206,10 @@ import {
   DescribeTableRestoreStatusCommandOutput,
 } from "./commands/DescribeTableRestoreStatusCommand";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import {
+  DescribeUsageLimitsCommandInput,
+  DescribeUsageLimitsCommandOutput,
+} from "./commands/DescribeUsageLimitsCommand";
 import { DisableLoggingCommandInput, DisableLoggingCommandOutput } from "./commands/DisableLoggingCommand";
 import {
   DisableSnapshotCopyCommandInput,
@@ -264,6 +270,8 @@ import {
   ModifySnapshotScheduleCommandInput,
   ModifySnapshotScheduleCommandOutput,
 } from "./commands/ModifySnapshotScheduleCommand";
+import { ModifyUsageLimitCommandInput, ModifyUsageLimitCommandOutput } from "./commands/ModifyUsageLimitCommand";
+import { PauseClusterCommandInput, PauseClusterCommandOutput } from "./commands/PauseClusterCommand";
 import {
   PurchaseReservedNodeOfferingCommandInput,
   PurchaseReservedNodeOfferingCommandOutput,
@@ -282,6 +290,7 @@ import {
   RestoreTableFromClusterSnapshotCommandInput,
   RestoreTableFromClusterSnapshotCommandOutput,
 } from "./commands/RestoreTableFromClusterSnapshotCommand";
+import { ResumeClusterCommandInput, ResumeClusterCommandOutput } from "./commands/ResumeClusterCommand";
 import {
   RevokeClusterSecurityGroupIngressCommandInput,
   RevokeClusterSecurityGroupIngressCommandOutput,
@@ -361,6 +370,7 @@ export type ServiceInputTypes =
   | CreateSnapshotCopyGrantCommandInput
   | CreateSnapshotScheduleCommandInput
   | CreateTagsCommandInput
+  | CreateUsageLimitCommandInput
   | DeleteClusterCommandInput
   | DeleteClusterParameterGroupCommandInput
   | DeleteClusterSecurityGroupCommandInput
@@ -373,6 +383,7 @@ export type ServiceInputTypes =
   | DeleteSnapshotCopyGrantCommandInput
   | DeleteSnapshotScheduleCommandInput
   | DeleteTagsCommandInput
+  | DeleteUsageLimitCommandInput
   | DescribeAccountAttributesCommandInput
   | DescribeClusterDbRevisionsCommandInput
   | DescribeClusterParameterGroupsCommandInput
@@ -401,6 +412,7 @@ export type ServiceInputTypes =
   | DescribeStorageCommandInput
   | DescribeTableRestoreStatusCommandInput
   | DescribeTagsCommandInput
+  | DescribeUsageLimitsCommandInput
   | DisableLoggingCommandInput
   | DisableSnapshotCopyCommandInput
   | EnableLoggingCommandInput
@@ -419,12 +431,15 @@ export type ServiceInputTypes =
   | ModifyScheduledActionCommandInput
   | ModifySnapshotCopyRetentionPeriodCommandInput
   | ModifySnapshotScheduleCommandInput
+  | ModifyUsageLimitCommandInput
+  | PauseClusterCommandInput
   | PurchaseReservedNodeOfferingCommandInput
   | RebootClusterCommandInput
   | ResetClusterParameterGroupCommandInput
   | ResizeClusterCommandInput
   | RestoreFromClusterSnapshotCommandInput
   | RestoreTableFromClusterSnapshotCommandInput
+  | ResumeClusterCommandInput
   | RevokeClusterSecurityGroupIngressCommandInput
   | RevokeSnapshotAccessCommandInput
   | RotateEncryptionKeyCommandInput;
@@ -449,6 +464,7 @@ export type ServiceOutputTypes =
   | CreateSnapshotCopyGrantCommandOutput
   | CreateSnapshotScheduleCommandOutput
   | CreateTagsCommandOutput
+  | CreateUsageLimitCommandOutput
   | DeleteClusterCommandOutput
   | DeleteClusterParameterGroupCommandOutput
   | DeleteClusterSecurityGroupCommandOutput
@@ -461,6 +477,7 @@ export type ServiceOutputTypes =
   | DeleteSnapshotCopyGrantCommandOutput
   | DeleteSnapshotScheduleCommandOutput
   | DeleteTagsCommandOutput
+  | DeleteUsageLimitCommandOutput
   | DescribeAccountAttributesCommandOutput
   | DescribeClusterDbRevisionsCommandOutput
   | DescribeClusterParameterGroupsCommandOutput
@@ -489,6 +506,7 @@ export type ServiceOutputTypes =
   | DescribeStorageCommandOutput
   | DescribeTableRestoreStatusCommandOutput
   | DescribeTagsCommandOutput
+  | DescribeUsageLimitsCommandOutput
   | DisableLoggingCommandOutput
   | DisableSnapshotCopyCommandOutput
   | EnableLoggingCommandOutput
@@ -507,12 +525,15 @@ export type ServiceOutputTypes =
   | ModifyScheduledActionCommandOutput
   | ModifySnapshotCopyRetentionPeriodCommandOutput
   | ModifySnapshotScheduleCommandOutput
+  | ModifyUsageLimitCommandOutput
+  | PauseClusterCommandOutput
   | PurchaseReservedNodeOfferingCommandOutput
   | RebootClusterCommandOutput
   | ResetClusterParameterGroupCommandOutput
   | ResizeClusterCommandOutput
   | RestoreFromClusterSnapshotCommandOutput
   | RestoreTableFromClusterSnapshotCommandOutput
+  | ResumeClusterCommandOutput
   | RevokeClusterSecurityGroupIngressCommandOutput
   | RevokeSnapshotAccessCommandOutput
   | RotateEncryptionKeyCommandOutput;

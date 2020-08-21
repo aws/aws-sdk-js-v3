@@ -74,6 +74,10 @@ import { GetBlobCommandInput, GetBlobCommandOutput } from "./commands/GetBlobCom
 import { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
 import { GetCommentCommandInput, GetCommentCommandOutput } from "./commands/GetCommentCommand";
 import {
+  GetCommentReactionsCommandInput,
+  GetCommentReactionsCommandOutput,
+} from "./commands/GetCommentReactionsCommand";
+import {
   GetCommentsForComparedCommitCommandInput,
   GetCommentsForComparedCommitCommandOutput,
 } from "./commands/GetCommentsForComparedCommitCommand";
@@ -158,6 +162,7 @@ import {
   PostCommentForPullRequestCommandOutput,
 } from "./commands/PostCommentForPullRequestCommand";
 import { PostCommentReplyCommandInput, PostCommentReplyCommandOutput } from "./commands/PostCommentReplyCommand";
+import { PutCommentReactionCommandInput, PutCommentReactionCommandOutput } from "./commands/PutCommentReactionCommand";
 import { PutFileCommandInput, PutFileCommandOutput } from "./commands/PutFileCommand";
 import {
   PutRepositoryTriggersCommandInput,
@@ -289,6 +294,7 @@ export type ServiceInputTypes =
   | GetBlobCommandInput
   | GetBranchCommandInput
   | GetCommentCommandInput
+  | GetCommentReactionsCommandInput
   | GetCommentsForComparedCommitCommandInput
   | GetCommentsForPullRequestCommandInput
   | GetCommitCommandInput
@@ -320,6 +326,7 @@ export type ServiceInputTypes =
   | PostCommentForComparedCommitCommandInput
   | PostCommentForPullRequestCommandInput
   | PostCommentReplyCommandInput
+  | PutCommentReactionCommandInput
   | PutFileCommandInput
   | PutRepositoryTriggersCommandInput
   | TagResourceCommandInput
@@ -366,6 +373,7 @@ export type ServiceOutputTypes =
   | GetBlobCommandOutput
   | GetBranchCommandOutput
   | GetCommentCommandOutput
+  | GetCommentReactionsCommandOutput
   | GetCommentsForComparedCommitCommandOutput
   | GetCommentsForPullRequestCommandOutput
   | GetCommitCommandOutput
@@ -397,6 +405,7 @@ export type ServiceOutputTypes =
   | PostCommentForComparedCommitCommandOutput
   | PostCommentForPullRequestCommandOutput
   | PostCommentReplyCommandOutput
+  | PutCommentReactionCommandOutput
   | PutFileCommandOutput
   | PutRepositoryTriggersCommandOutput
   | TagResourceCommandOutput
@@ -856,6 +865,10 @@ export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
  *             </li>
  *             <li>
  *                 <p>
+ *                   <a>GetCommentReactions</a>, which returns information about emoji reactions to comments.</p>
+ *             </li>
+ *             <li>
+ *                 <p>
  *                   <a>GetCommentsForComparedCommit</a>, which returns information about comments on the comparison between two commit specifiers
  *                     in a repository.</p>
  *             </li>
@@ -866,6 +879,10 @@ export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
  *             <li>
  *                 <p>
  *                   <a>PostCommentReply</a>, which creates a reply to a comment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutCommentReaction</a>, which creates or updates an emoji reaction to a comment.</p>
  *             </li>
  *             <li>
  *                 <p>

@@ -143,18 +143,11 @@
     "com.amazonaws.mediastoredata#DescribeObjectResponse": {
       "type": "structure",
       "members": {
-        "CacheControl": {
-          "target": "com.amazonaws.mediastoredata#StringPrimitive",
+        "LastModified": {
+          "target": "com.amazonaws.mediastoredata#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>An optional <code>CacheControl</code> header that allows the caller to control the\n         object's cache behavior. Headers can be passed in as specified in the HTTP at <a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9\">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>\n         <p>Headers with a custom user-defined value are also accepted.</p>",
-            "smithy.api#httpHeader": "Cache-Control"
-          }
-        },
-        "ContentLength": {
-          "target": "com.amazonaws.mediastoredata#NonNegativeLong",
-          "traits": {
-            "smithy.api#documentation": "<p>The length of the object in bytes.</p>",
-            "smithy.api#httpHeader": "Content-Length"
+            "smithy.api#documentation": "<p>The date and time that the object was last modified.</p>",
+            "smithy.api#httpHeader": "Last-Modified"
           }
         },
         "ContentType": {
@@ -164,6 +157,13 @@
             "smithy.api#httpHeader": "Content-Type"
           }
         },
+        "CacheControl": {
+          "target": "com.amazonaws.mediastoredata#StringPrimitive",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional <code>CacheControl</code> header that allows the caller to control the\n         object's cache behavior. Headers can be passed in as specified in the HTTP at <a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9\">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>\n         <p>Headers with a custom user-defined value are also accepted.</p>",
+            "smithy.api#httpHeader": "Cache-Control"
+          }
+        },
         "ETag": {
           "target": "com.amazonaws.mediastoredata#ETag",
           "traits": {
@@ -171,11 +171,11 @@
             "smithy.api#httpHeader": "ETag"
           }
         },
-        "LastModified": {
-          "target": "com.amazonaws.mediastoredata#TimeStamp",
+        "ContentLength": {
+          "target": "com.amazonaws.mediastoredata#NonNegativeLong",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time that the object was last modified.</p>",
-            "smithy.api#httpHeader": "Last-Modified"
+            "smithy.api#documentation": "<p>The length of the object in bytes.</p>",
+            "smithy.api#httpHeader": "Content-Length"
           }
         }
       }
@@ -254,18 +254,11 @@
     "com.amazonaws.mediastoredata#GetObjectResponse": {
       "type": "structure",
       "members": {
-        "Body": {
-          "target": "com.amazonaws.mediastoredata#PayloadBlob",
+        "ContentType": {
+          "target": "com.amazonaws.mediastoredata#ContentType",
           "traits": {
-            "smithy.api#documentation": "<p>The bytes of the object. </p>",
-            "smithy.api#httpPayload": {}
-          }
-        },
-        "CacheControl": {
-          "target": "com.amazonaws.mediastoredata#StringPrimitive",
-          "traits": {
-            "smithy.api#documentation": "<p>An optional <code>CacheControl</code> header that allows the caller to control the\n         object's cache behavior. Headers can be passed in as specified in the HTTP spec at <a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9\">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>\n         <p>Headers with a custom user-defined value are also accepted.</p>",
-            "smithy.api#httpHeader": "Cache-Control"
+            "smithy.api#documentation": "<p>The content type of the object.</p>",
+            "smithy.api#httpHeader": "Content-Type"
           }
         },
         "ContentLength": {
@@ -275,18 +268,18 @@
             "smithy.api#httpHeader": "Content-Length"
           }
         },
+        "CacheControl": {
+          "target": "com.amazonaws.mediastoredata#StringPrimitive",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional <code>CacheControl</code> header that allows the caller to control the\n         object's cache behavior. Headers can be passed in as specified in the HTTP spec at <a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9\">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>\n         <p>Headers with a custom user-defined value are also accepted.</p>",
+            "smithy.api#httpHeader": "Cache-Control"
+          }
+        },
         "ContentRange": {
           "target": "com.amazonaws.mediastoredata#ContentRangePattern",
           "traits": {
             "smithy.api#documentation": "<p>The range of bytes to retrieve.</p>",
             "smithy.api#httpHeader": "Content-Range"
-          }
-        },
-        "ContentType": {
-          "target": "com.amazonaws.mediastoredata#ContentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The content type of the object.</p>",
-            "smithy.api#httpHeader": "Content-Type"
           }
         },
         "ETag": {
@@ -301,6 +294,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the object was last modified.</p>",
             "smithy.api#httpHeader": "Last-Modified"
+          }
+        },
+        "Body": {
+          "target": "com.amazonaws.mediastoredata#PayloadBlob",
+          "traits": {
+            "smithy.api#documentation": "<p>The bytes of the object. </p>",
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -320,30 +320,6 @@
     "com.amazonaws.mediastoredata#Item": {
       "type": "structure",
       "members": {
-        "ContentLength": {
-          "target": "com.amazonaws.mediastoredata#NonNegativeLong",
-          "traits": {
-            "smithy.api#documentation": "<p>The length of the item in bytes.</p>"
-          }
-        },
-        "ContentType": {
-          "target": "com.amazonaws.mediastoredata#ContentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The content type of the item.</p>"
-          }
-        },
-        "ETag": {
-          "target": "com.amazonaws.mediastoredata#ETag",
-          "traits": {
-            "smithy.api#documentation": "<p>The ETag that represents a unique instance of the item.</p>"
-          }
-        },
-        "LastModified": {
-          "target": "com.amazonaws.mediastoredata#TimeStamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The date and time that the item was last modified.</p>"
-          }
-        },
         "Name": {
           "target": "com.amazonaws.mediastoredata#ItemName",
           "traits": {
@@ -354,6 +330,30 @@
           "target": "com.amazonaws.mediastoredata#ItemType",
           "traits": {
             "smithy.api#documentation": "<p>The item type (folder or object).</p>"
+          }
+        },
+        "ContentLength": {
+          "target": "com.amazonaws.mediastoredata#NonNegativeLong",
+          "traits": {
+            "smithy.api#documentation": "<p>The length of the item in bytes.</p>"
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediastoredata#ETag",
+          "traits": {
+            "smithy.api#documentation": "<p>The ETag that represents a unique instance of the item.</p>"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.mediastoredata#ContentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The content type of the item.</p>"
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.mediastoredata#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the item was last modified.</p>"
           }
         }
       },
@@ -416,11 +416,11 @@
     "com.amazonaws.mediastoredata#ListItemsRequest": {
       "type": "structure",
       "members": {
-        "MaxResults": {
-          "target": "com.amazonaws.mediastoredata#ListLimit",
+        "Path": {
+          "target": "com.amazonaws.mediastoredata#ListPathNaming",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return per API request. For example, you submit a\n            <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000\n         items match your request, the service returns no more than the first 500 items. (The\n         service also returns a <code>NextToken</code> value that you can use to fetch the next\n         batch of results.) The service might return fewer results than the <code>MaxResults</code>\n         value.</p>\n         <p>If <code>MaxResults</code> is not included in the request, the service defaults to\n         pagination with a maximum of 1,000 results per page.</p>",
-            "smithy.api#httpQuery": "MaxResults"
+            "smithy.api#documentation": "<p>The path in the container from which to retrieve items. Format: <folder\n         name>/<folder name>/<file name></p>",
+            "smithy.api#httpQuery": "Path"
           }
         },
         "NextToken": {
@@ -430,11 +430,11 @@
             "smithy.api#httpQuery": "NextToken"
           }
         },
-        "Path": {
-          "target": "com.amazonaws.mediastoredata#ListPathNaming",
+        "MaxResults": {
+          "target": "com.amazonaws.mediastoredata#ListLimit",
           "traits": {
-            "smithy.api#documentation": "<p>The path in the container from which to retrieve items. Format: <folder\n         name>/<folder name>/<file name></p>",
-            "smithy.api#httpQuery": "Path"
+            "smithy.api#documentation": "<p>The maximum number of results to return per API request. For example, you submit a\n            <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000\n         items match your request, the service returns no more than the first 500 items. (The\n         service also returns a <code>NextToken</code> value that you can use to fetch the next\n         batch of results.) The service might return fewer results than the <code>MaxResults</code>\n         value.</p>\n         <p>If <code>MaxResults</code> is not included in the request, the service defaults to\n         pagination with a maximum of 1,000 results per page.</p>",
+            "smithy.api#httpQuery": "MaxResults"
           }
         }
       }
@@ -585,12 +585,11 @@
     "com.amazonaws.mediastoredata#PutObjectRequest": {
       "type": "structure",
       "members": {
-        "Body": {
-          "target": "com.amazonaws.mediastoredata#PayloadBlob",
+        "StorageClass": {
+          "target": "com.amazonaws.mediastoredata#StorageClass",
           "traits": {
-            "smithy.api#documentation": "<p>The bytes to be stored. </p>",
-            "smithy.api#httpPayload": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Indicates the storage class of a <code>Put</code> request. Defaults to\n         high-performance temporal storage class, and objects are persisted into durable storage\n         shortly after being received.</p>",
+            "smithy.api#httpHeader": "x-amz-storage-class"
           }
         },
         "CacheControl": {
@@ -615,11 +614,12 @@
             "smithy.api#required": {}
           }
         },
-        "StorageClass": {
-          "target": "com.amazonaws.mediastoredata#StorageClass",
+        "Body": {
+          "target": "com.amazonaws.mediastoredata#PayloadBlob",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the storage class of a <code>Put</code> request. Defaults to\n         high-performance temporal storage class, and objects are persisted into durable storage\n         shortly after being received.</p>",
-            "smithy.api#httpHeader": "x-amz-storage-class"
+            "smithy.api#documentation": "<p>The bytes to be stored. </p>",
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -627,16 +627,16 @@
     "com.amazonaws.mediastoredata#PutObjectResponse": {
       "type": "structure",
       "members": {
-        "ContentSHA256": {
-          "target": "com.amazonaws.mediastoredata#SHA256Hash",
-          "traits": {
-            "smithy.api#documentation": "<p>The SHA256 digest of the object that is persisted.</p>"
-          }
-        },
         "ETag": {
           "target": "com.amazonaws.mediastoredata#ETag",
           "traits": {
             "smithy.api#documentation": "<p>Unique identifier of the object in the container.</p>"
+          }
+        },
+        "ContentSHA256": {
+          "target": "com.amazonaws.mediastoredata#SHA256Hash",
+          "traits": {
+            "smithy.api#documentation": "<p>The SHA256 digest of the object that is persisted.</p>"
           }
         },
         "StorageClass": {

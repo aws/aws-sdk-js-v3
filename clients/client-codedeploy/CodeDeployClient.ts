@@ -55,6 +55,10 @@ import {
   DeleteGitHubAccountTokenCommandOutput,
 } from "./commands/DeleteGitHubAccountTokenCommand";
 import {
+  DeleteResourcesByExternalIdCommandInput,
+  DeleteResourcesByExternalIdCommandOutput,
+} from "./commands/DeleteResourcesByExternalIdCommand";
+import {
   DeregisterOnPremisesInstanceCommandInput,
   DeregisterOnPremisesInstanceCommandOutput,
 } from "./commands/DeregisterOnPremisesInstanceCommand";
@@ -208,6 +212,7 @@ export type ServiceInputTypes =
   | DeleteDeploymentConfigCommandInput
   | DeleteDeploymentGroupCommandInput
   | DeleteGitHubAccountTokenCommandInput
+  | DeleteResourcesByExternalIdCommandInput
   | DeregisterOnPremisesInstanceCommandInput
   | GetApplicationCommandInput
   | GetApplicationRevisionCommandInput
@@ -256,6 +261,7 @@ export type ServiceOutputTypes =
   | DeleteDeploymentConfigCommandOutput
   | DeleteDeploymentGroupCommandOutput
   | DeleteGitHubAccountTokenCommandOutput
+  | DeleteResourcesByExternalIdCommandOutput
   | DeregisterOnPremisesInstanceCommandOutput
   | GetApplicationCommandOutput
   | GetApplicationRevisionCommandOutput

@@ -17,5 +17,7 @@ export * from "./commands/ListNodesCommand";
 export * from "./commands/ListProposalsCommand";
 export * from "./commands/ListProposalVotesCommand";
 export * from "./commands/RejectInvitationCommand";
+export * from "./commands/UpdateMemberCommand";
+export * from "./commands/UpdateNodeCommand";
 export * from "./commands/VoteOnProposalCommand";
 export * from "./models/index";

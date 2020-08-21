@@ -61,16 +61,16 @@
     "com.amazonaws.comprehend#BatchDetectDominantLanguageItemResult": {
       "type": "structure",
       "members": {
-        "Index": {
-          "target": "com.amazonaws.comprehend#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The zero-based index of the document in the input list.</p>"
-          }
-        },
         "Languages": {
           "target": "com.amazonaws.comprehend#ListOfDominantLanguages",
           "traits": {
             "smithy.api#documentation": "<p>One or more <a>DominantLanguage</a> objects describing the dominant\n      languages in the document.</p>"
+          }
+        },
+        "Index": {
+          "target": "com.amazonaws.comprehend#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The zero-based index of the document in the input list.</p>"
           }
         }
       },
@@ -82,7 +82,7 @@
       "type": "structure",
       "members": {
         "TextList": {
-          "target": "com.amazonaws.comprehend#StringList",
+          "target": "com.amazonaws.comprehend#CustomerInputStringList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document should contain at least 20 characters and must contain fewer than\n      5,000 bytes of UTF-8 encoded characters.</p>",
             "smithy.api#required": {}
@@ -107,6 +107,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#BatchDetectEntities": {
@@ -169,7 +172,7 @@
           }
         },
         "TextList": {
-          "target": "com.amazonaws.comprehend#StringList",
+          "target": "com.amazonaws.comprehend#CustomerInputStringList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded\n      characters.</p>",
             "smithy.api#required": {}
@@ -194,6 +197,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#BatchDetectKeyPhrases": {
@@ -228,16 +234,16 @@
     "com.amazonaws.comprehend#BatchDetectKeyPhrasesItemResult": {
       "type": "structure",
       "members": {
-        "Index": {
-          "target": "com.amazonaws.comprehend#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The zero-based index of the document in the input list.</p>"
-          }
-        },
         "KeyPhrases": {
           "target": "com.amazonaws.comprehend#ListOfKeyPhrases",
           "traits": {
             "smithy.api#documentation": "<p>One or more <a>KeyPhrase</a> objects, one for each key phrase detected in\n      the document.</p>"
+          }
+        },
+        "Index": {
+          "target": "com.amazonaws.comprehend#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The zero-based index of the document in the input list.</p>"
           }
         }
       },
@@ -256,7 +262,7 @@
           }
         },
         "TextList": {
-          "target": "com.amazonaws.comprehend#StringList",
+          "target": "com.amazonaws.comprehend#CustomerInputStringList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
             "smithy.api#required": {}
@@ -267,20 +273,23 @@
     "com.amazonaws.comprehend#BatchDetectKeyPhrasesResponse": {
       "type": "structure",
       "members": {
-        "ErrorList": {
-          "target": "com.amazonaws.comprehend#BatchItemErrorList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list containing one  object for each document\n      that contained an error. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If there are no errors in the\n      batch, the <code>ErrorList</code> is empty.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ResultList": {
           "target": "com.amazonaws.comprehend#ListOfDetectKeyPhrasesResult",
           "traits": {
             "smithy.api#documentation": "<p>A list of  objects containing the\n      results of the operation. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If all of the documents contain\n      an error, the <code>ResultList</code> is empty.</p>",
             "smithy.api#required": {}
           }
+        },
+        "ErrorList": {
+          "target": "com.amazonaws.comprehend#BatchItemErrorList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list containing one  object for each document\n      that contained an error. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If there are no errors in the\n      batch, the <code>ErrorList</code> is empty.</p>",
+            "smithy.api#required": {}
+          }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#BatchDetectSentiment": {
@@ -315,16 +324,16 @@
     "com.amazonaws.comprehend#BatchDetectSentimentItemResult": {
       "type": "structure",
       "members": {
-        "Index": {
-          "target": "com.amazonaws.comprehend#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The zero-based index of the document in the input list.</p>"
-          }
-        },
         "Sentiment": {
           "target": "com.amazonaws.comprehend#SentimentType",
           "traits": {
             "smithy.api#documentation": "<p>The sentiment detected in the document.</p>"
+          }
+        },
+        "Index": {
+          "target": "com.amazonaws.comprehend#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The zero-based index of the document in the input list.</p>"
           }
         },
         "SentimentScore": {
@@ -341,17 +350,17 @@
     "com.amazonaws.comprehend#BatchDetectSentimentRequest": {
       "type": "structure",
       "members": {
+        "TextList": {
+          "target": "com.amazonaws.comprehend#CustomerInputStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "LanguageCode": {
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TextList": {
-          "target": "com.amazonaws.comprehend#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
             "smithy.api#required": {}
           }
         }
@@ -374,6 +383,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#BatchDetectSyntax": {
@@ -428,17 +440,17 @@
     "com.amazonaws.comprehend#BatchDetectSyntaxRequest": {
       "type": "structure",
       "members": {
+        "TextList": {
+          "target": "com.amazonaws.comprehend#CustomerInputStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "LanguageCode": {
           "target": "com.amazonaws.comprehend#SyntaxLanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the following languages supported by Amazon \n      Comprehend: German (\"de\"), English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"), or Portuguese (\"pt\"). All\n      documents must be in the same language.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "TextList": {
-          "target": "com.amazonaws.comprehend#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
             "smithy.api#required": {}
           }
         }
@@ -461,15 +473,18 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#BatchItemError": {
       "type": "structure",
       "members": {
-        "ErrorCode": {
-          "target": "com.amazonaws.comprehend#String",
+        "Index": {
+          "target": "com.amazonaws.comprehend#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The numeric error code of the error.</p>"
+            "smithy.api#documentation": "<p>The zero-based index of the document in the input list.</p>"
           }
         },
         "ErrorMessage": {
@@ -478,10 +493,10 @@
             "smithy.api#documentation": "<p>A text description of the error.</p>"
           }
         },
-        "Index": {
-          "target": "com.amazonaws.comprehend#Integer",
+        "ErrorCode": {
+          "target": "com.amazonaws.comprehend#String",
           "traits": {
-            "smithy.api#documentation": "<p>The zero-based index of the document in the input list.</p>"
+            "smithy.api#documentation": "<p>The numeric error code of the error.</p>"
           }
         }
       },
@@ -517,28 +532,10 @@
             "smithy.api#documentation": "<p>The fraction of the labels that were correct recognized. It is computed by dividing\n      the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.</p>"
           }
         },
-        "F1Score": {
-          "target": "com.amazonaws.comprehend#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>A measure of how accurate the classifier results are for the test data. It is \n      derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is \n      the harmonic average of the two scores. The highest score is 1, and the worst score is 0.\n    </p>"
-          }
-        },
         "HammingLoss": {
           "target": "com.amazonaws.comprehend#Double",
           "traits": {
             "smithy.api#documentation": "<p>Indicates the fraction of labels that are incorrectly predicted. Also seen as the fraction of wrong labels compared to the \n      total number of labels. Scores closer to zero are better.</p>"
-          }
-        },
-        "MicroF1Score": {
-          "target": "com.amazonaws.comprehend#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>A measure of how accurate the classifier results are for the test data. It is a combination of the <code>Micro Precision</code> \n      and <code>Micro Recall</code> values. The <code>Micro F1Score</code> is the harmonic mean of the two scores. The highest score is 1, \n      and the worst score is 0.</p>"
-          }
-        },
-        "MicroPrecision": {
-          "target": "com.amazonaws.comprehend#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned \n      substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision \n      of all available labels, this is based on the overall score of all precision scores added together.</p>"
           }
         },
         "MicroRecall": {
@@ -547,16 +544,34 @@
             "smithy.api#documentation": "<p>A measure of how complete the classifier results are for the test data. High recall means that the classifier returned \n      most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model \n      can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores \n      of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.</p>"
           }
         },
-        "Precision": {
+        "MicroF1Score": {
           "target": "com.amazonaws.comprehend#Double",
           "traits": {
-            "smithy.api#documentation": "<p>A measure of the usefulness of the classifier results in the test data. High precision \n      means that the classifier returned substantially more relevant results than irrelevant ones.</p>"
+            "smithy.api#documentation": "<p>A measure of how accurate the classifier results are for the test data. It is a combination of the <code>Micro Precision</code> \n      and <code>Micro Recall</code> values. The <code>Micro F1Score</code> is the harmonic mean of the two scores. The highest score is 1, \n      and the worst score is 0.</p>"
+          }
+        },
+        "F1Score": {
+          "target": "com.amazonaws.comprehend#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>A measure of how accurate the classifier results are for the test data. It is \n      derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is \n      the harmonic average of the two scores. The highest score is 1, and the worst score is 0.\n    </p>"
           }
         },
         "Recall": {
           "target": "com.amazonaws.comprehend#Double",
           "traits": {
             "smithy.api#documentation": "<p>A measure of how complete the classifier results are for the test data. High recall means \n      that the classifier returned most of the relevant results. </p>"
+          }
+        },
+        "Precision": {
+          "target": "com.amazonaws.comprehend#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>A measure of the usefulness of the classifier results in the test data. High precision \n      means that the classifier returned substantially more relevant results than irrelevant ones.</p>"
+          }
+        },
+        "MicroPrecision": {
+          "target": "com.amazonaws.comprehend#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned \n      substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision \n      of all available labels, this is based on the overall score of all precision scores added together.</p>"
           }
         }
       },
@@ -567,22 +582,10 @@
     "com.amazonaws.comprehend#ClassifierMetadata": {
       "type": "structure",
       "members": {
-        "EvaluationMetrics": {
-          "target": "com.amazonaws.comprehend#ClassifierEvaluationMetrics",
-          "traits": {
-            "smithy.api#documentation": "<p> Describes the result metrics for the test data associated with an documentation classifier.</p>"
-          }
-        },
         "NumberOfLabels": {
           "target": "com.amazonaws.comprehend#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of labels in the input data. </p>"
-          }
-        },
-        "NumberOfTestDocuments": {
-          "target": "com.amazonaws.comprehend#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of documents in the input data that were used to test the classifier. Typically\n      this is 10 to 20 percent of the input documents.</p>"
           }
         },
         "NumberOfTrainedDocuments": {
@@ -590,10 +593,23 @@
           "traits": {
             "smithy.api#documentation": "<p>The number of documents in the input data that were used to train the classifier.\n      Typically this is 80 to 90 percent of the input documents.</p>"
           }
+        },
+        "NumberOfTestDocuments": {
+          "target": "com.amazonaws.comprehend#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of documents in the input data that were used to test the classifier. Typically\n      this is 10 to 20 percent of the input documents, up to 10,000 documents.</p>"
+          }
+        },
+        "EvaluationMetrics": {
+          "target": "com.amazonaws.comprehend#ClassifierEvaluationMetrics",
+          "traits": {
+            "smithy.api#documentation": "<p> Describes the result metrics for the test data associated with an documentation classifier.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Provides information about a document classifier.</p>"
+        "smithy.api#documentation": "<p>Provides information about a document classifier.</p>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#ClassifyDocument": {
@@ -625,17 +641,17 @@
     "com.amazonaws.comprehend#ClassifyDocumentRequest": {
       "type": "structure",
       "members": {
+        "Text": {
+          "target": "com.amazonaws.comprehend#CustomerInputString",
+          "traits": {
+            "smithy.api#documentation": "<p>The document text to be analyzed.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "EndpointArn": {
           "target": "com.amazonaws.comprehend#DocumentClassifierEndpointArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the endpoint.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Text": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The document text to be analyzed.</p>",
             "smithy.api#required": {}
           }
         }
@@ -656,6 +672,9 @@
             "smithy.api#documentation": "<p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner \n      and are not multually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and \n      a comedy, all at the same time. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#ClientRequestTokenString": {
@@ -695,7 +714,7 @@
           "min": 0,
           "max": 256
         },
-        "smithy.api#pattern": "arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier-endpoint/[a-zA-Z0-9](-*[a-zA-Z0-9])*"
+        "smithy.api#pattern": "arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier-endpoint|entity-recognizer-endpoint)/[a-zA-Z0-9](-*[a-zA-Z0-9])*"
       }
     },
     "com.amazonaws.comprehend#ComprehendEndpointName": {
@@ -715,7 +734,7 @@
           "min": 0,
           "max": 256
         },
-        "smithy.api#pattern": "arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*"
+        "smithy.api#pattern": "arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*"
       }
     },
     "com.amazonaws.comprehend#Comprehend_20171127": {
@@ -939,26 +958,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new document classifier that you can use to categorize documents. To create a\n      classifier you provide a set of training documents that labeled with the categories that you\n      want to use. After the classifier is trained you can use it to categorize a set of labeled\n      documents into the categories. For more information, see <a>how-document-classification</a>.</p>"
+        "smithy.api#documentation": "<p>Creates a new document classifier that you can use to categorize documents. To create a\n      classifier, you provide a set of training documents that labeled with the categories that you\n      want to use. After the classifier is trained you can use it to categorize a set of labeled\n      documents into the categories. For more information, see <a>how-document-classification</a>.</p>"
       }
     },
     "com.amazonaws.comprehend#CreateDocumentClassifierRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
-          "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants\n      Amazon Comprehend read access to your input data.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "DocumentClassifierName": {
           "target": "com.amazonaws.comprehend#ComprehendArnName",
           "traits": {
@@ -966,11 +971,23 @@
             "smithy.api#required": {}
           }
         },
-        "InputDataConfig": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierInputDataConfig",
+        "Tags": {
+          "target": "com.amazonaws.comprehend#TagList",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Tags to be associated with the document classifier being created. A tag is a key-value pair that adds as a metadata to a resource \n      used by Amazon Comprehend. For example, \n      a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.   </p>"
+          }
+        },
+        "VolumeKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         },
         "LanguageCode": {
@@ -986,28 +1003,30 @@
             "smithy.api#documentation": "<p>Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class mode, which \n      identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each \n      document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default \n      delimiter between labels is a pipe (|).</p>"
           }
         },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierOutputDataConfig",
+        "InputDataConfig": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierInputDataConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>"
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.comprehend#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>Tags to be associated with the document classifier being created. A tag is a key-value pair that adds as a metadata to a resource \n      used by Amazon Comprehend. For example, \n      a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.   </p>"
-          }
-        },
-        "VolumeKmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
+            "smithy.api#required": {}
           }
         },
         "VpcConfig": {
           "target": "com.amazonaws.comprehend#VpcConfig",
           "traits": {
             "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants\n      Amazon Comprehend read access to your input data.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OutputDataConfig": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierOutputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>"
           }
         }
       }
@@ -1064,11 +1083,11 @@
     "com.amazonaws.comprehend#CreateEndpointRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+        "EndpointName": {
+          "target": "com.amazonaws.comprehend#ComprehendEndpointName",
           "traits": {
-            "smithy.api#documentation": "<p>An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend \n      will not return a <code>ResourceInUseException</code>. </p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used for all subsequent requests to this resource.  </p>",
+            "smithy.api#required": {}
           }
         },
         "DesiredInferenceUnits": {
@@ -1078,11 +1097,11 @@
             "smithy.api#required": {}
           }
         },
-        "EndpointName": {
-          "target": "com.amazonaws.comprehend#ComprehendEndpointName",
+        "ClientRequestToken": {
+          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
-            "smithy.api#documentation": "<p>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used for all subsequent requests to this resource.  </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend \n      will not return a <code>ResourceInUseException</code>. </p>",
+            "smithy.api#idempotencyToken": {}
           }
         },
         "ModelArn": {
@@ -1152,17 +1171,16 @@
     "com.amazonaws.comprehend#CreateEntityRecognizerRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+        "VolumeKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p> A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
+        "RecognizerName": {
+          "target": "com.amazonaws.comprehend#ComprehendArnName",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>",
+            "smithy.api#documentation": "<p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. \n      Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1173,6 +1191,19 @@
             "smithy.api#required": {}
           }
         },
+        "Tags": {
+          "target": "com.amazonaws.comprehend#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags to be associated with the entity recognizer being created. A tag is a key-value pair that adds as a metadata to a \n      resource used by Amazon Comprehend. For example, \n      a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.    </p>"
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+          "traits": {
+            "smithy.api#documentation": "<p> A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
         "LanguageCode": {
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
@@ -1180,23 +1211,11 @@
             "smithy.api#required": {}
           }
         },
-        "RecognizerName": {
-          "target": "com.amazonaws.comprehend#ComprehendArnName",
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. \n      Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.comprehend#TagList",
-          "traits": {
-            "smithy.api#documentation": "<p>Tags to be associated with the entity recognizer being created. A tag is a key-value pair that adds as a metadata to a \n      resource used by Amazon Comprehend. For example, \n      a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.    </p>"
-          }
-        },
-        "VolumeKmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
         "VpcConfig": {
@@ -1216,6 +1235,24 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>"
           }
         }
+      }
+    },
+    "com.amazonaws.comprehend#CustomerInputString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.comprehend#CustomerInputStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.comprehend#CustomerInputString"
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#DeleteDocumentClassifier": {
@@ -1827,7 +1864,7 @@
       "type": "structure",
       "members": {
         "Text": {
-          "target": "com.amazonaws.comprehend#String",
+          "target": "com.amazonaws.comprehend#CustomerInputString",
           "traits": {
             "smithy.api#documentation": "<p>A UTF-8 text string. Each string should contain at least 20 characters and must contain\n      fewer that 5,000 bytes of UTF-8 encoded characters.</p>",
             "smithy.api#required": {}
@@ -1844,6 +1881,9 @@
             "smithy.api#documentation": "<p>The languages that Amazon Comprehend detected in the input text. For each language, the response\n      returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy\n      of its inference. For more information about RFC 5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying Languages</a> on the\n        <i>IETF Tools</i> web site.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#DetectEntities": {
@@ -1862,6 +1902,9 @@
           "target": "com.amazonaws.comprehend#InvalidRequestException"
         },
         {
+          "target": "com.amazonaws.comprehend#ResourceUnavailableException"
+        },
+        {
           "target": "com.amazonaws.comprehend#TextSizeLimitExceededException"
         },
         {
@@ -1875,15 +1918,20 @@
     "com.amazonaws.comprehend#DetectEntitiesRequest": {
       "type": "structure",
       "members": {
+        "EndpointArn": {
+          "target": "com.amazonaws.comprehend#EntityRecognizerEndpointArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name of an endpoint that is associated with a custom entity\n      recognition model. Provide an endpoint if you want to detect entities by using your own custom\n      model instead of the default model that is used by Amazon Comprehend.</p>\n         <p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and\n      it ignores any language code that you provide in your request.</p>"
+          }
+        },
         "LanguageCode": {
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages\n      supported by Amazon Comprehend. All documents must be in the same language.</p>\n         <p>If your request includes the endpoint for a custom entity recognition model, Amazon\n      Comprehend uses the language of your custom model, and it ignores any language code that you\n      specify here.</p>"
           }
         },
         "Text": {
-          "target": "com.amazonaws.comprehend#String",
+          "target": "com.amazonaws.comprehend#CustomerInputString",
           "traits": {
             "smithy.api#documentation": "<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
             "smithy.api#required": {}
@@ -1897,9 +1945,12 @@
         "Entities": {
           "target": "com.amazonaws.comprehend#ListOfEntities",
           "traits": {
-            "smithy.api#documentation": "<p>A collection of entities identified in the input text. For each entity, the response\n      provides the entity text, entity type, where the entity text begins and ends, and the level of\n      confidence that Amazon Comprehend has in the detection. For a list of entity types, see <a>how-entities</a>. </p>"
+            "smithy.api#documentation": "<p>A collection of entities identified in the input text. For each entity, the response\n      provides the entity text, entity type, where the entity text begins and ends, and the level of\n      confidence that Amazon Comprehend has in the detection. </p>\n         <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the\n      entities that the model is trained to recognize. Otherwise, it detects the default entity\n      types. For a list of default entity types, see <a>how-entities</a>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#DetectKeyPhrases": {
@@ -1931,17 +1982,17 @@
     "com.amazonaws.comprehend#DetectKeyPhrasesRequest": {
       "type": "structure",
       "members": {
+        "Text": {
+          "target": "com.amazonaws.comprehend#CustomerInputString",
+          "traits": {
+            "smithy.api#documentation": "<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "LanguageCode": {
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Text": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1956,6 +2007,9 @@
             "smithy.api#documentation": "<p>A collection of key phrases that Amazon Comprehend identified in the input text. For each key\n      phrase, the response provides the text of the key phrase, where the key phrase begins and\n      ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#DetectSentiment": {
@@ -1987,17 +2041,17 @@
     "com.amazonaws.comprehend#DetectSentimentRequest": {
       "type": "structure",
       "members": {
+        "Text": {
+          "target": "com.amazonaws.comprehend#CustomerInputString",
+          "traits": {
+            "smithy.api#documentation": "<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "LanguageCode": {
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Text": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2006,18 +2060,21 @@
     "com.amazonaws.comprehend#DetectSentimentResponse": {
       "type": "structure",
       "members": {
-        "Sentiment": {
-          "target": "com.amazonaws.comprehend#SentimentType",
-          "traits": {
-            "smithy.api#documentation": "<p>The inferred sentiment that Amazon Comprehend has the highest level of confidence in.</p>"
-          }
-        },
         "SentimentScore": {
           "target": "com.amazonaws.comprehend#SentimentScore",
           "traits": {
             "smithy.api#documentation": "<p>An object that lists the sentiments, and their corresponding confidence\n      levels.</p>"
           }
+        },
+        "Sentiment": {
+          "target": "com.amazonaws.comprehend#SentimentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The inferred sentiment that Amazon Comprehend has the highest level of confidence in.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#DetectSyntax": {
@@ -2049,17 +2106,17 @@
     "com.amazonaws.comprehend#DetectSyntaxRequest": {
       "type": "structure",
       "members": {
+        "Text": {
+          "target": "com.amazonaws.comprehend#CustomerInputString",
+          "traits": {
+            "smithy.api#documentation": "<p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded\n      characters.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "LanguageCode": {
           "target": "com.amazonaws.comprehend#SyntaxLanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language code of the input documents. You can specify any of the following languages supported by Amazon \n      Comprehend: German (\"de\"), English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"), or Portuguese (\"pt\").</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Text": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded\n      characters.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2074,6 +2131,9 @@
             "smithy.api#documentation": "<p>A collection of syntax tokens describing the text. For each token, the response provides\n      the text, the token type, where the text begins and ends, and the level of confidence that\n      Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#DocumentClass": {
@@ -2114,13 +2174,13 @@
         "SubmitTimeAfter": {
           "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted before the specified time. Jobs are returned in descending order,\n      newest to oldest.</p>"
+            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted after the specified time. Jobs are returned in descending order,\n      newest to oldest.</p>"
           }
         },
         "SubmitTimeBefore": {
           "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted after the specified time. Jobs are returned in ascending order,\n      oldest to newest.</p>"
+            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted before the specified time. Jobs are returned in ascending order,\n      oldest to newest.</p>"
           }
         }
       },
@@ -2131,58 +2191,10 @@
     "com.amazonaws.comprehend#DocumentClassificationJobProperties": {
       "type": "structure",
       "members": {
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data.</p>"
-          }
-        },
-        "DocumentClassifierArn": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that the document classification job completed.</p>"
-          }
-        },
-        "InputDataConfig": {
-          "target": "com.amazonaws.comprehend#InputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the document\n      classification job.</p>"
-          }
-        },
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier assigned to the document classification job.</p>"
-          }
-        },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that you assigned to the document classification job.</p>"
-          }
-        },
-        "JobStatus": {
-          "target": "com.amazonaws.comprehend#JobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the document classification job. If the status is\n        <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.comprehend#AnyLengthString",
           "traits": {
             "smithy.api#documentation": "<p>A description of the status of the job.</p>"
-          }
-        },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.comprehend#OutputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the document\n      classification job.</p>"
           }
         },
         "SubmitTime": {
@@ -2191,16 +2203,64 @@
             "smithy.api#documentation": "<p>The time that the document classification job was submitted for processing.</p>"
           }
         },
+        "DocumentClassifierArn": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>"
+          }
+        },
         "VolumeKmsKeyId": {
           "target": "com.amazonaws.comprehend#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier assigned to the document classification job.</p>"
+          }
+        },
+        "JobStatus": {
+          "target": "com.amazonaws.comprehend#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the document classification job. If the status is\n        <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>"
+          }
+        },
+        "InputDataConfig": {
+          "target": "com.amazonaws.comprehend#InputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the document\n      classification job.</p>"
+          }
+        },
         "VpcConfig": {
           "target": "com.amazonaws.comprehend#VpcConfig",
           "traits": {
             "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the document classification job completed.</p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data.</p>"
+          }
+        },
+        "OutputDataConfig": {
+          "target": "com.amazonaws.comprehend#OutputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the document\n      classification job.</p>"
+          }
+        },
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that you assigned to the document classification job.</p>"
           }
         }
       },
@@ -2237,16 +2297,16 @@
     "com.amazonaws.comprehend#DocumentClassifierFilter": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.comprehend#ModelStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters the list of classifiers based on status. </p>"
-          }
-        },
         "SubmitTimeAfter": {
           "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Filters the list of classifiers based on the time that the classifier was submitted for\n      processing. Returns only classifiers submitted after the specified time. Classifiers are returned in\n      descending order, newest to oldest.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.comprehend#ModelStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the list of classifiers based on status. </p>"
           }
         },
         "SubmitTimeBefore": {
@@ -2263,17 +2323,17 @@
     "com.amazonaws.comprehend#DocumentClassifierInputDataConfig": {
       "type": "structure",
       "members": {
-        "LabelDelimiter": {
-          "target": "com.amazonaws.comprehend#LabelDelimiter",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter \n      between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by \n      specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the \n      delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.</p>"
-          }
-        },
         "S3Uri": {
           "target": "com.amazonaws.comprehend#S3Uri",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API\n      endpoint that you are calling. The URI can point to a single input file or it can provide the\n      prefix for a collection of input files.</p>\n         <p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a\n      single file, Amazon Comprehend uses that file as input. If more than one file begins with the\n      prefix, Amazon Comprehend uses all of them as input.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "LabelDelimiter": {
+          "target": "com.amazonaws.comprehend#LabelDelimiter",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter \n      between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by \n      specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the \n      delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.</p>"
           }
         }
       },
@@ -2319,64 +2379,16 @@
     "com.amazonaws.comprehend#DocumentClassifierProperties": {
       "type": "structure",
       "members": {
-        "ClassifierMetadata": {
-          "target": "com.amazonaws.comprehend#ClassifierMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the document classifier, including the number of documents used for\n      training the classifier, the number of documents used for test the classifier, and an accuracy\n      rating.</p>"
-          }
-        },
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants\n      Amazon Comprehend read access to your input data.</p>"
-          }
-        },
-        "DocumentClassifierArn": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that training the document classifier completed.</p>"
-          }
-        },
-        "InputDataConfig": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierInputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the document classifier\n      for training.</p>"
-          }
-        },
-        "LanguageCode": {
-          "target": "com.amazonaws.comprehend#LanguageCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The language code for the language of the documents that the classifier was trained\n      on.</p>"
-          }
-        },
-        "Message": {
-          "target": "com.amazonaws.comprehend#AnyLengthString",
-          "traits": {
-            "smithy.api#documentation": "<p>Additional information about the status of the classifier.</p>"
-          }
-        },
-        "Mode": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierMode",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and \n      the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.</p>"
-          }
-        },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierOutputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p> Provides output results configuration parameters for custom classifier jobs.</p>"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.comprehend#ModelStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the document classifier. If the status is <code>TRAINED</code> the\n      classifier is ready to use. If the status is <code>FAILED</code> you can see additional\n      information about why the classifier wasn't trained in the <code>Message</code> field.</p>"
+          }
+        },
+        "VpcConfig": {
+          "target": "com.amazonaws.comprehend#VpcConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
           }
         },
         "SubmitTime": {
@@ -2385,16 +2397,34 @@
             "smithy.api#documentation": "<p>The time that the document classifier was submitted for training.</p>"
           }
         },
+        "Mode": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and \n      the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.</p>"
+          }
+        },
+        "InputDataConfig": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierInputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the document classifier\n      for training.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that training the document classifier completed.</p>"
+          }
+        },
         "TrainingEndTime": {
           "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time that training of the document classifier was completed.\n      Indicates the time when the training completes on documentation classifiers. You are billed for \n      the time interval between this time and the value of TrainingStartTime.</p>"
           }
         },
-        "TrainingStartTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
+        "OutputDataConfig": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierOutputDataConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the time when the training starts on documentation classifiers. You are billed for \n      the time interval between this time and the value of TrainingEndTime. </p>"
+            "smithy.api#documentation": "<p> Provides output results configuration parameters for custom classifier jobs.</p>"
           }
         },
         "VolumeKmsKeyId": {
@@ -2403,10 +2433,40 @@
             "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
-        "VpcConfig": {
-          "target": "com.amazonaws.comprehend#VpcConfig",
+        "LanguageCode": {
+          "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+            "smithy.api#documentation": "<p>The language code for the language of the documents that the classifier was trained\n      on.</p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants\n      Amazon Comprehend read access to your input data.</p>"
+          }
+        },
+        "TrainingStartTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the time when the training starts on documentation classifiers. You are billed for \n      the time interval between this time and the value of TrainingEndTime. </p>"
+          }
+        },
+        "DocumentClassifierArn": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>"
+          }
+        },
+        "ClassifierMetadata": {
+          "target": "com.amazonaws.comprehend#ClassifierMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the document classifier, including the number of documents used for\n      training the classifier, the number of documents used for test the classifier, and an accuracy\n      rating.</p>"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.comprehend#AnyLengthString",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional information about the status of the classifier.</p>"
           }
         }
       },
@@ -2443,16 +2503,16 @@
     "com.amazonaws.comprehend#DominantLanguage": {
       "type": "structure",
       "members": {
-        "LanguageCode": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The RFC 5646 language code for the dominant language. For more information about RFC\n      5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying\n        Languages</a> on the <i>IETF Tools</i> web site.</p>"
-          }
-        },
         "Score": {
           "target": "com.amazonaws.comprehend#Float",
           "traits": {
             "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>"
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.comprehend#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The RFC 5646 language code for the dominant language. For more information about RFC\n      5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying\n        Languages</a> on the <i>IETF Tools</i> web site.</p>"
           }
         }
       },
@@ -2463,10 +2523,10 @@
     "com.amazonaws.comprehend#DominantLanguageDetectionJobFilter": {
       "type": "structure",
       "members": {
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
+        "SubmitTimeAfter": {
+          "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Filters on the name of the job.</p>"
+            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted after the specified time. Jobs are returned in descending order,\n      newest to oldest.</p>"
           }
         },
         "JobStatus": {
@@ -2475,10 +2535,10 @@
             "smithy.api#documentation": "<p>Filters the list of jobs based on job status. Returns only jobs with the specified\n      status.</p>"
           }
         },
-        "SubmitTimeAfter": {
-          "target": "com.amazonaws.comprehend#Timestamp",
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted after the specified time. Jobs are returned in descending order,\n      newest to oldest.</p>"
+            "smithy.api#documentation": "<p>Filters on the name of the job.</p>"
           }
         },
         "SubmitTimeBefore": {
@@ -2495,10 +2555,58 @@
     "com.amazonaws.comprehend#DominantLanguageDetectionJobProperties": {
       "type": "structure",
       "members": {
+        "JobStatus": {
+          "target": "com.amazonaws.comprehend#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the dominant language detection job. If the status is\n        <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>"
+          }
+        },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>"
+          }
+        },
+        "SubmitTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the dominant language detection job was submitted for processing.</p>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier assigned to the dominant language detection job.</p>"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.comprehend#AnyLengthString",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for the status of a job.</p>"
+          }
+        },
+        "VpcConfig": {
+          "target": "com.amazonaws.comprehend#VpcConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+          }
+        },
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that you assigned to the dominant language detection job.</p>"
+          }
+        },
+        "OutputDataConfig": {
+          "target": "com.amazonaws.comprehend#OutputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the dominant language\n      detection job.</p>"
+          }
+        },
+        "VolumeKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
         "EndTime": {
@@ -2511,54 +2619,6 @@
           "target": "com.amazonaws.comprehend#InputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the dominant language\n      detection job.</p>"
-          }
-        },
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier assigned to the dominant language detection job.</p>"
-          }
-        },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that you assigned to the dominant language detection job.</p>"
-          }
-        },
-        "JobStatus": {
-          "target": "com.amazonaws.comprehend#JobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the dominant language detection job. If the status is\n        <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>"
-          }
-        },
-        "Message": {
-          "target": "com.amazonaws.comprehend#AnyLengthString",
-          "traits": {
-            "smithy.api#documentation": "<p>A description for the status of a job.</p>"
-          }
-        },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.comprehend#OutputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the dominant language\n      detection job.</p>"
-          }
-        },
-        "SubmitTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that the dominant language detection job was submitted for processing.</p>"
-          }
-        },
-        "VolumeKmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
-          }
-        },
-        "VpcConfig": {
-          "target": "com.amazonaws.comprehend#VpcConfig",
-          "traits": {
-            "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
           }
         }
       },
@@ -2593,16 +2653,16 @@
             "smithy.api#documentation": "<p>Specifies a date before which the returned endpoint or endpoints were created.</p>"
           }
         },
-        "ModelArn": {
-          "target": "com.amazonaws.comprehend#ComprehendModelArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the model to which the endpoint is attached.</p>"
-          }
-        },
         "Status": {
           "target": "com.amazonaws.comprehend#EndpointStatus",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.</p>"
+          }
+        },
+        "ModelArn": {
+          "target": "com.amazonaws.comprehend#ComprehendModelArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the model to which the endpoint is attached.</p>"
           }
         }
       },
@@ -2613,28 +2673,10 @@
     "com.amazonaws.comprehend#EndpointProperties": {
       "type": "structure",
       "members": {
-        "CreationTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The creation date and time of the endpoint.</p>"
-          }
-        },
-        "CurrentInferenceUnits": {
-          "target": "com.amazonaws.comprehend#InferenceUnitsInteger",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of inference units currently used by the model using this endpoint.</p>"
-          }
-        },
         "DesiredInferenceUnits": {
           "target": "com.amazonaws.comprehend#InferenceUnitsInteger",
           "traits": {
             "smithy.api#documentation": "<p>The desired number of inference units to be used by the model using this endpoint.  Each \n      inference unit represents of a throughput of 100 characters per second.</p>"
-          }
-        },
-        "EndpointArn": {
-          "target": "com.amazonaws.comprehend#ComprehendEndpointArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the endpoint.</p>"
           }
         },
         "LastModifiedTime": {
@@ -2649,6 +2691,12 @@
             "smithy.api#documentation": "<p>Specifies a reason for failure in cases of <code>Failed</code> status.</p>"
           }
         },
+        "CurrentInferenceUnits": {
+          "target": "com.amazonaws.comprehend#InferenceUnitsInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of inference units currently used by the model using this endpoint.</p>"
+          }
+        },
         "ModelArn": {
           "target": "com.amazonaws.comprehend#ComprehendModelArn",
           "traits": {
@@ -2659,6 +2707,18 @@
           "target": "com.amazonaws.comprehend#EndpointStatus",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the status of the endpoint. Because the endpoint updates and creation are asynchronous, so \n      customers will need to wait for the endpoint to be <code>Ready</code> status before making inference requests.</p>"
+          }
+        },
+        "EndpointArn": {
+          "target": "com.amazonaws.comprehend#ComprehendEndpointArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the endpoint.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation date and time of the endpoint.</p>"
           }
         }
       },
@@ -2702,12 +2762,6 @@
     "com.amazonaws.comprehend#EntitiesDetectionJobFilter": {
       "type": "structure",
       "members": {
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters on the name of the job.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.comprehend#JobStatus",
           "traits": {
@@ -2718,6 +2772,12 @@
           "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted after the specified time. Jobs are returned in descending order,\n      newest to oldest.</p>"
+          }
+        },
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters on the name of the job.</p>"
           }
         },
         "SubmitTimeBefore": {
@@ -2734,42 +2794,6 @@
     "com.amazonaws.comprehend#EntitiesDetectionJobProperties": {
       "type": "structure",
       "members": {
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that the entities detection job completed</p>"
-          }
-        },
-        "EntityRecognizerArn": {
-          "target": "com.amazonaws.comprehend#EntityRecognizerArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>"
-          }
-        },
-        "InputDataConfig": {
-          "target": "com.amazonaws.comprehend#InputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the entities detection\n      job.</p>"
-          }
-        },
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier assigned to the entities detection job.</p>"
-          }
-        },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that you assigned the entities detection job.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.comprehend#JobStatus",
           "traits": {
@@ -2782,10 +2806,10 @@
             "smithy.api#documentation": "<p>The language code of the input documents.</p>"
           }
         },
-        "Message": {
-          "target": "com.amazonaws.comprehend#AnyLengthString",
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
           "traits": {
-            "smithy.api#documentation": "<p>A description of the status of a job.</p>"
+            "smithy.api#documentation": "<p>The name that you assigned the entities detection job.</p>"
           }
         },
         "OutputDataConfig": {
@@ -2794,10 +2818,40 @@
             "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the entities detection\n      job. </p>"
           }
         },
+        "InputDataConfig": {
+          "target": "com.amazonaws.comprehend#InputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the entities detection\n      job.</p>"
+          }
+        },
         "SubmitTime": {
           "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time that the entities detection job was submitted for processing.</p>"
+          }
+        },
+        "VpcConfig": {
+          "target": "com.amazonaws.comprehend#VpcConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the entities detection job completed</p>"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.comprehend#AnyLengthString",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the status of a job.</p>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier assigned to the entities detection job.</p>"
           }
         },
         "VolumeKmsKeyId": {
@@ -2806,10 +2860,16 @@
             "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
-        "VpcConfig": {
-          "target": "com.amazonaws.comprehend#VpcConfig",
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>"
+          }
+        },
+        "EntityRecognizerArn": {
+          "target": "com.amazonaws.comprehend#EntityRecognizerArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>"
           }
         }
       },
@@ -2826,6 +2886,24 @@
     "com.amazonaws.comprehend#Entity": {
       "type": "structure",
       "members": {
+        "Text": {
+          "target": "com.amazonaws.comprehend#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The text of the entity.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.comprehend#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.comprehend#EntityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The entity's type.</p>"
+          }
+        },
         "BeginOffset": {
           "target": "com.amazonaws.comprehend#Integer",
           "traits": {
@@ -2836,24 +2914,6 @@
           "target": "com.amazonaws.comprehend#Integer",
           "traits": {
             "smithy.api#documentation": "<p>A character offset in the input text that shows where the entity ends. The offset\n      returns the position of each UTF-8 code point in the string. A <i>code point</i>\n      is the abstract character from a particular graphical representation. For example, a\n      multi-byte UTF-8 character maps to a single code point. </p>"
-          }
-        },
-        "Score": {
-          "target": "com.amazonaws.comprehend#Float",
-          "traits": {
-            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>"
-          }
-        },
-        "Text": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The text of the entity.</p>"
-          }
-        },
-        "Type": {
-          "target": "com.amazonaws.comprehend#EntityType",
-          "traits": {
-            "smithy.api#documentation": "<p>The entity's type.</p>"
           }
         }
       },
@@ -2901,6 +2961,16 @@
         "smithy.api#documentation": "<p>Describes the training documents submitted with an entity recognizer.</p>"
       }
     },
+    "com.amazonaws.comprehend#EntityRecognizerEndpointArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer-endpoint/[a-zA-Z0-9](-*[a-zA-Z0-9])*"
+      }
+    },
     "com.amazonaws.comprehend#EntityRecognizerEntityList": {
       "type": "structure",
       "members": {
@@ -2925,16 +2995,16 @@
             "smithy.api#documentation": "<p>A measure of how accurate the recognizer results are for the test data. It is \n      derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is \n      the harmonic average of the two scores. The highest score is 1, and the worst score is 0.\n    </p>"
           }
         },
-        "Precision": {
-          "target": "com.amazonaws.comprehend#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>A measure of the usefulness of the recognizer results in the test data. High precision \n      means that the recognizer returned substantially more relevant results than irrelevant ones.\n    </p>"
-          }
-        },
         "Recall": {
           "target": "com.amazonaws.comprehend#Double",
           "traits": {
             "smithy.api#documentation": "<p>A measure of how complete the recognizer results are for the test data. High recall means that the recognizer returned most of the relevant results.</p>"
+          }
+        },
+        "Precision": {
+          "target": "com.amazonaws.comprehend#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>A measure of the usefulness of the recognizer results in the test data. High precision \n      means that the recognizer returned substantially more relevant results than irrelevant ones.\n    </p>"
           }
         }
       },
@@ -2971,6 +3041,19 @@
     "com.amazonaws.comprehend#EntityRecognizerInputDataConfig": {
       "type": "structure",
       "members": {
+        "EntityTypes": {
+          "target": "com.amazonaws.comprehend#EntityTypesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The entity types in the input data for an entity recognizer. A maximum of 12 entity types can be used at one time to train an entity recognizer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EntityList": {
+          "target": "com.amazonaws.comprehend#EntityRecognizerEntityList",
+          "traits": {
+            "smithy.api#documentation": "<p>S3 location of the entity list for an entity recognizer.</p>"
+          }
+        },
         "Annotations": {
           "target": "com.amazonaws.comprehend#EntityRecognizerAnnotations",
           "traits": {
@@ -2981,19 +3064,6 @@
           "target": "com.amazonaws.comprehend#EntityRecognizerDocuments",
           "traits": {
             "smithy.api#documentation": "<p>S3 location of the documents folder for an entity recognizer</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "EntityList": {
-          "target": "com.amazonaws.comprehend#EntityRecognizerEntityList",
-          "traits": {
-            "smithy.api#documentation": "<p>S3 location of the entity list for an entity recognizer.</p>"
-          }
-        },
-        "EntityTypes": {
-          "target": "com.amazonaws.comprehend#EntityTypesList",
-          "traits": {
-            "smithy.api#documentation": "<p>The entity types in the input data for an entity recognizer. A maximum of 12 entity types can be used at one time to train an entity recognizer.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3031,7 +3101,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Detailed information about an entity recognizer.</p>"
+        "smithy.api#documentation": "<p>Detailed information about an entity recognizer.</p>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.comprehend#EntityRecognizerMetadataEntityTypesList": {
@@ -3049,16 +3120,16 @@
             "smithy.api#documentation": "<p>Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types. </p>"
           }
         },
-        "NumberOfTrainMentions": {
-          "target": "com.amazonaws.comprehend#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates the number of times the given entity type was seen in the training data. </p>"
-          }
-        },
         "Type": {
           "target": "com.amazonaws.comprehend#AnyLengthString",
           "traits": {
             "smithy.api#documentation": "<p>Type of entity from the list of entity types in the metadata of an entity recognizer. </p>"
+          }
+        },
+        "NumberOfTrainMentions": {
+          "target": "com.amazonaws.comprehend#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the number of times the given entity type was seen in the training data. </p>"
           }
         }
       },
@@ -3069,10 +3140,16 @@
     "com.amazonaws.comprehend#EntityRecognizerProperties": {
       "type": "structure",
       "members": {
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
+        "SubmitTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>"
+            "smithy.api#documentation": "<p>The time that the recognizer was submitted for processing.</p>"
+          }
+        },
+        "VpcConfig": {
+          "target": "com.amazonaws.comprehend#VpcConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
           }
         },
         "EndTime": {
@@ -3081,52 +3158,10 @@
             "smithy.api#documentation": "<p>The time that the recognizer creation completed.</p>"
           }
         },
-        "EntityRecognizerArn": {
-          "target": "com.amazonaws.comprehend#EntityRecognizerArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>"
-          }
-        },
         "InputDataConfig": {
           "target": "com.amazonaws.comprehend#EntityRecognizerInputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>The input data properties of an entity recognizer.</p>"
-          }
-        },
-        "LanguageCode": {
-          "target": "com.amazonaws.comprehend#LanguageCode",
-          "traits": {
-            "smithy.api#documentation": "<p> The language of the input documents. All documents must be in the same language. Only \n      English (\"en\") is currently supported.</p>"
-          }
-        },
-        "Message": {
-          "target": "com.amazonaws.comprehend#AnyLengthString",
-          "traits": {
-            "smithy.api#documentation": "<p> A description of the status of the recognizer.</p>"
-          }
-        },
-        "RecognizerMetadata": {
-          "target": "com.amazonaws.comprehend#EntityRecognizerMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p> Provides information about an entity recognizer.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.comprehend#ModelStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides the status of the entity recognizer.</p>"
-          }
-        },
-        "SubmitTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that the recognizer was submitted for processing.</p>"
-          }
-        },
-        "TrainingEndTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that training of the entity recognizer was completed.</p>"
           }
         },
         "TrainingStartTime": {
@@ -3135,16 +3170,52 @@
             "smithy.api#documentation": "<p>The time that training of the entity recognizer started.</p>"
           }
         },
+        "Message": {
+          "target": "com.amazonaws.comprehend#AnyLengthString",
+          "traits": {
+            "smithy.api#documentation": "<p> A description of the status of the recognizer.</p>"
+          }
+        },
+        "TrainingEndTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that training of the entity recognizer was completed.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.comprehend#ModelStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides the status of the entity recognizer.</p>"
+          }
+        },
+        "EntityRecognizerArn": {
+          "target": "com.amazonaws.comprehend#EntityRecognizerArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>"
+          }
+        },
+        "RecognizerMetadata": {
+          "target": "com.amazonaws.comprehend#EntityRecognizerMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p> Provides information about an entity recognizer.</p>"
+          }
+        },
         "VolumeKmsKeyId": {
           "target": "com.amazonaws.comprehend#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
-        "VpcConfig": {
-          "target": "com.amazonaws.comprehend#VpcConfig",
+        "LanguageCode": {
+          "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+            "smithy.api#documentation": "<p> The language of the input documents. All documents must be in the same language. Only \n      English (\"en\") is currently supported.</p>"
           }
         }
       },
@@ -3214,12 +3285,6 @@
     "com.amazonaws.comprehend#EntityTypesEvaluationMetrics": {
       "type": "structure",
       "members": {
-        "F1Score": {
-          "target": "com.amazonaws.comprehend#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>A measure of how accurate the recognizer results are for for a specific entity type in the test data. It is \n      derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is \n      the harmonic average of the two scores. The highest score is 1, and the worst score is 0.\n    </p>"
-          }
-        },
         "Precision": {
           "target": "com.amazonaws.comprehend#Double",
           "traits": {
@@ -3230,6 +3295,12 @@
           "target": "com.amazonaws.comprehend#Double",
           "traits": {
             "smithy.api#documentation": "<p>A measure of how complete the recognizer results are for a specific entity type in the test data. High recall means that the recognizer \n      returned most of the relevant results.</p>"
+          }
+        },
+        "F1Score": {
+          "target": "com.amazonaws.comprehend#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>A measure of how accurate the recognizer results are for for a specific entity type in the test data. It is \n      derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is \n      the harmonic average of the two scores. The highest score is 1, and the worst score is 0.\n    </p>"
           }
         }
       },
@@ -3431,10 +3502,10 @@
     "com.amazonaws.comprehend#KeyPhrase": {
       "type": "structure",
       "members": {
-        "BeginOffset": {
-          "target": "com.amazonaws.comprehend#Integer",
+        "Text": {
+          "target": "com.amazonaws.comprehend#String",
           "traits": {
-            "smithy.api#documentation": "<p>A character offset in the input text that shows where the key phrase begins (the first\n      character is at position 0). The offset returns the position of each UTF-8 code point in the\n      string. A <i>code point</i> is the abstract character from a particular\n      graphical representation. For example, a multi-byte UTF-8 character maps to a single code\n      point.</p>"
+            "smithy.api#documentation": "<p>The text of a key noun phrase.</p>"
           }
         },
         "EndOffset": {
@@ -3443,16 +3514,16 @@
             "smithy.api#documentation": "<p>A character offset in the input text where the key phrase ends. The offset returns the\n      position of each UTF-8 code point in the string. A <code>code point</code> is the abstract\n      character from a particular graphical representation. For example, a multi-byte UTF-8\n      character maps to a single code point.</p>"
           }
         },
+        "BeginOffset": {
+          "target": "com.amazonaws.comprehend#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>A character offset in the input text that shows where the key phrase begins (the first\n      character is at position 0). The offset returns the position of each UTF-8 code point in the\n      string. A <i>code point</i> is the abstract character from a particular\n      graphical representation. For example, a multi-byte UTF-8 character maps to a single code\n      point.</p>"
+          }
+        },
         "Score": {
           "target": "com.amazonaws.comprehend#Float",
           "traits": {
             "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>"
-          }
-        },
-        "Text": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The text of a key noun phrase.</p>"
           }
         }
       },
@@ -3463,6 +3534,12 @@
     "com.amazonaws.comprehend#KeyPhrasesDetectionJobFilter": {
       "type": "structure",
       "members": {
+        "SubmitTimeBefore": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted before the specified time. Jobs are returned in ascending order,\n      oldest to newest.</p>"
+          }
+        },
         "JobName": {
           "target": "com.amazonaws.comprehend#JobName",
           "traits": {
@@ -3480,12 +3557,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted after the specified time. Jobs are returned in descending order,\n      newest to oldest.</p>"
           }
-        },
-        "SubmitTimeBefore": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted before the specified time. Jobs are returned in ascending order,\n      oldest to newest.</p>"
-          }
         }
       },
       "traits": {
@@ -3495,10 +3566,22 @@
     "com.amazonaws.comprehend#KeyPhrasesDetectionJobProperties": {
       "type": "structure",
       "members": {
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
+        "LanguageCode": {
+          "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>"
+            "smithy.api#documentation": "<p>The language code of the input documents.</p>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier assigned to the key phrases detection job.</p>"
+          }
+        },
+        "JobStatus": {
+          "target": "com.amazonaws.comprehend#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the key phrases detection job. If the status is <code>FAILED</code>,\n      the <code>Message</code> field shows the reason for the failure.</p>"
           }
         },
         "EndTime": {
@@ -3513,10 +3596,22 @@
             "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the key phrases detection\n      job.</p>"
           }
         },
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
+        "OutputDataConfig": {
+          "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier assigned to the key phrases detection job.</p>"
+            "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the key phrases detection\n      job.</p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>"
+          }
+        },
+        "VolumeKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
         "JobName": {
@@ -3525,40 +3620,16 @@
             "smithy.api#documentation": "<p>The name that you assigned the key phrases detection job.</p>"
           }
         },
-        "JobStatus": {
-          "target": "com.amazonaws.comprehend#JobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the key phrases detection job. If the status is <code>FAILED</code>,\n      the <code>Message</code> field shows the reason for the failure.</p>"
-          }
-        },
-        "LanguageCode": {
-          "target": "com.amazonaws.comprehend#LanguageCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The language code of the input documents.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.comprehend#AnyLengthString",
           "traits": {
             "smithy.api#documentation": "<p>A description of the status of a job.</p>"
           }
         },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.comprehend#OutputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the key phrases detection\n      job.</p>"
-          }
-        },
         "SubmitTime": {
           "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time that the key phrases detection job was submitted for processing.</p>"
-          }
-        },
-        "VolumeKmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
         "VpcConfig": {
@@ -3770,10 +3841,10 @@
     "com.amazonaws.comprehend#ListDocumentClassifiersRequest": {
       "type": "structure",
       "members": {
-        "Filter": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierFilter",
+        "NextToken": {
+          "target": "com.amazonaws.comprehend#String",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date\n      and time that they were submitted. You can only set one filter at a time.</p>"
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         },
         "MaxResults": {
@@ -3782,10 +3853,10 @@
             "smithy.api#documentation": "<p>The maximum number of results to return in each page. The default is 100.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.comprehend#String",
+        "Filter": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierFilter",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+            "smithy.api#documentation": "<p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date\n      and time that they were submitted. You can only set one filter at a time.</p>"
           }
         }
       }
@@ -3793,16 +3864,16 @@
     "com.amazonaws.comprehend#ListDocumentClassifiersResponse": {
       "type": "structure",
       "members": {
-        "DocumentClassifierPropertiesList": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierPropertiesList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list containing the properties of each job returned.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+          }
+        },
+        "DocumentClassifierPropertiesList": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierPropertiesList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list containing the properties of each job returned.</p>"
           }
         }
       }
@@ -3841,6 +3912,12 @@
     "com.amazonaws.comprehend#ListDominantLanguageDetectionJobsRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.comprehend#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+          }
+        },
         "Filter": {
           "target": "com.amazonaws.comprehend#DominantLanguageDetectionJobFilter",
           "traits": {
@@ -3852,28 +3929,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in each page. The default is 100.</p>"
           }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
-          }
         }
       }
     },
     "com.amazonaws.comprehend#ListDominantLanguageDetectionJobsResponse": {
       "type": "structure",
       "members": {
-        "DominantLanguageDetectionJobPropertiesList": {
-          "target": "com.amazonaws.comprehend#DominantLanguageDetectionJobPropertiesList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list containing the properties of each job that is returned.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+          }
+        },
+        "DominantLanguageDetectionJobPropertiesList": {
+          "target": "com.amazonaws.comprehend#DominantLanguageDetectionJobPropertiesList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list containing the properties of each job that is returned.</p>"
           }
         }
       }
@@ -3904,10 +3975,10 @@
     "com.amazonaws.comprehend#ListEndpointsRequest": {
       "type": "structure",
       "members": {
-        "Filter": {
-          "target": "com.amazonaws.comprehend#EndpointFilter",
+        "NextToken": {
+          "target": "com.amazonaws.comprehend#String",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the endpoints that are returned. You can filter endpoints  on their name, model, status, or the date and time that they were created. \n      You can only set one filter at a time.  </p>"
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         },
         "MaxResults": {
@@ -3916,10 +3987,10 @@
             "smithy.api#documentation": "<p>The maximum number of results to return in each page. The default is 100.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.comprehend#String",
+        "Filter": {
+          "target": "com.amazonaws.comprehend#EndpointFilter",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+            "smithy.api#documentation": "<p>Filters the endpoints that are returned. You can filter endpoints  on their name, model, status, or the date and time that they were created. \n      You can only set one filter at a time.  </p>"
           }
         }
       }
@@ -3927,16 +3998,16 @@
     "com.amazonaws.comprehend#ListEndpointsResponse": {
       "type": "structure",
       "members": {
-        "EndpointPropertiesList": {
-          "target": "com.amazonaws.comprehend#EndpointPropertiesList",
-          "traits": {
-            "smithy.api#documentation": "<p>Displays a list of endpoint properties being retrieved by the service in response to the request.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+          }
+        },
+        "EndpointPropertiesList": {
+          "target": "com.amazonaws.comprehend#EndpointPropertiesList",
+          "traits": {
+            "smithy.api#documentation": "<p>Displays a list of endpoint properties being retrieved by the service in response to the request.</p>"
           }
         }
       }
@@ -4046,10 +4117,10 @@
     "com.amazonaws.comprehend#ListEntityRecognizersRequest": {
       "type": "structure",
       "members": {
-        "Filter": {
-          "target": "com.amazonaws.comprehend#EntityRecognizerFilter",
+        "NextToken": {
+          "target": "com.amazonaws.comprehend#String",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the list of entities returned. You can filter on <code>Status</code>, <code>SubmitTimeBefore</code>, or <code>SubmitTimeAfter</code>. You can only set one filter at a time.</p>"
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         },
         "MaxResults": {
@@ -4058,10 +4129,10 @@
             "smithy.api#documentation": "<p> The maximum number of results to return on each page. The default is 100.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.comprehend#String",
+        "Filter": {
+          "target": "com.amazonaws.comprehend#EntityRecognizerFilter",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+            "smithy.api#documentation": "<p>Filters the list of entities returned. You can filter on <code>Status</code>, <code>SubmitTimeBefore</code>, or <code>SubmitTimeAfter</code>. You can only set one filter at a time.</p>"
           }
         }
       }
@@ -4069,16 +4140,16 @@
     "com.amazonaws.comprehend#ListEntityRecognizersResponse": {
       "type": "structure",
       "members": {
-        "EntityRecognizerPropertiesList": {
-          "target": "com.amazonaws.comprehend#EntityRecognizerPropertiesList",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of properties of an entity recognizer.</p>"
-          }
-        },
         "NextToken": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+          }
+        },
+        "EntityRecognizerPropertiesList": {
+          "target": "com.amazonaws.comprehend#EntityRecognizerPropertiesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of properties of an entity recognizer.</p>"
           }
         }
       }
@@ -4117,10 +4188,10 @@
     "com.amazonaws.comprehend#ListKeyPhrasesDetectionJobsRequest": {
       "type": "structure",
       "members": {
-        "Filter": {
-          "target": "com.amazonaws.comprehend#KeyPhrasesDetectionJobFilter",
+        "NextToken": {
+          "target": "com.amazonaws.comprehend#String",
           "traits": {
-            "smithy.api#documentation": "<p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date\n      and time that they were submitted. You can only set one filter at a time.</p>"
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         },
         "MaxResults": {
@@ -4129,10 +4200,10 @@
             "smithy.api#documentation": "<p>The maximum number of results to return in each page. The default is 100.</p>"
           }
         },
-        "NextToken": {
-          "target": "com.amazonaws.comprehend#String",
+        "Filter": {
+          "target": "com.amazonaws.comprehend#KeyPhrasesDetectionJobFilter",
           "traits": {
-            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+            "smithy.api#documentation": "<p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date\n      and time that they were submitted. You can only set one filter at a time.</p>"
           }
         }
       }
@@ -4254,6 +4325,12 @@
     "com.amazonaws.comprehend#ListSentimentDetectionJobsRequest": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.comprehend#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
+          }
+        },
         "Filter": {
           "target": "com.amazonaws.comprehend#SentimentDetectionJobFilter",
           "traits": {
@@ -4265,28 +4342,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in each page. The default is 100.</p>"
           }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
-          }
         }
       }
     },
     "com.amazonaws.comprehend#ListSentimentDetectionJobsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
-          }
-        },
         "SentimentDetectionJobPropertiesList": {
           "target": "com.amazonaws.comprehend#SentimentDetectionJobPropertiesList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the properties of each job that is returned.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.comprehend#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         }
       }
@@ -4329,16 +4400,16 @@
     "com.amazonaws.comprehend#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
-        "ResourceArn": {
-          "target": "com.amazonaws.comprehend#ComprehendArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.</p>"
-          }
-        },
         "Tags": {
           "target": "com.amazonaws.comprehend#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Tags associated with the Amazon Comprehend resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, \n      a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.    </p>"
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.comprehend#ComprehendArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.</p>"
           }
         }
       }
@@ -4377,16 +4448,16 @@
     "com.amazonaws.comprehend#ListTopicsDetectionJobsRequest": {
       "type": "structure",
       "members": {
-        "Filter": {
-          "target": "com.amazonaws.comprehend#TopicsDetectionJobFilter",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters the jobs that are returned. Jobs can be filtered on their name, status, or the\n      date and time that they were submitted. You can set only one filter at a time.</p>"
-          }
-        },
         "MaxResults": {
           "target": "com.amazonaws.comprehend#MaxResultsInteger",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in each page. The default is 100.</p>"
+          }
+        },
+        "Filter": {
+          "target": "com.amazonaws.comprehend#TopicsDetectionJobFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the jobs that are returned. Jobs can be filtered on their name, status, or the\n      date and time that they were submitted. You can set only one filter at a time.</p>"
           }
         },
         "NextToken": {
@@ -4400,16 +4471,16 @@
     "com.amazonaws.comprehend#ListTopicsDetectionJobsResponse": {
       "type": "structure",
       "members": {
-        "NextToken": {
-          "target": "com.amazonaws.comprehend#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
-          }
-        },
         "TopicsDetectionJobPropertiesList": {
           "target": "com.amazonaws.comprehend#TopicsDetectionJobPropertiesList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the properties of each job that is returned.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.comprehend#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         }
       }
@@ -4472,17 +4543,17 @@
     "com.amazonaws.comprehend#OutputDataConfig": {
       "type": "structure",
       "members": {
-        "KmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n            <li>\n               <p>KMS Key Alias: <code>\"alias/ExampleAlias\"</code>\n               </p>\n            </li>\n            <li>\n               <p>ARN of a KMS Key Alias: <code>\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"</code>\n               </p>\n            </li>\n         </ul>"
-          }
-        },
         "S3Uri": {
           "target": "com.amazonaws.comprehend#S3Uri",
           "traits": {
             "smithy.api#documentation": "<p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you\n      specify the Amazon S3 location where you want to write the output data. The URI must be in the\n      same region as the API endpoint that you are calling. The location is used as the prefix for\n      the actual location of the output file.</p>\n         <p>When the topic detection job is finished, the service creates an output file in a\n      directory specific to the job. The <code>S3Uri</code> field contains the location of the\n      output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the\n      ouput of the operation.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "KmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n            <li>\n               <p>KMS Key Alias: <code>\"alias/ExampleAlias\"</code>\n               </p>\n            </li>\n            <li>\n               <p>ARN of a KMS Key Alias: <code>\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"</code>\n               </p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -4493,16 +4564,16 @@
     "com.amazonaws.comprehend#PartOfSpeechTag": {
       "type": "structure",
       "members": {
-        "Score": {
-          "target": "com.amazonaws.comprehend#Float",
-          "traits": {
-            "smithy.api#documentation": "<p>The confidence that Amazon Comprehend has that the part of speech was correctly identified.</p>"
-          }
-        },
         "Tag": {
           "target": "com.amazonaws.comprehend#PartOfSpeechTagType",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the part of speech that the token represents.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.comprehend#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The confidence that Amazon Comprehend has that the part of speech was correctly identified.</p>"
           }
         }
       },
@@ -4597,7 +4668,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The specified name is already in use. Use a different name and try your request again.</p>",
+        "smithy.api#documentation": "<p>The specified resource name is already in use. Use a different name and try your request again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -4610,7 +4681,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The maximum number of recognizers per account has been exceeded. Review the recognizers, perform cleanup, and then try your request again.</p>",
+        "smithy.api#documentation": "<p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -4636,7 +4707,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The specified resource is not available. Check to see if the resource is in\n      the <code>TRAINED</code> state and try your request again.</p>",
+        "smithy.api#documentation": "<p>The specified resource is not available. Check the resource and try your request again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -4676,12 +4747,6 @@
     "com.amazonaws.comprehend#SentimentDetectionJobFilter": {
       "type": "structure",
       "members": {
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>Filters on the name of the job.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.comprehend#JobStatus",
           "traits": {
@@ -4699,6 +4764,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Returns only jobs submitted before the specified time. Jobs are returned in ascending order,\n      oldest to newest.</p>"
           }
+        },
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters on the name of the job.</p>"
+          }
         }
       },
       "traits": {
@@ -4708,46 +4779,10 @@
     "com.amazonaws.comprehend#SentimentDetectionJobProperties": {
       "type": "structure",
       "members": {
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that the sentiment detection job ended.</p>"
-          }
-        },
-        "InputDataConfig": {
-          "target": "com.amazonaws.comprehend#InputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the sentiment detection\n      job.</p>"
-          }
-        },
         "JobId": {
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier assigned to the sentiment detection job.</p>"
-          }
-        },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name that you assigned to the sentiment detection job</p>"
-          }
-        },
-        "JobStatus": {
-          "target": "com.amazonaws.comprehend#JobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the sentiment detection job. If the status is <code>FAILED</code>,\n      the <code>Messages</code> field shows the reason for the failure.</p>"
-          }
-        },
-        "LanguageCode": {
-          "target": "com.amazonaws.comprehend#LanguageCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The language code of the input documents.</p>"
           }
         },
         "Message": {
@@ -4762,22 +4797,58 @@
             "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the sentiment detection\n      job.</p>"
           }
         },
-        "SubmitTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
           "traits": {
-            "smithy.api#documentation": "<p>The time that the sentiment detection job was submitted for processing.</p>"
-          }
-        },
-        "VolumeKmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The name that you assigned to the sentiment detection job</p>"
           }
         },
         "VpcConfig": {
           "target": "com.amazonaws.comprehend#VpcConfig",
           "traits": {
             "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.comprehend#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code of the input documents.</p>"
+          }
+        },
+        "InputDataConfig": {
+          "target": "com.amazonaws.comprehend#InputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the sentiment detection\n      job.</p>"
+          }
+        },
+        "SubmitTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the sentiment detection job was submitted for processing.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the sentiment detection job ended.</p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>"
+          }
+        },
+        "JobStatus": {
+          "target": "com.amazonaws.comprehend#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the sentiment detection job. If the status is <code>FAILED</code>,\n      the <code>Messages</code> field shows the reason for the failure.</p>"
+          }
+        },
+        "VolumeKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -4794,28 +4865,28 @@
     "com.amazonaws.comprehend#SentimentScore": {
       "type": "structure",
       "members": {
-        "Mixed": {
-          "target": "com.amazonaws.comprehend#Float",
-          "traits": {
-            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the\n        <code>MIXED</code> sentiment.</p>"
-          }
-        },
         "Negative": {
           "target": "com.amazonaws.comprehend#Float",
           "traits": {
             "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the\n        <code>NEGATIVE</code> sentiment.</p>"
           }
         },
-        "Neutral": {
-          "target": "com.amazonaws.comprehend#Float",
-          "traits": {
-            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the\n        <code>NEUTRAL</code> sentiment.</p>"
-          }
-        },
         "Positive": {
           "target": "com.amazonaws.comprehend#Float",
           "traits": {
             "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the\n        <code>POSITIVE</code> sentiment.</p>"
+          }
+        },
+        "Mixed": {
+          "target": "com.amazonaws.comprehend#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the\n        <code>MIXED</code> sentiment.</p>"
+          }
+        },
+        "Neutral": {
+          "target": "com.amazonaws.comprehend#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the\n        <code>NEUTRAL</code> sentiment.</p>"
           }
         }
       },
@@ -4881,11 +4952,11 @@
     "com.amazonaws.comprehend#StartDocumentClassificationJobRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+        "DocumentClassifierArn": {
+          "target": "com.amazonaws.comprehend#DocumentClassifierArn",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the document classifier to use to process the\n      job.</p>",
+            "smithy.api#required": {}
           }
         },
         "DataAccessRoleArn": {
@@ -4895,10 +4966,10 @@
             "smithy.api#required": {}
           }
         },
-        "DocumentClassifierArn": {
-          "target": "com.amazonaws.comprehend#DocumentClassifierArn",
+        "OutputDataConfig": {
+          "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the document classifier to use to process the\n      job.</p>",
+            "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4909,23 +4980,16 @@
             "smithy.api#required": {}
           }
         },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the job.</p>"
-          }
-        },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.comprehend#OutputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "VolumeKmsKeyId": {
           "target": "com.amazonaws.comprehend#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the job.</p>"
           }
         },
         "VpcConfig": {
@@ -4933,22 +4997,29 @@
           "traits": {
             "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
           }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend\n      generates one.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
         }
       }
     },
     "com.amazonaws.comprehend#StartDocumentClassificationJobResponse": {
       "type": "structure",
       "members": {
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of the job, use this identifier\n      with the  operation.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.comprehend#JobStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the job:</p>\n         <ul>\n            <li>\n               <p>SUBMITTED - The job has been received and queued for processing.</p>\n            </li>\n            <li>\n               <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p>\n            </li>\n            <li>\n               <p>COMPLETED - The job was successfully completed and the output is available.</p>\n            </li>\n            <li>\n               <p>FAILED - The job did not complete. For details, use the  operation.</p>\n            </li>\n            <li>\n               <p>STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.</p>\n            </li>\n            <li>\n               <p>STOPPED - The job was successfully stopped without completing.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of the job, use this identifier\n      with the  operation.</p>"
           }
         }
       }
@@ -4982,18 +5053,10 @@
     "com.amazonaws.comprehend#StartDominantLanguageDetectionJobRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>An identifier for the job.</p>"
           }
         },
         "InputDataConfig": {
@@ -5003,10 +5066,30 @@
             "smithy.api#required": {}
           }
         },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
+        "VolumeKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>An identifier for the job.</p>"
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VpcConfig": {
+          "target": "com.amazonaws.comprehend#VpcConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend\n      generates one.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         },
         "OutputDataConfig": {
@@ -5014,18 +5097,6 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "VolumeKmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
-          }
-        },
-        "VpcConfig": {
-          "target": "com.amazonaws.comprehend#VpcConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
           }
         }
       }
@@ -5082,18 +5153,17 @@
     "com.amazonaws.comprehend#StartEntitiesDetectionJobRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+        "OutputDataConfig": {
+          "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
+            "smithy.api#required": {}
           }
         },
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
+        "VolumeKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
         "EntityRecognizerArn": {
@@ -5109,10 +5179,23 @@
             "smithy.api#required": {}
           }
         },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "JobName": {
           "target": "com.amazonaws.comprehend#JobName",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the job.</p>"
+          }
+        },
+        "VpcConfig": {
+          "target": "com.amazonaws.comprehend#VpcConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
           }
         },
         "LanguageCode": {
@@ -5122,23 +5205,11 @@
             "smithy.api#required": {}
           }
         },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.comprehend#OutputDataConfig",
+        "ClientRequestToken": {
+          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "VolumeKmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
-          }
-        },
-        "VpcConfig": {
-          "target": "com.amazonaws.comprehend#VpcConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       }
@@ -5189,18 +5260,10 @@
     "com.amazonaws.comprehend#StartKeyPhrasesDetectionJobRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+        "VpcConfig": {
+          "target": "com.amazonaws.comprehend#VpcConfig",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
           }
         },
         "InputDataConfig": {
@@ -5210,23 +5273,10 @@
             "smithy.api#required": {}
           }
         },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the job.</p>"
-          }
-        },
-        "LanguageCode": {
-          "target": "com.amazonaws.comprehend#LanguageCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend. All\n      documents must be in the same language.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.comprehend#OutputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5236,10 +5286,31 @@
             "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
-        "VpcConfig": {
-          "target": "com.amazonaws.comprehend#VpcConfig",
+        "OutputDataConfig": {
+          "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
-            "smithy.api#documentation": "<p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+            "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.comprehend#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend. All\n      documents must be in the same language.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the job.</p>"
           }
         }
       }
@@ -5247,16 +5318,16 @@
     "com.amazonaws.comprehend#StartKeyPhrasesDetectionJobResponse": {
       "type": "structure",
       "members": {
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of a job, use this identifier with\n      the  operation.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.comprehend#JobStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the job. </p>\n         <ul>\n            <li>\n               <p>SUBMITTED - The job has been received and is queued for processing.</p>\n            </li>\n            <li>\n               <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p>\n            </li>\n            <li>\n               <p>COMPLETED - The job was successfully completed and the output is available.</p>\n            </li>\n            <li>\n               <p>FAILED - The job did not complete. To get details, use the  operation.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of a job, use this identifier with\n      the  operation.</p>"
           }
         }
       }
@@ -5290,11 +5361,11 @@
     "com.amazonaws.comprehend#StartSentimentDetectionJobRequest": {
       "type": "structure",
       "members": {
-        "ClientRequestToken": {
-          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+        "InputDataConfig": {
+          "target": "com.amazonaws.comprehend#InputDataConfig",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
+            "smithy.api#required": {}
           }
         },
         "DataAccessRoleArn": {
@@ -5304,24 +5375,10 @@
             "smithy.api#required": {}
           }
         },
-        "InputDataConfig": {
-          "target": "com.amazonaws.comprehend#InputDataConfig",
+        "VolumeKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the job.</p>"
-          }
-        },
-        "LanguageCode": {
-          "target": "com.amazonaws.comprehend#LanguageCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend. All\n      documents must be in the same language.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
         "OutputDataConfig": {
@@ -5331,16 +5388,30 @@
             "smithy.api#required": {}
           }
         },
-        "VolumeKmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
-          "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
-          }
-        },
         "VpcConfig": {
           "target": "com.amazonaws.comprehend#VpcConfig",
           "traits": {
             "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.comprehend#ClientRequestTokenString",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.comprehend#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend. All\n      documents must be in the same language.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the job.</p>"
           }
         }
       }
@@ -5391,6 +5462,13 @@
     "com.amazonaws.comprehend#StartTopicsDetectionJobRequest": {
       "type": "structure",
       "members": {
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role\n      that grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ClientRequestToken": {
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
@@ -5398,11 +5476,10 @@
             "smithy.api#idempotencyToken": {}
           }
         },
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
+        "VpcConfig": {
+          "target": "com.amazonaws.comprehend#VpcConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role\n      that grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
           }
         },
         "InputDataConfig": {
@@ -5412,16 +5489,16 @@
             "smithy.api#required": {}
           }
         },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the job.</p>"
-          }
-        },
         "NumberOfTopics": {
           "target": "com.amazonaws.comprehend#NumberOfTopicsInteger",
           "traits": {
             "smithy.api#documentation": "<p>The number of topics to detect.</p>"
+          }
+        },
+        "VolumeKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
           }
         },
         "OutputDataConfig": {
@@ -5431,16 +5508,10 @@
             "smithy.api#required": {}
           }
         },
-        "VolumeKmsKeyId": {
-          "target": "com.amazonaws.comprehend#KmsKeyId",
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
           "traits": {
-            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n      process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
-          }
-        },
-        "VpcConfig": {
-          "target": "com.amazonaws.comprehend#VpcConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>"
+            "smithy.api#documentation": "<p>The identifier of the job.</p>"
           }
         }
       }
@@ -5448,16 +5519,16 @@
     "com.amazonaws.comprehend#StartTopicsDetectionJobResponse": {
       "type": "structure",
       "members": {
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of the job, use this identifier\n      with the <code>DescribeTopicDetectionJob</code> operation.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.comprehend#JobStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the job: </p>\n         <ul>\n            <li>\n               <p>SUBMITTED - The job has been received and is queued for processing.</p>\n            </li>\n            <li>\n               <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p>\n            </li>\n            <li>\n               <p>COMPLETED - The job was successfully completed and the output is\n          available.</p>\n            </li>\n            <li>\n               <p>FAILED - The job did not complete. To get details, use the\n            <code>DescribeTopicDetectionJob</code> operation.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of the job, use this identifier\n      with the <code>DescribeTopicDetectionJob</code> operation.</p>"
           }
         }
       }
@@ -5500,16 +5571,16 @@
     "com.amazonaws.comprehend#StopDominantLanguageDetectionJobResponse": {
       "type": "structure",
       "members": {
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the dominant language detection job to stop.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.comprehend#JobStatus",
           "traits": {
             "smithy.api#documentation": "<p>Either <code>STOP_REQUESTED</code> if the job is currently running, or\n        <code>STOPPED</code> if the job was previously stopped with the\n        <code>StopDominantLanguageDetectionJob</code> operation.</p>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the dominant language detection job to stop.</p>"
           }
         }
       }
@@ -5656,16 +5727,16 @@
     "com.amazonaws.comprehend#StopSentimentDetectionJobResponse": {
       "type": "structure",
       "members": {
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier of the sentiment detection job to stop.</p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.comprehend#JobStatus",
           "traits": {
             "smithy.api#documentation": "<p>Either <code>STOP_REQUESTED</code> if the job is currently running, or\n        <code>STOPPED</code> if the job was previously stopped with the\n        <code>StopSentimentDetectionJob</code> operation.</p>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the sentiment detection job to stop.</p>"
           }
         }
       }
@@ -5762,12 +5833,6 @@
         }
       }
     },
-    "com.amazonaws.comprehend#StringList": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.comprehend#String"
-      }
-    },
     "com.amazonaws.comprehend#SubnetId": {
       "type": "string",
       "traits": {
@@ -5824,6 +5889,12 @@
     "com.amazonaws.comprehend#SyntaxToken": {
       "type": "structure",
       "members": {
+        "TokenId": {
+          "target": "com.amazonaws.comprehend#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for a token.</p>"
+          }
+        },
         "BeginOffset": {
           "target": "com.amazonaws.comprehend#Integer",
           "traits": {
@@ -5836,22 +5907,16 @@
             "smithy.api#documentation": "<p>The zero-based offset from the beginning of the source text to the last character in the\n      word.</p>"
           }
         },
-        "PartOfSpeech": {
-          "target": "com.amazonaws.comprehend#PartOfSpeechTag",
-          "traits": {
-            "smithy.api#documentation": "<p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of\n      speech was correctly identified. For more information, see <a>how-syntax</a>.</p>"
-          }
-        },
         "Text": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>The word that was recognized in the source text.</p>"
           }
         },
-        "TokenId": {
-          "target": "com.amazonaws.comprehend#Integer",
+        "PartOfSpeech": {
+          "target": "com.amazonaws.comprehend#PartOfSpeechTag",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier for a token.</p>"
+            "smithy.api#documentation": "<p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of\n      speech was correctly identified. For more information, see <a>how-syntax</a>.</p>"
           }
         }
       },
@@ -5862,17 +5927,17 @@
     "com.amazonaws.comprehend#Tag": {
       "type": "structure",
       "members": {
+        "Value": {
+          "target": "com.amazonaws.comprehend#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p> The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department.  </p>"
+          }
+        },
         "Key": {
           "target": "com.amazonaws.comprehend#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.” </p>",
             "smithy.api#required": {}
-          }
-        },
-        "Value": {
-          "target": "com.amazonaws.comprehend#TagValue",
-          "traits": {
-            "smithy.api#documentation": "<p> The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department.  </p>"
           }
         }
       },
@@ -6020,12 +6085,6 @@
     "com.amazonaws.comprehend#TopicsDetectionJobFilter": {
       "type": "structure",
       "members": {
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
         "JobStatus": {
           "target": "com.amazonaws.comprehend#JobStatus",
           "traits": {
@@ -6043,6 +6102,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n      Only returns jobs submitted before the specified time. Jobs are returned in descending order,\n      newest to oldest.</p>"
           }
+        },
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
         }
       },
       "traits": {
@@ -6052,58 +6117,10 @@
     "com.amazonaws.comprehend#TopicsDetectionJobProperties": {
       "type": "structure",
       "members": {
-        "DataAccessRoleArn": {
-          "target": "com.amazonaws.comprehend#IamRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your job data.  </p>"
-          }
-        },
-        "EndTime": {
-          "target": "com.amazonaws.comprehend#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>The time that the topic detection job was completed.</p>"
-          }
-        },
-        "InputDataConfig": {
-          "target": "com.amazonaws.comprehend#InputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The input data configuration supplied when you created the topic detection\n      job.</p>"
-          }
-        },
-        "JobId": {
-          "target": "com.amazonaws.comprehend#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier assigned to the topic detection job.</p>"
-          }
-        },
-        "JobName": {
-          "target": "com.amazonaws.comprehend#JobName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the topic detection job.</p>"
-          }
-        },
-        "JobStatus": {
-          "target": "com.amazonaws.comprehend#JobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status of the topic detection job. If the status is <code>Failed</code>,\n      the reason for the failure is shown in the <code>Message</code> field.</p>"
-          }
-        },
         "Message": {
           "target": "com.amazonaws.comprehend#AnyLengthString",
           "traits": {
             "smithy.api#documentation": "<p>A description for the status of a job.</p>"
-          }
-        },
-        "NumberOfTopics": {
-          "target": "com.amazonaws.comprehend#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The number of topics to detect supplied when you created the topic detection job. The\n      default is 10. </p>"
-          }
-        },
-        "OutputDataConfig": {
-          "target": "com.amazonaws.comprehend#OutputDataConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>The output data configuration supplied when you created the topic detection\n      job.</p>"
           }
         },
         "SubmitTime": {
@@ -6116,6 +6133,54 @@
           "target": "com.amazonaws.comprehend#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that \n        process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>  \n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>   \n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "JobStatus": {
+          "target": "com.amazonaws.comprehend#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the topic detection job. If the status is <code>Failed</code>,\n      the reason for the failure is shown in the <code>Message</code> field.</p>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.comprehend#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier assigned to the topic detection job.</p>"
+          }
+        },
+        "InputDataConfig": {
+          "target": "com.amazonaws.comprehend#InputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The input data configuration supplied when you created the topic detection\n      job.</p>"
+          }
+        },
+        "NumberOfTopics": {
+          "target": "com.amazonaws.comprehend#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of topics to detect supplied when you created the topic detection job. The\n      default is 10. </p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.comprehend#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the topic detection job was completed.</p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your job data.  </p>"
+          }
+        },
+        "OutputDataConfig": {
+          "target": "com.amazonaws.comprehend#OutputDataConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The output data configuration supplied when you created the topic detection\n      job.</p>"
+          }
+        },
+        "JobName": {
+          "target": "com.amazonaws.comprehend#JobName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the topic detection job.</p>"
           }
         },
         "VpcConfig": {
@@ -6238,17 +6303,17 @@
     "com.amazonaws.comprehend#UpdateEndpointRequest": {
       "type": "structure",
       "members": {
-        "DesiredInferenceUnits": {
-          "target": "com.amazonaws.comprehend#InferenceUnitsInteger",
-          "traits": {
-            "smithy.api#documentation": "<p> The desired number of inference units to be used by the model using this endpoint.  Each \n      inference unit represents of a throughput of 100 characters per second.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "EndpointArn": {
           "target": "com.amazonaws.comprehend#ComprehendEndpointArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DesiredInferenceUnits": {
+          "target": "com.amazonaws.comprehend#InferenceUnitsInteger",
+          "traits": {
+            "smithy.api#documentation": "<p> The desired number of inference units to be used by the model using this endpoint.  Each \n      inference unit represents of a throughput of 100 characters per second.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6261,17 +6326,17 @@
     "com.amazonaws.comprehend#VpcConfig": {
       "type": "structure",
       "members": {
-        "SecurityGroupIds": {
-          "target": "com.amazonaws.comprehend#SecurityGroupIds",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID number for a security group on an instance of your private VPC.  Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and \n      provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by \"sg-\", for instance: \"sg-03b388029b0a285ea\".  \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html\">Security Groups for your VPC</a>. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "Subnets": {
           "target": "com.amazonaws.comprehend#Subnets",
           "traits": {
             "smithy.api#documentation": "<p>The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the \n      VPC and is specific to a given availability zone in the VPC’s region. This ID number is preceded by \"subnet-\", for instance: \"subnet-04ccf456919e69055\".  \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html\">VPCs and Subnets</a>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.comprehend#SecurityGroupIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID number for a security group on an instance of your private VPC.  Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and \n      provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by \"sg-\", for instance: \"sg-03b388029b0a285ea\".  \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html\">Security Groups for your VPC</a>. </p>",
             "smithy.api#required": {}
           }
         }

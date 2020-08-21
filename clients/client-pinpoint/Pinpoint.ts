@@ -31,6 +31,11 @@ import {
   CreatePushTemplateCommandOutput,
 } from "./commands/CreatePushTemplateCommand";
 import {
+  CreateRecommenderConfigurationCommand,
+  CreateRecommenderConfigurationCommandInput,
+  CreateRecommenderConfigurationCommandOutput,
+} from "./commands/CreateRecommenderConfigurationCommand";
+import {
   CreateSegmentCommand,
   CreateSegmentCommandInput,
   CreateSegmentCommandOutput,
@@ -116,6 +121,11 @@ import {
   DeletePushTemplateCommandInput,
   DeletePushTemplateCommandOutput,
 } from "./commands/DeletePushTemplateCommand";
+import {
+  DeleteRecommenderConfigurationCommand,
+  DeleteRecommenderConfigurationCommandInput,
+  DeleteRecommenderConfigurationCommandOutput,
+} from "./commands/DeleteRecommenderConfigurationCommand";
 import {
   DeleteSegmentCommand,
   DeleteSegmentCommandInput,
@@ -277,6 +287,16 @@ import {
   GetPushTemplateCommandInput,
   GetPushTemplateCommandOutput,
 } from "./commands/GetPushTemplateCommand";
+import {
+  GetRecommenderConfigurationCommand,
+  GetRecommenderConfigurationCommandInput,
+  GetRecommenderConfigurationCommandOutput,
+} from "./commands/GetRecommenderConfigurationCommand";
+import {
+  GetRecommenderConfigurationsCommand,
+  GetRecommenderConfigurationsCommandInput,
+  GetRecommenderConfigurationsCommandOutput,
+} from "./commands/GetRecommenderConfigurationsCommand";
 import { GetSegmentCommand, GetSegmentCommandInput, GetSegmentCommandOutput } from "./commands/GetSegmentCommand";
 import {
   GetSegmentExportJobsCommand,
@@ -456,6 +476,11 @@ import {
   UpdatePushTemplateCommandInput,
   UpdatePushTemplateCommandOutput,
 } from "./commands/UpdatePushTemplateCommand";
+import {
+  UpdateRecommenderConfigurationCommand,
+  UpdateRecommenderConfigurationCommandInput,
+  UpdateRecommenderConfigurationCommandOutput,
+} from "./commands/UpdateRecommenderConfigurationCommand";
 import {
   UpdateSegmentCommand,
   UpdateSegmentCommandInput,
@@ -700,6 +725,38 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: CreatePushTemplateCommandOutput) => void
   ): Promise<CreatePushTemplateCommandOutput> | void {
     const command = new CreatePushTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an Amazon Pinpoint configuration for a recommender model.</p>
+   */
+  public createRecommenderConfiguration(
+    args: CreateRecommenderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRecommenderConfigurationCommandOutput>;
+  public createRecommenderConfiguration(
+    args: CreateRecommenderConfigurationCommandInput,
+    cb: (err: any, data?: CreateRecommenderConfigurationCommandOutput) => void
+  ): void;
+  public createRecommenderConfiguration(
+    args: CreateRecommenderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRecommenderConfigurationCommandOutput) => void
+  ): void;
+  public createRecommenderConfiguration(
+    args: CreateRecommenderConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRecommenderConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateRecommenderConfigurationCommandOutput) => void
+  ): Promise<CreateRecommenderConfigurationCommandOutput> | void {
+    const command = new CreateRecommenderConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1270,6 +1327,38 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: DeletePushTemplateCommandOutput) => void
   ): Promise<DeletePushTemplateCommandOutput> | void {
     const command = new DeletePushTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Amazon Pinpoint configuration for a recommender model.</p>
+   */
+  public deleteRecommenderConfiguration(
+    args: DeleteRecommenderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecommenderConfigurationCommandOutput>;
+  public deleteRecommenderConfiguration(
+    args: DeleteRecommenderConfigurationCommandInput,
+    cb: (err: any, data?: DeleteRecommenderConfigurationCommandOutput) => void
+  ): void;
+  public deleteRecommenderConfiguration(
+    args: DeleteRecommenderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecommenderConfigurationCommandOutput) => void
+  ): void;
+  public deleteRecommenderConfiguration(
+    args: DeleteRecommenderConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRecommenderConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRecommenderConfigurationCommandOutput) => void
+  ): Promise<DeleteRecommenderConfigurationCommandOutput> | void {
+    const command = new DeleteRecommenderConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2420,6 +2509,70 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * <p>Retrieves information about an Amazon Pinpoint configuration for a recommender model.</p>
+   */
+  public getRecommenderConfiguration(
+    args: GetRecommenderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecommenderConfigurationCommandOutput>;
+  public getRecommenderConfiguration(
+    args: GetRecommenderConfigurationCommandInput,
+    cb: (err: any, data?: GetRecommenderConfigurationCommandOutput) => void
+  ): void;
+  public getRecommenderConfiguration(
+    args: GetRecommenderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecommenderConfigurationCommandOutput) => void
+  ): void;
+  public getRecommenderConfiguration(
+    args: GetRecommenderConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecommenderConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetRecommenderConfigurationCommandOutput) => void
+  ): Promise<GetRecommenderConfigurationCommandOutput> | void {
+    const command = new GetRecommenderConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
+   */
+  public getRecommenderConfigurations(
+    args: GetRecommenderConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecommenderConfigurationsCommandOutput>;
+  public getRecommenderConfigurations(
+    args: GetRecommenderConfigurationsCommandInput,
+    cb: (err: any, data?: GetRecommenderConfigurationsCommandOutput) => void
+  ): void;
+  public getRecommenderConfigurations(
+    args: GetRecommenderConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecommenderConfigurationsCommandOutput) => void
+  ): void;
+  public getRecommenderConfigurations(
+    args: GetRecommenderConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecommenderConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: GetRecommenderConfigurationsCommandOutput) => void
+  ): Promise<GetRecommenderConfigurationsCommandOutput> | void {
+    const command = new GetRecommenderConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.</p>
    */
   public getSegment(args: GetSegmentCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentCommandOutput>;
@@ -2789,7 +2942,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Retrieves all the tags (keys and values) that are associated with an application, campaign, journey, message template, or segment.</p>
+   * <p>Retrieves all the tags (keys and values) that are associated with an application, campaign, message template, or segment.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -3068,7 +3221,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Adds one or more tags (keys and values) to an application, campaign, journey, message template, or segment.</p>
+   * <p>Adds one or more tags (keys and values) to an application, campaign, message template, or segment.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -3094,7 +3247,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Removes one or more tags (keys and values) from an application, campaign, journey, message template, or segment.</p>
+   * <p>Removes one or more tags (keys and values) from an application, campaign, message template, or segment.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -3446,7 +3599,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for an endpoint.</p>
+   * <p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes for an endpoint. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
    */
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
@@ -3478,7 +3631,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for a batch of endpoints.</p>
+   * <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes for a batch of endpoints. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
    */
   public updateEndpointsBatch(
     args: UpdateEndpointsBatchCommandInput,
@@ -3627,6 +3780,38 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: UpdatePushTemplateCommandOutput) => void
   ): Promise<UpdatePushTemplateCommandOutput> | void {
     const command = new UpdatePushTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an Amazon Pinpoint configuration for a recommender model.</p>
+   */
+  public updateRecommenderConfiguration(
+    args: UpdateRecommenderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecommenderConfigurationCommandOutput>;
+  public updateRecommenderConfiguration(
+    args: UpdateRecommenderConfigurationCommandInput,
+    cb: (err: any, data?: UpdateRecommenderConfigurationCommandOutput) => void
+  ): void;
+  public updateRecommenderConfiguration(
+    args: UpdateRecommenderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecommenderConfigurationCommandOutput) => void
+  ): void;
+  public updateRecommenderConfiguration(
+    args: UpdateRecommenderConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRecommenderConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRecommenderConfigurationCommandOutput) => void
+  ): Promise<UpdateRecommenderConfigurationCommandOutput> | void {
+    const command = new UpdateRecommenderConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

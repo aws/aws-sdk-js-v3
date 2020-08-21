@@ -74,11 +74,6 @@ export interface CognitoStreams {
   DisabledReason?: string;
 
   /**
-   * <p>The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.</p>
-   */
-  RoleArn?: string;
-
-  /**
    * <p>The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.</p>
    */
   StreamName?: string;
@@ -95,6 +90,11 @@ export interface CognitoStreams {
    *          </ul>
    */
   StreamingStatus?: StreamingStatus | string;
+
+  /**
+   * <p>The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.</p>
+   */
+  RoleArn?: string;
 }
 
 export namespace CognitoStreams {
@@ -132,19 +132,9 @@ export namespace ConcurrentModificationException {
 export interface Dataset {
   __type?: "Dataset";
   /**
-   * <p>Date on which the dataset was created.</p>
+   * <p>Number of records in this dataset.</p>
    */
-  CreationDate?: Date;
-
-  /**
-   * <p>Total size in bytes of the records in this dataset.</p>
-   */
-  DataStorage?: number;
-
-  /**
-   * <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>
-   */
-  DatasetName?: string;
+  NumRecords?: number;
 
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
@@ -163,9 +153,19 @@ export interface Dataset {
   LastModifiedDate?: Date;
 
   /**
-   * <p>Number of records in this dataset.</p>
+   * <p>Date on which the dataset was created.</p>
    */
-  NumRecords?: number;
+  CreationDate?: Date;
+
+  /**
+   * <p>Total size in bytes of the records in this dataset.</p>
+   */
+  DataStorage?: number;
+
+  /**
+   * <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>
+   */
+  DatasetName?: string;
 }
 
 export namespace Dataset {
@@ -190,13 +190,13 @@ export interface DeleteDatasetRequest {
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
    *        created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
-  IdentityId: string | undefined;
+  IdentityPoolId: string | undefined;
 
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
    *        created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
-  IdentityPoolId: string | undefined;
+  IdentityId: string | undefined;
 }
 
 export namespace DeleteDatasetRequest {
@@ -234,16 +234,16 @@ export namespace DeleteDatasetResponse {
 export interface DescribeDatasetRequest {
   __type?: "DescribeDatasetRequest";
   /**
-   * <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
-   *        (underscore), '-' (dash), and '.' (dot).</p>
-   */
-  DatasetName: string | undefined;
-
-  /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
    *        created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
   IdentityId: string | undefined;
+
+  /**
+   * <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
+   *        (underscore), '-' (dash), and '.' (dot).</p>
+   */
+  DatasetName: string | undefined;
 
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
@@ -326,13 +326,13 @@ export interface DescribeIdentityUsageRequest {
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
    *        created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
-  IdentityId: string | undefined;
+  IdentityPoolId: string | undefined;
 
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
    *        created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
-  IdentityPoolId: string | undefined;
+  IdentityId: string | undefined;
 }
 
 export namespace DescribeIdentityUsageRequest {
@@ -403,16 +403,6 @@ export namespace GetBulkPublishDetailsRequest {
 export interface GetBulkPublishDetailsResponse {
   __type?: "GetBulkPublishDetailsResponse";
   /**
-   * <p>If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</p>
-   */
-  BulkPublishCompleteTime?: Date;
-
-  /**
-   * <p>The date/time at which the last bulk publish was initiated.</p>
-   */
-  BulkPublishStartTime?: Date;
-
-  /**
    * <p>Status of the last bulk publish operation, valid values are: </p>
    *          <ul>
    *             <li>
@@ -432,14 +422,24 @@ export interface GetBulkPublishDetailsResponse {
   BulkPublishStatus?: BulkPublishStatus | string;
 
   /**
+   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
+   */
+  IdentityPoolId?: string;
+
+  /**
    * <p>If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.</p>
    */
   FailureMessage?: string;
 
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
+   * <p>If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</p>
    */
-  IdentityPoolId?: string;
+  BulkPublishCompleteTime?: Date;
+
+  /**
+   * <p>The date/time at which the last bulk publish was initiated.</p>
+   */
+  BulkPublishStartTime?: Date;
 }
 
 export namespace GetBulkPublishDetailsResponse {
@@ -510,14 +510,14 @@ export namespace GetIdentityPoolConfigurationRequest {
 export interface GetIdentityPoolConfigurationResponse {
   __type?: "GetIdentityPoolConfigurationResponse";
   /**
-   * <p>Options to apply to this identity pool for Amazon Cognito streams.</p>
-   */
-  CognitoStreams?: CognitoStreams;
-
-  /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>
    */
   IdentityPoolId?: string;
+
+  /**
+   * <p>Options to apply to this identity pool for Amazon Cognito streams.</p>
+   */
+  CognitoStreams?: CognitoStreams;
 
   /**
    * <p>Options to apply to this identity pool for push synchronization.</p>
@@ -539,6 +539,11 @@ export namespace GetIdentityPoolConfigurationResponse {
 export interface IdentityPoolUsage {
   __type?: "IdentityPoolUsage";
   /**
+   * <p>Date on which the identity pool was last modified.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
    * <p>Data storage information for the identity pool.</p>
    */
   DataStorage?: number;
@@ -548,11 +553,6 @@ export interface IdentityPoolUsage {
    *        created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
   IdentityPoolId?: string;
-
-  /**
-   * <p>Date on which the identity pool was last modified.</p>
-   */
-  LastModifiedDate?: Date;
 
   /**
    * <p>Number of sync sessions for the identity pool.</p>
@@ -573,14 +573,14 @@ export namespace IdentityPoolUsage {
 export interface IdentityUsage {
   __type?: "IdentityUsage";
   /**
-   * <p>Total data storage for this identity.</p>
-   */
-  DataStorage?: number;
-
-  /**
    * <p>Number of datasets for the identity.</p>
    */
   DatasetCount?: number;
+
+  /**
+   * <p>Date on which the identity was last modified.</p>
+   */
+  LastModifiedDate?: Date;
 
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
@@ -595,9 +595,9 @@ export interface IdentityUsage {
   IdentityPoolId?: string;
 
   /**
-   * <p>Date on which the identity was last modified.</p>
+   * <p>Total data storage for this identity.</p>
    */
-  LastModifiedDate?: Date;
+  DataStorage?: number;
 }
 
 export namespace IdentityUsage {
@@ -746,9 +746,9 @@ export namespace LimitExceededException {
 export interface ListDatasetsRequest {
   __type?: "ListDatasetsRequest";
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
+   * <p>A pagination token for obtaining the next page of results.</p>
    */
-  IdentityId: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
@@ -761,9 +761,9 @@ export interface ListDatasetsRequest {
   MaxResults?: string;
 
   /**
-   * <p>A pagination token for obtaining the next page of results.</p>
+   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
-  NextToken?: string;
+  IdentityId: string | undefined;
 }
 
 export namespace ListDatasetsRequest {
@@ -807,14 +807,14 @@ export namespace ListDatasetsResponse {
 export interface ListIdentityPoolUsageRequest {
   __type?: "ListIdentityPoolUsageRequest";
   /**
-   * <p>The maximum number of results to be returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A pagination token for obtaining the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListIdentityPoolUsageRequest {
@@ -830,24 +830,24 @@ export namespace ListIdentityPoolUsageRequest {
 export interface ListIdentityPoolUsageResponse {
   __type?: "ListIdentityPoolUsageResponse";
   /**
-   * <p>Total number of identities for the identity pool.</p>
-   */
-  Count?: number;
-
-  /**
    * <p>Usage information for the identity pools.</p>
    */
   IdentityPoolUsages?: IdentityPoolUsage[];
 
   /**
-   * <p>The maximum number of results to be returned.</p>
+   * <p>Total number of identities for the identity pool.</p>
    */
-  MaxResults?: number;
+  Count?: number;
 
   /**
    * <p>A pagination token for obtaining the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListIdentityPoolUsageResponse {
@@ -863,24 +863,14 @@ export namespace ListIdentityPoolUsageResponse {
 export interface ListRecordsRequest {
   __type?: "ListRecordsRequest";
   /**
-   * <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>
-   */
-  DatasetName: string | undefined;
-
-  /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-   */
-  IdentityId: string | undefined;
-
-  /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
-   * <p>The last server sync count for this record.</p>
+   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
-  LastSyncCount?: number;
+  IdentityId: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned.</p>
@@ -891,6 +881,16 @@ export interface ListRecordsRequest {
    * <p>A pagination token for obtaining the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The last server sync count for this record.</p>
+   */
+  LastSyncCount?: number;
+
+  /**
+   * <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>
+   */
+  DatasetName: string | undefined;
 
   /**
    * <p>A token containing a session ID, identity ID, and expiration.</p>
@@ -916,24 +916,9 @@ export interface ListRecordsResponse {
   Count?: number;
 
   /**
-   * <p>A boolean value specifying whether to delete the dataset locally.</p>
-   */
-  DatasetDeletedAfterRequestedSyncCount?: boolean;
-
-  /**
-   * <p>Indicates whether the dataset exists.</p>
-   */
-  DatasetExists?: boolean;
-
-  /**
    * <p>Server sync count for this dataset.</p>
    */
   DatasetSyncCount?: number;
-
-  /**
-   * <p>The user/device that made the last change to this record.</p>
-   */
-  LastModifiedBy?: string;
 
   /**
    * <p>Names of merged datasets.</p>
@@ -941,9 +926,19 @@ export interface ListRecordsResponse {
   MergedDatasetNames?: string[];
 
   /**
-   * <p>A pagination token for obtaining the next page of results.</p>
+   * <p>A token containing a session ID, identity ID, and expiration.</p>
    */
-  NextToken?: string;
+  SyncSessionToken?: string;
+
+  /**
+   * <p>The user/device that made the last change to this record.</p>
+   */
+  LastModifiedBy?: string;
+
+  /**
+   * <p>A boolean value specifying whether to delete the dataset locally.</p>
+   */
+  DatasetDeletedAfterRequestedSyncCount?: boolean;
 
   /**
    * <p>A list of all records.</p>
@@ -951,9 +946,14 @@ export interface ListRecordsResponse {
   Records?: _Record[];
 
   /**
-   * <p>A token containing a session ID, identity ID, and expiration.</p>
+   * <p>A pagination token for obtaining the next page of results.</p>
    */
-  SyncSessionToken?: string;
+  NextToken?: string;
+
+  /**
+   * <p>Indicates whether the dataset exists.</p>
+   */
+  DatasetExists?: boolean;
 }
 
 export namespace ListRecordsResponse {
@@ -1020,6 +1020,21 @@ export interface _Record {
   DeviceLastModifiedDate?: Date;
 
   /**
+   * <p>The server sync count for this record.</p>
+   */
+  SyncCount?: number;
+
+  /**
+   * <p>The date on which the record was last modified.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
+   * <p>The value for the record.</p>
+   */
+  Value?: string;
+
+  /**
    * <p>The key for the record.</p>
    */
   Key?: string;
@@ -1028,21 +1043,6 @@ export interface _Record {
    * <p>The user/device that made the last change to this record.</p>
    */
   LastModifiedBy?: string;
-
-  /**
-   * <p>The date on which the record was last modified.</p>
-   */
-  LastModifiedDate?: Date;
-
-  /**
-   * <p>The server sync count for this record.</p>
-   */
-  SyncCount?: number;
-
-  /**
-   * <p>The value for the record.</p>
-   */
-  Value?: string;
 }
 
 export namespace _Record {
@@ -1058,14 +1058,14 @@ export namespace _Record {
 export interface RecordPatch {
   __type?: "RecordPatch";
   /**
-   * <p>The last modified date of the client device.</p>
-   */
-  DeviceLastModifiedDate?: Date;
-
-  /**
    * <p>The key associated with the record patch.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The last modified date of the client device.</p>
+   */
+  DeviceLastModifiedDate?: Date;
 
   /**
    * <p>An operation, either replace or remove.</p>
@@ -1096,11 +1096,6 @@ export namespace RecordPatch {
 export interface RegisterDeviceRequest {
   __type?: "RegisterDeviceRequest";
   /**
-   * <p>The unique ID for this identity.</p>
-   */
-  IdentityId: string | undefined;
-
-  /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.</p>
    */
   IdentityPoolId: string | undefined;
@@ -1109,6 +1104,11 @@ export interface RegisterDeviceRequest {
    * <p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>
    */
   Platform: Platform | string | undefined;
+
+  /**
+   * <p>The unique ID for this identity.</p>
+   */
+  IdentityId: string | undefined;
 
   /**
    * <p>The push token.</p>
@@ -1208,6 +1208,11 @@ export namespace SetCognitoEventsRequest {
 export interface SetIdentityPoolConfigurationRequest {
   __type?: "SetIdentityPoolConfigurationRequest";
   /**
+   * <p>Options to apply to this identity pool for push synchronization.</p>
+   */
+  PushSync?: PushSync;
+
+  /**
    * <p>Options to apply to this identity pool for Amazon Cognito streams.</p>
    */
   CognitoStreams?: CognitoStreams;
@@ -1216,11 +1221,6 @@ export interface SetIdentityPoolConfigurationRequest {
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.</p>
    */
   IdentityPoolId: string | undefined;
-
-  /**
-   * <p>Options to apply to this identity pool for push synchronization.</p>
-   */
-  PushSync?: PushSync;
 }
 
 export namespace SetIdentityPoolConfigurationRequest {
@@ -1242,14 +1242,14 @@ export interface SetIdentityPoolConfigurationResponse {
   CognitoStreams?: CognitoStreams;
 
   /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>
-   */
-  IdentityPoolId?: string;
-
-  /**
    * <p>Options to apply to this identity pool for push synchronization.</p>
    */
   PushSync?: PushSync;
+
+  /**
+   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>
+   */
+  IdentityPoolId?: string;
 }
 
 export namespace SetIdentityPoolConfigurationResponse {
@@ -1273,14 +1273,14 @@ export interface SubscribeToDatasetRequest {
   DatasetName: string | undefined;
 
   /**
-   * <p>The unique ID generated for this device by Cognito.</p>
-   */
-  DeviceId: string | undefined;
-
-  /**
    * <p>Unique ID for this identity.</p>
    */
   IdentityId: string | undefined;
+
+  /**
+   * <p>The unique ID generated for this device by Cognito.</p>
+   */
+  DeviceId: string | undefined;
 
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.</p>
@@ -1334,16 +1334,6 @@ export namespace TooManyRequestsException {
 export interface UnsubscribeFromDatasetRequest {
   __type?: "UnsubscribeFromDatasetRequest";
   /**
-   * <p>The name of the dataset from which to unsubcribe.</p>
-   */
-  DatasetName: string | undefined;
-
-  /**
-   * <p>The unique ID generated for this device by Cognito.</p>
-   */
-  DeviceId: string | undefined;
-
-  /**
    * <p>Unique ID for this identity.</p>
    */
   IdentityId: string | undefined;
@@ -1352,6 +1342,16 @@ export interface UnsubscribeFromDatasetRequest {
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.</p>
    */
   IdentityPoolId: string | undefined;
+
+  /**
+   * <p>The unique ID generated for this device by Cognito.</p>
+   */
+  DeviceId: string | undefined;
+
+  /**
+   * <p>The name of the dataset from which to unsubcribe.</p>
+   */
+  DatasetName: string | undefined;
 }
 
 export namespace UnsubscribeFromDatasetRequest {
@@ -1381,24 +1381,9 @@ export namespace UnsubscribeFromDatasetResponse {
 export interface UpdateRecordsRequest {
   __type?: "UpdateRecordsRequest";
   /**
-   * <p>Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.</p>
+   * <p>A list of patch operations.</p>
    */
-  ClientContext?: string;
-
-  /**
-   * <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>
-   */
-  DatasetName: string | undefined;
-
-  /**
-   * <p>The unique ID generated for this device by Cognito.</p>
-   */
-  DeviceId?: string;
-
-  /**
-   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
-   */
-  IdentityId: string | undefined;
+  RecordPatches?: RecordPatch[];
 
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
@@ -1406,14 +1391,29 @@ export interface UpdateRecordsRequest {
   IdentityPoolId: string | undefined;
 
   /**
-   * <p>A list of patch operations.</p>
+   * <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>
    */
-  RecordPatches?: RecordPatch[];
+  DatasetName: string | undefined;
+
+  /**
+   * <p>Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.</p>
+   */
+  ClientContext?: string;
+
+  /**
+   * <p>The unique ID generated for this device by Cognito.</p>
+   */
+  DeviceId?: string;
 
   /**
    * <p>The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.</p>
    */
   SyncSessionToken: string | undefined;
+
+  /**
+   * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
+   */
+  IdentityId: string | undefined;
 }
 
 export namespace UpdateRecordsRequest {
