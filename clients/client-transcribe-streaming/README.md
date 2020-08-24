@@ -206,9 +206,9 @@ If you are using `async...await` style code, you are able to catch the errors wi
 categories of exceptions can be thrown:
 
 - Immediate exceptions thrown before transcription is started, like signature
-exceptions, invalid parameters exceptions, and network errors;
+  exceptions, invalid parameters exceptions, and network errors;
 - Streaming exceptions that happens after transcription is
-started, like `InternalFailureException` or `ConflictException`.
+  started, like `InternalFailureException` or `ConflictException`.
 
 For immediate exceptions, the SDK client will retry the request if the error is retryable, like network errors. You can
 config the client to behave as you intend to.
