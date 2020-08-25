@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/eventstream-serde-config-resolver@1.0.0-gamma.4...@aws-sdk/eventstream-serde-config-resolver@1.0.0-gamma.5) (2020-08-25)
+
+
+### Features
+
+* **eventstream-serde-config-resolver:** simplify and add tests ([#1403](https://github.com/aws/aws-sdk-js-v3/issues/1403)) ([7783c69](https://github.com/aws/aws-sdk-js-v3/commit/7783c69369e9c5f96f86bc02a392e3c0b6480f30))
+
+
+
+
+
 # [1.0.0-gamma.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/eventstream-serde-config-resolver@1.0.0-gamma.3...@aws-sdk/eventstream-serde-config-resolver@1.0.0-gamma.4) (2020-08-04)
 
 

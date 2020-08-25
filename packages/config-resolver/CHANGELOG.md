@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/config-resolver@1.0.0-gamma.5...@aws-sdk/config-resolver@1.0.0-gamma.6) (2020-08-25)
+
+
+### Features
+
+* refactor nodejs region loader  ([#1437](https://github.com/aws/aws-sdk-js-v3/issues/1437)) ([5d79645](https://github.com/aws/aws-sdk-js-v3/commit/5d79645eb622b111c94a7de1918c8357c83a7bf8))
+
+
+
+
+
 # [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/config-resolver@1.0.0-gamma.4...@aws-sdk/config-resolver@1.0.0-gamma.5) (2020-08-04)
 
 

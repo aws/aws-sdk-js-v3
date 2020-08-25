@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/signature-v4@1.0.0-gamma.5...@aws-sdk/signature-v4@1.0.0-gamma.6) (2020-08-25)
+
+
+### Features
+
+* support per-request region and service override in signer ([#1444](https://github.com/aws/aws-sdk-js-v3/issues/1444)) ([a2635af](https://github.com/aws/aws-sdk-js-v3/commit/a2635af43f177d0ccc5d7e435e1e88c83b2b571d))
+
+
+
+
+
 # [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/signature-v4@1.0.0-gamma.4...@aws-sdk/signature-v4@1.0.0-gamma.5) (2020-08-04)
 
 

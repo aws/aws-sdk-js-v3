@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/service-error-classification",
-  "version": "1.0.0-gamma.5",
+  "version": "1.0.0-gamma.6",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,7 +18,7 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/smithy-client": "1.0.0-gamma.5",
+    "@aws-sdk/smithy-client": "1.0.0-gamma.6",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.0.2"

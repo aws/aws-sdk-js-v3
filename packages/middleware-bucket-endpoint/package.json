@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-bucket-endpoint",
-  "version": "1.0.0-gamma.5",
+  "version": "1.0.0-gamma.6",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,14 +18,14 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-http": "1.0.0-gamma.5",
-    "@aws-sdk/types": "1.0.0-gamma.4",
-    "@aws-sdk/util-arn-parser": "1.0.0-gamma.1",
+    "@aws-sdk/protocol-http": "1.0.0-gamma.6",
+    "@aws-sdk/types": "1.0.0-gamma.5",
+    "@aws-sdk/util-arn-parser": "1.0.0-gamma.2",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/middleware-stack": "1.0.0-gamma.5",
-    "@aws-sdk/node-config-provider": "1.0.0-gamma.0",
+    "@aws-sdk/middleware-stack": "1.0.0-gamma.6",
+    "@aws-sdk/node-config-provider": "1.0.0-gamma.1",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.0.2"

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-managedblockchain@1.0.0-gamma.6...@aws-sdk/client-managedblockchain@1.0.0-gamma.7) (2020-08-25)
+
+
+### Features
+
+* adds client paginators ([#1458](https://github.com/aws/aws-sdk-js-v3/issues/1458)) ([0c7f7ee](https://github.com/aws/aws-sdk-js-v3/commit/0c7f7eee39eef17a5baee3c0db78682a54b1028a))
+* get partition of given region ([#1435](https://github.com/aws/aws-sdk-js-v3/issues/1435)) ([c18bfe4](https://github.com/aws/aws-sdk-js-v3/commit/c18bfe489db77d945d0bcc4ae7194ff46cd461a9))
+* refactor nodejs region loader  ([#1437](https://github.com/aws/aws-sdk-js-v3/issues/1437)) ([5d79645](https://github.com/aws/aws-sdk-js-v3/commit/5d79645eb622b111c94a7de1918c8357c83a7bf8))
+* refactor nodejs retry config loader ([#1438](https://github.com/aws/aws-sdk-js-v3/issues/1438)) ([5478012](https://github.com/aws/aws-sdk-js-v3/commit/5478012147b475bdce07a2cbe393a972e502c93f))
+* update clients with smithy models as of 08/20 ([#1457](https://github.com/aws/aws-sdk-js-v3/issues/1457)) ([f95cce3](https://github.com/aws/aws-sdk-js-v3/commit/f95cce338fcdc49ead6e3ca6d178a6fd58ae556f))
+
+
+
+
+
 # [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-managedblockchain@1.0.0-gamma.5...@aws-sdk/client-managedblockchain@1.0.0-gamma.6) (2020-08-04)
 
 **Note:** Version bump only for package @aws-sdk/client-managedblockchain

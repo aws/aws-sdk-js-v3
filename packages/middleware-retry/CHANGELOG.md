@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-retry@1.0.0-gamma.5...@aws-sdk/middleware-retry@1.0.0-gamma.6) (2020-08-25)
+
+
+### Features
+
+* refactor nodejs retry config loader ([#1438](https://github.com/aws/aws-sdk-js-v3/issues/1438)) ([5478012](https://github.com/aws/aws-sdk-js-v3/commit/5478012147b475bdce07a2cbe393a972e502c93f))
+
+
+
+
+
 # [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-retry@1.0.0-gamma.4...@aws-sdk/middleware-retry@1.0.0-gamma.5) (2020-08-04)
 
 

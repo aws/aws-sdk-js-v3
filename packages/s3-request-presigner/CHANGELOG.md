@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/s3-request-presigner@1.0.0-gamma.5...@aws-sdk/s3-request-presigner@1.0.0-gamma.6) (2020-08-25)
+
+
+### Features
+
+* **s3-request-presigner:** add getSignedUrl() from client and commands ([#1454](https://github.com/aws/aws-sdk-js-v3/issues/1454)) ([88baaad](https://github.com/aws/aws-sdk-js-v3/commit/88baaad98480a9b170fb2cca403c47aa92cf964c))
+
+
+
+
+
 # [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/s3-request-presigner@1.0.0-gamma.4...@aws-sdk/s3-request-presigner@1.0.0-gamma.5) (2020-08-04)
 
 

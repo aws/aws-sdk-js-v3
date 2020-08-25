@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/eventstream-serde-browser@1.0.0-gamma.5...@aws-sdk/eventstream-serde-browser@1.0.0-gamma.6) (2020-08-25)
+
+
+### Bug Fixes
+
+* **eventstream-serde-browser:** set `module` to dist output ([#1434](https://github.com/aws/aws-sdk-js-v3/issues/1434)) ([90c685a](https://github.com/aws/aws-sdk-js-v3/commit/90c685a32d1fb2e3b65e1806f4aa20d65cbdb79b))
+
+
+
+
+
 # [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/eventstream-serde-browser@1.0.0-gamma.4...@aws-sdk/eventstream-serde-browser@1.0.0-gamma.5) (2020-08-04)
 
 

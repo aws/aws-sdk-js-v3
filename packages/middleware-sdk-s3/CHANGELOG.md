@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-s3@1.0.0-gamma.5...@aws-sdk/middleware-sdk-s3@1.0.0-gamma.6) (2020-08-25)
+
+
+### Features
+
+* **middleware-sdk-s3:** bucket name validator skips ARN bucket name ([#1442](https://github.com/aws/aws-sdk-js-v3/issues/1442)) ([e693c98](https://github.com/aws/aws-sdk-js-v3/commit/e693c980ea9efade196ccee963e11a159ca421f1))
+
+
+
+
+
 # [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-s3@1.0.0-gamma.4...@aws-sdk/middleware-sdk-s3@1.0.0-gamma.5) (2020-08-04)
 
 

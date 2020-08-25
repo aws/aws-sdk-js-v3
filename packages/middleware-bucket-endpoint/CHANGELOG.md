@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-bucket-endpoint@1.0.0-gamma.5...@aws-sdk/middleware-bucket-endpoint@1.0.0-gamma.6) (2020-08-25)
+
+
+### Features
+
+* **client-s3:** add useArnRegion config ([#1420](https://github.com/aws/aws-sdk-js-v3/issues/1420)) ([40e600e](https://github.com/aws/aws-sdk-js-v3/commit/40e600e598e88afa28f15459b4f9574dcfd171a4))
+* **middleware-bucket-endpoint:** generate endpoint from Access Point ARN ([#1441](https://github.com/aws/aws-sdk-js-v3/issues/1441)) ([b5da159](https://github.com/aws/aws-sdk-js-v3/commit/b5da15913fbaeaa60f03bea08147f95830657ceb))
+
+
+
+
+
 # [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-bucket-endpoint@1.0.0-gamma.4...@aws-sdk/middleware-bucket-endpoint@1.0.0-gamma.5) (2020-08-04)
 
 

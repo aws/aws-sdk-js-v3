@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/types@1.0.0-gamma.4...@aws-sdk/types@1.0.0-gamma.5) (2020-08-25)
+
+
+### Features
+
+* **types:** update types to include pagination type.  ([#1451](https://github.com/aws/aws-sdk-js-v3/issues/1451)) ([8e34453](https://github.com/aws/aws-sdk-js-v3/commit/8e34453707b33e45208dbd43dacc10c10bb53c62))
+* add pagination global types ([#1443](https://github.com/aws/aws-sdk-js-v3/issues/1443)) ([d12f9ba](https://github.com/aws/aws-sdk-js-v3/commit/d12f9ba008f694fc1dd4e7618de7b5e8b420f361))
+* get partition of given region ([#1435](https://github.com/aws/aws-sdk-js-v3/issues/1435)) ([c18bfe4](https://github.com/aws/aws-sdk-js-v3/commit/c18bfe489db77d945d0bcc4ae7194ff46cd461a9))
+* support per-request region and service override in signer ([#1444](https://github.com/aws/aws-sdk-js-v3/issues/1444)) ([a2635af](https://github.com/aws/aws-sdk-js-v3/commit/a2635af43f177d0ccc5d7e435e1e88c83b2b571d))
+
+
+### Reverts
+
+* Revert "feat: add pagination global types (#1443)" (#1450) ([0a97419](https://github.com/aws/aws-sdk-js-v3/commit/0a9741934b82808e25244d9eae8b32f62fd7cc70)), closes [#1443](https://github.com/aws/aws-sdk-js-v3/issues/1443) [#1450](https://github.com/aws/aws-sdk-js-v3/issues/1450)
+
+
+
+
+
 # [1.0.0-gamma.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/types@1.0.0-gamma.3...@aws-sdk/types@1.0.0-gamma.4) (2020-08-04)
 
 
