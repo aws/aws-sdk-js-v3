@@ -4,7 +4,7 @@
     "strict": true,
     "sourceMap": false,
     "lib": ["es5", "es2015.promise", "es2015.collection"],
-    "sourceRoot": "./src",
+    "rootDir": "./src",
     "outDir": "./dist/cjs",
     "importHelpers": true,
     "noEmitHelpers": true,
