@@ -1,6 +1,7 @@
 /coverage/
 tsconfig.test.json
 *.tsbuildinfo
+jest.config.js
 
 *.spec.js
 *.spec.d.ts
