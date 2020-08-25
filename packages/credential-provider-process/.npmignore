@@ -4,6 +4,7 @@ tsconfig.test.json
 jest.config.js
 
 *.spec.js
+*.spec.ts
 *.spec.d.ts
 *.spec.js.map
 
