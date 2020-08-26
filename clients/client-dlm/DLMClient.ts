@@ -37,6 +37,12 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import {
+  LoggerInputConfig,
+  LoggerResolvedConfig,
+  getLoggerPlugin,
+  resolveLoggerConfig,
+} from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -184,7 +190,8 @@ export type DLMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   AwsAuthInputConfig &
   RetryInputConfig &
   UserAgentInputConfig &
-  HostHeaderInputConfig;
+  HostHeaderInputConfig &
+  LoggerInputConfig;
 
 export type DLMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
@@ -193,7 +200,8 @@ export type DLMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
   UserAgentResolvedConfig &
-  HostHeaderResolvedConfig;
+  HostHeaderResolvedConfig &
+  LoggerResolvedConfig;
 
 /**
  * <fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -217,13 +225,15 @@ export class DLMClient extends __Client<
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveHostHeaderConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_7 = resolveLoggerConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

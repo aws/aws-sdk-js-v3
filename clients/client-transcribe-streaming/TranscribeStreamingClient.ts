@@ -28,6 +28,12 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import {
+  LoggerInputConfig,
+  LoggerResolvedConfig,
+  getLoggerPlugin,
+  resolveLoggerConfig,
+} from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   WebSocketInputConfig,
@@ -178,6 +184,7 @@ export type TranscribeStreamingClientConfig = Partial<__SmithyConfiguration<__Ht
   RetryInputConfig &
   UserAgentInputConfig &
   HostHeaderInputConfig &
+  LoggerInputConfig &
   EventStreamInputConfig &
   WebSocketInputConfig &
   EventStreamSerdeInputConfig;
@@ -190,6 +197,7 @@ export type TranscribeStreamingClientResolvedConfig = __SmithyResolvedConfigurat
   RetryResolvedConfig &
   UserAgentResolvedConfig &
   HostHeaderResolvedConfig &
+  LoggerResolvedConfig &
   EventStreamResolvedConfig &
   WebSocketResolvedConfig &
   EventStreamSerdeResolvedConfig;
@@ -216,16 +224,18 @@ export class TranscribeStreamingClient extends __Client<
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveHostHeaderConfig(_config_5);
-    let _config_7 = resolveEventStreamConfig(_config_6);
-    let _config_8 = resolveWebSocketConfig(_config_7);
-    let _config_9 = resolveEventStreamSerdeConfig(_config_8);
-    super(_config_9);
-    this.config = _config_9;
+    let _config_7 = resolveLoggerConfig(_config_6);
+    let _config_8 = resolveEventStreamConfig(_config_7);
+    let _config_9 = resolveWebSocketConfig(_config_8);
+    let _config_10 = resolveEventStreamSerdeConfig(_config_9);
+    super(_config_10);
+    this.config = _config_10;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getWebSocketPlugin(this.config));
   }
 

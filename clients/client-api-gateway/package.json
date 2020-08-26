@@ -35,6 +35,7 @@
     "@aws-sdk/invalid-dependency": "1.0.0-gamma.5",
     "@aws-sdk/middleware-content-length": "1.0.0-gamma.6",
     "@aws-sdk/middleware-host-header": "1.0.0-gamma.6",
+    "@aws-sdk/middleware-logger": "1.0.0-gamma.0",
     "@aws-sdk/middleware-retry": "1.0.0-gamma.6",
     "@aws-sdk/middleware-sdk-api-gateway": "1.0.0-gamma.6",
     "@aws-sdk/middleware-serde": "1.0.0-gamma.5",

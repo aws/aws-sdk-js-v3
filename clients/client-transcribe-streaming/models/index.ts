@@ -51,7 +51,6 @@ export namespace AudioStream {
   interface $Base {
     __type?: "AudioStream";
   }
-
   /**
    * <p>A blob of audio from your application. You audio stream consists of one or more audio
    *       events.</p>
@@ -60,25 +59,17 @@ export namespace AudioStream {
     AudioEvent: AudioEvent;
     $unknown?: never;
   }
-
   export interface $UnknownMember extends $Base {
     AudioEvent?: never;
     $unknown: [string, any];
   }
-
   export interface Visitor<T> {
     AudioEvent: (value: AudioEvent) => T;
     _: (name: string, value: any) => T;
   }
-
   export const visit = <T>(value: AudioStream, visitor: Visitor<T>): T => {
     if (value.AudioEvent !== undefined) return visitor.AudioEvent(value.AudioEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  export const filterSensitiveLog = (obj: AudioStream): any => {
-    if (obj.AudioEvent !== undefined) return { AudioEvent: AudioEvent.filterSensitiveLog(obj.AudioEvent) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -333,7 +324,6 @@ export interface StartStreamTranscriptionRequest {
 export namespace StartStreamTranscriptionRequest {
   export const filterSensitiveLog = (obj: StartStreamTranscriptionRequest): any => ({
     ...obj,
-    ...(obj.AudioStream && { AudioStream: "STREAMING_CONTENT" }),
   });
   export const isa = (o: any): o is StartStreamTranscriptionRequest => __isa(o, "StartStreamTranscriptionRequest");
 }
@@ -390,7 +380,6 @@ export interface StartStreamTranscriptionResponse {
 export namespace StartStreamTranscriptionResponse {
   export const filterSensitiveLog = (obj: StartStreamTranscriptionResponse): any => ({
     ...obj,
-    ...(obj.TranscriptResultStream && { TranscriptResultStream: "STREAMING_CONTENT" }),
   });
   export const isa = (o: any): o is StartStreamTranscriptionResponse => __isa(o, "StartStreamTranscriptionResponse");
 }
@@ -451,7 +440,6 @@ export namespace TranscriptResultStream {
   interface $Base {
     __type?: "TranscriptResultStream";
   }
-
   /**
    * <p>A portion of the transcription of the audio stream. Events are sent periodically from
    *       Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio
@@ -467,7 +455,6 @@ export namespace TranscriptResultStream {
     LimitExceededException?: never;
     $unknown?: never;
   }
-
   /**
    * <p>A client error occurred when the stream was created. Check the parameters of the request
    *       and try your request again.</p>
@@ -481,7 +468,6 @@ export namespace TranscriptResultStream {
     LimitExceededException?: never;
     $unknown?: never;
   }
-
   /**
    * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
    */
@@ -494,7 +480,6 @@ export namespace TranscriptResultStream {
     LimitExceededException?: never;
     $unknown?: never;
   }
-
   /**
    * <p>A new stream started with the same session ID. The current stream has been
    *       terminated.</p>
@@ -508,7 +493,6 @@ export namespace TranscriptResultStream {
     LimitExceededException?: never;
     $unknown?: never;
   }
-
   /**
    * <p>Service is currently unavailable. Try your request later.</p>
    */
@@ -521,7 +505,6 @@ export namespace TranscriptResultStream {
     LimitExceededException?: never;
     $unknown?: never;
   }
-
   /**
    * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the limit on audio length.
    *       Break your audio stream into smaller chunks and try your request again.</p>
@@ -535,7 +518,6 @@ export namespace TranscriptResultStream {
     LimitExceededException: LimitExceededException;
     $unknown?: never;
   }
-
   export interface $UnknownMember extends $Base {
     TranscriptEvent?: never;
     BadRequestException?: never;
@@ -545,7 +527,6 @@ export namespace TranscriptResultStream {
     LimitExceededException?: never;
     $unknown: [string, any];
   }
-
   export interface Visitor<T> {
     TranscriptEvent: (value: TranscriptEvent) => T;
     BadRequestException: (value: BadRequestException) => T;
@@ -555,7 +536,6 @@ export namespace TranscriptResultStream {
     LimitExceededException: (value: LimitExceededException) => T;
     _: (name: string, value: any) => T;
   }
-
   export const visit = <T>(value: TranscriptResultStream, visitor: Visitor<T>): T => {
     if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
     if (value.BadRequestException !== undefined) return visitor.BadRequestException(value.BadRequestException);
@@ -566,24 +546,6 @@ export namespace TranscriptResultStream {
       return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
     if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  export const filterSensitiveLog = (obj: TranscriptResultStream): any => {
-    if (obj.TranscriptEvent !== undefined)
-      return { TranscriptEvent: TranscriptEvent.filterSensitiveLog(obj.TranscriptEvent) };
-    if (obj.BadRequestException !== undefined)
-      return { BadRequestException: BadRequestException.filterSensitiveLog(obj.BadRequestException) };
-    if (obj.InternalFailureException !== undefined)
-      return { InternalFailureException: InternalFailureException.filterSensitiveLog(obj.InternalFailureException) };
-    if (obj.ConflictException !== undefined)
-      return { ConflictException: ConflictException.filterSensitiveLog(obj.ConflictException) };
-    if (obj.ServiceUnavailableException !== undefined)
-      return {
-        ServiceUnavailableException: ServiceUnavailableException.filterSensitiveLog(obj.ServiceUnavailableException),
-      };
-    if (obj.LimitExceededException !== undefined)
-      return { LimitExceededException: LimitExceededException.filterSensitiveLog(obj.LimitExceededException) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 

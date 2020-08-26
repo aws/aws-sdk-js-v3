@@ -47,6 +47,7 @@
     "@aws-sdk/middleware-expect-continue": "1.0.0-gamma.6",
     "@aws-sdk/middleware-host-header": "1.0.0-gamma.6",
     "@aws-sdk/middleware-location-constraint": "1.0.0-gamma.6",
+    "@aws-sdk/middleware-logger": "1.0.0-gamma.0",
     "@aws-sdk/middleware-retry": "1.0.0-gamma.6",
     "@aws-sdk/middleware-sdk-s3": "1.0.0-gamma.6",
     "@aws-sdk/middleware-serde": "1.0.0-gamma.5",

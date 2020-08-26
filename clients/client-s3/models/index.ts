@@ -9644,7 +9644,6 @@ export namespace SelectObjectContentEventStream {
   interface $Base {
     __type?: "SelectObjectContentEventStream";
   }
-
   /**
    * <p>The Stats Event.</p>
    */
@@ -9656,7 +9655,6 @@ export namespace SelectObjectContentEventStream {
     Cont?: never;
     $unknown?: never;
   }
-
   /**
    * <p>The End Event.</p>
    */
@@ -9668,7 +9666,6 @@ export namespace SelectObjectContentEventStream {
     Cont?: never;
     $unknown?: never;
   }
-
   /**
    * <p>The Progress Event.</p>
    */
@@ -9680,7 +9677,6 @@ export namespace SelectObjectContentEventStream {
     Cont?: never;
     $unknown?: never;
   }
-
   /**
    * <p>The Records Event.</p>
    */
@@ -9692,7 +9688,6 @@ export namespace SelectObjectContentEventStream {
     Cont?: never;
     $unknown?: never;
   }
-
   /**
    * <p>The Continuation Event.</p>
    */
@@ -9704,7 +9699,6 @@ export namespace SelectObjectContentEventStream {
     Cont: ContinuationEvent;
     $unknown?: never;
   }
-
   export interface $UnknownMember extends $Base {
     Stats?: never;
     End?: never;
@@ -9713,7 +9707,6 @@ export namespace SelectObjectContentEventStream {
     Cont?: never;
     $unknown: [string, any];
   }
-
   export interface Visitor<T> {
     Stats: (value: StatsEvent) => T;
     End: (value: EndEvent) => T;
@@ -9722,7 +9715,6 @@ export namespace SelectObjectContentEventStream {
     Cont: (value: ContinuationEvent) => T;
     _: (name: string, value: any) => T;
   }
-
   export const visit = <T>(value: SelectObjectContentEventStream, visitor: Visitor<T>): T => {
     if (value.Stats !== undefined) return visitor.Stats(value.Stats);
     if (value.End !== undefined) return visitor.End(value.End);
@@ -9730,15 +9722,6 @@ export namespace SelectObjectContentEventStream {
     if (value.Records !== undefined) return visitor.Records(value.Records);
     if (value.Cont !== undefined) return visitor.Cont(value.Cont);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  export const filterSensitiveLog = (obj: SelectObjectContentEventStream): any => {
-    if (obj.Cont !== undefined) return { Cont: ContinuationEvent.filterSensitiveLog(obj.Cont) };
-    if (obj.End !== undefined) return { End: EndEvent.filterSensitiveLog(obj.End) };
-    if (obj.Progress !== undefined) return { Progress: ProgressEvent.filterSensitiveLog(obj.Progress) };
-    if (obj.Records !== undefined) return { Records: RecordsEvent.filterSensitiveLog(obj.Records) };
-    if (obj.Stats !== undefined) return { Stats: StatsEvent.filterSensitiveLog(obj.Stats) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -9753,7 +9736,6 @@ export interface SelectObjectContentOutput {
 export namespace SelectObjectContentOutput {
   export const filterSensitiveLog = (obj: SelectObjectContentOutput): any => ({
     ...obj,
-    ...(obj.Payload && { Payload: "STREAMING_CONTENT" }),
   });
   export const isa = (o: any): o is SelectObjectContentOutput => __isa(o, "SelectObjectContentOutput");
 }
