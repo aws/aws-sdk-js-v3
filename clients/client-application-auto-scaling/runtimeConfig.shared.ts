@@ -3,6 +3,7 @@ import { defaultRegionInfoProvider } from "./endpoints";
 export const ClientSharedValues = {
   apiVersion: "2016-02-06",
   disableHostPrefix: false,
+  logger: undefined,
   regionInfoProvider: defaultRegionInfoProvider,
   signingName: "application-autoscaling",
 };

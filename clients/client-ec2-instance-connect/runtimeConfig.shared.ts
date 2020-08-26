@@ -3,6 +3,7 @@ import { defaultRegionInfoProvider } from "./endpoints";
 export const ClientSharedValues = {
   apiVersion: "2018-04-02",
   disableHostPrefix: false,
+  logger: undefined,
   regionInfoProvider: defaultRegionInfoProvider,
   signingName: "ec2-instance-connect",
 };
