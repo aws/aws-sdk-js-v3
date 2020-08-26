@@ -60,7 +60,8 @@ public enum AwsDependency implements SymbolDependencyContainer {
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming",
             "^1.0.0-gamma.0"),
     RETRY_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/retry-config-provider", "^1.0.0-gamma.0"),
-    NODE_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/node-config-provider", "^1.0.0-gamma.0");
+    NODE_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/node-config-provider", "^1.0.0-gamma.0"),
+    MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger", "^1.0.0-gamma.0");
 
     public final String packageName;
     public final String version;
