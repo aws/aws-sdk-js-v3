@@ -85,6 +85,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     ) {
         writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.addImport("Credentials", "__Credentials", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+        writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
 
         writer.writeDocs("The service name with which to sign requests.")
                 .write("signingName?: string;\n");
@@ -94,6 +95,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 .write("region?: string | __Provider<string>;\n");
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
                 .write("maxAttempts?: number | __Provider<number>;\n");
+        writer.writeDocs("Optional logger for logging debug/info/warn/error.")
+                .write("logger?: __Logger;\n");
     }
 
     @Override
@@ -133,6 +136,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
 
     private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target) {
         switch (target) {
+            case SHARED:
+                return MapUtils.of(
+                        "logger", writer -> {
+                            writer.write("logger: undefined,");
+                        }
+                );
             case BROWSER:
                 return MapUtils.of(
                         "credentialDefaultProvider", writer -> {
