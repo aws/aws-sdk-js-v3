@@ -15,9 +15,10 @@ describe("memoize", () => {
 
   describe("static memoization", () => {
     it("should cache the resolved provider", async () => {
-      expect.assertions(repeatTimes * 2);
+      expect.assertions(repeatTimes * 2 + 1);
 
       const memoized = memoize(provider);
+      expect(provider).toHaveBeenCalledTimes(0);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       for (const index in [...Array(repeatTimes).keys()]) {
         expect(await memoized()).toStrictEqual(mockReturn);
@@ -51,6 +52,7 @@ describe("memoize", () => {
       const isExpiredFalseTest = async (requiresRefresh?: any) => {
         isExpired.mockReturnValue(false);
         const memoized = memoize(provider, isExpired, requiresRefresh);
+        expect(provider).toHaveBeenCalledTimes(0);
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (const index in [...Array(repeatTimes).keys()]) {
           expect(await memoized()).toEqual(mockReturn);

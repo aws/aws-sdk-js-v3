@@ -43,16 +43,26 @@ export const memoize: MemoizeOverload = <T>(
   isExpired?: (resolved: T) => boolean,
   requiresRefresh?: (resolved: T) => boolean
 ): Provider<T> => {
+  let result: any;
+  let hasResult: boolean;
   if (isExpired === undefined) {
     // This is a static memoization; no need to incorporate refreshing
-    const result = provider();
-    return () => result;
+    return () => {
+      if (!hasResult) {
+        result = provider();
+        hasResult = true;
+      }
+      return result;
+    };
   }
 
-  let result = provider();
   let isConstant = false;
 
   return async () => {
+    if (!hasResult) {
+      result = provider();
+      hasResult = true;
+    }
     if (isConstant) {
       return result;
     }
