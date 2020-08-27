@@ -43,7 +43,7 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>credentialDefaultProvider: Provides credentials if no credentials
  *     are explicitly provided.</li>
  *     <li>region: The AWS region to which this client will send requests</li>
- *     <li>maxAttempts: Provides value for how many times a request will be 
+ *     <li>maxAttempts: Provides value for how many times a request will be
  *     made at most in case of retry.</li>
  * </ul>
  *
@@ -53,7 +53,7 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>signingName: Sets this to the signing name derived from the model.</li>
  *     <li>credentialDefaultProvider: Uses the default credential provider that
  *     checks things like environment variables and the AWS config file.</li>
- *     <li>region: Uses the default region provider that checks things like 
+ *     <li>region: Uses the default region provider that checks things like
  *      environment variables and the AWS config file.</li>
  *     <li>maxAttempts: Uses the default maxAttempts provider that checks things
  *     like environment variables and the AWS config file.</li>
@@ -147,7 +147,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         },
                         "maxAttempts", writer -> {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
-                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS", TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
+                                    TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
                             writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
                         }
                 );
@@ -161,12 +162,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         },
                         "region", writer -> {
                             writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
-                            writer.addImport("loadConfig", "loadNodeConfig", 
+                            writer.addImport("loadConfig", "loadNodeConfig",
                                     AwsDependency.NODE_CONFIG_PROVIDER.packageName);
                             writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
                             writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
                                     TypeScriptDependency.CONFIG_RESOLVER.packageName);
-                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS", 
+                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
                                     TypeScriptDependency.CONFIG_RESOLVER.packageName);
                             writer.write(
                                 "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
@@ -201,7 +202,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         },
                         "maxAttempts", writer -> {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
-                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS", TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
+                                    TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
                             writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
                         }
                 );
@@ -220,12 +222,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         },
                         "region", writer -> {
                             writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
-                            writer.addImport("loadConfig", "loadNodeConfig", 
+                            writer.addImport("loadConfig", "loadNodeConfig",
                                     AwsDependency.NODE_CONFIG_PROVIDER.packageName);
                             writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
                             writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
                                     TypeScriptDependency.CONFIG_RESOLVER.packageName);
-                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS", 
+                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
                                     TypeScriptDependency.CONFIG_RESOLVER.packageName);
                             writer.write(
                                 "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");

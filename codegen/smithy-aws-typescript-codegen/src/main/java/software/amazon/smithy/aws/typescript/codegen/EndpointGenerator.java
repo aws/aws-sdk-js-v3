@@ -172,7 +172,7 @@ final class EndpointGenerator implements Runnable {
                     writer.openBlock("regionInfo = {", "};", () -> {
                         String template = partition.templateVariableName;
                         writer.write("hostname: $L.replace(\"{region}\", region),", template);
-                        writer.write("partition: $S,", partition.ID);
+                        writer.write("partition: $S,", partition.identifier);
                         writeAdditionalEndpointSettings(partition.getDefaults());
                     });
                 }
@@ -183,7 +183,7 @@ final class EndpointGenerator implements Runnable {
         String hostname = resolved.expectStringMember("hostname").getValue();
         writer.openBlock("regionInfo = {", "};", () -> {
             writer.write("hostname: $S,", hostname);
-            writer.write("partition: $S,", regionPartitionsMap.get(region).ID);
+            writer.write("partition: $S,", regionPartitionsMap.get(region).identifier);
             writeAdditionalEndpointSettings(resolved);
         });
     }
@@ -206,7 +206,7 @@ final class EndpointGenerator implements Runnable {
         final String templateVariableName;
         final String templateValue;
         final String dnsSuffix;
-        final String ID;
+        final String identifier;
         private final ObjectNode config;
 
         private Partition(ObjectNode config, String partition) {
@@ -227,7 +227,7 @@ final class EndpointGenerator implements Runnable {
             regionVariableName = snakePartition + "_REGIONS";
 
             dnsSuffix = config.expectStringMember("dnsSuffix").getValue();
-            ID = partition;
+            identifier = partition;
         }
 
         ObjectNode getDefaults() {
